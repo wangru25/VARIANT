@@ -362,9 +362,13 @@ class SNPProcessor:
                                         })
                         else:
                             # For other mutation types, use the original logic
-                            protein_name = protein_info[0].get('protein', 'unknown')
-                            amino_acid_change = protein_info[0].get('mutation', 'NA')
-                            biological_type = classify_mutation_type(protein_info)
+                            if protein_info and len(protein_info) > 0:
+                                protein_name = protein_info[0].get('protein', 'unknown')
+                                amino_acid_change = protein_info[0].get('mutation', 'NA')
+                                biological_type = classify_mutation_type(protein_info)
+                            else:
+                                # Skip this mutation if no protein info is available
+                                continue
                             # Always check for hot mutation if SNP is X->Y and length > 1
                             snp_info = separated_mutation.get('SNP', '')
                             mutation_type = None
@@ -625,9 +629,13 @@ class SNPProcessor:
                                         })
                         else:
                             # For other mutation types, use the original logic
-                            protein_name = protein_info[0].get('protein', 'unknown')
-                            amino_acid_change = protein_info[0].get('mutation', 'NA')
-                            biological_type = classify_mutation_type(protein_info)
+                            if protein_info and len(protein_info) > 0:
+                                protein_name = protein_info[0].get('protein', 'unknown')
+                                amino_acid_change = protein_info[0].get('mutation', 'NA')
+                                biological_type = classify_mutation_type(protein_info)
+                            else:
+                                # Skip this mutation if no protein info is available
+                                continue
                             # Always check for hot mutation if SNP is X->Y and length > 1
                             snp_info = separated_mutation.get('SNP', '')
                             mutation_type = None

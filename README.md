@@ -7,26 +7,72 @@ A professional-grade Python package for analyzing viral mutations at multiple sc
 ### Installation
 
 ```bash
-# Install from PyPI (recommended)
-pip install viralytics-mut
+# Install dependencies
+pip install -r requirements.txt
 
-# Or install from source
-git clone https://github.com/yourusername/viralytics-mut.git
-cd viralytics-mut
-pip install -e .
+# Or install dependencies individually
+pip install biopython>=1.79 numpy>=1.21.0 pandas>=1.3.0 scikit-learn>=1.0.0 fuzzysearch==0.7.3 more-itertools>=8.12.0 pyyaml>=6.0
 ```
 
-### Basic Usage
+### How to Run
+
+The project comes with sample SARS-CoV-2 data already configured. You can run it immediately:
+
+#### **Option A: Analyze a Single Genome**
+```bash
+python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
+```
+
+#### **Option B: Process All Genomes in the MSA File**
+```bash
+python main.py --virus SARS-CoV-2 --process-all
+```
+
+#### **Option C: Use a Different MSA File**
+```bash
+python main.py --virus SARS-CoV-2 --msa-file test_msa_1.txt
+```
+
+#### **Option D: List Available Viruses**
+```bash
+python main.py --list-viruses
+```
+
+### Command Line Arguments
+
+- `--virus`: Virus name (default: "SARS-CoV-2")
+- `--genome-id`: Specific genome ID to process (default: "EPI_ISL_16327572")
+- `--msa-file`: MSA file name (uses default from config if not specified)
+- `--process-all`: Process all genomes in the MSA file instead of just one
+- `--list-viruses`: List all available viruses in configuration
+- `--config`: Path to virus configuration file (default: "virus_config.yaml")
+
+### Example Commands
 
 ```bash
-# List available viruses
-viralytics-mut list-viruses
+# Quick test with a single genome
+python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
 
-# Analyze mutations for SARS-CoV-2
-viralytics-mut analyze --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
+# Process all genomes (this will take longer)
+python main.py --virus SARS-CoV-2 --process-all
 
-# Process all genomes in an MSA file
-viralytics-mut analyze --virus SARS-CoV-2 --process-all
+# Use test data
+python main.py --virus SARS-CoV-2 --msa-file test_msa_1.txt --genome-id EPI_ISL_16327572
+```
+
+### Output Files
+
+Results are saved in:
+- `result/SARS-CoV-2/` directory
+- Individual genome files: `{genome_id}_{date}.txt`
+- CSV files for row/hot mutations: `{genome_id}_row_hot_mutations_{date}.csv`
+
+### Troubleshooting
+
+If you get import errors, make sure you're running from the project root directory:
+```bash
+cd /path/to/viralytics-mut
+python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
 ```
 
 ## ✨ Features
@@ -51,24 +97,28 @@ viralytics-mut analyze --virus SARS-CoV-2 --process-all
 
 ## 🎯 Installation Options
 
-### Option 1: PyPI Installation (Recommended)
+### Option 1: Direct Installation (Recommended)
 
 ```bash
-pip install viralytics-mut
-```
-
-### Option 2: Development Installation
-
-```bash
+# Clone the repository
 git clone https://github.com/yourusername/viralytics-mut.git
 cd viralytics-mut
-pip install -e .
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Option 2: Manual Dependency Installation
+
+```bash
+pip install biopython>=1.79 numpy>=1.21.0 pandas>=1.3.0 scikit-learn>=1.0.0 fuzzysearch==0.7.3 more-itertools>=8.12.0 pyyaml>=6.0
 ```
 
 ### Option 3: Conda Installation
 
 ```bash
-conda install -c conda-forge viralytics-mut
+conda install biopython numpy pandas scikit-learn pyyaml
+pip install fuzzysearch more-itertools
 ```
 
 ## 🏃‍♂️ Quick Examples
@@ -76,46 +126,40 @@ conda install -c conda-forge viralytics-mut
 ### Analyze a Single Genome
 
 ```bash
-mutparser analyze --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
+python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
 ```
 
 ### Process All Genomes in an MSA File
 
 ```bash
-mutparser analyze --virus SARS-CoV-2 --process-all
+python main.py --virus SARS-CoV-2 --process-all
 ```
 
 ### Use a Custom MSA File
 
 ```bash
-mutparser analyze --virus SARS-CoV-2 --msa-file custom_msa.txt
+python main.py --virus SARS-CoV-2 --msa-file test_msa_1.txt
 ```
 
-### Setup a New Virus Dataset
+### List Available Viruses
 
 ```bash
-mutparser setup --virus HIV --config virus_config.yaml
+python main.py --list-viruses
 ```
 
 ## 📁 Adding Your Own Virus Dataset
 
-### Method 1: Using the Setup Script (Recommended)
+### Method 1: Manual Setup (Recommended)
 
 ```bash
-# 1. Add virus to configuration
-viralytics-mut setup --add-virus "MyVirus" --reference "my_ref.fasta"
+# 1. Add virus to configuration in virus_config.yaml
+# 2. Create directory structure
+mkdir -p data/MyVirus/{clustalW,refs,fasta}
+mkdir -p result/MyVirus
 
-# 2. Set up complete dataset with files
-viralytics-mut setup --setup "MyVirus" \
-    --reference-path "path/to/your/reference.fasta" \
-    --proteome-path "path/to/your/proteome.fasta" \
-    --msa-files "path/to/msa1.txt,path/to/msa2.txt"
-
-# 3. Validate the setup
-viralytics-mut setup --validate "MyVirus"
-
+# 3. Place your files in the appropriate directories
 # 4. Run analysis
-viralytics-mut analyze --virus MyVirus
+python main.py --virus MyVirus
 ```
 
 ### Method 2: Manual Setup
@@ -149,7 +193,7 @@ viralytics-mut analyze --virus MyVirus
 
 4. **Run analysis**:
    ```bash
-   viralytics-mut analyze --virus YourVirus
+   python main.py --virus YourVirus
    ```
 
 ## 📄 File Requirements
