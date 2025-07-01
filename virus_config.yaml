@@ -1,0 +1,47 @@
+global:
+  default_codon_table: 1
+  supported_codon_tables:
+    1: Standard genetic code
+    2: Vertebrate mitochondrial code
+    3: Yeast mitochondrial code
+    4: Mold, protozoan, and coelenterate mitochondrial code
+    5: Invertebrate mitochondrial code
+    6: Ciliate, dasycladacean and hexamita nuclear code
+    9: Echinoderm and flatworm mitochondrial code
+    10: Euplotid nuclear code
+    11: Bacterial, archaeal and plant plastid code
+    12: Alternative yeast nuclear code
+    13: Ascidian mitochondrial code
+    14: Alternative flatworm mitochondrial code
+    16: Chlorophycean mitochondrial code
+    21: Trematode mitochondrial code
+    22: Scenedesmus obliquus mitochondrial code
+    23: Thraustochytrium mitochondrial code
+    24: Pterobranchia mitochondrial code
+    25: Candidate division SR1 and gracilibacteria code
+    26: Pachysolen tannophilus nuclear code
+    27: Karyorelict nuclear code
+    28: Condylostoma nuclear code
+    29: Mesodinium nuclear code
+    30: Peritrich nuclear code
+    31: Blastocrithidia nuclear code
+    33: Cephalodiscidae mitochondrial code
+viruses:
+  HIV:
+    codon_table_id: 1
+    default_msa_file: HIV_msa.txt
+    description: Human Immunodeficiency Virus
+    proteome_file: HIV_proteome.fasta
+    reference_genome: HIV_reference.fasta
+  Pox:
+    codon_table_id: 1
+    default_msa_file: pox_msa.txt
+    description: Poxvirus
+    proteome_file: Pox_proteome.fasta
+    reference_genome: Pox_reference.fasta
+  SARS-CoV-2:
+    codon_table_id: 1
+    default_msa_file: gisaid_hcov-19_20221201_20221230_China_0_msa.txt
+    description: SARS-CoV-2 coronavirus
+    proteome_file: SARS-CoV-2_proteome.fasta
+    reference_genome: NC_045512.fasta
