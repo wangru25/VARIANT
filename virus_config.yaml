@@ -45,3 +45,9 @@ viruses:
     description: SARS-CoV-2 coronavirus
     proteome_file: SARS-CoV-2_proteome.fasta
     reference_genome: NC_045512.fasta
+  ZaireEbola:
+    codon_table_id: 1
+    default_msa_file: zaire_ebola_mas.txt
+    description: Zaire ebolavirus
+    proteome_file: ZaireEbola_proteome.fasta
+    reference_genome: NC_002549.1.fasta

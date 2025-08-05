@@ -114,8 +114,21 @@ class GenomeSNPProcessor:
             + del_mutations_with_protein
         )
 
+        # Extract clean genome ID for different virus formats
+        from ..utils.sequence_utils import extract_genome_id
+        
+        # Get virus name from the path (assuming path contains virus name)
+        virus_name = ""
+        path_parts = self.path.split("/")
+        for part in path_parts:
+            if part in ["SARS-CoV-2", "ZaireEbola", "HIV", "Pox"]:
+                virus_name = part
+                break
+        
+        clean_genome_id = extract_genome_id(genome_id, virus_name)
+        
         return {
-            "seqId": genome_id,
+            "seqId": clean_genome_id,
             "genomeSNPPs": all_mutations,
         }
 

@@ -1,0 +1,399 @@
+---
+alwaysApply: true
+---
+# Plotly Plotting Rules
+
+## Overview
+This rule defines standards for creating plots using the Plotly library with consistent formatting, output formats, and styling.
+
+## Core Requirements
+
+### 1. Library and Template Setup
+```python
+import plotly.graph_objects as go
+import plotly.express as px
+import plotly.io as pio
+from plotly.subplots import make_subplots
+
+# Set default template
+pio.templates.default = "simple_white"
+```
+
+### 2. Figure Shape and Layout
+- **All figures must be square shape**
+- Use consistent sizing: `width=800, height=800` or `width=1000, height=1000`
+- Set margins appropriately: `margin=dict(l=50, r=50, t=50, b=50)`
+
+### 3. Output Formats
+**Save figures in both HTML and PDF formats:**
+
+```python
+# Save as HTML
+fig.write_html("figure_name.html")
+
+# Save as PDF
+fig.write_image("figure_name.pdf", width=800, height=800)
+```
+
+### 4. Color Schemes
+Use consistent color palettes:
+```python
+# For categorical data
+colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
+
+# For sequential data
+colors_sequential = ['#f7fbff', '#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#4292c6', '#2171b5', '#08519c', '#08306b']
+```
+
+## Specific Plot Types
+
+### Scatter Plots
+```python
+fig = go.Figure()
+fig.add_trace(go.Scatter(
+    x=x_data,
+    y=y_data,
+    mode='markers',
+    marker=dict(
+        size=8,
+        color=colors[0],
+        opacity=0.7
+    ),
+    name='Data Points'
+))
+
+fig.update_layout(
+    title="Scatter Plot Title",
+    xaxis_title="X Axis",
+    yaxis_title="Y Axis",
+    width=800,
+    height=800,
+    margin=dict(l=50, r=50, t=50, b=50),
+    showlegend=True
+)
+```
+
+### Line Plots
+```python
+fig = go.Figure()
+fig.add_trace(go.Scatter(
+    x=x_data,
+    y=y_data,
+    mode='lines+markers',
+    line=dict(width=2, color=colors[0]),
+    marker=dict(size=6),
+    name='Line Data'
+))
+
+fig.update_layout(
+    title="Line Plot Title",
+    xaxis_title="X Axis",
+    yaxis_title="Y Axis",
+    width=800,
+    height=800,
+    margin=dict(l=50, r=50, t=50, b=50)
+)
+```
+
+### Bar Plots
+```python
+fig = go.Figure()
+fig.add_trace(go.Bar(
+    x=categories,
+    y=values,
+    marker_color=colors[0],
+    opacity=0.8
+))
+
+fig.update_layout(
+    title="Bar Plot Title",
+    xaxis_title="Categories",
+    yaxis_title="Values",
+    width=800,
+    height=800,
+    margin=dict(l=50, r=50, t=50, b=50)
+)
+```
+
+### Heatmaps
+```python
+fig = go.Figure(data=go.Heatmap(
+    z=data_matrix,
+    x=x_labels,
+    y=y_labels,
+    colorscale='Viridis',
+    showscale=True
+))
+
+fig.update_layout(
+    title="Heatmap Title",
+    width=800,
+    height=800,
+    margin=dict(l=50, r=50, t=50, b=50)
+)
+```
+
+### Subplots
+```python
+fig = make_subplots(
+    rows=2, cols=2,
+    subplot_titles=('Subplot 1', 'Subplot 2', 'Subplot 3', 'Subplot 4'),
+    specs=[[{"secondary_y": False}, {"secondary_y": False}],
+           [{"secondary_y": False}, {"secondary_y": False}]]
+)
+
+# Add traces to subplots
+fig.add_trace(go.Scatter(x=x1, y=y1, name="Data 1"), row=1, col=1)
+fig.add_trace(go.Scatter(x=x2, y=y2, name="Data 2"), row=1, col=2)
+fig.add_trace(go.Scatter(x=x3, y=y3, name="Data 3"), row=2, col=1)
+fig.add_trace(go.Scatter(x=x4, y=y4, name="Data 4"), row=2, col=2)
+
+fig.update_layout(
+    title="Subplot Title",
+    width=800,
+    height=800,
+    margin=dict(l=50, r=50, t=50, b=50),
+    showlegend=True
+)
+```
+
+## Function Templates
+
+### Standard Plot Function
+```python
+def create_standard_plot(data, plot_type='scatter', title="Plot Title", 
+                        x_label="X Axis", y_label="Y Axis", filename="plot"):
+    """
+    Create a standard plot with consistent formatting.
+    
+    Parameters:
+    -----------
+    data : dict
+        Dictionary containing 'x' and 'y' data
+    plot_type : str
+        Type of plot ('scatter', 'line', 'bar')
+    title : str
+        Plot title
+    x_label : str
+        X-axis label
+    y_label : str
+        Y-axis label
+    filename : str
+        Base filename for saving (without extension)
+    """
+    import plotly.graph_objects as go
+    import plotly.io as pio
+    
+    pio.templates.default = "simple_white"
+    
+    fig = go.Figure()
+    
+    if plot_type == 'scatter':
+        fig.add_trace(go.Scatter(
+            x=data['x'],
+            y=data['y'],
+            mode='markers',
+            marker=dict(size=8, color='#1f77b4', opacity=0.7),
+            name='Data'
+        ))
+    elif plot_type == 'line':
+        fig.add_trace(go.Scatter(
+            x=data['x'],
+            y=data['y'],
+            mode='lines+markers',
+            line=dict(width=2, color='#1f77b4'),
+            marker=dict(size=6),
+            name='Data'
+        ))
+    elif plot_type == 'bar':
+        fig.add_trace(go.Bar(
+            x=data['x'],
+            y=data['y'],
+            marker_color='#1f77b4',
+            opacity=0.8
+        ))
+    
+    fig.update_layout(
+        title=title,
+        xaxis_title=x_label,
+        yaxis_title=y_label,
+        width=800,
+        height=800,
+        margin=dict(l=50, r=50, t=50, b=50),
+        showlegend=True
+    )
+    
+    # Save in both formats
+    fig.write_html(f"{filename}.html")
+    fig.write_image(f"{filename}.pdf", width=800, height=800)
+    
+    return fig
+```
+
+### Multi-Plot Function
+```python
+def create_multi_plot(data_dict, plot_types, titles, filename="multi_plot"):
+    """
+    Create multiple subplots with consistent formatting.
+    
+    Parameters:
+    -----------
+    data_dict : dict
+        Dictionary of data for each subplot
+    plot_types : list
+        List of plot types for each subplot
+    titles : list
+        List of titles for each subplot
+    filename : str
+        Base filename for saving
+    """
+    from plotly.subplots import make_subplots
+    import plotly.graph_objects as go
+    import plotly.io as pio
+    
+    pio.templates.default = "simple_white"
+    
+    n_plots = len(data_dict)
+    cols = min(2, n_plots)
+    rows = (n_plots + cols - 1) // cols
+    
+    fig = make_subplots(
+        rows=rows, cols=cols,
+        subplot_titles=titles,
+        specs=[[{"secondary_y": False}] * cols] * rows
+    )
+    
+    colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
+    
+    for i, (key, data) in enumerate(data_dict.items()):
+        row = (i // cols) + 1
+        col = (i % cols) + 1
+        
+        if plot_types[i] == 'scatter':
+            fig.add_trace(go.Scatter(
+                x=data['x'], y=data['y'],
+                mode='markers',
+                marker=dict(size=6, color=colors[i % len(colors)], opacity=0.7),
+                name=key
+            ), row=row, col=col)
+        elif plot_types[i] == 'line':
+            fig.add_trace(go.Scatter(
+                x=data['x'], y=data['y'],
+                mode='lines+markers',
+                line=dict(width=2, color=colors[i % len(colors)]),
+                marker=dict(size=4),
+                name=key
+            ), row=row, col=col)
+    
+    fig.update_layout(
+        width=800,
+        height=800,
+        margin=dict(l=50, r=50, t=50, b=50),
+        showlegend=True
+    )
+    
+    # Save in both formats
+    fig.write_html(f"{filename}.html")
+    fig.write_image(f"{filename}.pdf", width=800, height=800)
+    
+    return fig
+```
+
+## Best Practices
+
+### 1. Consistent Naming
+- Use descriptive filenames: `protein_structure_analysis.html/pdf`
+- Include date/time if needed: `analysis_2024_01_15.html/pdf`
+
+### 2. Error Handling
+```python
+try:
+    fig.write_html("output.html")
+    fig.write_image("output.pdf", width=800, height=800)
+except Exception as e:
+    print(f"Error saving figure: {e}")
+    # Fallback to HTML only
+    fig.write_html("output.html")
+```
+
+### 3. Dependencies
+Always include required imports at the top:
+```python
+import plotly.graph_objects as go
+import plotly.express as px
+import plotly.io as pio
+from plotly.subplots import make_subplots
+import numpy as np
+import pandas as pd
+```
+
+### 4. Documentation
+Include docstrings for all plotting functions:
+```python
+def plot_feature_comparison(data, title="Feature Comparison"):
+    """
+    Create a feature comparison plot.
+    
+    Parameters:
+    -----------
+    data : array-like
+        Feature data to plot
+    title : str
+        Plot title
+        
+    Returns:
+    --------
+    plotly.graph_objects.Figure
+        The created figure object
+    """
+```
+
+## Example Usage
+
+```python
+# Example: Creating a scatter plot
+import numpy as np
+import plotly.graph_objects as go
+import plotly.io as pio
+
+pio.templates.default = "simple_white"
+
+# Generate sample data
+x = np.random.randn(100)
+y = np.random.randn(100)
+
+# Create figure
+fig = go.Figure()
+fig.add_trace(go.Scatter(
+    x=x, y=y,
+    mode='markers',
+    marker=dict(size=8, color='#1f77b4', opacity=0.7),
+    name='Random Data'
+))
+
+fig.update_layout(
+    title="Sample Scatter Plot",
+    xaxis_title="X Values",
+    yaxis_title="Y Values",
+    width=800,
+    height=800,
+    margin=dict(l=50, r=50, t=50, b=50)
+)
+
+# Save in both formats
+fig.write_html("sample_scatter.html")
+fig.write_image("sample_scatter.pdf", width=800, height=800)
+```
+
+## Compliance Checklist
+
+Before submitting any plotting code, ensure:
+
+- [ ] Uses `pio.templates.default = "simple_white"`
+- [ ] Square aspect ratio (800x800 or 1000x1000)
+- [ ] Saves as both HTML and PDF
+- [ ] Appropriate margins and spacing
+- [ ] Consistent color scheme
+- [ ] Clear titles and labels
+- [ ] Error handling for file saving
+- [ ] Proper documentation and comments

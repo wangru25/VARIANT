@@ -228,7 +228,7 @@ class SNPProcessor:
 
         msa_file_prefix = f"Combined_{today}"
         self._write_and_print_snp_records(all_snp_records, msa_file_prefix)
-        self._process_root_variants(all_snp_records, msa_file_prefix)
+        self._process_root_variants(all_snp_records, msa_file_prefix, self.virus_processor)
 
     def _write_and_print_snp_records(
         self, snp_records: List[Dict], prefix: str
@@ -248,7 +248,7 @@ class SNPProcessor:
             snp_records, file_name=output_file_txt
         )
 
-    def _process_root_variants(self, snp_records: List[Dict], prefix: str) -> None:
+    def _process_root_variants(self, snp_records: List[Dict], prefix: str, virus_processor=None) -> None:
         """
         Process and save individual mutation records for each genome.
 
@@ -325,7 +325,10 @@ class SNPProcessor:
                                                     # Extract position range (e.g., "10447:10449")
                                                     start_pos, end_pos = map(int, pos_str.split(':'))
                                                     # Get the full sequence from reference genome (1-based to 0-based)
-                                                    ref_genome = ReferenceGenome("data/refs/NC_045512.fasta")
+                                                    if virus_processor:
+                                                        ref_genome = ReferenceGenome(virus_processor.get_reference_genome_path())
+                                                    else:
+                                                        ref_genome = ReferenceGenome("data/refs/NC_045512.fasta")
                                                     if len(original_seq) == 2 and len(mutated_seq) == 2:
                                                         # For 2-nucleotide changes like GC->AA, check if it's a hot mutation
                                                         # by looking at the 3-nucleotide context
@@ -382,7 +385,10 @@ class SNPProcessor:
                                         # Extract position range (e.g., "10447:10449")
                                         start_pos, end_pos = map(int, pos_str.split(':'))
                                         # Get the full sequence from reference genome (1-based to 0-based)
-                                        ref_genome = ReferenceGenome("data/refs/NC_045512.fasta")
+                                        if virus_processor:
+                                            ref_genome = ReferenceGenome(virus_processor.get_reference_genome_path())
+                                        else:
+                                            ref_genome = ReferenceGenome("data/refs/NC_045512.fasta")
                                         full_original_seq = ref_genome.ref_seq[start_pos-1:end_pos]
                                         # Construct the full mutated sequence
                                         if len(original_seq) == 2 and len(mutated_seq) == 2:
@@ -592,7 +598,7 @@ class SNPProcessor:
                                                 # Extract position range (e.g., "10447:10449")
                                                 start_pos, end_pos = map(int, pos_str.split(':'))
                                                 # Get the full sequence from reference genome (1-based to 0-based)
-                                                ref_genome = ReferenceGenome("data/refs/NC_045512.fasta")
+                                                ref_genome = ReferenceGenome(self.virus_processor.get_reference_genome_path())
                                                 if len(original_seq) == 2 and len(mutated_seq) == 2:
                                                     # For 2-nucleotide changes like GC->AA, check if it's a hot mutation
                                                     # by looking at the 3-nucleotide context
@@ -649,7 +655,7 @@ class SNPProcessor:
                                         # Extract position range (e.g., "10447:10449")
                                         start_pos, end_pos = map(int, pos_str.split(':'))
                                         # Get the full sequence from reference genome (1-based to 0-based)
-                                        ref_genome = ReferenceGenome("data/refs/NC_045512.fasta")
+                                        ref_genome = ReferenceGenome(self.virus_processor.get_reference_genome_path())
                                         full_original_seq = ref_genome.ref_seq[start_pos-1:end_pos]
                                         # Construct the full mutated sequence
                                         if len(original_seq) == 2 and len(mutated_seq) == 2:
@@ -714,8 +720,8 @@ def main():
     parser.add_argument(
         "--genome-id",
         type=str,
-        default="EPI_ISL_16327572",
-        help="Specific genome ID to process (optional)",
+        default="",
+        help="Specific genome ID to process (optional, use --process-all to analyze all genomes)",
     )
     parser.add_argument(
         "--msa-file",
@@ -800,7 +806,7 @@ def main():
 
     msa_files = [msa_file]
 
-    if args.process_all:
+    if args.process_all or not args.genome_id:
         # Process all genomes in the MSA file
         print("Processing all genomes in the MSA file...")
         snp_processor_instance.process_snp_records(msa_files)

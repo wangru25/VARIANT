@@ -250,11 +250,17 @@ class GeneMutationDetector:
                 pos_ref = self.msa.msa_pos_to_ref_pos(pos_msa, self.ref_seq_msa)
                 pos_genome = pos_ref + 1
                 mut_nt = f"{ref_base}->{seq_base}"
+                # Check bounds before accessing adjacent positions
+                ref_prev = self.ref_seq_msa[pos_msa - 1] if pos_msa > 0 else "-"
+                ref_next = self.ref_seq_msa[pos_msa + 1] if pos_msa < len(self.ref_seq_msa) - 1 else "-"
+                seq_prev = self.seq_msa[pos_msa - 1] if pos_msa > 0 else "-"
+                seq_next = self.seq_msa[pos_msa + 1] if pos_msa < len(self.seq_msa) - 1 else "-"
+                
                 if (
-                    self.ref_seq_msa[pos_msa - 1] != "-"
-                    and self.ref_seq_msa[pos_msa + 1] != "-"
-                    and self.seq_msa[pos_msa - 1] != "-"
-                    and self.seq_msa[pos_msa + 1] != "-"
+                    ref_prev != "-"
+                    and ref_next != "-"
+                    and seq_prev != "-"
+                    and seq_next != "-"
                 ):
                     other_mutations_dict[pos_genome] = mut_nt
                 else:
