@@ -2,7 +2,7 @@
 
 A professional-grade Python package for analyzing viral mutations at multiple scales, from nucleotide changes to protein impacts, with integrated programmed ribosomal frameshifting detection for SARS-CoV-2 and other viruses.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -75,17 +75,17 @@ cd /path/to/viralytics-mut
 python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
 ```
 
-## ✨ Features
+## Features
 
-- **🔬 Multi-virus support**: Analyze mutations for SARS-CoV-2, HIV, Pox, and custom viruses
-- **📁 Virus-specific organization**: Each virus has its own data and result directories
-- **⚙️ Flexible configuration**: Easy setup for new virus types via YAML configuration
-- **🧬 Comprehensive analysis**: Genome-level and protein-level mutation detection
-- **🔄 Hot mutation detection**: Advanced detection of non-consecutive nucleotide changes
-- **📊 CSV output**: Structured results for further analysis
-- **🛠️ User-friendly setup**: Helper scripts for dataset management
+- ** Multi-virus support**: Analyze mutations for SARS-CoV-2, HIV, Pox, and custom viruses
+- ** Virus-specific organization**: Each virus has its own data and result directories
+- **⚙ Flexible configuration**: Easy setup for new virus types via YAML configuration
+- ** Comprehensive analysis**: Genome-level and protein-level mutation detection
+- ** Hot mutation detection**: Advanced detection of non-consecutive nucleotide changes
+- ** CSV output**: Structured results for further analysis
+- ** User-friendly setup**: Helper scripts for dataset management
 
-## 📋 Prerequisites
+## Prerequisites
 
 - **Python**: 3.8 or higher
 - **Dependencies**: Automatically installed with the package
@@ -95,7 +95,7 @@ python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
   - PyYAML ≥ 6.0
   - Additional scientific computing libraries
 
-## 🎯 Installation Options
+## Installation Options
 
 ### Option 1: Direct Installation (Recommended)
 
@@ -121,7 +121,7 @@ conda install biopython numpy pandas scikit-learn pyyaml
 pip install fuzzysearch more-itertools
 ```
 
-## 🏃‍♂️ Quick Examples
+## Quick Examples
 
 ### Analyze a Single Genome
 
@@ -258,7 +258,7 @@ Different organisms may use different genetic codes. Common codon table IDs:
 - **4**: Mold, protozoan, and coelenterate mitochondrial code
 - **5**: Invertebrate mitochondrial code
 
-## 📊 Output
+## Output
 
 Results are saved in virus-specific directories:
 
@@ -326,7 +326,7 @@ result/
    viralytics-mut list-viruses
    ```
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! To add support for new virus types or improve the tool:
 
@@ -353,14 +353,14 @@ If you use Viralytics-mut in your research, please cite:
 }
 ```
 
-## 📞 Contact
+## Contact
 
 - **Author**: Rui Wang
 - **Email**: rw3594@nyu.edu
 - **Institution**: New York University
 - **GitHub**: [@yourusername](https://github.com/yourusername)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - BioPython community for sequence analysis tools
 - SARS-CoV-2 research community for reference genomes
