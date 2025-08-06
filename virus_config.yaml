@@ -51,3 +51,9 @@ viruses:
     description: Zaire ebolavirus
     proteome_file: ZaireEbola_proteome.fasta
     reference_genome: NC_002549.1.fasta
+  Chikungunya:
+    codon_table_id: 1
+    default_msa_file: chikungunya_msa.txt
+    description: Chikungunya virus
+    proteome_file: Chikungunya_proteome.fasta
+    reference_genome: NC_004162.fasta
