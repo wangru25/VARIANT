@@ -3,6 +3,16 @@
 Author: Rui Wang
 Date: 2025-08-04 13:30:27
 LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-05 17:58:57
+Email: wang.rui@nyu.edu
+FilePath: /viralytics-mut/src/core/protein_analyzer.py
+Description: 
+'''
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-04 13:30:27
+LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-05 17:46:24
 Email: wang.rui@nyu.edu
 FilePath: /viralytics-mut/src/core/protein_analyzer.py
@@ -497,7 +507,8 @@ class AlignmentProcessor:
                     continue
                     
                 for record in SeqIO.parse(self.proteome_dir, "fasta"):
-                    header = record.id.split("|")[1]
+                    # Use record.description to get the full header, not record.id which gets truncated at first space
+                    header = record.description.split("|")[1]
                     ref_pro_seq = str(record.seq).replace(" ", "")
                     
                     # Try exact match first, then allow some mismatches
@@ -547,7 +558,8 @@ class AlignmentProcessor:
         original_nt, mutated_nt = mutation_info.split("->")
         
         for record in SeqIO.parse(self.proteome_dir, "fasta"):
-            parts = record.id.split("|")
+            # Use record.description to get the full header, not record.id which gets truncated at first space
+            parts = record.description.split("|")
             
             # Handle different FASTA header formats
             if len(parts) >= 3:
@@ -673,7 +685,8 @@ class AlignmentProcessor:
                 continue
                 
             for record in SeqIO.parse(self.proteome_dir, "fasta"):
-                header = record.id.split("|")[1]
+                # Use record.description to get the full header, not record.id which gets truncated at first space
+                header = record.description.split("|")[1]
                 ref_pro_seq = str(record.seq).replace(" ", "")
                 
                 # Try exact match first, then allow some mismatches
@@ -721,7 +734,8 @@ class AlignmentProcessor:
 
         for orf in orfs:
             for record in SeqIO.parse(self.proteome_dir, "fasta"):
-                header = record.id.split("|")[1]
+                # Use record.description to get the full header, not record.id which gets truncated at first space
+                header = record.description.split("|")[1]
                 ref_pro_seq = str(record.seq).replace(" ", "")
                 matches = find_near_matches(orf, ref_pro_seq, max_l_dist=0)
 
@@ -939,7 +953,8 @@ class ProMutationDetector:
             # Process each protein that could be affected
             protein_mutations = []
             for record in SeqIO.parse(self.alignment_processor.proteome.proteome_dir, "fasta"):
-                parts = record.id.split("|")
+                # Use record.description to get the full header, not record.id which gets truncated at first space
+                parts = record.description.split("|")
                 
                 # Handle FASTA header format: ID|protein_name|coordinates
                 if len(parts) >= 3:
