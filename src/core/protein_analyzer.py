@@ -496,8 +496,8 @@ class AlignmentProcessor:
                 return protein_mutations  # Return immediately if direct mapping succeeds
 
         # If direct mapping didn't work, try the original ORF alignment approach
-        # But only for cases where we don't have DNA position information
-        if on_cds_cnt == 0 and dna_pos is None:
+        # This should not happen often if coordinates are correct, but serves as fallback
+        if on_cds_cnt == 0:
             for orf, m_orf in zip(orfs, m_orfs):
                 if not orf or not m_orf:  # Skip empty ORFs
                     continue
@@ -511,11 +511,12 @@ class AlignmentProcessor:
                     header = record.description.split("|")[1]
                     ref_pro_seq = str(record.seq).replace(" ", "")
                     
-                    # Try exact match first, then allow some mismatches
+                    # Try exact match first
                     matches = find_near_matches(orf, ref_pro_seq, max_l_dist=0)
                     
-                    # If no exact match, try with some tolerance
-                    if not matches:
+                    # Only allow fuzzy matching for longer proteins and ORFs to prevent false positives
+                    # Don't allow fuzzy matching for very short proteins (< 100 aa) or very short ORFs (< 15 aa)
+                    if not matches and len(ref_pro_seq) >= 100 and len(orf) >= 15:
                         matches = find_near_matches(orf, ref_pro_seq, max_l_dist=2)
 
                     if len(matches) == 1:
@@ -973,10 +974,10 @@ class ProMutationDetector:
                     # Parse coordinates (handles both simple ranges and join operations)
                     coordinate_pairs = parse_gene_coordinates(coordinates)
                     
-                    # For hot mutations, we need to check if any mutation falls within any of the coordinate pairs
+                    # For hot mutations, check if the mutation range is CONTAINED within the protein range
                     position_in_gene = False
                     for start_pos, end_pos in coordinate_pairs:
-                        if start_pos <= pos_end and end_pos >= pos_start:
+                        if start_pos <= pos_start and pos_end <= end_pos:
                             position_in_gene = True
                             protein_start, protein_end = start_pos, end_pos
                             break
@@ -988,9 +989,7 @@ class ProMutationDetector:
                     # Skip records with invalid coordinate formats
                     continue
                 
-                # Check if any mutation falls within this protein's coding region
-                if not (protein_start <= pos_end and protein_end >= pos_start):
-                    continue
+                # Redundant check removed - position_in_gene already ensures containment
                 
                 # Find affected codons
                 affected_codons = {}
