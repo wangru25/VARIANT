@@ -1,6 +1,5 @@
 genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
 KM034551.1,row,6283:6284,CA->TG,spike glycoprotein(GP),"['A82V']",missense
-KM034551.1,row,6283:6284,CA->TG,small secreted glycoprotein,"['A82V']",missense
 KM034551.1,row,7325:7326,CC->TT,spike glycoprotein(GP),"['P430L']",missense
 KM034551.1,hot,850:852,AA->GG,nucleoprotein(NP),"['G127G', 'K128R']",missense
 KM034551.1,hot,7166:7168,TC->CT,spike glycoprotein(GP),"['N376N', 'P377L']",missense
