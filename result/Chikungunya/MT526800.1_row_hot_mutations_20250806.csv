@@ -1,13 +1,10 @@
 genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
 MT526800.1,row,1596:1597,TT->GC,nsp1,"['L489R']",missense
-MT526800.1,row,1596:1597,TT->GC,6K,"['L20R']",missense
 MT526800.1,row,5218:5219,TG->CA,nsp3,"['A374T']",missense
 MT526800.1,row,6010:6011,GT->TG,nsp4,"['S116A']",missense
 MT526800.1,row,7163:7164,CA->TT,nsp4,"['Q500L']",missense
 MT526800.1,row,7206:7207,TC->CT,nsp4,"['I514T']",missense
-MT526800.1,row,7206:7207,TC->CT,capsid protein,"['I123T']",missense
 MT526800.1,row,8417:8418,TA->CG,E3,"['I23T']",missense
-MT526800.1,row,8417:8418,TA->CG,nsp4,"['Y201R']",missense
 MT526800.1,row,8710:8711,GG->AA,E2,"['G57K']",missense
 MT526800.1,row,9081:9082,GC->AA,E2,"['L181M']",missense
 MT526800.1,row,10623:10624,CA->TG,E1,"['K211E']",missense

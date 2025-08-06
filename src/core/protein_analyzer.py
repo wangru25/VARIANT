@@ -656,26 +656,39 @@ class AlignmentProcessor:
                                     "mutation": mutation_str,
                                 }
             
-            except (ValueError, IndexError) as e:
+            except (ValueError, IndexError):
                 # Skip records with invalid coordinate formats
                 continue
         
         return None
 
     def align_orfs_to_ref_proteome_row(
-        self, orfs: List[str], m_orfs: List[str]
+        self, orfs: List[str], m_orfs: List[str], dna_pos_range: str = None
     ) -> List[Dict[str, str]]:
         """
         Align ORFs to a reference proteome and find mutations.
+        Now includes coordinate checking to prevent false positives.
 
         Args:
             orfs (List[str]): A list of ORFs.
             m_orfs (List[str]): A list of mutated ORFs.
+            dna_pos_range (str, optional): DNA position range in format "start:end" for coordinate checking.
 
         Returns:
             List[Dict[str, str]]: List of protein mutations.
         """
         protein_mutations = []
+
+        # Parse DNA position range if provided
+        pos_start = pos_end = None
+        if dna_pos_range:
+            try:
+                pos_parts = dna_pos_range.split(":")
+                pos_start = int(pos_parts[0])
+                pos_end = int(pos_parts[-1])
+            except (ValueError, IndexError):
+                # If parsing fails, disable coordinate checking
+                pos_start = pos_end = None
 
         for orf, m_orf in zip(orfs, m_orfs):
             if not orf or not m_orf:  # Skip empty ORFs
@@ -687,15 +700,41 @@ class AlignmentProcessor:
                 
             for record in SeqIO.parse(self.proteome_dir, "fasta"):
                 # Use record.description to get the full header, not record.id which gets truncated at first space
-                header = record.description.split("|")[1]
+                parts = record.description.split("|")
+                if len(parts) < 3:
+                    continue
+                    
+                header = parts[1]
+                coordinates = parts[2]
                 ref_pro_seq = str(record.seq).replace(" ", "")
                 
-                # Try exact match first, then allow some mismatches
-                matches = find_near_matches(orf, ref_pro_seq, max_l_dist=1)
+                # First check coordinate containment if DNA position is provided
+                if pos_start is not None and pos_end is not None:
+                    from ..utils.sequence_utils import parse_gene_coordinates
+                    try:
+                        coordinate_pairs = parse_gene_coordinates(coordinates)
+                        position_in_gene = False
+                        for start_pos, end_pos in coordinate_pairs:
+                            if start_pos <= pos_start and pos_end <= end_pos:
+                                position_in_gene = True
+                                break
+                        
+                        if not position_in_gene:
+                            continue  # Skip this protein if mutation is not within its coordinates
+                            
+                    except (ValueError, IndexError):
+                        continue  # Skip if coordinates can't be parsed
                 
-                # If no match, try with more tolerance
-                if not matches:
-                    matches = find_near_matches(orf, ref_pro_seq, max_l_dist=3)
+                # Try exact match first
+                matches = find_near_matches(orf, ref_pro_seq, max_l_dist=0)
+                
+                # Only allow fuzzy matching for longer proteins and ORFs to prevent false positives
+                if not matches and len(ref_pro_seq) >= 100 and len(orf) >= 15:
+                    matches = find_near_matches(orf, ref_pro_seq, max_l_dist=1)
+                    
+                    # If still no match, try with more tolerance for longer proteins only
+                    if not matches and len(ref_pro_seq) >= 200:
+                        matches = find_near_matches(orf, ref_pro_seq, max_l_dist=3)
 
                 if len(matches) == 1:
                     seq_matched = ref_pro_seq[matches[0].start : matches[0].end]
@@ -806,7 +845,7 @@ class ProMutationDetector:
         m_orfs = self.orf_processor.translate_dna_3_frames_row(seq_m)
 
         protein_mutations = self.alignment_processor.align_orfs_to_ref_proteome_row(
-            orfs, m_orfs
+            orfs, m_orfs, dna_pos_range=genome_snp["pos"]
         )
 
         genome_snp["proteinMutation"] = protein_mutations
