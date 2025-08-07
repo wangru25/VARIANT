@@ -1,0 +1,62 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+NC_007370.1|H3N2_segment_8      AGCAAAAGCAGGGTGACAAAGACATAATGGATTCCAACACTGTGTCAAGTTTCCAGGTAG	60
+OR719351.1                      --------------------------ATGGAATCCAACACCATGTCAAGCTTTCAGGTAG	34
+                                                          ***** ********  ******* ** *******
+
+NC_007370.1|H3N2_segment_8      ATTGCTTTCTTTGGCATATCCGGAAACAAGTTGTAGACCAAGAACTGAGTGATGCCCCAT	120
+OR719351.1                      ACTGTTTTCTTTGGCATATTCGCAAGCGATTTGCAGACAATGGATTGGGTGATGCCCCAT	94
+                                * ** ************** ** ** * * *** **** * * * ** ************
+
+NC_007370.1|H3N2_segment_8      TCCTTGATCGGCTTCGCCGAGATCAGAGGTCCCTAAGGGGAAGAGGCAATACTCTCGGTC	180
+OR719351.1                      TCCTCGATCGGCTACGCCGAGATCAAAAGTCCTTAAAAGGAAGAGGCAACACCCTTGGTC	154
+                                **** ******** *********** * **** ***  *********** ** ** ****
+
+NC_007370.1|H3N2_segment_8      TAGACATCAAAGCAGCCACCCATGTTGGAAAGCAAATTGTAGAAAAGATTCTGAAAGAAG	240
+OR719351.1                      TAGACATCAAATCAGCCACCCATGTTGGAAAGCAAATCGTAGAAAAGATTCTGAAAGGAG	214
+                                *********** ************************* ******************* **
+
+NC_007370.1|H3N2_segment_8      AATCTGATGAGGCACTTAAAATGACCATGGTCTCCACACCTGCTTCGCGATACATAACTG	300
+OR719351.1                      AATCTGATGAGGCACTTAAAATGACCATGGTCTCAACACCTGCTTCGCGATACATAACTG	274
+                                ********************************** *************************
+
+NC_007370.1|H3N2_segment_8      ACATGACTATTGAGGAATTGTCAAGAAACTGGTTCATGCTAATGCCCAAGCAGAAAGTGG	360
+OR719351.1                      ACATGACTATTGAGGAATTGTCAAGAAACTGGTTCATGCTAATGCCCAAGCAGAAGGTGG	334
+                                ******************************************************* ****
+
+NC_007370.1|H3N2_segment_8      AAGGACCTCTTTGCATCAGAATGGACCAGGCAATCATGGAGAAAAACATCATGTTGAAAG	420
+OR719351.1                      AAGGACCCCTTTGCATCAGAATGGACCAGGCAATCATGGAGAAAAACATCATGTTAAAAG	394
+                                ******* *********************************************** ****
+
+NC_007370.1|H3N2_segment_8      CGAATTTCAGTGTGATTTTTGACCGACTAGAGACCATAGTATTACTAAGGGCTTTCACCG	480
+OR719351.1                      CGAATTTCAATGTGATTTTTGGCCGGCTAGAGACCATAGTATTACTAAGGGCTTTCACCG	454
+                                ********* *********** *** **********************************
+
+NC_007370.1|H3N2_segment_8      AAGAGGGAGCAATTGTTGGCGAAATCTCACCATTGCCTTCTTTTCCAGGACATACTATTG	540
+OR719351.1                      AAGAGGGAACAATAGTTGGAGAAATTTCACCATTACCTTCTCTTCCAGGACATACTATTG	514
+                                ******** **** ***** ***** ******** ****** ******************
+
+NC_007370.1|H3N2_segment_8      AGGATGTCAAAAATGCAATTGGGGTCCTCATCGGAGGACTTGAATGGAATGATAACACAG	600
+OR719351.1                      AGGATGTCAAAAATGCAGTTGGGGTCCTCATCGGAGGACTTGAGTGGAATGGTAACACGG	574
+                                ***************** ************************* ******* ****** *
+
+NC_007370.1|H3N2_segment_8      TTCGAGTCTCTAAAAATCTACAGAGATTCGCTTGGAGAAGCAGTAATGAGAATGGGGGAC	660
+OR719351.1                      TTCGAGTCTCTGAAAATATACAGAGATTCGCTTGGAGAAGCTGTGATGAGAATGGGGGAC	634
+                                *********** ***** *********************** ** ***************
+
+NC_007370.1|H3N2_segment_8      CTCCACTTACTCCAAAACAGAAACGGAAAATGGCGAGAACAGCTAGGTCAAAAGTTTGAA	720
+OR719351.1                      CTCCACTTACTCCAAAACAGAAACGGGAAATGGCGAGAACAGCTAGGTCAGAAGTTTGA-	693
+                                ************************** *********************** ******** 
+
+NC_007370.1|H3N2_segment_8      GAGATAAGATGGCTGATTGAAGAAGTGAGACACAGACTAAAAACAACTGAAAATAGCTTT	780
+OR719351.1                      ------------------------------------------------------------	693
+                                                                                            
+
+NC_007370.1|H3N2_segment_8      GAACAAATAACATTCATGCAAGCATTACAACTGCTGTTTGAAGTGGAACAGGAGATAAGA	840
+OR719351.1                      ------------------------------------------------------------	693
+                                                                                            
+
+NC_007370.1|H3N2_segment_8      ACTTTCTCATTTCAGCTTATTTAATGATAAAAAACACCCTTGTTTCTACT	890
+OR719351.1                      --------------------------------------------------	693
+                                                                                  

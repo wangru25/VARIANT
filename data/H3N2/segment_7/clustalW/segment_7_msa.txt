@@ -1,0 +1,74 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+NC_007367.1|H3N2_segment_7      AGCAAAAGCAGGTAGATATTGAAAGATGAGCCTTCTAACCGAGGTCGAAACGTATGTTCT	60
+OR719348.1                      -------------------------ATGAGTCTTTTAACCGAGGTCGAAACGTACGTTCT	35
+                                                         ***** *** ******************* *****
+
+NC_007367.1|H3N2_segment_7      CTCTATCGTTCCATCAGGCCCCCTCAAAGCCGAGATCGCGCAGAGACTTGAAGATGTCTT	120
+OR719348.1                      TTCTATCATCCCGTCAGGCCCCCTCAAAGCCGAGATCGCACAGAGACTTGAAGATGTCTT	95
+                                 ****** * ** ************************** ********************
+
+NC_007367.1|H3N2_segment_7      TGCTGGGAAAAACACAGATCTTGAGGCTCTCATGGAATGGCTAAAGACAAGACCAATTCT	180
+OR719348.1                      TGCAGGAAAGAACACAGATCTTGAGGCTCTCATGGAATGGCTAAAGACAAGACCAATCTT	155
+                                *** ** ** ***********************************************  *
+
+NC_007367.1|H3N2_segment_7      GTCACCTCTGACTAAGGGGATTTTGGGGTTTGTGTTCACGCTCACCGTGCCCAGTGAGCG	240
+OR719348.1                      GTCACCTCTGACTAAGGGAATTTTAGGGTTTGTGTTCACGCTCACCGTGCCCAGTGAGCG	215
+                                ****************** ***** ***********************************
+
+NC_007367.1|H3N2_segment_7      AGGACTGCAGCGTAGACGCTTTGTCCAAAATGCCCTCAATGGGAATGGAGATCCAAATAA	300
+OR719348.1                      AGGACTGCAGCGTAGACGCTTTATCCAAAATGCCCTAAATGGAAATGGGGACCCGAACAA	275
+                                ********************** ************* ***** ***** ** ** ** **
+
+NC_007367.1|H3N2_segment_7      CATGGACAAAGCAGTTAAACTGTATAGGAAACTTAAGAGGGAGATAACGTTCCATGGGGC	360
+OR719348.1                      CATGGACAAAGCAGTTAAACTATATAAGAAACTTAAAAGAGAAATAACGTTCCATGGGGC	335
+                                ********************* **** ********* ** ** *****************
+
+NC_007367.1|H3N2_segment_7      CAAAGAAATAGCTCTCAGTTATTCTGCTGGTGCACTTGCCAGTTGCATGGGCCTCATATA	420
+OR719348.1                      CAAAGAAATAGCTCTAAGCTATTCAACTGGTGCACTTGCAAGTTGCATGGGCCTCATATA	395
+                                *************** ** *****  ************* ********************
+
+NC_007367.1|H3N2_segment_7      CAATAGGATGGGGGCTGTAACCACTGAAGTGGCATTTGGCCTGGTATGTGCAACATGTGA	480
+OR719348.1                      CAATAGGATGGGAGCTGTAACTACTGAAGTGGCATTTGGCCTGGTGTGTGCAACATGTGA	455
+                                ************ ******** *********************** **************
+
+NC_007367.1|H3N2_segment_7      ACAGATTGCTGACTCCCAGCACAGGTCTCATAGGCAAATGGTGGCAACAACCAATCCATT	540
+OR719348.1                      GCAGATTGCTGATTCCCAGCATAGGTCTCATAGGCAGATGGTGGCAACAACCAATCCATT	515
+                                 *********** ******** ************** ***********************
+
+NC_007367.1|H3N2_segment_7      AATAAAACATGAGAACAGAATGGTTTTGGCCAGCACTACAGCTAAGGCTATGGAGCAAAT	600
+OR719348.1                      AATAAAACATGAGAACAGAATGGTTTTGGCCAGCACTACAGCTAAGGCTATGGAGCAAAT	575
+                                ************************************************************
+
+NC_007367.1|H3N2_segment_7      GGCTGGATCAAGTGAGCAGGCAGCGGAGGCCATGGAAATTGCTAGTCAGGCCAGGCAAAT	660
+OR719348.1                      GGCTGGATCGAGTGAACAGGCAGCGGAGGCCATGGAGGTTGCTAATAAGACTAGGCAGAT	635
+                                ********* ***** ********************  ****** * ** * ***** **
+
+NC_007367.1|H3N2_segment_7      GGTGCAGGCAATGAGAGCCGTTGGGACTCATCCTAGCTCCAGTACTGGTCTAAGAGATGA	720
+OR719348.1                      GGTACATGCAATGAGAACTATTGGAACTCATCCTAGCTCCAGTGCTGGTCTAAGAGATGA	695
+                                *** ** ********* *  **** ****************** ****************
+
+NC_007367.1|H3N2_segment_7      TCTTCTTGAAAATTTGCAGACCTATCAGAAACGAATGGGGGTGCAGATGCAACGATTCAA	780
+OR719348.1                      CCTTCTTGCAAATTTACAGGCCTACCAGAAGCGAATGGGAGTGCAGATGCAGCGGTTCAA	755
+                                 ******* ****** *** **** ***** ******** *********** ** *****
+
+NC_007367.1|H3N2_segment_7      GTGACCCGCTTGTTGTTGCCGCGAGTATCATTGGGATCTTGCACTTGATATTGTGGATTC	840
+OR719348.1                      GTGA--------------------------------------------------------	759
+                                ****                                                        
+
+NC_007367.1|H3N2_segment_7      TTGATCGTCTTTTTTTCAAATGCGTCTATCGACTCTTCAAACACGGCCTTAAAAGAGGCC	900
+OR719348.1                      ------------------------------------------------------------	759
+                                                                                            
+
+NC_007367.1|H3N2_segment_7      CTTCTACGGAAGGAGTACCTGAGTCTATGAGGGAAGAATATCGAAAGGAACAGCAGAATG	960
+OR719348.1                      ------------------------------------------------------------	759
+                                                                                            
+
+NC_007367.1|H3N2_segment_7      CTGTGGATGCTGACGACAGTCATTTTGTCAGCATAGAGTTGGAGTAAAAAACTACCTTGT	1020
+OR719348.1                      ------------------------------------------------------------	759
+                                                                                            
+
+NC_007367.1|H3N2_segment_7      TTCTACT	1027
+OR719348.1                      -------	759
+                                       
