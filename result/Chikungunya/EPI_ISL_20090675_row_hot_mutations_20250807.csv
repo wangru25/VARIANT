@@ -1,11 +1,11 @@
 genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
-EPI_ISL_20090675,row,3165:3166,AC->GT,nsp2,"['N405S']",missense
-EPI_ISL_20090675,row,3366:3367,CC->AT,nsp2,"['P472H']",missense
-EPI_ISL_20090675,row,4131:4132,TA->CG,nsp3,"['V11A']",missense
-EPI_ISL_20090675,row,4662:4663,CA->TG,nsp3,"['A188V']",missense
-EPI_ISL_20090675,row,5304:5305,TG->AA,nsp3,"['L402Q']",missense
+EPI_ISL_20090675,row,3165:3166,AC->GT,nsp2,"['N495S']",missense
+EPI_ISL_20090675,row,3366:3367,CC->AT,nsp2,"['P562H']",missense
+EPI_ISL_20090675,row,4131:4132,TA->CG,nsp3,"['V19A']",missense
+EPI_ISL_20090675,row,4662:4663,CA->TG,nsp3,"['A196V']",missense
+EPI_ISL_20090675,row,5304:5305,TG->AA,nsp3,"['L410Q']",missense
 EPI_ISL_20090675,row,7474:7475,CG->TA,nsp4,"['V604I']",missense
 EPI_ISL_20090675,row,8710:8711,GG->AA,E2,"['G57K']",missense
-EPI_ISL_20090675,hot,5419:5421,TT->AC,nsp3,"['A440A', 'M441T']",missense
+EPI_ISL_20090675,hot,5419:5421,TT->AC,nsp3,"['A448A', 'M449T']",missense
 EPI_ISL_20090675,hot,9276:9278,CC->TA,E2,"['N245N', 'A246D']",missense
 EPI_ISL_20090675,hot,9421:9423,CC->TG,E2,"['L294L']",silent
