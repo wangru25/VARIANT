@@ -51,3 +51,39 @@ viruses:
     description: Human Immunodeficiency Virus 1
     proteome_file: HIV-1_proteome.fasta
     reference_genome: NC_001802.1.fasta
+  H3N2:
+    codon_table_id: 1
+    description: Influenza A virus (H3N2) - Multi-segment virus
+    segments:
+      segment_1:
+        default_msa_file: segment_1_msa.txt
+        proteome_file: segment_1_proteome.fasta
+        reference_genome: NC_007373.1.fasta
+      segment_2:
+        default_msa_file: segment_2_msa.txt
+        proteome_file: segment_2_proteome.fasta
+        reference_genome: NC_007372.1.fasta
+      segment_3:
+        default_msa_file: segment_3_msa.txt
+        proteome_file: segment_3_proteome.fasta
+        reference_genome: NC_007371.1.fasta
+      segment_4:
+        default_msa_file: segment_4_msa.txt
+        proteome_file: segment_4_proteome.fasta
+        reference_genome: NC_007366.1.fasta
+      segment_5:
+        default_msa_file: segment_5_msa.txt
+        proteome_file: segment_5_proteome.fasta
+        reference_genome: NC_007369.1.fasta
+      segment_6:
+        default_msa_file: segment_6_msa.txt
+        proteome_file: segment_6_proteome.fasta
+        reference_genome: NC_007368.1.fasta
+      segment_7:
+        default_msa_file: segment_7_msa.txt
+        proteome_file: segment_7_proteome.fasta
+        reference_genome: NC_007367.1.fasta
+      segment_8:
+        default_msa_file: segment_8_msa.txt
+        proteome_file: segment_8_proteome.fasta
+        reference_genome: NC_007370.1.fasta

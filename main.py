@@ -51,6 +51,7 @@ today = date.today().strftime("%Y%m%d")
 class VirusMutationProcessor:
     """
     Class for processing virus-specific mutations with organized file structure.
+    Supports both single-segment and multi-segment viruses.
     """
 
     def __init__(self, virus_name: str, config_file: str = "virus_config.yaml"):
@@ -65,16 +66,99 @@ class VirusMutationProcessor:
         self.config_file = config_file
         self.config = self._load_config()
 
+        # Detect virus structure (single vs multi-segment)
+        self.is_multi_segment = self._detect_multi_segment_structure()
+        self.segments = self._get_segments()
+        
         # Create virus-specific directories
         self.base_path = os.path.join("data", virus_name)
-        self.data_path = os.path.join(self.base_path, "clustalW")
-        self.refs_path = os.path.join(self.base_path, "refs")
         self.result_path = os.path.join("result", virus_name)
-
+        
+        # Initialize paths based on virus structure
+        self._initialize_paths()
+        
         # Ensure directories exist
-        os.makedirs(self.data_path, exist_ok=True)
-        os.makedirs(self.refs_path, exist_ok=True)
+        self._ensure_directories()
+
+    def _detect_multi_segment_structure(self) -> bool:
+        """
+        Detect if the virus has a multi-segment structure.
+        
+        Returns:
+            bool: True if multi-segment, False if single-segment
+        """
+        base_path = os.path.join("data", self.virus_name)
+        
+        # Check if segment_1 directory exists
+        segment_1_path = os.path.join(base_path, "segment_1")
+        if os.path.exists(segment_1_path) and os.path.isdir(segment_1_path):
+            return True
+        
+        # Check if traditional structure exists (clustalW, refs directories)
+        clustalw_path = os.path.join(base_path, "clustalW")
+        refs_path = os.path.join(base_path, "refs")
+        if os.path.exists(clustalw_path) and os.path.exists(refs_path):
+            return False
+        
+        # Default to single-segment if structure is unclear
+        return False
+
+    def _get_segments(self) -> List[str]:
+        """
+        Get list of segment names for multi-segment viruses.
+        
+        Returns:
+            List[str]: List of segment names (e.g., ['segment_1', 'segment_2', ...])
+        """
+        if not self.is_multi_segment:
+            return []
+        
+        base_path = os.path.join("data", self.virus_name)
+        segments = []
+        
+        # Look for segment directories
+        for i in range(1, 9):  # Support up to 8 segments
+            segment_name = f"segment_{i}"
+            segment_path = os.path.join(base_path, segment_name)
+            if os.path.exists(segment_path) and os.path.isdir(segment_path):
+                segments.append(segment_name)
+        
+        return segments
+
+    def _initialize_paths(self) -> None:
+        """
+        Initialize paths based on virus structure.
+        """
+        if self.is_multi_segment:
+            # Multi-segment virus: paths will be segment-specific
+            self.data_paths = {}
+            self.refs_paths = {}
+            
+            for segment in self.segments:
+                segment_base = os.path.join(self.base_path, segment)
+                self.data_paths[segment] = os.path.join(segment_base, "clustalW")
+                self.refs_paths[segment] = os.path.join(segment_base, "refs")
+        else:
+            # Single-segment virus: traditional structure
+            self.data_path = os.path.join(self.base_path, "clustalW")
+            self.refs_path = os.path.join(self.base_path, "refs")
+
+    def _ensure_directories(self) -> None:
+        """
+        Ensure all necessary directories exist.
+        """
         os.makedirs(self.result_path, exist_ok=True)
+        
+        if self.is_multi_segment:
+            for segment in self.segments:
+                os.makedirs(self.data_paths[segment], exist_ok=True)
+                os.makedirs(self.refs_paths[segment], exist_ok=True)
+                # Create segment-specific result directory
+                segment_result_path = os.path.join(self.result_path, segment)
+                os.makedirs(segment_result_path, exist_ok=True)
+        else:
+            os.makedirs(self.data_path, exist_ok=True)
+            os.makedirs(self.refs_path, exist_ok=True)
 
     def _load_config(self) -> Dict:
         """
@@ -90,9 +174,12 @@ class VirusMutationProcessor:
             print(f"Configuration file {self.config_file} not found. Using defaults.")
             return {}
 
-    def get_virus_config(self) -> Dict[str, str]:
+    def get_virus_config(self, segment: Optional[str] = None) -> Dict[str, str]:
         """
         Get virus-specific configuration including reference files.
+
+        Args:
+            segment (Optional[str]): Segment name for multi-segment viruses.
 
         Returns:
             Dict[str, str]: Configuration dictionary with file paths
@@ -112,6 +199,21 @@ class VirusMutationProcessor:
             and self.virus_name in self.config["viruses"]
         ):
             virus_config = self.config["viruses"][self.virus_name]
+            
+            # For multi-segment viruses, check for segment-specific config
+            if self.is_multi_segment and segment:
+                if "segments" in virus_config and segment in virus_config["segments"]:
+                    segment_config = virus_config["segments"][segment]
+                    # Merge with virus-level defaults
+                    for key, value in virus_config.items():
+                        if key != "segments" and key not in segment_config:
+                            segment_config[key] = value
+                    # Merge with global defaults
+                    for key, value in default_config.items():
+                        if key not in segment_config:
+                            segment_config[key] = value
+                    return segment_config
+            
             # Merge with defaults for missing values
             for key, value in default_config.items():
                 if key not in virus_config:
@@ -122,45 +224,95 @@ class VirusMutationProcessor:
         print(f"Using default configuration. Consider adding it to {self.config_file}")
         return default_config
 
-    def get_reference_genome_path(self) -> str:
+    def get_reference_genome_path(self, segment: Optional[str] = None) -> str:
         """
         Get the path to the reference genome file.
+
+        Args:
+            segment (Optional[str]): Segment name for multi-segment viruses.
 
         Returns:
             str: Path to the reference genome file
         """
-        config = self.get_virus_config()
-        return os.path.join(self.refs_path, config["reference_genome"])
+        config = self.get_virus_config(segment)
+        
+        if self.is_multi_segment and segment:
+            return os.path.join(self.refs_paths[segment], config["reference_genome"])
+        else:
+            return os.path.join(self.refs_path, config["reference_genome"])
 
-    def get_proteome_path(self) -> str:
+    def get_proteome_path(self, segment: Optional[str] = None) -> str:
         """
         Get the path to the proteome file.
+
+        Args:
+            segment (Optional[str]): Segment name for multi-segment viruses.
 
         Returns:
             str: Path to the proteome file
         """
-        config = self.get_virus_config()
-        return os.path.join(self.refs_path, config["proteome_file"])
+        config = self.get_virus_config(segment)
+        
+        if self.is_multi_segment and segment:
+            return os.path.join(self.refs_paths[segment], config["proteome_file"])
+        else:
+            return os.path.join(self.refs_path, config["proteome_file"])
 
-    def get_codon_table_id(self) -> int:
+    def get_codon_table_id(self, segment: Optional[str] = None) -> int:
         """
         Get the codon table ID for the virus.
+
+        Args:
+            segment (Optional[str]): Segment name for multi-segment viruses.
 
         Returns:
             int: Codon table ID
         """
-        config = self.get_virus_config()
+        config = self.get_virus_config(segment)
         return int(config.get("codon_table_id", 1))
 
-    def get_default_msa_file(self) -> str:
+    def get_default_msa_file(self, segment: Optional[str] = None) -> str:
         """
         Get the default MSA file name for the virus.
+
+        Args:
+            segment (Optional[str]): Segment name for multi-segment viruses.
 
         Returns:
             str: Default MSA file name
         """
-        config = self.get_virus_config()
+        config = self.get_virus_config(segment)
         return config.get("default_msa_file", f"{self.virus_name}_msa.txt")
+
+    def get_data_path(self, segment: Optional[str] = None) -> str:
+        """
+        Get the data path for the virus or segment.
+
+        Args:
+            segment (Optional[str]): Segment name for multi-segment viruses.
+
+        Returns:
+            str: Path to the data directory
+        """
+        if self.is_multi_segment and segment:
+            return self.data_paths[segment]
+        else:
+            return self.data_path
+
+    def get_result_path(self, segment: Optional[str] = None) -> str:
+        """
+        Get the result path for the virus or segment.
+
+        Args:
+            segment (Optional[str]): Segment name for multi-segment viruses.
+
+        Returns:
+            str: Path to the result directory
+        """
+        if self.is_multi_segment and segment:
+            return os.path.join(self.result_path, segment)
+        else:
+            return self.result_path
 
     def list_available_viruses(self) -> List[str]:
         """
@@ -172,6 +324,24 @@ class VirusMutationProcessor:
         if self.config and "viruses" in self.config:
             return list(self.config["viruses"].keys())
         return []
+
+    def get_segments(self) -> List[str]:
+        """
+        Get list of segments for multi-segment viruses.
+
+        Returns:
+            List[str]: List of segment names
+        """
+        return self.segments
+
+    def is_multi_segment_virus(self) -> bool:
+        """
+        Check if this is a multi-segment virus.
+
+        Returns:
+            bool: True if multi-segment, False otherwise
+        """
+        return self.is_multi_segment
 
 
 class SNPProcessor:
@@ -212,25 +382,27 @@ class SNPProcessor:
 
         return snp_records
 
-    def process_snp_records(self, msa_files: List[str]) -> None:
+    def process_snp_records(self, msa_files: List[str], segment: Optional[str] = None) -> None:
         """
         Process SNP records from multiple MSA files.
 
         Args:
             msa_files (List[str]): List of MSA file names.
+            segment (Optional[str]): Segment name for multi-segment viruses.
         """
         all_snp_records = []
+        data_path = self.virus_processor.get_data_path(segment)
         for msa_file in msa_files:
-            full_msa_path = os.path.join(self.virus_processor.data_path, msa_file)
+            full_msa_path = os.path.join(data_path, msa_file)
             snp_records = self.genome_snp_processor.get_genome_snps(full_msa_path)
             all_snp_records.extend(snp_records)
 
         msa_file_prefix = f"Combined_{today}"
-        self._write_and_print_snp_records(all_snp_records, msa_file_prefix)
-        self._process_root_variants(all_snp_records, msa_file_prefix, self.virus_processor)
+        self._write_and_print_snp_records(all_snp_records, msa_file_prefix, segment)
+        self._process_root_variants(all_snp_records, msa_file_prefix, self.virus_processor, segment)
 
     def _write_and_print_snp_records(
-        self, snp_records: List[Dict], prefix: str
+        self, snp_records: List[Dict], prefix: str, segment: Optional[str] = None
     ) -> None:
         """
         Write and print SNP records.
@@ -238,22 +410,26 @@ class SNPProcessor:
         Args:
             snp_records (List[Dict]): List of SNP records.
             prefix (str): Prefix for the output file name.
+            segment (Optional[str]): Segment name for multi-segment viruses.
         """
         # Write SNP records to a text file
+        data_path = self.virus_processor.get_data_path(segment)
         output_file_txt = os.path.join(
-            self.virus_processor.data_path, f"snpRecords_{prefix}.txt"
+            data_path, f"snpRecords_{prefix}.txt"
         )
         self.genome_snp_processor.print_snp_records(
             snp_records, file_name=output_file_txt
         )
 
-    def _process_root_variants(self, snp_records: List[Dict], prefix: str, virus_processor=None) -> None:
+    def _process_root_variants(self, snp_records: List[Dict], prefix: str, virus_processor=None, segment: Optional[str] = None) -> None:
         """
         Process and save individual mutation records for each genome.
 
         Args:
             snp_records (List[Dict]): List of SNP records.
             prefix (str): Prefix for the output file name.
+            virus_processor: Virus processor instance.
+            segment (Optional[str]): Segment name for multi-segment viruses.
         """
         # Generate individual mutation files for each genome
         for snp_record in snp_records:
@@ -325,7 +501,7 @@ class SNPProcessor:
                                                     start_pos, end_pos = map(int, pos_str.split(':'))
                                                     # Get the full sequence from reference genome (1-based to 0-based)
                                                     if virus_processor:
-                                                        ref_genome = ReferenceGenome(virus_processor.get_reference_genome_path())
+                                                        ref_genome = ReferenceGenome(virus_processor.get_reference_genome_path(segment))
                                                     else:
                                                         ref_genome = ReferenceGenome("data/refs/NC_045512.fasta")
                                                     if len(original_seq) == 2 and len(mutated_seq) == 2:
@@ -385,7 +561,7 @@ class SNPProcessor:
                                         start_pos, end_pos = map(int, pos_str.split(':'))
                                         # Get the full sequence from reference genome (1-based to 0-based)
                                         if virus_processor:
-                                            ref_genome = ReferenceGenome(virus_processor.get_reference_genome_path())
+                                            ref_genome = ReferenceGenome(virus_processor.get_reference_genome_path(segment))
                                         else:
                                             ref_genome = ReferenceGenome("data/refs/NC_045512.fasta")
                                         full_original_seq = ref_genome.ref_seq[start_pos-1:end_pos]
@@ -424,8 +600,9 @@ class SNPProcessor:
 
             # Save individual genome mutation file in virus-specific result directory
             safe_genome_id = genome_id.replace("|", "_").replace("/", "_")
+            result_path = self.virus_processor.get_result_path(segment)
             output_file_snp_roots = os.path.join(
-                self.virus_processor.result_path, f"{safe_genome_id}_{today}.txt"
+                result_path, f"{safe_genome_id}_{today}.txt"
             )
             with open(output_file_snp_roots, "w") as file:
                 for _key, value in sorted_mutations.items():
@@ -434,7 +611,7 @@ class SNPProcessor:
             # Save row and hot mutations CSV
             if row_hot_mutations:
                 csv_file = os.path.join(
-                    self.virus_processor.result_path, f"{safe_genome_id}_row_hot_mutations_{today}.csv"
+                    result_path, f"{safe_genome_id}_row_hot_mutations_{today}.csv"
                 )
                 with open(csv_file, "w") as file:
                     # Write header
@@ -512,7 +689,7 @@ class SNPProcessor:
         )
 
     def get_snp_records_for_one_genome(
-        self, msa_files: List[str], genome_id: str
+        self, msa_files: List[str], genome_id: str, segment: Optional[str] = None
     ) -> List[Dict]:
         """
         Retrieve SNP records for a single specific genome.
@@ -520,6 +697,7 @@ class SNPProcessor:
         Args:
             msa_files (List[str]): List of MSA file names.
             genome_id (str): The specific genome ID to process.
+            segment (Optional[str]): Segment name for multi-segment viruses.
 
         Returns:
             List[Dict]: List of SNP records for the specified genome.
@@ -527,11 +705,12 @@ class SNPProcessor:
         msa_file = msa_files[0]  # Assuming we're working with the first MSA file
 
         # Create a new gene mutation detector for the specific genome
-        ref_genome_path = self.virus_processor.get_reference_genome_path()
+        ref_genome_path = self.virus_processor.get_reference_genome_path(segment)
         ref_genome = ReferenceGenome(ref_genome_path)
-        proteome_path = self.virus_processor.get_proteome_path()
+        proteome_path = self.virus_processor.get_proteome_path(segment)
         proteome = Proteome(proteome_path)
-        msa_instance = MultipleSequenceAlignment(os.path.join(self.virus_processor.data_path, msa_file))
+        data_path = self.virus_processor.get_data_path(segment)
+        msa_instance = MultipleSequenceAlignment(os.path.join(data_path, msa_file))
 
         gene_mut_detector = GeneMutationDetector(ref_genome, msa_instance, genome_id)
         orf_processor = ORFProcessor(ref_genome)
@@ -543,7 +722,7 @@ class SNPProcessor:
 
         # Create a new genome SNP processor for the specific genome
         genome_snp_processor = GenomeSNPProcessor(
-            self.virus_processor.data_path,
+            data_path,
             msa_instance,
             gene_mut_detector,
             pro_mutation_detector_instance,
@@ -556,8 +735,9 @@ class SNPProcessor:
         root_mutation_dict = genome_snp_processor.root_variant([snp_records])
 
         # Save in virus-specific result directory
+        result_path = self.virus_processor.get_result_path(segment)
         output_file_snp_roots = os.path.join(
-            self.virus_processor.result_path, f"{genome_id}_{today}.txt"
+            result_path, f"{genome_id}_{today}.txt"
         )
         with open(output_file_snp_roots, "w") as file:
             for _key, value in root_mutation_dict.items():
@@ -597,7 +777,7 @@ class SNPProcessor:
                                                 # Extract position range (e.g., "10447:10449")
                                                 start_pos, end_pos = map(int, pos_str.split(':'))
                                                 # Get the full sequence from reference genome (1-based to 0-based)
-                                                ref_genome = ReferenceGenome(self.virus_processor.get_reference_genome_path())
+                                                ref_genome = ReferenceGenome(self.virus_processor.get_reference_genome_path(segment))
                                                 if len(original_seq) == 2 and len(mutated_seq) == 2:
                                                     # For 2-nucleotide changes like GC->AA, check if it's a hot mutation
                                                     # by looking at the 3-nucleotide context
@@ -654,7 +834,7 @@ class SNPProcessor:
                                         # Extract position range (e.g., "10447:10449")
                                         start_pos, end_pos = map(int, pos_str.split(':'))
                                         # Get the full sequence from reference genome (1-based to 0-based)
-                                        ref_genome = ReferenceGenome(self.virus_processor.get_reference_genome_path())
+                                        ref_genome = ReferenceGenome(self.virus_processor.get_reference_genome_path(segment))
                                         full_original_seq = ref_genome.ref_seq[start_pos-1:end_pos]
                                         # Construct the full mutated sequence
                                         if len(original_seq) == 2 and len(mutated_seq) == 2:
@@ -706,6 +886,7 @@ class SNPProcessor:
 def main():
     """
     Main function to process virus mutations.
+    Supports both single-segment and multi-segment viruses.
     """
     parser = argparse.ArgumentParser(
         description="Process virus mutations with virus-specific organization"
@@ -714,7 +895,7 @@ def main():
         "--virus",
         type=str,
         default="SARS-CoV-2",
-        help="Virus name (e.g., SARS-CoV-2, HIV, Pox)",
+        help="Virus name (e.g., SARS-CoV-2, HIV, Pox, H3N2)",
     )
     parser.add_argument(
         "--genome-id",
@@ -743,6 +924,11 @@ def main():
         default="virus_config.yaml",
         help="Path to virus configuration file",
     )
+    parser.add_argument(
+        "--segment",
+        type=str,
+        help="Segment name for multi-segment viruses (e.g., segment_1, segment_2)",
+    )
 
     args = parser.parse_args()
 
@@ -760,16 +946,119 @@ def main():
             print("No viruses found in configuration.")
         return
 
+    # Check if this is a multi-segment virus
+    if virus_processor.is_multi_segment_virus():
+        print(f"Detected multi-segment virus: {args.virus}")
+        segments = virus_processor.get_segments()
+        print(f"Available segments: {', '.join(segments)}")
+        
+        # If segment is specified, process only that segment
+        if args.segment:
+            if args.segment not in segments:
+                print(f"Error: Segment '{args.segment}' not found. Available segments: {', '.join(segments)}")
+                return
+            segments_to_process = [args.segment]
+        else:
+            # Process all segments
+            segments_to_process = segments
+        
+        # Process each segment
+        for segment in segments_to_process:
+            print(f"\n=== Processing segment: {segment} ===")
+            _process_segment(virus_processor, segment, args)
+        
+        print(f"\nProcessing complete. Results saved in: {virus_processor.result_path}")
+        
+    else:
+        # Single-segment virus (traditional processing)
+        print(f"Processing single-segment virus: {args.virus}")
+        _process_single_segment(virus_processor, args)
+
+
+def _process_segment(virus_processor: VirusMutationProcessor, segment: str, args) -> None:
+    """
+    Process a single segment of a multi-segment virus.
+    
+    Args:
+        virus_processor: Virus processor instance
+        segment: Segment name to process
+        args: Command line arguments
+    """
+    # Get MSA file for this segment
+    msa_file = args.msa_file or virus_processor.get_default_msa_file(segment)
+    
+    # Check if MSA file exists
+    data_path = virus_processor.get_data_path(segment)
+    msa_file_path = os.path.join(data_path, msa_file)
+    if not os.path.exists(msa_file_path):
+        print(f"MSA file not found: {msa_file_path}")
+        print(f"Available files in {data_path}:")
+        if os.path.exists(data_path):
+            for file in os.listdir(data_path):
+                print(f"  - {file}")
+        return
+
+    # Initialize components for this segment
+    ref_genome_path = virus_processor.get_reference_genome_path(segment)
+    proteome_path = virus_processor.get_proteome_path(segment)
+    
+    ref_genome = ReferenceGenome(ref_genome_path)
+    proteome = Proteome(proteome_path)
+    msa_instance = MultipleSequenceAlignment(msa_file_path)
+
+    # Create processors
+    gene_mut_detector = GeneMutationDetector(ref_genome, msa_instance, args.genome_id)
+    orf_processor = ORFProcessor(ref_genome)
+    aa_mutation_processor = AminoAcidMutationProcessor()
+    alignment_processor = AlignmentProcessor(proteome, aa_mutation_processor)
+    pro_mutation_detector_instance = ProMutationDetector(
+        orf_processor, alignment_processor, aa_mutation_processor, ref_genome
+    )
+
+    # Initialize genome SNP processor
+    genome_snp_processor_instance = GenomeSNPProcessor(
+        data_path,
+        msa_instance,
+        gene_mut_detector,
+        pro_mutation_detector_instance,
+    )
+
+    # Initialize SNP processor
+    snp_processor_instance = SNPProcessor(
+        genome_snp_processor_instance, virus_processor
+    )
+
+    msa_files = [msa_file]
+
+    if args.process_all or not args.genome_id:
+        # Process all genomes in the MSA file
+        print(f"Processing all genomes in segment {segment}...")
+        snp_processor_instance.process_snp_records(msa_files, segment)
+    else:
+        # Process only one specific genome
+        print(f"Processing genome: {args.genome_id} in segment {segment}")
+        snp_processor_instance.get_snp_records_for_one_genome(msa_files, args.genome_id, segment)
+
+
+def _process_single_segment(virus_processor: VirusMutationProcessor, args) -> None:
+    """
+    Process a single-segment virus (traditional processing).
+    
+    Args:
+        virus_processor: Virus processor instance
+        args: Command line arguments
+    """
     # Get MSA file
     msa_file = args.msa_file or virus_processor.get_default_msa_file()
 
     # Check if MSA file exists
-    msa_file_path = os.path.join(virus_processor.data_path, msa_file)
+    data_path = virus_processor.get_data_path()
+    msa_file_path = os.path.join(data_path, msa_file)
     if not os.path.exists(msa_file_path):
         print(f"MSA file not found: {msa_file_path}")
-        print(f"Available files in {virus_processor.data_path}:")
-        if os.path.exists(virus_processor.data_path):
-            for file in os.listdir(virus_processor.data_path):
+        print(f"Available files in {data_path}:")
+        if os.path.exists(data_path):
+            for file in os.listdir(data_path):
                 print(f"  - {file}")
         return
 
@@ -792,7 +1081,7 @@ def main():
 
     # Initialize genome SNP processor
     genome_snp_processor_instance = GenomeSNPProcessor(
-        virus_processor.data_path,
+        data_path,
         msa_instance,
         gene_mut_detector,
         pro_mutation_detector_instance,

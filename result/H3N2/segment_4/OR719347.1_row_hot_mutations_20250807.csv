@@ -1,0 +1,15 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+OR719347.1,row,262:263,AA->GG,hemagglutinin,"['E78G']",missense
+OR719347.1,row,469:470,CT->AA,hemagglutinin,"['T147K']",missense
+OR719347.1,row,511:512,AC->GT,hemagglutinin,"['N161S']",missense
+OR719347.1,row,624:625,CA->TT,hemagglutinin,"['H199F']",missense
+OR719347.1,row,1541:1542,TG->CA,hemagglutinin,"['D505N']",missense
+OR719347.1,hot,84:86,CT->AC,hemagglutinin,"['L19I']",missense
+OR719347.1,hot,324:326,AA->GG,hemagglutinin,"['K99E']",missense
+OR719347.1,hot,501:503,AA->GG,hemagglutinin,"['R158G']",missense
+OR719347.1,hot,551:553,AT->CA,hemagglutinin,"['K174N', 'F175Y']",missense
+OR719347.1,hot,659:661,AA->GT,hemagglutinin,"['L210L', 'Y211F']",missense
+OR719347.1,hot,711:713,AC->GT,hemagglutinin,"['T228A']",missense
+OR719347.1,hot,722:724,GG->AA,hemagglutinin,"['P231P', 'S232N']",missense
+OR719347.1,hot,1200:1202,AC->GT,hemagglutinin,"['N391D']",missense
+OR719347.1,hot,1224:1226,AG->CA,hemagglutinin,"['R399R']",silent
