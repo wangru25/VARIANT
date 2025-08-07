@@ -585,14 +585,14 @@ class AlignmentProcessor:
             
             # Import join operation utilities
             from ..utils.sequence_utils import (
-                parse_gene_coordinates, 
-                create_genome_to_joined_mapping,
-                calculate_amino_acid_position_from_genome
+                parse_gene_coordinates_enhanced, 
+                create_genome_to_joined_mapping_enhanced,
+                calculate_amino_acid_position_enhanced
             )
             
             try:
-                # Parse coordinates (handles both simple ranges and join operations)
-                coordinate_pairs = parse_gene_coordinates(coordinates)
+                # Parse coordinates (handles simple ranges, join operations, and complement notation)
+                coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
                 
                 # Check if DNA position is within any of the coordinate pairs
                 position_in_gene = False
@@ -602,59 +602,66 @@ class AlignmentProcessor:
                         break
                 
                 if position_in_gene:
-                    # Create mapping for amino acid position calculation
-                    genome_to_joined_mapping = create_genome_to_joined_mapping(coordinates)
-                    
-                    # Calculate amino acid position using the mapping
-                    aa_position = calculate_amino_acid_position_from_genome(dna_pos, genome_to_joined_mapping)
+                    # Calculate amino acid position using enhanced function
+                    aa_position = calculate_amino_acid_position_enhanced(dna_pos, coordinates)
                     
                     if aa_position is not None:
                         ref_pro_seq = str(record.seq).replace(" ", "")
                         
                         # Check if amino acid position is valid
                         if 0 <= aa_position - 1 < len(ref_pro_seq):
-                            # Get the original amino acid
-                            original_aa = ref_pro_seq[aa_position - 1]
                             
-                            # Calculate the codon position within the gene
-                            # Find which segment contains the position
-                            segment_start = None
-                            for start_pos, end_pos in coordinate_pairs:
-                                if start_pos <= dna_pos <= end_pos:
-                                    segment_start = start_pos
-                                    break
-                            
-                            if segment_start is not None:
-                                # Calculate codon offset within the segment
-                                codon_offset = ((dna_pos - 1) - (segment_start - 1)) % 3
+                            # Get the codon containing this position
+                            if ref_seq is not None:
+                                # Use enhanced coordinate mapping to get the correct codon
+                                genome_to_joined, _ = create_genome_to_joined_mapping_enhanced(coordinates)
+                                joined_position = genome_to_joined[dna_pos]
                                 
-                                # Get the codon (3 nucleotides)
-                                codon_start = dna_pos - 1 - codon_offset
-                                if ref_seq is None:
-                                    # Cannot proceed without reference sequence
-                                    continue
-                                original_codon = ref_seq[codon_start:codon_start + 3]
+                                # Calculate codon boundaries in the joined sequence
+                                codon_number = (joined_position - 1) // 3
+                                codon_start_joined = codon_number * 3 + 1
+                                codon_end_joined = codon_start_joined + 2
                                 
-                                # Create mutated codon
-                                mutated_codon = original_codon[:codon_offset] + mutated_nt + original_codon[codon_offset + 1:]
+                                # Extract the original gene sequence (properly handling complement)
+                                from ..utils.sequence_utils import extract_gene_sequence_enhanced
+                                gene_sequence, was_reverse_complemented = extract_gene_sequence_enhanced(ref_seq, coordinates)
                                 
-                                # Translate codons to amino acids
-                                from Bio.Seq import Seq
-                                original_aa_from_codon = str(Seq(original_codon).translate())
-                                mutated_aa_from_codon = str(Seq(mutated_codon).translate())
-                                
-                                # Create mutation string
-                                if original_aa_from_codon == mutated_aa_from_codon:
-                                    # Silent mutation
-                                    mutation_str = f"{original_aa_from_codon}{aa_position}{original_aa_from_codon}"
-                                else:
-                                    # Regular mutation
-                                    mutation_str = f"{original_aa_from_codon}{aa_position}{mutated_aa_from_codon}"
-                                
-                                return {
-                                    "protein": header,
-                                    "mutation": mutation_str,
-                                }
+                                # Extract the codon from the gene sequence
+                                if codon_start_joined - 1 < len(gene_sequence) and codon_end_joined <= len(gene_sequence):
+                                    original_codon = gene_sequence[codon_start_joined - 1:codon_end_joined]
+                                    
+                                    # Calculate which position within the codon is mutated
+                                    codon_offset = (joined_position - 1) % 3
+                                    
+                                    # For complement genes, the mutation affects the reverse complement
+                                    if is_complement:
+                                        # Convert mutation to what it would be on the reverse complement
+                                        from Bio.Seq import Seq
+                                        complement_map = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+                                        mutated_nt_complement = complement_map.get(mutated_nt, mutated_nt)
+                                        # Reverse the codon offset for complement genes
+                                        codon_offset = 2 - codon_offset
+                                        mutated_codon = original_codon[:codon_offset] + mutated_nt_complement + original_codon[codon_offset + 1:]
+                                    else:
+                                        mutated_codon = original_codon[:codon_offset] + mutated_nt + original_codon[codon_offset + 1:]
+                                    
+                                    # Translate codons to amino acids
+                                    from Bio.Seq import Seq
+                                    original_aa_from_codon = str(Seq(original_codon).translate())
+                                    mutated_aa_from_codon = str(Seq(mutated_codon).translate())
+                                    
+                                    # Create mutation string
+                                    if original_aa_from_codon == mutated_aa_from_codon:
+                                        # Silent mutation
+                                        mutation_str = f"{original_aa_from_codon}{aa_position}{original_aa_from_codon}"
+                                    else:
+                                        # Regular mutation
+                                        mutation_str = f"{original_aa_from_codon}{aa_position}{mutated_aa_from_codon}"
+                                    
+                                    return {
+                                        "protein": header,
+                                        "mutation": mutation_str,
+                                    }
             
             except (ValueError, IndexError):
                 # Skip records with invalid coordinate formats
@@ -710,9 +717,9 @@ class AlignmentProcessor:
                 
                 # First check coordinate containment if DNA position is provided
                 if pos_start is not None and pos_end is not None:
-                    from ..utils.sequence_utils import parse_gene_coordinates
+                    from ..utils.sequence_utils import parse_gene_coordinates_enhanced
                     try:
-                        coordinate_pairs = parse_gene_coordinates(coordinates)
+                        coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
                         position_in_gene = False
                         for start_pos, end_pos in coordinate_pairs:
                             if start_pos <= pos_start and pos_end <= end_pos:
@@ -1007,11 +1014,11 @@ class ProMutationDetector:
                     continue  # Skip if format is not recognized
                 
                 # Import join operation utilities
-                from ..utils.sequence_utils import parse_gene_coordinates
+                from ..utils.sequence_utils import parse_gene_coordinates_enhanced
                 
                 try:
-                    # Parse coordinates (handles both simple ranges and join operations)
-                    coordinate_pairs = parse_gene_coordinates(coordinates)
+                    # Parse coordinates (handles simple ranges, join operations, and complement notation)
+                    coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
                     
                     # For hot mutations, check if the mutation range is CONTAINED within the protein range
                     position_in_gene = False

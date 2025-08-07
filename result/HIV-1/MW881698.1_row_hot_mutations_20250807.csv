@@ -1,0 +1,117 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+MW881698.1,row,614:615,GA->TG,Pr55(Gag),"['E93D', 'I94V']",missense
+MW881698.1,row,1447:1452,CAAATT->ATGCAC,Pr55(Gag),"['T371N', 'N372A', 'S373P']",missense
+MW881698.1,row,1454:1457,AGCT->TAAC,Pr55(Gag),"['A374N']",missense
+MW881698.1,row,1459:1460,CC->TA,Pr55(Gag),"['T375I']",missense
+MW881698.1,row,1747:1748,CT->AC,Pr55(Gag),"['T471N']",missense
+MW881698.1,row,1804:1805,GG->AA,retropepsin,"['V3I']",missense
+MW881698.1,row,1804:1805,GG->AA,Pr55(Gag),"['R490K']",missense
+MW881698.1,row,1985:1987,CTC->TCT,retropepsin,"['L63S']",missense
+MW881698.1,row,2908:2909,CC->TG,reverse transcriptase,"['P272A']",missense
+MW881698.1,row,2925:2926,GG->AA,reverse transcriptase,"['R277K']",missense
+MW881698.1,row,3303:3304,CA->TG,reverse transcriptase,"['T403M']",missense
+MW881698.1,row,4683:4684,GG->AA,Vif,"['G33K']",missense
+MW881698.1,row,4888:4889,AA->GC,Vif,"['E101G']",missense
+MW881698.1,row,4910:4911,TC->CA,Vif,"['L109M']",missense
+MW881698.1,row,5036:5037,AG->CA,Vif,"['A151T']",missense
+MW881698.1,row,5214:5215,TT->CA,Vpr,"['I37T']",missense
+MW881698.1,row,5432:5433,AA->GG,Tat,"['K19R']",missense
+MW881698.1,row,5444:5445,CC->AT,Tat,"['T23N']",missense
+MW881698.1,row,5556:5558,GAA->AGG,Tat,"['N61G']",missense
+MW881698.1,row,5556:5558,GAA->AGG,Rev,"['R14K', 'T15A']",missense
+MW881698.1,row,5653:5654,AT->GC,Vpu,"['I16A']",missense
+MW881698.1,row,5787:5793,AATATCA->TCAGGAG,Vpu,"['E60D', 'I61Q', 'S62E']",missense
+MW881698.1,row,5787:5793,AATATCA->TCAGGAG,Envelope surface glycoprotein gp160,"['K6I', 'Y7R', 'Q8R']",missense
+MW881698.1,row,5795:5797,CAC->AGT,Vpu,"['A63E', 'L64F']",missense
+MW881698.1,row,5795:5797,CAC->AGT,Envelope surface glycoprotein gp160,"['H9S']",missense
+MW881698.1,row,5803:5811,GAGATGGGG->TCAGCTCTT,Envelope surface glycoprotein gp160,"['W11C', 'R12Q', 'W13L', 'G14L']",missense
+MW881698.1,row,5803:5811,GAGATGGGG->TCAGCTCTT,Vpu,"['E66S', 'M67A', 'G68L']",missense
+MW881698.1,row,5954:5955,GA->TC,Envelope surface glycoprotein gp160,"['D62S']",missense
+MW881698.1,row,6165:6166,CT->AG,Envelope surface glycoprotein gp160,"['T132K']",missense
+MW881698.1,row,6171:6173,TGA->ATG,Envelope surface glycoprotein gp160,"['L134Y', 'K135E']",missense
+MW881698.1,row,6178:6180,TGA->AAG,Envelope surface glycoprotein gp160,"['N136K', 'D137S']",missense
+MW881698.1,row,6189:6190,CC->GT,Envelope surface glycoprotein gp160,"['T140S']",missense
+MW881698.1,row,6201:6202,GC->CT,Envelope surface glycoprotein gp160,"['S144T']",missense
+MW881698.1,row,6204:6205,GG->CT,Envelope surface glycoprotein gp160,"['G145A']",missense
+MW881698.1,row,6207:6208,GA->AT,Envelope surface glycoprotein gp160,"['R146N']",missense
+MW881698.1,row,6213:6216,TAAT->CCGG,Envelope surface glycoprotein gp160,"['I148T', 'M149G']",missense
+MW881698.1,row,6592:6595,TGTC->AAAA,Envelope surface glycoprotein gp160,"['V275K']",missense
+MW881698.1,row,6611:6612,GC->AT,Envelope surface glycoprotein gp160,"['A281I']",missense
+MW881698.1,row,6637:6639,CAC->TCA,Envelope surface glycoprotein gp160,"['T290Q']",missense
+MW881698.1,row,6697:6702,CCAGAG->AGGACC,Envelope surface glycoprotein gp160,"['Q310G', 'R311P']",missense
+MW881698.1,row,6706:6708,ACC->GAG,Envelope surface glycoprotein gp160,"['P313R']",missense
+MW881698.1,row,6716:6718,GCA->TTT,Envelope surface glycoprotein gp160,"['A316F']",missense
+MW881698.1,row,6723:6724,TT->CA,Envelope surface glycoprotein gp160,"['V318A']",missense
+MW881698.1,row,6728:6729,AT->GG,Envelope surface glycoprotein gp160,"['I320G']",missense
+MW881698.1,row,6732:6733,GA->AC,Envelope surface glycoprotein gp160,"['G321D']",missense
+MW881698.1,row,6799:6801,ACA->GTG,Envelope surface glycoprotein gp160,"['Q344W']",missense
+MW881698.1,row,6858:6860,AAT->GTA,Envelope surface glycoprotein gp160,"['Q363R', 'S364T']",missense
+MW881698.1,row,6956:6957,TT->CA,Envelope surface glycoprotein gp160,"['F396H']",missense
+MW881698.1,row,6959:6960,AA->GC,Envelope surface glycoprotein gp160,"['N397A']",missense
+MW881698.1,row,6965:6968,ACTT->GGAA,Envelope surface glycoprotein gp160,"['T399G', 'W400R']",missense
+MW881698.1,row,6970:6973,GAGT->TTCA,Envelope surface glycoprotein gp160,"['W400C']",missense
+MW881698.1,row,6994:7000,TGAAGGA->CATTACC,Envelope surface glycoprotein gp160,"['E409I', 'G410T']",missense
+MW881698.1,row,7106:7107,TC->AT,Envelope surface glycoprotein gp160,"['S446I']",missense
+MW881698.1,row,7162:7163,GT->TA,Envelope surface glycoprotein gp160,"['E464D', 'S465T']",missense
+MW881698.1,row,7630:7633,ACAG->TAGT,Envelope surface glycoprotein gp160,"['E620D', 'Q621S']",missense
+MW881698.1,row,7688:7689,AG->GA,Envelope surface glycoprotein gp160,"['S640D']",missense
+MW881698.1,row,7691:7692,TT->GA,Envelope surface glycoprotein gp160,"['L641E']",missense
+MW881698.1,row,7714:7715,AT->GG,Envelope surface glycoprotein gp160,"['S649A']",missense
+MW881698.1,row,7819:7820,AT->GA,Envelope surface glycoprotein gp160,"['L684I']",missense
+MW881698.1,row,8006:8008,ATT->GGA,Rev,"['H53R', 'S54T']",missense
+MW881698.1,row,8006:8008,ATT->GGA,Envelope surface glycoprotein gp160,"['I746G']",missense
+MW881698.1,row,8012:8013,TT->CA,Rev,"['I55T']",missense
+MW881698.1,row,8012:8013,TT->CA,Envelope surface glycoprotein gp160,"['L748Q']",missense
+MW881698.1,row,8019:8020,AC->CT,Rev,"['E57D', 'R58W']",missense
+MW881698.1,row,8019:8020,AC->CT,Envelope surface glycoprotein gp160,"['N750T']",missense
+MW881698.1,row,8144:8146,GCC->CTA,Rev,"['S99T', 'P100T']",missense
+MW881698.1,row,8144:8146,GCC->CTA,Envelope surface glycoprotein gp160,"['A792L']",missense
+MW881698.1,row,8181:8182,GT->TC,Envelope surface glycoprotein gp160,"['S804I']",missense
+MW881698.1,row,8273:8274,GG->AT,Envelope surface glycoprotein gp160,"['G835I']",missense
+MW881698.1,row,8372:8373,GA->AG,Nef,"['I11V']",missense
+MW881698.1,row,8386:8387,CT->AG,Nef,"['T15K']",missense
+MW881698.1,row,8403:8404,AG->CA,Nef,"['R21Q']",missense
+MW881698.1,row,8426:8427,TA->AG,Nef,"['D28E', 'R29G']",missense
+MW881698.1,row,8494:8495,CC->AT,Nef,"['T51N']",missense
+MW881698.1,row,8656:8657,GA->AG,Nef,"['R105K']",missense
+MW881698.1,row,8795:8796,TA->GC,Nef,"['D151E', 'K152Q']",missense
+MW881698.1,row,8886:8887,GA->AT,Nef,"['E182M']",missense
+MW881698.1,hot,516:518,CG->AA,Pr55(Gag),"['L61I']",missense
+MW881698.1,hot,518:520,GG->AA,Pr55(Gag),"['L61L', 'G62E']",missense
+MW881698.1,hot,603:605,CA->AG,Pr55(Gag),"['Q90K']",missense
+MW881698.1,hot,677:679,AC->GA,Pr55(Gag),"['K114K', 'A115E']",missense
+MW881698.1,hot,1500:1502,AT->CG,Pr55(Gag),"['I389L']",missense
+MW881698.1,hot,1794:1796,AT->GC,Pr55(Gag),"['T487A']",missense
+MW881698.1,hot,3473:3475,AT->GC,reverse transcriptase,"['N460D']",missense
+MW881698.1,hot,3475:3477,TG->CA,reverse transcriptase,"['N460N', 'R461K']",missense
+MW881698.1,hot,3629:3631,CA->AG,reverse transcriptase,"['Q512K']",missense
+MW881698.1,hot,4767:4769,GT->AA,Vif,"['D61K']",missense
+MW881698.1,hot,5333:5335,TG->CA,Vpr,"['S5P']",missense
+MW881698.1,hot,5352:5354,GT->AC,Vpr,"['R11H', 'Y12H']",missense
+MW881698.1,hot,5482:5484,GT->AG,Tat,"['V36M']",missense
+MW881698.1,hot,5677:5679,TC->AT,Vpu,"['S24T']",missense
+MW881698.1,hot,5700:5702,GA->AG,Vpu,"['R31R', 'K32R']",missense
+MW881698.1,hot,5826:5828,CA->TT,Vpu,"['H73H', 'H74L']",missense
+MW881698.1,hot,5826:5828,CA->TT,Envelope surface glycoprotein gp160,"['T19I', 'M20L']",missense
+MW881698.1,hot,6195:6197,GA->AG,Envelope surface glycoprotein gp160,"['S142N', 'S143G']",missense
+MW881698.1,hot,6285:6287,AT->TG,Envelope surface glycoprotein gp160,"['E172V', 'Y173D']",missense
+MW881698.1,hot,6287:6289,TT->GA,Envelope surface glycoprotein gp160,"['Y173E']",missense
+MW881698.1,hot,6371:6373,AT->CC,Envelope surface glycoprotein gp160,"['I201L']",missense
+MW881698.1,hot,6616:6618,AC->GA,Envelope surface glycoprotein gp160,"['K282K', 'T283N']",missense
+MW881698.1,hot,6691:6693,CG->AC,Envelope surface glycoprotein gp160,"['I307I', 'R308P']",missense
+MW881698.1,hot,7156:7158,CA->TG,Envelope surface glycoprotein gp160,"['N462N', 'N463S']",missense
+MW881698.1,hot,7156:7158,CA->TG,Asp,"['Q80*']",missense
+MW881698.1,hot,7313:7315,AA->CG,Envelope surface glycoprotein gp160,"['I515L']",missense
+MW881698.1,hot,7313:7315,AA->CG,Asp,"['N132T', 'R133G']",missense
+MW881698.1,hot,7532:7534,AG->CC,Envelope surface glycoprotein gp160,"['K588H']",missense
+MW881698.1,hot,7763:7765,AA->CG,Envelope surface glycoprotein gp160,"['K665Q']",missense
+MW881698.1,hot,8023:8025,AC->GT,Rev,"['G33G', 'S34F']",missense
+MW881698.1,hot,8023:8025,AC->GT,Envelope surface glycoprotein gp160,"['G751G', 'S752F']",missense
+MW881698.1,hot,8120:8122,CT->AC,Rev,"['L66I']",missense
+MW881698.1,hot,8120:8122,CT->AC,Envelope surface glycoprotein gp160,"['L784I']",missense
+MW881698.1,hot,8219:8221,GC->AA,Envelope surface glycoprotein gp160,"['A817T']",missense
+MW881698.1,hot,8552:8554,CC->TG,Nef,"['V70V', 'T71R']",missense
+MW881698.1,hot,8751:8753,CG->AA,Nef,"['L137I']",missense
+MW881698.1,hot,8827:8829,CA->AT,Nef,"['T162N', 'S163C']",missense
+MW881698.1,hot,8835:8837,TA->CG,Nef,"['L165L']",silent
+MW881698.1,hot,8844:8846,GG->AA,Nef,"['V168I']",missense

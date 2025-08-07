@@ -48,7 +48,6 @@ DATE_FORMAT = "%Y%m%d"
 # Global Variables
 today = date.today().strftime("%Y%m%d")
 
-
 class VirusMutationProcessor:
     """
     Class for processing virus-specific mutations with organized file structure.

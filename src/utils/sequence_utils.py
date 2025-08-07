@@ -3,6 +3,16 @@
 Author: Rui Wang
 Date: 2025-08-04 13:30:27
 LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-07 10:11:05
+Email: wang.rui@nyu.edu
+FilePath: /viralytics-mut/src/utils/sequence_utils.py
+Description: 
+'''
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-04 13:30:27
+LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-05 16:07:44
 Email: wang.rui@nyu.edu
 FilePath: /viralytics-mut/src/utils/sequence_utils.py
@@ -11,7 +21,7 @@ Description:
 """Sequence processing utilities for FASTA files and sequence operations."""
 
 import re
-from typing import Dict, List, Tuple, Union
+from typing import Dict, List, Tuple, Union, Optional
 
 from Bio import SeqIO
 
@@ -70,10 +80,10 @@ def has_only_valid_nts(sequence: str) -> bool:
 
 def parse_gene_coordinates(coordinates: str) -> List[Tuple[int, int]]:
     """
-    Parse gene coordinates, handling both simple ranges and join operations.
+    Parse gene coordinates, handling simple ranges, join operations, and complement notation.
     
     Args:
-        coordinates (str): Gene coordinates in format like "13442..16236" or "join(13442..13468,13468..16236)"
+        coordinates (str): Gene coordinates in format like "13442..16236", "join(...)", or "complement(...)"
     
     Returns:
         List[Tuple[int, int]]: List of (start, end) coordinate pairs (1-based)
@@ -83,52 +93,107 @@ def parse_gene_coordinates(coordinates: str) -> List[Tuple[int, int]]:
         [(13442, 16236)]
         >>> parse_gene_coordinates("join(13442..13468,13468..16236)")
         [(13442, 13468), (13468, 16236)]
+        >>> parse_gene_coordinates("complement(6919..7488)")
+        [(6919, 7488)]
+        >>> parse_gene_coordinates("complement(join(5105..5319,5321..5396))")
+        [(5105, 5319), (5321, 5396)]
     """
-    if coordinates.startswith("join(") and coordinates.endswith(")"):
+    coordinate_pairs, _ = parse_gene_coordinates_enhanced(coordinates)
+    return coordinate_pairs
+
+
+def parse_gene_coordinates_enhanced(coordinates: str) -> Tuple[List[Tuple[int, int]], bool]:
+    """
+    Enhanced coordinate parser that handles complement notation and returns strand information.
+    
+    Args:
+        coordinates (str): Gene coordinates with possible complement/join notation
+        
+    Returns:
+        Tuple[List[Tuple[int, int]], bool]: (coordinate_pairs, is_complement)
+        
+    Examples:
+        >>> parse_gene_coordinates_enhanced("6919..7488")
+        ([(6919, 7488)], False)
+        >>> parse_gene_coordinates_enhanced("complement(6919..7488)")
+        ([(6919, 7488)], True)
+        >>> parse_gene_coordinates_enhanced("complement(join(100..200,300..400))")
+        ([(100, 200), (300, 400)], True)
+    """
+    is_complement = False
+    working_coords = coordinates.strip()
+    
+    # Check for complement notation
+    if working_coords.startswith("complement(") and working_coords.endswith(")"):
+        is_complement = True
+        working_coords = working_coords[11:-1]  # Remove "complement(" and ")"
+    
+    # Now parse the inner coordinates (could be simple range or join)
+    coordinate_pairs = []
+    
+    if working_coords.startswith("join(") and working_coords.endswith(")"):
         # Handle join operation
-        join_content = coordinates[5:-1]  # Remove "join(" and ")"
+        join_content = working_coords[5:-1]  # Remove "join(" and ")"
         segments = join_content.split(",")
-        coordinate_pairs = []
         
         for segment in segments:
+            segment = segment.strip()
             if ".." in segment:
                 start_str, end_str = segment.split("..")
                 start_pos = int(start_str.strip())
                 end_pos = int(end_str.strip())
                 coordinate_pairs.append((start_pos, end_pos))
         
-        return coordinate_pairs
-    else:
+    elif ".." in working_coords:
         # Handle simple range
-        if ".." in coordinates:
-            start_str, end_str = coordinates.split("..")
-            start_pos = int(start_str.strip())
-            end_pos = int(end_str.strip())
-            return [(start_pos, end_pos)]
-        else:
-            raise ValueError(f"Invalid coordinate format: {coordinates}")
+        start_str, end_str = working_coords.split("..")
+        start_pos = int(start_str.strip())
+        end_pos = int(end_str.strip())
+        coordinate_pairs.append((start_pos, end_pos))
+    else:
+        raise ValueError(f"Invalid coordinate format: {coordinates}")
+    
+    return coordinate_pairs, is_complement
 
 
 def extract_gene_sequence_with_join(genome_sequence: str, coordinates: str) -> str:
     """
-    Extract gene sequence from genome, handling both simple ranges and join operations.
+    Extract gene sequence from genome, handling simple ranges, join operations, and complement notation.
     
     Args:
         genome_sequence (str): Complete genome sequence
-        coordinates (str): Gene coordinates in format like "13442..16236" or "join(13442..13468,13468..16236)"
+        coordinates (str): Gene coordinates in format like "13442..16236", "join(...)", or "complement(...)"
     
     Returns:
-        str: Extracted gene sequence
+        str: Extracted gene sequence (reverse complemented if complement notation is used)
     
     Examples:
         >>> extract_gene_sequence_with_join(genome_seq, "13442..16236")
         "ATCG..."
         >>> extract_gene_sequence_with_join(genome_seq, "join(13442..13468,13468..16236)")
         "ATCG..."  # Joined sequence from both segments
+        >>> extract_gene_sequence_with_join(genome_seq, "complement(6919..7488)")
+        "CGAT..."  # Reverse complement of the genomic region
     """
-    coordinate_pairs = parse_gene_coordinates(coordinates)
-    joined_sequence = ""
+    extracted_sequence, _ = extract_gene_sequence_enhanced(genome_sequence, coordinates)
+    return extracted_sequence
+
+
+def extract_gene_sequence_enhanced(genome_sequence: str, coordinates: str) -> Tuple[str, bool]:
+    """
+    Extract gene sequence with proper complement handling and strand information.
     
+    Args:
+        genome_sequence (str): Complete genome sequence
+        coordinates (str): Gene coordinates with possible complement notation
+        
+    Returns:
+        Tuple[str, bool]: (extracted_sequence, was_reverse_complemented)
+    """
+    coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
+    
+    # Extract sequence segments
+    joined_sequence = ""
     for start_pos, end_pos in coordinate_pairs:
         # Convert to 0-based coordinates for sequence extraction
         start_idx = start_pos - 1
@@ -136,15 +201,21 @@ def extract_gene_sequence_with_join(genome_sequence: str, coordinates: str) -> s
         segment_sequence = genome_sequence[start_idx:end_idx]
         joined_sequence += segment_sequence
     
-    return joined_sequence
+    # If it's a complement, reverse complement the sequence
+    if is_complement:
+        from Bio.Seq import Seq
+        seq_obj = Seq(joined_sequence)
+        joined_sequence = str(seq_obj.reverse_complement())
+    
+    return joined_sequence, is_complement
 
 
 def create_genome_to_joined_mapping(coordinates: str) -> Dict[int, int]:
     """
-    Create a mapping from genome positions to joined sequence positions.
+    Create a mapping from genome positions to joined sequence positions, handling complement notation.
     
     Args:
-        coordinates (str): Gene coordinates in format like "13442..16236" or "join(13442..13468,13468..16236)"
+        coordinates (str): Gene coordinates in format like "13442..16236", "join(...)", or "complement(...)"
     
     Returns:
         Dict[int, int]: Mapping from genome position to joined sequence position
@@ -155,17 +226,45 @@ def create_genome_to_joined_mapping(coordinates: str) -> Dict[int, int]:
         1
         >>> mapping[13468]  # First position in second segment
         27  # 27 nucleotides from first segment
+        >>> mapping = create_genome_to_joined_mapping("complement(6919..7488)")
+        >>> mapping[6919]  # First genomic position maps to last joined position
+        570
     """
-    coordinate_pairs = parse_gene_coordinates(coordinates)
-    genome_to_joined = {}
-    joined_pos = 1
-    
-    for start_pos, end_pos in coordinate_pairs:
-        for genome_pos in range(start_pos, end_pos + 1):
-            genome_to_joined[genome_pos] = joined_pos
-            joined_pos += 1
-    
+    genome_to_joined, _ = create_genome_to_joined_mapping_enhanced(coordinates)
     return genome_to_joined
+
+
+def create_genome_to_joined_mapping_enhanced(coordinates: str) -> Tuple[Dict[int, int], bool]:
+    """
+    Create genome-to-joined position mapping with complement support and strand information.
+    
+    Args:
+        coordinates (str): Gene coordinates with possible complement notation
+        
+    Returns:
+        Tuple[Dict[int, int], bool]: (position_mapping, is_complement)
+    """
+    coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
+    genome_to_joined = {}
+    
+    if is_complement:
+        # For complement genes, we need to map positions in reverse order
+        total_length = sum(end - start + 1 for start, end in coordinate_pairs)
+        joined_pos = total_length
+        
+        for start_pos, end_pos in coordinate_pairs:
+            for genome_pos in range(start_pos, end_pos + 1):
+                genome_to_joined[genome_pos] = joined_pos
+                joined_pos -= 1
+    else:
+        # For forward genes, map positions normally
+        joined_pos = 1
+        for start_pos, end_pos in coordinate_pairs:
+            for genome_pos in range(start_pos, end_pos + 1):
+                genome_to_joined[genome_pos] = joined_pos
+                joined_pos += 1
+    
+    return genome_to_joined, is_complement
 
 
 def calculate_amino_acid_position_from_joined(joined_position: int) -> int:
@@ -213,7 +312,7 @@ def extract_genome_id(full_header: str, virus_name: str = "") -> str:
     return full_header
 
 
-def calculate_amino_acid_position_from_genome(genome_position: int, genome_to_joined_mapping: Dict[int, int]) -> int:
+def calculate_amino_acid_position_from_genome(genome_position: int, genome_to_joined_mapping: Dict[int, int]) -> Optional[int]:
     """
     Calculate amino acid position from genome position using the mapping.
     
@@ -222,12 +321,38 @@ def calculate_amino_acid_position_from_genome(genome_position: int, genome_to_jo
         genome_to_joined_mapping (Dict[int, int]): Mapping from genome to joined positions
     
     Returns:
-        int: Amino acid position (1-based), or None if position not in mapping
+        Optional[int]: Amino acid position (1-based), or None if position not in mapping
     """
     if genome_position in genome_to_joined_mapping:
         joined_position = genome_to_joined_mapping[genome_position]
         return calculate_amino_acid_position_from_joined(joined_position)
     return None
+
+
+def calculate_amino_acid_position_enhanced(genome_position: int, coordinates: str) -> Optional[int]:
+    """
+    Calculate amino acid position with complement support.
+    
+    Args:
+        genome_position (int): Position in genome (1-based)
+        coordinates (str): Gene coordinates with possible complement notation
+        
+    Returns:
+        Optional[int]: Amino acid position (1-based) or None if position not in gene
+    """
+    try:
+        genome_to_joined, is_complement = create_genome_to_joined_mapping_enhanced(coordinates)
+        
+        if genome_position not in genome_to_joined:
+            return None
+            
+        joined_position = genome_to_joined[genome_position]
+        aa_position = calculate_amino_acid_position_from_joined(joined_position)
+        
+        return aa_position
+        
+    except (ValueError, KeyError):
+        return None
 
 
 def clustal_genomes(seq_file_name: str) -> bool:

@@ -27,18 +27,6 @@ global:
     31: Blastocrithidia nuclear code
     33: Cephalodiscidae mitochondrial code
 viruses:
-  HIV:
-    codon_table_id: 1
-    default_msa_file: HIV_msa.txt
-    description: Human Immunodeficiency Virus
-    proteome_file: HIV_proteome.fasta
-    reference_genome: HIV_reference.fasta
-  Pox:
-    codon_table_id: 1
-    default_msa_file: pox_msa.txt
-    description: Poxvirus
-    proteome_file: Pox_proteome.fasta
-    reference_genome: Pox_reference.fasta
   SARS-CoV-2:
     codon_table_id: 1
     default_msa_file: gisaid_hcov-19_20221201_20221230_China_0_msa.txt
@@ -57,3 +45,9 @@ viruses:
     description: Chikungunya virus
     proteome_file: Chikungunya_proteome.fasta
     reference_genome: NC_004162.fasta
+  HIV-1:
+    codon_table_id: 1
+    default_msa_file: HIV-1_msa.txt
+    description: Human Immunodeficiency Virus 1
+    proteome_file: HIV-1_proteome.fasta
+    reference_genome: NC_001802.1.fasta
