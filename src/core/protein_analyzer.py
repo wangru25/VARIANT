@@ -655,8 +655,13 @@ class AlignmentProcessor:
                                         # Silent mutation
                                         mutation_str = f"{original_aa_from_codon}{aa_position}{original_aa_from_codon}"
                                     else:
-                                        # Regular mutation
-                                        mutation_str = f"{original_aa_from_codon}{aa_position}{mutated_aa_from_codon}"
+                                        # Check if this creates a stop codon
+                                        if mutated_aa_from_codon == "*":
+                                            # Nonsense mutation (stop codon)
+                                            mutation_str = f"{original_aa_from_codon}{aa_position}*"
+                                        else:
+                                            # Regular missense mutation
+                                            mutation_str = f"{original_aa_from_codon}{aa_position}{mutated_aa_from_codon}"
                                     
                                     return {
                                         "protein": header,

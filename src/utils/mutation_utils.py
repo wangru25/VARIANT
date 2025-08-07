@@ -238,7 +238,7 @@ def classify_mutation_type(protein_mutation: List[Dict]) -> str:
         protein_mutation (List[Dict]): List of protein mutation dictionaries.
         
     Returns:
-        str: Biological classification (silent, missense, deletion, insertion, frameshift)
+        str: Biological classification (silent, missense, nonsense, deletion, insertion, frameshift)
     """
     if not protein_mutation:
         return "unknown"
@@ -269,6 +269,17 @@ def classify_mutation_type(protein_mutation: List[Dict]) -> str:
                     return "insertion"
             elif isinstance(mut_str, str) and 'ins' in mut_str:
                 return "insertion"
+    
+    # Check for nonsense mutations (stop codons)
+    for mutation in protein_mutation:
+        if isinstance(mutation, dict) and mutation.get('mutation'):
+            mut_str = mutation.get('mutation')
+            if isinstance(mut_str, list):
+                # Check if any mutation in the list creates a stop codon
+                if any('*' in str(m) or 'X' in str(m) for m in mut_str):
+                    return "nonsense"
+            elif isinstance(mut_str, str) and ('*' in mut_str or 'X' in mut_str):
+                return "nonsense"
     
     # Check for silent vs missense mutations
     for mutation in protein_mutation:
