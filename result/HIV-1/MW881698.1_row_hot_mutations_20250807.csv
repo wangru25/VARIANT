@@ -100,7 +100,7 @@ MW881698.1,hot,6371:6373,AT->CC,Envelope surface glycoprotein gp160,"['I201L']",
 MW881698.1,hot,6616:6618,AC->GA,Envelope surface glycoprotein gp160,"['K282K', 'T283N']",missense
 MW881698.1,hot,6691:6693,CG->AC,Envelope surface glycoprotein gp160,"['I307I', 'R308P']",missense
 MW881698.1,hot,7156:7158,CA->TG,Envelope surface glycoprotein gp160,"['N462N', 'N463S']",missense
-MW881698.1,hot,7156:7158,CA->TG,Asp,"['Q80*']",missense
+MW881698.1,hot,7156:7158,CA->TG,Asp,"['Q80*']",nonsense
 MW881698.1,hot,7313:7315,AA->CG,Envelope surface glycoprotein gp160,"['I515L']",missense
 MW881698.1,hot,7313:7315,AA->CG,Asp,"['N132T', 'R133G']",missense
 MW881698.1,hot,7532:7534,AG->CC,Envelope surface glycoprotein gp160,"['K588H']",missense

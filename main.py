@@ -33,6 +33,8 @@ from src.core.protein_analyzer import (
     ProMutationDetector,
     Proteome,
 )
+from src.core.frameshift_detector import FrameshiftDetector
+
 from src.utils.mutation_utils import (
     convert_key_to_int,
     sort_dict_by_consecutive_keys,
@@ -46,7 +48,8 @@ from src.utils.mutation_utils import (
 DATE_FORMAT = "%Y%m%d"
 
 # Global Variables
-today = date.today().strftime("%Y%m%d")
+# today = date.today().strftime("%Y%m%d")
+today = 20250807
 
 class VirusMutationProcessor:
     """
@@ -929,6 +932,12 @@ def main():
         type=str,
         help="Segment name for multi-segment viruses (e.g., segment_1, segment_2)",
     )
+    parser.add_argument(
+        "--detect-frameshifts",
+        action="store_true",
+        help="Detect potential frameshifting sites",
+    )
+
 
     args = parser.parse_args()
 
@@ -1028,16 +1037,32 @@ def _process_segment(virus_processor: VirusMutationProcessor, segment: str, args
         genome_snp_processor_instance, virus_processor
     )
 
+    # Initialize frameshift detector if requested
+    frameshift_detector = None
+    
+    if args.detect_frameshifts:
+        frameshift_detector = FrameshiftDetector(ref_genome)
+        print("Frameshift detection enabled")
+
     msa_files = [msa_file]
 
-    if args.process_all or not args.genome_id:
-        # Process all genomes in the MSA file
-        print(f"Processing all genomes in segment {segment}...")
-        snp_processor_instance.process_snp_records(msa_files, segment)
-    else:
-        # Process only one specific genome
-        print(f"Processing genome: {args.genome_id} in segment {segment}")
-        snp_processor_instance.get_snp_records_for_one_genome(msa_files, args.genome_id, segment)
+    # Run SNP processing only if not doing frameshift-only analysis
+    if not args.detect_frameshifts:
+        if args.process_all or not args.genome_id:
+            # Process all genomes in the MSA file
+            print(f"Processing all genomes in segment {segment}...")
+            snp_processor_instance.process_snp_records(msa_files, segment)
+        else:
+            # Process only one specific genome
+            print(f"Processing genome: {args.genome_id} in segment {segment}")
+            snp_processor_instance.get_snp_records_for_one_genome(msa_files, args.genome_id, segment)
+    
+    # Run frameshift analysis if requested
+    if frameshift_detector:
+        _run_additional_analyses(
+            msa_instance, frameshift_detector, 
+            virus_processor, segment, args
+        )
 
 
 def _process_single_segment(virus_processor: VirusMutationProcessor, args) -> None:
@@ -1092,18 +1117,77 @@ def _process_single_segment(virus_processor: VirusMutationProcessor, args) -> No
         genome_snp_processor_instance, virus_processor
     )
 
+    # Initialize frameshift detector if requested
+    frameshift_detector = None
+    
+    if args.detect_frameshifts:
+        frameshift_detector = FrameshiftDetector(ref_genome)
+        print("Frameshift detection enabled")
+
     msa_files = [msa_file]
 
-    if args.process_all or not args.genome_id:
-        # Process all genomes in the MSA file
-        print("Processing all genomes in the MSA file...")
-        snp_processor_instance.process_snp_records(msa_files)
-    else:
-        # Process only one specific genome
-        print(f"Processing genome: {args.genome_id}")
-        snp_processor_instance.get_snp_records_for_one_genome(msa_files, args.genome_id)
+    # Run SNP processing only if not doing frameshift-only analysis
+    if not args.detect_frameshifts:
+        if args.process_all or not args.genome_id:
+            # Process all genomes in the MSA file
+            print("Processing all genomes in the MSA file...")
+            snp_processor_instance.process_snp_records(msa_files)
+        else:
+            # Process only one specific genome
+            print(f"Processing genome: {args.genome_id}")
+            snp_processor_instance.get_snp_records_for_one_genome(msa_files, args.genome_id)
+    
+    # Run frameshift analysis if requested
+    if frameshift_detector:
+        _run_additional_analyses(
+            msa_instance, frameshift_detector, 
+            virus_processor, None, args
+        )
 
     print(f"Processing complete. Results saved in: {virus_processor.result_path}")
+
+
+def _run_additional_analyses(
+    msa_instance, frameshift_detector, 
+    virus_processor, segment, args
+) -> None:
+    """
+    Run additional analyses (frameshifting detection).
+    
+    Args:
+        msa_instance: Multiple sequence alignment instance
+        frameshift_detector: Frameshift detector instance (or None)
+        virus_processor: Virus processor instance
+        segment: Segment name (or None for single-segment)
+        args: Command line arguments
+    """
+    print("\n=== Running Additional Analyses ===")
+    
+    # Get reference sequence
+    ref_seq_id, ref_seq_msa = msa_instance.find_ref_msa("reference")
+    if ref_seq_id is None:
+        print("Warning: Could not find reference sequence for additional analyses")
+        return
+    
+    # Remove gaps from reference sequence
+    ref_seq_clean = ref_seq_msa.replace('-', '')
+    
+    # Run frameshift detection
+    if frameshift_detector:
+        print("Detecting frameshift sites...")
+        frameshift_sites = frameshift_detector.detect_frameshift_sites(ref_seq_clean)
+        
+        frameshift_output = frameshift_detector.format_frameshift_output(frameshift_sites)
+        print(frameshift_output)
+        
+        # Save frameshift results as CSV
+        result_path = virus_processor.get_result_path(segment)
+        frameshift_file = os.path.join(result_path, f"potential_PRF_{today}.csv")
+        with open(frameshift_file, 'w') as f:
+            f.write(frameshift_output)
+        print(f"Potential PRF analysis saved to: {frameshift_file}")
+    
+
 
 
 if __name__ == "__main__":

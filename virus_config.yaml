@@ -1,5 +1,12 @@
 global:
   default_codon_table: 1
+  # Advanced detection options
+  frameshift_detection:
+    enabled: false
+    min_confidence: 0.6
+  rna_editing_detection:
+    enabled: false
+    min_confidence: 0.5
   supported_codon_tables:
     1: Standard genetic code
     2: Vertebrate mitochondrial code

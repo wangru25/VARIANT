@@ -1,0 +1,13 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+MT526800.1|Chikungunya,row,1596:1597,TT->GC,nsp1,"['L507R']",missense
+MT526800.1|Chikungunya,row,5218:5219,TG->CA,nsp3,"['A382T']",missense
+MT526800.1|Chikungunya,row,6010:6011,GT->TG,nsp4,"['S116A']",missense
+MT526800.1|Chikungunya,row,7163:7164,CA->TT,nsp4,"['Q500L']",missense
+MT526800.1|Chikungunya,row,7206:7207,TC->CT,nsp4,"['I514T']",missense
+MT526800.1|Chikungunya,row,8417:8418,TA->CG,E3,"['I23T']",missense
+MT526800.1|Chikungunya,row,8710:8711,GG->AA,E2,"['G57K']",missense
+MT526800.1|Chikungunya,row,9081:9082,GC->AA,E2,"['L181M']",missense
+MT526800.1|Chikungunya,row,10623:10624,CA->TG,E1,"['K211E']",missense
+MT526800.1|Chikungunya,hot,5083:5085,GC->AT,nsp3,"['T336T', 'T337I']",missense
+MT526800.1|Chikungunya,hot,9121:9123,AT->GC,E2,"['S194G']",missense
+MT526800.1|Chikungunya,hot,9171:9173,AT->GC,E2,"['L210L', 'I211T']",missense
