@@ -1,4 +1,4 @@
-# Viralytics-mut: Advanced Viral Mutation Analysis Framework
+# MuViTrack: Multi-scale Viral Mutation Tracking and Analysis Platform
 
 A comprehensive Python framework for analyzing viral mutations, supporting both single-segment and multi-segment viruses. The framework provides detailed analysis of nucleotide changes, protein impacts, and mutation classifications including missense, nonsense, and frameshift mutations.
 
@@ -28,8 +28,8 @@ A comprehensive Python framework for analyzing viral mutations, supporting both 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/viralytics-mut.git
-cd viralytics-mut
+git clone https://github.com/yourusername/muvitrack.git
+cd muvitrack
 
 # Install dependencies
 pip install -r requirements.txt
@@ -177,11 +177,11 @@ Common issues and solutions:
 If you use this software in your research, please cite:
 
 ```bibtex
-@software{wang2025viralyticsmut,
-  title={Viralytics-mut: A Comprehensive Framework for Multi-Scale Viral Mutation Analysis},
+@software{wang2025muvitrack,
+  title={MuViTrack: Multi-scale Viral Mutation Tracking and Analysis Platform},
   author={Wang, Rui},
   year={2025},
-  url={https://github.com/yourusername/viralytics-mut}
+  url={https://github.com/yourusername/muvitrack}
 }
 ```
 
