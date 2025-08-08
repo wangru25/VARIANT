@@ -23,7 +23,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 class VirusDatasetSetup:
     """Helper class for setting up virus datasets."""
-    
+
     def __init__(self, config_file: str = "virus_config.yaml"):
         """
         Initialize the virus dataset setup.
@@ -33,7 +33,7 @@ class VirusDatasetSetup:
         """
         self.config_file = config_file
         self.config = self._load_config()
-    
+
     def _load_config(self) -> Dict:
         """Load the virus configuration file."""
         try:
@@ -45,13 +45,13 @@ class VirusDatasetSetup:
                 "Please create a virus_config.yaml file or use the --create-config option."
             )
             return {}
-    
+
     def list_viruses(self) -> None:
         """List all configured viruses."""
         if not self.config or "viruses" not in self.config:
             print("No viruses configured. Use --add-virus to add a new virus.")
             return
-        
+
         print("Configured viruses:")
         print("-" * 50)
         for virus_name, config in self.config["viruses"].items():
@@ -66,7 +66,7 @@ class VirusDatasetSetup:
                 f"Default MSA File: {config.get('default_msa_file', 'Not specified')}"
             )
             print("-" * 50)
-    
+
     def add_virus(
         self,
         virus_name: str,
@@ -89,10 +89,10 @@ class VirusDatasetSetup:
         """
         if not self.config:
             self.config = {"viruses": {}, "global": {}}
-        
+
         if "viruses" not in self.config:
             self.config["viruses"] = {}
-        
+
         # Add the new virus configuration
         self.config["viruses"][virus_name] = {
             "reference_genome": reference_genome,
@@ -101,13 +101,13 @@ class VirusDatasetSetup:
             "description": description or f"{virus_name} virus",
             "default_msa_file": default_msa_file or f"{virus_name}_msa.txt",
         }
-        
+
         # Save the updated configuration
         self._save_config()
-        
+
         # Create directory structure
         self._create_virus_directories(virus_name)
-        
+
         print(f"✓ Added virus '{virus_name}' to configuration")
         print(f"✓ Created directory structure: data/{virus_name}/")
         print(f"  - data/{virus_name}/clustalW/ (for MSA files)")
@@ -124,7 +124,7 @@ class VirusDatasetSetup:
             )
         print(f"3. Place your MSA files in: data/{virus_name}/clustalW/")
         print(f"4. Run: python main.py --virus {virus_name}")
-    
+
     def setup_virus_dataset(
         self,
         virus_name: str,
@@ -150,22 +150,22 @@ class VirusDatasetSetup:
             print(f"Error: Virus '{virus_name}' is not configured.")
             print("Please add it first using --add-virus")
             return
-        
+
         virus_config = self.config["viruses"][virus_name]
-        
+
         # Create directories
         self._create_virus_directories(virus_name)
-        
+
         # Copy reference genome
         if reference_genome_path:
             target_ref = f"data/{virus_name}/refs/{virus_config['reference_genome']}"
             self._copy_file(reference_genome_path, target_ref, "Reference genome")
-        
+
         # Copy proteome file
         if proteome_path:
             target_prot = f"data/{virus_name}/refs/{virus_config['proteome_file']}"
             self._copy_file(proteome_path, target_prot, "Proteome file")
-        
+
         # Copy MSA files
         if msa_files:
             for msa_file in msa_files:
@@ -173,11 +173,11 @@ class VirusDatasetSetup:
                 self._copy_file(
                     msa_file, target_msa, f"MSA file: {os.path.basename(msa_file)}"
                 )
-        
+
         print(f"✓ Virus dataset '{virus_name}' setup complete!")
         print(f"✓ Files are ready in data/{virus_name}/")
         print(f"✓ Run analysis with: python main.py --virus {virus_name}")
-    
+
     def _create_virus_directories(self, virus_name: str) -> None:
         """Create the directory structure for a virus."""
         directories = [
@@ -186,10 +186,10 @@ class VirusDatasetSetup:
             f"data/{virus_name}/fasta",
             f"result/{virus_name}",
         ]
-        
+
         for directory in directories:
             os.makedirs(directory, exist_ok=True)
-    
+
     def _copy_file(self, source: str, target: str, file_type: str) -> None:
         """Copy a file with error handling."""
         try:
@@ -200,7 +200,7 @@ class VirusDatasetSetup:
                 print(f"⚠ Warning: {file_type} not found: {source}")
         except Exception as e:
             print(f"✗ Error copying {file_type}: {e}")
-    
+
     def _save_config(self) -> None:
         """Save the configuration to file."""
         try:
@@ -208,7 +208,7 @@ class VirusDatasetSetup:
                 yaml.dump(self.config, f, default_flow_style=False, indent=2)
         except Exception as e:
             print(f"Error saving configuration: {e}")
-    
+
     def validate_virus_dataset(self, virus_name: str) -> bool:
         """
         Validate that a virus dataset is properly set up.
@@ -226,13 +226,13 @@ class VirusDatasetSetup:
         ):
             print(f"Error: Virus '{virus_name}' is not configured.")
             return False
-        
+
         virus_config = self.config["viruses"][virus_name]
         is_valid = True
-        
+
         print(f"Validating virus dataset: {virus_name}")
         print("-" * 40)
-        
+
         # Check directories
         directories = [
             f"data/{virus_name}/clustalW",
@@ -240,14 +240,14 @@ class VirusDatasetSetup:
             f"data/{virus_name}/fasta",
             f"result/{virus_name}",
         ]
-        
+
         for directory in directories:
             if os.path.exists(directory):
                 print(f"✓ Directory exists: {directory}")
             else:
                 print(f"✗ Missing directory: {directory}")
                 is_valid = False
-        
+
         # Check reference genome
         ref_path = f"data/{virus_name}/refs/{virus_config['reference_genome']}"
         if os.path.exists(ref_path):
@@ -255,14 +255,14 @@ class VirusDatasetSetup:
         else:
             print(f"✗ Missing reference genome: {ref_path}")
             is_valid = False
-        
+
         # Check proteome file (optional)
         prot_path = f"data/{virus_name}/refs/{virus_config['proteome_file']}"
         if os.path.exists(prot_path):
             print(f"✓ Proteome file: {prot_path}")
         else:
             print(f"⚠ Proteome file not found (optional): {prot_path}")
-        
+
         # Check MSA files
         msa_dir = f"data/{virus_name}/clustalW"
         msa_files = (
@@ -270,20 +270,20 @@ class VirusDatasetSetup:
             if os.path.exists(msa_dir)
             else []
         )
-        
+
         if msa_files:
             print(f"✓ Found {len(msa_files)} MSA file(s): {', '.join(msa_files)}")
         else:
             print(f"⚠ No MSA files found in: {msa_dir}")
-        
+
         print("-" * 40)
         if is_valid:
             print(f"✓ Virus dataset '{virus_name}' is ready for analysis!")
         else:
             print(f"✗ Virus dataset '{virus_name}' needs attention.")
-        
+
         return is_valid
-    
+
     def create_config_template(self) -> None:
         """Create a template configuration file."""
         template = {
@@ -305,10 +305,10 @@ class VirusDatasetSetup:
                 },
             },
         }
-        
+
         with open(self.config_file, "w") as f:
             yaml.dump(template, f, default_flow_style=False, indent=2)
-        
+
         print(f"✓ Created template configuration file: {self.config_file}")
         print("Edit this file to add your virus configurations.")
 
@@ -336,7 +336,7 @@ Examples:
   python setup_virus_dataset.py --create-config
         """,
     )
-    
+
     parser.add_argument(
         "--list", action="store_true", help="List all configured viruses"
     )
@@ -364,7 +364,7 @@ Examples:
         default="",
         help="Default MSA filename (for --add-virus)",
     )
-    
+
     parser.add_argument("--setup", type=str, help="Set up a complete virus dataset")
     parser.add_argument(
         "--reference-path", type=str, help="Path to reference genome file (for --setup)"
@@ -377,7 +377,7 @@ Examples:
         type=str,
         help="Comma-separated list of MSA file paths (for --setup)",
     )
-    
+
     parser.add_argument("--validate", type=str, help="Validate a virus dataset")
     parser.add_argument(
         "--create-config",
@@ -390,11 +390,11 @@ Examples:
         default="virus_config.yaml",
         help="Configuration file path (default: virus_config.yaml)",
     )
-    
+
     args = parser.parse_args()
-    
+
     setup = VirusDatasetSetup(args.config)
-    
+
     if args.create_config:
         setup.create_config_template()
     elif args.list:
@@ -423,4 +423,4 @@ Examples:
 
 
 if __name__ == "__main__":
-    main() 
+    main()

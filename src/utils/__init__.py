@@ -23,7 +23,6 @@ from .mutation_utils import (
     is_subset,
     sort_dict_by_consecutive_keys,
 )
-from .prf_analyzer import PRFAnalyzer, PRFSite, PRFSiteType, analyze_prf_in_sequence
 from .sequence_utils import clustal_genomes, has_only_valid_nts, read_fasta, write_fasta
 
 __all__ = [
@@ -43,8 +42,5 @@ __all__ = [
     "delete_char_from_string",
     "is_keys_subset",
     "contains_element",
-    "PRFAnalyzer",
-    "PRFSite",
-    "PRFSiteType",
-    "analyze_prf_in_sequence",
+
 ]

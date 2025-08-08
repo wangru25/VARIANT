@@ -1,9 +1,7 @@
 """Mutation analysis utilities and helper functions."""
 
 import hashlib
-from typing import Any, Dict, List, Tuple, Optional
-
-import more_itertools as mit
+from typing import Any, Dict, List, Tuple
 
 
 def generate_hash_key(mut_data: str) -> int:
@@ -93,11 +91,11 @@ def find_common_elements(lists: List[List[int]]) -> List[int]:
     """
     if not lists:
         return []
-    
+
     common = set(lists[0])
     for lst in lists[1:]:
         common &= set(lst)
-    
+
     return list(common)
 
 
@@ -233,21 +231,21 @@ def validate_mutation_data(mutation_dict: Dict[str, Any]) -> Tuple[bool, List[st
 def classify_mutation_type(protein_mutation: List[Dict]) -> str:
     """
     Classify mutation by biological type based on protein mutation information.
-    
+
     Args:
         protein_mutation (List[Dict]): List of protein mutation dictionaries.
-        
+
     Returns:
         str: Biological classification (silent, missense, nonsense, deletion, insertion, frameshift)
     """
     if not protein_mutation:
         return "unknown"
-    
+
     # Check for frameshift mutations first
     for mutation in protein_mutation:
         if isinstance(mutation, dict) and mutation.get('frameshift') == 'yes':
             return "frameshift"
-    
+
     # Check for deletions
     for mutation in protein_mutation:
         if isinstance(mutation, dict) and mutation.get('mutation'):
@@ -258,7 +256,7 @@ def classify_mutation_type(protein_mutation: List[Dict]) -> str:
                     return "deletion"
             elif isinstance(mut_str, str) and 'del' in mut_str:
                 return "deletion"
-    
+
     # Check for insertions
     for mutation in protein_mutation:
         if isinstance(mutation, dict) and mutation.get('mutation'):
@@ -269,7 +267,7 @@ def classify_mutation_type(protein_mutation: List[Dict]) -> str:
                     return "insertion"
             elif isinstance(mut_str, str) and 'ins' in mut_str:
                 return "insertion"
-    
+
     # Check for nonsense mutations (stop codons)
     for mutation in protein_mutation:
         if isinstance(mutation, dict) and mutation.get('mutation'):
@@ -280,7 +278,7 @@ def classify_mutation_type(protein_mutation: List[Dict]) -> str:
                     return "nonsense"
             elif isinstance(mut_str, str) and ('*' in mut_str or 'X' in mut_str):
                 return "nonsense"
-    
+
     # Check for silent vs missense mutations
     for mutation in protein_mutation:
         if isinstance(mutation, dict) and mutation.get('mutation'):
@@ -304,7 +302,7 @@ def classify_mutation_type(protein_mutation: List[Dict]) -> str:
                 parts = mut_str.split('del')[0] if 'del' in mut_str else mut_str
                 if len(parts) >= 3 and parts[0] == parts[-1] and parts[1:-1].isdigit():
                     return "silent"
-    
+
     # If not silent, it's missense
     return "missense"
 
@@ -312,42 +310,42 @@ def classify_mutation_type(protein_mutation: List[Dict]) -> str:
 def detect_hot_mutation(original_seq: str, mutated_seq: str) -> bool:
     """
     Detect if a mutation is a hot mutation (exactly 2 substitutions flanking exactly 1 conserved base).
-    
+
     Args:
         original_seq (str): Original nucleotide sequence.
         mutated_seq (str): Mutated nucleotide sequence.
-        
+
     Returns:
         bool: True if it's a hot mutation, False otherwise.
     """
     if len(original_seq) != len(mutated_seq):
         return False
-    
+
     # Find all positions where nucleotides differ
     substitutions = []
     for i, (orig, mut) in enumerate(zip(original_seq, mutated_seq)):
         if orig != mut:
             substitutions.append(i)
-    
+
     # Hot mutation requires exactly 2 substitutions
     if len(substitutions) != 2:
         return False
-    
+
     # Check if there's exactly 1 conserved base between the two substitutions
     pos1, pos2 = substitutions[0], substitutions[1]
-    
+
     # For hot mutation, the two substitutions should be at positions 0 and 2 (flanking position 1)
     # This means the sequence should be 3 nucleotides long with the middle one conserved
     if len(original_seq) == 3 and pos1 == 0 and pos2 == 2:
         # Check if the middle position (position 1) is conserved
         return original_seq[1] == mutated_seq[1]
-    
+
     # For other cases, count conserved bases between the two substitution positions
     conserved_count = 0
     for i in range(pos1 + 1, pos2):
         if original_seq[i] == mutated_seq[i]:
             conserved_count += 1
-    
+
     # Hot mutation has exactly 1 conserved base between substitutions
     return conserved_count == 1
 
@@ -356,24 +354,24 @@ def split_multi_protein_mutations(genome_snpp: Dict) -> List[Dict]:
     """
     Split mutations affecting multiple proteins into separate mutation records.
     Note: Hot mutations and row mutations are not split by protein as they represent single genomic events.
-    
+
     Args:
         genome_snpp (Dict): Original mutation record.
-        
+
     Returns:
         List[Dict]: List of separated mutation records.
     """
     protein_mutation = genome_snpp.get('proteinMutation', [])
     mutation_type = genome_snpp.get('type', '')
-    
+
     # For hot mutations and row mutations, don't split by protein - treat as single genomic events
     if mutation_type in ['hotMutation', 'rowMutation']:
         return [genome_snpp]
-    
+
     # If there's only one protein affected, return as is
     if len(protein_mutation) <= 1:
         return [genome_snpp]
-    
+
     # Split mutations affecting multiple proteins
     separated_mutations = []
     for protein_info in protein_mutation:
@@ -381,17 +379,17 @@ def split_multi_protein_mutations(genome_snpp: Dict) -> List[Dict]:
             separated_mutation = genome_snpp.copy()
             separated_mutation['proteinMutation'] = [protein_info]
             separated_mutations.append(separated_mutation)
-    
+
     return separated_mutations if separated_mutations else [genome_snpp]
 
 
 def format_amino_acid_change_for_csv(amino_acid_change) -> str:
     """
     Format amino acid change for CSV output as a quoted list string, even for single mutations.
-    
+
     Args:
         amino_acid_change: Amino acid change (can be string, list, or other format)
-        
+
     Returns:
         str: Formatted amino acid change for CSV (always a quoted list string like "['S375F', 'T376A']")
     """

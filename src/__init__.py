@@ -27,7 +27,7 @@ from .core import (
 from .utils import list_utils, mutation_utils, sequence_utils
 
 # Import PRF analyzer
-from .utils.prf_analyzer import PRFAnalyzer
+
 
 __all__ = [
     # Core classes
@@ -45,5 +45,5 @@ __all__ = [
     "sequence_utils",
     "list_utils",
     # PRF analyzer
-    "PRFAnalyzer",
+
 ]

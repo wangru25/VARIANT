@@ -5,7 +5,7 @@ LastModifiedBy: Rui Wang
 LastEditTime: 2023-12-22 12:43:52
 Email: rw3594@nyu.edu
 FilePath: /MutParser/src/core/genome_processor.py
-Description: 
+Description:
 This code is used to track mutation records from multiple genomes.
 """
 
@@ -14,11 +14,11 @@ This code is used to track mutation records from multiple genomes.
 from typing import Dict, List, Optional
 
 from ..utils.mutation_utils import (
+    classify_mutation_type,
     convert_key_to_int,
     find_common_elements,
     is_next_genome,
     sort_dict_by_consecutive_keys,
-    classify_mutation_type,
     split_multi_protein_mutations,
 )
 from ..utils.sequence_utils import has_only_valid_nts
@@ -30,7 +30,7 @@ from .protein_analyzer import (
     AlignmentProcessor,
     AminoAcidMutationProcessor,
     ORFProcessor,
-    ProMutationDetector, 
+    ProMutationDetector,
 )
 
 
@@ -61,22 +61,22 @@ class GenomeSNPProcessor:
         point_mutations_with_protein = self.pro_mut_detector.protein_point_row_snps(
             point_mutations
         )
-        
+
         # Process row mutations
         row_mutations_with_protein = self.pro_mut_detector.protein_point_row_snps(
             row_mutations
         )
-        
+
         # Process hot mutations
         hot_mutations_with_protein = self.pro_mut_detector.protein_hot_snps(
             hot_mutations
         )
-        
+
         # Process deletion mutations
         del_mutations_with_protein = self.pro_mut_detector.protein_dels_snps(
             del_mutations
         )
-        
+
         # Process insertion mutations
         ins_mutations_with_protein = self.pro_mut_detector.protein_ins_snps(
             ins_mutations
@@ -116,7 +116,7 @@ class GenomeSNPProcessor:
 
         # Extract clean genome ID for different virus formats
         from ..utils.sequence_utils import extract_genome_id
-        
+
         # Get virus name from the path (assuming path contains virus name)
         virus_name = ""
         path_parts = self.path.split("/")
@@ -124,9 +124,9 @@ class GenomeSNPProcessor:
             if part in ["SARS-CoV-2", "ZaireEbola", "HIV", "Pox"]:
                 virus_name = part
                 break
-        
+
         clean_genome_id = extract_genome_id(genome_id, virus_name)
-        
+
         return {
             "seqId": clean_genome_id,
             "genomeSNPPs": all_mutations,
@@ -151,7 +151,7 @@ class GenomeSNPProcessor:
                 gene_mut_detector = GeneMutationDetector(
                     self.gene_mut_detector.ref_seq, self.msa, genome_id
                 )
-                
+
                 # Create new components for ProMutationDetector
                 orf_processor = ORFProcessor(self.gene_mut_detector.ref_seq)
                 aa_mutation_processor = AminoAcidMutationProcessor()
@@ -159,19 +159,19 @@ class GenomeSNPProcessor:
                     self.pro_mut_detector.alignment_processor.proteome,
                     aa_mutation_processor,
                 )
-                
+
                 pro_mut_detector = ProMutationDetector(
                     orf_processor,
                     alignment_processor,
                     aa_mutation_processor,
                     self.gene_mut_detector.ref_seq,
                 )
-                
+
                 # Create a temporary processor for this genome
                 temp_processor = GenomeSNPProcessor(
                     self.path, self.msa, gene_mut_detector, pro_mut_detector
                 )
-                
+
                 snp_record = temp_processor.get_one_genome_snps(genome_id)
                 snp_records.append(snp_record)
         else:
@@ -181,7 +181,7 @@ class GenomeSNPProcessor:
                     gene_mut_detector = GeneMutationDetector(
                         self.gene_mut_detector.ref_seq, self.msa, record.id
                     )
-                    
+
                     # Create new components for ProMutationDetector
                     orf_processor = ORFProcessor(self.gene_mut_detector.ref_seq)
                     aa_mutation_processor = AminoAcidMutationProcessor()
@@ -189,19 +189,19 @@ class GenomeSNPProcessor:
                         self.pro_mut_detector.alignment_processor.proteome,
                         aa_mutation_processor,
                     )
-                    
+
                     pro_mut_detector = ProMutationDetector(
                         orf_processor,
                         alignment_processor,
                         aa_mutation_processor,
                         self.gene_mut_detector.ref_seq,
                     )
-                    
+
                     # Create a temporary processor for this genome
                     temp_processor = GenomeSNPProcessor(
                         self.path, self.msa, gene_mut_detector, pro_mut_detector
                     )
-                    
+
                     snp_record = temp_processor.get_one_genome_snps(record.id)
                     snp_records.append(snp_record)
 
@@ -225,11 +225,11 @@ class GenomeSNPProcessor:
             for snp_record in snp_records:
                 for genome_snpp in snp_record.get("genomeSNPPs", []):
                     if genome_snpp.get("key") == key:
-                        # Only filter out specific artifacts: deletions at the very beginning (1:1, 1:2, 1:3) 
+                        # Only filter out specific artifacts: deletions at the very beginning (1:1, 1:2, 1:3)
                         # with "Invalid protein sequence" that represent missing sequence data
                         pos = genome_snpp.get('pos', '')
                         protein_mutation = genome_snpp.get('proteinMutation', [])
-                        
+
                         # Very specific filter: only remove deletions at positions 1:1, 1:2, 1:3 with invalid protein
                         should_filter = False
                         if genome_snpp.get('type') == 'deletion' and protein_mutation:
@@ -240,22 +240,22 @@ class GenomeSNPProcessor:
                                     if isinstance(protein_info, dict) and protein_info.get('protein') == 'Invalid protein sequence':
                                         should_filter = True
                                         break
-                        
+
                         if should_filter:
                             continue
-                        
+
                         # Split multi-protein mutations
                         separated_mutations = split_multi_protein_mutations(genome_snpp)
-                        
+
                         for separated_mutation in separated_mutations:
                             # Classify mutation type
                             biological_type = classify_mutation_type(separated_mutation.get('proteinMutation', []))
-                            
+
                             # Create mutation string with biological classification
                             mutation = f"{biological_type} {separated_mutation.get('pos', '')} {separated_mutation.get('SNP', '')} {separated_mutation.get('proteinMutation', '')}"
                             dict_key = convert_key_to_int(str(separated_mutation.get("pos", "")))
                             common_mutation_dict[dict_key] = mutation
-                        
+
                         break
         return sort_dict_by_consecutive_keys(common_mutation_dict)
 
@@ -264,49 +264,49 @@ class GenomeSNPProcessor:
     ) -> dict:
         """
         Find mutations present in a majority of genomes (default 80%).
-        
+
         Args:
             snp_records: List of SNP records from all genomes
             threshold_percentage: Minimum percentage of genomes that must have the mutation (default 0.8 = 80%)
-            
+
         Returns:
             Dictionary of mutations present in majority of genomes
         """
         if not snp_records:
             return {}
-            
+
         # Extract all mutation keys from genomeSNPPs for each record
         all_keys_lists = [
             [mut["key"] for mut in rec.get("genomeSNPPs", []) if "key" in mut]
             for rec in snp_records
         ]
-        
+
         # Count how many genomes have each mutation
         mutation_counts = {}
         for keys_list in all_keys_lists:
             for key in keys_list:
                 mutation_counts[key] = mutation_counts.get(key, 0) + 1
-        
+
         # Calculate threshold
         total_genomes = len(snp_records)
         threshold_count = int(total_genomes * threshold_percentage)
-        
+
         # Find mutations that meet the threshold
         majority_keys = [
             key for key, count in mutation_counts.items() if count >= threshold_count
         ]
-        
+
         # Build the mutation dictionary
         majority_mutation_dict = {}
         for key in majority_keys:
             for snp_record in snp_records:
                 for genome_snpp in snp_record.get("genomeSNPPs", []):
                     if genome_snpp.get("key") == key:
-                        # Only filter out specific artifacts: deletions at the very beginning (1:1, 1:2, 1:3) 
+                        # Only filter out specific artifacts: deletions at the very beginning (1:1, 1:2, 1:3)
                         # with "Invalid protein sequence" that represent missing sequence data
                         pos = genome_snpp.get('pos', '')
                         protein_mutation = genome_snpp.get('proteinMutation', [])
-                        
+
                         # Very specific filter: only remove deletions at positions 1:1, 1:2, 1:3 with invalid protein
                         should_filter = False
                         if genome_snpp.get('type') == 'deletion' and protein_mutation:
@@ -317,24 +317,24 @@ class GenomeSNPProcessor:
                                     if isinstance(protein_info, dict) and protein_info.get('protein') == 'Invalid protein sequence':
                                         should_filter = True
                                         break
-                        
+
                         if should_filter:
                             continue
-                        
+
                         # Split multi-protein mutations
                         separated_mutations = split_multi_protein_mutations(genome_snpp)
-                        
+
                         for separated_mutation in separated_mutations:
                             # Classify mutation type
                             biological_type = classify_mutation_type(separated_mutation.get('proteinMutation', []))
-                            
+
                             # Create mutation string with biological classification
                             mutation = f"{biological_type} {separated_mutation.get('pos', '')} {separated_mutation.get('SNP', '')} {separated_mutation.get('proteinMutation', '')}"
                             dict_key = convert_key_to_int(str(separated_mutation.get("pos", "")))
                             majority_mutation_dict[dict_key] = mutation
-                        
+
                         break
-        
+
         return sort_dict_by_consecutive_keys(majority_mutation_dict)
 
     def print_snp_records(self, snp_records: list, file_name: str = None):

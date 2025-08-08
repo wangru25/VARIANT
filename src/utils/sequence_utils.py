@@ -6,7 +6,7 @@ LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-07 10:11:05
 Email: wang.rui@nyu.edu
 FilePath: /viralytics-mut/src/utils/sequence_utils.py
-Description: 
+Description:
 '''
 # -*- coding: utf-8 -*-
 '''
@@ -16,12 +16,11 @@ LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-05 16:07:44
 Email: wang.rui@nyu.edu
 FilePath: /viralytics-mut/src/utils/sequence_utils.py
-Description: 
+Description:
 '''
 """Sequence processing utilities for FASTA files and sequence operations."""
 
-import re
-from typing import Dict, List, Tuple, Union, Optional
+from typing import Dict, List, Optional, Tuple
 
 from Bio import SeqIO
 
@@ -81,13 +80,13 @@ def has_only_valid_nts(sequence: str) -> bool:
 def parse_gene_coordinates(coordinates: str) -> List[Tuple[int, int]]:
     """
     Parse gene coordinates, handling simple ranges, join operations, and complement notation.
-    
+
     Args:
         coordinates (str): Gene coordinates in format like "13442..16236", "join(...)", or "complement(...)"
-    
+
     Returns:
         List[Tuple[int, int]]: List of (start, end) coordinate pairs (1-based)
-    
+
     Examples:
         >>> parse_gene_coordinates("13442..16236")
         [(13442, 16236)]
@@ -105,13 +104,13 @@ def parse_gene_coordinates(coordinates: str) -> List[Tuple[int, int]]:
 def parse_gene_coordinates_enhanced(coordinates: str) -> Tuple[List[Tuple[int, int]], bool]:
     """
     Enhanced coordinate parser that handles complement notation and returns strand information.
-    
+
     Args:
         coordinates (str): Gene coordinates with possible complement/join notation
-        
+
     Returns:
         Tuple[List[Tuple[int, int]], bool]: (coordinate_pairs, is_complement)
-        
+
     Examples:
         >>> parse_gene_coordinates_enhanced("6919..7488")
         ([(6919, 7488)], False)
@@ -122,20 +121,20 @@ def parse_gene_coordinates_enhanced(coordinates: str) -> Tuple[List[Tuple[int, i
     """
     is_complement = False
     working_coords = coordinates.strip()
-    
+
     # Check for complement notation
     if working_coords.startswith("complement(") and working_coords.endswith(")"):
         is_complement = True
         working_coords = working_coords[11:-1]  # Remove "complement(" and ")"
-    
+
     # Now parse the inner coordinates (could be simple range or join)
     coordinate_pairs = []
-    
+
     if working_coords.startswith("join(") and working_coords.endswith(")"):
         # Handle join operation
         join_content = working_coords[5:-1]  # Remove "join(" and ")"
         segments = join_content.split(",")
-        
+
         for segment in segments:
             segment = segment.strip()
             if ".." in segment:
@@ -143,7 +142,7 @@ def parse_gene_coordinates_enhanced(coordinates: str) -> Tuple[List[Tuple[int, i
                 start_pos = int(start_str.strip())
                 end_pos = int(end_str.strip())
                 coordinate_pairs.append((start_pos, end_pos))
-        
+
     elif ".." in working_coords:
         # Handle simple range
         start_str, end_str = working_coords.split("..")
@@ -152,21 +151,21 @@ def parse_gene_coordinates_enhanced(coordinates: str) -> Tuple[List[Tuple[int, i
         coordinate_pairs.append((start_pos, end_pos))
     else:
         raise ValueError(f"Invalid coordinate format: {coordinates}")
-    
+
     return coordinate_pairs, is_complement
 
 
 def extract_gene_sequence_with_join(genome_sequence: str, coordinates: str) -> str:
     """
     Extract gene sequence from genome, handling simple ranges, join operations, and complement notation.
-    
+
     Args:
         genome_sequence (str): Complete genome sequence
         coordinates (str): Gene coordinates in format like "13442..16236", "join(...)", or "complement(...)"
-    
+
     Returns:
         str: Extracted gene sequence (reverse complemented if complement notation is used)
-    
+
     Examples:
         >>> extract_gene_sequence_with_join(genome_seq, "13442..16236")
         "ATCG..."
@@ -182,16 +181,16 @@ def extract_gene_sequence_with_join(genome_sequence: str, coordinates: str) -> s
 def extract_gene_sequence_enhanced(genome_sequence: str, coordinates: str) -> Tuple[str, bool]:
     """
     Extract gene sequence with proper complement handling and strand information.
-    
+
     Args:
         genome_sequence (str): Complete genome sequence
         coordinates (str): Gene coordinates with possible complement notation
-        
+
     Returns:
         Tuple[str, bool]: (extracted_sequence, was_reverse_complemented)
     """
     coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
-    
+
     # Extract sequence segments
     joined_sequence = ""
     for start_pos, end_pos in coordinate_pairs:
@@ -200,26 +199,26 @@ def extract_gene_sequence_enhanced(genome_sequence: str, coordinates: str) -> Tu
         end_idx = end_pos
         segment_sequence = genome_sequence[start_idx:end_idx]
         joined_sequence += segment_sequence
-    
+
     # If it's a complement, reverse complement the sequence
     if is_complement:
         from Bio.Seq import Seq
         seq_obj = Seq(joined_sequence)
         joined_sequence = str(seq_obj.reverse_complement())
-    
+
     return joined_sequence, is_complement
 
 
 def create_genome_to_joined_mapping(coordinates: str) -> Dict[int, int]:
     """
     Create a mapping from genome positions to joined sequence positions, handling complement notation.
-    
+
     Args:
         coordinates (str): Gene coordinates in format like "13442..16236", "join(...)", or "complement(...)"
-    
+
     Returns:
         Dict[int, int]: Mapping from genome position to joined sequence position
-    
+
     Examples:
         >>> mapping = create_genome_to_joined_mapping("join(13442..13468,13468..16236)")
         >>> mapping[13442]  # First position in first segment
@@ -237,21 +236,21 @@ def create_genome_to_joined_mapping(coordinates: str) -> Dict[int, int]:
 def create_genome_to_joined_mapping_enhanced(coordinates: str) -> Tuple[Dict[int, int], bool]:
     """
     Create genome-to-joined position mapping with complement support and strand information.
-    
+
     Args:
         coordinates (str): Gene coordinates with possible complement notation
-        
+
     Returns:
         Tuple[Dict[int, int], bool]: (position_mapping, is_complement)
     """
     coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
     genome_to_joined = {}
-    
+
     if is_complement:
         # For complement genes, we need to map positions in reverse order
         total_length = sum(end - start + 1 for start, end in coordinate_pairs)
         joined_pos = total_length
-        
+
         for start_pos, end_pos in coordinate_pairs:
             for genome_pos in range(start_pos, end_pos + 1):
                 genome_to_joined[genome_pos] = joined_pos
@@ -263,17 +262,17 @@ def create_genome_to_joined_mapping_enhanced(coordinates: str) -> Tuple[Dict[int
             for genome_pos in range(start_pos, end_pos + 1):
                 genome_to_joined[genome_pos] = joined_pos
                 joined_pos += 1
-    
+
     return genome_to_joined, is_complement
 
 
 def calculate_amino_acid_position_from_joined(joined_position: int) -> int:
     """
     Calculate amino acid position from joined sequence position.
-    
+
     Args:
         joined_position (int): Position in joined sequence (1-based)
-    
+
     Returns:
         int: Amino acid position (1-based)
     """
@@ -283,14 +282,14 @@ def calculate_amino_acid_position_from_joined(joined_position: int) -> int:
 def extract_genome_id(full_header: str, virus_name: str = "") -> str:
     """
     Extract genome ID from MSA sequence header based on virus type.
-    
+
     Args:
         full_header: Full sequence header from MSA file
         virus_name: Name of the virus (e.g., "SARS-CoV-2", "ZaireEbola")
-    
+
     Returns:
         Extracted genome ID
-    
+
     Examples:
         >>> extract_genome_id("hCoV-19/Shanghai/SJTU-235817/2022|EPI_ISL_16327572|2022-12-07", "SARS-CoV-2")
         "EPI_ISL_16327572"
@@ -306,7 +305,7 @@ def extract_genome_id(full_header: str, virus_name: str = "") -> str:
         for part in parts:
             if "EPI_ISL" in part:
                 return part.strip()
-    
+
     # For other viruses or if no specific pattern found, return the full header
     # This preserves the original behavior for non-SARS-CoV-2 viruses
     return full_header
@@ -315,11 +314,11 @@ def extract_genome_id(full_header: str, virus_name: str = "") -> str:
 def calculate_amino_acid_position_from_genome(genome_position: int, genome_to_joined_mapping: Dict[int, int]) -> Optional[int]:
     """
     Calculate amino acid position from genome position using the mapping.
-    
+
     Args:
         genome_position (int): Position in genome (1-based)
         genome_to_joined_mapping (Dict[int, int]): Mapping from genome to joined positions
-    
+
     Returns:
         Optional[int]: Amino acid position (1-based), or None if position not in mapping
     """
@@ -332,25 +331,25 @@ def calculate_amino_acid_position_from_genome(genome_position: int, genome_to_jo
 def calculate_amino_acid_position_enhanced(genome_position: int, coordinates: str) -> Optional[int]:
     """
     Calculate amino acid position with complement support.
-    
+
     Args:
         genome_position (int): Position in genome (1-based)
         coordinates (str): Gene coordinates with possible complement notation
-        
+
     Returns:
         Optional[int]: Amino acid position (1-based) or None if position not in gene
     """
     try:
         genome_to_joined, is_complement = create_genome_to_joined_mapping_enhanced(coordinates)
-        
+
         if genome_position not in genome_to_joined:
             return None
-            
+
         joined_position = genome_to_joined[genome_position]
         aa_position = calculate_amino_acid_position_from_joined(joined_position)
-        
+
         return aa_position
-        
+
     except (ValueError, KeyError):
         return None
 
@@ -374,7 +373,7 @@ def clustal_genomes(seq_file_name: str) -> bool:
         ValueError: If the sequence file is invalid
     """
     import math
-    
+
     try:
         # Read and filter sequences
         records = read_fasta(seq_file_name)

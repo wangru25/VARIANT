@@ -6,7 +6,7 @@ LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-05 17:58:57
 Email: wang.rui@nyu.edu
 FilePath: /viralytics-mut/src/core/protein_analyzer.py
-Description: 
+Description:
 '''
 # -*- coding: utf-8 -*-
 '''
@@ -16,7 +16,7 @@ LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-05 17:46:24
 Email: wang.rui@nyu.edu
 FilePath: /viralytics-mut/src/core/protein_analyzer.py
-Description: 
+Description:
 '''
 """
 Author: Rui Wang
@@ -25,7 +25,7 @@ LastModifiedBy: Rui Wang
 LastEditTime: 2023-11-17 10:37:16
 Email: rw3594@nyu.edu
 FilePath: /MutParser/src/core/protein_analyzer.py
-Description: 
+Description:
 """
 
 from itertools import takewhile
@@ -107,7 +107,7 @@ class ORFProcessor:
             List[List[str]]: A list containing two lists of ORFs, one before the mutation and one after.
         """
         pos = int(snp_pos) - 1
-        
+
         # Increase window size to capture more downstream effects
         # Original: pos - 2 : pos + 28 (30 nucleotides)
         # New: pos - 5 : pos + 55 (60 nucleotides) to capture more amino acids
@@ -250,34 +250,34 @@ class AminoAcidMutationProcessor:
     def get_row_aa_mutations(orf: str, morf: str, match_start: int) -> str:
         """
         Get amino acid mutations by comparing original and mutated ORF sequences.
-        
+
         This method scans through the entire ORF sequence to find all amino acid
         differences between the original and mutated sequences.
-        
+
         Args:
             orf (str): Original ORF sequence
-            morf (str): Mutated ORF sequence  
+            morf (str): Mutated ORF sequence
             match_start (int): Starting position of the match in the reference protein
-            
+
         Returns:
             str: Comma-separated list of mutations in format 'original_aa{position}mutated_aa'
         """
         mutations = []
-        
+
         # Ensure both sequences have the same length for comparison
         min_length = min(len(orf), len(morf))
-        
+
         for i in range(min_length):
             if orf[i] != morf[i]:
                 # Calculate actual protein position by adding match_start and current position
                 actual_protein_pos = match_start + i + 1
                 mutation = f"{orf[i]}{actual_protein_pos}{morf[i]}"
                 mutations.append(mutation)
-        
+
         # If there are no mutations found, return empty string
         if not mutations:
             return ""
-        
+
         # Return comma-separated list of mutations
         return ",".join(mutations)
 
@@ -297,7 +297,7 @@ class AminoAcidMutationProcessor:
         # Check if either sequence is None or empty
         if not orf or not m_orf:
             return []
-        
+
         try:
             alignments = pairwise2.align.localms(orf, m_orf, 2, -1, -1, -1)
         except (TypeError, ValueError):
@@ -384,7 +384,7 @@ class AlignmentProcessor:
         # Check if either sequence is None or empty
         if not query_sequence or not found_sequence:
             return ["", 0]
-        
+
         # Use a simpler alignment method that's more compatible
         try:
             # Try the most common API
@@ -501,19 +501,19 @@ class AlignmentProcessor:
             for orf, m_orf in zip(orfs, m_orfs):
                 if not orf or not m_orf:  # Skip empty ORFs
                     continue
-                    
+
                 m_orf = self.most_match_orf(orf, m_orfs)
                 if not m_orf:  # Skip if no good match found
                     continue
-                    
+
                 for record in SeqIO.parse(self.proteome_dir, "fasta"):
                     # Use record.description to get the full header, not record.id which gets truncated at first space
                     header = record.description.split("|")[1]
                     ref_pro_seq = str(record.seq).replace(" ", "")
-                    
+
                     # Try exact match first
                     matches = find_near_matches(orf, ref_pro_seq, max_l_dist=0)
-                    
+
                     # Only allow fuzzy matching for longer proteins and ORFs to prevent false positives
                     # Don't allow fuzzy matching for very short proteins (< 100 aa) or very short ORFs (< 15 aa)
                     if not matches and len(ref_pro_seq) >= 100 and len(orf) >= 15:
@@ -528,7 +528,7 @@ class AlignmentProcessor:
                             mutation_aas = self.aa_mutation_processor.get_row_aa_mutations(
                                 orf, m_orf, matches[0].start
                             )
-                            
+
                             if mutation_aas:
                                 # Regular mutation
                                 protein_mutation = {
@@ -547,21 +547,21 @@ class AlignmentProcessor:
         """
         Directly map DNA position to protein mutation without relying on ORF alignment.
         Handles both simple ranges and join operations in gene coordinates.
-        
+
         Args:
             dna_pos (int): DNA position (1-based)
             mutation_info (str): Mutation information in format "A->B"
-            
+
         Returns:
             Dict[str, str]: Protein mutation dict or None if not found
         """
         # Parse mutation info
         original_nt, mutated_nt = mutation_info.split("->")
-        
+
         for record in SeqIO.parse(self.proteome_dir, "fasta"):
             # Use record.description to get the full header, not record.id which gets truncated at first space
             parts = record.description.split("|")
-            
+
             # Handle different FASTA header formats
             if len(parts) >= 3:
                 # Format: NP_066243.1|nucleoprotein|470..2689
@@ -582,57 +582,59 @@ class AlignmentProcessor:
                     continue  # Skip if we can't parse
             else:
                 continue  # Skip if format is not recognized
-            
+
             # Import join operation utilities
             from ..utils.sequence_utils import (
-                parse_gene_coordinates_enhanced, 
+                calculate_amino_acid_position_enhanced,
                 create_genome_to_joined_mapping_enhanced,
-                calculate_amino_acid_position_enhanced
+                parse_gene_coordinates_enhanced,
             )
-            
+
             try:
                 # Parse coordinates (handles simple ranges, join operations, and complement notation)
                 coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
-                
+
                 # Check if DNA position is within any of the coordinate pairs
                 position_in_gene = False
                 for start_pos, end_pos in coordinate_pairs:
                     if start_pos <= dna_pos <= end_pos:
                         position_in_gene = True
                         break
-                
+
                 if position_in_gene:
                     # Calculate amino acid position using enhanced function
                     aa_position = calculate_amino_acid_position_enhanced(dna_pos, coordinates)
-                    
+
                     if aa_position is not None:
                         ref_pro_seq = str(record.seq).replace(" ", "")
-                        
+
                         # Check if amino acid position is valid
                         if 0 <= aa_position - 1 < len(ref_pro_seq):
-                            
+
                             # Get the codon containing this position
                             if ref_seq is not None:
                                 # Use enhanced coordinate mapping to get the correct codon
                                 genome_to_joined, _ = create_genome_to_joined_mapping_enhanced(coordinates)
                                 joined_position = genome_to_joined[dna_pos]
-                                
+
                                 # Calculate codon boundaries in the joined sequence
                                 codon_number = (joined_position - 1) // 3
                                 codon_start_joined = codon_number * 3 + 1
                                 codon_end_joined = codon_start_joined + 2
-                                
+
                                 # Extract the original gene sequence (properly handling complement)
-                                from ..utils.sequence_utils import extract_gene_sequence_enhanced
+                                from ..utils.sequence_utils import (
+                                    extract_gene_sequence_enhanced,
+                                )
                                 gene_sequence, was_reverse_complemented = extract_gene_sequence_enhanced(ref_seq, coordinates)
-                                
+
                                 # Extract the codon from the gene sequence
                                 if codon_start_joined - 1 < len(gene_sequence) and codon_end_joined <= len(gene_sequence):
                                     original_codon = gene_sequence[codon_start_joined - 1:codon_end_joined]
-                                    
+
                                     # Calculate which position within the codon is mutated
                                     codon_offset = (joined_position - 1) % 3
-                                    
+
                                     # For complement genes, the mutation affects the reverse complement
                                     if is_complement:
                                         # Convert mutation to what it would be on the reverse complement
@@ -644,12 +646,12 @@ class AlignmentProcessor:
                                         mutated_codon = original_codon[:codon_offset] + mutated_nt_complement + original_codon[codon_offset + 1:]
                                     else:
                                         mutated_codon = original_codon[:codon_offset] + mutated_nt + original_codon[codon_offset + 1:]
-                                    
+
                                     # Translate codons to amino acids
                                     from Bio.Seq import Seq
                                     original_aa_from_codon = str(Seq(original_codon).translate())
                                     mutated_aa_from_codon = str(Seq(mutated_codon).translate())
-                                    
+
                                     # Create mutation string
                                     if original_aa_from_codon == mutated_aa_from_codon:
                                         # Silent mutation
@@ -662,16 +664,16 @@ class AlignmentProcessor:
                                         else:
                                             # Regular missense mutation
                                             mutation_str = f"{original_aa_from_codon}{aa_position}{mutated_aa_from_codon}"
-                                    
+
                                     return {
                                         "protein": header,
                                         "mutation": mutation_str,
                                     }
-            
+
             except (ValueError, IndexError):
                 # Skip records with invalid coordinate formats
                 continue
-        
+
         return None
 
     def align_orfs_to_ref_proteome_row(
@@ -705,21 +707,21 @@ class AlignmentProcessor:
         for orf, m_orf in zip(orfs, m_orfs):
             if not orf or not m_orf:  # Skip empty ORFs
                 continue
-                
+
             m_orf = self.most_match_orf(orf, m_orfs)
             if not m_orf:  # Skip if no good match found
                 continue
-                
+
             for record in SeqIO.parse(self.proteome_dir, "fasta"):
                 # Use record.description to get the full header, not record.id which gets truncated at first space
                 parts = record.description.split("|")
                 if len(parts) < 3:
                     continue
-                    
+
                 header = parts[1]
                 coordinates = parts[2]
                 ref_pro_seq = str(record.seq).replace(" ", "")
-                
+
                 # First check coordinate containment if DNA position is provided
                 if pos_start is not None and pos_end is not None:
                     from ..utils.sequence_utils import parse_gene_coordinates_enhanced
@@ -730,20 +732,20 @@ class AlignmentProcessor:
                             if start_pos <= pos_start and pos_end <= end_pos:
                                 position_in_gene = True
                                 break
-                        
+
                         if not position_in_gene:
                             continue  # Skip this protein if mutation is not within its coordinates
-                            
+
                     except (ValueError, IndexError):
                         continue  # Skip if coordinates can't be parsed
-                
+
                 # Try exact match first
                 matches = find_near_matches(orf, ref_pro_seq, max_l_dist=0)
-                
+
                 # Only allow fuzzy matching for longer proteins and ORFs to prevent false positives
                 if not matches and len(ref_pro_seq) >= 100 and len(orf) >= 15:
                     matches = find_near_matches(orf, ref_pro_seq, max_l_dist=1)
-                    
+
                     # If still no match, try with more tolerance for longer proteins only
                     if not matches and len(ref_pro_seq) >= 200:
                         matches = find_near_matches(orf, ref_pro_seq, max_l_dist=3)
@@ -757,7 +759,7 @@ class AlignmentProcessor:
                         mutation_aas = self.aa_mutation_processor.get_row_aa_mutations(
                             orf, m_orf, matches[0].start
                         )
-                        
+
                         # Only add if mutations were found
                         if mutation_aas:
                             protein_mutation = {
@@ -971,14 +973,14 @@ class ProMutationDetector:
         """
         from Bio.Seq import Seq
         snp_results = []
-        
+
         for genome_snp in genome_snps:
             # Parse mutation information
             pos_range = genome_snp["pos"].split(":")
             pos_start = int(pos_range[0])
             pos_end = int(pos_range[-1])
             orig_bases, mut_bases = genome_snp["SNP"].split("->")
-            
+
             # Map mutations to their correct positions
             # The mutation notation "start:end,orig->mut" means specific positions mutate
             # e.g., "10447:10449,GC->AA" means 10447G->A and 10449C->A (10448 unchanged)
@@ -1001,13 +1003,13 @@ class ProMutationDetector:
                         if orig_base != mut_base:
                             mutations.append((pos, orig_base, mut_base))
                         mutation_index += 1
-            
+
             # Process each protein that could be affected
             protein_mutations = []
             for record in SeqIO.parse(self.alignment_processor.proteome.proteome_dir, "fasta"):
                 # Use record.description to get the full header, not record.id which gets truncated at first space
                 parts = record.description.split("|")
-                
+
                 # Handle FASTA header format: ID|protein_name|coordinates
                 if len(parts) >= 3:
                     # Format: YP_009725297.1|leader_nsp1|266..805
@@ -1017,14 +1019,14 @@ class ProMutationDetector:
                     coordinates = parts[2]
                 else:
                     continue  # Skip if format is not recognized
-                
+
                 # Import join operation utilities
                 from ..utils.sequence_utils import parse_gene_coordinates_enhanced
-                
+
                 try:
                     # Parse coordinates (handles simple ranges, join operations, and complement notation)
                     coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
-                    
+
                     # For hot mutations, check if the mutation range is CONTAINED within the protein range
                     position_in_gene = False
                     for start_pos, end_pos in coordinate_pairs:
@@ -1032,16 +1034,16 @@ class ProMutationDetector:
                             position_in_gene = True
                             protein_start, protein_end = start_pos, end_pos
                             break
-                    
+
                     if not position_in_gene:
                         continue
-                
-                except (ValueError, IndexError) as e:
+
+                except (ValueError, IndexError):
                     # Skip records with invalid coordinate formats
                     continue
-                
+
                 # Redundant check removed - position_in_gene already ensures containment
-                
+
                 # Find affected codons
                 affected_codons = {}
                 for pos, orig_base, mut_base in mutations:
@@ -1050,41 +1052,41 @@ class ProMutationDetector:
                         offset_from_start = pos - protein_start
                         codon_index = offset_from_start // 3
                         codon_start = protein_start + (codon_index * 3)
-                        
+
                         if codon_start not in affected_codons:
                             # Get reference codon
                             ref_codon = self.ref_seq[codon_start - 1:codon_start + 2]
                             affected_codons[codon_start] = list(ref_codon)
-                        
+
                         # Apply mutation to codon
                         codon_pos = pos - codon_start
                         affected_codons[codon_start][codon_pos] = mut_base
-                
+
                 # Generate protein mutations for each affected codon
                 for codon_start, mutated_codon_list in affected_codons.items():
                     ref_codon = self.ref_seq[codon_start - 1:codon_start + 2]
                     mutated_codon = ''.join(mutated_codon_list)
-                    
+
                     # Calculate protein position
                     protein_pos = ((codon_start - protein_start) // 3) + 1
-                    
+
                     # Translate codons
                     ref_aa = str(Seq(ref_codon).translate())
                     mut_aa = str(Seq(mutated_codon).translate())
-                    
+
                     # Create mutation string
                     if ref_aa == mut_aa:
                         mutation = f"{ref_aa}{protein_pos}{ref_aa}"
                     else:
                         mutation = f"{ref_aa}{protein_pos}{mut_aa}"
-                    
+
                     # Check if this protein is already in mutations
                     existing_mutation = None
                     for pm in protein_mutations:
                         if pm["protein"] == header:
                             existing_mutation = pm
                             break
-                    
+
                     if existing_mutation:
                         # Append to existing mutation string
                         existing_mutation["mutation"] += f",{mutation}"
@@ -1094,10 +1096,10 @@ class ProMutationDetector:
                             "protein": header,
                             "mutation": mutation
                         })
-            
+
             genome_snp["proteinMutation"] = protein_mutations
             snp_results.append(genome_snp)
-        
+
         return snp_results
 
     def _process_target_orfs(self, target_orfs, seq, frameshift, mut_type):

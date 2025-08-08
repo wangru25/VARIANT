@@ -255,7 +255,7 @@ class GeneMutationDetector:
                 ref_next = self.ref_seq_msa[pos_msa + 1] if pos_msa < len(self.ref_seq_msa) - 1 else "-"
                 seq_prev = self.seq_msa[pos_msa - 1] if pos_msa > 0 else "-"
                 seq_next = self.seq_msa[pos_msa + 1] if pos_msa < len(self.seq_msa) - 1 else "-"
-                
+
                 if (
                     ref_prev != "-"
                     and ref_next != "-"
@@ -287,20 +287,20 @@ class GeneMutationDetector:
         row_positions = set()
         for row_pos in row_poss:
             row_positions.update(row_pos)
-        
+
         for key in sorted(other_mutations_dict.keys()):
             # Check if there's a mutation 2 positions away
             if key + 2 in other_mutations_dict:
                 # Only create hot mutation if neither position is part of a row mutation
                 if key not in row_positions and key + 2 not in row_positions:
                     hot_poss.append([key, key + 2])
-        
+
         # Remove duplicates and ensure we don't double-count
         unique_hot_poss = []
         for pos_pair in hot_poss:
             if pos_pair not in unique_hot_poss:
                 unique_hot_poss.append(pos_pair)
-        
+
         hot_snps = [
             (other_mutations_dict[key1], other_mutations_dict[key2])
             for key1, key2 in unique_hot_poss

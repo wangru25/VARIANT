@@ -19,7 +19,6 @@ from ..core import (
     Proteome,
     ReferenceGenome,
 )
-from ..utils.prf_analyzer import PRFAnalyzer
 
 
 def setup_parser() -> argparse.ArgumentParser:
@@ -150,46 +149,9 @@ def run_setup(args: argparse.Namespace) -> int:
 
 def run_prf_analysis(args: argparse.Namespace) -> int:
     """Run PRF analysis."""
-    try:
-        from ..utils.sequence_utils import read_fasta
-
-        # Read genome
-        records = read_fasta(args.genome)
-        genome_sequence = records[0]["seq"]
-
-        # Initialize PRF analyzer
-        analyzer = PRFAnalyzer(genome_sequence)
-        prf_site = analyzer.detect_prf_site()
-
-        # Load mutations if provided
-        mutations = []
-        if args.mutations:
-            # This would need to be implemented based on your mutation file format
-            pass
-
-        # Generate report
-        report = analyzer.generate_prf_report(prf_site, mutations)
-
-        # Output results
-        if args.output:
-            import json
-
-            with open(args.output, "w") as f:
-                json.dump(report, f, indent=2)
-            print(f"Report saved to {args.output}")
-        else:
-            print("PRF Analysis Results:")
-            print(f"  Position: {prf_site.position}")
-            print(f"  Sequence: {prf_site.sequence}")
-            print(f"  Type: {prf_site.site_type.value}")
-            print(f"  Efficiency: {prf_site.efficiency_score:.3f}")
-            print(f"  Notes: {prf_site.notes}")
-
-        return 0
-
-    except Exception as e:
-        print(f"Error during PRF analysis: {e}")
-        return 1
+    print("PRF analysis via CLI is not currently available.")
+    print("Please use the main.py script with --detect-frameshifts flag instead.")
+    return 1
 
 
 def main() -> int:

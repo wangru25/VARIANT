@@ -11,8 +11,8 @@ Description: Main script for virus mutation parsing with support for multiple vi
 import argparse
 import os
 import sys
-from pathlib import Path
 from datetime import date
+from pathlib import Path
 from typing import Dict, List, Optional
 
 import yaml
@@ -20,8 +20,8 @@ import yaml
 # Add src to path
 sys.path.append(str(Path(__file__).parent / "src"))
 
+from src.core.frameshift_detector import FrameshiftDetector
 from src.core.genome_processor import GenomeSNPProcessor
-from src.core.reference_genome import ReferenceGenome
 from src.core.mutation_detector import (
     GeneMutationDetector,
     MultipleSequenceAlignment,
@@ -33,15 +33,14 @@ from src.core.protein_analyzer import (
     ProMutationDetector,
     Proteome,
 )
-from src.core.frameshift_detector import FrameshiftDetector
-
+from src.core.reference_genome import ReferenceGenome
 from src.utils.mutation_utils import (
-    convert_key_to_int,
-    sort_dict_by_consecutive_keys,
     classify_mutation_type,
+    convert_key_to_int,
     detect_hot_mutation,
-    split_multi_protein_mutations,
     format_amino_acid_change_for_csv,
+    sort_dict_by_consecutive_keys,
+    split_multi_protein_mutations,
 )
 
 # Constants
@@ -72,14 +71,14 @@ class VirusMutationProcessor:
         # Detect virus structure (single vs multi-segment)
         self.is_multi_segment = self._detect_multi_segment_structure()
         self.segments = self._get_segments()
-        
+
         # Create virus-specific directories
         self.base_path = os.path.join("data", virus_name)
         self.result_path = os.path.join("result", virus_name)
-        
+
         # Initialize paths based on virus structure
         self._initialize_paths()
-        
+
         # Ensure directories exist
         self._ensure_directories()
 
@@ -91,18 +90,18 @@ class VirusMutationProcessor:
             bool: True if multi-segment, False if single-segment
         """
         base_path = os.path.join("data", self.virus_name)
-        
+
         # Check if segment_1 directory exists
         segment_1_path = os.path.join(base_path, "segment_1")
         if os.path.exists(segment_1_path) and os.path.isdir(segment_1_path):
             return True
-        
+
         # Check if traditional structure exists (clustalW, refs directories)
         clustalw_path = os.path.join(base_path, "clustalW")
         refs_path = os.path.join(base_path, "refs")
         if os.path.exists(clustalw_path) and os.path.exists(refs_path):
             return False
-        
+
         # Default to single-segment if structure is unclear
         return False
 
@@ -115,17 +114,17 @@ class VirusMutationProcessor:
         """
         if not self.is_multi_segment:
             return []
-        
+
         base_path = os.path.join("data", self.virus_name)
         segments = []
-        
+
         # Look for segment directories
         for i in range(1, 9):  # Support up to 8 segments
             segment_name = f"segment_{i}"
             segment_path = os.path.join(base_path, segment_name)
             if os.path.exists(segment_path) and os.path.isdir(segment_path):
                 segments.append(segment_name)
-        
+
         return segments
 
     def _initialize_paths(self) -> None:
@@ -136,7 +135,7 @@ class VirusMutationProcessor:
             # Multi-segment virus: paths will be segment-specific
             self.data_paths = {}
             self.refs_paths = {}
-            
+
             for segment in self.segments:
                 segment_base = os.path.join(self.base_path, segment)
                 self.data_paths[segment] = os.path.join(segment_base, "clustalW")
@@ -151,7 +150,7 @@ class VirusMutationProcessor:
         Ensure all necessary directories exist.
         """
         os.makedirs(self.result_path, exist_ok=True)
-        
+
         if self.is_multi_segment:
             for segment in self.segments:
                 os.makedirs(self.data_paths[segment], exist_ok=True)
@@ -202,7 +201,7 @@ class VirusMutationProcessor:
             and self.virus_name in self.config["viruses"]
         ):
             virus_config = self.config["viruses"][self.virus_name]
-            
+
             # For multi-segment viruses, check for segment-specific config
             if self.is_multi_segment and segment:
                 if "segments" in virus_config and segment in virus_config["segments"]:
@@ -216,7 +215,7 @@ class VirusMutationProcessor:
                         if key not in segment_config:
                             segment_config[key] = value
                     return segment_config
-            
+
             # Merge with defaults for missing values
             for key, value in default_config.items():
                 if key not in virus_config:
@@ -238,7 +237,7 @@ class VirusMutationProcessor:
             str: Path to the reference genome file
         """
         config = self.get_virus_config(segment)
-        
+
         if self.is_multi_segment and segment:
             return os.path.join(self.refs_paths[segment], config["reference_genome"])
         else:
@@ -255,7 +254,7 @@ class VirusMutationProcessor:
             str: Path to the proteome file
         """
         config = self.get_virus_config(segment)
-        
+
         if self.is_multi_segment and segment:
             return os.path.join(self.refs_paths[segment], config["proteome_file"])
         else:
@@ -441,13 +440,13 @@ class SNPProcessor:
             # Create individual mutation dictionary for this genome
             individual_mutations = {}
             row_hot_mutations = []  # Track row and hot mutations for CSV
-            
+
             for genome_snpp in snp_record.get("genomeSNPPs", []):
-                # Only filter out specific artifacts: deletions at the very beginning (1:1, 1:2, 1:3) 
+                # Only filter out specific artifacts: deletions at the very beginning (1:1, 1:2, 1:3)
                 # with "Invalid protein sequence" that represent missing sequence data
                 pos = genome_snpp.get('pos', '')
                 protein_mutation = genome_snpp.get('proteinMutation', [])
-                
+
                 # Very specific filter: only remove deletions at positions 1:1, 1:2, 1:3 with invalid protein
                 should_filter = False
                 if genome_snpp.get('type') == 'deletion' and protein_mutation:
@@ -458,22 +457,22 @@ class SNPProcessor:
                             if isinstance(protein_info, dict) and protein_info.get('protein') == 'Invalid protein sequence':
                                 should_filter = True
                                 break
-                
+
                 if should_filter:
                     continue
-                
+
                 # Split multi-protein mutations
                 separated_mutations = split_multi_protein_mutations(genome_snpp)
-                
+
                 for separated_mutation in separated_mutations:
                     # Classify mutation type
                     biological_type = classify_mutation_type(separated_mutation.get('proteinMutation', []))
-                    
+
                     # Create mutation string with biological classification
                     mutation = f"{biological_type} {separated_mutation.get('pos', '')} {separated_mutation.get('SNP', '')} {separated_mutation.get('proteinMutation', '')}"
                     dict_key = convert_key_to_int(str(separated_mutation.get("pos", "")))
                     individual_mutations[dict_key] = mutation
-                    
+
                     # Track row and hot mutations for CSV
                     original_type = separated_mutation.get('type', '')
                     if original_type in ['rowMutation', 'hotMutation']:
@@ -489,7 +488,7 @@ class SNPProcessor:
                                         protein_name = protein_data.get('protein', 'unknown')
                                         amino_acid_change = protein_data.get('mutation', 'NA')
                                         biological_type = classify_mutation_type([protein_data])
-                                        
+
                                         # Always check for hot mutation if SNP is X->Y and length > 1
                                         snp_info = separated_mutation.get('SNP', '')
                                         final_mutation_type = None
@@ -528,10 +527,10 @@ class SNPProcessor:
                                                     # For single position mutations, use the original detection logic
                                                     is_hot = detect_hot_mutation(original_seq, mutated_seq)
                                                     final_mutation_type = 'hot' if is_hot else 'row'
-                                        
+
                                         if not final_mutation_type:
                                             final_mutation_type = mutation_type if mutation_type in ['rowMutation', 'hotMutation'] else 'row'
-                                        
+
                                         row_hot_mutations.append({
                                             'genome_id': genome_id,
                                             'mutation_type': final_mutation_type,
@@ -766,7 +765,7 @@ class SNPProcessor:
                                     protein_name = protein_data.get('protein', 'unknown')
                                     amino_acid_change = protein_data.get('mutation', 'NA')
                                     biological_type = classify_mutation_type([protein_data])
-                                    
+
                                     # Always check for hot mutation if SNP is X->Y and length > 1
                                     snp_info = separated_mutation.get('SNP', '')
                                     final_mutation_type = None
@@ -802,10 +801,10 @@ class SNPProcessor:
                                                 # For single position mutations, use the original detection logic
                                                 is_hot = detect_hot_mutation(original_seq, mutated_seq)
                                                 final_mutation_type = 'hot' if is_hot else 'row'
-                                        
+
                                         if not final_mutation_type:
                                             final_mutation_type = mutation_type if mutation_type in ['rowMutation', 'hotMutation'] else 'row'
-                                        
+
                                         row_hot_mutations.append({
                                             'genome_id': genome_id,
                                             'mutation_type': final_mutation_type,
@@ -880,7 +879,7 @@ class SNPProcessor:
                 # Write data
                 for mutation in row_hot_mutations:
                     file.write(f"{mutation['genome_id']},{mutation['mutation_type']},{mutation['position']},{mutation['nucleotide_change']},{mutation['protein_affected']},{mutation['amino_acid_change']},{mutation['biological_classification']}\n")
-            
+
             print(f"Generated row/hot mutations CSV for {genome_id}: {len(row_hot_mutations)} mutations")
 
         return [snp_records]
@@ -939,6 +938,7 @@ def main():
     )
 
 
+
     args = parser.parse_args()
 
     # Initialize virus processor
@@ -960,7 +960,7 @@ def main():
         print(f"Detected multi-segment virus: {args.virus}")
         segments = virus_processor.get_segments()
         print(f"Available segments: {', '.join(segments)}")
-        
+
         # If segment is specified, process only that segment
         if args.segment:
             if args.segment not in segments:
@@ -970,14 +970,14 @@ def main():
         else:
             # Process all segments
             segments_to_process = segments
-        
+
         # Process each segment
         for segment in segments_to_process:
             print(f"\n=== Processing segment: {segment} ===")
             _process_segment(virus_processor, segment, args)
-        
+
         print(f"\nProcessing complete. Results saved in: {virus_processor.result_path}")
-        
+
     else:
         # Single-segment virus (traditional processing)
         print(f"Processing single-segment virus: {args.virus}")
@@ -995,7 +995,7 @@ def _process_segment(virus_processor: VirusMutationProcessor, segment: str, args
     """
     # Get MSA file for this segment
     msa_file = args.msa_file or virus_processor.get_default_msa_file(segment)
-    
+
     # Check if MSA file exists
     data_path = virus_processor.get_data_path(segment)
     msa_file_path = os.path.join(data_path, msa_file)
@@ -1010,7 +1010,7 @@ def _process_segment(virus_processor: VirusMutationProcessor, segment: str, args
     # Initialize components for this segment
     ref_genome_path = virus_processor.get_reference_genome_path(segment)
     proteome_path = virus_processor.get_proteome_path(segment)
-    
+
     ref_genome = ReferenceGenome(ref_genome_path)
     proteome = Proteome(proteome_path)
     msa_instance = MultipleSequenceAlignment(msa_file_path)
@@ -1039,7 +1039,7 @@ def _process_segment(virus_processor: VirusMutationProcessor, segment: str, args
 
     # Initialize frameshift detector if requested
     frameshift_detector = None
-    
+
     if args.detect_frameshifts:
         frameshift_detector = FrameshiftDetector(ref_genome)
         print("Frameshift detection enabled")
@@ -1056,11 +1056,11 @@ def _process_segment(virus_processor: VirusMutationProcessor, segment: str, args
             # Process only one specific genome
             print(f"Processing genome: {args.genome_id} in segment {segment}")
             snp_processor_instance.get_snp_records_for_one_genome(msa_files, args.genome_id, segment)
-    
+
     # Run frameshift analysis if requested
     if frameshift_detector:
         _run_additional_analyses(
-            msa_instance, frameshift_detector, 
+            msa_instance, frameshift_detector,
             virus_processor, segment, args
         )
 
@@ -1119,7 +1119,7 @@ def _process_single_segment(virus_processor: VirusMutationProcessor, args) -> No
 
     # Initialize frameshift detector if requested
     frameshift_detector = None
-    
+
     if args.detect_frameshifts:
         frameshift_detector = FrameshiftDetector(ref_genome)
         print("Frameshift detection enabled")
@@ -1136,11 +1136,11 @@ def _process_single_segment(virus_processor: VirusMutationProcessor, args) -> No
             # Process only one specific genome
             print(f"Processing genome: {args.genome_id}")
             snp_processor_instance.get_snp_records_for_one_genome(msa_files, args.genome_id)
-    
+
     # Run frameshift analysis if requested
     if frameshift_detector:
         _run_additional_analyses(
-            msa_instance, frameshift_detector, 
+            msa_instance, frameshift_detector,
             virus_processor, None, args
         )
 
@@ -1148,7 +1148,7 @@ def _process_single_segment(virus_processor: VirusMutationProcessor, args) -> No
 
 
 def _run_additional_analyses(
-    msa_instance, frameshift_detector, 
+    msa_instance, frameshift_detector,
     virus_processor, segment, args
 ) -> None:
     """
@@ -1162,31 +1162,32 @@ def _run_additional_analyses(
         args: Command line arguments
     """
     print("\n=== Running Additional Analyses ===")
-    
+
     # Get reference sequence
     ref_seq_id, ref_seq_msa = msa_instance.find_ref_msa("reference")
     if ref_seq_id is None:
         print("Warning: Could not find reference sequence for additional analyses")
         return
-    
+
     # Remove gaps from reference sequence
     ref_seq_clean = ref_seq_msa.replace('-', '')
-    
+
     # Run frameshift detection
     if frameshift_detector:
         print("Detecting frameshift sites...")
         frameshift_sites = frameshift_detector.detect_frameshift_sites(ref_seq_clean)
-        
+
+        result_path = virus_processor.get_result_path(segment)
+
+        # Generate CSV output
         frameshift_output = frameshift_detector.format_frameshift_output(frameshift_sites)
         print(frameshift_output)
-        
-        # Save frameshift results as CSV
-        result_path = virus_processor.get_result_path(segment)
+
         frameshift_file = os.path.join(result_path, f"potential_PRF_{today}.csv")
         with open(frameshift_file, 'w') as f:
             f.write(frameshift_output)
         print(f"Potential PRF analysis saved to: {frameshift_file}")
-    
+
 
 
 

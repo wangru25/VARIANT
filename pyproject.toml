@@ -83,10 +83,6 @@ extend-exclude = '''
 '''
 
 [tool.ruff]
-# Allow imports from src directory
-src = ["src"]
-# Set Python path to include current directory
-python-path = ["."]
 # Ignore specific import warnings that are false positives
 ignore = [
     "E402",  # Module level import not at top of file
