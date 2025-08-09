@@ -292,20 +292,26 @@ python scripts/setup_virus_dataset.py --validate "MyVirus"
 
 ### File Requirements
 
-#### Reference Genome File
+#### Reference Genome File (Required)
 - **Format**: FASTA format
 - **Content**: Complete reference genome sequence
 - **Example** (SARS-CoV-2 reference): [SARS-CoV-2 genome reference sequence](data/SARS-CoV-2/refs/NC_045512.fasta)
 
-#### Proteome File
+#### Proteome File (Required)
 - **Format**: FASTA format
 - **Content**: Protein sequences with headers
 - **Example** (SARS-CoV-2 proteome reference): [SARS-CoV-2 proteome reference sequence](data/SARS-CoV-2/refs/SARS-CoV-2_proteome.fasta)
 
-#### MSA (Multiple Sequence Alignment) File
+#### Variants Sequences File (Optional)
+- **Format**: FASTA format
+- **Content**: Reference genome sequence together with other variant genome sequences that user wanna decoded
+- **Example** (SARS-CoV-2 proteome reference): [SARS-CoV-2 all variants sequences](data/SARS-CoV-2/fasta/sequences_w_reference.fasta)
+
+
+#### Multiple Sequence Alignment (MSA) File (Required)
 - **Format**: Text file with aligned sequences
-- **Content**: Multiple aligned genome sequences obtained from [Clustal Omega](https://www.ebi.ac.uk/jdispatcher/msa/clustalo?stype=protein)
-- **Example** (SARS-CoV-2 MSA): [SARS-CoV-2 MSA](data/SARS-CoV-2/refs/gisaid_hcov-19_20221201_20221230_China_0_msa.txt)
+- **Content**: Multiple aligned genome sequences obtained from [Clustal Omega](https://www.ebi.ac.uk/jdispatcher/msa/clustalo?stype=protein). The input file is [SARS-CoV-2 all variants sequences](data/SARS-CoV-2/fasta/sequences_w_reference.fasta)
+- **Example** (SARS-CoV-2 MSA): [SARS-CoV-2 MSA](data/SARS-CoV-2/data/clustalW/gisaid_hcov-19_20221201_20221230_China_0_msa.txt)
 
 ### Codon Table IDs
 
