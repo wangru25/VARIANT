@@ -4,9 +4,9 @@ Date: 2025-01-07
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-01-07
 Email: rw3594@nyu.edu
-FilePath: /muvitrack/src/core/frameshift_detector.py
+FilePath: /VARIANT/src/core/frameshift_detector.py
 Description:
-Comprehensive frameshift detection and analysis module for MuViTrack. Detects potential
+Comprehensive frameshift detection and analysis module for VARIANT. Detects potential
 programmed ribosomal frameshifting (PRF) sites including +1 and -1 frameshifting mechanisms,
 with efficiency scoring, mutation impact analysis, and detailed reporting capabilities.
 """

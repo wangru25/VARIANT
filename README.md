@@ -1,4 +1,4 @@
-# MuViTrack: Multi-scale Viral Mutation Tracking and Analysis Platform
+# VARIANT: Viral mutAtion trackeR aImed At GeNome and proTein-level
 
 A comprehensive Python framework for analyzing viral mutations, supporting both single-segment and multi-segment viruses. The framework provides detailed analysis of nucleotide changes, protein impacts, and mutation classifications including missense, nonsense, and frameshift mutations.
 
@@ -29,8 +29,8 @@ A comprehensive Python framework for analyzing viral mutations, supporting both 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/muvitrack.git
-cd muvitrack
+git clone https://github.com/wangru25/VARIANT.git
+cd VARIANT
 
 # Install dependencies
 pip install -r requirements.txt
@@ -694,18 +694,18 @@ python main.py --help
 python main.py --list-viruses
 ```
 
-## Citation
+<!-- ## Citation
 
 If you use this software in your research, please cite:
 
 ```bibtex
-@software{wang2025muvitrack,
-  title={MuViTrack: Multi-scale Viral Mutation Tracking and Analysis Platform},
+@software{wang2025variant,
+  title={VARIANT: A Comprehensive Python Toolkit for Decoding and Analyzing Viral Mutations at Genome and Protein Levels},
   author={Wang, Rui},
   year={2025},
-  url={https://github.com/yourusername/muvitrack}
+  url={https://github.com/wangru25/VARIANT}
 }
-```
+``` -->
 
 ## Contact
 
