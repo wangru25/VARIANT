@@ -57,59 +57,115 @@ A comprehensive Python framework for analyzing viral mutations, supporting both 
 
 ## Installation
 
-### Prerequisites
-- Python 3.8 or higher
-- Required packages:
-  - BioPython >= 1.79
-  - NumPy >= 1.21.0
-  - Pandas >= 1.3.0
-  - PyYAML >= 6.0
-  - fuzzysearch == 0.7.3
-  - more-itertools >= 8.12.0
+VARIANT can be installed and used in two ways:
 
-### Setup
+| Feature | CLI Installation | Conda Environment |
+|---------|------------------|-------------------|
+| **Installation** | `pip install -e .` | `conda env create -f environment.yml` |
+| **Command Style** | `variant prf --genome file.fasta` | `python main.py --virus SARS-CoV-2 --detect-frameshifts` |
+| **Dependencies** | Auto-installed via pip | Managed by conda |
+| **Best For** | Modern CLI users, CI/CD | Bioinformatics workflows, isolated environments |
+| **Entry Point** | `variant` command | `python main.py` |
+
+### Option 1: CLI Installation (Recommended)
+
+**Prerequisites**: Python 3.8 or higher
 
 ```bash
 # Clone the repository
 git clone https://github.com/wangru25/VARIANT.git
 cd VARIANT
 
-# Install dependencies
+# Install the package and dependencies
 pip install -e .
-```
 
-## Usage
-
-VARIANT provides both a command-line interface and a Python API for viral mutation analysis.
-
-### CLI Commands
-
-After installation, you can use the CLI in two ways:
-
-```bash
-# Method 1: Using Python module (recommended)
-python -m src.cli.commands --help
-
-# Method 2: Direct command (after proper entry point setup)
+# Verify installation
 variant --help
 ```
 
-### Basic Analysis Commands
+### Option 2: Conda Environment
+
+**Prerequisites**: Conda or Miniconda installed
 
 ```bash
-# Analyze virus mutations from MSA
-python -m src.cli.commands analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/msa.txt
+# Clone the repository
+git clone https://github.com/wangru25/VARIANT.git
+cd VARIANT
 
-# Setup virus dataset
-python -m src.cli.commands setup --virus HIV --config virus_config.yaml
+# Create and activate conda environment
+conda env create -f environment.yml
+conda activate variant
 
-# Analyze programmed ribosomal frameshifting (PRF) sites
-python -m src.cli.commands prf --genome data/refs/NC_045512.fasta
+# Make scripts executable (if needed)
+chmod +x main.py
 
-# Legacy main.py usage (for backward compatibility)
+# Verify installation
+python main.py --help
+```
+
+### Dependencies
+- BioPython >= 1.79
+- NumPy >= 1.21.0  
+- Pandas >= 1.3.0
+- PyYAML >= 6.0
+- fuzzysearch >= 0.7.3
+- more-itertools >= 8.12.0
+
+## Usage
+
+Choose your preferred method based on your installation:
+
+### Option 1: CLI Usage (After `pip install -e .`)
+
+The CLI provides modern, user-friendly commands:
+
+```bash
+# Show all available commands
+variant --help
+
+# PRF Analysis
+variant prf --genome data/SARS-CoV-2/refs/NC_045512.fasta --output results.csv
+
+# Mutation Analysis
+variant analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/test_msa_2.txt
+
+# Dataset Setup
+variant setup --virus SARS-CoV-2 --config virus_config.yaml
+variant setup --virus HIV-1
+```
+
+### Option 2: Conda Usage (After `conda activate variant`)
+
+Use the traditional Python scripts:
+
+```bash
+# Show available options
+python main.py --help
+
+# Analyze specific genome
 python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
+
+# Process all genomes in MSA
 python main.py --virus SARS-CoV-2 --process-all
+
+# PRF analysis
+python main.py --virus SARS-CoV-2 --detect-frameshifts
+
+# Multi-segment virus analysis
 python main.py --virus H3N2 --segment segment_1
+
+# List available viruses
+python main.py --list-viruses
+```
+
+### Alternative Methods (Both Options)
+
+```bash
+# Python module approach
+python -m src.cli.commands --help
+
+# Direct script execution (conda users)
+python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
 ```
 
 ### Command Line Arguments
