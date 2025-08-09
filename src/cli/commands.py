@@ -28,9 +28,9 @@ def setup_parser() -> argparse.ArgumentParser:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  mutparser analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/msa.txt
-  mutparser setup --virus HIV --config virus_config.yaml
-  mutparser prf --genome data/refs/NC_045512.fasta
+  variant analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/test_msa_1.txt
+  variant setup --virus HIV-1 --config virus_config.yaml
+  variant prf --genome data/SARS-CoV-2/refs/NC_045512.fasta --output results.csv
         """,
     )
 
@@ -53,9 +53,10 @@ Examples:
     setup_parser.add_argument(
         "--config", default="virus_config.yaml", help="Configuration file"
     )
-    setup_parser.add_argument(
-        "--force", action="store_true", help="Force overwrite existing data"
-    )
+    # Note: Force parameter not yet implemented in setup method
+    # setup_parser.add_argument(
+    #     "--force", action="store_true", help="Force overwrite existing data"
+    # )
 
     # PRF command
     prf_parser = subparsers.add_parser("prf", help="Analyze PRF sites")
@@ -69,21 +70,25 @@ Examples:
 def run_analysis(args: argparse.Namespace) -> int:
     """Run the main mutation analysis."""
     try:
+        import sys
+        import os
+        
+        # Add the project root to the path to import from main.py
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+        if project_root not in sys.path:
+            sys.path.insert(0, project_root)
+            
         from main import SNPProcessor, VirusMutationProcessor
 
         # Initialize virus processor
         virus_processor = VirusMutationProcessor(args.virus, args.config)
 
-        # Get MSA files
-        msa_files = [
-            f
-            for f in os.listdir(virus_processor.data_path)
-            if f.endswith(".txt") and "msa" in f.lower()
-        ]
-
-        if not msa_files:
-            print(f"No MSA files found in {virus_processor.data_path}")
+        # Use the provided MSA file
+        if not os.path.exists(args.msa):
+            print(f"Error: MSA file not found: {args.msa}")
             return 1
+
+        print(f"Processing MSA file: {args.msa}")
 
         # Initialize components
         ref_genome_path = virus_processor.get_reference_genome_path()
@@ -91,9 +96,11 @@ def run_analysis(args: argparse.Namespace) -> int:
 
         ref_genome = ReferenceGenome(ref_genome_path)
         proteome = Proteome(proteome_path)
+        msa = MultipleSequenceAlignment(args.msa)
 
-        # Create processors
-        gene_mut_detector = GeneMutationDetector(ref_genome, None, None)
+        # Create processors with MSA (use reference genome name for initialization)
+        # The actual processing will create proper detectors for each genome
+        gene_mut_detector = GeneMutationDetector(ref_genome, msa, ref_genome.ref_name)
         orf_processor = ORFProcessor(ref_genome)
         aa_mutation_processor = AminoAcidMutationProcessor()
         alignment_processor = AlignmentProcessor(proteome, aa_mutation_processor)
@@ -102,42 +109,44 @@ def run_analysis(args: argparse.Namespace) -> int:
         )
 
         genome_snp_processor = GenomeSNPProcessor(
-            virus_processor.data_path, None, gene_mut_detector, pro_mut_detector
+            virus_processor.data_path, msa, gene_mut_detector, pro_mut_detector
         )
 
         snp_processor = SNPProcessor(genome_snp_processor, virus_processor)
 
-        # Process MSA files
-        for msa_file in msa_files:
-            print(f"Processing {msa_file}...")
-            full_msa_path = os.path.join(virus_processor.data_path, msa_file)
-            msa = MultipleSequenceAlignment(full_msa_path)
+        # Get SNP records
+        snp_records = genome_snp_processor.get_genome_snps(args.msa)
 
-            # Update processors with MSA
-            gene_mut_detector.msa = msa
-            genome_snp_processor.msa = msa
-
-            # Get SNP records
-            snp_records = genome_snp_processor.get_genome_snps(full_msa_path)
-
-            # Process and save results
-            snp_processor._process_root_variants(snp_records, msa_file.split(".")[0])
+        # Process and save results
+        msa_basename = os.path.basename(args.msa).split(".")[0]
+        snp_processor._process_root_variants(snp_records, msa_basename, virus_processor=virus_processor, segment=None)
 
         print("Analysis completed successfully!")
         return 0
 
     except Exception as e:
         print(f"Error during analysis: {e}")
+        import traceback
+        traceback.print_exc()
         return 1
 
 
 def run_setup(args: argparse.Namespace) -> int:
     """Run the setup command."""
     try:
+        import sys
+        import os
+        
+        # Add the project root to the path to import from scripts
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+        if project_root not in sys.path:
+            sys.path.insert(0, project_root)
+            
         from scripts.setup_virus_dataset import VirusDatasetSetup
 
         setup = VirusDatasetSetup(args.config)
-        setup.setup_virus_dataset(args.virus, force=args.force)
+        # Note: The force parameter is not implemented in the setup method
+        setup.setup_virus_dataset(args.virus)
 
         print(f"Setup completed for virus: {args.virus}")
         return 0
@@ -149,9 +158,63 @@ def run_setup(args: argparse.Namespace) -> int:
 
 def run_prf_analysis(args: argparse.Namespace) -> int:
     """Run PRF analysis."""
-    print("PRF analysis via CLI is not currently available.")
-    print("Please use the main.py script with --detect-frameshifts flag instead.")
-    return 1
+    try:
+        import sys
+        import os
+        from datetime import datetime
+        
+        # Add the project root to the path
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+        if project_root not in sys.path:
+            sys.path.insert(0, project_root)
+        
+        from ..core.frameshift_detector import FrameshiftDetector
+        from ..core.reference_genome import ReferenceGenome
+        from Bio import SeqIO
+        
+        # Read genome file
+        if not os.path.exists(args.genome):
+            print(f"Error: Genome file not found: {args.genome}")
+            return 1
+            
+        print(f"Loading genome from: {args.genome}")
+        
+        # Read the genome sequence
+        with open(args.genome, 'r') as f:
+            record = SeqIO.read(f, 'fasta')
+            genome_sequence = str(record.seq)
+        
+        # Initialize frameshift detector
+        ref_genome = ReferenceGenome(args.genome)
+        frameshift_detector = FrameshiftDetector(ref_genome)
+        
+        print("Detecting frameshift sites...")
+        frameshift_sites = frameshift_detector.detect_frameshift_sites(genome_sequence)
+        
+        # Generate output
+        output_content = frameshift_detector.format_frameshift_output(frameshift_sites)
+        print(output_content)
+        
+        # Save to file if output specified
+        if args.output:
+            with open(args.output, 'w') as f:
+                f.write(output_content)
+            print(f"Results saved to: {args.output}")
+        else:
+            # Default output file
+            today = datetime.now().strftime("%Y%m%d")
+            default_output = f"potential_PRF_{today}.csv"
+            with open(default_output, 'w') as f:
+                f.write(output_content)
+            print(f"Results saved to: {default_output}")
+        
+        return 0
+        
+    except Exception as e:
+        print(f"Error during PRF analysis: {e}")
+        import traceback
+        traceback.print_exc()
+        return 1
 
 
 def main() -> int:

@@ -1,0 +1,2 @@
+[console_scripts]
+variant = src.cli.commands:main

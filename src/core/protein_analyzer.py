@@ -3,30 +3,11 @@
 Author: Rui Wang
 Date: 2025-08-04 13:30:27
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-05 17:58:57
+LastEditTime: 2025-08-09 10:33:47
 Email: wang.rui@nyu.edu
-FilePath: /viralytics-mut/src/core/protein_analyzer.py
+FilePath: /VARIANT/src/core/protein_analyzer.py
 Description:
 '''
-# -*- coding: utf-8 -*-
-'''
-Author: Rui Wang
-Date: 2025-08-04 13:30:27
-LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-05 17:46:24
-Email: wang.rui@nyu.edu
-FilePath: /viralytics-mut/src/core/protein_analyzer.py
-Description:
-'''
-"""
-Author: Rui Wang
-Date: 2023-11-01 09:21:48
-LastModifiedBy: Rui Wang
-LastEditTime: 2023-11-17 10:37:16
-Email: rw3594@nyu.edu
-FilePath: /MutParser/src/core/protein_analyzer.py
-Description:
-"""
 
 from itertools import takewhile
 from typing import Dict, List, Tuple

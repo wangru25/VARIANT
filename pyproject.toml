@@ -50,16 +50,17 @@ docs = [
 ]
 
 [project.scripts]
-viralytics-mut = "src.cli.commands:main"
+variant = "variant.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/viralytics-mut"
-Documentation = "https://viralytics-mut.readthedocs.io"
-Repository = "https://github.com/yourusername/viralytics-mut"
-Issues = "https://github.com/yourusername/viralytics-mut/issues"
+Homepage = "https://github.com/wangru25/VARIANT"
+Documentation = "https://github.com/wangru25/VARIANT"
+Repository = "https://github.com/wangru25/VARIANT"
+Issues = "https://github.com/wangru25/VARIANT/issues"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["src", "."]
+include = ["src*", "variant*"]
 
 [tool.setuptools.package-data]
 "*" = ["*.yaml", "*.yml", "*.json"]

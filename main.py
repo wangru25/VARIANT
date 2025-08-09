@@ -47,8 +47,8 @@ from src.utils.mutation_utils import (
 DATE_FORMAT = "%Y%m%d"
 
 # Global Variables
-# today = date.today().strftime("%Y%m%d")
-today = 20250807
+today = date.today().strftime("%Y%m%d")
+# today = 20250807
 
 class VirusMutationProcessor:
     """
@@ -1175,7 +1175,7 @@ def _run_additional_analyses(
     # Run frameshift detection
     if frameshift_detector:
         print("Detecting frameshift sites...")
-        frameshift_sites = frameshift_detector.detect_frameshift_sites(ref_seq_clean)
+        frameshift_sites = frameshift_detector.detect_frameshift_sites(ref_seq_clean, start_pos=1)
 
         result_path = virus_processor.get_result_path(segment)
 

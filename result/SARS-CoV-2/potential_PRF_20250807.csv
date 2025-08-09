@@ -1,24 +1,24 @@
-position,end_position,sequence,type,efficiency_score,efficiency_lower,efficiency_upper,downstream_structure,trna_validated,orf1a_ratio,orf1ab_ratio,replication_efficiency,experimental_validation,method_reference
-1663,1670,TTTAAAC,-1 PRF,0.610,0.510,0.710,0.0,True,0.268,0.732,0.644,"Plant et al. (2010); Kelly et al. (2020)","Plant et al. (2010); Dinman (2012)"
-3004,3011,TTTAAAT,-1 PRF,0.592,0.492,0.692,0.0,True,0.290,0.710,0.637,"Plant et al. (2010)","Plant et al. (2010); Dinman (2012)"
-4260,4267,GGGTTTA,-1 PRF,0.568,0.468,0.668,0.0,True,0.432,0.568,0.627,"Plant et al. (2010)","Plant et al. (2010); Dinman (2012)"
-4263,4270,TTTAAAT,-1 PRF,0.592,0.492,0.692,0.0,True,0.290,0.710,0.637,"Plant et al. (2010)","Plant et al. (2010); Dinman (2012)"
-6084,6091,TTTAAAC,-1 PRF,0.610,0.510,0.710,0.0,True,0.268,0.732,0.644,"Plant et al. (2010); Kelly et al. (2020)","Plant et al. (2010); Dinman (2012)"
-6744,6751,TTTAAAC,-1 PRF,0.610,0.510,0.710,0.0,True,0.268,0.732,0.644,"Plant et al. (2010); Kelly et al. (2020)","Plant et al. (2010); Dinman (2012)"
-7204,7211,TTTAAAT,-1 PRF,0.592,0.492,0.692,0.0,True,0.290,0.710,0.637,"Plant et al. (2010)","Plant et al. (2010); Dinman (2012)"
-8182,8189,GGGTTTG,-1 PRF,0.340,0.240,0.440,0.0,True,0.660,0.340,0.536,"","Plant et al. (2010); Dinman (2012)"
-9627,9634,TTTTTTA,-1 PRF,0.550,0.450,0.650,0.0,True,0.973,0.027,0.620,"Marcheschi et al. (2009); Dulude et al. (2006)","Plant et al. (2010); Dinman (2012)"
-11076,11083,TTTTTTG,-1 PRF,0.532,0.432,0.632,0.0,True,0.973,0.027,0.613,"","Plant et al. (2010); Dinman (2012)"
-13461,13468,TTTAAAC,-1 PRF,0.610,0.510,0.710,0.0,True,0.268,0.732,0.644,"Plant et al. (2010); Kelly et al. (2020)","Plant et al. (2010); Dinman (2012)"
-13468,13475,GGGTTTG,-1 PRF,0.340,0.240,0.440,0.0,True,0.660,0.340,0.536,"","Plant et al. (2010); Dinman (2012)"
-14298,14305,TTTAAAT,-1 PRF,0.592,0.492,0.692,0.0,True,0.290,0.710,0.637,"Plant et al. (2010)","Plant et al. (2010); Dinman (2012)"
-16668,16675,TTTAAAC,-1 PRF,0.610,0.510,0.710,0.0,True,0.268,0.732,0.644,"Plant et al. (2010); Kelly et al. (2020)","Plant et al. (2010); Dinman (2012)"
-18474,18481,TTTAAAC,-1 PRF,0.610,0.510,0.710,0.0,True,0.268,0.732,0.644,"Plant et al. (2010); Kelly et al. (2020)","Plant et al. (2010); Dinman (2012)"
-19564,19571,GGGTTTA,-1 PRF,0.568,0.468,0.668,0.0,True,0.432,0.568,0.627,"Plant et al. (2010)","Plant et al. (2010); Dinman (2012)"
-19983,19990,TTTTTTG,-1 PRF,0.532,0.432,0.632,0.0,True,0.973,0.027,0.613,"","Plant et al. (2010); Dinman (2012)"
-20226,20233,TTTAAAC,-1 PRF,0.610,0.510,0.710,0.0,True,0.268,0.732,0.644,"Plant et al. (2010); Kelly et al. (2020)","Plant et al. (2010); Dinman (2012)"
-20816,20823,TTTAAAC,-1 PRF,0.610,0.510,0.710,0.0,True,0.268,0.732,0.644,"Plant et al. (2010); Kelly et al. (2020)","Plant et al. (2010); Dinman (2012)"
-21120,21127,GGGTTTA,-1 PRF,0.568,0.468,0.668,0.0,True,0.432,0.568,0.627,"Plant et al. (2010)","Plant et al. (2010); Dinman (2012)"
-24435,24442,TTTAAAC,-1 PRF,0.610,0.510,0.710,0.0,True,0.268,0.732,0.644,"Plant et al. (2010); Kelly et al. (2020)","Plant et al. (2010); Dinman (2012)"
-24489,24496,TTTAAAT,-1 PRF,0.592,0.492,0.692,0.0,True,0.290,0.710,0.637,"Plant et al. (2010)","Plant et al. (2010); Dinman (2012)"
-25137,25144,TTTAAAT,-1 PRF,0.592,0.492,0.692,0.0,True,0.290,0.710,0.637,"Plant et al. (2010)","Plant et al. (2010); Dinman (2012)"
+position,end_position,sequence,type
+1664,1670,TTTAAAC,-1 PRF
+3005,3011,TTTAAAT,-1 PRF
+4261,4267,GGGTTTA,-1 PRF
+4264,4270,TTTAAAT,-1 PRF
+6085,6091,TTTAAAC,-1 PRF
+6745,6751,TTTAAAC,-1 PRF
+7205,7211,TTTAAAT,-1 PRF
+8183,8189,GGGTTTG,-1 PRF
+9628,9634,TTTTTTA,-1 PRF
+11077,11083,TTTTTTG,-1 PRF
+13462,13468,TTTAAAC,-1 PRF
+13469,13475,GGGTTTG,-1 PRF
+14299,14305,TTTAAAT,-1 PRF
+16669,16675,TTTAAAC,-1 PRF
+18475,18481,TTTAAAC,-1 PRF
+19565,19571,GGGTTTA,-1 PRF
+19984,19990,TTTTTTG,-1 PRF
+20227,20233,TTTAAAC,-1 PRF
+20817,20823,TTTAAAC,-1 PRF
+21121,21127,GGGTTTA,-1 PRF
+24436,24442,TTTAAAC,-1 PRF
+24490,24496,TTTAAAT,-1 PRF
+25138,25144,TTTAAAT,-1 PRF

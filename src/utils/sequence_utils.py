@@ -3,22 +3,11 @@
 Author: Rui Wang
 Date: 2025-08-04 13:30:27
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-07 10:11:05
+LastEditTime: 2025-08-09 10:34:10
 Email: wang.rui@nyu.edu
-FilePath: /viralytics-mut/src/utils/sequence_utils.py
-Description:
+FilePath: /VARIANT/src/utils/sequence_utils.py
+Description: Sequence processing utilities for FASTA files and sequence operations.
 '''
-# -*- coding: utf-8 -*-
-'''
-Author: Rui Wang
-Date: 2025-08-04 13:30:27
-LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-05 16:07:44
-Email: wang.rui@nyu.edu
-FilePath: /viralytics-mut/src/utils/sequence_utils.py
-Description:
-'''
-"""Sequence processing utilities for FASTA files and sequence operations."""
 
 from typing import Dict, List, Optional, Tuple
 

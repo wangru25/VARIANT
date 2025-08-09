@@ -143,13 +143,13 @@ class FrameshiftDetector:
             "GGGTTTA": ["Plant et al. (2010)"]
         }
 
-    def detect_frameshift_sites(self, sequence: str, start_pos: int = 0) -> List[Dict]:
+    def detect_frameshift_sites(self, sequence: str, start_pos: int = 1) -> List[Dict]:
         """
         Detect potential frameshifting sites in a sequence.
 
         Args:
             sequence (str): DNA/RNA sequence to analyze
-            start_pos (int): Starting position for coordinate mapping
+            start_pos (int): Starting position for coordinate mapping (1-based indexing, default=1)
 
         Returns:
             List[Dict]: List of detected frameshift sites with details
@@ -199,7 +199,7 @@ class FrameshiftDetector:
 
                 site = {
                     'position': pos + start_pos,
-                    'end_position': pos + len(slippery_seq) + start_pos,
+                    'end_position': pos + len(slippery_seq) + start_pos - 1,
                     'sequence': slippery_seq,
                     'type': '-1 PRF',
                     'description': description,
@@ -238,7 +238,7 @@ class FrameshiftDetector:
                         # Analyze the impact
                         site = {
                             'position': i + start_pos,
-                            'end_position': i + 3 + start_pos,
+                            'end_position': i + 3 + start_pos - 1,
                             'sequence': codon,
                             'context': context,
                             'type': '+1 PRF',

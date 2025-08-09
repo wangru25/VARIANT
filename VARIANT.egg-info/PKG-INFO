@@ -1,3 +1,45 @@
+Metadata-Version: 2.4
+Name: VARIANT
+Version: 1.0.0
+Summary: VARIANT: Viral mutAtion trackeR aImed At GeNome and proTein-level
+Author-email: Rui Wang <rw3594@nyu.edu>
+License: MIT
+Project-URL: Homepage, https://github.com/wangru25/VARIANT
+Project-URL: Documentation, https://github.com/wangru25/VARIANT
+Project-URL: Repository, https://github.com/wangru25/VARIANT
+Project-URL: Issues, https://github.com/wangru25/VARIANT/issues
+Keywords: bioinformatics,virus,mutation,SARS-CoV-2,PRF,frameshifting
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: biopython>=1.79
+Requires-Dist: more-itertools>=8.12.0
+Requires-Dist: fuzzysearch>=0.7.3
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: pandas>=1.3.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx>=5.0.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=1.0.0; extra == "docs"
+Dynamic: license-file
+
 # VARIANT: Viral mutAtion trackeR aImed At GeNome and proTein-level
 
 A comprehensive Python framework for analyzing viral mutations, supporting both single-segment and multi-segment viruses. The framework provides detailed analysis of nucleotide changes, protein impacts, and mutation classifications including missense, nonsense, and frameshift mutations.
@@ -15,115 +57,59 @@ A comprehensive Python framework for analyzing viral mutations, supporting both 
 
 ## Installation
 
-VARIANT can be installed and used in two ways:
+### Prerequisites
+- Python 3.8 or higher
+- Required packages:
+  - BioPython >= 1.79
+  - NumPy >= 1.21.0
+  - Pandas >= 1.3.0
+  - PyYAML >= 6.0
+  - fuzzysearch == 0.7.3
+  - more-itertools >= 8.12.0
 
-| Feature | CLI Installation | Conda Environment |
-|---------|------------------|-------------------|
-| **Installation** | `pip install -e .` | `conda env create -f environment.yml` |
-| **Command Style** | `variant prf --genome file.fasta` | `python main.py --virus SARS-CoV-2 --detect-frameshifts` |
-| **Dependencies** | Auto-installed via pip | Managed by conda |
-| **Best For** | Modern CLI users, CI/CD | Bioinformatics workflows, isolated environments |
-| **Entry Point** | `variant` command | `python main.py` |
-
-### Option 1: CLI Installation (Recommended)
-
-**Prerequisites**: Python 3.8 or higher
+### Setup
 
 ```bash
 # Clone the repository
 git clone https://github.com/wangru25/VARIANT.git
 cd VARIANT
 
-# Install the package and dependencies
+# Install dependencies
 pip install -e .
-
-# Verify installation
-variant --help
 ```
-
-### Option 2: Conda Environment
-
-**Prerequisites**: Conda or Miniconda installed
-
-```bash
-# Clone the repository
-git clone https://github.com/wangru25/VARIANT.git
-cd VARIANT
-
-# Create and activate conda environment
-conda env create -f environment.yml
-conda activate variant
-
-# Make scripts executable (if needed)
-chmod +x main.py
-
-# Verify installation
-python main.py --help
-```
-
-### Dependencies
-- BioPython >= 1.79
-- NumPy >= 1.21.0  
-- Pandas >= 1.3.0
-- PyYAML >= 6.0
-- fuzzysearch >= 0.7.3
-- more-itertools >= 8.12.0
 
 ## Usage
 
-Choose your preferred method based on your installation:
+VARIANT provides both a command-line interface and a Python API for viral mutation analysis.
 
-### Option 1: CLI Usage (After `pip install -e .`)
+### CLI Commands
 
-The CLI provides modern, user-friendly commands:
-
-```bash
-# Show all available commands
-variant --help
-
-# PRF Analysis
-variant prf --genome data/SARS-CoV-2/refs/NC_045512.fasta --output results.csv
-
-# Mutation Analysis
-variant analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/test_msa_2.txt
-
-# Dataset Setup
-variant setup --virus SARS-CoV-2 --config virus_config.yaml
-variant setup --virus HIV-1
-```
-
-### Option 2: Conda Usage (After `conda activate variant`)
-
-Use the traditional Python scripts:
+After installation, you can use the CLI in two ways:
 
 ```bash
-# Show available options
-python main.py --help
-
-# Analyze specific genome
-python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
-
-# Process all genomes in MSA
-python main.py --virus SARS-CoV-2 --process-all
-
-# PRF analysis
-python main.py --virus SARS-CoV-2 --detect-frameshifts
-
-# Multi-segment virus analysis
-python main.py --virus H3N2 --segment segment_1
-
-# List available viruses
-python main.py --list-viruses
-```
-
-### Alternative Methods (Both Options)
-
-```bash
-# Python module approach
+# Method 1: Using Python module (recommended)
 python -m src.cli.commands --help
 
-# Direct script execution (conda users)
+# Method 2: Direct command (after proper entry point setup)
+variant --help
+```
+
+### Basic Analysis Commands
+
+```bash
+# Analyze virus mutations from MSA
+python -m src.cli.commands analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/msa.txt
+
+# Setup virus dataset
+python -m src.cli.commands setup --virus HIV --config virus_config.yaml
+
+# Analyze programmed ribosomal frameshifting (PRF) sites
+python -m src.cli.commands prf --genome data/refs/NC_045512.fasta
+
+# Legacy main.py usage (for backward compatibility)
 python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
+python main.py --virus SARS-CoV-2 --process-all
+python main.py --virus H3N2 --segment segment_1
 ```
 
 ### Command Line Arguments
