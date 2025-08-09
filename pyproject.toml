@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "viralytics-mut"
+name = "VARIANT"
 version = "1.0.0"
-description = "A Comprehensive Framework for Multi-Scale Viral Mutation Analysis with Integrated Programmed Ribosomal Frameshifting Detection"
+description = "VARIANT: Viral mutAtion trackeR aImed At GeNome and proTein-level"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
