@@ -1,0 +1,14 @@
+name: variant
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - biopython
+  - numpy
+  - pandas
+  - pyyaml
+  - pip
+  - pip:
+    - fuzzysearch=0.7.3 
+    - more-itertools>=8.12.0

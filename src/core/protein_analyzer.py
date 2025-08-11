@@ -489,8 +489,30 @@ class AlignmentProcessor:
 
                 for record in SeqIO.parse(self.proteome_dir, "fasta"):
                     # Use record.description to get the full header, not record.id which gets truncated at first space
-                    header = record.description.split("|")[1]
+                    parts = record.description.split("|")
+                    if len(parts) < 3:
+                        continue
+                        
+                    header = parts[1]
+                    coordinates = parts[2]
                     ref_pro_seq = str(record.seq).replace(" ", "")
+
+                    # CRITICAL FIX: Check if DNA position is within this protein's coordinates
+                    if dna_pos is not None:
+                        from ..utils.sequence_utils import parse_gene_coordinates_enhanced
+                        try:
+                            coordinate_pairs, _ = parse_gene_coordinates_enhanced(coordinates)
+                            position_in_gene = False
+                            for start_pos, end_pos in coordinate_pairs:
+                                if start_pos <= dna_pos <= end_pos:
+                                    position_in_gene = True
+                                    break
+                            
+                            if not position_in_gene:
+                                continue  # Skip this protein if mutation is not within its coordinates
+                                
+                        except (ValueError, IndexError):
+                            continue  # Skip if coordinates can't be parsed
 
                     # Try exact match first
                     matches = find_near_matches(orf, ref_pro_seq, max_l_dist=0)
