@@ -1,4 +1,5 @@
 genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+OR719349.1,row,916:917,TA->CC,neuraminidase,"['N299N', 'R300R']",missense
 OR719349.1,hot,394:396,CC->TT,neuraminidase,"['D125D', 'P126L']",missense
 OR719349.1,hot,751:753,GG->AA,neuraminidase,"['G244G', 'S245N']",missense
 OR719349.1,hot,1034:1036,GT->AC,neuraminidase,"['D339N']",missense

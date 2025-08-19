@@ -74,7 +74,7 @@ missense 28311 C->T [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'P13
 missense 28311 C->T [{'protein': 'ORF9b', 'mutation': 'P10S'}]
 silent 28330 A->G [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'G19G'}]
 missense 28330 A->G [{'protein': 'ORF9b', 'mutation': 'D16G'}]
-missense 28369:28371 CAG->TTT [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'S33F'}, {'protein': 'ORF9b', 'mutation': 'A29V,V30L'}]
+missense 28369:28371 CAG->TTT [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'R32R,S33F'}, {'protein': 'ORF9b', 'mutation': 'A29V,V30L'}]
 missense 28881:28883 GGG->AAC [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'R203K,G204R'}, {'protein': 'ORF9c', 'mutation': 'G50N'}]
 missense 29510 A->C [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'S413R'}]
 silent 29632 C->T [{'protein': 'ORF10', 'mutation': 'N25N'}]

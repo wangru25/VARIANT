@@ -1,7 +1,8 @@
 Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
 nonstructural protein 2,D2E,missense,T32A,NT changes
 nonstructural protein 1,D2E,missense,T32A,NT changes
-nonstructural protein 1,V6M,missense,41:42TG->CA,NT changes
+nonstructural protein 2,T5T,silent,41:42TG->CA,NT changes
+nonstructural protein 2,V6M,missense,41:42TG->CA,NT changes
 nonstructural protein 2,S8S,silent,T50C,NT changes
 nonstructural protein 1,S8S,silent,T50C,NT changes
 nonstructural protein 2,F9F,silent,C53T,NT changes

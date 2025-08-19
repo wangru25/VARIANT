@@ -1,5 +1,6 @@
 genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
 EPI_ISL_16127652,row,22577:22578,GG->CA,spike_surface_glycoprotein,"['G339H']",missense
+EPI_ISL_16127652,row,27382:27384,GAT->CTC,ORF6,"['D61L']",missense
 EPI_ISL_16127652,row,28881:28883,GGG->AAC,nucleocapsid_phosphoprotein,"['R203K', 'G204R']",missense
 EPI_ISL_16127652,row,28881:28883,GGG->AAC,ORF9c,"['G50N']",missense
 EPI_ISL_16127652,hot,9532:9534,CC->TT,nsp4,"['F326F', 'T327I']",missense

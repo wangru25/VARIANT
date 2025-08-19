@@ -1,5 +1,7 @@
 genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
-OR719353.1,row,57:58,GG->AA,polymerase PB1,"['V12I']",missense
+OR719353.1,row,57:58,GG->AA,polymerase PB1,"['K11K', 'V12I']",missense
+OR719353.1,row,687:688,TT->AC,polymerase PB1,"['A221A', 'L222L']",missense
+OR719353.1,row,978:979,TT->CC,polymerase PB1,"['F318F', 'L319L']",missense
 OR719353.1,row,1781:1782,GG->AA,polymerase PB1,"['R586K']",missense
 OR719353.1,row,1878:1879,GA->TG,polymerase PB1,"['E618D', 'N619D']",missense
 OR719353.1,row,2023:2024,AA->GT,polymerase PB1,"['N667V']",missense

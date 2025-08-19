@@ -1,7 +1,7 @@
 frameshift 1:26 AGCAAAAGCAGGGTGACAAAGACATA [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
 missense 32 T->A [{'protein': 'nonstructural protein 2', 'mutation': 'D2E'}]
 missense 32 T->A [{'protein': 'nonstructural protein 1', 'mutation': 'D2E'}]
-missense 41:42 TG->CA [{'protein': 'nonstructural protein 1', 'mutation': 'V6M'}]
+missense 41:42 TG->CA [{'protein': 'nonstructural protein 2', 'mutation': 'T5T,V6M'}, {'protein': 'nonstructural protein 1', 'mutation': 'T5T,V6M'}]
 silent 50 T->C [{'protein': 'nonstructural protein 2', 'mutation': 'S8S'}]
 silent 50 T->C [{'protein': 'nonstructural protein 1', 'mutation': 'S8S'}]
 silent 53 C->T [{'protein': 'nonstructural protein 2', 'mutation': 'F9F'}]

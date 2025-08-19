@@ -77,4 +77,4 @@ missense 28881:28883 GGG->AAC [{'protein': 'nucleocapsid_phosphoprotein', 'mutat
 silent 28909 C->T [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'G212G'}]
 missense 28909 C->T [{'protein': 'ORF9c', 'mutation': 'A59V'}]
 missense 29510 A->C [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'S413R'}]
-unknown 29734:29759 GAGGCCACGCGGAGTACGATCGAGTG []
+missense 29734:29759 GAGGCCACGCGGAGTACGATCGAGTG [{'protein': 'None-CDS', 'mutation': 'NA'}]

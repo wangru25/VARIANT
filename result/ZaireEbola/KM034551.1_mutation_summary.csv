@@ -12,6 +12,8 @@ nucleoprotein(NP),F150F,silent,T919C,NT changes
 nucleoprotein(NP),L209L,silent,C1094T,NT changes
 nucleoprotein(NP),L213L,silent,C1108T,NT changes
 nucleoprotein(NP),G224G,silent,G1141A,NT changes
+nucleoprotein(NP),G243G,silent,1198:1199CT->TC,NT changes
+nucleoprotein(NP),L244L,silent,1198:1199CT->TC,NT changes
 nucleoprotein(NP),F280F,silent,T1309C,NT changes
 nucleoprotein(NP),L316L,silent,A1417G,NT changes
 nucleoprotein(NP),A326A,silent,A1447C,NT changes
@@ -114,7 +116,7 @@ spike glycoprotein(GP),E405G,missense,A7251G,NT changes
 spike glycoprotein(GP),R409R,silent,C7264T,NT changes
 spike glycoprotein(GP),T411A,missense,A7268G,NT changes
 spike glycoprotein(GP),S127P,missense,7301:7303TT->CC,NT changes
-spike glycoprotein(GP),P430L,missense,7325:7326CC->TT,NT changes
+spike glycoprotein(GP),P135L,missense,7325:7326CC->TT,NT changes
 spike glycoprotein(GP),S438S,silent,C7351T,NT changes
 spike glycoprotein(GP),T441A,missense,A7358G,NT changes
 spike glycoprotein(GP),F443S,missense,T7365C,NT changes
@@ -283,6 +285,8 @@ RNA-dependent RNA polymerase(L),T1497T,silent,T16071C,NT changes
 RNA-dependent RNA polymerase(L),R1522R,silent,G16146A,NT changes
 RNA-dependent RNA polymerase(L),P1528P,silent,T16164C,NT changes
 RNA-dependent RNA polymerase(L),K1563K,silent,A16269G,NT changes
+RNA-dependent RNA polymerase(L),P1580P,silent,16320:16321GC->AT,NT changes
+RNA-dependent RNA polymerase(L),L1581L,silent,16320:16321GC->AT,NT changes
 RNA-dependent RNA polymerase(L),N1585N,silent,C16335T,NT changes
 RNA-dependent RNA polymerase(L),V1589V,silent,G16347T,NT changes
 RNA-dependent RNA polymerase(L),F1592F,silent,T16356C,NT changes

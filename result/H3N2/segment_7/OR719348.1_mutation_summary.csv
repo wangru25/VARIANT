@@ -11,6 +11,8 @@ matrix protein 1,A25A,silent,G100A,NT changes
 matrix protein 1,A33A,silent,T124A,NT changes
 matrix protein 1,G34G,silent,G127A,NT changes
 matrix protein 1,K35K,silent,A130G,NT changes
+matrix protein 1,I51I,silent,178:179TC->CT,NT changes
+matrix protein 1,L52L,silent,178:179TC->CT,NT changes
 matrix protein 1,G58G,silent,G199A,NT changes
 matrix protein 1,L60L,silent,G205A,NT changes
 matrix protein 1,V80I,missense,G263A,NT changes
@@ -27,6 +29,7 @@ matrix protein 1,R105R,silent,G340A,NT changes
 matrix protein 1,E106E,silent,G343A,NT changes
 matrix protein 1,L117L,silent,C376A,NT changes
 matrix protein 1,S118S,silent,T379C,NT changes
+matrix protein 1,S120S,silent,385:386TG->AA,NT changes
 matrix protein 1,A121T,missense,385:386TG->AA,NT changes
 matrix protein 1,A125A,silent,C400A,NT changes
 matrix protein 1,G136G,silent,G433A,NT changes
@@ -38,6 +41,7 @@ matrix protein 1,H159H,silent,C502T,NT changes
 matrix protein 1,Q164Q,silent,A517G,NT changes
 matrix protein 1,S195S,silent,A610G,NT changes
 matrix protein 1,E197E,silent,G616A,NT changes
+matrix protein 1,E204E,silent,637:638AA->GG,NT changes
 matrix protein 1,I205V,missense,637:638AA->GG,NT changes
 matrix protein 1,S207N,missense,645:647GC->AA,NT changes
 matrix protein 1,Q208K,missense,645:647GC->AA,NT changes
@@ -46,6 +50,7 @@ matrix protein 1,Q211Q,silent,A658G,NT changes
 matrix protein 1,V213V,silent,G664A,NT changes
 matrix protein 1,Q214H,missense,G667T,NT changes
 matrix protein 1,A218T,missense,G677A,NT changes
+matrix protein 1,A218A,silent,679:680CG->TA,NT changes
 matrix protein 1,V219I,missense,679:680CG->TA,NT changes
 matrix protein 1,G220G,silent,G685A,NT changes
 matrix protein 1,T227A,missense,A704G,NT changes

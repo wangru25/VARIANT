@@ -73,6 +73,7 @@ membrane_glycoprotein,Q19E,missense,C26577G,NT changes
 membrane_glycoprotein,A63T,missense,G26709A,NT changes
 membrane_glycoprotein,F112F,silent,C26858T,NT changes
 ORF6,R20R,silent,A27259C,NT changes
+ORF6,D61L,missense,27382:27384GAT->CTC,NT changes
 ORF7b,L18L,silent,C27807T,NT changes
 nucleocapsid_phosphoprotein,P13L,missense,C28311T,NT changes
 ORF9b,P10S,missense,C28311T,NT changes

@@ -1,6 +1,7 @@
 Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
 polymerase PB1,L8L,silent,C46T,NT changes
 polymerase PB1,L10L,silent,C52T,NT changes
+polymerase PB1,K11K,silent,57:58GG->AA,NT changes
 polymerase PB1,V12I,missense,57:58GG->AA,NT changes
 polymerase PB1,A14A,silent,G66A,NT changes
 polymerase PB1,Y24Y,silent,T96C,NT changes
@@ -50,6 +51,8 @@ polymerase PB1,V200I,missense,G622A,NT changes
 polymerase PB1,T201T,silent,A627G,NT changes
 polymerase PB1,Q210Q,silent,A654G,NT changes
 polymerase PB1,V212L,missense,G658C,NT changes
+polymerase PB1,A221A,silent,687:688TT->AC,NT changes
+polymerase PB1,L222L,silent,687:688TT->AC,NT changes
 polymerase PB1,L224L,silent,G696A,NT changes
 polymerase PB1,N225N,silent,C699T,NT changes
 polymerase PB1,E232E,silent,G720A,NT changes
@@ -75,6 +78,8 @@ polymerase PB1,L298I,missense,C916A,NT changes
 polymerase PB1,K308K,silent,G948A,NT changes
 polymerase PB1,E311E,silent,A957G,NT changes
 polymerase PB1,N314N,silent,C966T,NT changes
+polymerase PB1,F318F,silent,978:979TT->CC,NT changes
+polymerase PB1,L319L,silent,978:979TT->CC,NT changes
 polymerase PB1,T326T,silent,1002:1004AA->CG,NT changes
 polymerase PB1,K327R,missense,1002:1004AA->CG,NT changes
 polymerase PB1,P330P,silent,T1014C,NT changes

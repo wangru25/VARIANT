@@ -60,6 +60,7 @@ polymerase PA,T97T,silent,T315A,NT changes
 PA-X protein,T97T,silent,T315A,NT changes
 polymerase PA,T98T,silent,T318A,NT changes
 PA-X protein,T98T,silent,T318A,NT changes
+polymerase PA,G99G,silent,321:323AGC->GAT,NT changes
 polymerase PA,A100I,missense,321:323AGC->GAT,NT changes
 polymerase PA,E101E,silent,A327G,NT changes
 PA-X protein,E101E,silent,A327G,NT changes
@@ -75,6 +76,8 @@ polymerase PA,P107P,silent,A345T,NT changes
 PA-X protein,P107P,silent,A345T,NT changes
 polymerase PA,K113K,silent,G363A,NT changes
 PA-X protein,K113K,silent,G363A,NT changes
+polymerase PA,N115N,silent,369:370TA->CC,NT changes
+polymerase PA,R116R,silent,369:370TA->CC,NT changes
 polymerase PA,I118I,silent,C378T,NT changes
 PA-X protein,I118I,silent,C378T,NT changes
 polymerase PA,V122V,silent,G390A,NT changes
@@ -129,6 +132,7 @@ PA-X protein,F176F,silent,T552C,NT changes
 polymerase PA,T177T,silent,C555T,NT changes
 PA-X protein,T177T,silent,C555T,NT changes
 polymerase PA,N184S,missense,575:576AC->GT,NT changes
+polymerase PA,R185R,silent,579:580AG->GA,NT changes
 polymerase PA,G186S,missense,579:580AG->GA,NT changes
 polymerase PA,G186G,silent,C582T,NT changes
 PA-X protein,G186G,silent,C582T,NT changes
@@ -136,6 +140,7 @@ polymerase PA,L187L,silent,C585A,NT changes
 PA-X protein,L187L,silent,C585A,NT changes
 polymerase PA,K204K,silent,A636G,NT changes
 PA-X protein,N204S,missense,A636G,NT changes
+polymerase PA,I207I,silent,645:646CT->TA,NT changes
 polymerase PA,S208T,missense,645:646CT->TA,NT changes
 polymerase PA,R212R,silent,660:662TG->CA,NT changes
 polymerase PA,R213K,missense,660:662TG->CA,NT changes
@@ -174,11 +179,16 @@ polymerase PA,Y321K,missense,985:987TT->AA,NT changes
 polymerase PA,H326H,silent,C1002T,NT changes
 polymerase PA,E327E,silent,A1005G,NT changes
 polymerase PA,K328K,silent,G1008A,NT changes
+polymerase PA,G329G,silent,1011:1012AA->CG,NT changes
 polymerase PA,I330V,missense,1011:1012AA->CG,NT changes
 polymerase PA,S332P,missense,1018:1020TA->CC,NT changes
+polymerase PA,L335L,silent,1029:1030GC->CA,NT changes
 polymerase PA,L336M,missense,1029:1030GC->CA,NT changes
 polymerase PA,S337A,missense,1033:1035TA->GT,NT changes
 polymerase PA,Q340Q,silent,A1044G,NT changes
+polymerase PA,V341V,silent,1047:1048AT->GC,NT changes
+polymerase PA,L342L,silent,1047:1048AT->GC,NT changes
+polymerase PA,L342L,silent,1050:1051GT->AG,NT changes
 polymerase PA,S343A,missense,1050:1051GT->AG,NT changes
 polymerase PA,E351E,silent,G1077A,NT changes
 polymerase PA,K353K,silent,G1083A,NT changes
@@ -192,6 +202,7 @@ polymerase PA,D396E,missense,C1212A,NT changes
 polymerase PA,Q408Q,silent,1248:1250GA->AG,NT changes
 polymerase PA,N409S,missense,1248:1250GA->AG,NT changes
 polymerase PA,C415C,silent,C1269T,NT changes
+polymerase PA,E436E,silent,1332:1333GT->AC,NT changes
 polymerase PA,Y437H,missense,1332:1333GT->AC,NT changes
 polymerase PA,R442R,silent,G1350A,NT changes
 polymerase PA,R443R,silent,G1353A,NT changes
@@ -233,6 +244,7 @@ polymerase PA,L589L,silent,C1791T,NT changes
 polymerase PA,Q590Q,silent,G1794A,NT changes
 polymerase PA,I592I,silent,C1800T,NT changes
 polymerase PA,S600S,silent,C1824T,NT changes
+polymerase PA,S601S,silent,1827:1828GA->TG,NT changes
 polymerase PA,I602V,missense,1827:1828GA->TG,NT changes
 polymerase PA,I602I,silent,T1830C,NT changes
 polymerase PA,K609K,silent,A1851G,NT changes
@@ -253,6 +265,7 @@ polymerase PA,E661E,silent,G2007A,NT changes
 polymerase PA,L665L,silent,C2017T,NT changes
 polymerase PA,L666L,silent,T2022C,NT changes
 polymerase PA,V668I,missense,G2026A,NT changes
+polymerase PA,A671A,silent,2037:2038TC->AT,NT changes
 polymerase PA,L672F,missense,2037:2038TC->AT,NT changes
 polymerase PA,L676L,silent,C2052G,NT changes
 polymerase PA,G679G,silent,G2061A,NT changes

@@ -1,7 +1,8 @@
 genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
-OR719348.1,row,385:386,TG->AA,matrix protein 1,"['A121T']",missense
-OR719348.1,row,637:638,AA->GG,matrix protein 1,"['I205V']",missense
-OR719348.1,row,679:680,CG->TA,matrix protein 1,"['V219I']",missense
+OR719348.1,row,178:179,TC->CT,matrix protein 1,"['I51I', 'L52L']",missense
+OR719348.1,row,385:386,TG->AA,matrix protein 1,"['S120S', 'A121T']",missense
+OR719348.1,row,637:638,AA->GG,matrix protein 1,"['E204E', 'I205V']",missense
+OR719348.1,row,679:680,CG->TA,matrix protein 1,"['A218A', 'V219I']",missense
 OR719348.1,hot,68:70,GT->AC,matrix protein 1,"['V15I']",missense
 OR719348.1,hot,645:647,GC->AA,matrix protein 1,"['S207N', 'Q208K']",missense
 OR719348.1,hot,650:652,GC->AT,matrix protein 1,"['A209T']",missense

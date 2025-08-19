@@ -38,6 +38,8 @@ neuraminidase,T267K,missense,C819A,NT changes
 neuraminidase,E276E,silent,G847A,NT changes
 neuraminidase,S279S,silent,C856T,NT changes
 neuraminidase,G297G,silent,C910A,NT changes
+neuraminidase,N299N,silent,916:917TA->CC,NT changes
+neuraminidase,R300R,silent,916:917TA->CC,NT changes
 neuraminidase,V303I,missense,G926A,NT changes
 neuraminidase,Y310H,missense,T947C,NT changes
 neuraminidase,S315R,missense,T964G,NT changes

@@ -82,4 +82,4 @@ deletion 28362:28370 GAGAACGCA [{'protein': 'nucleocapsid_phosphoprotein', 'fram
 missense 28881:28883 GGG->AAC [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'R203K,G204R'}, {'protein': 'ORF9c', 'mutation': 'G50N'}]
 missense 28994 C->A [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'Q241K'}]
 missense 29510 A->C [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'S413R'}]
-unknown 29734:29759 GAGGCCACGCGGAGTACGATCGAGTG []
+missense 29734:29759 GAGGCCACGCGGAGTACGATCGAGTG [{'protein': 'None-CDS', 'mutation': 'NA'}]

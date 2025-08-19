@@ -8,6 +8,8 @@ hemagglutinin,N24N,silent,C101T,NT changes
 hemagglutinin,T46T,silent,G167A,NT changes
 hemagglutinin,Q49R,missense,A175G,NT changes
 hemagglutinin,V52V,silent,C185T,NT changes
+hemagglutinin,E57E,silent,200:201AC->GT,NT changes
+hemagglutinin,L58L,silent,200:201AC->GT,NT changes
 hemagglutinin,S61N,missense,G211A,NT changes
 hemagglutinin,G66E,missense,G226A,NT changes
 hemagglutinin,E78G,missense,262:263AA->GG,NT changes
@@ -39,6 +41,7 @@ hemagglutinin,L193L,silent,C606T,NT changes
 hemagglutinin,H199F,missense,624:625CA->TT,NT changes
 hemagglutinin,G202S,missense,G633A,NT changes
 hemagglutinin,N205K,missense,T644G,NT changes
+hemagglutinin,S209S,silent,654:655AG->TC,NT changes
 hemagglutinin,L210L,silent,659:661AA->GT,NT changes
 hemagglutinin,Y211F,missense,659:661AA->GT,NT changes
 hemagglutinin,A214P,missense,G669C,NT changes
@@ -86,6 +89,7 @@ hemagglutinin,G479G,silent,C1466A,NT changes
 hemagglutinin,G495G,silent,G1514A,NT changes
 hemagglutinin,I497I,silent,C1520A,NT changes
 hemagglutinin,G500E,missense,G1528A,NT changes
+hemagglutinin,H504H,silent,1541:1542TG->CA,NT changes
 hemagglutinin,D505N,missense,1541:1542TG->CA,NT changes
 hemagglutinin,V506V,silent,A1547G,NT changes
 hemagglutinin,R508R,silent,A1553G,NT changes

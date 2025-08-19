@@ -1,18 +1,23 @@
 genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
 OR719352.1,row,107:108,TG->CC,polymerase PA,"['L28P']",missense
 OR719352.1,row,107:108,TG->CC,PA-X protein,"['L28P']",missense
-OR719352.1,row,321:323,AGC->GAT,polymerase PA,"['A100I']",missense
-OR719352.1,row,321:323,AGC->GAT,PA-X protein,"['A100I']",missense
+OR719352.1,row,321:323,AGC->GAT,polymerase PA,"['G99G', 'A100I']",missense
+OR719352.1,row,321:323,AGC->GAT,PA-X protein,"['G99G', 'A100I']",missense
+OR719352.1,row,369:370,TA->CC,polymerase PA,"['N115N', 'R116R']",missense
+OR719352.1,row,369:370,TA->CC,PA-X protein,"['N115N', 'R116R']",missense
 OR719352.1,row,575:576,AC->GT,polymerase PA,"['N184S']",missense
-OR719352.1,row,579:580,AG->GA,polymerase PA,"['G186S']",missense
-OR719352.1,row,645:646,CT->TA,polymerase PA,"['S208T']",missense
-OR719352.1,row,645:646,CT->TA,PA-X protein,"['S207L']",missense
-OR719352.1,row,1011:1012,AA->CG,polymerase PA,"['I330V']",missense
-OR719352.1,row,1029:1030,GC->CA,polymerase PA,"['L336M']",missense
-OR719352.1,row,1050:1051,GT->AG,polymerase PA,"['S343A']",missense
-OR719352.1,row,1332:1333,GT->AC,polymerase PA,"['Y437H']",missense
-OR719352.1,row,1827:1828,GA->TG,polymerase PA,"['I602V']",missense
-OR719352.1,row,2037:2038,TC->AT,polymerase PA,"['L672F']",missense
+OR719352.1,row,575:576,AC->GT,PA-X protein,"['N184S']",missense
+OR719352.1,row,579:580,AG->GA,polymerase PA,"['R185R', 'G186S']",missense
+OR719352.1,row,579:580,AG->GA,PA-X protein,"['R185R', 'G186S']",missense
+OR719352.1,row,645:646,CT->TA,polymerase PA,"['I207I', 'S208T']",missense
+OR719352.1,row,645:646,CT->TA,PA-X protein,"['S16L']",missense
+OR719352.1,row,1011:1012,AA->CG,polymerase PA,"['G329G', 'I330V']",missense
+OR719352.1,row,1029:1030,GC->CA,polymerase PA,"['L335L', 'L336M']",missense
+OR719352.1,row,1047:1048,AT->GC,polymerase PA,"['V341V', 'L342L']",missense
+OR719352.1,row,1050:1051,GT->AG,polymerase PA,"['L342L', 'S343A']",missense
+OR719352.1,row,1332:1333,GT->AC,polymerase PA,"['E436E', 'Y437H']",missense
+OR719352.1,row,1827:1828,GA->TG,polymerase PA,"['S601S', 'I602V']",missense
+OR719352.1,row,2037:2038,TC->AT,polymerase PA,"['A671A', 'L672F']",missense
 OR719352.1,hot,394:396,AA->CG,polymerase PA,"['R124R']",silent
 OR719352.1,hot,394:396,AA->CG,PA-X protein,"['R124R']",silent
 OR719352.1,hot,660:662,TG->CA,polymerase PA,"['R212R', 'R213K']",missense

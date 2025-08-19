@@ -38,6 +38,7 @@ polymerase PB2,P93P,silent,T306C,NT changes
 polymerase PB2,A95A,silent,T312A,NT changes
 polymerase PB2,R101R,silent,A330G,NT changes
 polymerase PB2,G103G,silent,A336T,NT changes
+polymerase PB2,P104P,silent,339:343CGTGG->AACAA,NT changes
 polymerase PB2,V105T,missense,339:343CGTGG->AACAA,NT changes
 polymerase PB2,A106T,missense,339:343CGTGG->AACAA,NT changes
 polymerase PB2,T108T,silent,G351A,NT changes
@@ -64,6 +65,9 @@ polymerase PB2,R175R,silent,G552A,NT changes
 polymerase PB2,L177L,silent,A558G,NT changes
 polymerase PB2,E180E,silent,A567G,NT changes
 polymerase PB2,S181S,silent,G570A,NT changes
+polymerase PB2,Q182Q,silent,573:574AT->GC,NT changes
+polymerase PB2,L183L,silent,573:574AT->GC,NT changes
+polymerase PB2,L183L,silent,576:577AA->GG,NT changes
 polymerase PB2,T184A,missense,576:577AA->GG,NT changes
 polymerase PB2,V203V,silent,T636C,NT changes
 polymerase PB2,L207L,silent,T646C,NT changes
@@ -109,6 +113,7 @@ polymerase PB2,I373I,silent,A1146T,NT changes
 polymerase PB2,K376K,silent,A1155G,NT changes
 polymerase PB2,R379R,silent,A1164G,NT changes
 polymerase PB2,V382I,missense,1171:1173GT->AC,NT changes
+polymerase PB2,Q383Q,silent,1176:1177GC->AT,NT changes
 polymerase PB2,L384F,missense,1176:1177GC->AT,NT changes
 polymerase PB2,L384L,silent,C1179A,NT changes
 polymerase PB2,V386V,silent,G1185A,NT changes
@@ -142,6 +147,7 @@ polymerase PB2,R505R,silent,C1540A,NT changes
 polymerase PB2,D506D,silent,C1545T,NT changes
 polymerase PB2,R508R,silent,1549:1551CC->AA,NT changes
 polymerase PB2,G509G,silent,G1554A,NT changes
+polymerase PB2,N510N,silent,1557:1558TG->CA,NT changes
 polymerase PB2,V511I,missense,1557:1558TG->CA,NT changes
 polymerase PB2,L512L,silent,1561:1563TA->CG,NT changes
 polymerase PB2,L513L,silent,G1566A,NT changes
@@ -161,6 +167,8 @@ polymerase PB2,I539I,silent,T1644C,NT changes
 polymerase PB2,G541G,silent,T1650C,NT changes
 polymerase PB2,E543E,silent,G1656A,NT changes
 polymerase PB2,S544S,silent,G1659A,NT changes
+polymerase PB2,V545V,silent,1662:1663TT->GC,NT changes
+polymerase PB2,L546L,silent,1662:1663TT->GC,NT changes
 polymerase PB2,N548N,silent,T1671C,NT changes
 polymerase PB2,T549T,silent,C1674T,NT changes
 polymerase PB2,I553I,silent,C1686A,NT changes
@@ -171,6 +179,7 @@ polymerase PB2,V560V,silent,C1707G,NT changes
 polymerase PB2,K561K,silent,A1710G,NT changes
 polymerase PB2,S565S,silent,T1722A,NT changes
 polymerase PB2,N567N,silent,T1728C,NT changes
+polymerase PB2,P568P,silent,1731:1732TG->CA,NT changes
 polymerase PB2,A569T,missense,1731:1732TG->CA,NT changes
 polymerase PB2,L571L,silent,G1740A,NT changes
 polymerase PB2,Q581Q,silent,A1770G,NT changes
@@ -186,6 +195,7 @@ polymerase PB2,Q601Q,silent,A1830G,NT changes
 polymerase PB2,R604R,silent,A1839G,NT changes
 polymerase PB2,D605D,silent,C1842T,NT changes
 polymerase PB2,V606V,silent,A1845G,NT changes
+polymerase PB2,T612T,silent,1863:1865CAC->TGT,NT changes
 polymerase PB2,T613V,missense,1863:1865CAC->TGT,NT changes
 polymerase PB2,Q614Q,silent,G1869A,NT changes
 polymerase PB2,K617K,silent,G1878A,NT changes

@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2025-08-04 13:30:27
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-09 10:33:47
+LastEditTime: 2025-08-19 16:38:59
 Email: wang.rui@nyu.edu
 FilePath: /VARIANT/src/core/protein_analyzer.py
 Description:
@@ -748,8 +748,13 @@ class AlignmentProcessor:
                 # Try exact match first
                 matches = find_near_matches(orf, ref_pro_seq, max_l_dist=0)
 
-                # Only allow fuzzy matching for longer proteins and ORFs to prevent false positives
-                if not matches and len(ref_pro_seq) >= 100 and len(orf) >= 15:
+                # Allow fuzzy matching for small proteins (< 100 amino acids) with more leniency
+                if not matches and len(ref_pro_seq) < 100:
+                    # For small proteins, be more lenient with matching
+                    matches = find_near_matches(orf, ref_pro_seq, max_l_dist=2)
+                
+                # For longer proteins, use the original logic
+                elif not matches and len(ref_pro_seq) >= 100 and len(orf) >= 15:
                     matches = find_near_matches(orf, ref_pro_seq, max_l_dist=1)
 
                     # If still no match, try with more tolerance for longer proteins only
@@ -859,14 +864,183 @@ class ProMutationDetector:
         pos_a, pos_b = int(pos_range[0]) - 1, int(pos_range[-1])
         mutated_to = genome_snp["SNP"].split("->")[1]
 
-        seq_t = self.ref_seq[pos_a - 2 : pos_b + 25]
+        # Adaptive window sizing based on protein boundaries and mutation location
+        window_start = 50
+        window_end = 50
+        
+        # Check if mutation is near any protein boundary and adjust window accordingly
+        for record in SeqIO.parse(self.alignment_processor.proteome_dir, "fasta"):
+            parts = record.description.split("|")
+            if len(parts) >= 3:
+                coordinates = parts[2]
+                try:
+                    from ..utils.sequence_utils import parse_gene_coordinates_enhanced
+                    coordinate_pairs, _ = parse_gene_coordinates_enhanced(coordinates)
+                    
+                    for start_gene, end_gene in coordinate_pairs:
+                        # Check if mutation is within this protein
+                        if pos_a + 1 >= start_gene and pos_b + 1 <= end_gene:
+                            protein_length = end_gene - start_gene + 1
+                            mutation_distance_from_start = (pos_a + 1) - start_gene
+                            mutation_distance_from_end = end_gene - (pos_b + 1)
+                            
+                            # For small proteins (< 100 amino acids), use larger windows
+                            if protein_length < 300:  # 300 nucleotides = ~100 amino acids
+                                window_start = max(window_start, protein_length // 2)
+                                window_end = max(window_end, protein_length // 2)
+                            
+                            # For mutations near protein boundaries, extend window
+                            if mutation_distance_from_start <= protein_length * 0.1:
+                                # Mutation near start of protein
+                                window_start = max(window_start, mutation_distance_from_start + 50)
+                            
+                            if mutation_distance_from_end <= protein_length * 0.1:
+                                # Mutation near end of protein
+                                window_end = max(window_end, mutation_distance_from_end + 50)
+                            
+                            break
+                except:
+                    continue
+        
+        # Ensure we don't go out of bounds
+        start_pos = max(0, pos_a - window_start)
+        end_pos = min(len(self.ref_seq), pos_b + window_end)
+        
+        seq_t = self.ref_seq[start_pos : end_pos]
         orfs = self.orf_processor.translate_dna_3_frames_row(seq_t)
-        seq_m = seq_t[:2] + mutated_to + seq_t[2 + len(mutated_to) :]
+        
+        # Adjust the mutation insertion position based on the new window
+        mutation_offset = pos_a - start_pos
+        seq_m = seq_t[:mutation_offset] + mutated_to + seq_t[mutation_offset + len(mutated_to) :]
         m_orfs = self.orf_processor.translate_dna_3_frames_row(seq_m)
 
         protein_mutations = self.alignment_processor.align_orfs_to_ref_proteome_row(
             orfs, m_orfs, dna_pos_range=genome_snp["pos"]
         )
+
+        # Additional check: Find all proteins that could be affected by this mutation
+        # This ensures we catch overlapping genes that the alignment might miss
+        if genome_snp["pos"]:
+            try:
+                from ..utils.sequence_utils import parse_gene_coordinates_enhanced, calculate_amino_acid_position_enhanced
+                
+                # Parse the mutation position
+                pos_parts = genome_snp["pos"].split(":")
+                mutation_start = int(pos_parts[0])
+                mutation_end = int(pos_parts[-1])
+                
+                # Get list of proteins already found by alignment
+                found_proteins = {pm["protein"] for pm in protein_mutations}
+                
+                # Check each protein to see if the mutation falls within it
+                for record in SeqIO.parse(self.alignment_processor.proteome_dir, "fasta"):
+                    parts = record.description.split("|")
+                    if len(parts) >= 3:
+                        coordinates = parts[2]
+                        header = parts[1]
+                        
+                        # Parse coordinates
+                        coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
+                        
+                        # Check if mutation is within this protein
+                        for start_gene, end_gene in coordinate_pairs:
+                            if mutation_start >= start_gene and mutation_end <= end_gene:
+                                # For multi-nucleotide mutations, we need to find ALL affected amino acids
+                                # Get the protein sequence
+                                ref_pro_seq = str(record.seq).replace(" ", "")
+                                
+                                # Find all amino acid positions affected by this mutation
+                                affected_amino_acids = []
+                                mutation_range = range(mutation_start, mutation_end + 1)
+                                
+                                affected_codons = set()
+                                for pos in mutation_range:
+                                    if start_gene <= pos <= end_gene:
+                                        relative_pos = pos - start_gene
+                                        codon_number = relative_pos // 3  # 0-based
+                                        affected_codons.add(codon_number)
+                                
+                                # Calculate amino acid changes for each affected codon
+                                from Bio.Seq import Seq
+                                
+                                for codon_number in sorted(affected_codons):
+                                    aa_position = codon_number + 1  # 1-based
+                                    
+                                    if 0 <= codon_number < len(ref_pro_seq):
+                                        if is_complement:
+                                            # For complement genes, calculate from the end
+                                            codon_start = end_gene - (codon_number * 3) - 2
+                                            codon_end = end_gene - (codon_number * 3)
+                                            # Extract the original codon (reverse complement)
+                                            original_codon = str(Seq(self.ref_seq[codon_start:codon_end + 1]).reverse_complement())
+                                        else:
+                                            # For forward genes, calculate from the start
+                                            codon_start = start_gene + (codon_number * 3)
+                                            codon_end = start_gene + (codon_number * 3) + 2
+                                            # Extract the original codon (convert to 0-based indexing)
+                                            original_codon = self.ref_seq[codon_start-1:codon_end]
+                                        
+                                        # Create the mutated codon
+                                        mutated_codon = list(original_codon)
+                                        mutated_nt = genome_snp["SNP"].split("->")[1]
+                                        
+                                        # Apply the mutation to this codon
+                                        for pos in mutation_range:
+                                            if codon_start <= pos <= codon_end:
+                                                codon_offset = pos - codon_start
+                                                mutation_nt_offset = pos - mutation_start
+                                                if mutation_nt_offset < len(mutated_nt):
+                                                    mutated_codon[codon_offset] = mutated_nt[mutation_nt_offset]
+                                        
+                                        mutated_codon_str = ''.join(mutated_codon)
+                                        
+                                        # Translate both codons
+                                        if is_complement:
+                                            # For complement genes, reverse complement the codons
+                                            original_aa = str(Seq(original_codon).reverse_complement().translate())
+                                            mutated_aa = str(Seq(mutated_codon_str).reverse_complement().translate())
+                                        else:
+                                            original_aa = str(Seq(original_codon).translate())
+                                            mutated_aa = str(Seq(mutated_codon_str).translate())
+                                        
+                                        # Create mutation string for this amino acid
+                                        if original_aa == mutated_aa:
+                                            aa_mutation = f"{original_aa}{aa_position}{original_aa}"
+                                        elif mutated_aa == "*":
+                                            aa_mutation = f"{original_aa}{aa_position}*"
+                                        else:
+                                            aa_mutation = f"{original_aa}{aa_position}{mutated_aa}"
+                                        
+                                        affected_amino_acids.append(aa_mutation)
+                                
+                                # Combine all amino acid changes into a single mutation string
+                                if affected_amino_acids:
+                                    mutation_str = ",".join(affected_amino_acids)
+                                    
+                                    # Always add or update the mutation with our direct calculation
+                                    existing_mutation = None
+                                    for pm in protein_mutations:
+                                        if pm["protein"] == header:
+                                            existing_mutation = pm
+                                            break
+                                    
+                                    if existing_mutation:
+                                        # Update existing mutation
+                                        existing_mutation["mutation"] = mutation_str
+                                    else:
+                                        # Add new mutation
+                                        protein_mutations.append({
+                                            "protein": header,
+                                            "mutation": mutation_str,
+                                        })
+                                break
+            except Exception as e:
+                # If direct calculation fails, continue with existing results
+                pass
+
+        # Fallback: If no proteins are found, mark as None-CDS
+        if not protein_mutations:
+            protein_mutations = [{"protein": "None-CDS", "mutation": "NA"}]
 
         genome_snp["proteinMutation"] = protein_mutations
 
@@ -886,7 +1060,7 @@ class ProMutationDetector:
         for genome_snp in genome_snps:
             processed_snp = (
                 self.protein_row_snp(genome_snp)
-                if genome_snp["type"] == "rowMutation"
+                if genome_snp["type"] in ["rowMutation", "hotMutation"]
                 else self.protein_point_snp(genome_snp)
             )
             processed_snps.append(processed_snp)
@@ -931,6 +1105,10 @@ class ProMutationDetector:
                     target_orfs, del_seq, frameshift, mut_type="del"
                 )
 
+            # Fallback: If no proteins are found, mark as None-CDS
+            if not protein_mutations:
+                protein_mutations = [{"protein": "None-CDS", "mutation": "NA"}]
+
             genome_snp["proteinMutation"] = protein_mutations
             snp_results.append(genome_snp)
 
@@ -961,6 +1139,10 @@ class ProMutationDetector:
             protein_mutations = self._process_target_orfs(
                 target_orfs, ins_seq, frameshift, mut_type="ins"
             )
+
+            # Fallback: If no proteins are found, mark as None-CDS
+            if not protein_mutations:
+                protein_mutations = [{"protein": "None-CDS", "mutation": "NA"}]
 
             genome_snp["proteinMutation"] = protein_mutations
             snp_results.append(genome_snp)
@@ -1102,6 +1284,10 @@ class ProMutationDetector:
                             "protein": header,
                             "mutation": mutation
                         })
+
+            # Fallback: If no proteins are found, mark as None-CDS
+            if not protein_mutations:
+                protein_mutations = [{"protein": "None-CDS", "mutation": "NA"}]
 
             genome_snp["proteinMutation"] = protein_mutations
             snp_results.append(genome_snp)

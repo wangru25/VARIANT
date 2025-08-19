@@ -67,7 +67,7 @@ nucleocapsid_phosphoprotein,P13L,missense,C28311T,NT changes
 ORF9b,P10S,missense,C28311T,NT changes
 nucleocapsid_phosphoprotein,G19G,silent,A28330G,NT changes
 ORF9b,D16G,missense,A28330G,NT changes
-ORF9b,V30L,missense,28370:28371AG->TT,NT changes
+nucleocapsid_phosphoprotein,S33F,missense,28370:28371AG->TT,NT changes
 nucleocapsid_phosphoprotein,R203K,missense,28881:28883GGG->AAC,NT changes
 nucleocapsid_phosphoprotein,G204R,missense,28881:28883GGG->AAC,NT changes
 nucleocapsid_phosphoprotein,S413R,missense,A29510C,NT changes

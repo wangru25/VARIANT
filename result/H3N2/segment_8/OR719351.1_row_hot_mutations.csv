@@ -1,5 +1,6 @@
 genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
-OR719351.1,row,41:42,TG->CA,nonstructural protein 1,"['V6M']",missense
+OR719351.1,row,41:42,TG->CA,nonstructural protein 2,"['T5T', 'V6M']",missense
+OR719351.1,row,41:42,TG->CA,nonstructural protein 1,"['T5T', 'V6M']",missense
 OR719351.1,row,157:158,GG->AA,nonstructural protein 1,"['R44K']",missense
 OR719351.1,hot,86:88,AA->GG,nonstructural protein 1,"['K20K', 'Q21R']",missense
 OR719351.1,hot,88:90,AG->GT,nonstructural protein 1,"['Q21R', 'V22F']",missense

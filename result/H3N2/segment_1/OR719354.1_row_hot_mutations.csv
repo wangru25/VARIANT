@@ -2,16 +2,18 @@ genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_c
 OR719354.1,row,218:219,CA->TG,polymerase PB2,"['T64M']",missense
 OR719354.1,row,225:226,GG->AA,polymerase PB2,"['M66I', 'V67I']",missense
 OR719354.1,row,272:273,GT->AC,polymerase PB2,"['S82N']",missense
-OR719354.1,row,339:343,CGTGG->AACAA,polymerase PB2,"['V105T', 'A106T']",missense
-OR719354.1,row,576:577,AA->GG,polymerase PB2,"['T184A']",missense
+OR719354.1,row,339:343,CGTGG->AACAA,polymerase PB2,"['P104P', 'V105T', 'A106T']",missense
+OR719354.1,row,573:574,AT->GC,polymerase PB2,"['Q182Q', 'L183L']",missense
+OR719354.1,row,576:577,AA->GG,polymerase PB2,"['L183L', 'T184A']",missense
 OR719354.1,row,1085:1086,AG->GA,polymerase PB2,"['K353R']",missense
-OR719354.1,row,1176:1177,GC->AT,polymerase PB2,"['L384F']",missense
-OR719354.1,row,1557:1558,TG->CA,polymerase PB2,"['V511I']",missense
+OR719354.1,row,1176:1177,GC->AT,polymerase PB2,"['Q383Q', 'L384F']",missense
+OR719354.1,row,1557:1558,TG->CA,polymerase PB2,"['N510N', 'V511I']",missense
 OR719354.1,row,1604:1605,GA->AG,polymerase PB2,"['R526K']",missense
+OR719354.1,row,1662:1663,TT->GC,polymerase PB2,"['V545V', 'L546L']",missense
 OR719354.1,row,1702:1703,GC->AT,polymerase PB2,"['A559I']",missense
-OR719354.1,row,1731:1732,TG->CA,polymerase PB2,"['A569T']",missense
+OR719354.1,row,1731:1732,TG->CA,polymerase PB2,"['P568P', 'A569T']",missense
 OR719354.1,row,1790:1791,TT->CC,polymerase PB2,"['I588T']",missense
-OR719354.1,row,1863:1865,CAC->TGT,polymerase PB2,"['T613V']",missense
+OR719354.1,row,1863:1865,CAC->TGT,polymerase PB2,"['T612T', 'T613V']",missense
 OR719354.1,row,2132:2133,GA->AG,polymerase PB2,"['R702K']",missense
 OR719354.1,hot,802:804,CA->TG,polymerase PB2,"['L259L']",silent
 OR719354.1,hot,1171:1173,GT->AC,polymerase PB2,"['V382I']",missense
