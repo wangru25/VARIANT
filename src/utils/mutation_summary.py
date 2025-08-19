@@ -306,35 +306,59 @@ def _validate_protein_assignment(virus_name: str, nt_position: int, assigned_pro
                 header = record.description
                 
                 # Look for location patterns in the header
-                # Format: ">YP_009725297.1|leader_nsp1|266..805" or ">YP_009725307.1|RNA-dependent-polymerase|join(13442..13468,13468..16236)"
+                # Format: ">YP_009725297.1|leader_nsp1|266..805" 
+                # or ">YP_009725307.1|RNA-dependent-polymerase|join(13442..13468,13468..16236)"
+                # or ">YP_009028572.1|Asp|complement(6919..7488)"
                 import re
                 
-                # Handle join() format first
+                # Handle join() format first - store as list of ranges
                 join_match = re.search(r'\|join\((\d+)\.\.(\d+),(\d+)\.\.(\d+)\)$', header)
                 if join_match:
-                    # For join format, use the full range from first start to second end
+                    # For join format, store the individual ranges separately
                     start1, end1, start2, end2 = map(int, join_match.groups())
-                    start, end = start1, end2  # Full range coverage
                     # Extract protein name
                     protein_name_match = re.search(r'\|([^|]+)\|join\(', header)
                     if protein_name_match:
                         protein_name = protein_name_match.group(1)
-                        protein_boundaries[protein_name] = (start, end)
+                        # Store as list of tuples for discontinuous regions
+                        protein_boundaries[protein_name] = [(start1, end1), (start2, end2)]
                 else:
-                    # Handle simple format
-                    location_match = re.search(r'\|(\d+)\.\.(\d+)$', header)
-                    if location_match:
-                        start, end = int(location_match.group(1)), int(location_match.group(2))
-                        # Extract protein name from header (e.g., "leader_nsp1" from "YP_009725297.1|leader_nsp1|266..805")
-                        protein_name_match = re.search(r'\|([^|]+)\|\d+\.\.\d+$', header)
+                    # Handle complement format: complement(start..end)
+                    complement_match = re.search(r'\|complement\((\d+)\.\.(\d+)\)$', header)
+                    if complement_match:
+                        start, end = int(complement_match.group(1)), int(complement_match.group(2))
+                        # Extract protein name
+                        protein_name_match = re.search(r'\|([^|]+)\|complement\(', header)
                         if protein_name_match:
                             protein_name = protein_name_match.group(1)
-                            protein_boundaries[protein_name] = (start, end)
+                            # Store as single tuple for continuous regions
+                            protein_boundaries[protein_name] = [(start, end)]
+                    else:
+                        # Handle simple format
+                        location_match = re.search(r'\|(\d+)\.\.(\d+)$', header)
+                        if location_match:
+                            start, end = int(location_match.group(1)), int(location_match.group(2))
+                            # Extract protein name from header (e.g., "leader_nsp1" from "YP_009725297.1|leader_nsp1|266..805")
+                            protein_name_match = re.search(r'\|([^|]+)\|\d+\.\.\d+$', header)
+                            if protein_name_match:
+                                protein_name = protein_name_match.group(1)
+                                # Store as single tuple for continuous regions
+                                protein_boundaries[protein_name] = [(start, end)]
             
             # Check if the nucleotide position falls within any protein's boundaries
-            for protein, (start, end) in protein_boundaries.items():
-                if start <= nt_position <= end:
-                    return protein
+            # Collect all matches first, then prioritize
+            matches = []
+            for protein, ranges in protein_boundaries.items():
+                # Check each range for this protein
+                for start, end in ranges:
+                    if start <= nt_position <= end:
+                        matches.append((protein, end - start + 1))  # Store protein and range size
+            
+            if matches:
+                # Prioritize matches: prefer smaller ranges (more specific)
+                # This helps when there are overlapping annotations
+                matches.sort(key=lambda x: x[1])  # Sort by range size (ascending)
+                return matches[0][0]  # Return the protein with the smallest range
             
             # If position is not within any protein, return None-CDS
             return 'None-CDS'
