@@ -73,7 +73,8 @@ Pr55(Gag),P478T,missense,C1767A,NT changes
 Pr55(Gag),L483V,missense,C1782G,NT changes
 Pr55(Gag),T487A,missense,1794:1796AT->GC,NT changes
 retropepsin,V3I,missense,1804:1805GG->AA,NT changes
-retropepsin,P497P,silent,C1826A,NT changes
+Pr55(Gag),P497P,silent,C1826A,NT changes
+retropepsin,L10I,missense,C1826A,NT changes
 retropepsin,S37N,missense,G1908A,NT changes
 retropepsin,L63S,missense,1985:1987CTC->TCT,NT changes
 retropepsin,I66I,silent,C1996T,NT changes
@@ -225,7 +226,8 @@ Vif,I154K,missense,T5047A,NT changes
 Vif,P162P,silent,T5072C,NT changes
 Vif,T167R,missense,C5086G,NT changes
 Vif,E171E,silent,G5099A,NT changes
-Vpr,H187Q,missense,C5147A,NT changes
+Vif,H187Q,missense,C5147A,NT changes
+Vpr,H15N,missense,C5147A,NT changes
 Vpr,L23L,silent,A5173G,NT changes
 Vpr,N28S,missense,A5187G,NT changes
 Vpr,F34F,silent,T5206C,NT changes
@@ -251,10 +253,13 @@ Tat,V36M,missense,5482:5484GT->AG,NT changes
 Tat,I39T,missense,T5492C,NT changes
 Tat,T40R,missense,C5495G,NT changes
 Tat,A42G,missense,C5501G,NT changes
-Rev,A58S,missense,G5548T,NT changes
-Rev,H59P,missense,A5552C,NT changes
-Rev,N61G,missense,5556:5558GAA->AGG,NT changes
-Rev,A67V,missense,C5576T,NT changes
+Tat,A58S,missense,G5548T,NT changes
+Rev,E11D,missense,G5548T,NT changes
+Tat,H59P,missense,A5552C,NT changes
+Rev,I13L,missense,A5552C,NT changes
+Tat,N61G,missense,5556:5558GAA->AGG,NT changes
+Tat,A67V,missense,C5576T,NT changes
+Rev,L21F,missense,C5576T,NT changes
 Vpu,P3S,missense,C5614T,NT changes
 Vpu,I4L,missense,A5617T,NT changes
 Vpu,P5Q,missense,C5621A,NT changes
@@ -273,24 +278,31 @@ Vpu,D44E,missense,T5739G,NT changes
 Vpu,L46I,missense,C5743A,NT changes
 Vpu,I47I,silent,A5748T,NT changes
 Vpu,E56E,silent,G5775A,NT changes
+Envelope surface glycoprotein gp160,R2K,missense,G5775A,NT changes
 Vpu,S57S,silent,T5778C,NT changes
+Envelope surface glycoprotein gp160,V3A,missense,T5778C,NT changes
 Vpu,E58E,silent,A5781G,NT changes
+Envelope surface glycoprotein gp160,K4R,missense,A5781G,NT changes
 Vpu,G59G,silent,A5784G,NT changes
+Envelope surface glycoprotein gp160,E5G,missense,A5784G,NT changes
 Vpu,E60D,missense,5787:5793AATATCA->TCAGGAG,NT changes
 Vpu,I61Q,missense,5787:5793AATATCA->TCAGGAG,NT changes
 Vpu,S62E,missense,5787:5793AATATCA->TCAGGAG,NT changes
 Vpu,A63E,missense,5795:5797CAC->AGT,NT changes
 Vpu,L64F,missense,5795:5797CAC->AGT,NT changes
 Vpu,V65V,silent,G5802A,NT changes
-Vpu,W11C,missense,5803:5811GAGATGGGG->TCAGCTCTT,NT changes
-Vpu,R12Q,missense,5803:5811GAGATGGGG->TCAGCTCTT,NT changes
-Vpu,W13L,missense,5803:5811GAGATGGGG->TCAGCTCTT,NT changes
-Vpu,G14L,missense,5803:5811GAGATGGGG->TCAGCTCTT,NT changes
+Envelope surface glycoprotein gp160,W11C,missense,5803:5811GAGATGGGG->TCAGCTCTT,NT changes
+Envelope surface glycoprotein gp160,R12Q,missense,5803:5811GAGATGGGG->TCAGCTCTT,NT changes
+Envelope surface glycoprotein gp160,W13L,missense,5803:5811GAGATGGGG->TCAGCTCTT,NT changes
+Envelope surface glycoprotein gp160,G14L,missense,5803:5811GAGATGGGG->TCAGCTCTT,NT changes
 Vpu,M71R,missense,T5819G,NT changes
+Envelope surface glycoprotein gp160,W17G,missense,T5819G,NT changes
 Vpu,H73H,silent,5826:5828CA->TT,NT changes
 Vpu,H74L,missense,5826:5828CA->TT,NT changes
 Vpu,D78N,missense,G5839A,NT changes
+Envelope surface glycoprotein gp160,G23G,silent,G5839A,NT changes
 Vpu,D80N,missense,G5845A,NT changes
+Envelope surface glycoprotein gp160,L25L,silent,G5845A,NT changes
 Envelope surface glycoprotein gp160,A30T,missense,G5858A,NT changes
 Envelope surface glycoprotein gp160,K33Q,missense,A5867C,NT changes
 Envelope surface glycoprotein gp160,P43P,silent,T5899A,NT changes
@@ -395,46 +407,75 @@ Envelope surface glycoprotein gp160,Q363R,missense,6858:6860AAT->GTA,NT changes
 Envelope surface glycoprotein gp160,S364T,missense,6858:6860AAT->GTA,NT changes
 Envelope surface glycoprotein gp160,S365T,missense,T6863A,NT changes
 Envelope surface glycoprotein gp160,T373M,missense,C6888T,NT changes
-Asp,S387T,missense,T6929A,NT changes
-Asp,F396H,missense,6956:6957TT->CA,NT changes
-Asp,N397A,missense,6959:6960AA->GC,NT changes
-Asp,S398N,missense,G6963A,NT changes
-Asp,T399G,missense,6965:6968ACTT->GGAA,NT changes
-Asp,W400R,missense,6965:6968ACTT->GGAA,NT changes
-Asp,W400C,missense,6970:6973GAGT->TTCA,NT changes
-Asp,T402S,missense,C6975G,NT changes
-Asp,T408S,missense,C6993G,NT changes
-Asp,E409I,missense,6994:7000TGAAGGA->CATTACC,NT changes
-Asp,G410T,missense,6994:7000TGAAGGA->CATTACC,NT changes
-Asp,S411N,missense,G7002A,NT changes
-Asp,D412E,missense,C7006A,NT changes
-Asp,T413T,silent,A7009T,NT changes
-Asp,T415T,silent,C7015A,NT changes
-Asp,C418C,silent,C7024T,NT changes
-Asp,I423I,silent,T7039A,NT changes
-Asp,K429E,missense,A7055G,NT changes
-Asp,S440R,missense,T7090A,NT changes
-Asp,Q442P,missense,A7095C,NT changes
-Asp,R444K,missense,G7101A,NT changes
-Asp,S446I,missense,7106:7107TC->AT,NT changes
-Asp,G451G,silent,G7123A,NT changes
-Asp,L452L,silent,G7126A,NT changes
-Asp,G459G,silent,T7147C,NT changes
-Asp,N460N,silent,T7150C,NT changes
-Asp,S461T,missense,G7152C,NT changes
-Asp,E464D,missense,7162:7163GT->TA,NT changes
-Asp,S465T,missense,7162:7163GT->TA,NT changes
-Asp,G471A,missense,G7182C,NT changes
-Asp,G472G,silent,A7186G,NT changes
-Asp,D474E,missense,T7192G,NT changes
-Asp,I491V,missense,A7241G,NT changes
-Asp,I515L,missense,7313:7315AA->CG,NT changes
-Asp,L518V,missense,T7322G,NT changes
-Asp,A533A,silent,C7369A,NT changes
-Asp,M535L,missense,A7373C,NT changes
-Asp,Q550Q,silent,G7420A,NT changes
-Asp,L555L,silent,T7433C,NT changes
-Asp,L565M,missense,C7463A,NT changes
+Envelope surface glycoprotein gp160,S387T,missense,T6929A,NT changes
+Asp,E187V,missense,T6929A,NT changes
+Envelope surface glycoprotein gp160,F396H,missense,6956:6957TT->CA,NT changes
+Envelope surface glycoprotein gp160,N397A,missense,6959:6960AA->GC,NT changes
+Envelope surface glycoprotein gp160,S398N,missense,G6963A,NT changes
+Asp,L176L,silent,G6963A,NT changes
+Envelope surface glycoprotein gp160,T399G,missense,6965:6968ACTT->GGAA,NT changes
+Envelope surface glycoprotein gp160,W400R,missense,6965:6968ACTT->GGAA,NT changes
+Envelope surface glycoprotein gp160,W400C,missense,6970:6973GAGT->TTCA,NT changes
+Envelope surface glycoprotein gp160,T402S,missense,C6975G,NT changes
+Asp,V172V,silent,C6975G,NT changes
+Envelope surface glycoprotein gp160,T408S,missense,C6993G,NT changes
+Asp,V166V,silent,C6993G,NT changes
+Envelope surface glycoprotein gp160,E409I,missense,6994:7000TGAAGGA->CATTACC,NT changes
+Envelope surface glycoprotein gp160,G410T,missense,6994:7000TGAAGGA->CATTACC,NT changes
+Envelope surface glycoprotein gp160,S411N,missense,G7002A,NT changes
+Asp,L163L,silent,G7002A,NT changes
+Envelope surface glycoprotein gp160,D412E,missense,C7006A,NT changes
+Asp,V161L,missense,C7006A,NT changes
+Envelope surface glycoprotein gp160,T413T,silent,A7009T,NT changes
+Asp,I160I,silent,A7009T,NT changes
+Envelope surface glycoprotein gp160,T415T,silent,C7015A,NT changes
+Asp,R158W,missense,C7015A,NT changes
+Envelope surface glycoprotein gp160,C418C,silent,C7024T,NT changes
+Asp,L155M,missense,C7024T,NT changes
+Envelope surface glycoprotein gp160,I423I,silent,T7039A,NT changes
+Asp,I150L,missense,T7039A,NT changes
+Envelope surface glycoprotein gp160,K429E,missense,A7055G,NT changes
+Asp,F145S,missense,A7055G,NT changes
+Envelope surface glycoprotein gp160,S440R,missense,T7090A,NT changes
+Asp,P133S,missense,T7090A,NT changes
+Envelope surface glycoprotein gp160,Q442P,missense,A7095C,NT changes
+Asp,C132W,missense,A7095C,NT changes
+Envelope surface glycoprotein gp160,R444K,missense,G7101A,NT changes
+Asp,L130L,silent,G7101A,NT changes
+Envelope surface glycoprotein gp160,S446I,missense,7106:7107TC->AT,NT changes
+Envelope surface glycoprotein gp160,G451G,silent,G7123A,NT changes
+Asp,S122C,missense,G7123A,NT changes
+Envelope surface glycoprotein gp160,L452L,silent,G7126A,NT changes
+Asp,S121C,missense,G7126A,NT changes
+Envelope surface glycoprotein gp160,G459G,silent,T7147C,NT changes
+Asp,L114V,missense,T7147C,NT changes
+Envelope surface glycoprotein gp160,N460N,silent,T7150C,NT changes
+Asp,L113V,missense,T7150C,NT changes
+Asp,L113R,missense,A7151C,NT changes
+Envelope surface glycoprotein gp160,S461T,missense,G7152C,NT changes
+Asp,L113L,silent,G7152C,NT changes
+Envelope surface glycoprotein gp160,E464D,missense,7162:7163GT->TA,NT changes
+Envelope surface glycoprotein gp160,S465T,missense,7162:7163GT->TA,NT changes
+Envelope surface glycoprotein gp160,G471A,missense,G7182C,NT changes
+Asp,P103P,silent,G7182C,NT changes
+Envelope surface glycoprotein gp160,G472G,silent,A7186G,NT changes
+Asp,P101P,silent,A7186G,NT changes
+Envelope surface glycoprotein gp160,D474E,missense,T7192G,NT changes
+Asp,I99L,missense,T7192G,NT changes
+Envelope surface glycoprotein gp160,I491V,missense,A7241G,NT changes
+Asp,I83T,missense,A7241G,NT changes
+Envelope surface glycoprotein gp160,I515L,missense,7313:7315AA->CG,NT changes
+Envelope surface glycoprotein gp160,L518V,missense,T7322G,NT changes
+Asp,K56T,missense,T7322G,NT changes
+Envelope surface glycoprotein gp160,A533A,silent,C7369A,NT changes
+Envelope surface glycoprotein gp160,M535L,missense,A7373C,NT changes
+Asp,I39S,missense,A7373C,NT changes
+Envelope surface glycoprotein gp160,Q550Q,silent,G7420A,NT changes
+Asp,C23C,silent,G7420A,NT changes
+Envelope surface glycoprotein gp160,L555L,silent,T7433C,NT changes
+Asp,K19R,missense,T7433C,NT changes
+Envelope surface glycoprotein gp160,L565M,missense,C7463A,NT changes
+Asp,R9I,missense,C7463A,NT changes
 Envelope surface glycoprotein gp160,I573I,silent,C7489T,NT changes
 Envelope surface glycoprotein gp160,K574K,silent,G7492A,NT changes
 Envelope surface glycoprotein gp160,I580V,missense,A7508G,NT changes
@@ -465,7 +506,10 @@ Envelope surface glycoprotein gp160,Y712Y,silent,T7906C,NT changes
 Envelope surface glycoprotein gp160,S716S,silent,G7918A,NT changes
 Envelope surface glycoprotein gp160,F717L,missense,T7921G,NT changes
 Tat,Q76Q,silent,A7937G,NT changes
-Tat,R41R,silent,A7969C,NT changes
+Rev,N30S,missense,A7937G,NT changes
+Envelope surface glycoprotein gp160,T723A,missense,A7937G,NT changes
+Rev,R41R,silent,A7969C,NT changes
+Envelope surface glycoprotein gp160,I733I,silent,A7969C,NT changes
 Rev,H53R,missense,8006:8008ATT->GGA,NT changes
 Rev,S54T,missense,8006:8008ATT->GGA,NT changes
 Rev,I55T,missense,8012:8013TT->CA,NT changes
@@ -474,18 +518,27 @@ Rev,R58W,missense,8019:8020AC->CT,NT changes
 Rev,G33G,silent,8023:8025AC->GT,NT changes
 Rev,S34F,missense,8023:8025AC->GT,NT changes
 Rev,G61S,missense,G8029A,NT changes
+Envelope surface glycoprotein gp160,L753L,silent,G8029A,NT changes
 Rev,Y63F,missense,A8036T,NT changes
+Envelope surface glycoprotein gp160,I756F,missense,A8036T,NT changes
 Rev,S67P,missense,T8047C,NT changes
+Envelope surface glycoprotein gp160,D759D,silent,T8047C,NT changes
 Rev,A68T,missense,G8050A,NT changes
+Envelope surface glycoprotein gp160,L760L,silent,G8050A,NT changes
 Rev,L83L,silent,T8097C,NT changes
+Envelope surface glycoprotein gp160,L776S,missense,T8097C,NT changes
 Rev,N86S,missense,A8105G,NT changes
+Envelope surface glycoprotein gp160,T779A,missense,A8105G,NT changes
 Rev,L66I,missense,8120:8122CT->AC,NT changes
 Rev,T94T,silent,G8130A,NT changes
+Envelope surface glycoprotein gp160,R787H,missense,G8130A,NT changes
 Rev,S99T,missense,8144:8146GCC->CTA,NT changes
 Rev,P100T,missense,8144:8146GCC->CTA,NT changes
 Rev,I102V,missense,A8152G,NT changes
+Envelope surface glycoprotein gp160,K794K,silent,A8152G,NT changes
 Rev,T108A,missense,A8170G,NT changes
-Rev,S804I,missense,8181:8182GT->TC,NT changes
+Envelope surface glycoprotein gp160,L800L,silent,A8170G,NT changes
+Envelope surface glycoprotein gp160,S804I,missense,8181:8182GT->TC,NT changes
 Envelope surface glycoprotein gp160,A817T,missense,8219:8221GC->AA,NT changes
 Envelope surface glycoprotein gp160,A819A,silent,C8227T,NT changes
 Envelope surface glycoprotein gp160,A823A,silent,T8239A,NT changes
@@ -537,6 +590,7 @@ Nef,E182M,missense,8886:8887GA->AT,NT changes
 Nef,R184K,missense,G8893A,NT changes
 Nef,L198M,missense,C8934A,NT changes
 Nef,F203Y,missense,T8950A,NT changes
-Vpu,L10del,deletion,5799:5801TGT,deletion
+Envelope surface glycoprotein gp160;Vpu,V65del,deletion,5799:5801TGT,deletion
+Envelope surface glycoprotein gp160;Vpu,L10del,deletion,5799:5801TGT,deletion
 Envelope surface glycoprotein gp160,G314del,deletion,6710:6712GGG,deletion
 Envelope surface glycoprotein gp160,N355del,deletion,6837:6839ATA,deletion

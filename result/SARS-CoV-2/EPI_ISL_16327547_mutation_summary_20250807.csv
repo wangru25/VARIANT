@@ -57,6 +57,7 @@ spike_surface_glycoprotein,Q954H,missense,A24424T,NT changes
 spike_surface_glycoprotein,N969K,missense,T24469A,NT changes
 spike_surface_glycoprotein,D1146D,silent,C25000T,NT changes
 ORF3a,T64T,silent,C25584T,NT changes
+ORF3d,P21S,missense,C25584T,NT changes
 ORF3a,T223I,missense,C26060T,NT changes
 envelope,T9I,missense,C26270T,NT changes
 membrane_glycoprotein,D3N,missense,G26529A,NT changes

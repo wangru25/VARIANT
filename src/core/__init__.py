@@ -24,6 +24,7 @@ from .protein_analyzer import (
     Proteome,
 )
 from .reference_genome import ReferenceGenome
+from .mutation_processor import MutationProcessor
 
 __all__ = [
     "ReferenceGenome",
@@ -35,4 +36,5 @@ __all__ = [
     "AminoAcidMutationProcessor",
     "AlignmentProcessor",
     "GenomeSNPProcessor",
+    "MutationProcessor",
 ]

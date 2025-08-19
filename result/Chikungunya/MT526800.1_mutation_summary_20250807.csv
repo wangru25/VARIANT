@@ -45,17 +45,6 @@ nsp1,L492L,silent,C1604T,NT changes
 nsp1,P494P,silent,C1612T,NT changes
 nsp1,L495L,silent,T1615A,NT changes
 nsp1,G516G,silent,T1678C,NT changes
-nsp2,NA,missense,T1754C,NT changes
-nsp2,NA,missense,T1759A,NT changes
-nsp2,NA,missense,T1762C,NT changes
-nsp2,NA,missense,A1789G,NT changes
-nsp2,NA,missense,T1795C,NT changes
-nsp2,NA,missense,C1798T,NT changes
-nsp2,NA,missense,T1810C,NT changes
-nsp2,NA,missense,G1842A,NT changes
-nsp2,NA,missense,A1883C,NT changes
-nsp2,NA,missense,C1906T,NT changes
-nsp2,NA,missense,C1933T,NT changes
 nsp2,Y3Y,silent,C1960T,NT changes
 nsp2,H19H,silent,T2008C,NT changes
 nsp2,H40Y,missense,C2069T,NT changes
@@ -173,7 +162,6 @@ nsp3,L493L,silent,C5576T,NT changes
 nsp3,P494P,silent,C5581A,NT changes
 nsp3,D499D,silent,T5596C,NT changes
 nsp3,D502D,silent,T5605C,NT changes
-nsp3,NA,missense,C5645T,NT changes
 nsp4,T7T,silent,T5686C,NT changes
 nsp4,P37P,silent,A5776C,NT changes
 nsp4,L48L,silent,C5807T,NT changes

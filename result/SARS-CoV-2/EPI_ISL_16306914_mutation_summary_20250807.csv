@@ -55,6 +55,7 @@ spike_surface_glycoprotein,Q954H,missense,A24424T,NT changes
 spike_surface_glycoprotein,N969K,missense,T24469A,NT changes
 spike_surface_glycoprotein,D1146D,silent,C25000T,NT changes
 ORF3a,T64T,silent,C25584T,NT changes
+ORF3d,P21S,missense,C25584T,NT changes
 ORF3a,T223I,missense,C26060T,NT changes
 envelope,T9I,missense,C26270T,NT changes
 membrane_glycoprotein,D3N,missense,G26529A,NT changes
@@ -64,7 +65,9 @@ membrane_glycoprotein,L164L,silent,C27012T,NT changes
 ORF7a,Y40Y,silent,C27513T,NT changes
 ORF7b,L18L,silent,C27807T,NT changes
 nucleocapsid_phosphoprotein,P13L,missense,C28311T,NT changes
+ORF9b,P10S,missense,C28311T,NT changes
 nucleocapsid_phosphoprotein,G19G,silent,A28330G,NT changes
+ORF9b,D16G,missense,A28330G,NT changes
 nucleocapsid_phosphoprotein,R203K,missense,28881:28883GGG->AAC,NT changes
 nucleocapsid_phosphoprotein,G204R,missense,28881:28883GGG->AAC,NT changes
 nucleocapsid_phosphoprotein,S413R,missense,A29510C,NT changes
@@ -77,6 +80,9 @@ spike_surface_glycoprotein,P26del,deletion,21633:21641TACCCCCTG,deletion
 spike_surface_glycoprotein,A27S,missense,21633:21641TACCCCCTG,deletion
 spike_surface_glycoprotein,H69del,deletion,21765:21770TACATG,deletion
 spike_surface_glycoprotein,V70del,deletion,21765:21770TACATG,deletion
-nucleocapsid_phosphoprotein,E31del,deletion,28362:28370GAGAACGCA,deletion
-nucleocapsid_phosphoprotein,R32del,deletion,28362:28370GAGAACGCA,deletion
-nucleocapsid_phosphoprotein,S33del,deletion,28362:28370GAGAACGCA,deletion
+nucleocapsid_phosphoprotein;ORF9b,E27del,deletion,28362:28370GAGAACGCA,deletion
+nucleocapsid_phosphoprotein;ORF9b,N28del,deletion,28362:28370GAGAACGCA,deletion
+nucleocapsid_phosphoprotein;ORF9b,A29del,deletion,28362:28370GAGAACGCA,deletion
+nucleocapsid_phosphoprotein;ORF9b,E31del,deletion,28362:28370GAGAACGCA,deletion
+nucleocapsid_phosphoprotein;ORF9b,R32del,deletion,28362:28370GAGAACGCA,deletion
+nucleocapsid_phosphoprotein;ORF9b,S33del,deletion,28362:28370GAGAACGCA,deletion
