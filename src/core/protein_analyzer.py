@@ -470,10 +470,10 @@ class AlignmentProcessor:
 
         # First, try direct DNA-to-protein mapping if DNA position is provided
         if dna_pos is not None and mutation_info is not None:
-            direct_mutation = self._get_direct_protein_mutation(dna_pos, mutation_info, ref_seq)
-            if direct_mutation:
-                protein_mutations.append(direct_mutation)
-                on_cds_cnt += 1
+            direct_mutations = self._get_direct_protein_mutation(dna_pos, mutation_info, ref_seq)
+            if direct_mutations:
+                protein_mutations.extend(direct_mutations)
+                on_cds_cnt += len(direct_mutations)
                 return protein_mutations  # Return immediately if direct mapping succeeds
 
         # If direct mapping didn't work, try the original ORF alignment approach
@@ -546,20 +546,23 @@ class AlignmentProcessor:
 
         return protein_mutations
 
-    def _get_direct_protein_mutation(self, dna_pos: int, mutation_info: str, ref_seq: str = None) -> Dict[str, str]:
+    def _get_direct_protein_mutation(self, dna_pos: int, mutation_info: str, ref_seq: str = None) -> List[Dict[str, str]]:
         """
         Directly map DNA position to protein mutation without relying on ORF alignment.
         Handles both simple ranges and join operations in gene coordinates.
+        Returns ALL overlapping proteins that contain the mutation position.
 
         Args:
             dna_pos (int): DNA position (1-based)
             mutation_info (str): Mutation information in format "A->B"
 
         Returns:
-            Dict[str, str]: Protein mutation dict or None if not found
+            List[Dict[str, str]]: List of protein mutation dicts for all overlapping proteins
         """
         # Parse mutation info
         original_nt, mutated_nt = mutation_info.split("->")
+        
+        protein_mutations = []  # Collect all overlapping protein mutations
 
         for record in SeqIO.parse(self.proteome_dir, "fasta"):
             # Use record.description to get the full header, not record.id which gets truncated at first space
@@ -668,16 +671,16 @@ class AlignmentProcessor:
                                             # Regular missense mutation
                                             mutation_str = f"{original_aa_from_codon}{aa_position}{mutated_aa_from_codon}"
 
-                                    return {
+                                    protein_mutations.append({
                                         "protein": header,
                                         "mutation": mutation_str,
-                                    }
+                                    })
 
             except (ValueError, IndexError):
                 # Skip records with invalid coordinate formats
                 continue
 
-        return None
+        return protein_mutations if protein_mutations else None
 
     def align_orfs_to_ref_proteome_row(
         self, orfs: List[str], m_orfs: List[str], dna_pos_range: str = None

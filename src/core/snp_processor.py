@@ -55,15 +55,20 @@ class SNPProcessor:
         print(f"Found {len(snp_records)} SNP records")
         return snp_records
 
-    def process_snp_records(self, msa_files: List[str], segment: Optional[str] = None) -> None:
+    def process_snp_records(self, msa_files: List[str], segment: Optional[str] = None) -> List[Dict]:
         """
         Process SNP records from MSA files.
         
         Args:
             msa_files: List of MSA file paths
             segment: Segment name for multi-segment viruses
+            
+        Returns:
+            List of SNP records from all MSA files
         """
         print(f"Processing {len(msa_files)} MSA files...")
+        
+        all_snp_records = []
         
         for i, msa_file in enumerate(msa_files):
             print(f"\nProcessing MSA file {i+1}/{len(msa_files)}: {msa_file}")
@@ -72,11 +77,15 @@ class SNPProcessor:
             snp_records = self.get_snp_records_from_one_msa(msa_files, i, genome_id=None)
             
             if snp_records:
+                all_snp_records.extend(snp_records)
                 # Write SNP records to file
                 prefix = f"msa_{i+1}"
                 self._write_and_print_snp_records(snp_records, prefix, segment)
             else:
                 print(f"No SNP records found in {msa_file}")
+        
+        print(f"Total SNP records from all files: {len(all_snp_records)}")
+        return all_snp_records
 
     def _write_and_print_snp_records(
         self, snp_records: List[Dict], prefix: str, segment: Optional[str] = None

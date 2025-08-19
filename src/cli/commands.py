@@ -117,9 +117,14 @@ def run_analysis(args: argparse.Namespace) -> int:
         # Get SNP records
         snp_records = genome_snp_processor.get_genome_snps(args.msa)
 
-        # Process and save results
-        msa_basename = os.path.basename(args.msa).split(".")[0]
-        snp_processor._process_root_variants(snp_records, msa_basename, virus_processor=virus_processor, segment=None)
+        # Process and save results using the main processor
+        from main import MutationProcessor
+        
+        # Create a mutation processor instance
+        processor = MutationProcessor(args.virus, args.config)
+        
+        # Process the SNP records to generate individual genome files and row hot mutations
+        processor._process_root_variants(snp_records, "Combined", virus_processor, segment=None)
 
         print("Analysis completed successfully!")
         return 0

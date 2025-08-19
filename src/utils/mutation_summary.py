@@ -79,16 +79,13 @@ def _parse_point_mutations(content: str, virus_name: str, proteome_file: Optiona
         protein_mutations = _parse_protein_mutations(protein_mutations_str)
         
         for protein_name, mutation_desc in protein_mutations:
-            # Validate protein assignment
-            # Extract position for validation
-            pos_match = re.search(r'(\d+)', nt_position)
-            if pos_match:
-                pos = int(pos_match.group(1))
-                corrected_protein = _validate_protein_assignment(virus_name, pos, protein_name, proteome_file)
-            else:
-                corrected_protein = protein_name
-            if corrected_protein == 'None-CDS':
-                continue  # Skip if position is in non-coding region
+            # Skip if protein is None-CDS
+            if protein_name == 'None-CDS':
+                continue
+            
+            # Use the protein name directly from the individual genome file
+            # This ensures we get the correct mutation for each specific protein
+            corrected_protein = protein_name
             
             # Determine mutation type
             actual_type = _determine_mutation_type(mutation_desc, mutation_type)
@@ -292,6 +289,56 @@ def _determine_mutation_type(mutation_desc: str, original_type: str) -> str:
         return original_type
 
 
+def _calculate_aa_mutation_for_protein(nt_position: int, nt_ref: str, nt_alt: str, protein_name: str, proteome_file: str) -> str:
+    """
+    Calculate the correct amino acid mutation for a specific protein.
+    
+    Args:
+        nt_position: Nucleotide position
+        nt_ref: Reference nucleotide
+        nt_alt: Alternate nucleotide
+        protein_name: Name of the protein
+        proteome_file: Path to the proteome file
+        
+    Returns:
+        Amino acid mutation string (e.g., "P13L")
+    """
+    try:
+        with open(proteome_file, 'r') as f:
+            content = f.read()
+        
+        # Find the protein sequence and position
+        protein_pattern = rf'>{protein_name}\|.*?\|(\d+)\.\.(\d+)'
+        match = re.search(protein_pattern, content)
+        
+        if not match:
+            return "NA"  # Protein not found
+        
+        protein_start = int(match.group(1))
+        protein_end = int(match.group(2))
+        
+        # Check if position is within this protein
+        if not (protein_start <= nt_position <= protein_end):
+            return "NA"  # Position not in this protein
+        
+        # Calculate relative position within the protein
+        relative_pos = nt_position - protein_start
+        
+        # Calculate codon position (0-based)
+        codon_pos = relative_pos // 3
+        codon_offset = relative_pos % 3
+        
+        # Extract the codon sequence from the reference genome
+        # For now, we'll use a simplified approach - in practice, you'd need the reference genome
+        # This is a placeholder - the actual implementation would need the reference sequence
+        
+        # For overlapping proteins, we need to calculate the mutation based on each protein's reading frame
+        # Since we don't have the reference genome here, we'll return a placeholder
+        return f"AA{codon_pos + 1}?"  # Placeholder format
+        
+    except Exception as e:
+        return "NA"
+
 def _validate_protein_assignment(virus_name: str, nt_position: int, assigned_protein: str, proteome_file: Optional[str] = None) -> str:
     """Validate if a given nucleotide position falls within the genomic coordinates of an assigned protein."""
     if proteome_file and os.path.exists(proteome_file):
@@ -355,10 +402,13 @@ def _validate_protein_assignment(virus_name: str, nt_position: int, assigned_pro
                         matches.append((protein, end - start + 1))  # Store protein and range size
             
             if matches:
-                # Prioritize matches: prefer smaller ranges (more specific)
-                # This helps when there are overlapping annotations
-                matches.sort(key=lambda x: x[1])  # Sort by range size (ascending)
-                return matches[0][0]  # Return the protein with the smallest range
+                # Report all overlapping proteins - let downstream analysis decide
+                # Sort by range size (descending) for consistent ordering
+                matches.sort(key=lambda x: x[1], reverse=True)
+                
+                # Return all overlapping proteins separated by semicolon
+                protein_names = [match[0] for match in matches]
+                return ';'.join(protein_names)
             
             # If position is not within any protein, return None-CDS
             return 'None-CDS'
