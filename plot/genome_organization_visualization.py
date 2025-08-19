@@ -1,9 +1,23 @@
-#!/usr/bin/env python3
-"""
-Genome Organization Visualization
-Creates a detailed diagram showing viral genome organization across reading frames,
-similar to HIV genome diagrams, with gene overlaps and regulatory regions.
-"""
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-19 16:07:24
+LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-19 17:37:22
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/plot/genome_organization_visualization.py
+Description: 
+'''
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-19 17:30:00
+LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-19 17:30:00
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/plot/genome_organization_visualization.py
+Description: Genome organization visualization for viral genomes with mutation analysis.
+'''
 
 import plotly.graph_objects as go
 import plotly.io as pio
@@ -12,7 +26,8 @@ import numpy as np
 from Bio import SeqIO
 import re
 import json
-from typing import Dict, List, Tuple, Optional
+import pandas as pd
+from typing import Dict, List, Tuple, Optional, Union
 import os
 
 # Set default template
@@ -21,20 +36,20 @@ pio.templates.default = "simple_white"
 class GenomeOrganizationVisualizer:
     """Create genome organization visualizations showing genes across reading frames."""
     
-    def __init__(self, proteome_path: str, mutation_data_path: str, reference_genome_path: str = None):
+    def __init__(self, proteome_path: str, mutation_csv_path: str, reference_genome_path: str = None):
         """
-        Initialize the visualizer.
-        
+        Initialize the genome organization visualizer.
+
         Args:
-            proteome_path: Path to the proteome FASTA file
-            mutation_data_path: Path to mutation data file (.txt output)
-            reference_genome_path: Path to reference genome FASTA (optional)
+            proteome_path (str): Path to the proteome FASTA file
+            mutation_csv_path (str): Path to mutation summary CSV file
+            reference_genome_path (str, optional): Path to reference genome FASTA
         """
         self.proteome_path = proteome_path
-        self.mutation_data_path = mutation_data_path
+        self.mutation_csv_path = mutation_csv_path
         self.reference_genome_path = reference_genome_path
         self.proteins = self._load_proteins()
-        self.mutations = self._parse_mutations()
+        self.mutations = self._parse_mutations_from_csv()
         self.genome_length = self._get_genome_length()
         self.genome_organization = self._create_genome_organization()
         
@@ -96,103 +111,80 @@ class GenomeOrganizationVisualizer:
         
         return proteins
     
-    def _parse_mutations(self) -> List[Dict]:
-        """Parse mutation data from the existing .txt output file."""
+    def _parse_mutations_from_csv(self) -> List[Dict]:
+        """Parse mutation data from CSV file."""
         mutations = []
         
-        with open(self.mutation_data_path, 'r') as f:
-            for line in f:
-                line = line.strip()
-                if not line:
+        try:
+            # Read CSV file
+            df = pd.read_csv(self.mutation_csv_path)
+            
+            for _, row in df.iterrows():
+                protein_name = row['Protein Name']
+                protein_mutation = row['Protein Mutations']
+                aa_mutation_type = row['AA Mutation Type']
+                nt_mutation = row['NT Mutation']
+                
+                # Skip invalid proteins
+                if protein_name in ["Invalid protein sequence", "None-CDS"]:
                     continue
                 
-                # Parse mutation line format from existing output:
-                # missense 670 T->G [{'protein': 'leader_nsp1', 'mutation': 'S135R'}]
-                parts = line.split(' ', 2)  # Split into type, position, rest
-                if len(parts) >= 3:
-                    mutation_type = parts[0]
-                    position_info = parts[1]
-                    mutation_details = parts[2]
-                    
-                    # Parse position
-                    if ':' in position_info:
-                        # Range mutation (e.g., "1:24" or "10447:10449")
-                        try:
-                            start_pos, end_pos = map(int, position_info.split(':'))
-                            position = (start_pos, end_pos)
-                        except ValueError:
-                            continue
-                    else:
-                        # Single position mutation
-                        try:
-                            position = int(position_info)
-                        except ValueError:
-                            continue
-                    
-                    # Parse mutation details using regex
-                    try:
-                        # Extract protein and mutation info
-                        protein_match = re.search(r"'protein': '([^']+)'", mutation_details)
-                        protein_name = protein_match.group(1) if protein_match else "Unknown"
-                        
-                        # Skip invalid proteins
-                        if protein_name in ["Invalid protein sequence", "None-CDS"]:
-                            continue
-                        
-                        # Try to extract string mutation first
-                        mutation_match = re.search(r"'mutation': '([^']+)'", mutation_details)
-                        if mutation_match:
-                            mutation_desc = mutation_match.group(1)
-                            mutations.append({
-                                'type': mutation_type,
-                                'position': position,
-                                'protein': protein_name,
-                                'mutation': mutation_desc,
-                                'raw_line': line
-                            })
-                        else:
-                            # Try to extract list mutation (for deletions)
-                            list_match = re.search(r"'mutation': \[([^\]]+)\]", mutation_details)
-                            if list_match:
-                                # Parse the list and create separate records for each mutation type
-                                list_content = list_match.group(1)
-                                # Remove quotes and split by comma
-                                mutation_list = [m.strip().strip("'\"") for m in list_content.split(',')]
-                                
-                                # Create separate mutation records for each type
-                                for mut in mutation_list:
-                                    if mut.endswith('del'):
-                                        # This is a deletion
-                                        mutations.append({
-                                            'type': 'deletion',
-                                            'position': position,
-                                            'protein': protein_name,
-                                            'mutation': mut,
-                                            'raw_line': line
-                                        })
-                                    else:
-                                        # This is a missense mutation
-                                        mutations.append({
-                                            'type': 'missense',
-                                            'position': position,
-                                            'protein': protein_name,
-                                            'mutation': mut,
-                                            'raw_line': line
-                                        })
-                            else:
-                                mutation_desc = "Unknown"
-                                mutations.append({
-                                    'type': mutation_type,
-                                    'position': position,
-                                    'protein': protein_name,
-                                    'mutation': mutation_desc,
-                                    'raw_line': line
-                                })
-                    except Exception as e:
-                        print(f"Warning: Could not parse mutation line: {line}")
-                        continue
+                # Parse nucleotide position from NT Mutation column
+                position = self._parse_nt_position(nt_mutation)
+                if position is None:
+                    continue
+                
+                mutations.append({
+                    'type': aa_mutation_type,
+                    'position': position,
+                    'protein': protein_name,
+                    'mutation': protein_mutation,
+                    'nt_mutation': nt_mutation,
+                    'raw_line': f"{aa_mutation_type} {protein_mutation} in {protein_name}"
+                })
+                
+        except Exception as e:
+            print(f"Error reading CSV file: {e}")
+            return []
         
         return mutations
+    
+    def _parse_nt_position(self, nt_mutation: str) -> Optional[Union[int, Tuple[int, int]]]:
+        """Parse nucleotide position from NT Mutation column."""
+        try:
+            # Handle range mutations like "10447:10449GC->AA" or "21633:21641TACCCCCTG"
+            if ':' in nt_mutation:
+                # Extract position range before the nucleotide change
+                parts = nt_mutation.split(':')
+                if len(parts) >= 2:
+                    start_pos = int(parts[0])
+                    # Extract end position - look for the number before any letters
+                    end_part = parts[1]
+                    # Find the first sequence of digits
+                    end_match = re.search(r'^(\d+)', end_part)
+                    if end_match:
+                        end_pos = int(end_match.group(1))
+                        return (start_pos, end_pos)
+                    else:
+                        # Fallback to single position
+                        return start_pos
+            
+            # Handle single position mutations like "T670G" or "C378A"
+            # Extract position from the mutation string
+            # Look for patterns like "C378A" where 378 is the position
+            match = re.search(r'[ACGT](\d+)[ACGT]', nt_mutation)
+            if match:
+                return int(match.group(1))
+            
+            # If no pattern found, try to extract any number
+            numbers = re.findall(r'\d+', nt_mutation)
+            if numbers:
+                return int(numbers[0])
+                
+        except (ValueError, IndexError) as e:
+            print(f"Warning: Could not parse position from {nt_mutation}: {e}")
+        
+        return None
     
     def _get_genome_length(self) -> int:
         """Get genome length from reference genome or estimate from protein positions."""
@@ -283,9 +275,8 @@ class GenomeOrganizationVisualizer:
             'insertion': '#9467bd',     # Purple for insertion
             'nonsense': '#e377c2',      # Pink for nonsense
             'frameshift': '#8c564b',    # Brown for frameshift
-            'unknown': '#7f7f7f'        # Gray for unknown
         }
-        return color_map.get(mutation_type, '#1f77b4')
+        return color_map.get(mutation_type, '#1f77b4')  # Default blue for any other types
     
     def _format_mutation_breakdown(self, mutation_details: dict) -> str:
         """Format mutation details breakdown for hover display."""
@@ -314,21 +305,38 @@ class GenomeOrganizationVisualizer:
     
     def _add_mutation_legend(self, fig):
         """Add mutation type legend in top left corner."""
-        # Define mutation types and their colors
-        mutation_types = [
-            ('Missense', '#d62728', 'Amino acid change'),
-            ('Silent', '#2ca02c', 'No amino acid change'),
-            ('Deletion', '#ff7f0e', 'Nucleotide deletion'),
-            ('Insertion', '#9467bd', 'Nucleotide insertion'),
-            ('Nonsense', '#e377c2', 'Stop codon introduction'),
-            ('Frameshift', '#8c564b', 'Reading frame shift'),
-            ('Unknown', '#7f7f7f', 'Unknown mutation type')
-        ]
+        # Get unique mutation types from the data
+        mutation_types_in_data = set()
+        for mutation in self.mutations:
+            mutation_types_in_data.add(mutation['type'])
         
-        # Create legend text
+        # Define mutation types and their colors - prioritize the main four types
+        mutation_type_info = {
+            'missense': ('Missense', '#d62728', 'Amino acid change'),
+            'deletion': ('Deletion', '#ff7f0e', 'Nucleotide deletion'),
+            'insertion': ('Insertion', '#9467bd', 'Nucleotide insertion'),
+            'nonsense': ('Nonsense', '#e377c2', 'Stop codon introduction'),
+            'silent': ('Silent', '#2ca02c', 'No amino acid change'),
+            'frameshift': ('Frameshift', '#8c564b', 'Reading frame shift')
+        }
+        
+        # Create legend text - show main four types first, then others present in data
         legend_text = "<b>Mutation Types:</b><br>"
-        for mut_type, color, description in mutation_types:
-            legend_text += f"<span style='color:{color};'>●</span> {mut_type}: {description}<br>"
+        
+        # Define the main four mutation types in order
+        main_types = ['missense', 'deletion', 'insertion', 'nonsense']
+        
+        # Show main types first (all as solid dots since they're valid mutation types)
+        for mut_type in main_types:
+            if mut_type in mutation_type_info:
+                display_name, color, description = mutation_type_info[mut_type]
+                legend_text += f"<span style='color:{color};'>●</span> {display_name}: {description}<br>"
+        
+        # Show other types present in data
+        for mut_type in sorted(mutation_types_in_data):
+            if mut_type not in main_types and mut_type in mutation_type_info:
+                display_name, color, description = mutation_type_info[mut_type]
+                legend_text += f"<span style='color:{color};'>●</span> {display_name}: {description}<br>"
         
         # Add annotation for legend
         fig.add_annotation(
@@ -537,7 +545,7 @@ class GenomeOrganizationVisualizer:
                             marker=dict(
                                 size=8,
                                 color=self._get_mutation_color(mutation['type']),
-                                symbol='diamond',
+                                symbol='circle',
                                 line=dict(color='white', width=1)
                             ),
                             name=f"{mutation['type']} - {mutation['mutation']}",
@@ -626,12 +634,102 @@ class GenomeOrganizationVisualizer:
         print(f"Genome organization chart saved to: {output_path}")
         return fig
 
-def main():
-    """Main function to test the genome organization visualization."""
+def process_multiple_viruses():
+    """
+    Process multiple virus datasets and create genome organization visualizations.
     
-    # File paths
+    Automatically processes CSV files for SARS-CoV-2, HIV-1, Chikungunya, and ZaireEbola.
+    Creates HTML and PDF visualizations for each virus dataset.
+    """
+    
+    # Define virus configurations
+    virus_configs = {
+        'SARS-CoV-2': {
+            'proteome_path': 'data/SARS-CoV-2/refs/SARS-CoV-2_proteome.fasta',
+            'reference_genome_path': 'data/SARS-CoV-2/refs/NC_045512.fasta',
+            'result_dir': 'result/SARS-CoV-2/',
+            'output_dir': 'plot/'
+        },
+        'HIV-1': {
+            'proteome_path': 'data/HIV-1/refs/HIV-1_proteome.fasta',
+            'reference_genome_path': 'data/HIV-1/refs/NC_001802.1.fasta',
+            'result_dir': 'result/HIV-1/',
+            'output_dir': 'plot/'
+        },
+        'Chikungunya': {
+            'proteome_path': 'data/Chikungunya/refs/Chikungunya_proteome.fasta',
+            'reference_genome_path': 'data/Chikungunya/refs/NC_004162.fasta',
+            'result_dir': 'result/Chikungunya/',
+            'output_dir': 'plot/'
+        },
+        'ZaireEbola': {
+            'proteome_path': 'data/ZaireEbola/refs/ZaireEbola_proteome.fasta',
+            'reference_genome_path': 'data/ZaireEbola/refs/NC_002549.1.fasta',
+            'result_dir': 'result/ZaireEbola/',
+            'output_dir': 'plot/'
+        }
+    }
+    
+    for virus_name, config in virus_configs.items():
+        print(f"\n{'='*50}")
+        print(f"Processing {virus_name}")
+        print(f"{'='*50}")
+        
+        # Check if proteome file exists
+        if not os.path.exists(config['proteome_path']):
+            print(f"Warning: Proteome file not found: {config['proteome_path']}")
+            continue
+        
+        # Find CSV files in result directory
+        csv_files = []
+        if os.path.exists(config['result_dir']):
+            for file in os.listdir(config['result_dir']):
+                if file.endswith('_mutation_summary.csv'):
+                    csv_files.append(os.path.join(config['result_dir'], file))
+        
+        if not csv_files:
+            print(f"No mutation summary CSV files found in {config['result_dir']}")
+            continue
+        
+        print(f"Found {len(csv_files)} CSV files")
+        
+        # Process each CSV file
+        for csv_file in csv_files[:3]:  # Limit to first 3 files per virus
+            try:
+                sample_name = os.path.basename(csv_file).replace('_mutation_summary.csv', '')
+                output_file = f"{config['output_dir']}{virus_name}_{sample_name}_genome_organization.html"
+                
+                print(f"Processing {sample_name}...")
+                
+                # Create visualizer
+                visualizer = GenomeOrganizationVisualizer(
+                    config['proteome_path'], 
+                    csv_file, 
+                    config['reference_genome_path']
+                )
+                
+                # Create visualization
+                visualizer.create_genome_organization_chart(output_file)
+                
+                print(f"Created: {output_file}")
+                print(f"  Proteins: {len(visualizer.proteins)}")
+                print(f"  Mutations: {len(visualizer.mutations)}")
+                print(f"  Genome length: {visualizer.genome_length:,} bp")
+                
+            except Exception as e:
+                print(f"Error processing {csv_file}: {e}")
+                continue
+
+def main():
+    """
+    Main function to test the genome organization visualization.
+    
+    Creates genome organization visualizations for SARS-CoV-2 data.
+    """
+    
+    # File paths - using CSV files instead of .txt files
     proteome_path = "data/SARS-CoV-2/refs/SARS-CoV-2_proteome.fasta"
-    mutation_data_path = "result/SARS-CoV-2/EPI_ISL_16327572_20250807.txt"
+    mutation_csv_path = "result/SARS-CoV-2/EPI_ISL_16127650_mutation_summary.csv"
     reference_genome_path = "data/SARS-CoV-2/refs/NC_045512.fasta"
     
     # Check if files exist
@@ -639,12 +737,12 @@ def main():
         print(f"Error: Proteome file not found: {proteome_path}")
         return
     
-    if not os.path.exists(mutation_data_path):
-        print(f"Error: Mutation data file not found: {mutation_data_path}")
+    if not os.path.exists(mutation_csv_path):
+        print(f"Error: Mutation CSV file not found: {mutation_csv_path}")
         return
     
     # Create visualizer
-    visualizer = GenomeOrganizationVisualizer(proteome_path, mutation_data_path, reference_genome_path)
+    visualizer = GenomeOrganizationVisualizer(proteome_path, mutation_csv_path, reference_genome_path)
     
     # Create genome organization visualizations
     print("Creating genome organization chart...")
@@ -662,4 +760,11 @@ def main():
         print(f"  {gene['name']}: {gene['start']}-{gene['end']} ({gene['length']} bp)")
 
 if __name__ == "__main__":
+    # Process multiple viruses
+    process_multiple_viruses()
+    
+    # Also run the original single virus example
+    print(f"\n{'='*50}")
+    print("Running single virus example (SARS-CoV-2)")
+    print(f"{'='*50}")
     main()

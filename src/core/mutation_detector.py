@@ -1,13 +1,13 @@
-"""
+# -*- coding: utf-8 -*-
+'''
 Author: Rui Wang
 Date: 2023-10-31 12:42:13
 LastModifiedBy: Rui Wang
-LastEditTime: 2023-12-22 12:43:52
-Email: rw3594@nyu.edu
-FilePath: /MutParser/src/core/mutation_detector.py
-Description:
-This code is used to find five types of mutations in a gene of a genome. Namely, insertion, deletion, row mutation, hot mutation, and point mutation.
-"""
+LastEditTime: 2025-08-19 17:30:00
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/./src/core/mutation_detector.py
+Description: Mutation detection and analysis module. Find five types of mutations in a gene of a genome. Namely, insertion, deletion, row mutation, hot mutation, and point mutation.
+'''
 
 from typing import Any, Dict, List, Tuple, Union
 

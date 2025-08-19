@@ -1,4 +1,13 @@
-"""Mutation analysis utilities and helper functions."""
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-19 17:30:00
+LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-19 17:39:31
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/src/utils/mutation_utils.py
+Description: Mutation analysis utilities and helper functions.
+'''
 
 import hashlib
 from typing import Any, Dict, List, Tuple

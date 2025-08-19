@@ -1,9 +1,13 @@
-"""
-Mutation Summary Utilities
-
-This module provides functionality to extract and format mutation information
-from analysis output files into structured CSV format.
-"""
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-19 17:30:00
+LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-19 17:30:00
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/./src/utils/mutation_summary.py
+Description: Mutation summary generation and CSV export utilities.
+'''
 
 import os
 import re

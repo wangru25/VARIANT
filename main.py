@@ -1,11 +1,13 @@
-#!/usr/bin/env python3
-"""
-VARIANT - Virus Mutation Analysis Tool
+# -*- coding: utf-8 -*-
+'''
 Author: Rui Wang
-Date: 2025-08-19
+Date: 2025-08-19 17:30:00
+LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-19 17:30:00
 Email: wang.rui@nyu.edu
-Description: Main script for virus mutation parsing with support for multiple viruses
-"""
+FilePath: /VARIANT/main.py
+Description: Main script for virus mutation parsing with support for multiple viruses.
+'''
 
 import argparse
 import os

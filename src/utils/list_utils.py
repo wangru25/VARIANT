@@ -1,3 +1,15 @@
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-19 17:30:00
+LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-19 17:30:00
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/./src/utils/list_utils.py
+Description: List processing utilities and helper functions.
+'''
+
+
 """List manipulation utilities."""
 
 from typing import Any, List, Tuple

@@ -1,7 +1,13 @@
-"""
-Virus mutation processor for handling virus-specific configurations and file management.
-"""
-
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-19 17:30:00
+LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-19 17:42:02
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/src/core/virus_processor.py
+Description: Virus-specific processing module.
+'''
 import os
 import yaml
 from typing import Dict, List, Optional

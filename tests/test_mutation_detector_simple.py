@@ -1,3 +1,15 @@
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-19 17:30:00
+LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-19 17:30:00
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/./tests/test_mutation_detector_simple.py
+Description: Simple test cases for mutation detector module.
+'''
+
+
 """
 Simple comprehensive test for mutation_detector module using real data.
 """

@@ -1,28 +1,15 @@
-#!/usr/bin/env python3
-"""
+# -*- coding: utf-8 -*-
+'''
 Author: Rui Wang
-Date: 2023-10-11 10:24:49
+Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2023-12-22 12:43:52
-Email: rw3594@nyu.edu
-FilePath: /7_MutParser/scripts/setup_virus_dataset.py
-Description: Script for setting up virus datasets and preparing data for analysis
-"""
-
-import argparse
-import os
-import shutil
-import sys
-from typing import Dict, List, Optional
-
-import yaml
-
-# Add the project root to the path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+LastEditTime: 2025-08-19 17:30:00
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/./scripts/setup_virus_dataset.py
+Description: Virus dataset setup and configuration script.
+'''
 
 
-class VirusDatasetSetup:
-    """Helper class for setting up virus datasets."""
 
     def __init__(self, config_file: str = "virus_config.yaml"):
         """

@@ -1,10 +1,13 @@
-#!/usr/bin/env python3
-"""
-Mutation Processor Module
-
-This module contains the MutationProcessor class that handles the complete
-mutation analysis pipeline for both single and multi-segment viruses.
-"""
+# -*- coding: utf-8 -*-
+'''
+Author: Rui Wang
+Date: 2025-08-19 17:30:00
+LastModifiedBy: Rui Wang
+LastEditTime: 2025-08-19 17:30:00
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/src/core/mutation_processor.py
+Description: Mutation Processor Module - contains the MutationProcessor class that handles the complete mutation analysis pipeline for both single and multi-segment viruses.
+'''
 
 import os
 import sys

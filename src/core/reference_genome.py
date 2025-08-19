@@ -1,18 +1,13 @@
-"""
+# -*- coding: utf-8 -*-
+'''
 Author: Rui Wang
 Date: 2025-06-23 14:27:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-06-23 14:28:15
+LastEditTime: 2025-08-19 17:40:18
 Email: wang.rui@nyu.edu
-FilePath: /7_MutParser/src/core/reference_genome.py
+FilePath: /VARIANT/src/core/reference_genome.py
 Description:
-"""
-
-"""Reference genome handling and operations."""
-
-from typing import Any, Dict
-
-from ..utils.sequence_utils import read_fasta
+'''
 
 
 class ReferenceGenome:

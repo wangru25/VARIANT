@@ -3,14 +3,11 @@
 Author: Rui Wang
 Date: 2025-08-11 15:43:52
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-11 15:43:52
+LastEditTime: 2025-08-19 17:41:54
 Email: wang.rui@nyu.edu
 FilePath: /VARIANT/src/core/snp_processor.py
 Description: 
 '''
-"""
-SNP processor for handling SNP records and variant processing.
-"""
 
 import os
 import re

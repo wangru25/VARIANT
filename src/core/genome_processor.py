@@ -1,15 +1,13 @@
-"""
+# -*- coding: utf-8 -*-
+'''
 Author: Rui Wang
 Date: 2023-10-31 12:42:13
 LastModifiedBy: Rui Wang
-LastEditTime: 2023-12-22 12:43:52
-Email: rw3594@nyu.edu
-FilePath: /MutParser/src/core/genome_processor.py
-Description:
-This code is used to track mutation records from multiple genomes.
-"""
-
-"""Genome processing and SNP analysis functionality."""
+LastEditTime: 2025-08-19 17:41:09
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/src/core/genome_processor.py
+Description: Genome processing and analysis module.
+'''
 
 import os
 from typing import Dict, List, Optional

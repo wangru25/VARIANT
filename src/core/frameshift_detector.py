@@ -1,16 +1,13 @@
-"""
+# -*- coding: utf-8 -*-
+'''
 Author: Rui Wang
-Date: 2025-01-07
+Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-01-07
-Email: rw3594@nyu.edu
-FilePath: /VARIANT/src/core/frameshift_detector.py
-Description:
-Comprehensive frameshift detection and analysis module for VARIANT. Detects potential
-programmed ribosomal frameshifting (PRF) sites including +1 and -1 frameshifting mechanisms,
-with efficiency scoring, mutation impact analysis, and detailed reporting capabilities.
-"""
-
+LastEditTime: 2025-08-19 17:30:00
+Email: wang.rui@nyu.edu
+FilePath: /VARIANT/./src/core/frameshift_detector.py
+Description: Frameshift detection and analysis module.
+'''
 import json
 from dataclasses import dataclass
 from enum import Enum
