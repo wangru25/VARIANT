@@ -26,9 +26,7 @@ from .virus_processor import VirusMutationProcessor
 from ..utils.mutation_summary import extract_mutation_summary_to_csv
 from ..utils.mutation_utils import split_multi_protein_mutations, classify_mutation_type, convert_key_to_int, sort_dict_by_consecutive_keys, detect_hot_mutation, format_amino_acid_change_for_csv
 
-# Constants
-DATE = "20250807"
-TODAY = 20250807
+# No date in filenames - use simple naming
 
 
 class MutationProcessor:
@@ -258,7 +256,7 @@ class MutationProcessor:
             result_path = self.virus_processor.get_result_path()
             
         frameshift_output = frameshift_detector.format_frameshift_output(frameshift_sites)
-        frameshift_file = os.path.join(result_path, f"potential_PRF_{TODAY}.csv")
+        frameshift_file = os.path.join(result_path, "potential_PRF.csv")
         
         with open(frameshift_file, 'w') as f:
             f.write(frameshift_output)
@@ -285,7 +283,7 @@ class MutationProcessor:
             result_path = self.virus_processor.get_result_path()
         
         # Find all .txt files
-        txt_pattern = os.path.join(result_path, f"*_{TODAY}.txt")
+        txt_pattern = os.path.join(result_path, "*.txt")
         all_txt_files = glob.glob(txt_pattern)
         
         # Filter out files that don't contain genome mutation data
@@ -323,7 +321,7 @@ class MutationProcessor:
         # Process each file
         processed_count = 0
         for txt_file in txt_files:
-            genome_id = os.path.basename(txt_file).replace(f"_{TODAY}.txt", "")
+            genome_id = os.path.basename(txt_file).replace(".txt", "")
             
             try:
                 print(f"  Generating mutation summary for {genome_id}...")
@@ -344,7 +342,7 @@ class MutationProcessor:
         else:
             result_path = self.virus_processor.get_result_path()
             
-        txt_file = os.path.join(result_path, f"{args.genome_id}_{TODAY}.txt")
+        txt_file = os.path.join(result_path, f"{args.genome_id}.txt")
         
         if not os.path.exists(txt_file):
             print(f"⚠ Skipping mutation summary generation: {txt_file} not found")
@@ -522,7 +520,7 @@ class MutationProcessor:
             safe_genome_id = genome_id.replace("|", "_").replace("/", "_")
             result_path = self.virus_processor.get_result_path(segment)
             output_file_snp_roots = os.path.join(
-                result_path, f"{safe_genome_id}_{TODAY}.txt"
+                result_path, f"{safe_genome_id}.txt"
             )
             with open(output_file_snp_roots, "w") as file:
                 for _key, value in sorted_mutations.items():
@@ -531,7 +529,7 @@ class MutationProcessor:
             # Save row and hot mutations CSV
             if row_hot_mutations:
                 csv_file = os.path.join(
-                    result_path, f"{safe_genome_id}_row_hot_mutations_{TODAY}.csv"
+                    result_path, f"{safe_genome_id}_row_hot_mutations.csv"
                 )
                 with open(csv_file, "w") as file:
                     # Write header

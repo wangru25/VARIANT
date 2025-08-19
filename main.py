@@ -21,11 +21,6 @@ sys.path.append(str(Path(__file__).parent / "src"))
 from src.core.mutation_processor import MutationProcessor
 
 
-# Constants
-DATE = "20250807"
-TODAY = 20250807
-
-
 def create_argument_parser() -> argparse.ArgumentParser:
     """Create and configure the argument parser."""
     parser = argparse.ArgumentParser(

@@ -1,8 +1,0 @@
-genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
-KM034551.1,row,6283:6284,CA->TG,spike glycoprotein(GP),"['A82V']",missense
-KM034551.1,row,7325:7326,CC->TT,spike glycoprotein(GP),"['P430L']",missense
-KM034551.1,hot,850:852,AA->GG,nucleoprotein(NP),"['G127G', 'K128R']",missense
-KM034551.1,hot,7166:7168,TC->CT,spike glycoprotein(GP),"['N376N', 'P377L']",missense
-KM034551.1,hot,7168:7170,CT->TC,spike glycoprotein(GP),"['P377L', 'S378P']",missense
-KM034551.1,hot,7301:7303,TT->CC,spike glycoprotein(GP),"['P421P', 'L422P']",missense
-KM034551.1,hot,10660:10662,CG->TA,membrane-associated protein(VP24),"['L106L']",silent

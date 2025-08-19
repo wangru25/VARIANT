@@ -29,17 +29,12 @@ def extract_mutation_summary_to_csv(virus_name: str, genome_id: str, segment: Op
     """
     print(f"Extracting mutation summary for {genome_id}...")
     
-    # File paths
-    from datetime import date
-    today = date.today().strftime("%Y%m%d")
-    today = 20250807
-    
     if segment:
-        txt_file = f"result/{virus_name}/{segment}/{genome_id}_{today}.txt"
-        csv_file = f"result/{virus_name}/{segment}/{genome_id}_mutation_summary_{today}.csv"
+        txt_file = f"result/{virus_name}/{segment}/{genome_id}.txt"
+        csv_file = f"result/{virus_name}/{segment}/{genome_id}_mutation_summary.csv"
     else:
-        txt_file = f"result/{virus_name}/{genome_id}_{today}.txt"
-        csv_file = f"result/{virus_name}/{genome_id}_mutation_summary_{today}.csv"
+        txt_file = f"result/{virus_name}/{genome_id}.txt"
+        csv_file = f"result/{virus_name}/{genome_id}_mutation_summary.csv"
     
     if not os.path.exists(txt_file):
         print(f"Error: {txt_file} not found!")
@@ -56,7 +51,6 @@ def extract_mutation_summary_to_csv(virus_name: str, genome_id: str, segment: Op
     mutations_data.extend(_parse_insertions(content, virus_name, proteome_file))
     mutations_data.extend(_parse_frameshifts(content, virus_name, proteome_file))
     
-    # Write to CSV
     _write_mutations_to_csv(mutations_data, csv_file)
     
     print(f"Mutation summary saved to: {csv_file}")
