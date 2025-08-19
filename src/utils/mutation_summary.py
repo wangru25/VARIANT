@@ -30,12 +30,16 @@ def extract_mutation_summary_to_csv(virus_name: str, genome_id: str, segment: Op
     print(f"Extracting mutation summary for {genome_id}...")
     
     # File paths
+    from datetime import date
+    today = date.today().strftime("%Y%m%d")
+    today = 20250807
+    
     if segment:
-        txt_file = f"result/{virus_name}/{segment}/{genome_id}_20250807.txt"
-        csv_file = f"result/{virus_name}/{segment}/{genome_id}_mutation_summary_20250807.csv"
+        txt_file = f"result/{virus_name}/{segment}/{genome_id}_{today}.txt"
+        csv_file = f"result/{virus_name}/{segment}/{genome_id}_mutation_summary_{today}.csv"
     else:
-        txt_file = f"result/{virus_name}/{genome_id}_20250807.txt"
-        csv_file = f"result/{virus_name}/{genome_id}_mutation_summary_20250807.csv"
+        txt_file = f"result/{virus_name}/{genome_id}_{today}.txt"
+        csv_file = f"result/{virus_name}/{genome_id}_mutation_summary_{today}.csv"
     
     if not os.path.exists(txt_file):
         print(f"Error: {txt_file} not found!")
@@ -302,16 +306,30 @@ def _validate_protein_assignment(virus_name: str, nt_position: int, assigned_pro
                 header = record.description
                 
                 # Look for location patterns in the header
-                # Format: ">YP_009725297.1|leader_nsp1|266..805"
+                # Format: ">YP_009725297.1|leader_nsp1|266..805" or ">YP_009725307.1|RNA-dependent-polymerase|join(13442..13468,13468..16236)"
                 import re
-                location_match = re.search(r'\|(\d+)\.\.(\d+)$', header)
-                if location_match:
-                    start, end = int(location_match.group(1)), int(location_match.group(2))
-                    # Extract protein name from header (e.g., "leader_nsp1" from "YP_009725297.1|leader_nsp1|266..805")
-                    protein_name_match = re.search(r'\|([^|]+)\|\d+\.\.\d+$', header)
+                
+                # Handle join() format first
+                join_match = re.search(r'\|join\((\d+)\.\.(\d+),(\d+)\.\.(\d+)\)$', header)
+                if join_match:
+                    # For join format, use the full range from first start to second end
+                    start1, end1, start2, end2 = map(int, join_match.groups())
+                    start, end = start1, end2  # Full range coverage
+                    # Extract protein name
+                    protein_name_match = re.search(r'\|([^|]+)\|join\(', header)
                     if protein_name_match:
                         protein_name = protein_name_match.group(1)
                         protein_boundaries[protein_name] = (start, end)
+                else:
+                    # Handle simple format
+                    location_match = re.search(r'\|(\d+)\.\.(\d+)$', header)
+                    if location_match:
+                        start, end = int(location_match.group(1)), int(location_match.group(2))
+                        # Extract protein name from header (e.g., "leader_nsp1" from "YP_009725297.1|leader_nsp1|266..805")
+                        protein_name_match = re.search(r'\|([^|]+)\|\d+\.\.\d+$', header)
+                        if protein_name_match:
+                            protein_name = protein_name_match.group(1)
+                            protein_boundaries[protein_name] = (start, end)
             
             # Check if the nucleotide position falls within any protein's boundaries
             for protein, (start, end) in protein_boundaries.items():

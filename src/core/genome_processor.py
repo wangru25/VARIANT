@@ -11,6 +11,7 @@ This code is used to track mutation records from multiple genomes.
 
 """Genome processing and SNP analysis functionality."""
 
+import os
 from typing import Dict, List, Optional
 
 from ..utils.mutation_utils import (
@@ -353,3 +354,5 @@ class GenomeSNPProcessor:
             for entry in all_keys:
                 print(f"{entry['seqId']}: {entry['keys']}")
         return all_keys
+
+

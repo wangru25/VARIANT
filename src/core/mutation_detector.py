@@ -328,33 +328,33 @@ class GeneMutationDetector:
         return row_mutations, hot_mutations, point_mutations
 
 
-if __name__ == "__main__":
-    genome_id = "EPI_ISL_16327572"
-    ref_genome = ReferenceGenome("../data/refs/NC_045512.fasta")
-    seq_msa = MultipleSequenceAlignment(
-        "../data/clustalW/gisaid_hcov-19_20221201_20221230_China_0_msa.txt"
-    )
-    mutation_finder = GeneMutationDetector(ref_genome, seq_msa, genome_id)
+# if __name__ == "__main__":
+#     genome_id = "EPI_ISL_16327572"
+#     ref_genome = ReferenceGenome("../data/refs/NC_045512.fasta")
+#     seq_msa = MultipleSequenceAlignment(
+#         "../data/clustalW/gisaid_hcov-19_20221201_20221230_China_0_msa.txt"
+#     )
+#     mutation_finder = GeneMutationDetector(ref_genome, seq_msa, genome_id)
 
-    print("==============================Insertions==============================")
-    insertions = mutation_finder.get_insertions()
-    print(insertions)
+#     print("==============================Insertions==============================")
+#     insertions = mutation_finder.get_insertions()
+#     print(insertions)
 
-    print("==============================Deletions==============================")
-    deletions = mutation_finder.get_deletions()
-    print(deletions)
+#     print("==============================Deletions==============================")
+#     deletions = mutation_finder.get_deletions()
+#     print(deletions)
 
-    print("==============================Row Mutations==============================")
-    (
-        row_mutations,
-        hot_mutations,
-        point_mutations,
-    ) = mutation_finder.get_others_mutations()
-    print(row_mutations)
+#     print("==============================Row Mutations==============================")
+#     (
+#         row_mutations,
+#         hot_mutations,
+#         point_mutations,
+#     ) = mutation_finder.get_others_mutations()
+#     print(row_mutations)
 
-    print("==============================Hot Mutations==============================")
-    print(hot_mutations)
+#     print("==============================Hot Mutations==============================")
+#     print(hot_mutations)
 
-    print("==============================Point Mutations==============================")
-    print(len(point_mutations))
-    # print(point_mutations)
+#     print("==============================Point Mutations==============================")
+#     print(len(point_mutations))
+#     # print(point_mutations)

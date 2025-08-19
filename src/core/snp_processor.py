@@ -75,9 +75,6 @@ class SNPProcessor:
                 # Write SNP records to file
                 prefix = f"msa_{i+1}"
                 self._write_and_print_snp_records(snp_records, prefix, segment)
-                
-                # Process root variants
-                self._process_root_variants(snp_records, prefix, segment)
             else:
                 print(f"No SNP records found in {msa_file}")
 
@@ -85,49 +82,16 @@ class SNPProcessor:
         self, snp_records: List[Dict], prefix: str, segment: Optional[str] = None
     ) -> None:
         """
-        Write SNP records to file and print summary.
+        Print SNP records summary.
         
         Args:
             snp_records: List of SNP records
             prefix: File prefix
             segment: Segment name for multi-segment viruses
         """
-        # Get result path
-        result_path = self.virus_processor.get_result_path(segment)
-        
-        # Write SNP records to file
-        output_file = os.path.join(result_path, f"{prefix}_snp_records.txt")
-        
-        with open(output_file, "w") as f:
-            for record in snp_records:
-                f.write(f"{record}\n")
-        
-        print(f"SNP records written to: {output_file}")
-        print(f"Total SNP records: {len(snp_records)}")
+        print(f"Found {len(snp_records)} SNP records")
 
-    def _process_root_variants(self, snp_records: List[Dict], prefix: str, segment: Optional[str] = None) -> None:
-        """
-        Process root variants from SNP records.
-        
-        Args:
-            snp_records: List of SNP records
-            prefix: File prefix
-            segment: Segment name for multi-segment viruses
-        """
-        print(f"Processing root variants for {prefix}...")
-        
-        # Get result path
-        result_path = self.virus_processor.get_result_path(segment)
-        
-        # Process root variants using genome SNP processor
-        self.genome_snp_processor._process_root_variants(
-            snp_records, 
-            prefix, 
-            virus_processor=self.virus_processor, 
-            segment=segment
-        )
-        
-        print(f"Root variants processed for {prefix}")
+
 
     def extract_unique_snp_records(self, file_path: str) -> None:
         """

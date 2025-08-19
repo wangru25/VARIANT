@@ -139,11 +139,13 @@ class VirusMutationProcessor:
                 raise ValueError(f"Segment {segment} not found for virus {self.virus_name}")
             
             # Get segment-specific config
-            segment_config = self.config.get("viruses", {}).get(self.virus_name, {}).get(segment, {})
+            segment_config = self.config.get("viruses", {}).get(self.virus_name, {}).get("segments", {}).get(segment, {})
             
-            # Merge with default config
-            default_config = self.config.get("viruses", {}).get(self.virus_name, {}).get("default", {})
-            config = {**default_config, **segment_config}
+            # Merge with virus-level config (excluding segments)
+            virus_config = self.config.get("viruses", {}).get(self.virus_name, {})
+            virus_level_config = {k: v for k, v in virus_config.items() if k != "segments"}
+            
+            config = {**virus_level_config, **segment_config}
             
             # Add segment-specific paths
             config.update({
@@ -179,7 +181,12 @@ class VirusMutationProcessor:
             str: Path to reference genome file
         """
         config = self.get_virus_config(segment)
-        refs_path = config.get("refs_path", self.refs_path)
+        refs_path = config.get("refs_path")
+        if refs_path is None:
+            if self.is_multi_segment and segment:
+                refs_path = self.segment_paths[segment]["refs"]
+            else:
+                refs_path = self.refs_path
         ref_genome = config.get("reference_genome", "ref_genome.fasta")
         return os.path.join(refs_path, ref_genome)
 
@@ -194,7 +201,12 @@ class VirusMutationProcessor:
             str: Path to proteome file
         """
         config = self.get_virus_config(segment)
-        refs_path = config.get("refs_path", self.refs_path)
+        refs_path = config.get("refs_path")
+        if refs_path is None:
+            if self.is_multi_segment and segment:
+                refs_path = self.segment_paths[segment]["refs"]
+            else:
+                refs_path = self.refs_path
         proteome = config.get("proteome_file", "proteome.fasta")
         return os.path.join(refs_path, proteome)
 
@@ -222,7 +234,12 @@ class VirusMutationProcessor:
             str: Path to default MSA file
         """
         config = self.get_virus_config(segment)
-        clustalw_path = config.get("clustalw_path", self.clustalw_path)
+        clustalw_path = config.get("clustalw_path")
+        if clustalw_path is None:
+            if self.is_multi_segment and segment:
+                clustalw_path = self.segment_paths[segment]["clustalw"]
+            else:
+                clustalw_path = self.clustalw_path
         default_msa = config.get("default_msa_file", "aligned.fasta")
         return os.path.join(clustalw_path, default_msa)
 

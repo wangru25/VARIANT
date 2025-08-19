@@ -4,14 +4,35 @@ A comprehensive Python framework for analyzing viral mutations, supporting both 
 
 ## Features
 
-- Multi-segment virus support with automatic structure detection
-- Comprehensive mutation analysis (point mutations, insertions, deletions)
-- Advanced mutation classification (missense, nonsense, frameshift)
-- Protein-level mutation impact analysis
-- Antisense strand mutation support (complement notation)
-- **Programmed Ribosomal Frameshifting (PRF) detection** (+1/-1 frameshifting)
-- Structured output in both text and CSV formats
-- Configurable per-virus settings
+- **🦠 Multi-virus support**: SARS-CoV-2, ZaireEbola, Chikungunya, HIV-1, H3N2, and easily extensible
+- **🧬 Multi-segment virus support** with automatic structure detection (e.g., H3N2 influenza)
+- **🔬 Comprehensive mutation analysis**: Point mutations, insertions, deletions, row and hot mutations
+- **⚗️ Advanced mutation classification**: Missense, nonsense, silent, and frameshift mutations
+- **🧪 Protein-level impact analysis**: Amino acid changes with biological significance
+- **🤖 Automatic mutation summary generation**: No manual flags required
+- **📊 Complex protein coordinate handling**: Supports `join()` coordinates for viral polyproteins
+- **🔄 Programmed Ribosomal Frameshifting (PRF) detection** (+1/-1 frameshifting)
+- **📈 Structured output**: Text and CSV formats for analysis and visualization
+- **⚙️ Configurable per-virus settings**: Easy setup for new viruses
+
+## Supported Viruses
+
+VARIANT currently supports comprehensive analysis for the following viruses:
+
+| **Virus** | **Type** | **Key Proteins** | **Special Features** |
+|-----------|----------|------------------|----------------------|
+| **SARS-CoV-2** | Single-segment | RNA-dependent-polymerase, spike, nucleocapsid | Complex `join()` coordinates, 130+ genomes |
+| **ZaireEbola** | Single-segment | Nucleoprotein, polymerase, spike glycoprotein | Large genome analysis |
+| **Chikungunya** | Single-segment | nsp1-4, capsid, E1/E2/E3, 6K proteins | Multi-protein analysis |
+| **HIV-1** | Single-segment | Pr55(Gag), reverse transcriptase, integrase, envelope | Polyprotein processing |
+| **H3N2** | Multi-segment (8) | PB1/PB2/PA, hemagglutinin, neuraminidase, matrix | Influenza segment analysis |
+
+### Analysis Capabilities per Virus
+- **Mutation detection**: Point mutations, insertions, deletions
+- **Protein impact**: Amino acid changes, functional predictions
+- **Evolutionary analysis**: Row and hot mutation patterns
+- **Summary generation**: Automated CSV reports
+- **Frameshift detection**: PRF analysis for all supported viruses
 
 ## Installation
 
@@ -103,14 +124,17 @@ python main.py --help
 # Analyze specific genome
 python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
 
-# Process all genomes in MSA
+# Process all genomes in MSA (automatically generates mutation summaries)
 python main.py --virus SARS-CoV-2 --process-all
 
 # PRF analysis
 python main.py --virus SARS-CoV-2 --detect-frameshifts
 
-# Multi-segment virus analysis
-python main.py --virus H3N2 --segment segment_1
+# Multi-segment virus analysis (processes all segments)
+python main.py --virus H3N2 --process-all
+
+# Specific segment analysis
+python main.py --virus H3N2 --segment segment_1 --process-all
 
 # List available viruses
 python main.py --list-viruses
@@ -126,11 +150,30 @@ python -m src.cli.commands --help
 python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
 ```
 
+## Quick Start Examples
+
+```bash
+# Process all SARS-CoV-2 genomes (most common use case)
+python main.py --virus SARS-CoV-2 --process-all
+
+# Process all H3N2 influenza segments
+python main.py --virus H3N2 --process-all
+
+# Analyze a specific genome
+python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
+
+# Detect frameshift sites
+python main.py --virus SARS-CoV-2 --detect-frameshifts
+
+# See what viruses are available
+python main.py --list-viruses
+```
+
 ### Command Line Arguments
 
 - `--virus`: Name of the virus to analyze
 - `--genome-id`: Specific genome ID to process
-- `--process-all`: Process all genomes in the MSA file
+- `--process-all`: Process all genomes in the MSA file (automatically generates mutation summaries)
 - `--segment`: For multi-segment viruses, specify segment to analyze
 - `--detect-frameshifts`: Detect potential frameshifting sites (PRF analysis only)
 - `--msa-file`: Custom MSA file path
@@ -200,6 +243,13 @@ Contains detailed mutation analysis including:
   - Missense mutations
   - Nonsense mutations (stop codons)
   - Frameshift mutations
+
+### Process All Output
+When using `--process-all`:
+- Analyzes all genomes in the MSA file
+- Automatically generates mutation summary CSV files for all processed genomes
+- Prints processing progress and summary statistics
+- Creates comprehensive mutation analysis for each genome
 
 ### PRF Analysis Output
 When using `--detect-frameshifts`:
@@ -292,7 +342,29 @@ Structured data for statistical analysis:
 - Amino acid changes
 - Biological classification
 
+### Mutation Summary Output (genome_id_mutation_summary_date.csv)
+Automatically generated for all processed genomes:
+- Comprehensive mutation summary in CSV format
+- Includes all mutation types with protein impact
+- Structured for statistical analysis and visualization
+- Generated automatically with `--process-all` or single genome analysis
+
 ## Recent Updates
+
+### Version 2025.01.15 (Major Refactoring)
+- **🔧 Complete main.py refactoring**: Eliminated code duplication, improved logic flow, and enhanced maintainability
+- **🤖 Automatic mutation summary generation**: Removed `--generate-summaries` flag - summaries are now generated automatically
+- **🚀 Enhanced `--process-all` functionality**: Now processes all virus types seamlessly with comprehensive output
+- **🧬 Fixed complex protein coordinate parsing**: Handles `join()` coordinates correctly (e.g., RNA-dependent-polymerase)
+- **📊 Improved mutation detection**: Better validation and error handling for all mutation types
+- **🏗️ Clean architecture**: Introduced MutationProcessor class with proper separation of concerns
+- **⚡ Better performance**: Optimized processing pipeline for both single and multi-segment viruses
+
+### Version 2025.08.18
+- **Streamlined `--process-all` command**: Removed generation of unnecessary files (root variants, majority variants, SNP records)
+- **Clean output**: `--process-all` now only prints summary without creating additional files
+- **Enhanced mutation summary generation**: Added `--generate-summaries` flag for comprehensive CSV output
+- **Improved code organization**: Removed unused `_process_root_variants` methods for cleaner codebase
 
 ### Version 2025.08.07
 - **Removed RNA editing functionality**: Focused analysis on PRF detection only
