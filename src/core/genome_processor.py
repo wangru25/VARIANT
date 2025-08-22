@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2023-10-31 12:42:13
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:41:09
+LastEditTime: 2025-08-20 09:21:54
 Email: wang.rui@nyu.edu
 FilePath: /VARIANT/src/core/genome_processor.py
 Description: Genome processing and analysis module.
@@ -55,33 +55,17 @@ class GenomeSNPProcessor:
         del_mutations = self.gene_mut_detector.get_deletions()
         ins_mutations = self.gene_mut_detector.get_insertions()
 
-        # Add protein mutation information to each gene mutation
-        # Process point mutations
-        point_mutations_with_protein = self.pro_mut_detector.protein_point_row_snps(
-            point_mutations
-        )
+        point_mutations_with_protein = self.pro_mut_detector.protein_point_row_snps(point_mutations)
 
-        # Process row mutations
-        row_mutations_with_protein = self.pro_mut_detector.protein_point_row_snps(
-            row_mutations
-        )
+        row_mutations_with_protein = self.pro_mut_detector.protein_point_row_snps(row_mutations)
 
-        # Process hot mutations
-        hot_mutations_with_protein = self.pro_mut_detector.protein_hot_snps(
-            hot_mutations
-        )
 
-        # Process deletion mutations
-        del_mutations_with_protein = self.pro_mut_detector.protein_dels_snps(
-            del_mutations
-        )
+        hot_mutations_with_protein = self.pro_mut_detector.protein_hot_snps(hot_mutations)
 
-        # Process insertion mutations
-        ins_mutations_with_protein = self.pro_mut_detector.protein_ins_snps(
-            ins_mutations
-        )
+        del_mutations_with_protein = self.pro_mut_detector.protein_dels_snps(del_mutations)
 
-        # New formatted output with protein mutations
+        ins_mutations_with_protein = self.pro_mut_detector.protein_ins_snps(ins_mutations)
+
         print(f"Analyzing genome: {genome_id}")
         print("=============ins_mutations=================")
         for mut in ins_mutations_with_protein:
@@ -243,14 +227,11 @@ class GenomeSNPProcessor:
                         if should_filter:
                             continue
 
-                        # Split multi-protein mutations
                         separated_mutations = split_multi_protein_mutations(genome_snpp)
 
                         for separated_mutation in separated_mutations:
-                            # Classify mutation type
                             biological_type = classify_mutation_type(separated_mutation.get('proteinMutation', []))
 
-                            # Create mutation string with biological classification
                             mutation = f"{biological_type} {separated_mutation.get('pos', '')} {separated_mutation.get('SNP', '')} {separated_mutation.get('proteinMutation', '')}"
                             dict_key = convert_key_to_int(str(separated_mutation.get("pos", "")))
                             common_mutation_dict[dict_key] = mutation
@@ -258,10 +239,8 @@ class GenomeSNPProcessor:
                         break
         return sort_dict_by_consecutive_keys(common_mutation_dict)
 
-    def root_variant_majority(
-        self, snp_records: list, threshold_percentage: float = 0.8
-    ) -> dict:
-        """
+    def root_variant_majority(self, snp_records: list, threshold_percentage: float = 0.8) -> dict:
+        '''
         Find mutations present in a majority of genomes (default 80%).
 
         Args:
@@ -270,7 +249,7 @@ class GenomeSNPProcessor:
 
         Returns:
             Dictionary of mutations present in majority of genomes
-        """
+        '''
         if not snp_records:
             return {}
 

@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:39:31
+LastEditTime: 2025-08-20 09:47:20
 Email: wang.rui@nyu.edu
 FilePath: /VARIANT/src/utils/mutation_utils.py
 Description: Mutation analysis utilities and helper functions.
@@ -14,7 +14,7 @@ from typing import Any, Dict, List, Tuple
 
 
 def generate_hash_key(mut_data: str) -> int:
-    """
+    '''
     Generate a hash key for mutation data.
 
     Args:
@@ -22,17 +22,12 @@ def generate_hash_key(mut_data: str) -> int:
 
     Returns:
         int: Hash key.
-    """
+    '''
     return int(hashlib.md5(mut_data.encode()).hexdigest(), 16)
 
 
-def create_mutation_dict(
-    pos_list: List[int],
-    snp_list: List[str],
-    mutation_type: str,
-    hash_function: callable = generate_hash_key,
-) -> Dict[str, Any]:
-    """
+def create_mutation_dict(pos_list: List[int], snp_list: List[str], mutation_type: str, hash_function: callable = generate_hash_key) -> Dict[str, Any]:
+    '''
     Create a standardized mutation dictionary.
 
     Args:
@@ -47,7 +42,7 @@ def create_mutation_dict(
     Example:
         >>> create_mutation_dict([100, 101], ["A->G", "T->C"], "point_mutation")
         {'key': 12345678, 'type': 'point_mutation', 'pos': '100:101', 'SNP': 'AT->GC'}
-    """
+    '''
     # Create position string
     if len(pos_list) > 1:
         pos_str = f"{pos_list[0]}:{pos_list[-1]}"
@@ -71,7 +66,7 @@ def create_mutation_dict(
 
 
 def is_subset(snp_keys_current: List[int], snp_keys_next: List[int]) -> bool:
-    """
+    '''
     Check if the first list is a subset of the second list.
 
     Args:
@@ -84,12 +79,12 @@ def is_subset(snp_keys_current: List[int], snp_keys_next: List[int]) -> bool:
     Example:
         >>> is_subset([10, 5], [9, 4, 5, 8, 10])
         True
-    """
+    '''
     return set(snp_keys_current).issubset(set(snp_keys_next))
 
 
 def find_common_elements(lists: List[List[int]]) -> List[int]:
-    """
+    '''
     Find common elements across multiple lists.
 
     Args:
@@ -97,7 +92,7 @@ def find_common_elements(lists: List[List[int]]) -> List[int]:
 
     Returns:
         List[int]: List of common elements.
-    """
+    '''
     if not lists:
         return []
 
@@ -109,7 +104,7 @@ def find_common_elements(lists: List[List[int]]) -> List[int]:
 
 
 def sort_dict_by_consecutive_keys(dictionary: Dict[int, str]) -> Dict[int, str]:
-    """
+    '''
     Sort dictionary by consecutive keys.
 
     Args:
@@ -117,13 +112,13 @@ def sort_dict_by_consecutive_keys(dictionary: Dict[int, str]) -> Dict[int, str]:
 
     Returns:
         Dict[int, str]: Sorted dictionary.
-    """
+    '''
     sorted_keys = sorted(dictionary.keys())
     return {key: dictionary[key] for key in sorted_keys}
 
 
 def is_keys_subset(sub_list: List[Any], test_list: List[Any]) -> Tuple[bool, List[Any]]:
-    """
+    '''
     Check if the first list is a proper subset of the second list.
 
     Args:
@@ -136,7 +131,7 @@ def is_keys_subset(sub_list: List[Any], test_list: List[Any]) -> Tuple[bool, Lis
     Example:
         >>> is_keys_subset([1, 2], [1, 2, 3, 4])
         (True, [3, 4])
-    """
+    '''
     is_subset_result = set(sub_list).issubset(set(test_list)) and len(test_list) > len(
         sub_list
     )
@@ -150,7 +145,7 @@ def is_keys_subset(sub_list: List[Any], test_list: List[Any]) -> Tuple[bool, Lis
 
 
 def convert_key_to_int(key: str) -> int:
-    """
+    '''
     Convert a string key to an integer.
     Handles position ranges like "11288:11296" by using the start position.
 
@@ -159,7 +154,7 @@ def convert_key_to_int(key: str) -> int:
 
     Returns:
         int: Integer key.
-    """
+    '''
     try:
         # Handle position ranges like "11288:11296"
         if ':' in key:
@@ -172,7 +167,7 @@ def convert_key_to_int(key: str) -> int:
 
 
 def is_next_genome(keys0: List[int], keys1: List[int]) -> bool:
-    """
+    '''
     Check if keys1 is a subset of keys0.
 
     Args:
@@ -181,12 +176,12 @@ def is_next_genome(keys0: List[int], keys1: List[int]) -> bool:
 
     Returns:
         bool: True if keys1 is a subset of keys0.
-    """
+    '''
     return all(key in keys0 for key in keys1)
 
 
 def contains_element(test_string: str, test_list: List[str]) -> bool:
-    """
+    '''
     Check if a string contains any element from a list.
 
     Args:
@@ -195,12 +190,12 @@ def contains_element(test_string: str, test_list: List[str]) -> bool:
 
     Returns:
         True if any element from test_list is found in test_string
-    """
+    '''
     return any(element in test_string for element in test_list)
 
 
 def validate_mutation_data(mutation_dict: Dict[str, Any]) -> Tuple[bool, List[str]]:
-    """
+    '''
     Validate mutation dictionary data.
 
     Args:
@@ -208,7 +203,7 @@ def validate_mutation_data(mutation_dict: Dict[str, Any]) -> Tuple[bool, List[st
 
     Returns:
         Tuple of (is_valid, list_of_errors)
-    """
+    '''
     errors = []
     required_keys = ["key", "type", "pos", "SNP"]
 
@@ -238,7 +233,7 @@ def validate_mutation_data(mutation_dict: Dict[str, Any]) -> Tuple[bool, List[st
 
 
 def classify_mutation_type(protein_mutation: List[Dict]) -> str:
-    """
+    '''
     Classify mutation by biological type based on protein mutation information.
 
     Args:
@@ -246,7 +241,7 @@ def classify_mutation_type(protein_mutation: List[Dict]) -> str:
 
     Returns:
         str: Biological classification (silent, missense, nonsense, deletion, insertion, frameshift)
-    """
+    '''
     if not protein_mutation:
         return "unknown"
 
@@ -317,7 +312,7 @@ def classify_mutation_type(protein_mutation: List[Dict]) -> str:
 
 
 def detect_hot_mutation(original_seq: str, mutated_seq: str) -> bool:
-    """
+    '''
     Detect if a mutation is a hot mutation (exactly 2 substitutions flanking exactly 1 conserved base).
 
     Args:
@@ -326,7 +321,7 @@ def detect_hot_mutation(original_seq: str, mutated_seq: str) -> bool:
 
     Returns:
         bool: True if it's a hot mutation, False otherwise.
-    """
+    '''
     if len(original_seq) != len(mutated_seq):
         return False
 
@@ -360,7 +355,7 @@ def detect_hot_mutation(original_seq: str, mutated_seq: str) -> bool:
 
 
 def split_multi_protein_mutations(genome_snpp: Dict) -> List[Dict]:
-    """
+    '''
     Split mutations affecting multiple proteins into separate mutation records.
     Note: Hot mutations and row mutations are not split by protein as they represent single genomic events.
 
@@ -369,7 +364,7 @@ def split_multi_protein_mutations(genome_snpp: Dict) -> List[Dict]:
 
     Returns:
         List[Dict]: List of separated mutation records.
-    """
+    '''
     protein_mutation = genome_snpp.get('proteinMutation', [])
     mutation_type = genome_snpp.get('type', '')
 
@@ -393,7 +388,7 @@ def split_multi_protein_mutations(genome_snpp: Dict) -> List[Dict]:
 
 
 def format_amino_acid_change_for_csv(amino_acid_change) -> str:
-    """
+    '''
     Format amino acid change for CSV output as a quoted list string, even for single mutations.
 
     Args:
@@ -401,7 +396,7 @@ def format_amino_acid_change_for_csv(amino_acid_change) -> str:
 
     Returns:
         str: Formatted amino acid change for CSV (always a quoted list string like "['S375F', 'T376A']")
-    """
+    '''
     if isinstance(amino_acid_change, list):
         return f'"{str(amino_acid_change)}"'
     elif isinstance(amino_acid_change, str):

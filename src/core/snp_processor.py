@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2025-08-11 15:43:52
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:41:54
+LastEditTime: 2025-08-20 09:45:20
 Email: wang.rui@nyu.edu
 FilePath: /VARIANT/src/core/snp_processor.py
 Description: 
@@ -18,21 +18,14 @@ from src.core.virus_processor import VirusMutationProcessor
 
 
 class SNPProcessor:
-    """Class for processing SNP records and variants."""
+    '''Class for processing SNP records and variants.'''
 
-    def __init__(
-        self,
-        genome_snp_processor: GenomeSNPProcessor,
-        virus_processor: VirusMutationProcessor,
-    ):
-        """Initialize SNP processor."""
+    def __init__(self, genome_snp_processor: GenomeSNPProcessor, virus_processor: VirusMutationProcessor):
         self.genome_snp_processor = genome_snp_processor
         self.virus_processor = virus_processor
 
-    def get_snp_records_from_one_msa(
-        self, msa_files: List[str], index: int, genome_id: Optional[str] = None
-    ) -> List[Dict]:
-        """
+    def get_snp_records_from_one_msa(self, msa_files: List[str], index: int, genome_id: Optional[str] = None) -> List[Dict]:
+        '''
         Get SNP records from a single MSA file.
         
         Args:
@@ -42,18 +35,17 @@ class SNPProcessor:
             
         Returns:
             List of SNP records
-        """
+        '''
         msa_file = msa_files[index]
         print(f"Processing MSA file: {msa_file}")
         
-        # Get SNP records from the MSA file
         snp_records = self.genome_snp_processor.get_genome_snps(msa_file, genome_id)
         
         print(f"Found {len(snp_records)} SNP records")
         return snp_records
 
     def process_snp_records(self, msa_files: List[str], segment: Optional[str] = None) -> List[Dict]:
-        """
+        '''
         Process SNP records from MSA files.
         
         Args:
@@ -62,7 +54,7 @@ class SNPProcessor:
             
         Returns:
             List of SNP records from all MSA files
-        """
+        '''
         print(f"Processing {len(msa_files)} MSA files...")
         
         all_snp_records = []
@@ -70,7 +62,6 @@ class SNPProcessor:
         for i, msa_file in enumerate(msa_files):
             print(f"\nProcessing MSA file {i+1}/{len(msa_files)}: {msa_file}")
             
-            # Get SNP records from this MSA file (process all genomes)
             snp_records = self.get_snp_records_from_one_msa(msa_files, i, genome_id=None)
             
             if snp_records:
@@ -84,28 +75,25 @@ class SNPProcessor:
         print(f"Total SNP records from all files: {len(all_snp_records)}")
         return all_snp_records
 
-    def _write_and_print_snp_records(
-        self, snp_records: List[Dict], prefix: str, segment: Optional[str] = None
-    ) -> None:
-        """
+    def _write_and_print_snp_records(self, snp_records: List[Dict], prefix: str, segment: Optional[str] = None) -> None:
+        '''
         Print SNP records summary.
         
         Args:
             snp_records: List of SNP records
             prefix: File prefix
             segment: Segment name for multi-segment viruses
-        """
+        '''
         print(f"Found {len(snp_records)} SNP records")
 
 
-
     def extract_unique_snp_records(self, file_path: str) -> None:
-        """
+        '''
         Extract unique SNP records from a file.
         
         Args:
             file_path: Path to the file containing SNP records
-        """
+        '''
         print(f"Extracting unique SNP records from: {file_path}")
         
         # Read all SNP records
@@ -128,10 +116,8 @@ class SNPProcessor:
         print(f"Unique records: {len(unique_records)}")
         print(f"Removed {len(all_records) - len(unique_records)} duplicate records")
 
-    def get_snp_records_for_one_genome(
-        self, msa_files: List[str], genome_id: str, segment: Optional[str] = None
-    ) -> List[Dict]:
-        """
+    def get_snp_records_for_one_genome(self, msa_files: List[str], genome_id: str, segment: Optional[str] = None) -> List[Dict]:
+        '''
         Get SNP records for a specific genome.
         
         Args:
@@ -141,7 +127,7 @@ class SNPProcessor:
             
         Returns:
             List of SNP records for the specified genome
-        """
+        '''
         print(f"Getting SNP records for genome: {genome_id}")
         
         all_snp_records = []
@@ -149,7 +135,6 @@ class SNPProcessor:
         for i, msa_file in enumerate(msa_files):
             print(f"Processing MSA file {i+1}/{len(msa_files)}: {msa_file}")
             
-            # Get SNP records from this MSA file for the specific genome
             snp_records = self.get_snp_records_from_one_msa(msa_files, i, genome_id=genome_id)
             
             all_snp_records.extend(snp_records)

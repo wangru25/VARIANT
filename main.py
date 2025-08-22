@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
+LastEditTime: 2025-08-20 09:18:09
 Email: wang.rui@nyu.edu
 FilePath: /VARIANT/main.py
 Description: Main script for virus mutation parsing with support for multiple viruses.
@@ -17,11 +17,8 @@ from datetime import date
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-# Add src to path
 sys.path.append(str(Path(__file__).parent / "src"))
-
 from src.core.mutation_processor import MutationProcessor
-
 
 def create_argument_parser() -> argparse.ArgumentParser:
     """Create and configure the argument parser."""

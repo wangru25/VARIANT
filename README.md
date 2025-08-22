@@ -72,7 +72,7 @@ git clone https://github.com/wangru25/VARIANT.git
 cd VARIANT
 
 # Create and activate conda environment
-conda env create -f environment.yml
+conda env create -f environment.yaml
 conda activate variant
 
 # Make scripts executable (if needed)
@@ -87,7 +87,7 @@ python main.py --help
 - NumPy >= 1.21.0  
 - Pandas >= 1.3.0
 - PyYAML >= 6.0
-- fuzzysearch >= 0.7.3
+- fuzzysearch == 0.7.3
 - more-itertools >= 8.12.0
 
 ## Usage

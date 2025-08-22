@@ -1,30 +1,13 @@
 # -*- coding: utf-8 -*-
 '''
 Author: Rui Wang
-Date: 2025-08-19 17:30:00
-LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
-Email: wang.rui@nyu.edu
-FilePath: /VARIANT/./src/core/__init__.py
-Description: Python module for __init__.
-'''
-
-
-"""
-Author: Rui Wang
 Date: 2025-06-23 14:33:45
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-06-23 14:36:23
+LastEditTime: 2025-08-20 09:18:46
 Email: wang.rui@nyu.edu
-FilePath: /7_MutParser/src/core/__init__.py
-Description:
-"""
-
-"""
-Core functionality for MutParser.
-
-This package contains the main classes and functions for virus mutation analysis.
-"""
+FilePath: /VARIANT/src/core/__init__.py
+Description: Core functionality for MutParser.
+'''
 
 from .genome_processor import GenomeSNPProcessor
 from .mutation_detector import GeneMutationDetector, MultipleSequenceAlignment

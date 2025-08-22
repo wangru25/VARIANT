@@ -3,9 +3,9 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
+LastEditTime: 2025-08-20 11:13:11
 Email: wang.rui@nyu.edu
-FilePath: /VARIANT/./src/utils/mutation_summary.py
+FilePath: /VARIANT/src/utils/mutation_summary.py
 Description: Mutation summary generation and CSV export utilities.
 '''
 
@@ -17,7 +17,7 @@ from datetime import datetime
 
 
 def extract_mutation_summary_to_csv(virus_name: str, genome_id: str, segment: Optional[str] = None, proteome_file: Optional[str] = None) -> None:
-    """
+    '''
     Extract mutation information from .txt output files and generate a comprehensive CSV file.
     
     Parameters:
@@ -30,7 +30,7 @@ def extract_mutation_summary_to_csv(virus_name: str, genome_id: str, segment: Op
         Segment name for multi-segment viruses
     proteome_file : Optional[str]
         Path to the proteome FASTA file for protein boundary validation
-    """
+    '''
     print(f"Extracting mutation summary for {genome_id}...")
     
     if segment:
@@ -62,7 +62,7 @@ def extract_mutation_summary_to_csv(virus_name: str, genome_id: str, segment: Op
 
 
 def _parse_point_mutations(content: str, virus_name: str, proteome_file: Optional[str] = None) -> List[Dict]:
-    """Parse point mutations from the content."""
+    '''Parse point mutations from the content.'''
     mutations = []
     pattern = r'(missense|silent)\s+(\d+(?::\d+)?)\s+([ATCG]+)->([ATCG]+)\s+\[(.*?)\]'
     
@@ -107,7 +107,7 @@ def _parse_point_mutations(content: str, virus_name: str, proteome_file: Optiona
 
 
 def _parse_deletions(content: str, virus_name: str, proteome_file: Optional[str] = None) -> List[Dict]:
-    """Parse deletions from the content."""
+    '''Parse deletions from the content.'''
     mutations = []
     pattern = r'deletion\s+(\d+):(\d+)\s+([ATCG]+)\s+\[(.*)\]'
     
@@ -144,7 +144,7 @@ def _parse_deletions(content: str, virus_name: str, proteome_file: Optional[str]
 
 
 def _parse_frameshifts(content: str, virus_name: str, proteome_file: Optional[str] = None) -> List[Dict]:
-    """Parse frameshifts from the content."""
+    '''Parse frameshifts from the content.'''
     mutations = []
     pattern = r'frameshift\s+(\d+)\s+([ATCG]+)\s+\[(.*)\]'
     
@@ -181,7 +181,7 @@ def _parse_frameshifts(content: str, virus_name: str, proteome_file: Optional[st
 
 
 def _parse_insertions(content: str, virus_name: str, proteome_file: Optional[str] = None) -> List[Dict]:
-    """Parse insertions from the content."""
+    '''Parse insertions from the content.'''
     mutations = []
     pattern = r'insertion\s+(\d+):(\d+)\s+->([ATCG]+)\s+\[(.*?)\]'
     
@@ -218,7 +218,7 @@ def _parse_insertions(content: str, virus_name: str, proteome_file: Optional[str
 
 
 def _parse_protein_mutations(protein_mutations_str: str) -> List[Tuple[str, str]]:
-    """Parse protein mutations from the string format."""
+    '''Parse protein mutations from the string format.'''
     mutations = []
     
     # Handle list format: [{'protein': 'name', 'mutation': 'desc'}]
@@ -270,7 +270,7 @@ def _parse_protein_mutations(protein_mutations_str: str) -> List[Tuple[str, str]
 
 
 def _determine_mutation_type(mutation_desc: str, original_type: str) -> str:
-    """Determine the actual mutation type based on the mutation description."""
+    '''Determine the actual mutation type based on the mutation description.'''
     if mutation_desc.endswith('del'):
         return 'deletion'
     elif mutation_desc.endswith('_'):  # Stop codon mutation (e.g., K2_)
@@ -288,7 +288,7 @@ def _determine_mutation_type(mutation_desc: str, original_type: str) -> str:
 
 
 def _calculate_aa_mutation_for_protein(nt_position: int, nt_ref: str, nt_alt: str, protein_name: str, proteome_file: str) -> str:
-    """
+    '''
     Calculate the correct amino acid mutation for a specific protein.
     
     Args:
@@ -300,7 +300,7 @@ def _calculate_aa_mutation_for_protein(nt_position: int, nt_ref: str, nt_alt: st
         
     Returns:
         Amino acid mutation string (e.g., "P13L")
-    """
+    '''
     try:
         with open(proteome_file, 'r') as f:
             content = f.read()
@@ -338,7 +338,7 @@ def _calculate_aa_mutation_for_protein(nt_position: int, nt_ref: str, nt_alt: st
         return "NA"
 
 def _validate_protein_assignment(virus_name: str, nt_position: int, assigned_protein: str, proteome_file: Optional[str] = None) -> str:
-    """Validate if a given nucleotide position falls within the genomic coordinates of an assigned protein."""
+    '''Validate if a given nucleotide position falls within the genomic coordinates of an assigned protein.'''
     if proteome_file and os.path.exists(proteome_file):
         try:
             from Bio import SeqIO
@@ -420,7 +420,7 @@ def _validate_protein_assignment(virus_name: str, nt_position: int, assigned_pro
 
 
 def _write_mutations_to_csv(mutations_data: List[Dict], csv_file: str) -> None:
-    """Write mutations data to CSV file."""
+    '''Write mutations data to CSV file.'''
     with open(csv_file, 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['Protein Name', 'Protein Mutations', 'AA Mutation Type', 'NT Mutation', 'Caused by NT Mutation Type'])

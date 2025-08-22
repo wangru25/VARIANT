@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
+LastEditTime: 2025-08-20 09:28:31
 Email: wang.rui@nyu.edu
 FilePath: /VARIANT/src/core/mutation_processor.py
 Description: Mutation Processor Module - contains the MutationProcessor class that handles the complete mutation analysis pipeline for both single and multi-segment viruses.
@@ -16,20 +16,15 @@ from datetime import date
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-from .frameshift_detector import FrameshiftDetector
-from .genome_processor import GenomeSNPProcessor
-from .mutation_detector import GeneMutationDetector, MultipleSequenceAlignment
-from .protein_analyzer import (
-    AlignmentProcessor, AminoAcidMutationProcessor, ORFProcessor, 
-    ProMutationDetector, Proteome
-)
-from .reference_genome import ReferenceGenome
 from .snp_processor import SNPProcessor
+from .reference_genome import ReferenceGenome
+from .genome_processor import GenomeSNPProcessor
 from .virus_processor import VirusMutationProcessor
+from .frameshift_detector import FrameshiftDetector
 from ..utils.mutation_summary import extract_mutation_summary_to_csv
+from .mutation_detector import GeneMutationDetector, MultipleSequenceAlignment
+from .protein_analyzer import (AlignmentProcessor, AminoAcidMutationProcessor, ORFProcessor, ProMutationDetector, Proteome)
 from ..utils.mutation_utils import split_multi_protein_mutations, classify_mutation_type, convert_key_to_int, sort_dict_by_consecutive_keys, detect_hot_mutation, format_amino_acid_change_for_csv
-
-# No date in filenames - use simple naming
 
 
 class MutationProcessor:

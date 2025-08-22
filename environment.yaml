@@ -10,5 +10,5 @@ dependencies:
   - pyyaml
   - pip
   - pip:
-    - fuzzysearch=0.7.3 
+    - fuzzysearch==0.7.3 
     - more-itertools>=8.12.0

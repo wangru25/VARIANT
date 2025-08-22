@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:42:02
+LastEditTime: 2025-08-20 09:45:45
 Email: wang.rui@nyu.edu
 FilePath: /VARIANT/src/core/virus_processor.py
 Description: Virus-specific processing module.
@@ -14,19 +14,19 @@ from typing import Dict, List, Optional
 
 
 class VirusMutationProcessor:
-    """
+    '''
     Class for processing virus-specific mutations with organized file structure.
     Supports both single-segment and multi-segment viruses.
-    """
+    '''
 
     def __init__(self, virus_name: str, config_file: str = "virus_config.yaml"):
-        """
+        '''
         Initialize virus mutation processor.
 
         Args:
             virus_name (str): Name of the virus to process.
             config_file (str): Path to the virus configuration file.
-        """
+        '''
         self.virus_name = virus_name
         self.config_file = config_file
         self.config = self._load_config()
@@ -46,12 +46,12 @@ class VirusMutationProcessor:
         self._ensure_directories()
 
     def _detect_multi_segment_structure(self) -> bool:
-        """
+        '''
         Detect if the virus has a multi-segment structure.
         
         Returns:
             bool: True if multi-segment, False if single-segment
-        """
+        '''
         base_path = os.path.join("data", self.virus_name)
 
         # Check if segment_1 directory exists
@@ -70,12 +70,12 @@ class VirusMutationProcessor:
         return False
 
     def _get_segments(self) -> List[str]:
-        """
+        '''
         Get list of segments for the virus.
         
         Returns:
             List[str]: List of segment names
-        """
+        '''
         if not self.is_multi_segment:
             return []
 
@@ -91,7 +91,6 @@ class VirusMutationProcessor:
         return sorted(segments)
 
     def _initialize_paths(self) -> None:
-        """Initialize virus-specific paths."""
         if self.is_multi_segment:
             # Multi-segment virus paths
             self.segment_paths = {}
@@ -108,7 +107,7 @@ class VirusMutationProcessor:
             self.refs_path = os.path.join(self.base_path, "refs")
 
     def _ensure_directories(self) -> None:
-        """Ensure all necessary directories exist."""
+        '''Ensure all necessary directories exist.'''
         if self.is_multi_segment:
             for segment_paths in self.segment_paths.values():
                 os.makedirs(segment_paths["result"], exist_ok=True)
@@ -116,12 +115,12 @@ class VirusMutationProcessor:
             os.makedirs(self.result_path, exist_ok=True)
 
     def _load_config(self) -> Dict:
-        """
+        '''
         Load virus configuration from YAML file.
         
         Returns:
             Dict: Configuration dictionary
-        """
+        '''
         try:
             with open(self.config_file, "r") as f:
                 return yaml.safe_load(f)
@@ -130,7 +129,7 @@ class VirusMutationProcessor:
             return {}
 
     def get_virus_config(self, segment: Optional[str] = None) -> Dict[str, str]:
-        """
+        '''
         Get virus configuration for a specific segment.
         
         Args:
@@ -138,7 +137,7 @@ class VirusMutationProcessor:
             
         Returns:
             Dict[str, str]: Virus configuration
-        """
+        '''
         if self.is_multi_segment and segment:
             # Multi-segment virus
             if segment not in self.segments:
@@ -177,7 +176,7 @@ class VirusMutationProcessor:
             return config
 
     def get_reference_genome_path(self, segment: Optional[str] = None) -> str:
-        """
+        '''
         Get reference genome file path.
         
         Args:
@@ -185,7 +184,7 @@ class VirusMutationProcessor:
             
         Returns:
             str: Path to reference genome file
-        """
+        '''
         config = self.get_virus_config(segment)
         refs_path = config.get("refs_path")
         if refs_path is None:
@@ -197,7 +196,7 @@ class VirusMutationProcessor:
         return os.path.join(refs_path, ref_genome)
 
     def get_proteome_path(self, segment: Optional[str] = None) -> str:
-        """
+        '''
         Get proteome file path.
         
         Args:
@@ -205,7 +204,7 @@ class VirusMutationProcessor:
             
         Returns:
             str: Path to proteome file
-        """
+        '''
         config = self.get_virus_config(segment)
         refs_path = config.get("refs_path")
         if refs_path is None:
@@ -217,7 +216,7 @@ class VirusMutationProcessor:
         return os.path.join(refs_path, proteome)
 
     def get_codon_table_id(self, segment: Optional[str] = None) -> int:
-        """
+        '''
         Get codon table ID for translation.
         
         Args:
@@ -225,12 +224,12 @@ class VirusMutationProcessor:
             
         Returns:
             int: Codon table ID
-        """
+        '''
         config = self.get_virus_config(segment)
         return config.get("codon_table_id", 1)
 
     def get_default_msa_file(self, segment: Optional[str] = None) -> str:
-        """
+        '''
         Get default MSA file path.
         
         Args:
@@ -238,7 +237,7 @@ class VirusMutationProcessor:
             
         Returns:
             str: Path to default MSA file
-        """
+        '''
         config = self.get_virus_config(segment)
         clustalw_path = config.get("clustalw_path")
         if clustalw_path is None:
@@ -250,7 +249,7 @@ class VirusMutationProcessor:
         return os.path.join(clustalw_path, default_msa)
 
     def get_data_path(self, segment: Optional[str] = None) -> str:
-        """
+        '''
         Get data directory path.
         
         Args:
@@ -258,12 +257,12 @@ class VirusMutationProcessor:
             
         Returns:
             str: Data directory path
-        """
+        '''
         config = self.get_virus_config(segment)
         return config.get("data_path", self.base_path)
 
     def get_result_path(self, segment: Optional[str] = None) -> str:
-        """
+        '''
         Get result directory path.
         
         Args:
@@ -271,33 +270,33 @@ class VirusMutationProcessor:
             
         Returns:
             str: Result directory path
-        """
+        '''
         config = self.get_virus_config(segment)
         return config.get("result_path", self.result_path)
 
     def list_available_viruses(self) -> List[str]:
-        """
+        '''
         List all available viruses in the configuration.
         
         Returns:
             List[str]: List of virus names
-        """
+        '''
         return list(self.config.get("viruses", {}).keys())
 
     def get_segments(self) -> List[str]:
-        """
+        '''
         Get list of segments for the virus.
         
         Returns:
             List[str]: List of segment names
-        """
+        '''
         return self.segments
 
     def is_multi_segment_virus(self) -> bool:
-        """
+        '''
         Check if the virus is multi-segment.
         
         Returns:
             bool: True if multi-segment, False otherwise
-        """
+        '''
         return self.is_multi_segment

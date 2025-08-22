@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2025-08-04 13:30:27
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-09 10:34:10
+LastEditTime: 2025-08-20 09:47:34
 Email: wang.rui@nyu.edu
 FilePath: /VARIANT/src/utils/sequence_utils.py
 Description: Sequence processing utilities for FASTA files and sequence operations.
@@ -15,7 +15,7 @@ from Bio import SeqIO
 
 
 def read_fasta(file_path: str) -> List[Dict[str, str]]:
-    """
+    '''
     Read a FASTA file and return a list of dictionaries containing sequence data.
 
     Args:
@@ -23,7 +23,7 @@ def read_fasta(file_path: str) -> List[Dict[str, str]]:
 
     Returns:
         List[Dict[str, str]]: List of dictionaries with 'seqId' and 'seq' keys
-    """
+    '''
     sequences = []
     try:
         with open(file_path, "r") as handle:
@@ -39,21 +39,21 @@ def read_fasta(file_path: str) -> List[Dict[str, str]]:
 
 
 def write_fasta(headers: List[str], sequences: List[str], file_name: str) -> None:
-    """
+    '''
     Write sequences to a FASTA file.
 
     Args:
         headers (List[str]): List of sequence headers
         sequences (List[str]): List of sequences
         file_name (str): Output file name
-    """
+    '''
     with open(file_name, "w") as f:
         for header, seq in zip(headers, sequences):
             f.write(f">{header}\n{seq}\n")
 
 
 def has_only_valid_nts(sequence: str) -> bool:
-    """
+    '''
     Check if a sequence contains only valid nucleotides.
 
     Args:
@@ -61,13 +61,13 @@ def has_only_valid_nts(sequence: str) -> bool:
 
     Returns:
         bool: True if sequence contains only valid nucleotides, False otherwise
-    """
+    '''
     valid_nts = set("ATCGN-")
     return all(nt in valid_nts for nt in sequence.upper())
 
 
 def parse_gene_coordinates(coordinates: str) -> List[Tuple[int, int]]:
-    """
+    '''
     Parse gene coordinates, handling simple ranges, join operations, and complement notation.
 
     Args:
@@ -85,13 +85,13 @@ def parse_gene_coordinates(coordinates: str) -> List[Tuple[int, int]]:
         [(6919, 7488)]
         >>> parse_gene_coordinates("complement(join(5105..5319,5321..5396))")
         [(5105, 5319), (5321, 5396)]
-    """
+    '''
     coordinate_pairs, _ = parse_gene_coordinates_enhanced(coordinates)
     return coordinate_pairs
 
 
 def parse_gene_coordinates_enhanced(coordinates: str) -> Tuple[List[Tuple[int, int]], bool]:
-    """
+    '''
     Enhanced coordinate parser that handles complement notation and returns strand information.
 
     Args:
@@ -107,7 +107,7 @@ def parse_gene_coordinates_enhanced(coordinates: str) -> Tuple[List[Tuple[int, i
         ([(6919, 7488)], True)
         >>> parse_gene_coordinates_enhanced("complement(join(100..200,300..400))")
         ([(100, 200), (300, 400)], True)
-    """
+    '''
     is_complement = False
     working_coords = coordinates.strip()
 
@@ -145,7 +145,7 @@ def parse_gene_coordinates_enhanced(coordinates: str) -> Tuple[List[Tuple[int, i
 
 
 def extract_gene_sequence_with_join(genome_sequence: str, coordinates: str) -> str:
-    """
+    '''
     Extract gene sequence from genome, handling simple ranges, join operations, and complement notation.
 
     Args:
@@ -162,13 +162,13 @@ def extract_gene_sequence_with_join(genome_sequence: str, coordinates: str) -> s
         "ATCG..."  # Joined sequence from both segments
         >>> extract_gene_sequence_with_join(genome_seq, "complement(6919..7488)")
         "CGAT..."  # Reverse complement of the genomic region
-    """
+    '''
     extracted_sequence, _ = extract_gene_sequence_enhanced(genome_sequence, coordinates)
     return extracted_sequence
 
 
 def extract_gene_sequence_enhanced(genome_sequence: str, coordinates: str) -> Tuple[str, bool]:
-    """
+    '''
     Extract gene sequence with proper complement handling and strand information.
 
     Args:
@@ -177,7 +177,7 @@ def extract_gene_sequence_enhanced(genome_sequence: str, coordinates: str) -> Tu
 
     Returns:
         Tuple[str, bool]: (extracted_sequence, was_reverse_complemented)
-    """
+    '''
     coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
 
     # Extract sequence segments
@@ -199,7 +199,7 @@ def extract_gene_sequence_enhanced(genome_sequence: str, coordinates: str) -> Tu
 
 
 def create_genome_to_joined_mapping(coordinates: str) -> Dict[int, int]:
-    """
+    '''
     Create a mapping from genome positions to joined sequence positions, handling complement notation.
 
     Args:
@@ -217,13 +217,13 @@ def create_genome_to_joined_mapping(coordinates: str) -> Dict[int, int]:
         >>> mapping = create_genome_to_joined_mapping("complement(6919..7488)")
         >>> mapping[6919]  # First genomic position maps to last joined position
         570
-    """
+    '''
     genome_to_joined, _ = create_genome_to_joined_mapping_enhanced(coordinates)
     return genome_to_joined
 
 
 def create_genome_to_joined_mapping_enhanced(coordinates: str) -> Tuple[Dict[int, int], bool]:
-    """
+    '''
     Create genome-to-joined position mapping with complement support and strand information.
 
     Args:
@@ -231,7 +231,7 @@ def create_genome_to_joined_mapping_enhanced(coordinates: str) -> Tuple[Dict[int
 
     Returns:
         Tuple[Dict[int, int], bool]: (position_mapping, is_complement)
-    """
+    '''
     coordinate_pairs, is_complement = parse_gene_coordinates_enhanced(coordinates)
     genome_to_joined = {}
 
@@ -256,7 +256,7 @@ def create_genome_to_joined_mapping_enhanced(coordinates: str) -> Tuple[Dict[int
 
 
 def calculate_amino_acid_position_from_joined(joined_position: int) -> int:
-    """
+    '''
     Calculate amino acid position from joined sequence position.
 
     Args:
@@ -264,12 +264,12 @@ def calculate_amino_acid_position_from_joined(joined_position: int) -> int:
 
     Returns:
         int: Amino acid position (1-based)
-    """
+    '''
     return (joined_position - 1) // 3 + 1
 
 
 def extract_genome_id(full_header: str, virus_name: str = "") -> str:
-    """
+    '''
     Extract genome ID from MSA sequence header based on virus type.
 
     Args:
@@ -286,7 +286,7 @@ def extract_genome_id(full_header: str, virus_name: str = "") -> str:
         "AB050936v1"
         >>> extract_genome_id("NC_002549.1|Zaire", "ZaireEbola")
         "NC_002549.1|Zaire"
-    """
+    '''
     # For SARS-CoV-2, extract EPI_ISL ID from the middle part
     if virus_name.upper() in ["SARS-COV-2", "SARS_COV_2", "SARSCOV2"] and "|" in full_header:
         parts = full_header.split("|")
@@ -301,7 +301,7 @@ def extract_genome_id(full_header: str, virus_name: str = "") -> str:
 
 
 def calculate_amino_acid_position_from_genome(genome_position: int, genome_to_joined_mapping: Dict[int, int]) -> Optional[int]:
-    """
+    '''
     Calculate amino acid position from genome position using the mapping.
 
     Args:
@@ -310,7 +310,7 @@ def calculate_amino_acid_position_from_genome(genome_position: int, genome_to_jo
 
     Returns:
         Optional[int]: Amino acid position (1-based), or None if position not in mapping
-    """
+    '''
     if genome_position in genome_to_joined_mapping:
         joined_position = genome_to_joined_mapping[genome_position]
         return calculate_amino_acid_position_from_joined(joined_position)
@@ -318,7 +318,7 @@ def calculate_amino_acid_position_from_genome(genome_position: int, genome_to_jo
 
 
 def calculate_amino_acid_position_enhanced(genome_position: int, coordinates: str) -> Optional[int]:
-    """
+    '''
     Calculate amino acid position with complement support.
 
     Args:
@@ -327,7 +327,7 @@ def calculate_amino_acid_position_enhanced(genome_position: int, coordinates: st
 
     Returns:
         Optional[int]: Amino acid position (1-based) or None if position not in gene
-    """
+    '''
     try:
         genome_to_joined, is_complement = create_genome_to_joined_mapping_enhanced(coordinates)
 
@@ -344,7 +344,7 @@ def calculate_amino_acid_position_enhanced(genome_position: int, coordinates: st
 
 
 def clustal_genomes(seq_file_name: str) -> bool:
-    """
+    '''
     Split genome sequences into smaller files for ClustalW processing.
 
     This function is specifically designed for SARS-CoV-2 genomes and splits
@@ -360,7 +360,7 @@ def clustal_genomes(seq_file_name: str) -> bool:
     Raises:
         FileNotFoundError: If input files don't exist
         ValueError: If the sequence file is invalid
-    """
+    '''
     import math
 
     try:
@@ -407,7 +407,7 @@ def clustal_genomes(seq_file_name: str) -> bool:
 def validate_sequence(
     sequence: str, allow_gaps: bool = True, allow_ambiguous: bool = True
 ) -> bool:
-    """
+    '''
     Validate a DNA sequence for common issues.
 
     Args:
@@ -417,7 +417,7 @@ def validate_sequence(
 
     Returns:
         True if sequence is valid, False otherwise
-    """
+    '''
     if not sequence:
         return False
 
@@ -433,7 +433,7 @@ def validate_sequence(
 
 
 def get_sequence_statistics(sequence: str) -> Dict[str, int]:
-    """
+    '''
     Calculate basic statistics for a DNA sequence.
 
     Args:
@@ -441,7 +441,7 @@ def get_sequence_statistics(sequence: str) -> Dict[str, int]:
 
     Returns:
         Dictionary containing sequence statistics
-    """
+    '''
     stats = {
         "length": len(sequence),
         "A": sequence.upper().count("A"),

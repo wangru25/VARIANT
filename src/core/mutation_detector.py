@@ -3,11 +3,13 @@
 Author: Rui Wang
 Date: 2023-10-31 12:42:13
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
+LastEditTime: 2025-08-20 09:50:14
 Email: wang.rui@nyu.edu
-FilePath: /VARIANT/./src/core/mutation_detector.py
-Description: Mutation detection and analysis module. Find five types of mutations in a gene of a genome. Namely, insertion, deletion, row mutation, hot mutation, and point mutation.
+FilePath: /VARIANT/src/core/mutation_detector.py
+Description: Mutation detection and analysis module for viral genomes.
 '''
+
+
 
 from typing import Any, Dict, List, Tuple, Union
 
@@ -29,25 +31,29 @@ class MultipleSequenceAlignment:
     def __init__(self, msa_dir: str):
         self.align = AlignIO.read(msa_dir, "clustal")
 
-    def find_ref_msa(self, ref_name: str) -> Tuple[int, str]:
+    def find_ref_msa(self, ref_name: str, virus_config: Dict = None) -> Tuple[int, str]:
         """
-        This function finds the index of the reference genome in the MSA file.
+        Find the index of the reference genome in the MSA file.
 
-        Parameters:
-        ref_name (str): The name of the reference genome. For example: NC_045512
+        This method uses a hierarchical approach:
+        1. First tries the exact ref_name
+        2. Then tries reference names from virus_config
+        3. Finally falls back to generic reference patterns
+
+        Args:
+            ref_name (str): The name of the reference genome
+            virus_config (Dict, optional): Virus configuration containing reference genome info
 
         Returns:
-        tuple: A tuple containing the index of the reference genome and its sequence in the MSA file.
-
-        Raises:
-        ValueError: If the reference genome is not found in the MSA file.
+            Tuple[int, str]: A tuple containing the index of the reference genome and its sequence
         """
+        # First try exact match
         ref_matches = [i for i, seq in enumerate(self.align) if ref_name in seq.id]
 
-        if not ref_matches:
-            # Try to find by common reference names
-            common_ref_names = ["NC_045512", "Wuhan-Hu-1", "SARS-CoV-2", "reference"]
-            for common_name in common_ref_names:
+        if not ref_matches and virus_config:
+            # Try reference names from virus config
+            ref_names = self._get_reference_names_from_config(virus_config)
+            for common_name in ref_names:
                 ref_matches = [
                     i for i, seq in enumerate(self.align) if common_name in seq.id
                 ]
@@ -55,18 +61,57 @@ class MultipleSequenceAlignment:
                     ref_name = common_name
                     break
 
-            if not ref_matches:
-                # If still not found, use the first sequence as reference
-                print(
-                    f"Warning: Reference genome '{ref_name}' not found in MSA file. Using first sequence as reference."
-                )
-                ref_seq_id = 0
-                ref_seq_msa = str(self.align[ref_seq_id].seq)
-                return ref_seq_id, ref_seq_msa
+        if not ref_matches:
+            # Try generic reference patterns
+            generic_ref_names = ["reference", "ref", "REF", "Reference"]
+            for common_name in generic_ref_names:
+                ref_matches = [i for i, seq in enumerate(self.align) if common_name in seq.id]
+                if ref_matches:
+                    ref_name = common_name
+                    break
+
+        if not ref_matches:
+            # Last resort: use the first sequence as reference
+            print(f"Warning: Reference genome '{ref_name}' not found in MSA file. Using first sequence as reference.")
+            ref_seq_id = 0
+            ref_seq_msa = str(self.align[ref_seq_id].seq)
+            return ref_seq_id, ref_seq_msa
 
         ref_seq_id = ref_matches[0]
         ref_seq_msa = str(self.align[ref_seq_id].seq)
         return ref_seq_id, ref_seq_msa
+
+    def _get_reference_names_from_config(self, virus_config: Dict) -> List[str]:
+        """
+        Get reference names from virus configuration.
+        
+        Args:
+            virus_config (Dict): Virus configuration dictionary
+            
+        Returns:
+            List[str]: List of reference names to try
+        """
+        ref_names = []
+
+        # Get reference genome filename from config and extract the reference name
+        if 'reference_genome' in virus_config:
+            ref_file = virus_config['reference_genome']
+            # Extract reference name (e.g., NC_007366.1 from NC_007366.1.fasta)
+            if ref_file.endswith('.fasta'):
+                ref_name = ref_file[:-6]  # Remove .fasta
+            else:
+                ref_name = ref_file
+            ref_names.append(ref_name)
+
+            # Print helpful message for users
+            print(f"Looking for reference genome: {ref_name}")
+            print(f"Make sure your MSA file contains a sequence with ID containing '{ref_name}'")
+
+        # Add any additional reference names specified in config
+        if 'reference_names' in virus_config:
+            ref_names.extend(virus_config['reference_names'])
+
+        return ref_names
 
     def find_seq_msa(self, genome_id: str) -> Tuple[int, str]:
         """
@@ -106,11 +151,13 @@ class GeneMutationDetector:
         ref_genome: ReferenceGenome,
         msa: MultipleSequenceAlignment,
         genome_id: str,
+        virus_config: Dict = None,
     ):
         self.genome_id = genome_id
         self.ref_seq = ref_genome
         self.msa = msa
-        self.ref_seq_id, self.ref_seq_msa = self.msa.find_ref_msa(self.ref_seq.ref_name)
+        self.virus_config = virus_config
+        self.ref_seq_id, self.ref_seq_msa = self.msa.find_ref_msa(self.ref_seq.ref_name, virus_config)
         self.seq_id, self.seq_msa = self.msa.find_seq_msa(self.genome_id)
 
     @staticmethod

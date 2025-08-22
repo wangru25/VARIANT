@@ -3,20 +3,17 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
+LastEditTime: 2025-08-20 11:13:00
 Email: wang.rui@nyu.edu
-FilePath: /VARIANT/./src/utils/list_utils.py
+FilePath: /VARIANT/src/utils/list_utils.py
 Description: List processing utilities and helper functions.
 '''
-
-
-"""List manipulation utilities."""
 
 from typing import Any, List, Tuple
 
 
 def delete_element_from_list(input_list: List[Any], index: int) -> List[Any]:
-    """
+    '''
     Delete an element from a list at a given index.
 
     Args:
@@ -29,14 +26,14 @@ def delete_element_from_list(input_list: List[Any], index: int) -> List[Any]:
     Note:
         This function modifies the input list in-place and returns it.
         If the index is out of bounds, the list is returned unchanged.
-    """
+    '''
     if 0 <= index < len(input_list):
         del input_list[index]
     return input_list
 
 
 def delete_char_from_string(sequence: str, index: int) -> str:
-    """
+    '''
     Delete a character from a string at a given index.
 
     Args:
@@ -48,7 +45,7 @@ def delete_char_from_string(sequence: str, index: int) -> str:
 
     Raises:
         IndexError: If index is out of bounds
-    """
+    '''
     if index < 0 or index >= len(sequence):
         raise IndexError(
             f"Index {index} out of bounds for string of length {len(sequence)}"
@@ -58,7 +55,7 @@ def delete_char_from_string(sequence: str, index: int) -> str:
 
 
 def safe_delete_element(input_list: List[Any], index: int) -> Tuple[List[Any], bool]:
-    """
+    '''
     Safely delete an element from a list without raising exceptions.
 
     Args:
@@ -67,7 +64,7 @@ def safe_delete_element(input_list: List[Any], index: int) -> Tuple[List[Any], b
 
     Returns:
         Tuple of (modified_list, success_flag)
-    """
+    '''
     if 0 <= index < len(input_list):
         result_list = input_list.copy()
         del result_list[index]
@@ -77,7 +74,7 @@ def safe_delete_element(input_list: List[Any], index: int) -> Tuple[List[Any], b
 
 
 def find_element_indices(input_list: List[Any], target: Any) -> List[int]:
-    """
+    '''
     Find all indices of a target element in a list.
 
     Args:
@@ -86,12 +83,12 @@ def find_element_indices(input_list: List[Any], target: Any) -> List[int]:
 
     Returns:
         List of indices where the target element appears
-    """
+    '''
     return [i for i, element in enumerate(input_list) if element == target]
 
 
 def remove_duplicates_preserve_order(input_list: List[Any]) -> List[Any]:
-    """
+    '''
     Remove duplicate elements from a list while preserving order.
 
     Args:
@@ -99,7 +96,7 @@ def remove_duplicates_preserve_order(input_list: List[Any]) -> List[Any]:
 
     Returns:
         List with duplicates removed
-    """
+    '''
     seen = set()
     result = []
 
@@ -114,7 +111,7 @@ def remove_duplicates_preserve_order(input_list: List[Any]) -> List[Any]:
 def split_list_by_condition(
     input_list: List[Any], condition_func: callable
 ) -> Tuple[List[Any], List[Any]]:
-    """
+    '''
     Split a list into two parts based on a condition function.
 
     Args:
@@ -123,7 +120,7 @@ def split_list_by_condition(
 
     Returns:
         Tuple of (elements_where_true, elements_where_false)
-    """
+    '''
     true_elements = []
     false_elements = []
 
@@ -137,7 +134,7 @@ def split_list_by_condition(
 
 
 def chunk_list(input_list: List[Any], chunk_size: int) -> List[List[Any]]:
-    """
+    '''
     Split a list into chunks of specified size.
 
     Args:
@@ -149,7 +146,7 @@ def chunk_list(input_list: List[Any], chunk_size: int) -> List[List[Any]]:
 
     Raises:
         ValueError: If chunk_size is less than 1
-    """
+    '''
     if chunk_size < 1:
         raise ValueError("Chunk size must be at least 1")
 
@@ -159,7 +156,7 @@ def chunk_list(input_list: List[Any], chunk_size: int) -> List[List[Any]]:
 
 
 def flatten_nested_list(nested_list: List[List[Any]]) -> List[Any]:
-    """
+    '''
     Flatten a nested list structure.
 
     Args:
@@ -167,12 +164,12 @@ def flatten_nested_list(nested_list: List[List[Any]]) -> List[Any]:
 
     Returns:
         Flattened list
-    """
+    '''
     return [element for sublist in nested_list for element in sublist]
 
 
 def count_occurrences(input_list: List[Any]) -> dict:
-    """
+    '''
     Count occurrences of each element in a list.
 
     Args:
@@ -180,7 +177,7 @@ def count_occurrences(input_list: List[Any]) -> dict:
 
     Returns:
         Dictionary mapping elements to their counts
-    """
+    '''
     counts = {}
     for element in input_list:
         counts[element] = counts.get(element, 0) + 1
@@ -188,7 +185,7 @@ def count_occurrences(input_list: List[Any]) -> dict:
 
 
 def find_most_common(input_list: List[Any], n: int = 1) -> List[Tuple[Any, int]]:
-    """
+    '''
     Find the n most common elements in a list.
 
     Args:
@@ -197,14 +194,14 @@ def find_most_common(input_list: List[Any], n: int = 1) -> List[Tuple[Any, int]]
 
     Returns:
         List of tuples (element, count) sorted by frequency
-    """
+    '''
     counts = count_occurrences(input_list)
     sorted_items = sorted(counts.items(), key=lambda x: x[1], reverse=True)
     return sorted_items[:n]
 
 
 def rotate_list(input_list: List[Any], positions: int) -> List[Any]:
-    """
+    '''
     Rotate a list by a specified number of positions.
 
     Args:
@@ -213,7 +210,7 @@ def rotate_list(input_list: List[Any], positions: int) -> List[Any]:
 
     Returns:
         Rotated list
-    """
+    '''
     if not input_list:
         return input_list
 
@@ -224,7 +221,7 @@ def rotate_list(input_list: List[Any], positions: int) -> List[Any]:
 
 
 def contains_element(test_string: str, test_list: List[str]) -> bool:
-    """
+    '''
     Check if a string contains any element from a list.
 
     Args:
@@ -233,12 +230,12 @@ def contains_element(test_string: str, test_list: List[str]) -> bool:
 
     Returns:
         True if any element from test_list is found in test_string
-    """
+    '''
     return any(element in test_string for element in test_list)
 
 
 def is_keys_subset(sub_list: List[Any], test_list: List[Any]) -> Tuple[bool, List[Any]]:
-    """
+    '''
     Check if the first list is a proper subset of the second list.
 
     Args:
@@ -251,7 +248,7 @@ def is_keys_subset(sub_list: List[Any], test_list: List[Any]) -> Tuple[bool, Lis
     Example:
         >>> is_keys_subset([1, 2], [1, 2, 3, 4])
         (True, [3, 4])
-    """
+    '''
     is_subset_result = set(sub_list).issubset(set(test_list)) and len(test_list) > len(
         sub_list
     )
