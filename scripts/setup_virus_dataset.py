@@ -3,26 +3,34 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
-Email: wang.rui@nyu.edu
-FilePath: /VARIANT/./scripts/setup_virus_dataset.py
+LastEditTime: 2025-08-23 11:03:06
+Email: rw3594@nyu.edu
+FilePath: /VARIANT/scripts/setup_virus_dataset.py
 Description: Virus dataset setup and configuration script.
 '''
 
+import argparse
+import os
+import shutil
+from typing import Dict, List, Optional
+import yaml
 
+
+class VirusDatasetSetup:
+    '''Class for setting up virus datasets and managing configurations.'''
 
     def __init__(self, config_file: str = "virus_config.yaml"):
-        """
+        '''
         Initialize the virus dataset setup.
         
         Args:
             config_file (str): Path to the virus configuration file
-        """
+        '''
         self.config_file = config_file
         self.config = self._load_config()
 
     def _load_config(self) -> Dict:
-        """Load the virus configuration file."""
+        '''Load the virus configuration file.'''
         try:
             with open(self.config_file) as f:
                 return yaml.safe_load(f)
@@ -34,7 +42,7 @@ Description: Virus dataset setup and configuration script.
             return {}
 
     def list_viruses(self) -> None:
-        """List all configured viruses."""
+        '''List all configured viruses.'''
         if not self.config or "viruses" not in self.config:
             print("No viruses configured. Use --add-virus to add a new virus.")
             return
@@ -63,7 +71,7 @@ Description: Virus dataset setup and configuration script.
         description: str = "",
         default_msa_file: str = "",
     ) -> None:
-        """
+        '''
         Add a new virus to the configuration.
         
         Args:
@@ -73,7 +81,7 @@ Description: Virus dataset setup and configuration script.
             codon_table_id (int): Codon table ID (default: 1 for standard genetic code)
             description (str): Description of the virus
             default_msa_file (str): Default MSA file name
-        """
+        '''
         if not self.config:
             self.config = {"viruses": {}, "global": {}}
 
@@ -119,7 +127,7 @@ Description: Virus dataset setup and configuration script.
                            proteome_path: Optional[str] = None,
         msa_files: Optional[List[str]] = None,
     ) -> None:
-        """
+        '''
         Set up a complete virus dataset with file copying.
         
         Args:
@@ -127,7 +135,7 @@ Description: Virus dataset setup and configuration script.
             reference_genome_path (str, optional): Path to reference genome file
             proteome_path (str, optional): Path to proteome file
             msa_files (List[str], optional): List of paths to MSA files
-        """
+        '''
         # Check if virus is configured
         if (
             not self.config
@@ -166,7 +174,7 @@ Description: Virus dataset setup and configuration script.
         print(f"✓ Run analysis with: python main.py --virus {virus_name}")
 
     def _create_virus_directories(self, virus_name: str) -> None:
-        """Create the directory structure for a virus."""
+        '''Create the directory structure for a virus.'''
         directories = [
             f"data/{virus_name}/clustalW",
             f"data/{virus_name}/refs",
@@ -178,7 +186,7 @@ Description: Virus dataset setup and configuration script.
             os.makedirs(directory, exist_ok=True)
 
     def _copy_file(self, source: str, target: str, file_type: str) -> None:
-        """Copy a file with error handling."""
+        '''Copy a file with error handling.'''
         try:
             if os.path.exists(source):
                 shutil.copy2(source, target)
@@ -189,7 +197,7 @@ Description: Virus dataset setup and configuration script.
             print(f"✗ Error copying {file_type}: {e}")
 
     def _save_config(self) -> None:
-        """Save the configuration to file."""
+        '''Save the configuration to file.'''
         try:
             with open(self.config_file, "w") as f:
                 yaml.dump(self.config, f, default_flow_style=False, indent=2)
@@ -197,7 +205,7 @@ Description: Virus dataset setup and configuration script.
             print(f"Error saving configuration: {e}")
 
     def validate_virus_dataset(self, virus_name: str) -> bool:
-        """
+        '''
         Validate that a virus dataset is properly set up.
         
         Args:
@@ -205,7 +213,7 @@ Description: Virus dataset setup and configuration script.
             
         Returns:
             bool: True if dataset is valid, False otherwise
-        """
+        '''
         if (
             not self.config
             or "viruses" not in self.config
@@ -272,7 +280,7 @@ Description: Virus dataset setup and configuration script.
         return is_valid
 
     def create_config_template(self) -> None:
-        """Create a template configuration file."""
+        '''Create a template configuration file.'''
         template = {
             "viruses": {
                 "ExampleVirus": {
@@ -301,11 +309,11 @@ Description: Virus dataset setup and configuration script.
 
 
 def main():
-    """Main function for the setup script."""
+    '''Main function for the setup script.'''
     parser = argparse.ArgumentParser(
         description="Setup virus datasets for MutParser",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
+        epilog='''
 Examples:
   # List all configured viruses
   python setup_virus_dataset.py --list
@@ -321,7 +329,7 @@ Examples:
   
   # Create a template configuration file
   python setup_virus_dataset.py --create-config
-        """,
+        ''',
     )
 
     parser.add_argument(

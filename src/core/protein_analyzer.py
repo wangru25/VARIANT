@@ -3,19 +3,17 @@
 Author: Rui Wang
 Date: 2025-08-04 13:30:27
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 16:38:59
-Email: wang.rui@nyu.edu
+LastEditTime: 2025-08-23 11:05:25
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/core/protein_analyzer.py
 Description:
 '''
 
 from itertools import takewhile
-from typing import Dict, List, Tuple
-
 from Bio import SeqIO, pairwise2
 from Bio.Data import CodonTable
 from fuzzysearch import find_near_matches
-
+from typing import Dict, List, Tuple
 from .reference_genome import ReferenceGenome
 
 

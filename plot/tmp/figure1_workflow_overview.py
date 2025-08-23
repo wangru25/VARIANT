@@ -4,7 +4,7 @@ Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-19 17:30:00
-Email: wang.rui@nyu.edu
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/plot/tmp/figure1_workflow_overview.py
 Description: Figure 1: VARIANT Workflow Overview - creates a comprehensive workflow diagram showing the complete VARIANT pipeline from input data to final output, highlighting all major components and data flows.
 '''

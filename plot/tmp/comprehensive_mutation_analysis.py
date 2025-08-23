@@ -3,13 +3,20 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
-Email: wang.rui@nyu.edu
-FilePath: /VARIANT/./plot/tmp/comprehensive_mutation_analysis.py
+LastEditTime: 2025-08-23 11:03:39
+Email: rw3594@nyu.edu
+FilePath: /VARIANT/plot/tmp/comprehensive_mutation_analysis.py
 Description: Comprehensive mutation analysis and visualization script.
 '''
 
+import os
+import glob
+import pandas as pd
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 
+def load_all_mutation_data():
+    '''Load all mutation data from the result directory.'''
     mutation_files = glob.glob("result/**/*_mutation_summary.csv", recursive=True)
     
     all_data = []
@@ -55,7 +62,7 @@ Description: Comprehensive mutation analysis and visualization script.
 
 
 def create_mutation_type_distribution_plot(data_df):
-    """Create a stacked bar plot showing mutation type distribution across viruses."""
+    '''Create a stacked bar plot showing mutation type distribution across viruses.'''
     
     # Count mutation types by virus
     mutation_counts = data_df.groupby(['virus', 'AA Mutation Type']).size().unstack(fill_value=0)
@@ -96,7 +103,7 @@ def create_mutation_type_distribution_plot(data_df):
 
 
 def create_protein_mutation_heatmap(data_df):
-    """Create a heatmap showing mutation frequency by protein across viruses."""
+    '''Create a heatmap showing mutation frequency by protein across viruses.'''
     
     # Count mutations by protein and virus
     protein_counts = data_df.groupby(['virus', 'Protein Name']).size().unstack(fill_value=0)
@@ -131,7 +138,7 @@ def create_protein_mutation_heatmap(data_df):
 
 
 def create_mutation_count_comparison(virus_summary):
-    """Create a bar plot comparing total mutation counts across viruses."""
+    '''Create a bar plot comparing total mutation counts across viruses.'''
     
     # Group by virus (combining segments for H3N2)
     virus_totals = virus_summary.groupby('virus')['mutation_count'].sum().sort_values(ascending=False)
@@ -162,7 +169,7 @@ def create_mutation_count_comparison(virus_summary):
 
 
 def create_nt_mutation_analysis(data_df):
-    """Create plots analyzing nucleotide mutation patterns."""
+    '''Create plots analyzing nucleotide mutation patterns.'''
     
     # Extract nucleotide changes
     data_df['nt_change'] = data_df['NT Mutation'].str.extract(r'([A-Z]+->[A-Z]+)')
@@ -196,7 +203,7 @@ def create_nt_mutation_analysis(data_df):
 
 
 def create_virus_comparison_dashboard(data_df, virus_summary):
-    """Create a comprehensive dashboard comparing viruses."""
+    '''Create a comprehensive dashboard comparing viruses.'''
     
     # Create subplots
     fig = make_subplots(
@@ -255,7 +262,7 @@ def create_virus_comparison_dashboard(data_df, virus_summary):
 
 
 def create_sars_cov2_detailed_analysis(data_df):
-    """Create detailed analysis plots for SARS-CoV-2."""
+    '''Create detailed analysis plots for SARS-CoV-2.'''
     
     # Filter SARS-CoV-2 data
     sars_data = data_df[data_df['virus'].str.contains('SARS-CoV-2', na=False)]
@@ -321,7 +328,7 @@ def create_sars_cov2_detailed_analysis(data_df):
 
 
 def main():
-    """Main function to generate all plots."""
+    '''Main function to generate all plots.'''
     print("🔬 Loading mutation data...")
     
     # Load all mutation data

@@ -4,7 +4,7 @@ Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-20 09:28:31
-Email: wang.rui@nyu.edu
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/core/mutation_processor.py
 Description: Mutation Processor Module - contains the MutationProcessor class that handles the complete mutation analysis pipeline for both single and multi-segment viruses.
 '''

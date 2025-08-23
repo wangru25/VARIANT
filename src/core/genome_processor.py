@@ -4,7 +4,7 @@ Author: Rui Wang
 Date: 2023-10-31 12:42:13
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-20 09:21:54
-Email: wang.rui@nyu.edu
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/core/genome_processor.py
 Description: Genome processing and analysis module.
 '''

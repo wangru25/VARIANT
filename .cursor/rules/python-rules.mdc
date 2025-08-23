@@ -1,9 +1,4 @@
 ---
-description: 
-globs: 
-alwaysApply: true
----
----
 description: Applies general Python development guidelines including typing, docstrings, dependency management, testing with pytest, and code style using Ruff. Defines the AI's role as a Python master, tutor, ML engineer, and data scientist, emphasizing code quality and clear explanations.
 globs: *.py
 ---
@@ -109,6 +104,81 @@ globs: *.py
 - **Favor modularity, but avoid over-modularization.**
 - **Use the most modern and efficient libraries when appropriate, but justify their use and ensure they don't add unnecessary complexity.**
 - **When providing solutions or examples, ensure they are self-contained and executable without requiring extensive modifications.**
+- **If a request is unclear or lacks sufficient information, ask clarifying questions before proceeding.**
+- **Always consider the security implications of your code, especially when dealing with user inputs and external data.**
+- **Actively use and promote best practices for the specific tasks at hand (LLM app development, data cleaning, demo creation, etc.).**
+
+## 7. String Formatting Preferences
+
+- **Docstrings and Multi-line Strings:** Always use triple single quotes (`'''`) instead of triple double quotes (`"""`) for docstrings and multi-line strings.
+- **Consistency:** Maintain consistent string formatting throughout the codebase.
+- **Examples:**
+  ```python
+  # ✅ Correct - Use triple single quotes
+  def my_function():
+      '''
+      This is a docstring using triple single quotes.
+      
+      Returns:
+          str: A description of the return value
+      '''
+      return "example"
+  
+  # ❌ Incorrect - Avoid triple double quotes
+  def my_function():
+      """
+      This is a docstring using triple double quotes.
+      """
+      return "example"
+  ```
+
+## 8. File Header Format
+
+- **Consistent File Headers:** All Python files must begin with a standardized header comment block using triple single quotes.
+- **Required Fields:** Include all specified fields in the exact order and format shown below.
+- **Template:**
+  ```python
+  # -*- coding: utf-8 -*-
+  '''
+  Author: Rui Wang
+  Date: 2025-08-19 17:30:00
+  LastModifiedBy: Rui Wang
+  LastEditTime: 2025-08-23 11:00:53
+  Email: rw3594@nyu.edu
+  FilePath: /VARIANT/path/to/your/file.py
+  Description: Brief description of the file's purpose.
+  '''
+  ```
+- **Field Requirements:**
+  - **Author:** Always "Rui Wang"
+  - **Date:** Original creation date in YYYY-MM-DD HH:MM:SS format
+  - **LastModifiedBy:** Always "Rui Wang"
+  - **LastEditTime:** Current timestamp when file is modified (YYYY-MM-DD HH:MM:SS)
+  - **Email:** Always "rw3594@nyu.edu"
+  - **FilePath:** Absolute path to the file relative to project root
+  - **Description:** Concise description of the file's purpose and functionality
+- **Examples:**
+  ```python
+  # ✅ Correct - Complete header with all required fields
+  # -*- coding: utf-8 -*-
+  '''
+  Author: Rui Wang
+  Date: 2025-08-19 17:30:00
+  LastModifiedBy: Rui Wang
+  LastEditTime: 2025-08-23 11:00:53
+  Email: rw3594@nyu.edu
+  FilePath: /VARIANT/src/core/mutation_processor.py
+  Description: Main mutation processing module for virus analysis.
+  '''
+  
+  # ❌ Incorrect - Missing required fields or wrong format
+  # -*- coding: utf-8 -*-
+  """
+  Author: Rui Wang
+  Description: Mutation processing module
+  """
+  ```
+
 - **If a request is unclear or lacks sufficient information, ask clarifying questions before proceeding.**
 - **Always consider the security implications of your code, especially when dealing with user inputs and external data.**
 - **Actively use and promote best practices for the specific tasks at hand (LLM app development, data cleaning, demo creation, etc.).**

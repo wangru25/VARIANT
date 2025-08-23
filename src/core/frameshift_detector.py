@@ -4,7 +4,7 @@ Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-19 17:30:00
-Email: wang.rui@nyu.edu
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/./src/core/frameshift_detector.py
 Description: Frameshift detection and analysis module.
 '''

@@ -4,7 +4,7 @@ Author: Rui Wang
 Date: 2025-06-23 14:27:00
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-20 09:43:55
-Email: wang.rui@nyu.edu
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/core/reference_genome.py
 Description:
 '''

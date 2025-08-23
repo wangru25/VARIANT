@@ -3,18 +3,16 @@
 Author: Rui Wang
 Date: 2023-10-31 12:42:13
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-20 09:50:14
-Email: wang.rui@nyu.edu
+LastEditTime: 2025-08-23 11:05:10
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/core/mutation_detector.py
 Description: Mutation detection and analysis module for viral genomes.
 '''
 
 
-
-from typing import Any, Dict, List, Tuple, Union
-
-import more_itertools as mit
 from Bio import AlignIO
+import more_itertools as mit
+from typing import Any, Dict, List, Tuple, Union
 
 from ..utils import sequence_utils as utils
 from ..utils.mutation_utils import generate_hash_key

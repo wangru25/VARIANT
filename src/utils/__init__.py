@@ -4,7 +4,7 @@ Author: Rui Wang
 Date: 2025-06-23 14:27:07
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-19 17:42:40
-Email: wang.rui@nyu.edu
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/utils/__init__.py
 Description: Python module for __init__.
 '''

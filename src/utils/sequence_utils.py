@@ -3,16 +3,14 @@
 Author: Rui Wang
 Date: 2025-08-04 13:30:27
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-20 09:47:34
-Email: wang.rui@nyu.edu
+LastEditTime: 2025-08-23 11:06:08
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/utils/sequence_utils.py
 Description: Sequence processing utilities for FASTA files and sequence operations.
 '''
 
-from typing import Dict, List, Optional, Tuple
-
 from Bio import SeqIO
-
+from typing import Dict, List, Optional, Tuple
 
 def read_fasta(file_path: str) -> List[Dict[str, str]]:
     '''

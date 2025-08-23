@@ -3,18 +3,11 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
-Email: wang.rui@nyu.edu
-FilePath: /VARIANT/./src/cli/commands.py
+LastEditTime: 2025-08-23 11:04:47
+Email: rw3594@nyu.edu
+FilePath: /VARIANT/src/cli/commands.py
 Description: CLI commands and argument parsing.
 '''
-
-
-"""
-Command-line interface commands for MutParser.
-
-This module provides the main CLI commands for running virus mutation analysis.
-"""
 
 import argparse
 import os

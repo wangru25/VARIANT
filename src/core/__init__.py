@@ -4,7 +4,7 @@ Author: Rui Wang
 Date: 2025-06-23 14:33:45
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-20 09:18:46
-Email: wang.rui@nyu.edu
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/core/__init__.py
 Description: Core functionality for MutParser.
 '''

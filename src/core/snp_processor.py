@@ -3,14 +3,12 @@
 Author: Rui Wang
 Date: 2025-08-11 15:43:52
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-20 09:45:20
-Email: wang.rui@nyu.edu
+LastEditTime: 2025-08-23 11:05:34
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/core/snp_processor.py
 Description: 
 '''
 
-import os
-import re
 from typing import Dict, List, Optional
 
 from src.core.genome_processor import GenomeSNPProcessor

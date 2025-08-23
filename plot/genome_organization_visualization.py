@@ -4,7 +4,7 @@ Author: Rui Wang
 Date: 2025-08-19 16:07:24
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-19 17:37:22
-Email: wang.rui@nyu.edu
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/plot/genome_organization_visualization.py
 Description: 
 '''
@@ -14,7 +14,7 @@ Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
 LastEditTime: 2025-08-19 17:30:00
-Email: wang.rui@nyu.edu
+Email: rw3594@nyu.edu
 FilePath: /VARIANT/plot/genome_organization_visualization.py
 Description: Genome organization visualization for viral genomes with mutation analysis.
 '''
