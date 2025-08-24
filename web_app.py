@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2025-08-23 11:00:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-24 21:30:00
+LastEditTime: 2025-08-24 18:24:41
 Email: rw3594@nyu.edu
 FilePath: /VARIANT/web_app.py
 Description: FastAPI web application for VARIANT virus mutation analysis tool with dynamic virus support.
@@ -523,18 +523,34 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
                 for key, value in kwargs.items():
                     setattr(self, key, value)
         
-        args = Args(
+        # Run main mutation analysis (always run this first)
+        args_main = Args(
             virus=analysis_request.virus_name,
             genome_id=analysis_request.genome_id,
             msa_file=msa_file_path,
             process_all=analysis_request.process_all,
-            detect_frameshifts=analysis_request.detect_frameshifts,
+            detect_frameshifts=False,  # Disable frameshift detection for main analysis
             segment=analysis_request.segment,
             config="virus_config.yaml"
         )
         
-        # Run analysis
-        processor.process(args)
+        # Run main analysis
+        processor.process(args_main)
+        
+        # Run frameshift analysis separately if requested
+        if analysis_request.detect_frameshifts:
+            args_frameshift = Args(
+                virus=analysis_request.virus_name,
+                genome_id=analysis_request.genome_id,
+                msa_file=msa_file_path,
+                process_all=analysis_request.process_all,
+                detect_frameshifts=True,  # Enable frameshift detection
+                segment=analysis_request.segment,
+                config="virus_config.yaml"
+            )
+            
+            # Run frameshift analysis
+            processor.process(args_frameshift)
         
         # Collect results
         result_files = []

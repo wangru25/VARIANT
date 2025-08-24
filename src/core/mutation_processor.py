@@ -3,7 +3,7 @@
 Author: Rui Wang
 Date: 2025-08-19 17:30:00
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-20 09:28:31
+LastEditTime: 2025-08-24 18:24:00
 Email: rw3594@nyu.edu
 FilePath: /VARIANT/src/core/mutation_processor.py
 Description: Mutation Processor Module - contains the MutationProcessor class that handles the complete mutation analysis pipeline for both single and multi-segment viruses.
@@ -22,6 +22,7 @@ from .genome_processor import GenomeSNPProcessor
 from .virus_processor import VirusMutationProcessor
 from .frameshift_detector import FrameshiftDetector
 from ..utils.mutation_summary import extract_mutation_summary_to_csv
+from ..utils.sequence_utils import extract_genome_id
 from .mutation_detector import GeneMutationDetector, MultipleSequenceAlignment
 from .protein_analyzer import (AlignmentProcessor, AminoAcidMutationProcessor, ORFProcessor, ProMutationDetector, Proteome)
 from ..utils.mutation_utils import split_multi_protein_mutations, classify_mutation_type, convert_key_to_int, sort_dict_by_consecutive_keys, detect_hot_mutation, format_amino_acid_change_for_csv
@@ -515,7 +516,8 @@ class MutationProcessor:
             sorted_mutations = dict(sorted_items)
 
             # Save individual genome mutation file in virus-specific result directory
-            safe_genome_id = genome_id.replace("|", "_").replace("/", "_")
+            # Use extract_genome_id to get clean genome ID instead of full header
+            safe_genome_id = extract_genome_id(genome_id, self.virus_name)
             result_path = self.virus_processor.get_result_path(segment)
             output_file_snp_roots = os.path.join(
                 result_path, f"{safe_genome_id}.txt"
