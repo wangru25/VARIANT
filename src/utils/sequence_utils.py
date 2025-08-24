@@ -283,7 +283,7 @@ def extract_genome_id(full_header: str, virus_name: str = "") -> str:
         >>> extract_genome_id("AB050936v1", "ZaireEbola")
         "AB050936v1"
         >>> extract_genome_id("NC_002549.1|Zaire", "ZaireEbola")
-        "NC_002549.1|Zaire"
+        "NC_002549.1"
     '''
     # For SARS-CoV-2, extract EPI_ISL ID from the middle part
     if virus_name.upper() in ["SARS-COV-2", "SARS_COV_2", "SARSCOV2"] and "|" in full_header:
@@ -292,6 +292,34 @@ def extract_genome_id(full_header: str, virus_name: str = "") -> str:
         for part in parts:
             if "EPI_ISL" in part:
                 return part.strip()
+    
+    # For custom viruses or other viruses, create a cleaner filename
+    if virus_name and virus_name.upper() not in ["SARS-COV-2", "SARS_COV_2", "SARSCOV2"]:
+        # Try to extract a meaningful ID from the header
+        import re
+        
+        # Remove common prefixes and suffixes
+        clean_header = full_header.strip()
+        
+        # Try to extract EPI_ISL pattern if present
+        epi_match = re.search(r'EPI_ISL_\d+', clean_header)
+        if epi_match:
+            return epi_match.group()
+        
+        # Try to extract accession numbers (e.g., NC_123456.1, AB123456)
+        acc_match = re.search(r'[A-Z]{2}_\d+\.?\d*', clean_header)
+        if acc_match:
+            return acc_match.group()
+        
+        # Try to extract any alphanumeric ID
+        id_match = re.search(r'[A-Z0-9_]+', clean_header)
+        if id_match:
+            return id_match.group()
+        
+        # If all else fails, create a hash-based ID
+        import hashlib
+        hash_id = hashlib.md5(clean_header.encode()).hexdigest()[:8]
+        return f"genome_{hash_id}"
 
     # For other viruses or if no specific pattern found, return the full header
     # This preserves the original behavior for non-SARS-CoV-2 viruses

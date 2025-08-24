@@ -1,0 +1,25 @@
+# Web deployment requirements for VARIANT
+# Core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+jinja2==3.1.2
+python-multipart==0.0.6
+aiofiles==23.2.1
+
+# Data processing (Python 3.8 compatible versions)
+pandas==2.0.3
+numpy==1.24.3
+plotly==5.17.0
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Bioinformatics
+biopython==1.81
+more-itertools==8.12.0
+fuzzysearch==0.7.3
+
+# Configuration
+pyyaml==6.0.1
+
+# Optional: For production deployment
+gunicorn==21.2.0

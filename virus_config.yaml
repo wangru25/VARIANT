@@ -1,6 +1,5 @@
 global:
   default_codon_table: 1
-  # Advanced detection options
   frameshift_detection:
     enabled: false
     min_confidence: 0.6
@@ -34,30 +33,12 @@ global:
     31: Blastocrithidia nuclear code
     33: Cephalodiscidae mitochondrial code
 viruses:
-  SARS-CoV-2:
-    codon_table_id: 1
-    default_msa_file: gisaid_hcov-19_20221201_20221230_China_0_msa.txt
-    description: SARS-CoV-2 coronavirus
-    proteome_file: SARS-CoV-2_proteome.fasta
-    reference_genome: NC_045512.fasta
-  ZaireEbola:
-    codon_table_id: 1
-    default_msa_file: zaire_ebola_msa.txt
-    description: Zaire ebolavirus
-    proteome_file: ZaireEbola_proteome.fasta
-    reference_genome: NC_002549.1.fasta
   Chikungunya:
     codon_table_id: 1
     default_msa_file: chikungunya_msa.txt
     description: Chikungunya virus
     proteome_file: Chikungunya_proteome.fasta
     reference_genome: NC_004162.fasta
-  HIV-1:
-    codon_table_id: 1
-    default_msa_file: HIV-1_msa.txt
-    description: Human Immunodeficiency Virus 1
-    proteome_file: HIV-1_proteome.fasta
-    reference_genome: NC_001802.1.fasta
   H3N2:
     codon_table_id: 1
     description: Influenza A virus (H3N2) - Multi-segment virus
@@ -94,3 +75,27 @@ viruses:
         default_msa_file: segment_8_msa.txt
         proteome_file: segment_8_proteome.fasta
         reference_genome: NC_007370.1.fasta
+  HIV-1:
+    codon_table_id: 1
+    default_msa_file: HIV-1_msa.txt
+    description: Human Immunodeficiency Virus 1
+    proteome_file: HIV-1_proteome.fasta
+    reference_genome: NC_001802.1.fasta
+  NewSARS:
+    codon_table_id: 1
+    default_msa_file: NewSARS_msa.txt
+    description: 'Custom virus: NewSARS'
+    proteome_file: NewSARS_proteome.fasta
+    reference_genome: NewSARS_reference_genome.fasta
+  SARS-CoV-2:
+    codon_table_id: 1
+    default_msa_file: gisaid_hcov-19_20221201_20221230_China_0_msa.txt
+    description: SARS-CoV-2 coronavirus
+    proteome_file: SARS-CoV-2_proteome.fasta
+    reference_genome: NC_045512.fasta
+  ZaireEbola:
+    codon_table_id: 1
+    default_msa_file: zaire_ebola_msa.txt
+    description: Zaire ebolavirus
+    proteome_file: ZaireEbola_proteome.fasta
+    reference_genome: NC_002549.1.fasta

@@ -1,0 +1,84 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+leader_nsp1,S135R,missense,T670G,NT changes
+nsp2,L274L,silent,C1627T,NT changes
+nsp3,T24I,missense,C2790T,NT changes
+nsp3,F106F,silent,C3037T,NT changes
+nsp3,D160D,silent,T3199C,NT changes
+nsp3,G489S,missense,G4184A,NT changes
+nsp3,A534A,silent,C4321T,NT changes
+nsp3,N855N,silent,C5284T,NT changes
+nsp3,S1285F,missense,C6573T,NT changes
+nsp4,L264F,missense,C9344T,NT changes
+nsp4,V290V,silent,A9424G,NT changes
+nsp4,T327I,missense,C9534T,NT changes
+nsp4,T492I,missense,C10029T,NT changes
+3C-likease,D48D,silent,C10198T,NT changes
+3C-likease,R131R,silent,10447:10449GC->AA,NT changes
+3C-likease,P132H,missense,10447:10449GC->AA,NT changes
+nsp8,E23E,silent,G12160A,NT changes
+nsp9,I65I,silent,C12880T,NT changes
+RNA-dependent-polymerase,R279S,missense,G14277T,NT changes
+RNA-dependent-polymerase,P323L,missense,C14408T,NT changes
+RNA-dependent-polymerase,G385S,missense,G14593A,NT changes
+RNA-dependent-polymerase,L758L,silent,C15714T,NT changes
+helicase,R392C,missense,C17410T,NT changes
+endoRNAse,T112I,missense,C19955T,NT changes
+endoRNAse,E145E,silent,A20055G,NT changes
+spike_surface_glycoprotein,T19I,missense,C21618T,NT changes
+spike_surface_glycoprotein,G142D,missense,G21987A,NT changes
+spike_surface_glycoprotein,V213G,missense,T22200G,NT changes
+spike_surface_glycoprotein,G339D,missense,G22578A,NT changes
+spike_surface_glycoprotein,R346S,missense,A22600C,NT changes
+spike_surface_glycoprotein,S371F,missense,C22674T,NT changes
+spike_surface_glycoprotein,S373P,missense,T22679C,NT changes
+spike_surface_glycoprotein,S375F,missense,22686:22688CA->TG,NT changes
+spike_surface_glycoprotein,T376A,missense,22686:22688CA->TG,NT changes
+spike_surface_glycoprotein,D405N,missense,G22775A,NT changes
+spike_surface_glycoprotein,R408S,missense,A22786C,NT changes
+spike_surface_glycoprotein,K417N,missense,G22813T,NT changes
+spike_surface_glycoprotein,N440K,missense,T22882G,NT changes
+spike_surface_glycoprotein,L452R,missense,T22917G,NT changes
+spike_surface_glycoprotein,S477N,missense,G22992A,NT changes
+spike_surface_glycoprotein,T478K,missense,C22995A,NT changes
+spike_surface_glycoprotein,E484A,missense,A23013C,NT changes
+spike_surface_glycoprotein,F486V,missense,T23018G,NT changes
+spike_surface_glycoprotein,Q498R,missense,A23055G,NT changes
+spike_surface_glycoprotein,N501Y,missense,A23063T,NT changes
+spike_surface_glycoprotein,Y505H,missense,T23075C,NT changes
+spike_surface_glycoprotein,D614G,missense,A23403G,NT changes
+spike_surface_glycoprotein,H655Y,missense,C23525T,NT changes
+spike_surface_glycoprotein,N679K,missense,T23599G,NT changes
+spike_surface_glycoprotein,P681H,missense,C23604A,NT changes
+spike_surface_glycoprotein,N764K,missense,C23854A,NT changes
+spike_surface_glycoprotein,D796Y,missense,G23948T,NT changes
+spike_surface_glycoprotein,Q954H,missense,A24424T,NT changes
+spike_surface_glycoprotein,N969K,missense,T24469A,NT changes
+spike_surface_glycoprotein,D1146D,silent,C25000T,NT changes
+ORF3a,T64T,silent,C25584T,NT changes
+ORF3d,P21S,missense,C25584T,NT changes
+ORF3a,T223I,missense,C26060T,NT changes
+envelope,T9I,missense,C26270T,NT changes
+membrane_glycoprotein,D3N,missense,G26529A,NT changes
+membrane_glycoprotein,Q19E,missense,C26577G,NT changes
+membrane_glycoprotein,A63T,missense,G26709A,NT changes
+membrane_glycoprotein,T172T,silent,A27038G,NT changes
+ORF7b,L18L,silent,C27807T,NT changes
+ORF8,G8R,missense,G27915A,NT changes
+nucleocapsid_phosphoprotein,P13L,missense,C28311T,NT changes
+ORF9b,P10S,missense,C28311T,NT changes
+nucleocapsid_phosphoprotein,G19G,silent,A28330G,NT changes
+ORF9b,D16G,missense,A28330G,NT changes
+nucleocapsid_phosphoprotein,S33F,missense,28370:28371AG->TT,NT changes
+nucleocapsid_phosphoprotein,R203K,missense,28881:28883GGG->AAC,NT changes
+nucleocapsid_phosphoprotein,G204R,missense,28881:28883GGG->AAC,NT changes
+nucleocapsid_phosphoprotein,T366I,missense,C29370T,NT changes
+nucleocapsid_phosphoprotein,S413R,missense,A29510C,NT changes
+nsp6,S106del,deletion,11288:11296TCTGGTTTT,deletion
+nsp6,G107del,deletion,11288:11296TCTGGTTTT,deletion
+nsp6,F108del,deletion,11288:11296TCTGGTTTT,deletion
+spike_surface_glycoprotein,L24del,deletion,21633:21641TACCCCCTG,deletion
+spike_surface_glycoprotein,P25del,deletion,21633:21641TACCCCCTG,deletion
+spike_surface_glycoprotein,P26del,deletion,21633:21641TACCCCCTG,deletion
+spike_surface_glycoprotein,A27S,missense,21633:21641TACCCCCTG,deletion
+spike_surface_glycoprotein,H69del,deletion,21765:21770TACATG,deletion
+spike_surface_glycoprotein,V70del,deletion,21765:21770TACATG,deletion

@@ -1,0 +1,5 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+hCoV-19/Fujian/FPCDCP-01-1/2022|EPI_ISL_16283974|2022-12-01,row,28881:28883,GGG->AAC,nucleocapsid_phosphoprotein,"['R203K', 'G204R']",missense
+hCoV-19/Fujian/FPCDCP-01-1/2022|EPI_ISL_16283974|2022-12-01,row,28881:28883,GGG->AAC,ORF9c,"['G50N']",missense
+hCoV-19/Fujian/FPCDCP-01-1/2022|EPI_ISL_16283974|2022-12-01,hot,10447:10449,GC->AA,3C-likease,"['R131R', 'P132H']",missense
+hCoV-19/Fujian/FPCDCP-01-1/2022|EPI_ISL_16283974|2022-12-01,hot,22686:22688,CA->TG,spike_surface_glycoprotein,"['S375F', 'T376A']",missense

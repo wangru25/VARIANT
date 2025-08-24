@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  variant-web:
+    build: .
+    container_name: variant-web-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./result:/app/result
+      - ./uploads:/app/uploads
+      - ./results:/app/results
+      - ./virus_config.yaml:/app/virus_config.yaml
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add a reverse proxy with nginx
+  nginx:
+    image: nginx:alpine
+    container_name: variant-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - variant-web
+    restart: unless-stopped
+    profiles:
+      - production
