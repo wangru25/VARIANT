@@ -25,7 +25,7 @@ Your repository is already prepared with the necessary files:
 ### **Step 3: Get Your URL**
 
 After deployment, Railway will provide:
-- **Production URL**: `https://web-production-a56c.up.railway.app`
+- **Production URL**: `https://variant.up.railway.app`
 
 ## 📋 Detailed Deployment Instructions
 
