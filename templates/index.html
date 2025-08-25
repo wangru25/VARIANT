@@ -103,20 +103,29 @@
         }
         
         /* Improved contrast for upload checklist labels */
-        .alert-success .form-check-label {
-            color: #155724 !important;
+        .form-check-label {
+            color: #212529 !important;
             font-weight: 500;
             font-size: 0.95rem;
         }
         
-        .alert-success .form-check-label:hover {
-            color: #0f5132 !important;
+        .form-check-label:hover {
+            color: #000000 !important;
         }
         
         /* Ensure disabled checkboxes still have good contrast */
-        .alert-success .form-check-input:disabled + .form-check-label {
-            color: #155724 !important;
+        .form-check-input:disabled + .form-check-label {
+            color: #212529 !important;
             opacity: 1;
+        }
+        
+        /* Green color for checked items in upload checklist */
+        .bg-light.border.border-success .form-check-input:checked + .form-check-label {
+            color: #198754 !important;
+        }
+        
+        .bg-light.border.border-success .form-check-input:checked + .form-check-label:hover {
+            color: #146c43 !important;
         }
         
         .btn-success {
@@ -337,14 +346,16 @@
                     <!-- Data Upload Tab -->
                     <div class="tab-pane fade show active" id="data" role="tabpanel">
                         <!-- Upload Instructions Banner -->
-                        <div class="alert alert-info mb-4">
-                            <h5><i class="fas fa-info-circle"></i> How to Upload Your Data</h5>
-                            <p class="mb-2"><strong>You need to upload 3 types of files for each virus:</strong></p>
-                            <ol class="mb-0">
-                                <li><strong>Reference Genome</strong> (.fasta) - Complete genome sequence</li>
-                                <li><strong>Reference Proteome</strong> (.fasta) - Protein sequences</li>
-                                <li><strong>MSA File</strong> (.txt) - Multiple sequence alignment</li>
-                            </ol>
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="text-primary mb-3"><i class="fas fa-info-circle me-2"></i>How to Upload Your Data</h5>
+                                <p class="mb-3"><strong>You need to upload 3 types of files for each virus:</strong></p>
+                                <ol class="mb-0">
+                                    <li class="mb-1"><strong>Reference Genome</strong> (.fasta) - Complete genome sequence</li>
+                                    <li class="mb-1"><strong>Reference Proteome</strong> (.fasta) - Protein sequences</li>
+                                    <li class="mb-1"><strong>MSA File</strong> (.txt) - Multiple sequence alignment</li>
+                                </ol>
+                            </div>
                         </div>
                         
                         <!-- Custom Virus Creation Section -->
@@ -407,14 +418,16 @@
                                         </form>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="alert alert-info">
-                                            <h6><i class="fas fa-info-circle"></i> Custom Virus Benefits:</h6>
-                                            <ul class="mb-0">
-                                                <li>Upload your own virus data</li>
-                                                <li>No need for pre-configuration</li>
-                                                <li>Support for any virus type</li>
-                                                <li>Automatic file organization</li>
-                                            </ul>
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <h6 class="text-primary mb-2"><i class="fas fa-info-circle me-2"></i>Custom Virus Benefits:</h6>
+                                                <ul class="mb-0">
+                                                    <li class="mb-1">Upload your own virus data</li>
+                                                    <li class="mb-1">No need for pre-configuration</li>
+                                                    <li class="mb-1">Support for any virus type</li>
+                                                    <li class="mb-1">Automatic file organization</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -486,27 +499,27 @@
                                         <h5 class="mb-0"><i class="fas fa-info-circle"></i> Data Requirements</h5>
                                     </div>
                                     <div class="card-body">
-                                        <div class="alert alert-info">
-                                            <h6><i class="fas fa-lightbulb"></i> Required Files for Analysis:</h6>
+                                        <div class="bg-light border border-primary border-opacity-25 p-3 rounded mb-3">
+                                            <h6 class="text-primary mb-2"><i class="fas fa-lightbulb me-2"></i>Required Files for Analysis:</h6>
                                             <ul class="mb-0">
-                                                <li><strong>Reference Genome:</strong> FASTA format (.fasta)</li>
-                                                <li><strong>Reference Proteome:</strong> FASTA format (.fasta)</li>
-                                                <li><strong>MSA File:</strong> Multiple sequence alignment (.txt)</li>
+                                                <li class="mb-1"><strong>Reference Genome:</strong> FASTA format (.fasta)</li>
+                                                <li class="mb-1"><strong>Reference Proteome:</strong> FASTA format (.fasta)</li>
+                                                <li class="mb-1"><strong>MSA File:</strong> Multiple sequence alignment (.txt)</li>
                                             </ul>
                                         </div>
                                         
-                                        <div class="alert alert-warning">
-                                            <h6><i class="fas fa-exclamation-triangle"></i> Important Notes:</h6>
+                                        <div class="bg-light border border-warning border-opacity-25 p-3 rounded mb-3">
+                                            <h6 class="text-warning mb-2"><i class="fas fa-exclamation-triangle me-2"></i>Important Notes:</h6>
                                             <ul class="mb-0">
-                                                <li>Files are organized by virus type and segment (if applicable)</li>
-                                                <li>Reference genomes and proteomes go to <code>refs/</code> folder</li>
-                                                <li>MSA files go to <code>clustalW/</code> folder</li>
-                                                <li>Upload files before starting analysis</li>
+                                                <li class="mb-1">Files are organized by virus type and segment (if applicable)</li>
+                                                <li class="mb-1">Reference genomes and proteomes go to <code>refs/</code> folder</li>
+                                                <li class="mb-1">MSA files go to <code>clustalW/</code> folder</li>
+                                                <li class="mb-1">Upload files before starting analysis</li>
                                             </ul>
                                         </div>
                                         
-                                        <div class="alert alert-success">
-                                            <h6><i class="fas fa-check-circle"></i> Upload Checklist:</h6>
+                                        <div class="bg-light border border-success border-opacity-25 p-3 rounded">
+                                            <h6 class="text-success mb-2"><i class="fas fa-check-circle me-2"></i>Upload Checklist:</h6>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="checkRefGenome" disabled>
                                                 <label class="form-check-label" for="checkRefGenome">
@@ -691,27 +704,6 @@
                                 <p class="mb-0 opacity-75">Viral mutAtion trackeR aImed At GeNome and proTein-level</p>
                             </div>
                             <div class="card-body">
-                                <!-- Table of Contents -->
-                                <div class="bg-light p-4 rounded mb-5">
-                                    <h4 class="text-primary mb-3">Table of Contents</h4>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <ul class="list-unstyled">
-                                                <li class="mb-2"><a href="#overview" class="text-decoration-none text-primary">• Overview</a></li>
-                                                <li class="mb-2"><a href="#features" class="text-decoration-none text-primary">• Features</a></li>
-                                                <li class="mb-2"><a href="#quick-start" class="text-decoration-none text-primary">• Quick Start</a></li>
-                                                <li class="mb-2"><a href="#file-requirements" class="text-decoration-none text-primary">• File Requirements</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <ul class="list-unstyled">
-                                                <li class="mb-2"><a href="#usage" class="text-decoration-none text-primary">• Usage Guide</a></li>
-                                                <li class="mb-2"><a href="#output-files" class="text-decoration-none text-primary">• Output Files</a></li>
-                                                <li class="mb-2"><a href="#contributing" class="text-decoration-none text-primary">• Contributing</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <!-- Overview -->
                                 <section id="overview" class="mb-5">
