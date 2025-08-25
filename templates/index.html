@@ -99,6 +99,23 @@
             background: linear-gradient(135deg, #0056b3, #004085);
         }
         
+        /* Improved contrast for upload checklist labels */
+        .alert-success .form-check-label {
+            color: #155724 !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .alert-success .form-check-label:hover {
+            color: #0f5132 !important;
+        }
+        
+        /* Ensure disabled checkboxes still have good contrast */
+        .alert-success .form-check-input:disabled + .form-check-label {
+            color: #155724 !important;
+            opacity: 1;
+        }
+        
         .btn-success {
             background: linear-gradient(135deg, #28a745, #1e7e34);
             border: none;
@@ -465,7 +482,7 @@
                                             <h6><i class="fas fa-lightbulb"></i> Required Files for Analysis:</h6>
                                             <ul class="mb-0">
                                                 <li><strong>Reference Genome:</strong> FASTA format (.fasta)</li>
-                                                <li><strong>Proteome:</strong> FASTA format (.fasta)</li>
+                                                <li><strong>Reference Proteome:</strong> FASTA format (.fasta)</li>
                                                 <li><strong>MSA File:</strong> Multiple sequence alignment (.txt)</li>
                                             </ul>
                                         </div>
@@ -491,7 +508,7 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="checkProteome" disabled>
                                                 <label class="form-check-label" for="checkProteome">
-                                                    Proteome uploaded
+                                                    Reference Proteome uploaded
                                                 </label>
                                             </div>
                                             <div class="form-check">
