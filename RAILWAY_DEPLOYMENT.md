@@ -25,8 +25,7 @@ Your repository is already prepared with the necessary files:
 ### **Step 3: Get Your URL**
 
 After deployment, Railway will provide:
-- **Production URL**: `https://variant-production-xxxx.up.railway.app`
-- **Custom Domain**: You can add your own domain later
+- **Production URL**: `https://web-production-a56c.up.railway.app`
 
 ## 📋 Detailed Deployment Instructions
 
