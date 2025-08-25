@@ -8,8 +8,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* Default Color Scheme */
-            --primary-color: #007bff;
+            /* Updated Color Scheme with Better Blues */
+            --primary-color: #4663ac;
+            --primary-light: #c8d9ed;
+            --primary-lighter: #e1f1fd;
+            --primary-dark: #3a5490;
             --secondary-color: #6c757d;
             --success-color: #28a745;
             --warning-color: #ffc107;
@@ -38,13 +41,13 @@
         .main-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 123, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(70, 99, 172, 0.1);
             margin: 2rem auto;
             max-width: 1400px;
         }
         
         .header {
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background: linear-gradient(135deg, #4663ac, #3a5490);
             color: white;
             padding: 2rem;
             border-radius: 20px 20px 0 0;
@@ -69,7 +72,7 @@
         .card {
             border: none;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(70, 99, 172, 0.1);
             transition: transform 0.3s ease;
         }
         
@@ -78,14 +81,14 @@
         }
         
         .card-header {
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background: linear-gradient(135deg, #4663ac, #3a5490);
             color: white;
             border-radius: 15px 15px 0 0 !important;
             font-weight: 600;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background: linear-gradient(135deg, #4663ac, #3a5490);
             border: none;
             border-radius: 25px;
             padding: 0.75rem 2rem;
@@ -95,8 +98,8 @@
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
-            background: linear-gradient(135deg, #0056b3, #004085);
+            box-shadow: 0 10px 20px rgba(70, 99, 172, 0.3);
+            background: linear-gradient(135deg, #3a5490, #2d416f);
         }
         
         /* Improved contrast for upload checklist labels */
@@ -217,8 +220,8 @@
         }
         
         .file-type-reference_genome {
-            background: #e3f2fd;
-            color: #1976d2;
+            background: #c8d9ed;
+            color: #4663ac;
         }
         
         .file-type-proteome {
@@ -242,16 +245,16 @@
         }
         
         .nav-tabs .nav-link.active {
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background: linear-gradient(135deg, #4663ac, #3a5490);
             color: white;
         }
         
         .nav-tabs .nav-link:hover {
-            color: #007bff;
+            color: #4663ac;
         }
         
         .badge.bg-primary {
-            background: #007bff !important;
+            background: #4663ac !important;
         }
         
         .badge.bg-success {
@@ -268,7 +271,7 @@
         }
         
         .text-primary {
-            color: #007bff !important;
+            color: #4663ac !important;
         }
         
         .text-success {
@@ -284,7 +287,7 @@
         }
         
         .spinner-border.text-primary {
-            color: #007bff !important;
+            color: #4663ac !important;
         }
     </style>
 </head>
@@ -322,6 +325,11 @@
                             <i class="fas fa-history"></i> History
                         </button>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="help-tab" data-bs-toggle="tab" data-bs-target="#help" type="button" role="tab">
+                            <i class="fas fa-question-circle"></i> Help
+                        </button>
+                    </li>
                 </ul>
                 
                 <!-- Tab Content -->
@@ -334,7 +342,7 @@
                             <p class="mb-2"><strong>You need to upload 3 types of files for each virus:</strong></p>
                             <ol class="mb-0">
                                 <li><strong>Reference Genome</strong> (.fasta) - Complete genome sequence</li>
-                                <li><strong>Proteome</strong> (.fasta) - Protein sequences</li>
+                                <li><strong>Reference Proteome</strong> (.fasta) - Protein sequences</li>
                                 <li><strong>MSA File</strong> (.txt) - Multiple sequence alignment</li>
                             </ol>
                         </div>
@@ -448,7 +456,7 @@
                                                 <select class="form-select" id="fileTypeSelect" required>
                                                     <option value="">Select file type...</option>
                                                     <option value="reference_genome">📄 Reference Genome (.fasta)</option>
-                                                    <option value="proteome">🧬 Proteome (.fasta)</option>
+                                                    <option value="proteome">🧬 Reference Proteome (.fasta)</option>
                                                     <option value="msa">🔗 MSA File (.txt)</option>
                                                 </select>
                                                 <div class="form-text">Choose the type of file you're uploading</div>
@@ -671,6 +679,413 @@
                                 <div id="jobHistory">
                                     <p class="text-muted">Loading analysis history...</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Help Tab -->
+                    <div class="tab-pane fade" id="help" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h2 class="mb-1">VARIANT Documentation</h2>
+                                <p class="mb-0 opacity-75">Viral mutAtion trackeR aImed At GeNome and proTein-level</p>
+                            </div>
+                            <div class="card-body">
+                                <!-- Table of Contents -->
+                                <div class="bg-light p-4 rounded mb-5">
+                                    <h4 class="text-primary mb-3">Table of Contents</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><a href="#overview" class="text-decoration-none text-primary">• Overview</a></li>
+                                                <li class="mb-2"><a href="#features" class="text-decoration-none text-primary">• Features</a></li>
+                                                <li class="mb-2"><a href="#quick-start" class="text-decoration-none text-primary">• Quick Start</a></li>
+                                                <li class="mb-2"><a href="#file-requirements" class="text-decoration-none text-primary">• File Requirements</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><a href="#usage" class="text-decoration-none text-primary">• Usage Guide</a></li>
+                                                <li class="mb-2"><a href="#output-files" class="text-decoration-none text-primary">• Output Files</a></li>
+                                                <li class="mb-2"><a href="#contributing" class="text-decoration-none text-primary">• Contributing</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Overview -->
+                                <section id="overview" class="mb-5">
+                                    <div class="border-bottom border-3 border-primary pb-3 mb-4">
+                                        <h2 class="text-primary mb-3">Overview</h2>
+                                    </div>
+                                    <div class="bg-light p-4 rounded mb-4">
+                                        <p class="lead mb-0">VARIANT is a comprehensive virus mutation analysis tool designed to track mutations at both genome and protein levels. It provides detailed analysis of viral sequences, identifying mutations, hotspots, and potential frameshifting sites.</p>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card h-100">
+                                                <div class="card-body">
+                                                    <h4 class="text-primary mb-3">Key Capabilities</h4>
+                                                    <ul class="list-unstyled">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Multi-sequence alignment analysis</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mutation detection and classification</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Hot and row mutation identification</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Frameshift site detection</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Protein-level impact analysis</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card h-100">
+                                                <div class="card-body">
+                                                    <h4 class="text-primary mb-3">Supported Viruses</h4>
+                                                    <ul class="list-unstyled">
+                                                        <li class="mb-2"><i class="fas fa-virus text-info me-2"></i>Single-segment viruses (SARS-CoV-2, HIV-1, etc.)</li>
+                                                        <li class="mb-2"><i class="fas fa-virus text-info me-2"></i>Multi-segment viruses (Influenza H3N2, etc.)</li>
+                                                        <li class="mb-2"><i class="fas fa-virus text-info me-2"></i>Custom virus definitions</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Features -->
+                                <section id="features" class="mb-5">
+                                    <div class="border-bottom border-3 border-primary pb-3 mb-4">
+                                        <h2 class="text-primary mb-3">Features</h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-body text-center p-4">
+                                                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                                        <i class="fas fa-dna fa-2x text-primary"></i>
+                                                    </div>
+                                                    <h5 class="text-primary mb-3">Genome Analysis</h5>
+                                                    <p class="text-muted mb-0">Comprehensive mutation tracking across entire viral genomes</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-body text-center p-4">
+                                                    <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                                        <i class="fas fa-atom fa-2x text-success"></i>
+                                                    </div>
+                                                    <h5 class="text-success mb-3">Protein Impact</h5>
+                                                    <p class="text-muted mb-0">Analysis of mutations on protein structure and function</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-body text-center p-4">
+                                                    <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                                        <i class="fas fa-exchange-alt fa-2x text-warning"></i>
+                                                    </div>
+                                                    <h5 class="text-warning mb-3">Frameshift Detection</h5>
+                                                    <p class="text-muted mb-0">Identification of potential ribosomal frameshifting sites</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Quick Start -->
+                                <section id="quick-start" class="mb-5">
+                                    <div class="border-bottom border-3 border-primary pb-3 mb-4">
+                                        <h2 class="text-primary mb-3">Quick Start</h2>
+                                    </div>
+                                    <div class="bg-success bg-opacity-10 p-4 rounded mb-4">
+                                        <h4 class="text-success mb-2">🚀 Get Started in 4 Steps</h4>
+                                        <p class="text-success mb-0">Follow these simple steps to analyze your virus data</p>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h4 class="text-primary mb-3">Step 1: Create Custom Virus</h4>
+                                                    <ol class="list-unstyled">
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Go to <strong>Data Upload</strong> tab</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Enter a unique virus name</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Select virus type (single/multi-segment)</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Click "Create Custom Virus"</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h4 class="text-primary mb-3">Step 2: Upload Data Files</h4>
+                                                    <ol class="list-unstyled">
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Select your virus from dropdown</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Upload reference genome (.fasta)</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Upload reference proteome (.fasta)</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Upload MSA file (.txt)</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h4 class="text-primary mb-3">Step 3: Start Analysis</h4>
+                                                    <ol class="list-unstyled">
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Go to <strong>Analysis</strong> tab</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Select your virus</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Choose analysis options</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Click "Start Analysis"</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h4 class="text-primary mb-3">Step 4: Download Results</h4>
+                                                    <ol class="list-unstyled">
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Wait for analysis completion</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Go to <strong>Files</strong> tab</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Browse result files</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Download individual files or ZIP</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- File Requirements -->
+                                <section id="file-requirements" class="mb-5">
+                                    <div class="border-bottom border-3 border-primary pb-3 mb-4">
+                                        <h2 class="text-primary mb-3">File Requirements</h2>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-header bg-primary text-white">
+                                                    <h5 class="mb-0"><i class="fas fa-dna me-2"></i>Reference Genome</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <span class="badge bg-primary me-2">Format</span>
+                                                        <span class="text-muted">.fasta</span>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <span class="badge bg-primary me-2">Content</span>
+                                                        <span class="text-muted">Complete genome sequence</span>
+                                                    </div>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Single sequence per file</li>
+                                                        <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Standard FASTA format</li>
+                                                        <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Complete genome length</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-header bg-success text-white">
+                                                    <h5 class="mb-0"><i class="fas fa-atom me-2"></i>Reference Proteome</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <span class="badge bg-success me-2">Format</span>
+                                                        <span class="text-muted">.fasta</span>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <span class="badge bg-success me-2">Content</span>
+                                                        <span class="text-muted">Protein sequences</span>
+                                                    </div>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Multiple proteins allowed</li>
+                                                        <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Standard FASTA format</li>
+                                                        <li class="mb-1"><i class="fas fa-check text-success me-2"></i>All expected proteins</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-header bg-info text-white">
+                                                    <h5 class="mb-0"><i class="fas fa-align-left me-2"></i>MSA File</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-3">
+                                                        <span class="badge bg-info me-2">Format</span>
+                                                        <span class="text-muted">.txt</span>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <span class="badge bg-info me-2">Content</span>
+                                                        <span class="text-muted">Multiple sequence alignment</span>
+                                                    </div>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-1"><i class="fas fa-check text-success me-2"></i>ClustalW format preferred</li>
+                                                        <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Contains all sample sequences</li>
+                                                        <li class="mb-1"><i class="fas fa-check text-success me-2"></i>Aligned sequences</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Usage Guide -->
+                                <section id="usage" class="mb-5">
+                                    <div class="border-bottom border-3 border-primary pb-3 mb-4">
+                                        <h2 class="text-primary mb-3">Usage Guide</h2>
+                                    </div>
+                                    
+                                    <h4 class="text-primary mb-3">Analysis Options</h4>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="text-primary mb-3"><i class="fas fa-list me-2"></i>Process All Genomes</h5>
+                                                    <p class="text-muted mb-3">Analyzes all sequences in the MSA file. This is the recommended option for comprehensive analysis.</p>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Generates files for each genome</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Identifies common mutations</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Provides complete analysis</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="text-primary mb-3"><i class="fas fa-search me-2"></i>Specific Genome ID</h5>
+                                                    <p class="text-muted mb-3">Analyzes only one specific sequence (e.g., EPI_ISL_123456).</p>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Faster processing</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Targeted analysis</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Single genome focus</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <h4 class="text-primary mb-3">Advanced Features</h4>
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="text-primary mb-3"><i class="fas fa-exchange-alt me-2"></i>Frameshift Detection</h5>
+                                            <p class="text-muted mb-3">Detects potential programmed ribosomal frameshifting sites in the genome. This feature:</p>
+                                            <ul class="list-unstyled mb-0">
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Identifies slippery sequences</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Analyzes structural elements</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Generates PRF analysis report</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Output Files -->
+                                <section id="output-files" class="mb-5">
+                                    <div class="border-bottom border-3 border-primary pb-3 mb-4">
+                                        <h2 class="text-primary mb-3">Output Files</h2>
+                                    </div>
+                                    
+                                    <div class="table-responsive">
+                                        <table class="table table-hover border-0 shadow-sm">
+                                            <thead class="table-primary">
+                                                <tr>
+                                                    <th class="border-0">File Type</th>
+                                                    <th class="border-0">Description</th>
+                                                    <th class="border-0">Content</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><code class="bg-light px-2 py-1 rounded">{genome_id}_mutation_summary.csv</code></td>
+                                                    <td><strong>Mutation Summary</strong></td>
+                                                    <td class="text-muted">All mutations found in the genome with details</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><code class="bg-light px-2 py-1 rounded">{genome_id}_row_hot_mutations.csv</code></td>
+                                                    <td><strong>Hot and Row Mutations</strong></td>
+                                                    <td class="text-muted">Frequently occurring mutations across samples</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><code class="bg-light px-2 py-1 rounded">{genome_id}.txt</code></td>
+                                                    <td><strong>Individual Genome Files</strong></td>
+                                                    <td class="text-muted">Detailed mutation information for each genome</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><code class="bg-light px-2 py-1 rounded">potential_PRF.csv</code></td>
+                                                    <td><strong>Frameshift Analysis</strong></td>
+                                                    <td class="text-muted">Potential frameshifting sites (if enabled)</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+
+
+
+
+
+                                <!-- Contributing -->
+                                <section id="contributing" class="mb-5">
+                                    <div class="border-bottom border-3 border-primary pb-3 mb-4">
+                                        <h2 class="text-primary mb-3">Contributing</h2>
+                                    </div>
+                                    <div class="bg-light p-4 rounded mb-4">
+                                        <p class="lead mb-0">We welcome contributions to improve VARIANT! Here's how you can help:</p>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card border-0 shadow-sm h-100">
+                                                <div class="card-body">
+                                                    <h4 class="text-primary mb-3">GitHub Repository</h4>
+                                                    <p class="text-muted mb-3">Visit our GitHub repository to contribute:</p>
+                                                    <div class="d-grid gap-2 mb-3">
+                                                        <a href="https://github.com/wangru25/VARIANT" target="_blank" class="btn btn-primary">
+                                                            <i class="fab fa-github me-2"></i>View on GitHub
+                                                        </a>
+                                                    </div>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-bug text-danger me-2"></i>Report bugs and issues</li>
+                                                        <li class="mb-2"><i class="fas fa-lightbulb text-warning me-2"></i>Submit feature requests</li>
+                                                        <li class="mb-2"><i class="fas fa-code text-info me-2"></i>Contribute code improvements</li>
+                                                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Star the repository</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card border-0 shadow-sm h-100">
+                                                <div class="card-body">
+                                                    <h4 class="text-primary mb-3">Contact & Support</h4>
+                                                    <p class="text-muted mb-3">For additional help and support:</p>
+                                                    <div class="bg-primary bg-opacity-10 p-3 rounded mb-3">
+                                                        <h6 class="text-primary mb-2"><i class="fas fa-envelope me-2"></i>Email Support</h6>
+                                                        <p class="text-muted mb-2">Contact the development team:</p>
+                                                        <a href="mailto:rw3594@nyu.edu" class="btn btn-outline-primary btn-sm">
+                                                            <i class="fas fa-envelope me-2"></i>rw3594@nyu.edu
+                                                        </a>
+                                                    </div>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-headset text-info me-2"></i>Technical support</li>
+                                                        <li class="mb-2"><i class="fas fa-lightbulb text-warning me-2"></i>Feature requests</li>
+                                                        <li class="mb-2"><i class="fas fa-bug text-danger me-2"></i>Bug reports</li>
+                                                        <li class="mb-2"><i class="fas fa-question-circle text-primary me-2"></i>General inquiries</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             </div>
                         </div>
                     </div>
