@@ -13,7 +13,6 @@ VARIANT (Viral mutAtion trackeR aImed At GeNome and proTein-level) is now availa
 - 🗜️ **Bulk ZIP Downloads**: Download complete datasets as organized ZIP files
 - 📈 **Results Visualization**: Interactive plots and downloadable results
 - 🔄 **Job History**: Track and manage previous analysis jobs
-- 🎨 **NYU Branding**: Professional interface using NYU's official color palette
 - 🚀 **Railway Deployment**: Easy cloud deployment with free tier
 
 ## Quick Start
@@ -57,11 +56,6 @@ VARIANT (Viral mutAtion trackeR aImed At GeNome and proTein-level) is now availa
    ```
 
 ## Interface Features
-
-### **🎨 NYU-Themed Design**
-- **Professional Interface**: NYU Violet and Ultra Violet color scheme
-- **Clean Layout**: Simplified file listings without redundant information
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
 
 ### **📁 Enhanced File Management**
 - **Bulk ZIP Downloads**: Download complete datasets as organized ZIP files

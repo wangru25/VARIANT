@@ -117,7 +117,7 @@ https://variant-production-xxxx.up.railway.app
 - **Health Check**: `/` - Application status
 
 ### **Features Available**
-- ✅ **NYU Branding**: Purple theme throughout
+- ✅ **Professional Design**: Clean blue theme throughout
 - ✅ **File Upload**: Virus sequence uploads
 - ✅ **Analysis**: Mutation analysis tools
 - ✅ **ZIP Downloads**: Bulk file downloads
@@ -315,7 +315,7 @@ railway up
 
 Once deployed, your VARIANT application will be:
 - 🌐 **Publicly accessible** via Railway URL
-- 🎨 **NYU-branded** with purple theme
+- 🎨 **Professionally designed** with clean blue theme
 - 📁 **Fully functional** with all features
 - 🔒 **Secure** with HTTPS
 - 📊 **Monitored** with Railway dashboard

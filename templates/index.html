@@ -8,56 +8,43 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* NYU Primary Colors */
-            --nyu-violet: #57068c;
-            --nyu-ultra-violet: #8900e1;
-            --nyu-black: #000000;
-            
-            /* NYU Secondary Colors */
-            --nyu-deep-violet: #330662;
-            --nyu-medium-violet-1: #702b9d;
-            --nyu-medium-violet-2: #7b5aa6;
-            --nyu-light-violet-1: #ab82c5;
-            --nyu-light-violet-2: #eee6f3;
-            
-            /* NYU Neutral Colors */
-            --nyu-dark-gray: #404040;
-            --nyu-medium-gray-1: #6d6d6d;
-            --nyu-medium-gray-2: #b8b8b8;
-            --nyu-medium-gray-3: #d6d6d6;
-            --nyu-light-gray: #f2f2f2;
-            --nyu-white: #ffffff;
-            
-            /* NYU Accent Colors */
-            --nyu-teal: #009b8a;
-            --nyu-magenta: #fb0f78;
-            --nyu-blue: #59B2D1;
-            --nyu-yellow: #f4ec51;
-            
-            /* Legacy variable names for compatibility */
-            --primary-color: var(--nyu-violet);
-            --secondary-color: var(--nyu-ultra-violet);
-            --accent-color: var(--nyu-magenta);
-            --success-color: var(--nyu-teal);
-            --warning-color: var(--nyu-yellow);
+            /* Default Color Scheme */
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #17a2b8;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --white-color: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--nyu-light-violet-2) 0%, var(--nyu-light-violet-1) 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             min-height: 100vh;
         }
         
         .main-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(87, 6, 140, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 123, 255, 0.1);
             margin: 2rem auto;
             max-width: 1400px;
         }
         
         .header {
-            background: linear-gradient(135deg, var(--nyu-violet), var(--nyu-ultra-violet));
+            background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
             padding: 2rem;
             border-radius: 20px 20px 0 0;
@@ -82,7 +69,7 @@
         .card {
             border: none;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(87, 6, 140, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
             transition: transform 0.3s ease;
         }
         
@@ -91,14 +78,14 @@
         }
         
         .card-header {
-            background: linear-gradient(135deg, var(--nyu-ultra-violet), var(--nyu-violet));
+            background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
             border-radius: 15px 15px 0 0 !important;
             font-weight: 600;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--nyu-ultra-violet), var(--nyu-violet));
+            background: linear-gradient(135deg, #007bff, #0056b3);
             border: none;
             border-radius: 25px;
             padding: 0.75rem 2rem;
@@ -108,12 +95,12 @@
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(137, 0, 225, 0.3);
-            background: linear-gradient(135deg, var(--nyu-violet), var(--nyu-deep-violet));
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+            background: linear-gradient(135deg, #0056b3, #004085);
         }
         
         .btn-success {
-            background: linear-gradient(135deg, var(--nyu-teal), #00b894);
+            background: linear-gradient(135deg, #28a745, #1e7e34);
             border: none;
             border-radius: 25px;
             padding: 0.75rem 2rem;
@@ -123,33 +110,33 @@
         
         .btn-success:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 155, 138, 0.3);
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
         }
         
         .btn-warning {
-            background: linear-gradient(135deg, var(--nyu-yellow), #f1c40f);
+            background: linear-gradient(135deg, #ffc107, #e0a800);
             border: none;
             border-radius: 25px;
             padding: 0.75rem 2rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            color: var(--nyu-dark-gray);
+            color: #212529;
         }
         
         .btn-warning:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(244, 236, 81, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 193, 7, 0.3);
         }
         
         .form-control, .form-select {
             border-radius: 10px;
-            border: 2px solid var(--nyu-medium-gray-3);
+            border: 2px solid #dee2e6;
             transition: all 0.3s ease;
         }
         
         .form-control:focus, .form-select:focus {
-            border-color: var(--nyu-ultra-violet);
-            box-shadow: 0 0 0 0.2rem rgba(137, 0, 225, 0.25);
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
         
         .alert {
@@ -158,27 +145,27 @@
         }
         
         .alert-info {
-            background-color: var(--nyu-light-violet-2);
-            color: var(--nyu-deep-violet);
-            border-left: 4px solid var(--nyu-medium-violet-2);
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border-left: 4px solid #17a2b8;
         }
         
         .alert-warning {
-            background-color: rgba(244, 236, 81, 0.2);
-            color: var(--nyu-dark-gray);
-            border-left: 4px solid var(--nyu-yellow);
+            background-color: #fff3cd;
+            color: #856404;
+            border-left: 4px solid #ffc107;
         }
         
         .alert-success {
-            background-color: rgba(0, 155, 138, 0.1);
-            color: var(--nyu-deep-violet);
-            border-left: 4px solid var(--nyu-teal);
+            background-color: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
         }
         
         .alert-danger {
-            background-color: rgba(251, 15, 120, 0.1);
-            color: var(--nyu-deep-violet);
-            border-left: 4px solid var(--nyu-magenta);
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
         }
         
         .notification {
@@ -188,7 +175,7 @@
             z-index: 1000;
             min-width: 300px;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(87, 6, 140, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
         }
         
         .loading-spinner {
@@ -198,11 +185,11 @@
         }
         
         .file-item {
-            background: var(--nyu-light-gray);
+            background: #f8f9fa;
             border-radius: 10px;
             padding: 1rem;
             margin-bottom: 1rem;
-            border-left: 4px solid var(--nyu-ultra-violet);
+            border-left: 4px solid #007bff;
         }
         
         .file-type-badge {
@@ -213,74 +200,74 @@
         }
         
         .file-type-reference_genome {
-            background: var(--nyu-light-violet-2);
-            color: var(--nyu-violet);
+            background: #e3f2fd;
+            color: #1976d2;
         }
         
         .file-type-proteome {
-            background: rgba(0, 155, 138, 0.1);
-            color: var(--nyu-teal);
+            background: #e8f5e8;
+            color: #28a745;
         }
         
         .file-type-msa {
-            background: rgba(244, 236, 81, 0.2);
-            color: var(--nyu-dark-gray);
+            background: #fff3cd;
+            color: #856404;
         }
         
         .nav-tabs {
-            border-bottom: 2px solid var(--nyu-medium-gray-3);
+            border-bottom: 2px solid #dee2e6;
         }
         
         .nav-tabs .nav-link {
             border: none;
-            color: var(--nyu-medium-gray-1);
+            color: #6c757d;
             font-weight: 600;
         }
         
         .nav-tabs .nav-link.active {
-            background: linear-gradient(135deg, var(--nyu-ultra-violet), var(--nyu-violet));
+            background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
         }
         
         .nav-tabs .nav-link:hover {
-            color: var(--nyu-violet);
+            color: #007bff;
         }
         
         .badge.bg-primary {
-            background: var(--nyu-violet) !important;
+            background: #007bff !important;
         }
         
         .badge.bg-success {
-            background: var(--nyu-teal) !important;
+            background: #28a745 !important;
         }
         
         .badge.bg-warning {
-            background: var(--nyu-yellow) !important;
-            color: var(--nyu-dark-gray) !important;
+            background: #ffc107 !important;
+            color: #212529 !important;
         }
         
         .badge.bg-danger {
-            background: var(--nyu-magenta) !important;
+            background: #dc3545 !important;
         }
         
         .text-primary {
-            color: var(--nyu-violet) !important;
+            color: #007bff !important;
         }
         
         .text-success {
-            color: var(--nyu-teal) !important;
+            color: #28a745 !important;
         }
         
         .text-warning {
-            color: var(--nyu-yellow) !important;
+            color: #ffc107 !important;
         }
         
         .text-danger {
-            color: var(--nyu-magenta) !important;
+            color: #dc3545 !important;
         }
         
         .spinner-border.text-primary {
-            color: var(--nyu-violet) !important;
+            color: #007bff !important;
         }
     </style>
 </head>

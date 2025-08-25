@@ -19,10 +19,10 @@ A comprehensive Python framework for analyzing viral mutations, supporting both 
 
 ## Web Application
 
-VARIANT now includes a modern web-based interface featuring NYU's official branding and streamlined file management:
+VARIANT now includes a modern web-based interface with professional design and streamlined file management:
 
-### **🎨 NYU-Themed Interface**
-- **Professional Design**: NYU Violet and Ultra Violet color scheme
+### **🎨 Professional Interface**
+- **Clean Design**: Modern blue color scheme
 - **Responsive Layout**: Works on desktop, tablet, and mobile devices
 - **Accessible Design**: High contrast and readable typography
 
