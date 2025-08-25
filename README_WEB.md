@@ -14,27 +14,30 @@ VARIANT (Viral mutAtion trackeR aImed At GeNome and proTein-level) is now availa
 - 📈 **Results Visualization**: Interactive plots and downloadable results
 - 🔄 **Job History**: Track and manage previous analysis jobs
 - 🎨 **NYU Branding**: Professional interface using NYU's official color palette
-- 🐳 **Docker Deployment**: Easy containerized deployment
+- 🚀 **Railway Deployment**: Easy cloud deployment with free tier
 
 ## Quick Start
 
-### Option 1: Docker Deployment (Recommended)
+### Option 1: Railway Deployment (Recommended)
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/wangru25/VARIANT.git
    cd VARIANT
    ```
 
-2. **Run the deployment script**:
-   ```bash
-   chmod +x deploy.sh
-   ./deploy.sh
-   ```
+2. **Deploy to Railway**:
+   - Go to [railway.app](https://railway.app)
+   - Sign up with GitHub
+   - Create new project → Deploy from GitHub repo
+   - Select your VARIANT repository
+   - Railway will auto-deploy your application
 
 3. **Access the application**:
-   - Web Interface: http://localhost:8000
-   - API Documentation: http://localhost:8000/docs
+   - Web Interface: https://your-app-name.up.railway.app
+   - API Documentation: https://your-app-name.up.railway.app/docs
+
+📖 **[Complete Railway Deployment Guide](RAILWAY_DEPLOYMENT.md)**
 
 ### Option 2: Manual Installation
 
@@ -308,31 +311,27 @@ viruses:
 python web_app.py
 ```
 
-### Docker Deployment
+### Railway Deployment
 
 ```bash
-# Build and run with Docker Compose
-docker-compose up -d
+# Deploy to Railway (Recommended)
+# 1. Go to railway.app
+# 2. Connect your GitHub repository
+# 3. Railway will auto-deploy your application
 
-# Or build manually
-docker build -t variant-web .
-docker run -p 8000:8000 variant-web
+# Access your application
+# Web Interface: https://your-app-name.up.railway.app
+# API Documentation: https://your-app-name.up.railway.app/docs
 ```
 
-### Production Deployment
+### Production Features
 
-1. **Set up reverse proxy** (nginx):
-   ```bash
-   docker-compose --profile production up -d
-   ```
+1. **Automatic SSL**: Railway provides HTTPS certificates
+2. **Global CDN**: Fast loading worldwide
+3. **Auto-scaling**: Handles traffic spikes automatically
+4. **Monitoring**: Built-in logs and metrics dashboard
 
-2. **Configure SSL certificates**:
-   - Place certificates in `./ssl/`
-   - Update nginx configuration
-
-3. **Set up monitoring**:
-   - Application includes health checks
-   - Monitor logs: `docker-compose logs -f`
+📖 **[Complete Railway Deployment Guide](RAILWAY_DEPLOYMENT.md)**
 
 ## Architecture
 
@@ -359,9 +358,10 @@ VARIANT/
 ├── result/                 # Original analysis outputs
 ├── virus_config.yaml       # Virus configuration
 ├── requirements_web.txt    # Web dependencies
-├── Dockerfile             # Docker configuration
-├── docker-compose.yml     # Docker Compose setup
-└── deploy.sh              # Deployment script
+├── Procfile               # Railway deployment configuration
+├── runtime.txt            # Python version specification
+├── railway.json           # Railway configuration
+└── RAILWAY_DEPLOYMENT.md  # Railway deployment guide
 ```
 
 ## Troubleshooting
@@ -370,9 +370,8 @@ VARIANT/
 
 1. **Port already in use**:
    ```bash
-   # Change port in docker-compose.yml or web_app.py
-   ports:
-     - "8001:8000"  # Use port 8001 instead
+   # Railway automatically handles port configuration
+   # No manual port configuration needed
    ```
 
 2. **Permission errors**:

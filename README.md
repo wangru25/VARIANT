@@ -40,17 +40,21 @@ VARIANT now includes a modern web-based interface featuring NYU's official brand
 
 ### **Quick Start**
 ```bash
-# Deploy with Docker
+# Deploy with Railway (Recommended)
 git clone https://github.com/wangru25/VARIANT.git
 cd VARIANT
-./deploy.sh
+
+# Deploy to Railway
+# 1. Go to railway.app
+# 2. Connect your GitHub repository
+# 3. Railway will auto-deploy your app
 
 # Access the application
-# Web Interface: http://localhost:8000
-# API Documentation: http://localhost:8000/docs
+# Web Interface: https://your-app-name.up.railway.app
+# API Documentation: https://your-app-name.up.railway.app/docs
 ```
 
-📖 **[Complete Web Application Guide](README_WEB.md)**
+📖 **[Complete Web Application Guide](README_WEB.md)** | 🚀 **[Railway Deployment Guide](RAILWAY_DEPLOYMENT.md)**
 
 ## Supported Viruses
 
