@@ -50,7 +50,29 @@ if [ -f "variant.sif" ]; then
     rm -f variant.sif
 fi
 
-singularity build variant.sif Singularity.def
+# Try different build methods based on user permissions
+echo "🔍 Attempting to build container..."
+
+# Method 1: Try with fakeroot (most common for non-root users)
+if singularity build --fakeroot variant.sif Singularity.def 2>/dev/null; then
+    echo "✅ Container built successfully with fakeroot!"
+elif singularity build --remote variant.sif Singularity.def 2>/dev/null; then
+    echo "✅ Container built successfully with remote build!"
+else
+    echo "❌ Failed to build container with fakeroot or remote build."
+    echo ""
+    echo "🔧 Alternative solutions:"
+    echo "1. Request sudo access from your system administrator:"
+    echo "   sudo singularity build variant.sif Singularity.def"
+    echo ""
+    echo "2. Use a pre-built container (if available):"
+    echo "   singularity pull docker://your-registry/variant:latest"
+    echo ""
+    echo "3. Build on a system with root access and transfer the .sif file"
+    echo ""
+    echo "4. Contact your university IT for Singularity build permissions"
+    exit 1
+fi
 
 echo "✅ Singularity container built successfully!"
 
