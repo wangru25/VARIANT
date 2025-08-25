@@ -2,16 +2,18 @@
 
 ## Overview
 
-VARIANT (Viral mutAtion trackeR aImed At GeNome and proTein-level) is now available as a web-based application, providing an intuitive interface for virus mutation analysis without requiring command-line expertise.
+VARIANT (Viral mutAtion trackeR aImed At GeNome and proTein-level) is now available as a web-based application, providing an intuitive interface for virus mutation analysis without requiring command-line expertise. The application features a modern NYU-themed interface with streamlined file management and bulk download capabilities.
 
 ## Features
 
-- 🌐 **Web-based Interface**: Modern, responsive web interface accessible from any browser
+- 🌐 **Web-based Interface**: Modern, responsive web interface with NYU branding
 - 🔬 **Multi-Virus Support**: Analyze SARS-CoV-2, HIV-1, H3N2, Chikungunya, and Zaire Ebola
 - 📊 **Real-time Analysis**: Background job processing with real-time status updates
 - 📁 **File Upload**: Upload custom MSA files for analysis
+- 🗜️ **Bulk ZIP Downloads**: Download complete datasets as organized ZIP files
 - 📈 **Results Visualization**: Interactive plots and downloadable results
 - 🔄 **Job History**: Track and manage previous analysis jobs
+- 🎨 **NYU Branding**: Professional interface using NYU's official color palette
 - 🐳 **Docker Deployment**: Easy containerized deployment
 
 ## Quick Start
@@ -51,19 +53,160 @@ VARIANT (Viral mutAtion trackeR aImed At GeNome and proTein-level) is now availa
    python web_app.py
    ```
 
-## Usage
+## Interface Features
+
+### **🎨 NYU-Themed Design**
+- **Professional Interface**: NYU Violet and Ultra Violet color scheme
+- **Clean Layout**: Simplified file listings without redundant information
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+
+### **📁 Enhanced File Management**
+- **Bulk ZIP Downloads**: Download complete datasets as organized ZIP files
+- **Upload Progress Tracking**: Visual indicators for file upload status
+- **Clean File Display**: Simplified file listings showing only essential information
+- **File Type Badges**: Clear visual indicators for different file types
+
+## Usage Guide
 
 ### Web Interface
 
-1. **Select Virus Type**: Choose from available viruses (SARS-CoV-2, HIV-1, H3N2, etc.)
-2. **Configure Analysis**:
-   - Enter Genome ID (optional)
-   - Upload MSA file (optional)
-   - Enable/disable options (process all genomes, detect frameshifts)
-3. **Start Analysis**: Click "Start Analysis" and monitor progress
-4. **Download Results**: Download analysis results as ZIP file
+The VARIANT web application features a clean, NYU-themed interface with four main tabs:
 
-### API Endpoints
+#### 1. **Data Upload Tab**
+
+##### **Option 1: Using Pre-configured Viruses**
+1. **Select a pre-configured virus** from the dropdown (SARS-CoV-2, HIV-1, etc.)
+2. **Upload your files** following the steps below
+
+##### **Option 2: Creating Your Own Custom Virus (Recommended for New Users)**
+1. **Create a Custom Virus:**
+   - Enter a unique virus name (e.g., "MyCustomVirus")
+   - Choose virus type:
+     - **Single-segment virus**: Most viruses (SARS-CoV-2, HIV-1, etc.)
+     - **Multi-segment virus**: Viruses like Influenza A (H3N2) with multiple segments
+   - For multi-segment viruses, enter segment names (e.g., "segment_1,segment_2,segment_3")
+   - Click "Create Custom Virus"
+2. **Your custom virus will appear** in the virus selection dropdown
+3. **Select your custom virus** and proceed with file uploads
+
+##### **Required Files for Analysis**
+For each virus, you need to upload **3 types of files**:
+
+**1. Reference Genome**
+- **Format**: FASTA (.fasta, .fa, .fna)
+- **Content**: Complete genome sequence of the reference strain
+- **Example**: `NC_045512.fasta` (SARS-CoV-2 reference genome)
+
+**2. Reference Proteome**
+- **Format**: FASTA (.fasta, .fa, .faa)
+- **Content**: Protein sequences translated from the genome
+- **Example**: `SARS-CoV-2_proteome.fasta`
+
+**3. MSA File (Multiple Sequence Alignment)**
+- **Format**: Text or FASTA (.txt, .fasta, .fa, .aln, .clustal)
+- **Content**: Multiple sequence alignment of virus strains
+- **Example**: `gisaid_hcov-19_20221201_20221230_China_0_msa.txt`
+
+##### **File Upload Process**
+
+**For Single-Segment Viruses:**
+1. **Select your virus** from the dropdown
+2. **Choose file type** (Reference Genome, Reference Proteome, or MSA)
+3. **Select your file** from your computer
+4. **Click "Upload File"**
+5. **Repeat for all 3 file types**
+
+**For Multi-Segment Viruses:**
+1. **Select your virus** from the dropdown
+2. **Choose the segment** you want to upload files for
+3. **Upload files for each segment** (Reference Genome, Reference Proteome, MSA)
+4. **Repeat for all segments**
+
+##### **Upload Checklist**
+The interface includes an interactive checklist that shows:
+- ✅ **Reference Genome**: Uploaded
+- ✅ **Reference Proteome**: Uploaded  
+- ✅ **MSA File**: Uploaded
+
+**Remember**: You must upload all 3 file types (reference genome, reference proteome, MSA) before you can start analysis!
+
+##### **File Organization**
+Your uploaded files are automatically organized with user-friendly names:
+- **Single-segment viruses**: `data/VirusName/refs/` and `data/VirusName/clustalW/`
+- **Multi-segment viruses**: `data/VirusName/SegmentName/refs/` and `data/VirusName/SegmentName/clustalW/`
+
+**File Naming Convention:**
+- **Reference Genome**: `VirusName_reference_genome.fasta`
+- **Reference Proteome**: `VirusName_proteome.fasta` 
+- **MSA File**: `VirusName_msa.txt`
+
+If you upload multiple files of the same type, they'll be numbered (e.g., `VirusName_proteome_1.fasta`, `VirusName_proteome_2.fasta`).
+
+#### 2. **Analysis Tab**
+- **Virus Selection**: Choose from available viruses or custom viruses
+- **Analysis Configuration**: Set genome ID, processing options, and frameshift detection
+- **Real-time Monitoring**: Live status updates during analysis
+- **Background Processing**: Non-blocking analysis with job queue
+
+#### 3. **Files Tab**
+- **Data Files Management**: View and manage uploaded data files
+- **Result Files Management**: Access analysis results and reports
+- **Bulk ZIP Downloads**: Download complete datasets as organized ZIP files
+  - **Data Files ZIP**: Reference Genome, Reference Proteome, MSA files
+  - **Result Files ZIP**: Analysis results, reports, and visualizations
+- **Clean File Listings**: Simplified file display without redundant information
+
+#### 4. **History Tab**
+- **Job Tracking**: View all analysis jobs with status and timestamps
+- **Job Management**: Monitor completed, running, and failed jobs
+- **Status Indicators**: Visual status badges for easy identification
+
+### File Download Options
+
+#### **Individual ZIP Downloads**
+- **"Download All Data Files (ZIP)"**: Downloads all data files for selected virus
+- **"Download All Result Files (ZIP)"**: Downloads all analysis results
+
+#### **File Organization in ZIP**
+```
+virus_name_data_files_20250115_143022.zip
+├── data/
+│   ├── virus_name/
+│   │   ├── refs/
+│   │   │   ├── reference_genome.fasta
+│   │   │   └── proteome.fasta
+│   │   └── clustalW/
+│   │       └── msa_file.txt
+└── results/
+    └── virus_name/
+        ├── mutation_summary.csv
+        ├── hot_mutations.csv
+        └── analysis_report.txt
+```
+
+### After Upload and Analysis
+
+Once all files are uploaded:
+1. **Go to the "Analysis" tab**
+2. **Select your virus** (or custom virus) - the same one you uploaded files for
+3. **Configure analysis parameters**:
+   - **Process all genomes**: Recommended (processes all sequences in your MSA file)
+   - **Detect frameshifts**: Optional (identifies potential frameshifting sites)
+4. **Start the analysis** - the system will automatically use your uploaded files
+5. **Monitor progress** in the "History" tab
+6. **Download results** from the "Files" tab using the ZIP download options
+
+**Note**: You don't need to upload MSA files again in the Analysis tab - the system uses the files you already uploaded in the Data Upload tab.
+
+### Tips for Success
+
+- **Use descriptive virus names** for custom viruses
+- **Ensure file formats are correct** (FASTA for genomes/proteomes, text/FASTA for MSA)
+- **Check the upload checklist** to ensure all required files are uploaded
+- **Use the ZIP download options** for convenient bulk downloads
+- **Monitor job progress** in the History tab for long-running analyses
+
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -71,9 +214,13 @@ VARIANT (Viral mutAtion trackeR aImed At GeNome and proTein-level) is now availa
 | GET | `/api/viruses` | List available viruses |
 | POST | `/api/analyze` | Start analysis job |
 | GET | `/api/job/{job_id}` | Get job status |
-| POST | `/api/upload-msa` | Upload MSA file |
+| POST | `/api/upload-data` | Upload data files |
+| POST | `/api/create-custom-virus` | Create custom virus |
 | GET | `/api/jobs` | List all jobs |
-| GET | `/api/results/{job_id}/download` | Download results |
+| GET | `/api/results/{job_id}/download` | Download job results |
+| GET | `/api/download-virus-files/{virus_name}` | Download virus files as ZIP |
+| GET | `/api/data-files/{virus_name}` | List data files for virus |
+| GET | `/api/result-files/{virus_name}` | List result files for virus |
 
 ### Example API Usage
 
@@ -83,6 +230,14 @@ import requests
 # List available viruses
 response = requests.get('http://localhost:8000/api/viruses')
 viruses = response.json()
+
+# Create custom virus
+custom_virus = {
+    "virus_name": "MyCustomVirus",
+    "is_multi_segment": False,
+    "segments": None
+}
+response = requests.post('http://localhost:8000/api/create-custom-virus', json=custom_virus)
 
 # Start analysis
 analysis_request = {
@@ -95,11 +250,32 @@ analysis_request = {
 response = requests.post('http://localhost:8000/api/analyze', json=analysis_request)
 job = response.json()
 
-# Check job status
-job_id = job['job_id']
-response = requests.get(f'http://localhost:8000/api/job/{job_id}')
-status = response.json()
+# Download virus files as ZIP
+response = requests.get('http://localhost:8000/api/download-virus-files/SARS-CoV-2?type=data')
+# Saves as: SARS-CoV-2_data_files_20250115_143022.zip
 ```
+
+## NYU Branding
+
+The web application features NYU's official color palette:
+
+### **Primary Colors**
+- **NYU Violet** (`#57068c`): Primary branding and headers
+- **Ultra Violet** (`#8900e1`): Secondary elements and gradients
+- **NYU Black** (`#000000`): Text and dark elements
+
+### **Secondary Colors**
+- **Deep Violet** (`#330662`): Hover states and darker elements
+- **Light Violet 2** (`#eee6f3`): Background gradients
+- **NYU Teal** (`#009b8a`): Success states and positive actions
+- **NYU Magenta** (`#fb0f78`): Error/danger states
+- **NYU Yellow** (`#f4ec51`): Warning states and file indicators
+
+### **Design Features**
+- **Gradient Headers**: NYU Violet to Ultra Violet gradients
+- **Professional Cards**: Clean card layouts with NYU color schemes
+- **Consistent Buttons**: NYU-themed button styles with hover effects
+- **Accessible Design**: High contrast and readable typography
 
 ## Configuration
 
@@ -163,9 +339,10 @@ docker run -p 8000:8000 variant-web
 ### Components
 
 - **FastAPI Backend**: RESTful API with automatic documentation
-- **Jinja2 Templates**: Server-side templating
+- **Jinja2 Templates**: Server-side templating with NYU branding
 - **Background Tasks**: Asynchronous job processing
 - **File Management**: Secure file upload and result storage
+- **ZIP Generation**: Dynamic ZIP file creation for bulk downloads
 - **Job Queue**: In-memory job management (can be extended to Redis/Celery)
 
 ### Directory Structure
@@ -174,10 +351,10 @@ docker run -p 8000:8000 variant-web
 VARIANT/
 ├── web_app.py              # FastAPI application
 ├── templates/
-│   └── index.html          # Web interface template
+│   └── index.html          # NYU-themed web interface template
 ├── static/                 # Static files (CSS, JS, images)
 ├── uploads/                # Uploaded MSA files
-├── results/                # Analysis results
+├── results/                # Analysis results and ZIP files
 ├── data/                   # Virus data files
 ├── result/                 # Original analysis outputs
 ├── virus_config.yaml       # Virus configuration
@@ -211,6 +388,13 @@ VARIANT/
    export PYTHONPATH=/path/to/VARIANT
    ```
 
+4. **ZIP download issues**:
+   ```bash
+   # Check results directory permissions
+   chmod -R 755 results/
+   # Ensure sufficient disk space for ZIP generation
+   ```
+
 ### Logs and Debugging
 
 ```bash
@@ -231,6 +415,7 @@ python web_app.py --debug
 1. **New API endpoints**: Add to `web_app.py`
 2. **UI improvements**: Modify `templates/index.html`
 3. **Virus support**: Update `virus_config.yaml`
+4. **NYU branding**: Follow NYU color palette guidelines
 
 ### Testing
 
@@ -242,6 +427,9 @@ pytest tests/
 curl -X POST http://localhost:8000/api/analyze \
   -H "Content-Type: application/json" \
   -d '{"virus_name": "SARS-CoV-2"}'
+
+# ZIP download testing
+curl -O http://localhost:8000/api/download-virus-files/SARS-CoV-2?type=data
 ```
 
 ## Contributing

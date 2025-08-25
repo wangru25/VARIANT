@@ -489,6 +489,58 @@ async def download_file(file_path: str):
         filename=os.path.basename(file_path)
     )
 
+@app.get("/api/download-virus-files/{virus_name}")
+async def download_virus_files(virus_name: str, type: str = "all", segment: Optional[str] = None):
+    '''Download all files for a virus as a zip file.
+    
+    Args:
+        virus_name: Name of the virus
+        type: Type of files to download ('data', 'results', 'all')
+        segment: Segment name for multi-segment viruses
+    '''
+    # Security check: ensure virus name is valid
+    if not virus_name or ".." in virus_name or "/" in virus_name:
+        raise HTTPException(status_code=400, detail="Invalid virus name")
+    
+    # Create zip file
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    zip_filename = f"{virus_name}_{type}_files_{timestamp}.zip"
+    zip_path = f"results/{zip_filename}"
+    
+    with zipfile.ZipFile(zip_path, 'w') as zipf:
+        if type in ["data", "all"]:
+            # Add data files
+            data_dir = f"data/{virus_name}"
+            if segment:
+                data_dir += f"/{segment}"
+            
+            if os.path.exists(data_dir):
+                for root, dirs, files in os.walk(data_dir):
+                    for file in files:
+                        file_path = os.path.join(root, file)
+                        arc_name = f"data/{os.path.relpath(file_path, 'data')}"
+                        zipf.write(file_path, arc_name)
+        
+        if type in ["results", "all"]:
+            # Add result files
+            result_dir = f"result/{virus_name}"
+            if segment:
+                result_dir += f"/{segment}"
+            
+            if os.path.exists(result_dir):
+                for root, dirs, files in os.walk(result_dir):
+                    for file in files:
+                        if file.endswith(('.txt', '.csv', '.html', '.pdf')):
+                            file_path = os.path.join(root, file)
+                            arc_name = f"results/{os.path.relpath(file_path, 'result')}"
+                            zipf.write(file_path, arc_name)
+    
+    return FileResponse(
+        zip_path,
+        media_type="application/zip",
+        filename=zip_filename
+    )
+
 async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
     '''Run the actual analysis in the background.'''
     try:

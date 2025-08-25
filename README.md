@@ -14,6 +14,43 @@ A comprehensive Python framework for analyzing viral mutations, supporting both 
 - **🔄 Programmed Ribosomal Frameshifting (PRF) detection** (+1/-1 frameshifting)
 - **📈 Structured output**: Text and CSV formats for analysis and visualization
 - **⚙️ Configurable per-virus settings**: Easy setup for new viruses
+- **🌐 Web Application**: Modern NYU-themed web interface with bulk ZIP downloads
+- **🗜️ Bulk File Management**: Organized ZIP downloads for complete datasets
+
+## Web Application
+
+VARIANT now includes a modern web-based interface featuring NYU's official branding and streamlined file management:
+
+### **🎨 NYU-Themed Interface**
+- **Professional Design**: NYU Violet and Ultra Violet color scheme
+- **Responsive Layout**: Works on desktop, tablet, and mobile devices
+- **Accessible Design**: High contrast and readable typography
+
+### **📁 Streamlined File Management**
+- **Bulk ZIP Downloads**: Download complete datasets as organized ZIP files
+- **Clean File Listings**: Simplified file display without redundant information
+- **Upload Progress Tracking**: Visual indicators for file upload status
+- **Custom Virus Support**: Add new virus types through the web interface
+
+### **🔬 Analysis Features**
+- **Real-time Monitoring**: Live status updates during analysis
+- **Background Processing**: Non-blocking analysis with job queue
+- **Job History**: Track and manage previous analysis jobs
+- **Multi-virus Support**: Analyze all supported viruses through the web interface
+
+### **Quick Start**
+```bash
+# Deploy with Docker
+git clone https://github.com/wangru25/VARIANT.git
+cd VARIANT
+./deploy.sh
+
+# Access the application
+# Web Interface: http://localhost:8000
+# API Documentation: http://localhost:8000/docs
+```
+
+📖 **[Complete Web Application Guide](README_WEB.md)**
 
 ## Supported Viruses
 

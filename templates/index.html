@@ -8,29 +8,56 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --success-color: #27ae60;
-            --warning-color: #f39c12;
+            /* NYU Primary Colors */
+            --nyu-violet: #57068c;
+            --nyu-ultra-violet: #8900e1;
+            --nyu-black: #000000;
+            
+            /* NYU Secondary Colors */
+            --nyu-deep-violet: #330662;
+            --nyu-medium-violet-1: #702b9d;
+            --nyu-medium-violet-2: #7b5aa6;
+            --nyu-light-violet-1: #ab82c5;
+            --nyu-light-violet-2: #eee6f3;
+            
+            /* NYU Neutral Colors */
+            --nyu-dark-gray: #404040;
+            --nyu-medium-gray-1: #6d6d6d;
+            --nyu-medium-gray-2: #b8b8b8;
+            --nyu-medium-gray-3: #d6d6d6;
+            --nyu-light-gray: #f2f2f2;
+            --nyu-white: #ffffff;
+            
+            /* NYU Accent Colors */
+            --nyu-teal: #009b8a;
+            --nyu-magenta: #fb0f78;
+            --nyu-blue: #59B2D1;
+            --nyu-yellow: #f4ec51;
+            
+            /* Legacy variable names for compatibility */
+            --primary-color: var(--nyu-violet);
+            --secondary-color: var(--nyu-ultra-violet);
+            --accent-color: var(--nyu-magenta);
+            --success-color: var(--nyu-teal);
+            --warning-color: var(--nyu-yellow);
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--nyu-light-violet-2) 0%, var(--nyu-light-violet-1) 100%);
             min-height: 100vh;
         }
         
         .main-container {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(87, 6, 140, 0.1);
             margin: 2rem auto;
             max-width: 1400px;
         }
         
         .header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--nyu-violet), var(--nyu-ultra-violet));
             color: white;
             padding: 2rem;
             border-radius: 20px 20px 0 0;
@@ -55,7 +82,7 @@
         .card {
             border: none;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(87, 6, 140, 0.1);
             transition: transform 0.3s ease;
         }
         
@@ -64,14 +91,14 @@
         }
         
         .card-header {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            background: linear-gradient(135deg, var(--nyu-ultra-violet), var(--nyu-violet));
             color: white;
             border-radius: 15px 15px 0 0 !important;
             font-weight: 600;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            background: linear-gradient(135deg, var(--nyu-ultra-violet), var(--nyu-violet));
             border: none;
             border-radius: 25px;
             padding: 0.75rem 2rem;
@@ -81,11 +108,12 @@
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 10px 20px rgba(137, 0, 225, 0.3);
+            background: linear-gradient(135deg, var(--nyu-violet), var(--nyu-deep-violet));
         }
         
         .btn-success {
-            background: linear-gradient(135deg, var(--success-color), #2ecc71);
+            background: linear-gradient(135deg, var(--nyu-teal), #00b894);
             border: none;
             border-radius: 25px;
             padding: 0.75rem 2rem;
@@ -95,37 +123,62 @@
         
         .btn-success:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 155, 138, 0.3);
         }
         
         .btn-warning {
-            background: linear-gradient(135deg, var(--warning-color), #f1c40f);
+            background: linear-gradient(135deg, var(--nyu-yellow), #f1c40f);
             border: none;
             border-radius: 25px;
             padding: 0.75rem 2rem;
             font-weight: 600;
             transition: all 0.3s ease;
+            color: var(--nyu-dark-gray);
         }
         
         .btn-warning:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(243, 156, 18, 0.3);
+            box-shadow: 0 10px 20px rgba(244, 236, 81, 0.3);
         }
         
         .form-control, .form-select {
             border-radius: 10px;
-            border: 2px solid #e9ecef;
+            border: 2px solid var(--nyu-medium-gray-3);
             transition: all 0.3s ease;
         }
         
         .form-control:focus, .form-select:focus {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+            border-color: var(--nyu-ultra-violet);
+            box-shadow: 0 0 0 0.2rem rgba(137, 0, 225, 0.25);
         }
         
         .alert {
             border-radius: 15px;
             border: none;
+        }
+        
+        .alert-info {
+            background-color: var(--nyu-light-violet-2);
+            color: var(--nyu-deep-violet);
+            border-left: 4px solid var(--nyu-medium-violet-2);
+        }
+        
+        .alert-warning {
+            background-color: rgba(244, 236, 81, 0.2);
+            color: var(--nyu-dark-gray);
+            border-left: 4px solid var(--nyu-yellow);
+        }
+        
+        .alert-success {
+            background-color: rgba(0, 155, 138, 0.1);
+            color: var(--nyu-deep-violet);
+            border-left: 4px solid var(--nyu-teal);
+        }
+        
+        .alert-danger {
+            background-color: rgba(251, 15, 120, 0.1);
+            color: var(--nyu-deep-violet);
+            border-left: 4px solid var(--nyu-magenta);
         }
         
         .notification {
@@ -135,7 +188,7 @@
             z-index: 1000;
             min-width: 300px;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(87, 6, 140, 0.2);
         }
         
         .loading-spinner {
@@ -145,11 +198,11 @@
         }
         
         .file-item {
-            background: #f8f9fa;
+            background: var(--nyu-light-gray);
             border-radius: 10px;
             padding: 1rem;
             margin-bottom: 1rem;
-            border-left: 4px solid var(--secondary-color);
+            border-left: 4px solid var(--nyu-ultra-violet);
         }
         
         .file-type-badge {
@@ -160,33 +213,74 @@
         }
         
         .file-type-reference_genome {
-            background: #e3f2fd;
-            color: #1976d2;
+            background: var(--nyu-light-violet-2);
+            color: var(--nyu-violet);
         }
         
         .file-type-proteome {
-            background: #e8f5e8;
-            color: #388e3c;
+            background: rgba(0, 155, 138, 0.1);
+            color: var(--nyu-teal);
         }
         
         .file-type-msa {
-            background: #fff3e0;
-            color: #f57c00;
+            background: rgba(244, 236, 81, 0.2);
+            color: var(--nyu-dark-gray);
         }
         
         .nav-tabs {
-            border-bottom: 2px solid #e9ecef;
+            border-bottom: 2px solid var(--nyu-medium-gray-3);
         }
         
         .nav-tabs .nav-link {
             border: none;
-            color: #6c757d;
+            color: var(--nyu-medium-gray-1);
             font-weight: 600;
         }
         
         .nav-tabs .nav-link.active {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            background: linear-gradient(135deg, var(--nyu-ultra-violet), var(--nyu-violet));
             color: white;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            color: var(--nyu-violet);
+        }
+        
+        .badge.bg-primary {
+            background: var(--nyu-violet) !important;
+        }
+        
+        .badge.bg-success {
+            background: var(--nyu-teal) !important;
+        }
+        
+        .badge.bg-warning {
+            background: var(--nyu-yellow) !important;
+            color: var(--nyu-dark-gray) !important;
+        }
+        
+        .badge.bg-danger {
+            background: var(--nyu-magenta) !important;
+        }
+        
+        .text-primary {
+            color: var(--nyu-violet) !important;
+        }
+        
+        .text-success {
+            color: var(--nyu-teal) !important;
+        }
+        
+        .text-warning {
+            color: var(--nyu-yellow) !important;
+        }
+        
+        .text-danger {
+            color: var(--nyu-magenta) !important;
+        }
+        
+        .spinner-border.text-primary {
+            color: var(--nyu-violet) !important;
         }
     </style>
 </head>
@@ -235,9 +329,9 @@
                             <h5><i class="fas fa-info-circle"></i> How to Upload Your Data</h5>
                             <p class="mb-2"><strong>You need to upload 3 types of files for each virus:</strong></p>
                             <ol class="mb-0">
-                                <li><strong>Reference Genome</strong> (.fasta, .fa, .fna) - Complete genome sequence</li>
-                                <li><strong>Proteome</strong> (.fasta, .fa, .faa) - Protein sequences</li>
-                                <li><strong>MSA File</strong> (.txt, .fasta, .fa, .aln, .clustal) - Multiple sequence alignment</li>
+                                <li><strong>Reference Genome</strong> (.fasta) - Complete genome sequence</li>
+                                <li><strong>Proteome</strong> (.fasta) - Protein sequences</li>
+                                <li><strong>MSA File</strong> (.txt) - Multiple sequence alignment</li>
                             </ol>
                         </div>
                         
@@ -349,9 +443,9 @@
                                                 </label>
                                                 <select class="form-select" id="fileTypeSelect" required>
                                                     <option value="">Select file type...</option>
-                                                    <option value="reference_genome">📄 Reference Genome (.fasta, .fa, .fna)</option>
-                                                    <option value="proteome">🧬 Proteome (.fasta, .fa, .faa)</option>
-                                                    <option value="msa">🔗 MSA File (.txt, .fasta, .fa, .aln, .clustal)</option>
+                                                    <option value="reference_genome">📄 Reference Genome (.fasta)</option>
+                                                    <option value="proteome">🧬 Proteome (.fasta)</option>
+                                                    <option value="msa">🔗 MSA File (.txt)</option>
                                                 </select>
                                                 <div class="form-text">Choose the type of file you're uploading</div>
                                             </div>
@@ -383,9 +477,9 @@
                                         <div class="alert alert-info">
                                             <h6><i class="fas fa-lightbulb"></i> Required Files for Analysis:</h6>
                                             <ul class="mb-0">
-                                                <li><strong>Reference Genome:</strong> FASTA format (.fasta, .fa, .fna)</li>
-                                                <li><strong>Proteome:</strong> FASTA format (.fasta, .fa, .faa)</li>
-                                                <li><strong>MSA File:</strong> Multiple sequence alignment (.txt, .fasta, .fa, .aln, .clustal)</li>
+                                                <li><strong>Reference Genome:</strong> FASTA format (.fasta)</li>
+                                                <li><strong>Proteome:</strong> FASTA format (.fasta)</li>
+                                                <li><strong>MSA File:</strong> Multiple sequence alignment (.txt)</li>
                                             </ul>
                                         </div>
                                         
@@ -524,6 +618,11 @@
                                                 <option value="">Select a virus...</option>
                                             </select>
                                         </div>
+                                        <div class="mb-3" id="dataFilesZipDownload" style="display: none;">
+                                            <a href="#" class="btn btn-success btn-sm" id="downloadDataZipBtn">
+                                                <i class="fas fa-file-archive"></i> Download All Data Files (ZIP)
+                                            </a>
+                                        </div>
                                         <div id="dataFilesList">
                                             <p class="text-muted">Select a virus to view uploaded data files.</p>
                                         </div>
@@ -543,6 +642,11 @@
                                                 <option value="">Select a virus...</option>
                                             </select>
                                         </div>
+                                        <div class="mb-3" id="resultFilesZipDownload" style="display: none;">
+                                            <a href="#" class="btn btn-success btn-sm" id="downloadResultZipBtn">
+                                                <i class="fas fa-file-archive"></i> Download All Result Files (ZIP)
+                                            </a>
+                                        </div>
                                         <div id="resultFilesList">
                                             <p class="text-muted">Select a virus to view analysis results.</p>
                                         </div>
@@ -550,6 +654,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                     
                     <!-- History Tab -->
@@ -631,11 +736,34 @@
             // Data files virus selection
             document.getElementById('dataFilesVirusSelect').addEventListener('change', function() {
                 loadDataFiles(this.value);
+                updateDataFilesDownloadButtons(this.value);
             });
             
             // Result files virus selection
             document.getElementById('resultFilesVirusSelect').addEventListener('change', function() {
                 loadResultFiles(this.value);
+                updateResultFilesDownloadButtons(this.value);
+            });
+
+            // Individual zip download buttons
+            document.getElementById('downloadDataZipBtn').addEventListener('click', async (e) => {
+                e.preventDefault();
+                const virusName = document.getElementById('dataFilesVirusSelect').value;
+                if (virusName) {
+                    await downloadAllFiles(virusName, 'data');
+                } else {
+                    showNotification('Please select a virus first.', 'warning');
+                }
+            });
+
+            document.getElementById('downloadResultZipBtn').addEventListener('click', async (e) => {
+                e.preventDefault();
+                const virusName = document.getElementById('resultFilesVirusSelect').value;
+                if (virusName) {
+                    await downloadAllFiles(virusName, 'results');
+                } else {
+                    showNotification('Please select a virus first.', 'warning');
+                }
             });
         }
         
@@ -806,6 +934,7 @@
                     // Refresh file lists
                     if (document.getElementById('dataFilesVirusSelect').value === virusName) {
                         loadDataFiles(virusName);
+                        updateDataFilesDownloadButtons(virusName);
                     }
                 } else {
                     const error = await response.json();
@@ -941,13 +1070,9 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <strong>${file.filename}</strong>
-                                    <br>
-                                    <small class="text-muted">${file.path}</small>
                                 </div>
                                 <div class="text-end">
                                     <span class="file-type-badge ${typeClass}">${file.type}</span>
-                                    <br>
-                                    <small class="text-muted">${formatFileSize(file.size)}</small>
                                 </div>
                             </div>
                         </div>
@@ -981,16 +1106,6 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <strong>${file.filename}</strong>
-                                    <br>
-                                    <small class="text-muted">${file.path}</small>
-                                </div>
-                                <div class="text-end">
-                                    <a href="/api/download-file?file_path=${encodeURIComponent(file.path)}" 
-                                       class="btn btn-sm btn-primary">
-                                        <i class="fas fa-download"></i> Download
-                                    </a>
-                                    <br>
-                                    <small class="text-muted">${formatFileSize(file.size)}</small>
                                 </div>
                             </div>
                         </div>
@@ -1000,6 +1115,33 @@
                 fileList.innerHTML = html;
             } catch (error) {
                 console.error('Error loading result files:', error);
+            }
+        }
+
+        // Update download buttons visibility
+        function updateDataFilesDownloadButtons(virusName) {
+            const dataFilesZipDownload = document.getElementById('dataFilesZipDownload');
+            const downloadDataZipBtn = document.getElementById('downloadDataZipBtn');
+
+            if (virusName) {
+                dataFilesZipDownload.style.display = 'block';
+                downloadDataZipBtn.href = `/api/download-virus-files/${virusName}?type=data`;
+            } else {
+                dataFilesZipDownload.style.display = 'none';
+                downloadDataZipBtn.href = '#';
+            }
+        }
+
+        function updateResultFilesDownloadButtons(virusName) {
+            const resultFilesZipDownload = document.getElementById('resultFilesZipDownload');
+            const downloadResultZipBtn = document.getElementById('downloadResultZipBtn');
+
+            if (virusName) {
+                resultFilesZipDownload.style.display = 'block';
+                downloadResultZipBtn.href = `/api/download-virus-files/${virusName}?type=results`;
+            } else {
+                resultFilesZipDownload.style.display = 'none';
+                downloadResultZipBtn.href = '#';
             }
         }
         
@@ -1077,12 +1219,6 @@
                                         <span class="badge bg-${statusClass}">
                                             <i class="fas fa-${statusIcon}"></i> ${job.status}
                                         </span>
-                                        ${job.status === 'completed' ? `
-                                            <br>
-                                            <a href="/api/results/${job.job_id}/download" class="btn btn-sm btn-primary mt-2">
-                                                <i class="fas fa-download"></i> Download Results
-                                            </a>
-                                        ` : ''}
                                     </div>
                                 </div>
                             </div>
@@ -1093,6 +1229,31 @@
                 historyDiv.innerHTML = html;
             } catch (error) {
                 console.error('Error loading job history:', error);
+            }
+        }
+
+        // Bulk download all files for a virus
+        async function downloadAllFiles(virusName, type) {
+            try {
+                const response = await fetch(`/api/download-virus-files/${virusName}?type=${type}`);
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${virusName}_${type}_files.zip`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                    showNotification(`Downloading ${type.charAt(0).toUpperCase() + type.slice(1)} files for ${virusName}...`, 'success');
+                } else {
+                    const error = await response.json();
+                    showNotification(`❌ Failed to download ${type} files: ${error.detail}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error initiating bulk download:', error);
+                showNotification('❌ Error initiating bulk download', 'error');
             }
         }
         
