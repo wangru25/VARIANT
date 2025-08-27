@@ -1232,6 +1232,11 @@
             // Virus selection for data upload
             document.getElementById('uploadVirusSelect').addEventListener('change', function() {
                 handleVirusSelection(this, 'uploadSegmentSelector', 'uploadSegmentSelect');
+                // Clear segment selection when switching viruses
+                const segmentSelect = document.getElementById('uploadSegmentSelect');
+                if (segmentSelect) {
+                    segmentSelect.value = '';
+                }
                 // Update checklist for selected virus
                 if (this.value) {
                     updateUploadChecklist(this.value);
@@ -1499,7 +1504,7 @@
                     apiUrl += `?segment=${selectedSegment}`;
                 }
                 
-                console.log('Checking files for:', virusName, 'segment:', selectedSegment);
+                console.log('Checking files for:', virusName, 'segment:', selectedSegment, 'isMultiSegment:', isMultiSegment);
                 const response = await fetch(apiUrl);
                 const data = await response.json();
                 
