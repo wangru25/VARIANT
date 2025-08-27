@@ -54,7 +54,7 @@ cd VARIANT
 # API Documentation: https://your-app-name.up.railway.app/docs
 ```
 
-📖 **[Complete Web Application Guide](README_WEB.md)** | 🚀 **[Railway Deployment Guide](RAILWAY_DEPLOYMENT.md)**
+📖 **[Complete Web Application Guide](docs/README_WEB.md)** | 🚀 **[Railway Deployment Guide](docs/RAILWAY_DEPLOYMENT.md)**
 
 ## Supported Viruses
 
