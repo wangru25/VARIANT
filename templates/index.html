@@ -243,6 +243,11 @@
             color: #856404;
         }
         
+        .file-type-fasta_sequences {
+            background: #e2e3e5;
+            color: #6c757d;
+        }
+        
         .nav-tabs {
             border-bottom: 2px solid #dee2e6;
         }
@@ -1017,7 +1022,7 @@
                                                 <tr>
                                                     <td><code class="bg-light px-2 py-1 rounded">{genome_id}_row_hot_mutations.csv</code></td>
                                                     <td><strong>Hot and Row Mutations</strong></td>
-                                                    <td class="text-muted">Frequently occurring mutations across samples</td>
+                                                    <td class="text-muted">Spaced and adjacent nucleotide substitutions</td>
                                                 </tr>
                                                 <tr>
                                                     <td><code class="bg-light px-2 py-1 rounded">{genome_id}.txt</code></td>
@@ -1091,31 +1096,31 @@
                                     </div>
                                 </section>
                                 
-                                <!-- Sample Results Viewer Section -->
+                                <!-- Sample Output Section -->
                                 <section id="sample-results" class="mb-5">
                                     <div class="border-bottom border-3 border-primary pb-3 mb-4">
-                                        <h2 class="text-primary mb-3">Sample Output Preview</h2>
+                                        <h2 class="text-primary mb-3">Sample Output Files</h2>
                                     </div>
                                     <div class="bg-light p-4 rounded mb-4">
-                                        <p class="lead mb-0">See what VARIANT analysis results look like before running your own analysis:</p>
+                                        <p class="lead mb-0">Download real VARIANT analysis results to see the output format:</p>
                                     </div>
                                     
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <div class="card border-0 shadow-sm h-100">
                                                 <div class="card-body">
-                                                    <h4 class="text-primary mb-3">Mutation Summary</h4>
-                                                    <p class="text-muted mb-3">View a sample mutation summary CSV file:</p>
+                                                    <h4 class="text-primary mb-3">Mutation Summary CSV</h4>
+                                                    <p class="text-muted mb-3">Download a real mutation summary file to see the output format:</p>
                                                     <div class="d-grid gap-2 mb-3">
-                                                        <button class="btn btn-primary" onclick="showSampleMutationSummary()">
-                                                            <i class="fas fa-table me-2"></i>View Sample Mutation Summary
-                                                        </button>
+                                                        <a href="/api/download-file?file_path=result/SARS-CoV-2/EPI_ISL_16127650_mutation_summary.csv" class="btn btn-primary">
+                                                            <i class="fas fa-download me-2"></i>Download Sample Mutation Summary
+                                                        </a>
                                                     </div>
                                                     <ul class="list-unstyled mb-0">
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Complete mutation analysis</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Protein impact assessment</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Biological classification</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>CSV format for analysis</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Real analysis results</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Complete mutation data</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>CSV format ready for analysis</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>5.1KB file size</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -1123,42 +1128,19 @@
                                         <div class="col-md-6 mb-4">
                                             <div class="card border-0 shadow-sm h-100">
                                                 <div class="card-body">
-                                                    <h4 class="text-primary mb-3">Hot Mutations</h4>
-                                                    <p class="text-muted mb-3">View a sample hot mutations analysis:</p>
+                                                    <h4 class="text-primary mb-3">Hot Mutations CSV</h4>
+                                                    <p class="text-muted mb-3">Download a real hot mutations file to see the output format:</p>
                                                     <div class="d-grid gap-2 mb-3">
-                                                        <button class="btn btn-primary" onclick="showSampleHotMutations()">
-                                                            <i class="fas fa-fire me-2"></i>View Sample Hot Mutations
-                                                        </button>
+                                                        <a href="/api/download-file?file_path=result/SARS-CoV-2/EPI_ISL_16127650_row_hot_mutations.csv" class="btn btn-primary">
+                                                            <i class="fas fa-download me-2"></i>Download Sample Hot and Row Mutations
+                                                        </a>
                                                     </div>
                                                     <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Real analysis results</li>
                                                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Frequently occurring mutations</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Evolutionary patterns</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Statistical significance</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Detailed annotations</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>CSV format ready for analysis</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>458B file size</li>
                                                     </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Sample Results Modal -->
-                                    <div class="modal fade" id="sampleResultsModal" tabindex="-1">
-                                        <div class="modal-dialog modal-xl">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="sampleResultsModalTitle">Sample Results</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div id="sampleResultsContent">
-                                                        <!-- Content will be loaded here -->
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary" onclick="downloadSampleFile()">
-                                                        <i class="fas fa-download me-2"></i>Download Sample File
-                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1630,6 +1612,18 @@
                 let html = '';
                 data.files.forEach(file => {
                     const typeClass = `file-type-${file.type}`;
+                    // Convert file type to display name
+                    let displayType = file.type;
+                    if (file.type === 'proteome') {
+                        displayType = 'Reference Proteome';
+                    } else if (file.type === 'reference_genome') {
+                        displayType = 'Reference Genome';
+                    } else if (file.type === 'fasta_sequences') {
+                        displayType = 'FASTA Sequences (Optional)';
+                    } else if (file.type === 'msa') {
+                        displayType = 'MSA File';
+                    }
+                    
                     html += `
                         <div class="file-item">
                             <div class="d-flex justify-content-between align-items-center">
@@ -1637,7 +1631,7 @@
                                     <strong>${file.filename}</strong>
                                 </div>
                                 <div class="text-end">
-                                    <span class="file-type-badge ${typeClass}">${file.type}</span>
+                                    <span class="file-type-badge ${typeClass}">${displayType}</span>
                                 </div>
                             </div>
                         </div>
@@ -1862,94 +1856,7 @@
             }
         }
         
-        // Sample results viewer functions
-        function showSampleMutationSummary() {
-            const sampleData = `genome_id,mutation_type,position,reference_allele,mutant_allele,protein_change,impact,biological_classification
-EPI_ISL_12345678,SNP,23403,A,G,ORF1ab:A23403G,missense,moderate
-EPI_ISL_12345678,SNP,14408,C,T,ORF1ab:C14408T,silent,low
-EPI_ISL_12345678,SNP,28881,G,A,Spike:G28881A,missense,moderate
-EPI_ISL_12345678,SNP,28882,G,C,Spike:G28882C,missense,moderate
-EPI_ISL_12345678,SNP,28883,G,C,Spike:G28883C,missense,moderate`;
-            
-            document.getElementById('sampleResultsModalTitle').textContent = 'Sample Mutation Summary (CSV)';
-            document.getElementById('sampleResultsContent').innerHTML = `
-                <div class="mb-3">
-                    <h6 class="text-primary">Sample Mutation Summary CSV File</h6>
-                    <p class="text-muted">This file contains detailed mutation analysis for each genome, including:</p>
-                    <ul>
-                        <li><strong>genome_id:</strong> Unique identifier for each sequence</li>
-                        <li><strong>mutation_type:</strong> Type of mutation (SNP, insertion, deletion)</li>
-                        <li><strong>position:</strong> Genomic position of the mutation</li>
-                        <li><strong>reference_allele:</strong> Original nucleotide/amino acid</li>
-                        <li><strong>mutant_allele:</strong> New nucleotide/amino acid</li>
-                        <li><strong>protein_change:</strong> Protein-level change description</li>
-                        <li><strong>impact:</strong> Functional impact (missense, silent, nonsense)</li>
-                        <li><strong>biological_classification:</strong> Biological significance</li>
-                    </ul>
-                </div>
-                <div class="bg-light p-3 rounded">
-                    <pre class="mb-0"><code>${sampleData}</code></pre>
-                </div>
-            `;
-            
-            // Store sample data for download
-            window.currentSampleData = sampleData;
-            window.currentSampleFilename = 'sample_mutation_summary.csv';
-            
-            // Show modal
-            const modal = new bootstrap.Modal(document.getElementById('sampleResultsModal'));
-            modal.show();
-        }
-        
-        function showSampleHotMutations() {
-            const sampleData = `mutation,count,frequency,protein_impact,biological_significance
-Spike:D614G,156,78.0%,missense,moderate
-ORF1ab:P4715L,142,71.0%,missense,moderate
-N:R203K,89,44.5%,missense,moderate
-Spike:L452R,67,33.5%,missense,moderate
-ORF1ab:A1708D,45,22.5%,missense,moderate`;
-            
-            document.getElementById('sampleResultsModalTitle').textContent = 'Sample Hot Mutations (CSV)';
-            document.getElementById('sampleResultsContent').innerHTML = `
-                <div class="mb-3">
-                    <h6 class="text-primary">Sample Hot Mutations CSV File</h6>
-                    <p class="text-muted">This file contains frequently occurring mutations across multiple genomes:</p>
-                    <ul>
-                        <li><strong>mutation:</strong> Protein-level mutation description</li>
-                        <li><strong>count:</strong> Number of genomes with this mutation</li>
-                        <li><strong>frequency:</strong> Percentage of genomes with this mutation</li>
-                        <li><strong>protein_impact:</strong> Functional impact on protein</li>
-                        <li><strong>biological_significance:</strong> Biological importance</li>
-                    </ul>
-                </div>
-                <div class="bg-light p-3 rounded">
-                    <pre class="mb-0"><code>${sampleData}</code></pre>
-                </div>
-            `;
-            
-            // Store sample data for download
-            window.currentSampleData = sampleData;
-            window.currentSampleFilename = 'sample_hot_mutations.csv';
-            
-            // Show modal
-            const modal = new bootstrap.Modal(document.getElementById('sampleResultsModal'));
-            modal.show();
-        }
-        
-        function downloadSampleFile() {
-            if (window.currentSampleData && window.currentSampleFilename) {
-                const blob = new Blob([window.currentSampleData], { type: 'text/csv' });
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = window.currentSampleFilename;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(url);
-                showNotification(`✅ Downloaded ${window.currentSampleFilename}`, 'success');
-            }
-        }
+
         
         // Show notification
         function showNotification(message, type = 'info') {

@@ -482,6 +482,9 @@ async def get_data_files(virus_name: str, request: Request, segment: Optional[st
                         file_type = "proteome"
                 elif "clustalW" in file_path:
                     file_type = "msa"
+                elif "fasta" in file_path:
+                    # Files in fasta/ folder are FASTA sequences for MSA generation
+                    file_type = "fasta_sequences"
                 else:
                     # Additional fallback for files in main virus directory
                     if filename.endswith(('.fasta', '.fa', '.fna')):
