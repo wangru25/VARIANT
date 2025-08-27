@@ -171,11 +171,20 @@ def get_session_id(request: Request) -> str:
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     '''Render the main homepage.'''
-    return templates.TemplateResponse("index.html", {"request": request})
+    session_id = get_session_id(request)
+    response = templates.TemplateResponse("index.html", {"request": request})
+    
+    # Set session cookie if not already set
+    if not request.cookies.get("session_id"):
+        response.set_cookie(key="session_id", value=session_id, httponly=True, max_age=3600*24*7)  # 7 days
+    
+    return response
 
 @app.get("/api/viruses")
-async def get_available_viruses():
+async def get_available_viruses(request: Request):
     '''Get list of available viruses from configuration.'''
+    session_id = get_session_id(request)
+    
     try:
         config = load_virus_config()
         
@@ -198,8 +207,10 @@ async def get_available_viruses():
         raise HTTPException(status_code=500, detail=f"Error loading virus configuration: {str(e)}")
 
 @app.post("/api/create-custom-virus")
-async def create_custom_virus(custom_virus: CustomVirusRequest):
+async def create_custom_virus(custom_virus: CustomVirusRequest, request: Request):
     '''Create a new custom virus configuration.'''
+    session_id = get_session_id(request)
+    
     try:
         virus_config = create_custom_virus_config(
             custom_virus.virus_name,
@@ -222,9 +233,12 @@ async def upload_data_file(
     file_type: str = Form(...),
     segment: Optional[str] = Form(None),
     is_custom_virus: bool = Form(False),
-    file: UploadFile = File(...)
+    file: UploadFile = File(...),
+    request: Request = None
 ):
     '''Upload reference genome, proteome, or MSA files.'''
+    session_id = get_session_id(request) if request else "default"
+    
     allowed_extensions = {
         'reference_genome': ['.fasta', '.fa', '.fna'],
         'proteome': ['.fasta', '.fa', '.faa'],
@@ -324,8 +338,9 @@ async def upload_data_file(
         raise HTTPException(status_code=500, detail=f"Error uploading file: {str(e)}")
 
 @app.post("/api/analyze", response_model=AnalysisResult)
-async def start_analysis(analysis_request: AnalysisRequest, background_tasks: BackgroundTasks):
+async def start_analysis(analysis_request: AnalysisRequest, background_tasks: BackgroundTasks, request: Request):
     '''Start a virus mutation analysis job.'''
+    session_id = get_session_id(request)
     job_id = str(uuid.uuid4())
     
     # Create job record
@@ -336,7 +351,8 @@ async def start_analysis(analysis_request: AnalysisRequest, background_tasks: Ba
         "created_at": datetime.now().isoformat(),
         "request": analysis_request.dict(),
         "results": None,
-        "error": None
+        "error": None,
+        "session_id": session_id
     }
     
     analysis_jobs[job_id] = job_record
@@ -352,12 +368,19 @@ async def start_analysis(analysis_request: AnalysisRequest, background_tasks: Ba
     )
 
 @app.get("/api/job/{job_id}")
-async def get_job_status(job_id: str):
-    '''Get the status and results of an analysis job.'''
+async def get_job_status(job_id: str, request: Request):
+    '''Get the status and results of an analysis job for the current user session.'''
+    session_id = get_session_id(request)
+    
     if job_id not in analysis_jobs:
         raise HTTPException(status_code=404, detail="Job not found")
     
     job = analysis_jobs[job_id]
+    
+    # Check if job belongs to current user session
+    if job.get("session_id") != session_id:
+        raise HTTPException(status_code=403, detail="Access denied")
+    
     return {
         "job_id": job_id,
         "status": job["status"],
@@ -368,12 +391,19 @@ async def get_job_status(job_id: str):
     }
 
 @app.get("/api/results/{job_id}/download")
-async def download_results(job_id: str):
-    '''Download analysis results as a zip file.'''
+async def download_results(job_id: str, request: Request):
+    '''Download analysis results as a zip file for the current user session.'''
+    session_id = get_session_id(request)
+    
     if job_id not in analysis_jobs:
         raise HTTPException(status_code=404, detail="Job not found")
     
     job = analysis_jobs[job_id]
+    
+    # Check if job belongs to current user session
+    if job.get("session_id") != session_id:
+        raise HTTPException(status_code=403, detail="Access denied")
+    
     if job["status"] != "completed":
         raise HTTPException(status_code=400, detail="Analysis not completed")
     
@@ -404,8 +434,13 @@ async def download_results(job_id: str):
     )
 
 @app.get("/api/data-files/{virus_name}")
-async def get_data_files(virus_name: str, segment: Optional[str] = None):
-    '''Get list of uploaded data files for a virus.'''
+async def get_data_files(virus_name: str, request: Request, segment: Optional[str] = None):
+    '''Get list of uploaded data files for a virus (session-based access).'''
+    session_id = get_session_id(request)
+    
+    # For now, allow access to all virus data files
+    # In a more secure implementation, you might want to track which viruses each user has uploaded
+    # and only allow access to those specific viruses
     base_dir = f"data/{virus_name}"
     if segment:
         base_dir += f"/{segment}"
@@ -427,15 +462,41 @@ async def get_data_files(virus_name: str, segment: Optional[str] = None):
                 file_type = "proteome"
             elif filename.startswith(f"{virus_name}_msa"):
                 file_type = "msa"
+            # Handle multi-segment virus naming patterns
+            elif segment and filename.startswith(f"{segment}_reference_genome"):
+                file_type = "reference_genome"
+            elif segment and filename.startswith(f"{segment}_proteome"):
+                file_type = "proteome"
+            elif segment and filename.startswith(f"{segment}_msa"):
+                file_type = "msa"
             else:
                 # Fallback to directory-based detection for legacy files
                 if "refs" in file_path:
                     if filename.endswith(('.fasta', '.fa', '.fna')):
-                        file_type = "reference_genome"
+                        # Check if it's a proteome file by looking for protein sequences
+                        if filename.endswith(('.faa')) or 'proteome' in filename.lower():
+                            file_type = "proteome"
+                        else:
+                            file_type = "reference_genome"
                     elif filename.endswith(('.faa')):
                         file_type = "proteome"
                 elif "clustalW" in file_path:
                     file_type = "msa"
+                else:
+                    # Additional fallback for files in main virus directory
+                    if filename.endswith(('.fasta', '.fa', '.fna')):
+                        if 'proteome' in filename.lower():
+                            file_type = "proteome"
+                        elif any(keyword in filename.lower() for keyword in ['genome', 'ref', 'reference']):
+                            file_type = "reference_genome"
+                        else:
+                            # Default to reference genome for .fasta files in main directory
+                            file_type = "reference_genome"
+                    elif filename.endswith(('.txt', '.aln', '.clustal')):
+                        file_type = "msa"
+            
+            # Debug logging
+            print(f"File: {filename}, Path: {file_path}, Type: {file_type}")
             
             files.append({
                 "filename": filename,
@@ -448,7 +509,7 @@ async def get_data_files(virus_name: str, segment: Optional[str] = None):
     return {"files": files}
 
 @app.get("/api/result-files/{virus_name}")
-async def get_result_files(virus_name: str, segment: Optional[str] = None):
+async def get_result_files(virus_name: str, request: Request, segment: Optional[str] = None):
     '''Get list of result files for a virus.'''
     base_dir = f"result/{virus_name}"
     if segment:
@@ -474,8 +535,12 @@ async def get_result_files(virus_name: str, segment: Optional[str] = None):
     return {"files": files}
 
 @app.get("/api/download-file")
-async def download_file(file_path: str):
-    '''Download a specific file from the data or result directories.'''
+async def download_file(file_path: str, request: Request):
+    '''Download a specific file from the data or result directories (session-based access).'''
+    session_id = get_session_id(request)
+    
+    # For now, allow access to all files within allowed directories
+    # In a more secure implementation, you might want to track which files each user has access to
     if not os.path.exists(file_path):
         raise HTTPException(status_code=404, detail="File not found")
     
@@ -490,7 +555,7 @@ async def download_file(file_path: str):
     )
 
 @app.get("/api/download-virus-files/{virus_name}")
-async def download_virus_files(virus_name: str, type: str = "all", segment: Optional[str] = None):
+async def download_virus_files(virus_name: str, request: Request, type: str = "all", segment: Optional[str] = None):
     '''Download all files for a virus as a zip file.
     
     Args:
@@ -625,19 +690,20 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
         analysis_jobs[job_id]["error"] = str(e)
 
 @app.get("/api/jobs")
-async def list_jobs():
-    '''List all analysis jobs.'''
-    return {
-        "jobs": [
-            {
-                "job_id": job_id,
-                "status": job["status"],
-                "virus_name": job["virus_name"],
-                "created_at": job["created_at"]
-            }
-            for job_id, job in analysis_jobs.items()
-        ]
-    }
+async def list_jobs(request: Request):
+    '''List analysis jobs for the current user session.'''
+    session_id = get_session_id(request)
+    user_jobs = [
+        {
+            "job_id": job_id,
+            "status": job["status"],
+            "virus_name": job["virus_name"],
+            "created_at": job["created_at"]
+        }
+        for job_id, job in analysis_jobs.items()
+        if job.get("session_id") == session_id
+    ]
+    return {"jobs": user_jobs}
 
 if __name__ == "__main__":
     import os
