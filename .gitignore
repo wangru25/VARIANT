@@ -1,1 +1,13 @@
 .DS_Store
+
+# Output directories
+imgs/
+plot/
+
+# Generated visualization files
+*.html
+*.pdf
+
+# Keep specific plot files that are part of the repository
+!plot/tmp/
+!plot/genome_organization_visualization.py

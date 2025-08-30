@@ -390,6 +390,78 @@ Automatically generated for all processed genomes:
 - Structured for statistical analysis and visualization
 - Generated automatically with `--process-all` or single genome analysis
 
+## Visualization & Plotting
+
+VARIANT includes comprehensive visualization capabilities for generating publication-ready figures from your mutation analysis data.
+
+### 🎨 **Genome Organization Visualization**
+
+Generate professional genome organization plots showing protein positions and mutation hotspots:
+
+```bash
+# Generate genome organization plots for all viruses
+python plot/figure1_genome_analysis.py
+
+# This creates interactive HTML and static PDF files:
+# - plot/SARS-CoV-2_EPI_ISL_XXXXX_genome_organization.html
+# - plot/HIV-1_MW881698.1_genome_organization.html
+# - plot/Chikungunya_XXXXX_genome_organization.html
+# - plot/ZaireEbola_XXXXX_genome_organization.html
+```
+
+**Features:**
+- **Auto-detection**: Automatically finds proteome and mutation CSV files
+- **Multi-virus support**: Works with SARS-CoV-2, HIV-1, Chikungunya, ZaireEbola
+- **Mutation overlays**: Shows mutation hotspots on genome organization
+- **Interactive plots**: HTML files with hover details and zoom capabilities
+- **Publication-ready**: High-resolution PDF output for scientific papers
+
+### 📊 **Available Plot Types**
+
+| **Figure Type** | **Description** | **Data Source** | **Output Format** |
+|-----------------|-----------------|-----------------|-------------------|
+| **Genome Organization** | Protein positions + mutation hotspots | `mutation_summary.csv` | HTML + PDF |
+| **Mutation Distribution** | Mutation type frequencies | `mutation_summary.csv` | HTML + PDF |
+| **Protein Impact** | Amino acid change analysis | `mutation_summary.csv` | HTML + PDF |
+| **Hot Mutations** | High-frequency mutation patterns | `row_hot_mutations.csv` | HTML + PDF |
+
+### 🛠️ **Plotting Dependencies**
+
+The visualization features require additional dependencies that are included in the updated environment:
+
+```bash
+# Core plotting dependencies (auto-installed)
+plotly>=6.1.1      # Interactive plotting
+kaleido>=1.0.0     # Static image export (PDF)
+matplotlib>=3.5.0  # Additional plotting support
+seaborn>=0.11.0    # Statistical visualization
+```
+
+### 📈 **Scientific Paper Integration**
+
+These visualizations are designed for scientific publications:
+
+- **Nature Reviews style**: Professional color schemes and typography
+- **High resolution**: 1200x800px output suitable for print
+- **Interactive elements**: HTML versions for online supplements
+- **Real data integration**: Uses actual mutation analysis results
+- **Multi-format output**: Both interactive (HTML) and static (PDF) versions
+
+### 🔧 **Customization**
+
+All plotting scripts support customization:
+
+```python
+# Example: Custom genome organization plot
+from plot.figure1_genome_analysis import GenomeOrganizationVisualizer
+
+# Create custom visualization
+visualizer = GenomeOrganizationVisualizer('SARS-CoV-2', 'EPI_ISL_16127650')
+visualizer.create_genome_organization_chart('my_custom_plot.html')
+```
+
+📖 **[Complete Visualization Guide](docs/plot_visualization_guide.md)** | 📊 **[Visualization Examples](docs/COMPREHENSIVE_VISUALIZATION_SUMMARY.md)**
+
 ## Recent Updates
 
 ### Version 2025.01.15 (Major Refactoring)

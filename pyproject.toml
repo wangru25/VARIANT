@@ -1,3 +1,14 @@
+
+
+/*
+ * @Author: Rui Wang
+ * @Date: 2025-08-20 09:59:53
+ * @LastModifiedBy: Rui Wang
+ * @LastEditTime: 2025-08-27 16:27:09
+ * @Email: wang.rui@nyu.edu
+ * @FilePath: /VARIANT/pyproject.toml
+ * @Description: 
+ */
 [build-system]
 requires = ["setuptools>=68.0", "wheel", "setuptools_scm[toml]>=8.0"]
 build-backend = "setuptools.build_meta"
@@ -56,7 +67,8 @@ dependencies = [
     "pyyaml>=6.0",
     "numpy>=1.21.0",
     "pandas>=1.3.0",
-    "plotly>=5.0.0",
+    "plotly>=6.1.1",
+    "kaleido>=1.0.0",
     "matplotlib>=3.5.0",
     "seaborn>=0.11.0",
 ]

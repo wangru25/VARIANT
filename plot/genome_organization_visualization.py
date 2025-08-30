@@ -3,22 +3,11 @@
 Author: Rui Wang
 Date: 2025-08-19 16:07:24
 LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:37:22
+LastEditTime: 2025-08-27 15:05:37
 Email: rw3594@nyu.edu
 FilePath: /VARIANT/plot/genome_organization_visualization.py
 Description: 
 '''
-# -*- coding: utf-8 -*-
-'''
-Author: Rui Wang
-Date: 2025-08-19 17:30:00
-LastModifiedBy: Rui Wang
-LastEditTime: 2025-08-19 17:30:00
-Email: rw3594@nyu.edu
-FilePath: /VARIANT/plot/genome_organization_visualization.py
-Description: Genome organization visualization for viral genomes with mutation analysis.
-'''
-
 import plotly.graph_objects as go
 import plotly.io as pio
 from plotly.subplots import make_subplots

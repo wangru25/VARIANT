@@ -1,0 +1,342 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+nucleoprotein(NP),I8V,missense,A491G,NT changes
+nucleoprotein(NP),A11T,missense,G500A,NT changes
+nucleoprotein(NP),E50E,silent,A619G,NT changes
+nucleoprotein(NP),A62A,silent,A655T,NT changes
+nucleoprotein(NP),Q84Q,silent,G721A,NT changes
+nucleoprotein(NP),R111C,missense,C800T,NT changes
+nucleoprotein(NP),G127G,silent,850:852AA->GG,NT changes
+nucleoprotein(NP),K128R,missense,850:852AA->GG,NT changes
+nucleoprotein(NP),T142T,silent,A895G,NT changes
+nucleoprotein(NP),F150F,silent,T919C,NT changes
+nucleoprotein(NP),L209L,silent,C1094T,NT changes
+nucleoprotein(NP),L213L,silent,C1108T,NT changes
+nucleoprotein(NP),G224G,silent,G1141A,NT changes
+nucleoprotein(NP),G243G,silent,1198:1199CT->TC,NT changes
+nucleoprotein(NP),L244L,silent,1198:1199CT->TC,NT changes
+nucleoprotein(NP),F280F,silent,T1309C,NT changes
+nucleoprotein(NP),L316L,silent,A1417G,NT changes
+nucleoprotein(NP),A326A,silent,A1447C,NT changes
+nucleoprotein(NP),S329S,silent,T1456C,NT changes
+nucleoprotein(NP),Q342Q,silent,A1495G,NT changes
+nucleoprotein(NP),A346A,silent,T1507A,NT changes
+nucleoprotein(NP),A358A,silent,A1543G,NT changes
+nucleoprotein(NP),R361R,silent,C1552T,NT changes
+nucleoprotein(NP),A393A,silent,T1648G,NT changes
+nucleoprotein(NP),A412A,silent,G1705A,NT changes
+nucleoprotein(NP),V458V,silent,G1843A,NT changes
+nucleoprotein(NP),D460D,silent,T1849C,NT changes
+nucleoprotein(NP),S465G,missense,A1862G,NT changes
+nucleoprotein(NP),Q470Q,silent,G1879A,NT changes
+nucleoprotein(NP),N478S,missense,A1902G,NT changes
+nucleoprotein(NP),T495T,silent,T1954C,NT changes
+nucleoprotein(NP),N500N,silent,T1969C,NT changes
+nucleoprotein(NP),K509K,silent,G1996A,NT changes
+nucleoprotein(NP),I517T,missense,T2019C,NT changes
+nucleoprotein(NP),R525T,missense,G2043C,NT changes
+nucleoprotein(NP),I527T,missense,T2049C,NT changes
+nucleoprotein(NP),N529N,silent,T2056C,NT changes
+nucleoprotein(NP),P531T,missense,C2060A,NT changes
+nucleoprotein(NP),H534R,missense,A2070G,NT changes
+nucleoprotein(NP),H539H,silent,C2086T,NT changes
+nucleoprotein(NP),A542A,silent,G2095T,NT changes
+nucleoprotein(NP),N551N,silent,T2122C,NT changes
+nucleoprotein(NP),T563T,silent,A2158C,NT changes
+nucleoprotein(NP),I565I,silent,T2164C,NT changes
+nucleoprotein(NP),L585L,silent,G2224A,NT changes
+nucleoprotein(NP),E591E,silent,G2242A,NT changes
+nucleoprotein(NP),S598S,silent,C2263T,NT changes
+nucleoprotein(NP),S615S,silent,T2314C,NT changes
+nucleoprotein(NP),D623D,silent,C2338T,NT changes
+nucleoprotein(NP),T631I,missense,C2361T,NT changes
+nucleoprotein(NP),Q637Q,silent,G2380A,NT changes
+nucleoprotein(NP),S644P,missense,T2399C,NT changes
+nucleoprotein(NP),H646H,silent,C2407T,NT changes
+nucleoprotein(NP),A664A,silent,T2461C,NT changes
+nucleoprotein(NP),G683G,silent,C2518T,NT changes
+nucleoprotein(NP),P689P,silent,A2536G,NT changes
+nucleoprotein(NP),A705A,silent,T2584C,NT changes
+nucleoprotein(NP),E708D,missense,A2593T,NT changes
+nucleoprotein(NP),L715L,silent,T2612C,NT changes
+nucleoprotein(NP),P723P,silent,G2638A,NT changes
+nucleoprotein(NP),V724V,silent,G2641A,NT changes
+nucleoprotein(NP),K728R,missense,A2652G,NT changes
+polymerase complex protein(VP35),A12V,missense,C3163T,NT changes
+polymerase complex protein(VP35),R37R,silent,A3239G,NT changes
+polymerase complex protein(VP35),S41N,missense,G3250A,NT changes
+polymerase complex protein(VP35),T68M,missense,C3331T,NT changes
+polymerase complex protein(VP35),A164A,silent,C3620T,NT changes
+polymerase complex protein(VP35),T191T,silent,C3701T,NT changes
+polymerase complex protein(VP35),N204D,missense,A3738G,NT changes
+polymerase complex protein(VP35),N254N,silent,C3890T,NT changes
+polymerase complex protein(VP35),I258I,silent,C3902T,NT changes
+polymerase complex protein(VP35),S272S,silent,T3944C,NT changes
+polymerase complex protein(VP35),K309K,silent,A4055G,NT changes
+polymerase complex protein(VP35),S317S,silent,G4079A,NT changes
+matrix protein(VP40),V20A,missense,T4537C,NT changes
+matrix protein(VP40),R28R,silent,A4562G,NT changes
+matrix protein(VP40),G44G,silent,G4610A,NT changes
+matrix protein(VP40),A55A,silent,C4643T,NT changes
+matrix protein(VP40),L75L,silent,T4703C,NT changes
+matrix protein(VP40),Y120Y,silent,C4838T,NT changes
+matrix protein(VP40),P131P,silent,A4871G,NT changes
+matrix protein(VP40),H145H,silent,T4913C,NT changes
+matrix protein(VP40),P164P,silent,G4970A,NT changes
+matrix protein(VP40),T183T,silent,C5027T,NT changes
+matrix protein(VP40),T197T,silent,A5069T,NT changes
+matrix protein(VP40),G260G,silent,A5258T,NT changes
+matrix protein(VP40),S278S,silent,T5312C,NT changes
+matrix protein(VP40),I324V,missense,A5448G,NT changes
+spike glycoprotein(GP),G2G,silent,C6044T,NT changes
+spike glycoprotein(GP),P34P,silent,A6140G,NT changes
+spike glycoprotein(GP),V37V,silent,C6149T,NT changes
+spike glycoprotein(GP),S41S,silent,C6161T,NT changes
+spike glycoprotein(GP),E71E,silent,A6251G,NT changes
+spike glycoprotein(GP),A82V,missense,6283:6284CA->TG,NT changes
+spike glycoprotein(GP),P146P,silent,G6476A,NT changes
+spike glycoprotein(GP),H154H,silent,T6500C,NT changes
+spike glycoprotein(GP),S210S,silent,T6668G,NT changes
+spike glycoprotein(GP),Y213Y,silent,C6677T,NT changes
+spike glycoprotein(GP),T227T,silent,C6719T,NT changes
+spike glycoprotein(GP),T262A,missense,A6822G,NT changes
+spike glycoprotein(GP),K265K,silent,A6833G,NT changes
+spike glycoprotein(GP),N268N,silent,T6842C,NT changes
+spike glycoprotein(GP),V310A,missense,T6966C,NT changes
+spike glycoprotein(GP),A315P,missense,G6980C,NT changes
+spike glycoprotein(GP),G331E,missense,G7029A,NT changes
+spike glycoprotein(GP),T336N,missense,C7044A,NT changes
+spike glycoprotein(GP),E359K,missense,G7112A,NT changes
+spike glycoprotein(GP),L365L,silent,A7132G,NT changes
+spike glycoprotein(GP),P375P,silent,C7162T,NT changes
+spike glycoprotein(GP),S82P,missense,7166:7168TC->CT,NT changes
+spike glycoprotein(GP),S82S,silent,7168:7170CT->TC,NT changes
+spike glycoprotein(GP),L83P,missense,7168:7170CT->TC,NT changes
+spike glycoprotein(GP),P382T,missense,C7181A,NT changes
+spike glycoprotein(GP),E405G,missense,A7251G,NT changes
+spike glycoprotein(GP),R409R,silent,C7264T,NT changes
+spike glycoprotein(GP),T411A,missense,A7268G,NT changes
+spike glycoprotein(GP),S127P,missense,7301:7303TT->CC,NT changes
+spike glycoprotein(GP),P135L,missense,7325:7326CC->TT,NT changes
+spike glycoprotein(GP),S438S,silent,C7351T,NT changes
+spike glycoprotein(GP),T441A,missense,A7358G,NT changes
+spike glycoprotein(GP),F443S,missense,T7365C,NT changes
+spike glycoprotein(GP),P446L,missense,C7374T,NT changes
+spike glycoprotein(GP),T449T,silent,A7384G,NT changes
+spike glycoprotein(GP),S451S,silent,T7390C,NT changes
+spike glycoprotein(GP),H455Y,missense,C7400T,NT changes
+spike glycoprotein(GP),T458T,silent,C7411T,NT changes
+spike glycoprotein(GP),V489V,silent,C7504A,NT changes
+spike glycoprotein(GP),R498R,silent,A7531G,NT changes
+spike glycoprotein(GP),A503V,missense,C7545T,NT changes
+spike glycoprotein(GP),P513P,silent,T7576C,NT changes
+spike glycoprotein(GP),L529L,silent,C7622T,NT changes
+spike glycoprotein(GP),E540E,silent,G7657A,NT changes
+spike glycoprotein(GP),I544T,missense,T7668C,NT changes
+spike glycoprotein(GP),N550N,silent,T7687C,NT changes
+spike glycoprotein(GP),R559R,silent,A7714G,NT changes
+spike glycoprotein(GP),E564E,silent,G7729A,NT changes
+spike glycoprotein(GP),L569L,silent,T7744C,NT changes
+spike glycoprotein(GP),L579L,silent,A7774G,NT changes
+spike glycoprotein(GP),R580R,silent,C7777A,NT changes
+spike glycoprotein(GP),D591D,silent,T7810C,NT changes
+spike glycoprotein(GP),L593L,silent,T7814C,NT changes
+spike glycoprotein(GP),G598G,silent,C7831T,NT changes
+spike glycoprotein(GP),L604L,silent,C7847T,NT changes
+spike glycoprotein(GP),G660G,silent,C8017T,NT changes
+minor nucleoprotein(VP30),P10P,silent,A8538C,NT changes
+minor nucleoprotein(VP30),D89D,silent,T8775C,NT changes
+minor nucleoprotein(VP30),L92L,silent,G8784A,NT changes
+minor nucleoprotein(VP30),E93E,silent,G8787A,NT changes
+minor nucleoprotein(VP30),P140P,silent,A8928C,NT changes
+minor nucleoprotein(VP30),R160R,silent,A8986C,NT changes
+minor nucleoprotein(VP30),S165S,silent,A9003C,NT changes
+minor nucleoprotein(VP30),R168R,silent,A9012G,NT changes
+minor nucleoprotein(VP30),L171L,silent,G9021A,NT changes
+minor nucleoprotein(VP30),L189L,silent,A9075G,NT changes
+minor nucleoprotein(VP30),E197E,silent,G9099A,NT changes
+minor nucleoprotein(VP30),I245I,silent,T9243C,NT changes
+membrane-associated protein(VP24),A2A,silent,T10350C,NT changes
+membrane-associated protein(VP24),S32S,silent,C10440T,NT changes
+membrane-associated protein(VP24),Q36Q,silent,G10452A,NT changes
+membrane-associated protein(VP24),K39K,silent,G10461A,NT changes
+membrane-associated protein(VP24),N74N,silent,T10566C,NT changes
+membrane-associated protein(VP24),L75L,silent,C10569A,NT changes
+membrane-associated protein(VP24),P77P,silent,T10575C,NT changes
+membrane-associated protein(VP24),T86T,silent,A10602T,NT changes
+membrane-associated protein(VP24),L94L,silent,T10624C,NT changes
+membrane-associated protein(VP24),L106L,silent,10660:10662CG->TA,NT changes
+membrane-associated protein(VP24),N173N,silent,C10863T,NT changes
+membrane-associated protein(VP24),L175L,silent,G10869A,NT changes
+membrane-associated protein(VP24),M212K,missense,T10979A,NT changes
+membrane-associated protein(VP24),G233G,silent,A11043G,NT changes
+membrane-associated protein(VP24),L241L,silent,G11067A,NT changes
+membrane-associated protein(VP24),F245F,silent,T11079C,NT changes
+RNA-dependent RNA polymerase(L),A11A,silent,T11613C,NT changes
+RNA-dependent RNA polymerase(L),L24L,silent,A11652T,NT changes
+RNA-dependent RNA polymerase(L),L31L,silent,A11673G,NT changes
+RNA-dependent RNA polymerase(L),I50I,silent,C11730A,NT changes
+RNA-dependent RNA polymerase(L),L53L,silent,G11739A,NT changes
+RNA-dependent RNA polymerase(L),Y55Y,silent,C11745T,NT changes
+RNA-dependent RNA polymerase(L),L63L,silent,G11769A,NT changes
+RNA-dependent RNA polymerase(L),V79I,missense,G11815A,NT changes
+RNA-dependent RNA polymerase(L),L84L,silent,G11832A,NT changes
+RNA-dependent RNA polymerase(L),G88G,silent,A11844G,NT changes
+RNA-dependent RNA polymerase(L),I103I,silent,C11889T,NT changes
+RNA-dependent RNA polymerase(L),L114L,silent,T11920C,NT changes
+RNA-dependent RNA polymerase(L),E130D,missense,A11970C,NT changes
+RNA-dependent RNA polymerase(L),E134E,silent,G11982A,NT changes
+RNA-dependent RNA polymerase(L),D154D,silent,T12042C,NT changes
+RNA-dependent RNA polymerase(L),T172T,silent,A12096G,NT changes
+RNA-dependent RNA polymerase(L),M197L,missense,A12169C,NT changes
+RNA-dependent RNA polymerase(L),D211D,silent,C12213T,NT changes
+RNA-dependent RNA polymerase(L),A215T,missense,G12223A,NT changes
+RNA-dependent RNA polymerase(L),D235D,silent,C12285T,NT changes
+RNA-dependent RNA polymerase(L),I259V,missense,A12355G,NT changes
+RNA-dependent RNA polymerase(L),D261D,silent,T12363C,NT changes
+RNA-dependent RNA polymerase(L),C264C,silent,T12372C,NT changes
+RNA-dependent RNA polymerase(L),I294I,silent,T12462C,NT changes
+RNA-dependent RNA polymerase(L),F297F,silent,C12471T,NT changes
+RNA-dependent RNA polymerase(L),A304A,silent,C12492T,NT changes
+RNA-dependent RNA polymerase(L),L308L,silent,A12504G,NT changes
+RNA-dependent RNA polymerase(L),T313T,silent,T12519C,NT changes
+RNA-dependent RNA polymerase(L),L331L,silent,A12573G,NT changes
+RNA-dependent RNA polymerase(L),M337I,missense,G12591A,NT changes
+RNA-dependent RNA polymerase(L),Q346H,missense,A12618C,NT changes
+RNA-dependent RNA polymerase(L),I371I,silent,T12693A,NT changes
+RNA-dependent RNA polymerase(L),I402I,silent,A12786C,NT changes
+RNA-dependent RNA polymerase(L),Y408Y,silent,C12804T,NT changes
+RNA-dependent RNA polymerase(L),S414S,silent,T12822C,NT changes
+RNA-dependent RNA polymerase(L),A416A,silent,C12828A,NT changes
+RNA-dependent RNA polymerase(L),T430T,silent,T12870C,NT changes
+RNA-dependent RNA polymerase(L),R433R,silent,G12879A,NT changes
+RNA-dependent RNA polymerase(L),P437P,silent,G12891A,NT changes
+RNA-dependent RNA polymerase(L),L457L,silent,A12951G,NT changes
+RNA-dependent RNA polymerase(L),H466H,silent,C12978T,NT changes
+RNA-dependent RNA polymerase(L),T487T,silent,C13041T,NT changes
+RNA-dependent RNA polymerase(L),L503L,silent,A13089G,NT changes
+RNA-dependent RNA polymerase(L),F511F,silent,T13113C,NT changes
+RNA-dependent RNA polymerase(L),T513T,silent,T13119C,NT changes
+RNA-dependent RNA polymerase(L),A535A,silent,A13185G,NT changes
+RNA-dependent RNA polymerase(L),N547N,silent,C13221T,NT changes
+RNA-dependent RNA polymerase(L),T562T,silent,C13266T,NT changes
+RNA-dependent RNA polymerase(L),E600E,silent,G13380A,NT changes
+RNA-dependent RNA polymerase(L),F618F,silent,T13434C,NT changes
+RNA-dependent RNA polymerase(L),E620E,silent,A13440G,NT changes
+RNA-dependent RNA polymerase(L),R641R,silent,A13503G,NT changes
+RNA-dependent RNA polymerase(L),P683P,silent,A13629G,NT changes
+RNA-dependent RNA polymerase(L),E689E,silent,G13647A,NT changes
+RNA-dependent RNA polymerase(L),D692N,missense,G13654A,NT changes
+RNA-dependent RNA polymerase(L),P695P,silent,C13665T,NT changes
+RNA-dependent RNA polymerase(L),L735L,silent,A13785G,NT changes
+RNA-dependent RNA polymerase(L),T747T,silent,T13821C,NT changes
+RNA-dependent RNA polymerase(L),D757D,silent,C13851T,NT changes
+RNA-dependent RNA polymerase(L),D759G,missense,A13856G,NT changes
+RNA-dependent RNA polymerase(L),E766E,silent,A13878G,NT changes
+RNA-dependent RNA polymerase(L),G841G,silent,C14103T,NT changes
+RNA-dependent RNA polymerase(L),R858R,silent,G14154A,NT changes
+RNA-dependent RNA polymerase(L),F866F,silent,T14178C,NT changes
+RNA-dependent RNA polymerase(L),H876H,silent,T14208C,NT changes
+RNA-dependent RNA polymerase(L),G878G,silent,G14214A,NT changes
+RNA-dependent RNA polymerase(L),F879F,silent,C14217T,NT changes
+RNA-dependent RNA polymerase(L),G932G,silent,C14376T,NT changes
+RNA-dependent RNA polymerase(L),V974V,silent,C14502T,NT changes
+RNA-dependent RNA polymerase(L),R989R,silent,C14547T,NT changes
+RNA-dependent RNA polymerase(L),T991T,silent,C14553T,NT changes
+RNA-dependent RNA polymerase(L),A1007A,silent,G14601A,NT changes
+RNA-dependent RNA polymerase(L),K1018K,silent,A14634G,NT changes
+RNA-dependent RNA polymerase(L),L1020L,silent,A14640C,NT changes
+RNA-dependent RNA polymerase(L),F1030F,silent,T14670C,NT changes
+RNA-dependent RNA polymerase(L),A1031A,silent,G14673A,NT changes
+RNA-dependent RNA polymerase(L),I1034I,silent,C14682A,NT changes
+RNA-dependent RNA polymerase(L),L1050L,silent,C14728T,NT changes
+RNA-dependent RNA polymerase(L),T1068T,silent,A14784G,NT changes
+RNA-dependent RNA polymerase(L),K1076K,silent,A14808G,NT changes
+RNA-dependent RNA polymerase(L),S1083S,silent,C14829T,NT changes
+RNA-dependent RNA polymerase(L),I1112I,silent,T14916C,NT changes
+RNA-dependent RNA polymerase(L),A1119A,silent,T14937A,NT changes
+RNA-dependent RNA polymerase(L),G1124G,silent,A14952G,NT changes
+RNA-dependent RNA polymerase(L),F1142V,missense,T15004G,NT changes
+RNA-dependent RNA polymerase(L),A1156A,silent,A15048C,NT changes
+RNA-dependent RNA polymerase(L),P1159P,silent,A15057T,NT changes
+RNA-dependent RNA polymerase(L),V1167V,silent,G15081A,NT changes
+RNA-dependent RNA polymerase(L),P1178P,silent,G15114A,NT changes
+RNA-dependent RNA polymerase(L),N1179N,silent,C15117T,NT changes
+RNA-dependent RNA polymerase(L),G1203G,silent,A15189G,NT changes
+RNA-dependent RNA polymerase(L),S1264S,silent,A15372G,NT changes
+RNA-dependent RNA polymerase(L),H1269H,silent,C15387T,NT changes
+RNA-dependent RNA polymerase(L),N1287N,silent,T15441C,NT changes
+RNA-dependent RNA polymerase(L),Q1307Q,silent,G15501A,NT changes
+RNA-dependent RNA polymerase(L),S1308S,silent,T15504G,NT changes
+RNA-dependent RNA polymerase(L),Q1340Q,silent,A15600G,NT changes
+RNA-dependent RNA polymerase(L),E1355E,silent,A15645G,NT changes
+RNA-dependent RNA polymerase(L),Y1360Y,silent,T15660C,NT changes
+RNA-dependent RNA polymerase(L),N1377N,silent,C15711T,NT changes
+RNA-dependent RNA polymerase(L),S1383N,missense,G15728A,NT changes
+RNA-dependent RNA polymerase(L),F1396F,silent,C15768T,NT changes
+RNA-dependent RNA polymerase(L),N1398N,silent,T15774C,NT changes
+RNA-dependent RNA polymerase(L),G1403G,silent,T15789C,NT changes
+RNA-dependent RNA polymerase(L),R1405Q,missense,G15794A,NT changes
+RNA-dependent RNA polymerase(L),D1412D,silent,T15816C,NT changes
+RNA-dependent RNA polymerase(L),A1425A,silent,C15855T,NT changes
+RNA-dependent RNA polymerase(L),N1437N,silent,C15891T,NT changes
+RNA-dependent RNA polymerase(L),S1439S,silent,A15897G,NT changes
+RNA-dependent RNA polymerase(L),K1461K,silent,G15963A,NT changes
+RNA-dependent RNA polymerase(L),T1497T,silent,T16071C,NT changes
+RNA-dependent RNA polymerase(L),R1522R,silent,G16146A,NT changes
+RNA-dependent RNA polymerase(L),P1528P,silent,T16164C,NT changes
+RNA-dependent RNA polymerase(L),K1563K,silent,A16269G,NT changes
+RNA-dependent RNA polymerase(L),P1580P,silent,16320:16321GC->AT,NT changes
+RNA-dependent RNA polymerase(L),L1581L,silent,16320:16321GC->AT,NT changes
+RNA-dependent RNA polymerase(L),N1585N,silent,C16335T,NT changes
+RNA-dependent RNA polymerase(L),V1589V,silent,G16347T,NT changes
+RNA-dependent RNA polymerase(L),F1592F,silent,T16356C,NT changes
+RNA-dependent RNA polymerase(L),Y1594H,missense,T16360C,NT changes
+RNA-dependent RNA polymerase(L),Q1607H,missense,A16401C,NT changes
+RNA-dependent RNA polymerase(L),S1615N,missense,G16424A,NT changes
+RNA-dependent RNA polymerase(L),A1638A,silent,A16494G,NT changes
+RNA-dependent RNA polymerase(L),R1646R,silent,A16518G,NT changes
+RNA-dependent RNA polymerase(L),Y1654D,missense,T16540G,NT changes
+RNA-dependent RNA polymerase(L),A1656T,missense,G16546A,NT changes
+RNA-dependent RNA polymerase(L),D1658N,missense,G16552A,NT changes
+RNA-dependent RNA polymerase(L),E1673K,missense,G16597A,NT changes
+RNA-dependent RNA polymerase(L),N1690S,missense,A16649G,NT changes
+RNA-dependent RNA polymerase(L),L1693L,silent,A16659G,NT changes
+RNA-dependent RNA polymerase(L),E1707E,silent,A16701G,NT changes
+RNA-dependent RNA polymerase(L),S1717S,silent,C16731A,NT changes
+RNA-dependent RNA polymerase(L),C1724C,silent,T16752C,NT changes
+RNA-dependent RNA polymerase(L),N1728N,silent,T16764C,NT changes
+RNA-dependent RNA polymerase(L),R1735R,silent,C16783A,NT changes
+RNA-dependent RNA polymerase(L),F1742S,missense,T16805C,NT changes
+RNA-dependent RNA polymerase(L),S1747S,silent,G16821A,NT changes
+RNA-dependent RNA polymerase(L),H1759H,silent,C16857T,NT changes
+RNA-dependent RNA polymerase(L),D1785D,silent,C16935T,NT changes
+RNA-dependent RNA polymerase(L),R1805R,silent,A16995G,NT changes
+RNA-dependent RNA polymerase(L),S1826N,missense,G17057A,NT changes
+RNA-dependent RNA polymerase(L),F1827F,silent,C17061T,NT changes
+RNA-dependent RNA polymerase(L),L1833L,silent,A17079G,NT changes
+RNA-dependent RNA polymerase(L),F1854F,silent,T17142C,NT changes
+RNA-dependent RNA polymerase(L),K1919R,missense,A17336G,NT changes
+RNA-dependent RNA polymerase(L),T1930T,silent,A17370G,NT changes
+RNA-dependent RNA polymerase(L),Y1944H,missense,T17410C,NT changes
+RNA-dependent RNA polymerase(L),I1951V,missense,A17431G,NT changes
+RNA-dependent RNA polymerase(L),P1953P,silent,T17439C,NT changes
+RNA-dependent RNA polymerase(L),T1968T,silent,T17484C,NT changes
+RNA-dependent RNA polymerase(L),L1978L,silent,T17512C,NT changes
+RNA-dependent RNA polymerase(L),G1985G,silent,T17535G,NT changes
+RNA-dependent RNA polymerase(L),A1995A,silent,T17565C,NT changes
+RNA-dependent RNA polymerase(L),R1996R,silent,A17568G,NT changes
+RNA-dependent RNA polymerase(L),K2023K,silent,A17649G,NT changes
+RNA-dependent RNA polymerase(L),R2036R,silent,A17688G,NT changes
+RNA-dependent RNA polymerase(L),C2050C,silent,T17730C,NT changes
+RNA-dependent RNA polymerase(L),E2051D,missense,G17733T,NT changes
+RNA-dependent RNA polymerase(L),S2055S,silent,T17745C,NT changes
+RNA-dependent RNA polymerase(L),L2074L,silent,C17802T,NT changes
+RNA-dependent RNA polymerase(L),I2085V,missense,A17833G,NT changes
+RNA-dependent RNA polymerase(L),R2093R,silent,A17859G,NT changes
+RNA-dependent RNA polymerase(L),L2099L,silent,A17877G,NT changes
+RNA-dependent RNA polymerase(L),T2100T,silent,T17880C,NT changes
+RNA-dependent RNA polymerase(L),V2138V,silent,G17994A,NT changes
+RNA-dependent RNA polymerase(L),Y2165Y,silent,C18075T,NT changes
+RNA-dependent RNA polymerase(L),C2170C,silent,C18090T,NT changes
+RNA-dependent RNA polymerase(L),P2205P,silent,G18195A,NT changes
+RNA-dependent RNA polymerase(L),F2211F,silent,T18213C,NT changes

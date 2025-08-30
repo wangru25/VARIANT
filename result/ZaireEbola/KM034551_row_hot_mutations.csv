@@ -1,0 +1,27 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+KM034551,row,377:378,TT->CC,None-CDS,"['NA']",missense
+KM034551,row,1198:1199,CT->TC,nucleoprotein(NP),"['G243G', 'L244L']",missense
+KM034551,row,2927:2928,TC->CT,None-CDS,"['NA']",missense
+KM034551,row,4161:4162,CC->TT,None-CDS,"['NA']",missense
+KM034551,row,5990:5991,TG->GA,None-CDS,"['NA']",missense
+KM034551,row,6283:6284,CA->TG,spike glycoprotein(GP),"['A82V']",missense
+KM034551,row,7325:7326,CC->TT,spike glycoprotein(GP),"['P135L']",missense
+KM034551,row,9994:9995,AT->GC,None-CDS,"['NA']",missense
+KM034551,row,10191:10192,TT->CC,None-CDS,"['NA']",missense
+KM034551,row,11417:11418,CA->TG,None-CDS,"['NA']",missense
+KM034551,row,16320:16321,GC->AT,RNA-dependent RNA polymerase(L),"['P1580P', 'L1581L']",missense
+KM034551,row,18237:18238,CC->TT,None-CDS,"['NA']",missense
+KM034551,row,18412:18413,TG->CA,None-CDS,"['NA']",missense
+KM034551,hot,261:263,CG->TA,None-CDS,"['NA']",missense
+KM034551,hot,850:852,AA->GG,nucleoprotein(NP),"['G127G', 'K128R']",missense
+KM034551,hot,2931:2933,AT->GC,None-CDS,"['NA']",missense
+KM034551,hot,4180:4182,GA->AC,None-CDS,"['NA']",missense
+KM034551,hot,5535:5537,CT->TC,None-CDS,"['NA']",missense
+KM034551,hot,7166:7168,TC->CT,spike glycoprotein(GP),"['S82P']",missense
+KM034551,hot,7168:7170,CT->TC,spike glycoprotein(GP),"['S82S', 'L83P']",missense
+KM034551,hot,7301:7303,TT->CC,spike glycoprotein(GP),"['S127P']",missense
+KM034551,hot,9785:9787,GT->CA,None-CDS,"['NA']",missense
+KM034551,hot,10660:10662,CG->TA,membrane-associated protein(VP24),"['L106L']",silent
+KM034551,hot,11106:11108,GA->AG,None-CDS,"['NA']",missense
+KM034551,hot,18445:18447,AT->GC,None-CDS,"['NA']",missense
+KM034551,hot,18869:18871,GC->AT,None-CDS,"['NA']",missense

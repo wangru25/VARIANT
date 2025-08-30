@@ -13,6 +13,7 @@ import os
 import sys
 import tempfile
 import shutil
+import time
 from pathlib import Path
 from typing import Dict, List, Optional, Any
 from datetime import datetime
@@ -22,7 +23,6 @@ import json
 
 from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks, Form, Request
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 import uvicorn
@@ -54,16 +54,12 @@ app = FastAPI(
 )
 
 # Create necessary directories
-os.makedirs("static", exist_ok=True)
 os.makedirs("templates", exist_ok=True)
 os.makedirs("uploads", exist_ok=True)
 os.makedirs("results", exist_ok=True)
 os.makedirs("data", exist_ok=True)
 os.makedirs("result", exist_ok=True)
 os.makedirs("user_sessions", exist_ok=True)
-
-# Mount static files
-app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Templates
 templates = Jinja2Templates(directory="templates")
@@ -80,6 +76,7 @@ class AnalysisRequest(BaseModel):
     proteome_file: Optional[str] = None
     is_custom_virus: bool = False
     session_id: Optional[str] = None
+    visualization_type: Optional[str] = None
 
 class AnalysisResult(BaseModel):
     job_id: str
@@ -103,6 +100,7 @@ class CustomVirusRequest(BaseModel):
 
 # Global storage for analysis jobs and user sessions
 analysis_jobs: Dict[str, Dict[str, Any]] = {}
+
 user_sessions: Dict[str, Dict[str, Any]] = {}
 
 def load_virus_config():
@@ -337,6 +335,88 @@ async def upload_data_file(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error uploading file: {str(e)}")
 
+@app.get("/api/msa-files/{virus_name}")
+async def get_msa_files(virus_name: str, segment: Optional[str] = None, request: Request = None):
+    '''Get all available MSA files for a virus.'''
+    try:
+        config = load_virus_config()
+        
+        if virus_name not in config.get("viruses", {}):
+            raise HTTPException(status_code=404, detail=f"Virus '{virus_name}' not found")
+        
+        virus_config = config["viruses"][virus_name]
+        msa_files = []
+        
+        if segment and "segments" in virus_config:
+            # Multi-segment virus
+            if segment in virus_config["segments"]:
+                segment_config = virus_config["segments"][segment]
+                msa_dir = f"data/{virus_name}/{segment}/clustalW"
+                if os.path.exists(msa_dir):
+                    for file in os.listdir(msa_dir):
+                        if file.endswith(('.txt', '.fasta', '.fa', '.aln', '.clustal')):
+                            msa_files.append({
+                                "filename": file,
+                                "path": f"{msa_dir}/{file}",
+                                "size": os.path.getsize(f"{msa_dir}/{file}"),
+                                "is_default": file == segment_config.get("default_msa_file", "")
+                            })
+        else:
+            # Single-segment virus
+            msa_dir = f"data/{virus_name}/clustalW"
+            if os.path.exists(msa_dir):
+                for file in os.listdir(msa_dir):
+                    if file.endswith(('.txt', '.fasta', '.fa', '.aln', '.clustal')):
+                        msa_files.append({
+                            "filename": file,
+                            "path": f"{msa_dir}/{file}",
+                            "size": os.path.getsize(f"{msa_dir}/{file}"),
+                            "is_default": file == virus_config.get("default_msa_file", "")
+                        })
+        
+        return {
+            "success": True,
+            "virus_name": virus_name,
+            "segment": segment,
+            "msa_files": msa_files
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error getting MSA files: {str(e)}")
+
+@app.post("/api/set-default-msa")
+async def set_default_msa_file(
+    virus_name: str = Form(...),
+    msa_filename: str = Form(...),
+    segment: Optional[str] = Form(None),
+    request: Request = None
+):
+    '''Set the default MSA file for a virus.'''
+    try:
+        config = load_virus_config()
+        
+        if virus_name not in config.get("viruses", {}):
+            raise HTTPException(status_code=404, detail=f"Virus '{virus_name}' not found")
+        
+        virus_config = config["viruses"][virus_name]
+        
+        if segment and "segments" in virus_config:
+            # Multi-segment virus
+            if segment not in virus_config["segments"]:
+                raise HTTPException(status_code=404, detail=f"Segment '{segment}' not found")
+            virus_config["segments"][segment]["default_msa_file"] = msa_filename
+        else:
+            # Single-segment virus
+            virus_config["default_msa_file"] = msa_filename
+        
+        save_virus_config(config)
+        
+        return {
+            "success": True,
+            "message": f"Default MSA file set to '{msa_filename}' for {virus_name}"
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error setting default MSA file: {str(e)}")
+
 @app.post("/api/analyze", response_model=AnalysisResult)
 async def start_analysis(analysis_request: AnalysisRequest, background_tasks: BackgroundTasks, request: Request):
     '''Start a virus mutation analysis job.'''
@@ -366,6 +446,28 @@ async def start_analysis(analysis_request: AnalysisRequest, background_tasks: Ba
         virus_name=analysis_request.virus_name,
         created_at=job_record["created_at"]
     )
+
+@app.get("/api/jobs")
+async def get_user_jobs(request: Request):
+    '''Get all analysis jobs for the current user session.'''
+    session_id = get_session_id(request)
+    
+    # Filter jobs by session ID
+    user_jobs = [
+        {
+            "job_id": job_id,
+            "status": job["status"],
+            "virus_name": job["virus_name"],
+            "created_at": job["created_at"]
+        }
+        for job_id, job in analysis_jobs.items()
+        if job.get("session_id") == session_id
+    ]
+    
+    # Sort by creation time (newest first)
+    user_jobs.sort(key=lambda x: x["created_at"], reverse=True)
+    
+    return {"jobs": user_jobs}
 
 @app.get("/api/job/{job_id}")
 async def get_job_status(job_id: str, request: Request):
@@ -615,24 +717,40 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
         # Update job status
         analysis_jobs[job_id]["status"] = "running"
         
-        # Determine MSA file path for custom viruses
-        msa_file_path = analysis_request.msa_file
-        if not msa_file_path and analysis_request.is_custom_virus:
-            # For custom viruses, find the MSA file in the data directory
+        # Determine MSA file path
+        msa_file_path = None
+        
+        if analysis_request.msa_file:
+            # Use the specified MSA file
             virus_data_dir = f"data/{analysis_request.virus_name}"
             if analysis_request.segment:
                 virus_data_dir += f"/{analysis_request.segment}"
             
-            clustalw_dir = f"{virus_data_dir}/clustalW"
-            if os.path.exists(clustalw_dir):
-                # Look for MSA files
-                for file in os.listdir(clustalw_dir):
-                    if file.endswith(('.txt', '.fasta', '.fa', '.aln', '.clustal')):
-                        msa_file_path = os.path.join(clustalw_dir, file)
-                        break
+            msa_file_path = f"{virus_data_dir}/clustalW/{analysis_request.msa_file}"
             
-            if not msa_file_path:
-                raise Exception(f"No MSA file found for virus {analysis_request.virus_name}")
+            if not os.path.exists(msa_file_path):
+                raise Exception(f"Specified MSA file '{analysis_request.msa_file}' not found")
+        else:
+            # Use default MSA file from virus configuration
+            config = load_virus_config()
+            virus_config = config.get("viruses", {}).get(analysis_request.virus_name, {})
+            
+            if analysis_request.segment and "segments" in virus_config:
+                default_msa = virus_config["segments"].get(analysis_request.segment, {}).get("default_msa_file", "")
+            else:
+                default_msa = virus_config.get("default_msa_file", "")
+            
+            if default_msa:
+                virus_data_dir = f"data/{analysis_request.virus_name}"
+                if analysis_request.segment:
+                    virus_data_dir += f"/{analysis_request.segment}"
+                
+                msa_file_path = f"{virus_data_dir}/clustalW/{default_msa}"
+                
+                if not os.path.exists(msa_file_path):
+                    raise Exception(f"Default MSA file '{default_msa}' not found")
+            else:
+                raise Exception(f"No MSA file specified and no default MSA file configured for virus {analysis_request.virus_name}")
         
         # Initialize processor
         processor = MutationProcessor(analysis_request.virus_name, "virus_config.yaml")
@@ -681,10 +799,55 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
                     if file.endswith(('.csv', '.txt', '.html', '.pdf')):
                         result_files.append(os.path.join(root, file))
         
+        # Generate visualization if requested
+        visualization_files = []
+        if analysis_request.visualization_type:
+            try:
+                # Import visualization script
+                import subprocess
+                import sys
+                
+                # Build command for visualization
+                cmd = [
+                    sys.executable, "plot.py",
+                    "--type", analysis_request.visualization_type,
+                    "--virus", analysis_request.virus_name
+                ]
+                
+                if analysis_request.genome_id:
+                    cmd.extend(["--genome-id", analysis_request.genome_id])
+                
+                # Run visualization
+                result = subprocess.run(cmd, capture_output=True, text=True, cwd=".")
+                
+                if result.returncode == 0:
+                    # Collect visualization files from multiple possible locations
+                    possible_dirs = ["plot", "imgs/visualizations"]
+                    
+                    for plot_dir in possible_dirs:
+                        if os.path.exists(plot_dir):
+                            for file in os.listdir(plot_dir):
+                                if file.endswith(('.html', '.pdf')) and analysis_request.virus_name in file:
+                                    # Check if this is a recent file (created in the last 5 minutes)
+                                    file_path = os.path.join(plot_dir, file)
+                                    if os.path.exists(file_path):
+                                        file_time = os.path.getmtime(file_path)
+                                        current_time = time.time()
+                                        if current_time - file_time < 300:  # 5 minutes
+                                            visualization_files.append(file_path)
+                    
+                    print(f"Visualization generated successfully: {visualization_files}")
+                else:
+                    print(f"Visualization failed: {result.stderr}")
+                    
+            except Exception as viz_error:
+                print(f"Error generating visualization: {viz_error}")
+        
         # Update job with results
         analysis_jobs[job_id]["status"] = "completed"
         analysis_jobs[job_id]["results"] = {
             "files": result_files,
+            "visualization_files": visualization_files,
             "summary": f"Analysis completed for {analysis_request.virus_name}"
         }
         
@@ -707,6 +870,223 @@ async def list_jobs(request: Request):
         if job.get("session_id") == session_id
     ]
     return {"jobs": user_jobs}
+
+# Visualization endpoints
+@app.post("/api/visualize")
+async def create_visualization(
+    virus_name: str = Form(...),
+    visualization_type: str = Form(...),  # 'mutation', 'row-hot', 'prf'
+    genome_id: Optional[str] = Form(None),
+    output_path: Optional[str] = Form(None),
+    request: Request = None
+):
+    '''Create visualization plots for a virus.'''
+    try:
+        # Validate visualization type
+        valid_types = ['mutation', 'row-hot', 'prf']
+        if visualization_type not in valid_types:
+            raise HTTPException(status_code=400, detail=f"Invalid visualization type. Must be one of: {valid_types}")
+        
+        # Check if virus exists
+        virus_data_dir = f"data/{virus_name}"
+        if not os.path.exists(virus_data_dir):
+            raise HTTPException(status_code=404, detail=f"Virus '{virus_name}' not found")
+        
+        # Create output directory
+        output_dir = f"imgs/visualizations/{virus_name}"
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # Run the visualization using the unified plot script
+        import subprocess
+        import sys
+        
+        cmd = [
+            sys.executable, "plot.py",
+            "--type", visualization_type,
+            "--virus", virus_name
+        ]
+        
+        if genome_id:
+            cmd.extend(["--genome-id", genome_id])
+        if output_path:
+            cmd.extend(["--output", output_path])
+        
+        # Run the command
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            cwd=os.getcwd()
+        )
+        
+        # Check if visualization failed but still try to find existing files
+        print(f"DEBUG: returncode={result.returncode}, stderr contains 'Error:': {'Error:' in result.stderr}")
+        print(f"DEBUG: stderr content: {repr(result.stderr)}")
+        
+        # Check for specific errors that indicate complete failure
+        kaleido_error = "Kaleido requires Google Chrome" in result.stderr
+        general_error = "Error:" in result.stderr
+        command_failed = result.returncode != 0
+        
+        visualization_failed = command_failed or general_error
+        if visualization_failed:
+            print(f"Warning: Visualization command failed: {result.stderr}")
+            # Continue to try to find existing files
+        else:
+            # Check if there was an error in stderr even if return code was 0
+            if general_error:
+                visualization_failed = True
+        
+        # Find the generated files
+        generated_files = []
+        html_file = None
+        pdf_file = None
+        
+        if os.path.exists(output_dir):
+            # Get the most recent files that match the visualization type
+            files = []
+            for file in os.listdir(output_dir):
+                if file.endswith(('.html', '.pdf')):
+                    file_path = os.path.join(output_dir, file)
+                    files.append((file, os.path.getmtime(file_path)))
+            
+            # Sort by modification time (most recent first)
+            files.sort(key=lambda x: x[1], reverse=True)
+            
+            # Map visualization types to file name patterns
+            type_patterns = {
+                'mutation': ['combined_analysis', 'mutation'],
+                'row-hot': ['row_hot_mutations', 'row-hot'],
+                'prf': ['prf_regions', 'prf']
+            }
+            
+            # Find the most recent files that match the visualization type
+            print(f"DEBUG: Checking files in {output_dir}: {[f[0] for f in files]}")
+            
+            # Only consider files created in the last 5 minutes (300 seconds)
+            current_time = time.time()
+            recent_files = [(file, mtime) for file, mtime in files if current_time - mtime < 300]
+            print(f"DEBUG: Recent files (last 5 minutes): {[f[0] for f in recent_files]}")
+            
+            for file, mtime in recent_files:
+                file_matches = False
+                if visualization_type in type_patterns:
+                    for pattern in type_patterns[visualization_type]:
+                        if pattern in file.lower():
+                            file_matches = True
+                            break
+                
+                if file_matches:
+                    if file.endswith('.html') and html_file is None:
+                        html_file = {
+                            "filename": file,
+                            "path": f"/api/visualization-files/{virus_name}/{file}",
+                            "type": "html"
+                        }
+                        print(f"DEBUG: Found HTML file: {file}")
+                    elif file.endswith('.pdf') and pdf_file is None:
+                        pdf_file = {
+                            "filename": file,
+                            "path": f"/api/visualization-files/{virus_name}/{file}",
+                            "type": "pdf"
+                        }
+        
+        # Don't include PDF files - only HTML for embedding
+        # if pdf_file:
+        #     generated_files.append(pdf_file)
+        
+        # Prepare response message and success status
+        success = True
+        if html_file:
+            # Files were found (either newly created or existing)
+            if visualization_failed:
+                # HTML was generated despite errors (likely just PDF failed)
+                message = f"Visualization '{visualization_type}' HTML generated successfully, but PDF generation failed (Chrome required)"
+            else:
+                message = f"Visualization '{visualization_type}' created successfully"
+        else:
+            # No files were found at all
+            if kaleido_error:
+                message = f"Visualization '{visualization_type}' failed to generate files (Chrome required for PDF)"
+            elif general_error:
+                message = f"Visualization '{visualization_type}' failed to generate files"
+            else:
+                message = f"Visualization '{visualization_type}' completed but no files were generated"
+            success = False
+        
+        # Update visualization_failed based on stderr content
+        if kaleido_error:
+            if html_file:
+                message = f"Visualization '{visualization_type}' HTML generated successfully, but PDF generation failed (Chrome required)"
+            else:
+                message = f"Visualization '{visualization_type}' failed to generate files (Chrome required for PDF)"
+                success = False
+        elif general_error:
+            if html_file:
+                message = f"Visualization '{visualization_type}' HTML generated successfully, but some errors occurred"
+            else:
+                message = f"Visualization '{visualization_type}' failed to generate files"
+                success = False
+        
+        return {
+            "success": success,
+            "message": message,
+            "virus_name": virus_name,
+            "visualization_type": visualization_type,
+            "files": [],  # No files to download
+            "html_file": html_file,
+            "output": result.stdout,
+            "visualization_failed": visualization_failed
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error creating visualization: {str(e)}")
+
+@app.get("/api/visualization-files/{virus_name}/{filename}")
+async def get_visualization_file(virus_name: str, filename: str):
+    '''Serve visualization files.'''
+    file_path = f"imgs/visualizations/{virus_name}/{filename}"
+    
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail="Visualization file not found")
+    
+    # Set appropriate media type based on file extension
+    if filename.endswith('.html'):
+        media_type = "text/html"
+    elif filename.endswith('.pdf'):
+        media_type = "application/pdf"
+    else:
+        media_type = "application/octet-stream"
+    
+    return FileResponse(
+        file_path,
+        media_type=media_type
+    )
+
+@app.get("/api/visualization-types")
+async def get_visualization_types():
+    '''Get available visualization types.'''
+    return {
+        "visualization_types": [
+            {
+                "id": "mutation",
+                "name": "Mutation Analysis",
+                "description": "Combined genome organization and protein mutation analysis"
+            },
+            {
+                "id": "row-hot", 
+                "name": "Row/Hot Mutations",
+                "description": "Visualization of row and hot mutations on protein bars"
+            },
+            {
+                "id": "prf",
+                "name": "PRF Regions", 
+                "description": "Programmed Ribosomal Frameshifting regions visualization"
+            }
+        ]
+    }
 
 if __name__ == "__main__":
     import os

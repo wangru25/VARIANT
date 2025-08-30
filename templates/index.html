@@ -98,8 +98,34 @@
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(70, 99, 172, 0.3);
-            background: linear-gradient(135deg, #3a5490, #2d416f);
+        }
+        
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #4663ac, #3a5490);
+        }
+        
+        .bg-gradient-success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+        
+        /* Visualization styles */
+        .visualization-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .visualization-iframe {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .fullscreen-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .fullscreen-btn:hover {
+            transform: scale(1.05);
         }
         
         /* Improved contrast for upload checklist labels */
@@ -326,14 +352,11 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="analysis-tab" data-bs-toggle="tab" data-bs-target="#analysis" type="button" role="tab">
-                            <i class="fas fa-microscope"></i> Analysis
+                            <i class="fas fa-microscope"></i> Analysis & Visualization
                         </button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="files-tab" data-bs-toggle="tab" data-bs-target="#files" type="button" role="tab">
-                            <i class="fas fa-folder"></i> Files
-                        </button>
-                    </li>
+
+
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab">
                             <i class="fas fa-history"></i> History
@@ -505,6 +528,14 @@
                                                     <i class="fas fa-upload"></i> Upload File
                                                 </button>
                                             </div>
+                                            
+                                            <!-- Upload Status Message -->
+                                            <div id="uploadStatusMessage" class="mt-3" style="display: none;">
+                                                <div class="alert alert-success" role="alert">
+                                                    <i class="fas fa-check-circle me-2"></i>
+                                                    <span id="uploadMessageText"></span>
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -556,6 +587,19 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        
+                                        <!-- MSA File Management -->
+                                        <div class="bg-light border border-info border-opacity-25 p-3 rounded mt-3">
+                                            <h6 class="text-info mb-2"><i class="fas fa-list me-2"></i>MSA File Management:</h6>
+                                            <div class="mb-2">
+                                                <button type="button" class="btn btn-sm btn-outline-info" onclick="loadMSAFiles()">
+                                                    <i class="fas fa-refresh"></i> Load MSA Files
+                                                </button>
+                                            </div>
+                                            <div id="msaFilesList">
+                                                <p class="text-muted mb-2">Click "Load MSA Files" to see available MSA files</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -571,52 +615,58 @@
                             <div class="card-body">
                                 <form id="analysisForm">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label for="virusSelect" class="form-label">Virus Type</label>
-                                                <select class="form-select" id="virusSelect" required>
-                                                    <option value="">Select a virus...</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="mb-3 segment-selector" id="segmentSelector">
-                                                <label for="segmentSelect" class="form-label">Segment (for multi-segment viruses)</label>
-                                                <select class="form-select" id="segmentSelect">
-                                                    <option value="">Select segment...</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="mb-3">
-                                                <label for="genomeId" class="form-label">Genome ID (Optional)</label>
-                                                <input type="text" class="form-control" id="genomeId" placeholder="e.g., EPI_ISL_123456">
+                                        <div class="col-md-12">
+                                            <!-- Analysis Configuration -->
+                                            <div class="card border-0 shadow-sm mb-4">
+                                                <div class="card-header bg-gradient-primary text-white">
+                                                    <h6 class="mb-0"><i class="fas fa-cog"></i> Analysis Configuration</h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="mb-4">
+                                                        <label for="virusSelect" class="form-label fw-bold">
+                                                            <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
+                                                        </label>
+                                                        <select class="form-select form-select-lg" id="virusSelect" required>
+                                                            <option value="">Choose a virus...</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="mb-4 segment-selector" id="segmentSelector">
+                                                        <label for="segmentSelect" class="form-label fw-bold">
+                                                            <i class="fas fa-layer-group text-success"></i> Segment (for multi-segment viruses)
+                                                        </label>
+                                                        <select class="form-select form-select-lg" id="segmentSelect">
+                                                            <option value="">Choose segment...</option>
+                                                        </select>
+                                                    </div>
+                                                    
+                                                    <div class="mb-4">
+                                                        <label for="genomeId" class="form-label fw-bold">
+                                                            <i class="fas fa-dna text-info"></i> Genome ID (Optional)
+                                                        </label>
+                                                        <input type="text" class="form-control form-control-lg" id="genomeId" 
+                                                               placeholder="e.g., EPI_ISL_123456">
+                                                        <div class="form-text">
+                                                            <i class="fas fa-info-circle text-muted"></i> Leave empty to process all genomes in MSA file, or specify a specific genome ID
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="mb-4" id="msaFileSelector" style="display: none;">
+                                                        <label for="msaFileSelect" class="form-label fw-bold">
+                                                            <i class="fas fa-file-alt text-warning"></i> MSA File (Optional)
+                                                        </label>
+                                                        <select class="form-select form-select-lg" id="msaFileSelect">
+                                                            <option value="">Use default MSA file</option>
+                                                        </select>
+                                                        <div class="form-text">
+                                                            <i class="fas fa-info-circle text-muted"></i> Choose a specific MSA file to use for analysis
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         
-                                        <div class="col-md-6">
-                                            <div class="bg-light border border-primary border-opacity-25 p-3 rounded mb-3">
-                                                <h6 class="text-primary mb-2"><i class="fas fa-info-circle me-2"></i>Analysis Configuration:</h6>
-                                                <p class="mb-3">The MSA file and other required data files should be uploaded in the <strong>Data Upload</strong> tab before starting analysis.</p>
-                                                <p class="mb-0">Make sure all required files are uploaded and the checklist shows all items as completed.</p>
-                                            </div>
-                                            
-                                            <div class="mb-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="processAll" checked>
-                                                    <label class="form-check-label" for="processAll">
-                                                        Process all genomes in MSA file
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="mb-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="detectFrameshifts">
-                                                    <label class="form-check-label" for="detectFrameshifts">
-                                                        Detect potential frameshifting sites
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                     
                                     <div class="text-center">
@@ -632,76 +682,240 @@
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
                                     <p class="mt-3">Analysis in progress... This may take several minutes.</p>
+                                    <div id="loadingJobInfo" style="display: none;">
+                                        <div class="alert alert-info mt-3">
+                                            <h6><i class="fas fa-info-circle"></i> Job Started Successfully!</h6>
+                                            <p class="mb-2"><strong>Job ID:</strong> <code id="loadingJobId" class="fs-5"></code></p>
+                                            <p class="mb-2 text-muted">You can close this page and check back later using this Job ID in the <strong>History</strong> tab.</p>
+                                            <button class="btn btn-outline-primary btn-sm" onclick="copyJobId()">
+                                                <i class="fas fa-copy"></i> Copy Job ID
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                                 
                                 <!-- Results Section -->
                                 <div id="resultsSection" style="display: none;">
                                     <div class="alert alert-success">
                                         <h5><i class="fas fa-check-circle"></i> Analysis Complete!</h5>
-                                        <p>Your analysis has been completed successfully. Check the "Files" tab to download your results.</p>
+                                        <p>Your analysis has been completed successfully. Check the <strong>History</strong> tab to view job details and download results.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Files Tab -->
-                    <div class="tab-pane fade" id="files" role="tabpanel">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0"><i class="fas fa-folder-open"></i> Data Files</h5>
-                                    </div>
-                                    <div class="card-body">
+                        
+                        <!-- Generate Visualization -->
+                        <div class="card mt-4">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="fas fa-chart-line"></i> Generate Visualization</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="dataFilesVirusSelect" class="form-label">Select Virus</label>
-                                            <select class="form-select" id="dataFilesVirusSelect">
+                                            <label for="historyVirusSelect" class="form-label fw-bold">
+                                                <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
+                                            </label>
+                                            <select class="form-select" id="historyVirusSelect" required>
                                                 <option value="">Select a virus...</option>
                                             </select>
                                         </div>
-                                        <div class="mb-3" id="dataFilesZipDownload" style="display: none;">
-                                            <a href="#" class="btn btn-success btn-sm" id="downloadDataZipBtn">
-                                                <i class="fas fa-file-archive"></i> Download All Data Files (ZIP)
-                                            </a>
+                                        
+                                        <div class="mb-3">
+                                            <label for="historyGenomeId" class="form-label fw-bold">
+                                                <i class="fas fa-dna text-info"></i> Genome ID (Optional)
+                                            </label>
+                                            <input type="text" class="form-control" id="historyGenomeId" 
+                                                   placeholder="e.g., EPI_ISL_123456">
+                                            <div class="form-text">
+                                                <i class="fas fa-info-circle text-muted"></i> Leave empty to process all genomes, or specify a specific genome ID
+                                            </div>
                                         </div>
-                                        <div id="dataFilesList">
-                                            <p class="text-muted">Select a virus to view uploaded data files.</p>
-                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                                                                    <div class="text-center">
+                                                <button type="button" class="btn btn-success btn-lg" onclick="generateAllVisualizations()">
+                                                    <i class="fas fa-magic"></i> Generate All Visualizations
+                                                </button>
+                                                <div class="form-text mt-2">
+                                                    <i class="fas fa-info-circle text-muted"></i> This will generate all three visualization types
+                                                </div>
+
+                                            </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Result Files</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <label for="resultFilesVirusSelect" class="form-label">Select Virus</label>
-                                            <select class="form-select" id="resultFilesVirusSelect">
-                                                <option value="">Select a virus...</option>
-                                            </select>
+                                
+                                <!-- Visualization Types Guide -->
+                                <div class="bg-light border border-success border-opacity-25 p-3 rounded mt-3">
+                                    <h6 class="text-success mb-3"><i class="fas fa-info-circle me-2"></i>Visualization Types:</h6>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="d-flex align-items-start mb-2">
+                                                <div class="bg-primary bg-opacity-10 rounded-circle p-2 me-3">
+                                                    <i class="fas fa-dna text-primary"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Mutation Analysis</h6>
+                                                    <p class="text-muted small mb-0">Combined genome organization and protein mutation analysis.</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="mb-3" id="resultFilesZipDownload" style="display: none;">
-                                            <a href="#" class="btn btn-success btn-sm" id="downloadResultZipBtn">
-                                                <i class="fas fa-file-archive"></i> Download All Result Files (ZIP)
-                                            </a>
+                                        <div class="col-md-4">
+                                            <div class="d-flex align-items-start mb-2">
+                                                <div class="bg-success bg-opacity-10 rounded-circle p-2 me-3">
+                                                    <i class="fas fa-fire text-success"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Row/Hot Mutations</h6>
+                                                    <p class="text-muted small mb-0">Visualization of row and hot mutations on protein bars.</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div id="resultFilesList">
-                                            <p class="text-muted">Select a virus to view analysis results.</p>
+                                        <div class="col-md-4">
+                                            <div class="d-flex align-items-start mb-2">
+                                                <div class="bg-warning bg-opacity-10 rounded-circle p-2 me-3">
+                                                    <i class="fas fa-code text-warning"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">PRF Regions</h6>
+                                                    <p class="text-muted small mb-0">Programmed Ribosomal Frameshifting regions analysis.</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
+                        <!-- Interactive Visualization Panel -->
+                        <div class="card mt-4">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="fas fa-chart-line"></i> Interactive Visualization</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="interactiveVizContent">
+                                    <div class="text-center py-5">
+                                        <i class="fas fa-chart-bar fa-3x text-muted mb-3"></i>
+                                        <h5 class="text-muted">No Visualization Available</h5>
+                                        <p class="text-muted">Generate a visualization above to see it here.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Embedded HTML Visualizations -->
+                                <div id="visualizationEmbed" style="display: none;">
+                                    <!-- Mutation Analysis -->
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0"><i class="fas fa-dna"></i> Mutation Analysis</h6>
+                                            <button class="btn btn-sm btn-outline-light" onclick="toggleFullscreen('mutationFrame')">
+                                                <i class="fas fa-expand"></i> Fullscreen
+                                            </button>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <div class="position-relative" style="height: 500px;">
+                                                <iframe id="mutationFrame" style="width: 100%; height: 100%; border: none;"></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Row/Hot Mutations -->
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0"><i class="fas fa-fire"></i> Row/Hot Mutations</h6>
+                                            <button class="btn btn-sm btn-outline-light" onclick="toggleFullscreen('rowHotFrame')">
+                                                <i class="fas fa-expand"></i> Fullscreen
+                                            </button>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <div class="position-relative" style="height: 500px;">
+                                                <iframe id="rowHotFrame" style="width: 100%; height: 100%; border: none;"></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- PRF Regions -->
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0"><i class="fas fa-code"></i> PRF Regions</h6>
+                                            <button class="btn btn-sm btn-outline-dark" onclick="toggleFullscreen('prfFrame')">
+                                                <i class="fas fa-expand"></i> Fullscreen
+                                            </button>
+                                        </div>
+                                        <div class="card-body p-0">
+                                            <div class="position-relative" style="height: 500px;">
+                                                <iframe id="prfFrame" style="width: 100%; height: 100%; border: none;"></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+
+                    
+
                     
                     <!-- History Tab -->
                     <div class="tab-pane fade" id="history" role="tabpanel">
-                        <div class="card">
+                        <!-- Job Tracking Section -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fas fa-tasks"></i> Track Your Jobs</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="jobIdInput" placeholder="Enter Job ID to check status...">
+                                        <button class="btn btn-primary" type="button" onclick="checkJobStatus()">
+                                            <i class="fas fa-search"></i> Check Status
+                                        </button>
+                                    </div>
+                                    <div class="form-text">Enter a Job ID to check the status of a specific analysis job.</div>
+                                </div>
+                                
+                                <div id="jobStatusResult" style="display: none;">
+                                    <!-- Job status will be displayed here -->
+                                </div>
+                                
+                                <div class="mt-3">
+                                    <button class="btn btn-outline-secondary btn-sm" onclick="refreshJobHistory()">
+                                        <i class="fas fa-refresh"></i> Refresh Job History
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Current Job Information -->
+                        <div class="card mb-4" id="currentJobCard" style="display: none;">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0"><i class="fas fa-info-circle"></i> Current Job Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><strong>Job ID:</strong> <code id="jobIdDisplay"></code></p>
+                                        <p><strong>Status:</strong> <span id="jobStatusDisplay" class="badge bg-success">Completed</span></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Created:</strong> <span id="jobCreatedDisplay"></span></p>
+                                        <p><strong>Virus:</strong> <span id="jobVirusDisplay"></span></p>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-primary btn-sm" onclick="downloadJobResults()">
+                                        <i class="fas fa-download"></i> Download Results
+                                    </button>
+                                    <button class="btn btn-outline-secondary btn-sm ms-2" onclick="copyJobId()">
+                                        <i class="fas fa-copy"></i> Copy Job ID
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Job History -->
+                        <div class="card mb-4">
                             <div class="card-header">
                                 <h5 class="mb-0"><i class="fas fa-history"></i> Analysis History</h5>
                             </div>
@@ -711,6 +925,8 @@
                                 </div>
                             </div>
                         </div>
+                        
+
                     </div>
                     
                     <!-- Help Tab -->
@@ -767,7 +983,7 @@
                                         <h2 class="text-primary mb-3">Features</h2>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <div class="card h-100 border-0 shadow-sm">
                                                 <div class="card-body text-center p-4">
                                                     <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
@@ -778,7 +994,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <div class="card h-100 border-0 shadow-sm">
                                                 <div class="card-body text-center p-4">
                                                     <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
@@ -789,7 +1005,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <div class="card h-100 border-0 shadow-sm">
                                                 <div class="card-body text-center p-4">
                                                     <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
@@ -797,6 +1013,46 @@
                                                     </div>
                                                     <h5 class="text-warning mb-3">Frameshift Detection</h5>
                                                     <p class="text-muted mb-0">Identification of potential ribosomal frameshifting sites</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-body text-center p-4">
+                                                    <div class="bg-info bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                                                        <i class="fas fa-chart-line fa-2x text-info"></i>
+                                                    </div>
+                                                    <h5 class="text-info mb-3">Interactive Visualizations</h5>
+                                                    <p class="text-muted mb-0">Generate all three visualization types with one click</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-4">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="text-primary mb-3"><i class="fas fa-rocket me-2"></i>Streamlined Workflow</h5>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Auto-populated virus selection</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>One-click visualization generation</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Real-time job tracking</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Automatic frameshift detection</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="text-primary mb-3"><i class="fas fa-eye me-2"></i>Advanced Visualizations</h5>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Interactive HTML visualizations</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Fullscreen viewing mode</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Multiple visualization types</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Export capabilities</li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -817,12 +1073,13 @@
                                         <div class="col-md-6 mb-4">
                                             <div class="card h-100 border-0 shadow-sm">
                                                 <div class="card-body">
-                                                    <h4 class="text-primary mb-3">Step 1: Create Custom Virus</h4>
+                                                    <h4 class="text-primary mb-3">Step 1: Data Upload</h4>
                                                     <ol class="list-unstyled">
                                                         <li class="mb-2"><span class="badge bg-primary me-2">1</span>Go to <strong>Data Upload</strong> tab</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Enter a unique virus name</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Select virus type (single/multi-segment)</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Click "Create Custom Virus"</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Select virus type (or create custom)</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Upload reference genome (.fasta)</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Upload reference proteome (.fasta)</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">5</span>Upload MSA file (.txt)</li>
                                                     </ol>
                                                 </div>
                                             </div>
@@ -830,12 +1087,12 @@
                                         <div class="col-md-6 mb-4">
                                             <div class="card h-100 border-0 shadow-sm">
                                                 <div class="card-body">
-                                                    <h4 class="text-primary mb-3">Step 2: Upload Data Files</h4>
+                                                    <h4 class="text-primary mb-3">Step 2: Analysis & Visualization</h4>
                                                     <ol class="list-unstyled">
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Select your virus from dropdown</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Upload reference genome (.fasta)</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Upload reference proteome (.fasta)</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Upload MSA file (.txt)</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Go to <strong>Analysis & Visualization</strong> tab</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Select your virus (auto-populated)</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Optional: Enter specific genome ID</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Click "Start Analysis"</li>
                                                     </ol>
                                                 </div>
                                             </div>
@@ -846,12 +1103,12 @@
                                         <div class="col-md-6 mb-4">
                                             <div class="card h-100 border-0 shadow-sm">
                                                 <div class="card-body">
-                                                    <h4 class="text-primary mb-3">Step 3: Start Analysis</h4>
+                                                    <h4 class="text-primary mb-3">Step 3: Analysis & Visualizations</h4>
                                                     <ol class="list-unstyled">
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Go to <strong>Analysis</strong> tab</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Select your virus</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Choose analysis options</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Click "Start Analysis"</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Wait for analysis completion</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Click "Generate All Visualizations"</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>View all three visualization types</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Use fullscreen for detailed view</li>
                                                     </ol>
                                                 </div>
                                             </div>
@@ -859,12 +1116,12 @@
                                         <div class="col-md-6 mb-4">
                                             <div class="card h-100 border-0 shadow-sm">
                                                 <div class="card-body">
-                                                    <h4 class="text-primary mb-3">Step 4: Download Results</h4>
+                                                    <h4 class="text-primary mb-3">Step 4: Track with Job ID</h4>
                                                     <ol class="list-unstyled">
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Wait for analysis completion</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Go to <strong>Files</strong> tab</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Browse result files</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Download individual files or ZIP</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Note your unique job ID</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Go to <strong>History</strong> tab</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Track job status and progress</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Download results when complete</li>
                                                     </ol>
                                                 </div>
                                             </div>
@@ -948,6 +1205,95 @@
                                     </div>
                                 </section>
 
+                                <!-- Visualization Features -->
+                                <section id="visualization" class="mb-5">
+                                    <div class="border-bottom border-3 border-primary pb-3 mb-4">
+                                        <h2 class="text-primary mb-3">Interactive Visualizations</h2>
+                                    </div>
+                                    
+                                    <div class="bg-info bg-opacity-10 p-4 rounded mb-4">
+                                        <h4 class="text-info mb-2">🎨 Generate All Visualizations with One Click</h4>
+                                        <p class="text-info mb-0">Create comprehensive visualizations for your virus analysis with our streamlined interface</p>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-4 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-header bg-primary text-white">
+                                                    <h5 class="mb-0"><i class="fas fa-dna me-2"></i>Mutation Analysis</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="text-muted mb-3">Comprehensive genome organization and protein mutation analysis visualization.</p>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Genome organization overview</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Protein mutation mapping</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Interactive protein bars</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mutation frequency analysis</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-header bg-success text-white">
+                                                    <h5 class="mb-0"><i class="fas fa-fire me-2"></i>Row/Hot Mutations</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="text-muted mb-3">Visualization of row and hot mutations on protein structures.</p>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Spaced nucleotide substitutions</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Adjacent mutation patterns</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Protein-level impact</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mutation clustering analysis</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-header bg-warning text-dark">
+                                                    <h5 class="mb-0"><i class="fas fa-code me-2"></i>PRF Regions</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="text-muted mb-3">Programmed ribosomal frameshifting regions analysis.</p>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Frameshift site detection</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Structural element analysis</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Biological significance</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Potential functional impact</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="text-primary mb-3"><i class="fas fa-magic me-2"></i>How to Use Visualizations</h5>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6 class="text-primary mb-2">Generate Visualizations:</h6>
+                                                    <ol class="list-unstyled">
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Complete virus analysis first</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Go to Analysis & Visualization tab</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Click "Generate All Visualizations"</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>View all three visualization types</li>
+                                                    </ol>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6 class="text-primary mb-2">Interactive Features:</h6>
+                                                    <ul class="list-unstyled">
+                                                        <li class="mb-2"><i class="fas fa-expand text-info me-2"></i>Fullscreen mode for detailed view</li>
+                                                        <li class="mb-2"><i class="fas fa-mouse-pointer text-info me-2"></i>Hover for detailed information</li>
+                                                        <li class="mb-2"><i class="fas fa-search text-info me-2"></i>Zoom and pan capabilities</li>
+                                                        <li class="mb-2"><i class="fas fa-download text-info me-2"></i>Export high-quality images</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
                                 <!-- Usage Guide -->
                                 <section id="usage" class="mb-5">
                                     <div class="border-bottom border-3 border-primary pb-3 mb-4">
@@ -959,8 +1305,8 @@
                                         <div class="col-md-6 mb-4">
                                             <div class="card border-0 shadow-sm">
                                                 <div class="card-body">
-                                                    <h5 class="text-primary mb-3"><i class="fas fa-list me-2"></i>Process All Genomes</h5>
-                                                    <p class="text-muted mb-3">Analyzes all sequences in the MSA file. This is the recommended option for comprehensive analysis.</p>
+                                                    <h5 class="text-primary mb-3"><i class="fas fa-list me-2"></i>Process All Genomes (Default)</h5>
+                                                    <p class="text-muted mb-3">Leave the Genome ID field empty to analyze all sequences in the MSA file. This is the recommended option for comprehensive analysis.</p>
                                                     <ul class="list-unstyled mb-0">
                                                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Generates files for each genome</li>
                                                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Identifies common mutations</li>
@@ -973,7 +1319,7 @@
                                             <div class="card border-0 shadow-sm">
                                                 <div class="card-body">
                                                     <h5 class="text-primary mb-3"><i class="fas fa-search me-2"></i>Specific Genome ID</h5>
-                                                    <p class="text-muted mb-3">Analyzes only one specific sequence (e.g., EPI_ISL_123456).</p>
+                                                    <p class="text-muted mb-3">Enter a specific genome ID (e.g., EPI_ISL_123456) to analyze only that sequence.</p>
                                                     <ul class="list-unstyled mb-0">
                                                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Faster processing</li>
                                                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Targeted analysis</li>
@@ -985,15 +1331,34 @@
                                     </div>
                                     
                                     <h4 class="text-primary mb-3">Advanced Features</h4>
-                                    <div class="card border-0 shadow-sm">
-                                        <div class="card-body">
-                                            <h5 class="text-primary mb-3"><i class="fas fa-exchange-alt me-2"></i>Frameshift Detection</h5>
-                                            <p class="text-muted mb-3">Detects potential programmed ribosomal frameshifting sites in the genome. This feature:</p>
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Identifies slippery sequences</li>
-                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Analyzes structural elements</li>
-                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Generates PRF analysis report</li>
-                                            </ul>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="text-primary mb-3"><i class="fas fa-exchange-alt me-2"></i>Automatic Frameshift Detection</h5>
+                                                    <p class="text-muted mb-3">Automatically detects potential programmed ribosomal frameshifting sites in every analysis. This feature:</p>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Identifies slippery sequences</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Analyzes structural elements</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Generates PRF analysis report</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>No additional configuration needed</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="text-primary mb-3"><i class="fas fa-history me-2"></i>Job Tracking System</h5>
+                                                    <p class="text-muted mb-3">Track your analysis progress with our job management system:</p>
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Real-time status updates</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Unique job IDs for tracking</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Download results when ready</li>
+                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>History of all analyses</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </section>
@@ -1183,10 +1548,21 @@
         
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
+                    // Add a small delay to ensure all elements are loaded
+        setTimeout(() => {
             loadViruses();
             loadJobHistory();
             setupEventListeners();
             checkCookieConsent();
+            
+            // Add tab change listener for analysis tab
+            const analysisTab = document.getElementById('analysis-tab');
+            if (analysisTab) {
+                analysisTab.addEventListener('shown.bs.tab', function() {
+                    loadStoredVirusSelection();
+                });
+            }
+        }, 100);
         });
         
         function setupEventListeners() {
@@ -1242,65 +1618,333 @@
             document.getElementById('fileTypeSelect').addEventListener('change', function() {
                 updateFileInputAccept(this.value);
             });
+        }
+        
+        // Load stored virus selection for analysis
+        function loadStoredVirusSelection() {
+            try {
+                const storedInfo = localStorage.getItem('selectedVirusForAnalysis');
+                if (storedInfo) {
+                    const virusInfo = JSON.parse(storedInfo);
+                    const virusSelect = document.getElementById('virusSelect');
+                    const segmentSelect = document.getElementById('segmentSelect');
+                    
+                    if (virusSelect && virusInfo.virus) {
+                        // Set the virus selection
+                        virusSelect.value = virusInfo.virus;
+                        
+                        // Trigger the change event to populate segments if needed
+                        const event = new Event('change');
+                        virusSelect.dispatchEvent(event);
+                        
+                        // Set segment if available
+                        if (virusInfo.segment && segmentSelect) {
+                            // Wait a bit for segments to load, then set the segment
+                            setTimeout(() => {
+                                segmentSelect.value = virusInfo.segment;
+                            }, 100);
+                        }
+                        
+                        console.log('Loaded stored virus selection:', virusInfo);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading stored virus selection:', error);
+            }
+        }
+        
+        // Load visualization into iframe
+        function loadVisualization(filePath) {
+            const iframe = document.getElementById('visualizationFrame');
+            const iframeLoading = document.getElementById('iframeLoading');
+            const interactiveVizContent = document.getElementById('interactiveVizContent');
+            const visualizationEmbed = document.getElementById('visualizationEmbed');
             
-            // Data files virus selection
-            document.getElementById('dataFilesVirusSelect').addEventListener('change', function() {
-                loadDataFiles(this.value);
-                updateDataFilesDownloadButtons(this.value);
-            });
+            console.log('loadVisualization called with:', filePath);
+            console.log('iframe element:', iframe);
+            console.log('iframeLoading element:', iframeLoading);
+            console.log('interactiveVizContent element:', interactiveVizContent);
+            console.log('visualizationEmbed element:', visualizationEmbed);
             
-            // Result files virus selection
-            document.getElementById('resultFilesVirusSelect').addEventListener('change', function() {
-                loadResultFiles(this.value);
-                updateResultFilesDownloadButtons(this.value);
-            });
-
-            // Individual zip download buttons
-            document.getElementById('downloadDataZipBtn').addEventListener('click', async (e) => {
-                e.preventDefault();
-                const virusName = document.getElementById('dataFilesVirusSelect').value;
-                if (virusName) {
-                    await downloadAllFiles(virusName, 'data');
-                } else {
-                    showNotification('Please select a virus first.', 'warning');
+            if (iframe && iframeLoading && interactiveVizContent && visualizationEmbed) {
+                // Hide the "no visualization" content
+                interactiveVizContent.style.display = 'none';
+                
+                // Show the visualization embed
+                visualizationEmbed.style.display = 'block';
+                
+                // Show loading spinner
+                iframeLoading.style.display = 'flex';
+                
+                // Set the iframe source
+                iframe.src = filePath;
+                
+                // Handle iframe load events
+                iframe.onload = function() {
+                    console.log('Iframe loaded successfully');
+                    iframeLoading.style.display = 'none';
+                };
+                
+                iframe.onerror = function() {
+                    console.log('Iframe failed to load');
+                    iframeLoading.style.display = 'none';
+                    showNotification('Error loading visualization', 'error');
+                };
+                
+                // Fallback: hide loading spinner after 10 seconds
+                setTimeout(function() {
+                    if (iframeLoading.style.display === 'flex') {
+                        console.log('Hiding loading spinner due to timeout');
+                        iframeLoading.style.display = 'none';
+                    }
+                }, 10000);
+                
+                console.log('Loading visualization from:', filePath);
+            } else {
+                console.error('Missing required elements for visualization loading');
+            }
+        }
+        
+        // Generate all visualizations
+        async function generateAllVisualizations() {
+            const virusName = document.getElementById('historyVirusSelect').value;
+            const genomeId = document.getElementById('historyGenomeId').value;
+            
+            console.log('Starting generateAllVisualizations with:', { virusName, genomeId });
+            
+            if (!virusName) {
+                alert('Please select a virus type');
+                return;
+            }
+            
+            // Show the visualization embed area
+            const interactiveVizContent = document.getElementById('interactiveVizContent');
+            const visualizationEmbed = document.getElementById('visualizationEmbed');
+            
+            if (interactiveVizContent && visualizationEmbed) {
+                interactiveVizContent.style.display = 'none';
+                visualizationEmbed.style.display = 'block';
+            }
+            
+            // No loading spinners needed - iframes will show content directly
+            
+            const visualizationTypes = ['mutation', 'row-hot', 'prf'];
+            console.log('Generating visualizations for types:', visualizationTypes);
+            
+            const promises = visualizationTypes.map(async (type) => {
+                console.log(`Starting ${type} visualization generation...`);
+                try {
+                    const requestBody = new URLSearchParams({
+                        virus_name: virusName,
+                        visualization_type: type,
+                        genome_id: genomeId || ''
+                    });
+                    
+                    console.log(`${type} request body:`, requestBody.toString());
+                    
+                    const response = await fetch('/api/visualize', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: requestBody
+                    });
+                    
+                    console.log(`${type} response status:`, response.status);
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        console.log(`${type} visualization result:`, result);
+                        
+                        if (result.success && result.html_file) {
+                            const filePath = `/api/visualization-files/${virusName}/${result.html_file.filename}`;
+                            console.log(`Loading ${type} visualization from:`, filePath);
+                            loadVisualizationByType(type, filePath);
+                        } else {
+                            console.log(`Visualization failed for ${type}:`, result.message);
+                            hideLoadingByType(type);
+                            showNotification(`${type} visualization failed: ${result.message}`, 'error');
+                        }
+                    } else {
+                        const errorText = await response.text();
+                        console.error(`${type} visualization failed:`, errorText);
+                        try {
+                            const error = JSON.parse(errorText);
+                            console.error(`${type} error detail:`, error.detail);
+                        } catch (e) {
+                            console.error(`${type} raw error:`, errorText);
+                        }
+                        hideLoadingByType(type);
+                    }
+                } catch (error) {
+                    console.error(`Error generating ${type} visualization:`, error);
+                    hideLoadingByType(type);
                 }
             });
+            
+            // Wait for all visualizations to complete
+            await Promise.all(promises);
+            console.log('All visualization promises completed');
+            
+            // Test if iframe elements exist
+            console.log('Testing iframe elements:');
+            console.log('mutationFrame:', document.getElementById('mutationFrame'));
+            console.log('rowHotFrame:', document.getElementById('rowHotFrame'));
+            console.log('prfFrame:', document.getElementById('prfFrame'));
+            
+            showNotification('All visualizations generated successfully!', 'success');
+        }
+        
+                // Load visualization by type
+        function loadVisualizationByType(type, filePath) {
+            // Map visualization types to correct iframe IDs
+            const iframeIdMap = {
+                'mutation': 'mutationFrame',
+                'row-hot': 'rowHotFrame',
+                'prf': 'prfFrame'
+            };
+            
+            const iframeId = iframeIdMap[type];
+            
+            console.log(`loadVisualizationByType called with type: ${type}, filePath: ${filePath}`);
+            console.log(`Looking for iframe with ID: ${iframeId}`);
+            
+            const iframe = document.getElementById(iframeId);
+            
+            console.log(`Found iframe:`, iframe);
+            
+            if (iframe) {
+                console.log(`Setting iframe src to: ${filePath}`);
+                iframe.src = filePath;
+                console.log(`${type} iframe src set to:`, iframe.src);
+                
+                iframe.onload = function() {
+                    console.log(`${type} iframe loaded successfully`);
+                };
+                
+                iframe.onerror = function() {
+                    console.log(`${type} iframe failed to load`);
+                    showNotification(`Error loading ${type} visualization`, 'error');
+                };
+                
+                console.log(`Loading ${type} visualization from:`, filePath);
+            } else {
+                console.error(`Could not find iframe (${iframeId})`);
+            }
+        }
+        
+        // Hide loading by type
+        function hideLoadingByType(type) {
+            const loadingId = `${type}Loading`;
+            const loading = document.getElementById(loadingId);
+            if (loading) {
+                loading.style.display = 'none';
+            }
+        }
+        
 
-            document.getElementById('downloadResultZipBtn').addEventListener('click', async (e) => {
-                e.preventDefault();
-                const virusName = document.getElementById('resultFilesVirusSelect').value;
-                if (virusName) {
-                    await downloadAllFiles(virusName, 'results');
+        
+        // Generate visualization from History tab
+        async function generateVisualization() {
+            const virusName = document.getElementById('historyVirusSelect').value;
+            const genomeId = document.getElementById('historyGenomeId').value;
+            const visualizationType = document.getElementById('historyVisualizationType').value;
+            
+            if (!virusName || !visualizationType) {
+                alert('Please select both virus type and visualization type');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/visualize', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        virus_name: virusName,
+                        visualization_type: visualizationType,
+                        genome_id: genomeId || ''
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('Visualization result:', result);
+                    console.log('HTML file object:', result.html_file);
+                    console.log('HTML file filename:', result.html_file ? result.html_file.filename : 'null');
+                    console.log('HTML file path:', result.html_file ? result.html_file.path : 'null');
+                    showNotification('Visualization generated successfully!', 'success');
+                    
+                    // Load the visualization
+                    if (result.html_file) {
+                        const filePath = `/api/visualization-files/${virusName}/${result.html_file.filename}`;
+                        console.log('Loading visualization from:', filePath);
+                        loadVisualization(filePath);
+                    } else {
+                        console.log('No HTML file in result:', result);
+                    }
                 } else {
-                    showNotification('Please select a virus first.', 'warning');
+                    const error = await response.json();
+                    showNotification('Visualization failed: ' + error.detail, 'error');
                 }
-            });
+            } catch (error) {
+                console.error('Error generating visualization:', error);
+                showNotification('Error generating visualization', 'error');
+            }
         }
         
         // Load available viruses
         async function loadViruses() {
             try {
+                console.log('Loading viruses...');
                 const response = await fetch('/api/viruses');
                 const data = await response.json();
+                console.log('Virus data received:', data);
                 
-                const virusSelects = ['virusSelect', 'uploadVirusSelect', 'dataFilesVirusSelect', 'resultFilesVirusSelect'];
+                const virusSelects = ['virusSelect', 'uploadVirusSelect', 'historyVirusSelect'];
+                let allElementsFound = true;
                 
                 virusSelects.forEach(selectId => {
                     const select = document.getElementById(selectId);
+                    console.log(`Found select element for ${selectId}:`, select);
+                    
+                    if (!select) {
+                        console.error(`Select element ${selectId} not found!`);
+                        allElementsFound = false;
+                        return;
+                    }
+                    
                     select.innerHTML = '<option value="">Select a virus...</option>';
                     
                     data.viruses.forEach(virus => {
                         const option = document.createElement('option');
                         option.value = virus.name;
-                        option.textContent = `${virus.name} - ${virus.description}`;
+                        
+                        // Show cleaner names: just virus name for template viruses, "Custom Virus" for custom ones
+                        if (virus.is_custom) {
+                            option.textContent = `${virus.name}: Custom Virus`;
+                        } else {
+                            option.textContent = virus.name;
+                        }
+                        
                         option.dataset.isMultiSegment = virus.is_multi_segment;
                         option.dataset.segments = JSON.stringify(virus.segments);
                         option.dataset.isCustom = virus.is_custom || false;
                         select.appendChild(option);
                     });
+                    
+                    console.log(`Loaded ${data.viruses.length} viruses into ${selectId}`);
                 });
+                
+                if (!allElementsFound) {
+                    console.log('Some elements not found, retrying in 500ms...');
+                    setTimeout(loadViruses, 500);
+                }
             } catch (error) {
                 console.error('Error loading viruses:', error);
+                // Retry after 1 second if there's an error
+                setTimeout(loadViruses, 1000);
             }
         }
         
@@ -1322,6 +1966,11 @@
                 segmentSelector.style.display = 'block';
             } else {
                 segmentSelector.style.display = 'none';
+            }
+            
+            // Load MSA files for analysis form if this is the analysis virus selector
+            if (selectElement.id === 'virusSelect') {
+                loadMSAFilesForAnalysis();
             }
         }
         
@@ -1431,9 +2080,17 @@
                 if (response.ok) {
                     const result = await response.json();
                     
-                    // Show success message
-                    const successMessage = `✅ File uploaded successfully: ${result.filename}`;
-                    showNotification(successMessage, 'success');
+                    // Show success message under upload button
+                    const successMessage = `File uploaded successfully: ${result.filename}`;
+                    showUploadMessage(successMessage, 'success');
+                    
+                    // Store selected virus information for analysis page
+                    const selectedVirusInfo = {
+                        virus: virusName,
+                        segment: segment || null,
+                        fileType: fileType
+                    };
+                    localStorage.setItem('selectedVirusForAnalysis', JSON.stringify(selectedVirusInfo));
                     
                     // Update checklist
                     updateUploadChecklist(virusName);
@@ -1444,15 +2101,14 @@
                     // Refresh file lists
                     if (document.getElementById('dataFilesVirusSelect').value === virusName) {
                         loadDataFiles(virusName);
-                        updateDataFilesDownloadButtons(virusName);
                     }
                 } else {
                     const error = await response.json();
-                    showNotification(`❌ Upload failed: ${error.detail}`, 'error');
+                    showUploadMessage(`Upload failed: ${error.detail}`, 'error');
                 }
             } catch (error) {
                 console.error('Error uploading file:', error);
-                showNotification('❌ Error uploading file', 'error');
+                showUploadMessage('Error uploading file', 'error');
             }
         }
         
@@ -1543,9 +2199,8 @@
             
             const virusName = document.getElementById('virusSelect').value;
             const genomeId = document.getElementById('genomeId').value;
-            const processAll = document.getElementById('processAll').checked;
-            const detectFrameshifts = document.getElementById('detectFrameshifts').checked;
             const segment = document.getElementById('segmentSelect').value;
+            const msaFile = document.getElementById('msaFileSelect').value;
             
             if (!virusName) {
                 alert('Please select a virus type');
@@ -1566,9 +2221,10 @@
                 const analysisRequest = {
                     virus_name: virusName,
                     genome_id: genomeId,
-                    process_all: processAll,
-                    detect_frameshifts: detectFrameshifts,
+                    process_all: !genomeId, // If genomeId is empty, process all genomes
+                    detect_frameshifts: true, // Always detect frameshifting sites
                     segment: segment || null,
+                    msa_file: msaFile || null,
                     is_custom_virus: isCustomVirus
                 };
                 
@@ -1583,6 +2239,24 @@
                 if (response.ok) {
                     const result = await response.json();
                     currentJobId = result.job_id;
+                    
+                    // Show job information immediately in History tab
+                    document.getElementById('jobIdDisplay').textContent = result.job_id;
+                    document.getElementById('jobStatusDisplay').textContent = 'Queued';
+                    document.getElementById('jobStatusDisplay').className = 'badge bg-warning';
+                    document.getElementById('jobCreatedDisplay').textContent = new Date(result.created_at).toLocaleString();
+                    document.getElementById('jobVirusDisplay').textContent = virusName;
+                    
+                    // Show job ID in loading spinner
+                    document.getElementById('loadingJobId').textContent = result.job_id;
+                    document.getElementById('loadingJobInfo').style.display = 'block';
+                    
+                    // Show current job card in History tab
+                    document.getElementById('currentJobCard').style.display = 'block';
+                    
+                    // Show notification with job ID
+                    showNotification(`🚀 Analysis started! Job ID: ${result.job_id}. You can check the History tab for job details.`, 'success');
+                    
                     startStatusCheck();
                 } else {
                     throw new Error('Failed to start analysis');
@@ -1595,7 +2269,74 @@
             }
         }
         
-        // Load data files
+        // Toggle fullscreen for visualization
+        function toggleFullscreen(iframeId) {
+            const iframe = document.getElementById(iframeId);
+            if (iframe && iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe && iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe && iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
+        }
+        
+        // Load download options for selected virus
+        async function loadDownloadOptions(virusName) {
+            if (!virusName) {
+                document.getElementById('downloadOptions').style.display = 'none';
+                document.getElementById('downloadPlaceholder').style.display = 'block';
+                return;
+            }
+            
+            try {
+                // Load both data files and result files
+                const [dataResponse, resultResponse] = await Promise.all([
+                    fetch(`/api/data-files/${virusName}`),
+                    fetch(`/api/result-files/${virusName}`)
+                ]);
+                
+                const dataResult = await dataResponse.json();
+                const resultResult = await resultResponse.json();
+                
+                // Update data files section
+                const dataFileList = document.getElementById('dataFilesList');
+                const dataZipDownload = document.getElementById('dataFilesZipDownload');
+                
+                if (dataResult.files.length === 0) {
+                    dataFileList.innerHTML = '<p class="text-muted">No data files found for this virus.</p>';
+                    dataZipDownload.style.display = 'none';
+                } else {
+                    dataFileList.innerHTML = `<p class="text-muted">Found ${dataResult.files.length} data file(s) for ${virusName}.</p>`;
+                    dataZipDownload.style.display = 'block';
+                    document.getElementById('downloadDataZipBtn').href = `/api/download-virus-files/${virusName}?type=data`;
+                }
+                
+                // Update result files section
+                const resultFileList = document.getElementById('resultFilesList');
+                const resultZipDownload = document.getElementById('resultFilesZipDownload');
+                
+                if (resultResult.files.length === 0) {
+                    resultFileList.innerHTML = '<p class="text-muted">No result files found for this virus.</p>';
+                    resultZipDownload.style.display = 'none';
+                } else {
+                    resultFileList.innerHTML = `<p class="text-muted">Found ${resultResult.files.length} result file(s) for ${virusName}.</p>`;
+                    resultZipDownload.style.display = 'block';
+                    document.getElementById('downloadResultZipBtn').href = `/api/download-virus-files/${virusName}?type=results`;
+                }
+                
+                // Show download options
+                document.getElementById('downloadOptions').style.display = 'block';
+                document.getElementById('downloadPlaceholder').style.display = 'none';
+                
+            } catch (error) {
+                console.error('Error loading download options:', error);
+                document.getElementById('downloadOptions').style.display = 'none';
+                document.getElementById('downloadPlaceholder').style.display = 'block';
+            }
+        }
+        
+        // Keep the old functions for backward compatibility (used in upload success)
         async function loadDataFiles(virusName) {
             if (!virusName) return;
             
@@ -1606,45 +2347,17 @@
                 const fileList = document.getElementById('dataFilesList');
                 if (data.files.length === 0) {
                     fileList.innerHTML = '<p class="text-muted">No data files found for this virus.</p>';
-                    return;
+                    document.getElementById('dataFilesZipDownload').style.display = 'none';
+                } else {
+                    fileList.innerHTML = `<p class="text-muted">Found ${data.files.length} data file(s) for ${virusName}.</p>`;
+                    document.getElementById('dataFilesZipDownload').style.display = 'block';
+                    document.getElementById('downloadDataZipBtn').href = `/api/download-virus-files/${virusName}?type=data`;
                 }
-                
-                let html = '';
-                data.files.forEach(file => {
-                    const typeClass = `file-type-${file.type}`;
-                    // Convert file type to display name
-                    let displayType = file.type;
-                    if (file.type === 'proteome') {
-                        displayType = 'Reference Proteome';
-                    } else if (file.type === 'reference_genome') {
-                        displayType = 'Reference Genome';
-                    } else if (file.type === 'fasta_sequences') {
-                        displayType = 'FASTA Sequences (Optional)';
-                    } else if (file.type === 'msa') {
-                        displayType = 'MSA File';
-                    }
-                    
-                    html += `
-                        <div class="file-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <strong>${file.filename}</strong>
-                                </div>
-                                <div class="text-end">
-                                    <span class="file-type-badge ${typeClass}">${displayType}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                fileList.innerHTML = html;
             } catch (error) {
                 console.error('Error loading data files:', error);
             }
         }
         
-        // Load result files
         async function loadResultFiles(virusName) {
             if (!virusName) return;
             
@@ -1655,54 +2368,18 @@
                 const fileList = document.getElementById('resultFilesList');
                 if (data.files.length === 0) {
                     fileList.innerHTML = '<p class="text-muted">No result files found for this virus.</p>';
-                    return;
+                    document.getElementById('resultFilesZipDownload').style.display = 'none';
+                } else {
+                    fileList.innerHTML = `<p class="text-muted">Found ${data.files.length} result file(s) for ${virusName}.</p>`;
+                    document.getElementById('resultFilesZipDownload').style.display = 'block';
+                    document.getElementById('downloadResultZipBtn').href = `/api/download-virus-files/${virusName}?type=results`;
                 }
-                
-                let html = '';
-                data.files.forEach(file => {
-                    html += `
-                        <div class="file-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <strong>${file.filename}</strong>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                fileList.innerHTML = html;
             } catch (error) {
                 console.error('Error loading result files:', error);
             }
         }
 
-        // Update download buttons visibility
-        function updateDataFilesDownloadButtons(virusName) {
-            const dataFilesZipDownload = document.getElementById('dataFilesZipDownload');
-            const downloadDataZipBtn = document.getElementById('downloadDataZipBtn');
 
-            if (virusName) {
-                dataFilesZipDownload.style.display = 'block';
-                downloadDataZipBtn.href = `/api/download-virus-files/${virusName}?type=data`;
-            } else {
-                dataFilesZipDownload.style.display = 'none';
-                downloadDataZipBtn.href = '#';
-            }
-        }
-
-        function updateResultFilesDownloadButtons(virusName) {
-            const resultFilesZipDownload = document.getElementById('resultFilesZipDownload');
-            const downloadResultZipBtn = document.getElementById('downloadResultZipBtn');
-
-            if (virusName) {
-                resultFilesZipDownload.style.display = 'block';
-                downloadResultZipBtn.href = `/api/download-virus-files/${virusName}?type=results`;
-            } else {
-                resultFilesZipDownload.style.display = 'none';
-                downloadResultZipBtn.href = '#';
-            }
-        }
         
         // Format file size
         function formatFileSize(bytes) {
@@ -1726,23 +2403,164 @@
                     const response = await fetch(`/api/job/${currentJobId}`);
                     const job = await response.json();
                     
+                    // Update status display in real-time
+                    const statusDisplay = document.getElementById('jobStatusDisplay');
+                    const statusClass = job.status === 'completed' ? 'success' : 
+                                      job.status === 'failed' ? 'danger' : 'warning';
+                    statusDisplay.textContent = job.status.charAt(0).toUpperCase() + job.status.slice(1);
+                    statusDisplay.className = `badge bg-${statusClass}`;
+                    
                     if (job.status === 'completed') {
                         clearInterval(statusCheckInterval);
                         document.getElementById('loadingSpinner').style.display = 'none';
                         document.getElementById('resultsSection').style.display = 'block';
-                        showNotification('🎉 Analysis completed successfully!', 'success');
+                        
+                        // Update job information display in History tab
+                        document.getElementById('jobIdDisplay').textContent = job.job_id;
+                        document.getElementById('jobStatusDisplay').textContent = 'Completed';
+                        document.getElementById('jobStatusDisplay').className = 'badge bg-success';
+                        document.getElementById('jobCreatedDisplay').textContent = new Date(job.created_at).toLocaleString();
+                        document.getElementById('jobVirusDisplay').textContent = job.virus_name;
+                        
+                        showNotification('🎉 Analysis completed successfully! Check the History tab for results.', 'success');
                         loadJobHistory();
                         currentJobId = null;
                     } else if (job.status === 'failed') {
                         clearInterval(statusCheckInterval);
                         document.getElementById('loadingSpinner').style.display = 'none';
-                        showNotification(`❌ Analysis failed: ${job.error}`, 'error');
+                        
+                        // Update job information display for failed status in History tab
+                        document.getElementById('jobStatusDisplay').textContent = 'Failed';
+                        document.getElementById('jobStatusDisplay').className = 'badge bg-danger';
+                        
+                        showNotification(`❌ Analysis failed: ${job.error}. Check the History tab for details.`, 'error');
                         currentJobId = null;
                     }
                 } catch (error) {
                     console.error('Error checking job status:', error);
                 }
             }, 5000);
+        }
+        
+        // Check job status by ID
+        async function checkJobStatus() {
+            const jobId = document.getElementById('jobIdInput').value.trim();
+            if (!jobId) {
+                showNotification('Please enter a Job ID', 'warning');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/job/${jobId}`);
+                if (response.ok) {
+                    const job = await response.json();
+                    displayJobStatus(job);
+                } else {
+                    const error = await response.json();
+                    showNotification(`❌ ${error.detail}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error checking job status:', error);
+                showNotification('❌ Error checking job status', 'error');
+            }
+        }
+        
+        // Display job status result
+        function displayJobStatus(job) {
+            const resultDiv = document.getElementById('jobStatusResult');
+            const statusClass = job.status === 'completed' ? 'success' : 
+                              job.status === 'failed' ? 'danger' : 'warning';
+            const statusIcon = job.status === 'completed' ? 'check-circle' : 
+                             job.status === 'failed' ? 'times-circle' : 'clock';
+            
+            let html = `
+                <div class="alert alert-${statusClass}">
+                    <h6><i class="fas fa-${statusIcon}"></i> Job Status: ${job.status.toUpperCase()}</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Job ID:</strong> <code>${job.job_id}</code></p>
+                            <p><strong>Virus:</strong> ${job.virus_name}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Created:</strong> ${new Date(job.created_at).toLocaleString()}</p>
+                            <p><strong>Status:</strong> <span class="badge bg-${statusClass}">${job.status}</span></p>
+                        </div>
+                    </div>
+            `;
+            
+            if (job.status === 'completed' && job.results) {
+                html += `
+                    <div class="mt-3">
+                        <p><strong>Results:</strong> ${job.results.summary}</p>
+                        <button class="btn btn-primary btn-sm" onclick="downloadJobResultsById('${job.job_id}')">
+                            <i class="fas fa-download"></i> Download Results
+                        </button>
+                    </div>
+                `;
+            } else if (job.status === 'failed' && job.error) {
+                html += `
+                    <div class="mt-3">
+                        <p><strong>Error:</strong> ${job.error}</p>
+                    </div>
+                `;
+            }
+            
+            html += '</div>';
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+        }
+        
+        // Download results for a specific job ID
+        async function downloadJobResultsById(jobId) {
+            try {
+                const response = await fetch(`/api/results/${jobId}/download`);
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `variant_results_${jobId}.zip`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                    showNotification('Downloading results...', 'success');
+                } else {
+                    const error = await response.json();
+                    showNotification(`❌ Failed to download results: ${error.detail}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error downloading results:', error);
+                showNotification('❌ Error downloading results', 'error');
+            }
+        }
+        
+        // Download results for current job
+        async function downloadJobResults() {
+            if (currentJobId) {
+                await downloadJobResultsById(currentJobId);
+            } else {
+                showNotification('No active job to download', 'warning');
+            }
+        }
+        
+        // Copy job ID to clipboard
+        function copyJobId() {
+            if (currentJobId) {
+                navigator.clipboard.writeText(currentJobId).then(() => {
+                    showNotification('Job ID copied to clipboard!', 'success');
+                }).catch(() => {
+                    showNotification('Failed to copy Job ID', 'error');
+                });
+            } else {
+                showNotification('No Job ID to copy', 'warning');
+            }
+        }
+        
+        // Refresh job history
+        async function refreshJobHistory() {
+            await loadJobHistory();
+            showNotification('Job history refreshed!', 'success');
         }
         
         // Load job history
@@ -1858,6 +2676,146 @@
         
 
         
+
+        
+        // MSA File Management
+        async function loadMSAFiles() {
+            const virusName = document.getElementById('uploadVirusSelect').value;
+            const segment = document.getElementById('uploadSegmentSelect').value;
+            
+            if (!virusName) {
+                showNotification('Please select a virus first', 'warning');
+                return;
+            }
+            
+            try {
+                let url = `/api/msa-files/${virusName}`;
+                if (segment) {
+                    url += `?segment=${segment}`;
+                }
+                
+                const response = await fetch(url);
+                const result = await response.json();
+                
+                if (response.ok) {
+                    displayMSAFiles(result.msa_files);
+                } else {
+                    showNotification(`Error loading MSA files: ${result.detail}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error loading MSA files:', error);
+                showNotification('Error loading MSA files', 'error');
+            }
+        }
+        
+        function displayMSAFiles(msaFiles) {
+            const container = document.getElementById('msaFilesList');
+            
+            if (msaFiles.length === 0) {
+                container.innerHTML = '<p class="text-muted mb-2">No MSA files found for this virus</p>';
+                return;
+            }
+            
+            let html = '<div class="list-group">';
+            msaFiles.forEach(file => {
+                const sizeKB = Math.round(file.size / 1024);
+                const defaultBadge = file.is_default ? 
+                    '<span class="badge bg-success ms-2">Default</span>' : '';
+                
+                html += `
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>${file.filename}</strong>
+                            <br><small class="text-muted">${sizeKB} KB</small>
+                            ${defaultBadge}
+                        </div>
+                        <div>
+                            ${!file.is_default ? 
+                                `<button class="btn btn-sm btn-primary" onclick="setDefaultMSA('${file.filename}')">
+                                    <i class="fas fa-star"></i> Set Default
+                                </button>` : 
+                                '<span class="text-success"><i class="fas fa-check"></i> Current Default</span>'
+                            }
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            container.innerHTML = html;
+        }
+        
+        async function setDefaultMSA(filename) {
+            const virusName = document.getElementById('uploadVirusSelect').value;
+            const segment = document.getElementById('uploadSegmentSelect').value;
+            
+            try {
+                const formData = new FormData();
+                formData.append('virus_name', virusName);
+                formData.append('msa_filename', filename);
+                if (segment) {
+                    formData.append('segment', segment);
+                }
+                
+                const response = await fetch('/api/set-default-msa', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showNotification(result.message, 'success');
+                    // Reload MSA files to update the display
+                    loadMSAFiles();
+                } else {
+                    showNotification(`Error setting default MSA: ${result.detail}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error setting default MSA:', error);
+                showNotification('Error setting default MSA', 'error');
+            }
+        }
+        
+        async function loadMSAFilesForAnalysis() {
+            const virusName = document.getElementById('virusSelect').value;
+            const segment = document.getElementById('segmentSelect').value;
+            const msaFileSelector = document.getElementById('msaFileSelector');
+            const msaFileSelect = document.getElementById('msaFileSelect');
+            
+            if (!virusName) {
+                msaFileSelector.style.display = 'none';
+                return;
+            }
+            
+            try {
+                let url = `/api/msa-files/${virusName}`;
+                if (segment) {
+                    url += `?segment=${segment}`;
+                }
+                
+                const response = await fetch(url);
+                const result = await response.json();
+                
+                if (response.ok && result.msa_files.length > 1) {
+                    // Only show MSA selector if there are multiple MSA files
+                    msaFileSelect.innerHTML = '<option value="">Use default MSA file</option>';
+                    result.msa_files.forEach(file => {
+                        const option = document.createElement('option');
+                        option.value = file.filename;
+                        option.textContent = `${file.filename}${file.is_default ? ' (Default)' : ''}`;
+                        msaFileSelect.appendChild(option);
+                    });
+                    msaFileSelector.style.display = 'block';
+                } else {
+                    msaFileSelector.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error loading MSA files for analysis:', error);
+                msaFileSelector.style.display = 'none';
+            }
+        }
+        
         // Show notification
         function showNotification(message, type = 'info') {
             const container = document.getElementById('notificationContainer');
@@ -1877,6 +2835,39 @@
                 }
             }, 5000);
         }
+        
+        // Show upload message under upload button
+        function showUploadMessage(message, type = 'success') {
+            const messageContainer = document.getElementById('uploadStatusMessage');
+            const messageText = document.getElementById('uploadMessageText');
+            
+            if (messageContainer && messageText) {
+                messageText.textContent = message;
+                
+                // Update alert class based on type
+                const alertDiv = messageContainer.querySelector('.alert');
+                alertDiv.className = `alert alert-${type === 'error' ? 'danger' : type}`;
+                
+                // Update icon based on type
+                const icon = alertDiv.querySelector('i');
+                if (type === 'success') {
+                    icon.className = 'fas fa-check-circle me-2';
+                } else if (type === 'error') {
+                    icon.className = 'fas fa-exclamation-triangle me-2';
+                } else {
+                    icon.className = 'fas fa-info-circle me-2';
+                }
+                
+                messageContainer.style.display = 'block';
+                
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    messageContainer.style.display = 'none';
+                }, 5000);
+            }
+        }
+        
+
     </script>
     
     <!-- Footer with License Information -->
