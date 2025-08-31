@@ -81,9 +81,15 @@ viruses:
     description: Human Immunodeficiency Virus 1
     proteome_file: HIV-1_proteome.fasta
     reference_genome: NC_001802.1.fasta
-  NewSARS:
+  NEW:
     codon_table_id: 1
     default_msa_file: ''
+    description: 'Custom virus: NEW'
+    proteome_file: ''
+    reference_genome: ''
+  NewSARS:
+    codon_table_id: 1
+    default_msa_file: NewSARS_msa.txt
     description: 'Custom virus: NewSARS'
     proteome_file: ''
     reference_genome: ''

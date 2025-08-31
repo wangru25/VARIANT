@@ -694,7 +694,7 @@
                                                         </div>
                                                     </div>
                                                     
-                                                    <div class="mb-4 segment-selector" id="segmentSelector">
+                                                    <div class="mb-4 segment-selector" id="segmentSelector" style="display: none;">
                                                         <label for="segmentSelect" class="form-label fw-bold">
                                                             <i class="fas fa-layer-group text-success"></i> Segment (for multi-segment viruses)
                                                         </label>
@@ -1757,6 +1757,9 @@
             // Load stored virus selection and genome IDs
             loadStoredVirusSelection();
             
+            // Auto-populate Analysis panel with recently uploaded custom virus
+            autoPopulateAnalysisPanelFromStorage();
+            
             // Add event listeners for genome ID inputs
             const historyGenomeIdInput = document.getElementById('historyGenomeId');
             const genomeIdInput = document.getElementById('genomeId');
@@ -1808,9 +1811,9 @@
             });
         }
         
-                    // Load stored virus selection for analysis
-            function loadStoredVirusSelection() {
-                console.log('loadStoredVirusSelection called');
+                            // Load stored virus selection for analysis
+        function loadStoredVirusSelection() {
+            console.log('loadStoredVirusSelection called');
             try {
                 const storedInfo = localStorage.getItem('selectedVirusForAnalysis');
                 if (storedInfo) {
@@ -1818,7 +1821,8 @@
                     const virusSelect = document.getElementById('virusSelect');
                     const segmentSelect = document.getElementById('segmentSelect');
                     
-                    if (virusSelect && virusInfo.virus) {
+                    // Only auto-populate if virusSelect is empty (not already set by user)
+                    if (virusSelect && virusInfo.virus && !virusSelect.value) {
                         // Set the virus selection
                         virusSelect.value = virusInfo.virus;
                         
@@ -1838,13 +1842,10 @@
                         loadGenomeIds(virusInfo.virus);
                         
                         console.log('Loaded stored virus selection:', virusInfo);
-                    } else {
-                        // If no stored selection, check if virusSelect has a value and load genome IDs
-                        const virusSelect = document.getElementById('virusSelect');
-                        if (virusSelect && virusSelect.value) {
-                            console.log('Loading genome IDs for pre-selected virus:', virusSelect.value);
-                            loadGenomeIds(virusSelect.value);
-                        }
+                    } else if (virusSelect && virusSelect.value) {
+                        // If virusSelect already has a value, just load genome IDs for it
+                        console.log('Loading genome IDs for pre-selected virus:', virusSelect.value);
+                        loadGenomeIds(virusSelect.value);
                     }
                 }
             } catch (error) {
@@ -2260,8 +2261,13 @@
             const segmentSelector = document.getElementById(segmentSelectorId);
             const segmentSelect = document.getElementById(segmentSelectId);
             
-            if (selectedOption.dataset.isMultiSegment === 'true') {
+            console.log('handleVirusSelection called for:', selectElement.id);
+            console.log('Selected option:', selectedOption ? selectedOption.text : 'none');
+            console.log('isMultiSegment:', selectedOption ? selectedOption.dataset.isMultiSegment : 'no option');
+            
+            if (selectedOption && selectedOption.dataset.isMultiSegment === 'true') {
                 const segments = JSON.parse(selectedOption.dataset.segments);
+                console.log('Loading segments for multi-segment virus:', segments);
                 segmentSelect.innerHTML = '<option value="">Select segment...</option>';
                 segments.forEach(segment => {
                     const option = document.createElement('option');
@@ -2271,6 +2277,7 @@
                 });
                 segmentSelector.style.display = 'block';
             } else {
+                console.log('Hiding segment selector for single-segment virus');
                 segmentSelector.style.display = 'none';
             }
             
@@ -2396,10 +2403,17 @@
                         segment: segment || null,
                         fileType: fileType
                     };
+                    console.log('Storing virus info for analysis:', selectedVirusInfo);
                     localStorage.setItem('selectedVirusForAnalysis', JSON.stringify(selectedVirusInfo));
+                    
+                    // Clear any previously stored virus selection to avoid conflicts
+                    localStorage.removeItem('selectedVirus');
                     
                     // Update checklist
                     updateUploadChecklist(virusName);
+                    
+                    // Show "Continue to Analysis" button only when all files are uploaded
+                    // The button will be shown in updateUploadChecklist when all checkboxes are checked
                     
                     // Reset form
                     document.getElementById('dataUploadForm').reset();
@@ -2476,9 +2490,20 @@
                 updateCheckboxStyle('checkProteome', hasProteome);
                 updateCheckboxStyle('checkMSA', hasMSA);
                 
-                // Show completion message if all files are uploaded
+                // Show completion message and continue button if all files are uploaded
                 if (hasRefGenome && hasProteome && hasMSA) {
                     showNotification('🎉 All required files uploaded! You can now start analysis.', 'success');
+                    
+                    // Show "Continue to Analysis" button
+                    const virusName = document.getElementById('uploadVirusSelect').value;
+                    const segment = document.getElementById('uploadSegmentSelect').value;
+                    showContinueToAnalysisButton(virusName, segment);
+                } else {
+                    // Hide continue button if not all files are uploaded
+                    const continueButton = document.getElementById('continueToAnalysisBtn');
+                    if (continueButton) {
+                        continueButton.remove();
+                    }
                 }
             } catch (error) {
                 console.error('Error updating checklist:', error);
@@ -2869,6 +2894,197 @@
             showNotification('Job history refreshed!', 'success');
         }
         
+        // Auto-populate Analysis panel with recently uploaded custom virus
+        function autoPopulateAnalysisPanelFromStorage() {
+            const storedVirusInfo = localStorage.getItem('selectedVirusForAnalysis');
+            if (storedVirusInfo) {
+                try {
+                    const virusInfo = JSON.parse(storedVirusInfo);
+                    console.log('Retrieved stored virus info:', virusInfo);
+                    
+                    // Only auto-populate if we're on the Analysis tab
+                    const analysisTab = document.querySelector('#analysis.active');
+                    if (analysisTab) {
+                        const virusSelect = document.getElementById('virusSelect');
+                        if (virusSelect && virusSelect.value !== virusInfo.virus) {
+                            virusSelect.value = virusInfo.virus;
+                            
+                            // Trigger change event
+                            const event = new Event('change');
+                            virusSelect.dispatchEvent(event);
+                        }
+                        
+                        // Set segment if available
+                        if (virusInfo.segment) {
+                            setTimeout(() => {
+                                const segmentSelect = document.getElementById('segmentSelect');
+                                if (segmentSelect) {
+                                    segmentSelect.value = virusInfo.segment;
+                                    
+                                    // Trigger change event
+                                    const event = new Event('change');
+                                    segmentSelect.dispatchEvent(event);
+                                }
+                            }, 500);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error parsing stored virus info:', error);
+                }
+            }
+        }
+        
+        // Auto-populate Analysis panel with custom virus information
+        function autoPopulateAnalysisPanel(virusName, segment = null) {
+            // Switch to Analysis tab
+            const analysisTab = document.querySelector('button[data-bs-target="#analysis"]');
+            if (analysisTab) {
+                analysisTab.click();
+            }
+            
+            // Clear any stored virus selection to avoid conflicts
+            localStorage.removeItem('selectedVirus');
+            
+            // Set virus selection for Analysis panel
+            const virusSelect = document.getElementById('virusSelect');
+            if (virusSelect) {
+                console.log('Setting virus selection to:', virusName);
+                console.log('Available options:', Array.from(virusSelect.options).map(opt => opt.value));
+                
+                virusSelect.value = virusName;
+                
+                // Check if the value was actually set
+                if (virusSelect.value !== virusName) {
+                    console.error('Failed to set virus selection. Expected:', virusName, 'Got:', virusSelect.value);
+                    // Try to find a matching option
+                    const matchingOption = Array.from(virusSelect.options).find(opt => 
+                        opt.value.toLowerCase() === virusName.toLowerCase() ||
+                        opt.text.toLowerCase().includes(virusName.toLowerCase()) ||
+                        opt.value.toLowerCase().includes(virusName.toLowerCase())
+                    );
+                    if (matchingOption) {
+                        console.log('Found matching option:', matchingOption.value);
+                        virusSelect.value = matchingOption.value;
+                    } else {
+                        console.error('No matching virus option found for:', virusName);
+                        console.log('Available options:', Array.from(virusSelect.options).map(opt => ({value: opt.value, text: opt.text})));
+                    }
+                }
+                
+                // Trigger change event to load segments and genome IDs
+                const event = new Event('change');
+                virusSelect.dispatchEvent(event);
+            }
+            
+            // Set virus selection for Generate Visualization panel
+            const historyVirusSelect = document.getElementById('historyVirusSelect');
+            if (historyVirusSelect) {
+                console.log('Setting history virus selection to:', virusName);
+                historyVirusSelect.value = virusName;
+                
+                // Check if the value was actually set
+                if (historyVirusSelect.value !== virusName) {
+                    console.error('Failed to set history virus selection. Expected:', virusName, 'Got:', historyVirusSelect.value);
+                    // Try to find a matching option
+                    const matchingOption = Array.from(historyVirusSelect.options).find(opt => 
+                        opt.value.toLowerCase() === virusName.toLowerCase() ||
+                        opt.text.toLowerCase().includes(virusName.toLowerCase()) ||
+                        opt.value.toLowerCase().includes(virusName.toLowerCase())
+                    );
+                    if (matchingOption) {
+                        console.log('Found matching history option:', matchingOption.value);
+                        historyVirusSelect.value = matchingOption.value;
+                    }
+                }
+                
+                // Trigger change event to load genome IDs for visualization panel
+                const event = new Event('change');
+                historyVirusSelect.dispatchEvent(event);
+            }
+            
+            // Set segment if provided
+            if (segment) {
+                setTimeout(() => {
+                    const segmentSelect = document.getElementById('segmentSelect');
+                    if (segmentSelect) {
+                        segmentSelect.value = segment;
+                        
+                        // Trigger change event to update MSA file selector
+                        const event = new Event('change');
+                        segmentSelect.dispatchEvent(event);
+                    }
+                }, 500); // Small delay to ensure segments are loaded
+            }
+            
+            // Show notification
+            showNotification(`✅ Virus "${virusName}" is ready for analysis! Please select a genome ID.`, 'success');
+        }
+        
+        // Show "Continue to Analysis" button for custom viruses
+        function showContinueToAnalysisButton(virusName, segment = null) {
+            console.log('showContinueToAnalysisButton called with:', virusName, segment);
+            
+            // Create or update the continue button
+            let continueButton = document.getElementById('continueToAnalysisBtn');
+            if (!continueButton) {
+                continueButton = document.createElement('div');
+                continueButton.id = 'continueToAnalysisBtn';
+                continueButton.className = 'alert alert-success mt-3';
+                continueButton.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1"><i class="fas fa-check-circle me-2"></i>Virus "${virusName}" ready!</h6>
+                            <p class="mb-0">Your files have been uploaded successfully. Ready to start analysis!</p>
+                        </div>
+                        <button class="btn btn-success" onclick="continueToAnalysis('${virusName}', '${segment || ''}')">
+                            <i class="fas fa-arrow-right me-2"></i>Continue to Analysis
+                        </button>
+                    </div>
+                `;
+                
+                // Insert after the upload form
+                const uploadForm = document.getElementById('dataUploadForm');
+                if (uploadForm && uploadForm.parentNode) {
+                    console.log('Inserting continue button after upload form');
+                    uploadForm.parentNode.insertBefore(continueButton, uploadForm.nextSibling);
+                } else {
+                    console.error('Could not find upload form to insert continue button');
+                }
+            } else {
+                console.log('Continue button already exists, updating content');
+                // Update existing button
+                continueButton.innerHTML = `
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1"><i class="fas fa-check-circle me-2"></i>Virus "${virusName}" ready!</h6>
+                            <p class="mb-0">Your files have been uploaded successfully. Ready to start analysis!</p>
+                        </div>
+                        <button class="btn btn-success" onclick="continueToAnalysis('${virusName}', '${segment || ''}')">
+                            <i class="fas fa-arrow-right me-2"></i>Continue to Analysis
+                        </button>
+                    </div>
+                `;
+            }
+        }
+        
+        // Continue to Analysis function
+        function continueToAnalysis(virusName, segment = null) {
+            // Switch to Analysis tab
+            const analysisTab = document.querySelector('button[data-bs-target="#analysis"]');
+            if (analysisTab) {
+                analysisTab.click();
+            }
+            
+            // Auto-populate the Analysis panel
+            autoPopulateAnalysisPanel(virusName, segment);
+            
+            // Remove the continue button
+            const continueButton = document.getElementById('continueToAnalysisBtn');
+            if (continueButton) {
+                continueButton.remove();
+            }
+        }
+        
         // Load job history
         async function loadJobHistory() {
             try {
@@ -2888,6 +3104,12 @@
                     const statusIcon = job.status === 'completed' ? 'check-circle' : 
                                      job.status === 'failed' ? 'times-circle' : 'clock';
                     
+                    // Add download button for completed jobs
+                    const downloadButton = job.status === 'completed' ? 
+                        `<button class="btn btn-primary btn-sm ms-2" onclick="downloadJobResultsById('${job.job_id}')">
+                            <i class="fas fa-download"></i> Download Results
+                        </button>` : '';
+                    
                     html += `
                         <div class="card mb-3">
                             <div class="card-body">
@@ -2898,10 +3120,11 @@
                                         <br>
                                         <small class="text-muted">Created: ${new Date(job.created_at).toLocaleString()}</small>
                                     </div>
-                                    <div class="text-end">
+                                    <div class="d-flex align-items-center">
                                         <span class="badge bg-${statusClass}">
                                             <i class="fas fa-${statusIcon}"></i> ${job.status}
                                         </span>
+                                        ${downloadButton}
                                     </div>
                                 </div>
                             </div>
