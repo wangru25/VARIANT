@@ -374,24 +374,54 @@
                     <!-- Data Upload Tab -->
                     <div class="tab-pane fade show active" id="data" role="tabpanel">
                         <!-- Upload Instructions Banner -->
-                        <div class="card mb-4">
+                        <div class="card mb-4 border-0 shadow-sm">
                             <div class="card-header bg-primary text-white">
-                                <h5 class="mb-0"><i class="fas fa-info-circle"></i> How to Upload Your Data</h5>
+                                <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i> How to Upload Your Data</h5>
                             </div>
-                            <div class="card-body">
-                                <p class="mb-3"><strong>You need to upload 3 types of files for each virus:</strong></p>
-                                <ol class="mb-0">
-                                    <li class="mb-1"><strong>Reference Genome</strong> (.fasta) - Complete genome sequence</li>
-                                    <li class="mb-1"><strong>Reference Proteome</strong> (.fasta) - Protein sequences</li>
-                                    <li class="mb-1"><strong>MSA File</strong> (.txt) - Multiple sequence alignment</li>
-                                </ol>
+                            <div class="card-body bg-light">
+                                <p class="lead mb-4"><strong>You need to upload 3 types of files for each virus:</strong></p>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-primary bg-opacity-10 rounded-circle p-2 me-3">
+                                                <i class="fas fa-dna text-primary"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1">Reference Genome</h6>
+                                                <p class="text-muted small mb-0">Complete genome sequence (.fasta)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-success bg-opacity-10 rounded-circle p-2 me-3">
+                                                <i class="fas fa-atom text-success"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1">Reference Proteome</h6>
+                                                <p class="text-muted small mb-0">Protein sequences (.fasta)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="d-flex align-items-start">
+                                            <div class="bg-info bg-opacity-10 rounded-circle p-2 me-3">
+                                                <i class="fas fa-align-left text-info"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-1">MSA File</h6>
+                                                <p class="text-muted small mb-0">Multiple sequence alignment (.txt)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
                         <!-- Custom Virus Creation Section -->
-                        <div class="card mb-4">
+                        <div class="card mb-4 border-0 shadow-sm">
                             <div class="card-header bg-primary text-white">
-                                <h5 class="mb-0"><i class="fas fa-plus-circle"></i> Create Custom Virus</h5>
+                                <h5 class="mb-0"><i class="fas fa-plus-circle me-2"></i> Create Custom Virus</h5>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -400,8 +430,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
-                                                        <label for="customVirusName" class="form-label">
-                                                            <i class="fas fa-virus"></i> Virus Name <span class="text-danger">*</span>
+                                                        <label for="customVirusName" class="form-label fw-bold">
+                                                            <i class="fas fa-virus text-primary"></i> Virus Name <span class="text-danger">*</span>
                                                         </label>
                                                         <input type="text" class="form-control" id="customVirusName" 
                                                                placeholder="e.g., MyCustomVirus" required>
@@ -410,8 +440,8 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
-                                                        <label class="form-label">
-                                                            <i class="fas fa-layer-group"></i> Virus Type
+                                                        <label class="form-label fw-bold">
+                                                            <i class="fas fa-layer-group text-success"></i> Virus Type
                                                         </label>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio" name="virusType" 
@@ -432,8 +462,8 @@
                                             </div>
                                             
                                             <div class="mb-3" id="segmentInputs" style="display: none;">
-                                                <label for="segmentNames" class="form-label">
-                                                    <i class="fas fa-list"></i> Segment Names
+                                                <label for="segmentNames" class="form-label fw-bold">
+                                                    <i class="fas fa-list text-info"></i> Segment Names
                                                 </label>
                                                 <input type="text" class="form-control" id="segmentNames" 
                                                        placeholder="e.g., segment_1,segment_2,segment_3">
@@ -441,8 +471,8 @@
                                             </div>
                                             
                                             <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="fas fa-plus"></i> Create Custom Virus
+                                                <button type="submit" class="btn btn-primary btn-lg">
+                                                    <i class="fas fa-plus me-2"></i> Create Custom Virus
                                                 </button>
                                             </div>
                                         </form>
@@ -466,9 +496,9 @@
                         
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0"><i class="fas fa-upload"></i> Upload Data Files</h5>
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0"><i class="fas fa-upload me-2"></i> Upload Data Files</h5>
                                     </div>
                                     <div class="card-body">
                                         <!-- Sample Data Button -->
@@ -483,8 +513,8 @@
                                         <hr>
                                         <form id="dataUploadForm">
                                             <div class="mb-3">
-                                                <label for="uploadVirusSelect" class="form-label">
-                                                    <i class="fas fa-virus"></i> Virus Type <span class="text-danger">*</span>
+                                                <label for="uploadVirusSelect" class="form-label fw-bold">
+                                                    <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
                                                 </label>
                                                 <select class="form-select" id="uploadVirusSelect" required>
                                                     <option value="">Select a virus...</option>
@@ -493,8 +523,8 @@
                                             </div>
                                             
                                             <div class="mb-3 segment-selector" id="uploadSegmentSelector">
-                                                <label for="uploadSegmentSelect" class="form-label">
-                                                    <i class="fas fa-layer-group"></i> Segment (for multi-segment viruses)
+                                                <label for="uploadSegmentSelect" class="form-label fw-bold">
+                                                    <i class="fas fa-layer-group text-success"></i> Segment (for multi-segment viruses)
                                                 </label>
                                                 <select class="form-select" id="uploadSegmentSelect">
                                                     <option value="">Select segment...</option>
@@ -503,8 +533,8 @@
                                             </div>
                                             
                                             <div class="mb-3">
-                                                <label for="fileTypeSelect" class="form-label">
-                                                    <i class="fas fa-file-alt"></i> File Type <span class="text-danger">*</span>
+                                                <label for="fileTypeSelect" class="form-label fw-bold">
+                                                    <i class="fas fa-file-alt text-warning"></i> File Type <span class="text-danger">*</span>
                                                 </label>
                                                 <select class="form-select" id="fileTypeSelect" required>
                                                     <option value="">Select file type...</option>
@@ -516,8 +546,8 @@
                                             </div>
                                             
                                             <div class="mb-3">
-                                                <label for="dataFile" class="form-label">
-                                                    <i class="fas fa-folder-open"></i> Select File <span class="text-danger">*</span>
+                                                <label for="dataFile" class="form-label fw-bold">
+                                                    <i class="fas fa-folder-open text-info"></i> Select File <span class="text-danger">*</span>
                                                 </label>
                                                 <input type="file" class="form-control" id="dataFile" required>
                                                 <div class="form-text">Choose the file to upload from your computer</div>
@@ -525,7 +555,7 @@
                                             
                                             <div class="text-center">
                                                 <button type="submit" class="btn btn-success btn-lg">
-                                                    <i class="fas fa-upload"></i> Upload File
+                                                    <i class="fas fa-upload me-2"></i> Upload File
                                                 </button>
                                             </div>
                                             
@@ -542,9 +572,9 @@
                             </div>
                             
                             <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5 class="mb-0"><i class="fas fa-info-circle"></i> Data Requirements</h5>
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i> Data Requirements</h5>
                                     </div>
                                     <div class="card-body">
                                         <div class="bg-light border border-primary border-opacity-25 p-3 rounded mb-3">
@@ -588,18 +618,7 @@
                                             </div>
                                         </div>
                                         
-                                        <!-- MSA File Management -->
-                                        <div class="bg-light border border-info border-opacity-25 p-3 rounded mt-3">
-                                            <h6 class="text-info mb-2"><i class="fas fa-list me-2"></i>MSA File Management:</h6>
-                                            <div class="mb-2">
-                                                <button type="button" class="btn btn-sm btn-outline-info" onclick="loadMSAFiles()">
-                                                    <i class="fas fa-refresh"></i> Load MSA Files
-                                                </button>
-                                            </div>
-                                            <div id="msaFilesList">
-                                                <p class="text-muted mb-2">Click "Load MSA Files" to see available MSA files</p>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -622,13 +641,57 @@
                                                     <h6 class="mb-0"><i class="fas fa-cog"></i> Analysis Configuration</h6>
                                                 </div>
                                                 <div class="card-body">
-                                                    <div class="mb-4">
-                                                        <label for="virusSelect" class="form-label fw-bold">
-                                                            <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
-                                                        </label>
-                                                        <select class="form-select form-select-lg" id="virusSelect" required>
-                                                            <option value="">Choose a virus...</option>
-                                                        </select>
+                                                    <div class="row mb-4">
+                                                        <div class="col-md-8">
+                                                            <label for="virusSelect" class="form-label fw-bold">
+                                                                <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
+                                                            </label>
+                                                            <select class="form-select form-select-lg" id="virusSelect" required>
+                                                                <option value="">Choose a virus...</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label for="genomeId" class="form-label fw-bold">
+                                                                <i class="fas fa-dna text-info"></i> Genome ID (Optional)
+                                                            </label>
+                                                                                                            <div class="position-relative">
+                                                    <input type="text" class="form-control form-control-lg" id="genomeId" 
+                                                           placeholder="Type to search genome IDs..." autocomplete="off">
+                                                    <div class="position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; z-index: 1001;">
+                                                        <i class="fas fa-chevron-down text-muted"></i>
+                                                    </div>
+                                                    <div id="genomeIdDropdown" class="position-absolute w-100 bg-white border rounded shadow-sm" 
+                                                         style="max-height: 200px; overflow-y: auto; z-index: 1000; display: none;">
+                                                    </div>
+                                                </div>
+                                                            <style>
+                                                                #genomeIdDropdown {
+                                                                    top: 100%;
+                                                                    left: 0;
+                                                                    border: 1px solid #ced4da;
+                                                                }
+                                                                
+                                                                #genomeIdDropdown .dropdown-item {
+                                                                    padding: 8px 12px;
+                                                                    cursor: pointer;
+                                                                    border-bottom: 1px solid #f8f9fa;
+                                                                }
+                                                                
+                                                                #genomeIdDropdown .dropdown-item:hover {
+                                                                    background-color: #f8f9fa;
+                                                                }
+                                                                
+                                                                #genomeIdDropdown .dropdown-item:last-child {
+                                                                    border-bottom: none;
+                                                                }
+                                                            </style>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="mb-3">
+                                                        <div class="form-text">
+                                                            <i class="fas fa-info-circle text-muted"></i> Leave empty to process all genomes in MSA file, or specify a specific genome ID
+                                                        </div>
                                                     </div>
                                                     
                                                     <div class="mb-4 segment-selector" id="segmentSelector">
@@ -638,17 +701,6 @@
                                                         <select class="form-select form-select-lg" id="segmentSelect">
                                                             <option value="">Choose segment...</option>
                                                         </select>
-                                                    </div>
-                                                    
-                                                    <div class="mb-4">
-                                                        <label for="genomeId" class="form-label fw-bold">
-                                                            <i class="fas fa-dna text-info"></i> Genome ID (Optional)
-                                                        </label>
-                                                        <input type="text" class="form-control form-control-lg" id="genomeId" 
-                                                               placeholder="e.g., EPI_ISL_123456">
-                                                        <div class="form-text">
-                                                            <i class="fas fa-info-circle text-muted"></i> Leave empty to process all genomes in MSA file, or specify a specific genome ID
-                                                        </div>
                                                     </div>
                                                     
                                                     <div class="mb-4" id="msaFileSelector" style="display: none;">
@@ -695,10 +747,29 @@
                                 </div>
                                 
                                 <!-- Results Section -->
-                                <div id="resultsSection" style="display: none;">
-                                    <div class="alert alert-success">
-                                        <h5><i class="fas fa-check-circle"></i> Analysis Complete!</h5>
-                                        <p>Your analysis has been completed successfully. Check the <strong>History</strong> tab to view job details and download results.</p>
+                                <div id="resultsSection" style="display: none;" class="mt-4">
+                                    <div class="card border-success border-2">
+                                        <div class="card-header bg-success text-white">
+                                            <h5 class="mb-0"><i class="fas fa-check-circle me-2"></i> Analysis Complete!</h5>
+                                        </div>
+                                        <div class="card-body bg-success bg-opacity-10">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-8">
+                                                    <p class="mb-0 fs-5">
+                                                        <i class="fas fa-thumbs-up text-success me-2"></i>
+                                                        Your analysis has been completed successfully!
+                                                    </p>
+                                                    <p class="text-muted mb-0 mt-2">
+                                                        Check the <strong>History</strong> tab to view job details and download results.
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                    <a href="#history-tab" class="btn btn-outline-success" onclick="switchToHistoryTab()">
+                                                        <i class="fas fa-history me-2"></i>View in History
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -711,38 +782,70 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="historyVirusSelect" class="form-label fw-bold">
-                                                <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
-                                            </label>
-                                            <select class="form-select" id="historyVirusSelect" required>
-                                                <option value="">Select a virus...</option>
-                                            </select>
+                                    <div class="col-md-8">
+                                        <div class="row mb-3">
+                                            <div class="col-md-8">
+                                                <label for="historyVirusSelect" class="form-label fw-bold">
+                                                    <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
+                                                </label>
+                                                <select class="form-select" id="historyVirusSelect" required>
+                                                    <option value="">Select a virus...</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="historyGenomeId" class="form-label fw-bold">
+                                                    <i class="fas fa-dna text-info"></i> Genome ID
+                                                </label>
+                                                <div class="position-relative">
+                                                    <input type="text" class="form-control" id="historyGenomeId" 
+                                                           placeholder="Type to search genome IDs..." autocomplete="off">
+                                                    <div class="position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; z-index: 1001;">
+                                                        <i class="fas fa-chevron-down text-muted"></i>
+                                                    </div>
+                                                    <div id="historyGenomeIdDropdown" class="position-absolute w-100 bg-white border rounded shadow-sm" 
+                                                         style="max-height: 200px; overflow-y: auto; z-index: 1000; display: none;">
+                                                    </div>
+                                                </div>
+                                                <style>
+                                                    #historyGenomeIdDropdown {
+                                                        top: 100%;
+                                                        left: 0;
+                                                        border: 1px solid #ced4da;
+                                                    }
+                                                    
+                                                    #historyGenomeIdDropdown .dropdown-item {
+                                                        padding: 8px 12px;
+                                                        cursor: pointer;
+                                                        border-bottom: 1px solid #f8f9fa;
+                                                    }
+                                                    
+                                                    #historyGenomeIdDropdown .dropdown-item:hover {
+                                                        background-color: #f8f9fa;
+                                                    }
+                                                    
+                                                    #historyGenomeIdDropdown .dropdown-item:last-child {
+                                                        border-bottom: none;
+                                                    }
+                                                </style>
+                                            </div>
                                         </div>
                                         
                                         <div class="mb-3">
-                                            <label for="historyGenomeId" class="form-label fw-bold">
-                                                <i class="fas fa-dna text-info"></i> Genome ID (Optional)
-                                            </label>
-                                            <input type="text" class="form-control" id="historyGenomeId" 
-                                                   placeholder="e.g., EPI_ISL_123456">
                                             <div class="form-text">
-                                                <i class="fas fa-info-circle text-muted"></i> Leave empty to process all genomes, or specify a specific genome ID
+                                                <i class="fas fa-info-circle text-muted"></i> Leave empty to process the 1st genome, or specify a specific genome ID
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="col-md-6">
-                                                                                    <div class="text-center">
-                                                <button type="button" class="btn btn-success btn-lg" onclick="generateAllVisualizations()">
-                                                    <i class="fas fa-magic"></i> Generate All Visualizations
-                                                </button>
-                                                <div class="form-text mt-2">
-                                                    <i class="fas fa-info-circle text-muted"></i> This will generate all three visualization types
-                                                </div>
-
+                                    <div class="col-md-4">
+                                        <div class="text-center h-100 d-flex flex-column justify-content-center">
+                                            <button type="button" class="btn btn-success btn-lg" onclick="generateAllVisualizations()">
+                                                <i class="fas fa-magic me-2"></i> Generate All Visualizations
+                                            </button>
+                                            <div class="form-text mt-2">
+                                                <i class="fas fa-info-circle text-muted"></i> This will generate all three visualization types
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -757,7 +860,7 @@
                                                 </div>
                                                 <div>
                                                     <h6 class="mb-1">Mutation Analysis</h6>
-                                                    <p class="text-muted small mb-0">Combined genome organization and protein mutation analysis.</p>
+                                                    <p class="text-muted small mb-0">Combined genome and protein mutation analysis.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -836,10 +939,10 @@
                                     
                                     <!-- PRF Regions -->
                                     <div class="card mb-4">
-                                        <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
-                                            <h6 class="mb-0"><i class="fas fa-code"></i> PRF Regions</h6>
-                                            <button class="btn btn-sm btn-outline-dark" onclick="toggleFullscreen('prfFrame')">
-                                                <i class="fas fa-expand"></i> Fullscreen
+                                        <div class="card-header bg-warning text-white d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-0"><i class="fas fa-exchange-alt me-2"></i> PRF Regions</h6>
+                                            <button class="btn btn-sm btn-outline-light" onclick="toggleFullscreen('prfFrame')">
+                                                <i class="fas fa-expand me-2"></i> Fullscreen
                                             </button>
                                         </div>
                                         <div class="card-body p-0">
@@ -860,16 +963,16 @@
                     <!-- History Tab -->
                     <div class="tab-pane fade" id="history" role="tabpanel">
                         <!-- Job Tracking Section -->
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h5 class="mb-0"><i class="fas fa-tasks"></i> Track Your Jobs</h5>
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="fas fa-tasks me-2"></i> Track Your Jobs</h5>
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="jobIdInput" placeholder="Enter Job ID to check status...">
                                         <button class="btn btn-primary" type="button" onclick="checkJobStatus()">
-                                            <i class="fas fa-search"></i> Check Status
+                                            <i class="fas fa-search me-2"></i> Check Status
                                         </button>
                                     </div>
                                     <div class="form-text">Enter a Job ID to check the status of a specific analysis job.</div>
@@ -881,16 +984,16 @@
                                 
                                 <div class="mt-3">
                                     <button class="btn btn-outline-secondary btn-sm" onclick="refreshJobHistory()">
-                                        <i class="fas fa-refresh"></i> Refresh Job History
+                                        <i class="fas fa-refresh me-2"></i> Refresh Job History
                                     </button>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Current Job Information -->
-                        <div class="card mb-4" id="currentJobCard" style="display: none;">
+                        <div class="card mb-4 border-0 shadow-sm" id="currentJobCard" style="display: none;">
                             <div class="card-header bg-info text-white">
-                                <h5 class="mb-0"><i class="fas fa-info-circle"></i> Current Job Information</h5>
+                                <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i> Current Job Information</h5>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -905,19 +1008,19 @@
                                 </div>
                                 <div class="mt-3">
                                     <button class="btn btn-primary btn-sm" onclick="downloadJobResults()">
-                                        <i class="fas fa-download"></i> Download Results
+                                        <i class="fas fa-download me-2"></i> Download Results
                                     </button>
                                     <button class="btn btn-outline-secondary btn-sm ms-2" onclick="copyJobId()">
-                                        <i class="fas fa-copy"></i> Copy Job ID
+                                        <i class="fas fa-copy me-2"></i> Copy Job ID
                                     </button>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Job History -->
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h5 class="mb-0"><i class="fas fa-history"></i> Analysis History</h5>
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="fas fa-history me-2"></i> Analysis History</h5>
                             </div>
                             <div class="card-body">
                                 <div id="jobHistory">
@@ -1609,19 +1712,105 @@
                 }
             });
             
-            // Virus selection for analysis
-            document.getElementById('virusSelect').addEventListener('change', function() {
-                handleVirusSelection(this, 'segmentSelector', 'segmentSelect');
+            // Virus selection for analysis - use event delegation to ensure it works
+            document.addEventListener('change', function(event) {
+                console.log('Change event detected on:', event.target.id);
+                if (event.target && event.target.id === 'virusSelect') {
+                    console.log('Virus selection changed to:', event.target.value);
+                    handleVirusSelection(event.target, 'segmentSelector', 'segmentSelect');
+                    
+                    // Load genome IDs for the selected virus
+                    if (event.target.value) {
+                        console.log('Calling loadGenomeIds for:', event.target.value);
+                        loadGenomeIds(event.target.value);
+                    } else {
+                        console.log('No virus selected, skipping loadGenomeIds');
+                    }
+                } else if (event.target && event.target.id === 'historyVirusSelect') {
+                    console.log('History virus selection changed to:', event.target.value);
+                    
+                    // Load genome IDs for the selected virus
+                    if (event.target.value) {
+                        console.log('Calling loadGenomeIds for history virus:', event.target.value);
+                        loadGenomeIds(event.target.value);
+                    } else {
+                        console.log('No history virus selected, skipping loadGenomeIds');
+                    }
+                }
+            });
+            console.log('Event delegation listener added for virusSelect and historyVirusSelect');
+            
+            // Also add a click listener to test if the dropdown is being clicked
+            document.addEventListener('click', function(event) {
+                if (event.target && event.target.id === 'virusSelect') {
+                    console.log('Virus select dropdown clicked');
+                } else if (event.target && event.target.id === 'historyVirusSelect') {
+                    console.log('History virus select dropdown clicked');
+                }
             });
             
             // File type selection
             document.getElementById('fileTypeSelect').addEventListener('change', function() {
                 updateFileInputAccept(this.value);
             });
+            
+            // Load stored virus selection and genome IDs
+            loadStoredVirusSelection();
+            
+            // Add event listeners for genome ID inputs
+            const historyGenomeIdInput = document.getElementById('historyGenomeId');
+            const genomeIdInput = document.getElementById('genomeId');
+            
+            if (historyGenomeIdInput) {
+                historyGenomeIdInput.addEventListener('input', function() {
+                    filterGenomeIds(this.value, 'historyGenomeId');
+                });
+                
+                historyGenomeIdInput.addEventListener('focus', function() {
+                    if (window.availableGenomeIds && window.availableGenomeIds.length > 0) {
+                        // Show all genome IDs when first focusing (if no search term)
+                        if (!this.value.trim()) {
+                            showAllGenomeIds('historyGenomeId');
+                        } else {
+                            filterGenomeIds(this.value, 'historyGenomeId');
+                        }
+                    }
+                });
+            }
+            
+            if (genomeIdInput) {
+                genomeIdInput.addEventListener('input', function() {
+                    filterGenomeIds(this.value, 'genomeId');
+                });
+                
+                genomeIdInput.addEventListener('focus', function() {
+                    if (window.availableGenomeIds && window.availableGenomeIds.length > 0) {
+                        // Show all genome IDs when first focusing (if no search term)
+                        if (!this.value.trim()) {
+                            showAllGenomeIds('genomeId');
+                        } else {
+                            filterGenomeIds(this.value, 'genomeId');
+                        }
+                    }
+                });
+            }
+            
+            // Hide dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                const genomeIdDropdown = document.getElementById('genomeIdDropdown');
+                const historyGenomeIdDropdown = document.getElementById('historyGenomeIdDropdown');
+                if (genomeIdDropdown && !genomeIdInput?.contains(event.target) && !genomeIdDropdown.contains(event.target)) {
+                    genomeIdDropdown.style.display = 'none';
+                }
+                if (historyGenomeIdDropdown && !historyGenomeIdInput?.contains(event.target) && !historyGenomeIdDropdown.contains(event.target)) {
+                    historyGenomeIdDropdown.style.display = 'none';
+                }
+            });
         }
         
-        // Load stored virus selection for analysis
-        function loadStoredVirusSelection() {
+                    // Load stored virus selection for analysis
+            function loadStoredVirusSelection() {
+                console.log('loadStoredVirusSelection called');
             try {
                 const storedInfo = localStorage.getItem('selectedVirusForAnalysis');
                 if (storedInfo) {
@@ -1645,11 +1834,128 @@
                             }, 100);
                         }
                         
+                        // Load genome IDs for the selected virus
+                        loadGenomeIds(virusInfo.virus);
+                        
                         console.log('Loaded stored virus selection:', virusInfo);
+                    } else {
+                        // If no stored selection, check if virusSelect has a value and load genome IDs
+                        const virusSelect = document.getElementById('virusSelect');
+                        if (virusSelect && virusSelect.value) {
+                            console.log('Loading genome IDs for pre-selected virus:', virusSelect.value);
+                            loadGenomeIds(virusSelect.value);
+                        }
                     }
                 }
             } catch (error) {
                 console.error('Error loading stored virus selection:', error);
+            }
+        }
+        
+        // Load genome IDs for a specific virus
+        async function loadGenomeIds(virusName) {
+            console.log(`loadGenomeIds called with virus: ${virusName}`);
+            try {
+                const response = await fetch(`/api/genome-ids/${virusName}`);
+                console.log(`API response status: ${response.status}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log(`API response data:`, data);
+                    
+                    // Store genome IDs globally for filtering
+                    window.availableGenomeIds = data.genome_ids;
+                    
+                    // Clear both genome ID input fields
+                    const genomeIdInput = document.getElementById('genomeId');
+                    const historyGenomeIdInput = document.getElementById('historyGenomeId');
+                    
+                    if (genomeIdInput) {
+                        genomeIdInput.value = '';
+                    }
+                    if (historyGenomeIdInput) {
+                        historyGenomeIdInput.value = '';
+                    }
+                    
+                    // Hide both dropdowns initially
+                    const genomeIdDropdown = document.getElementById('genomeIdDropdown');
+                    const historyGenomeIdDropdown = document.getElementById('historyGenomeIdDropdown');
+                    
+                    if (genomeIdDropdown) {
+                        genomeIdDropdown.style.display = 'none';
+                    }
+                    if (historyGenomeIdDropdown) {
+                        historyGenomeIdDropdown.style.display = 'none';
+                    }
+                    
+                    console.log(`Loaded ${data.genome_ids.length} genome IDs for ${virusName}`);
+                } else {
+                    console.error('Failed to load genome IDs:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error loading genome IDs:', error);
+            }
+        }
+        
+        // Show all available genome IDs for a specific input
+        function showAllGenomeIds(inputId) {
+            const genomeIdDropdown = document.getElementById(inputId === 'genomeId' ? 'genomeIdDropdown' : 'historyGenomeIdDropdown');
+            const genomeIdInput = document.getElementById(inputId);
+            
+            if (!window.availableGenomeIds || !genomeIdDropdown || !genomeIdInput) {
+                return;
+            }
+            
+            // Clear dropdown
+            genomeIdDropdown.innerHTML = '';
+            
+            // Show all genome IDs
+            window.availableGenomeIds.forEach(genomeId => {
+                const item = document.createElement('div');
+                item.className = 'dropdown-item';
+                item.textContent = genomeId;
+                item.onclick = function() {
+                    genomeIdInput.value = genomeId;
+                    genomeIdDropdown.style.display = 'none';
+                };
+                genomeIdDropdown.appendChild(item);
+            });
+            genomeIdDropdown.style.display = 'block';
+        }
+        
+        // Filter and show genome IDs based on input
+        function filterGenomeIds(searchTerm, inputId) {
+            const genomeIdDropdown = document.getElementById(inputId === 'genomeId' ? 'genomeIdDropdown' : 'historyGenomeIdDropdown');
+            const genomeIdInput = document.getElementById(inputId);
+            
+            if (!window.availableGenomeIds || !genomeIdDropdown || !genomeIdInput) {
+                return;
+            }
+            
+            // Clear dropdown
+            genomeIdDropdown.innerHTML = '';
+            
+            // Filter genome IDs
+            const filteredIds = window.availableGenomeIds.filter(id => 
+                id.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            
+            // Show all filtered results
+            const displayIds = filteredIds;
+            
+            if (displayIds.length > 0) {
+                displayIds.forEach(genomeId => {
+                    const item = document.createElement('div');
+                    item.className = 'dropdown-item';
+                    item.textContent = genomeId;
+                    item.onclick = function() {
+                        genomeIdInput.value = genomeId;
+                        genomeIdDropdown.style.display = 'none';
+                    };
+                    genomeIdDropdown.appendChild(item);
+                });
+                genomeIdDropdown.style.display = 'block';
+            } else {
+                genomeIdDropdown.style.display = 'none';
             }
         }
         
@@ -2678,104 +2984,7 @@
         
 
         
-        // MSA File Management
-        async function loadMSAFiles() {
-            const virusName = document.getElementById('uploadVirusSelect').value;
-            const segment = document.getElementById('uploadSegmentSelect').value;
-            
-            if (!virusName) {
-                showNotification('Please select a virus first', 'warning');
-                return;
-            }
-            
-            try {
-                let url = `/api/msa-files/${virusName}`;
-                if (segment) {
-                    url += `?segment=${segment}`;
-                }
-                
-                const response = await fetch(url);
-                const result = await response.json();
-                
-                if (response.ok) {
-                    displayMSAFiles(result.msa_files);
-                } else {
-                    showNotification(`Error loading MSA files: ${result.detail}`, 'error');
-                }
-            } catch (error) {
-                console.error('Error loading MSA files:', error);
-                showNotification('Error loading MSA files', 'error');
-            }
-        }
-        
-        function displayMSAFiles(msaFiles) {
-            const container = document.getElementById('msaFilesList');
-            
-            if (msaFiles.length === 0) {
-                container.innerHTML = '<p class="text-muted mb-2">No MSA files found for this virus</p>';
-                return;
-            }
-            
-            let html = '<div class="list-group">';
-            msaFiles.forEach(file => {
-                const sizeKB = Math.round(file.size / 1024);
-                const defaultBadge = file.is_default ? 
-                    '<span class="badge bg-success ms-2">Default</span>' : '';
-                
-                html += `
-                    <div class="list-group-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <strong>${file.filename}</strong>
-                            <br><small class="text-muted">${sizeKB} KB</small>
-                            ${defaultBadge}
-                        </div>
-                        <div>
-                            ${!file.is_default ? 
-                                `<button class="btn btn-sm btn-primary" onclick="setDefaultMSA('${file.filename}')">
-                                    <i class="fas fa-star"></i> Set Default
-                                </button>` : 
-                                '<span class="text-success"><i class="fas fa-check"></i> Current Default</span>'
-                            }
-                        </div>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            
-            container.innerHTML = html;
-        }
-        
-        async function setDefaultMSA(filename) {
-            const virusName = document.getElementById('uploadVirusSelect').value;
-            const segment = document.getElementById('uploadSegmentSelect').value;
-            
-            try {
-                const formData = new FormData();
-                formData.append('virus_name', virusName);
-                formData.append('msa_filename', filename);
-                if (segment) {
-                    formData.append('segment', segment);
-                }
-                
-                const response = await fetch('/api/set-default-msa', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const result = await response.json();
-                
-                if (response.ok) {
-                    showNotification(result.message, 'success');
-                    // Reload MSA files to update the display
-                    loadMSAFiles();
-                } else {
-                    showNotification(`Error setting default MSA: ${result.detail}`, 'error');
-                }
-            } catch (error) {
-                console.error('Error setting default MSA:', error);
-                showNotification('Error setting default MSA', 'error');
-            }
-        }
+
         
         async function loadMSAFilesForAnalysis() {
             const virusName = document.getElementById('virusSelect').value;
@@ -2864,6 +3073,15 @@
                 setTimeout(() => {
                     messageContainer.style.display = 'none';
                 }, 5000);
+            }
+        }
+        
+        // Switch to History tab
+        function switchToHistoryTab() {
+            const historyTab = document.getElementById('history-tab');
+            if (historyTab) {
+                const tab = new bootstrap.Tab(historyTab);
+                tab.show();
             }
         }
         

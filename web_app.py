@@ -735,10 +735,15 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
             config = load_virus_config()
             virus_config = config.get("viruses", {}).get(analysis_request.virus_name, {})
             
+            print(f"DEBUG: Virus name: {analysis_request.virus_name}")
+            print(f"DEBUG: Virus config: {virus_config}")
+            
             if analysis_request.segment and "segments" in virus_config:
                 default_msa = virus_config["segments"].get(analysis_request.segment, {}).get("default_msa_file", "")
             else:
                 default_msa = virus_config.get("default_msa_file", "")
+            
+            print(f"DEBUG: Default MSA file: {default_msa}")
             
             if default_msa:
                 virus_data_dir = f"data/{analysis_request.virus_name}"
@@ -746,6 +751,8 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
                     virus_data_dir += f"/{analysis_request.segment}"
                 
                 msa_file_path = f"{virus_data_dir}/clustalW/{default_msa}"
+                print(f"DEBUG: MSA file path: {msa_file_path}")
+                print(f"DEBUG: File exists: {os.path.exists(msa_file_path)}")
                 
                 if not os.path.exists(msa_file_path):
                     raise Exception(f"Default MSA file '{default_msa}' not found")
@@ -870,6 +877,97 @@ async def list_jobs(request: Request):
         if job.get("session_id") == session_id
     ]
     return {"jobs": user_jobs}
+
+@app.get("/api/genome-ids/{virus_name}")
+async def get_genome_ids(virus_name: str, segment: Optional[str] = None):
+    '''Get genome IDs from MSA file for a specific virus.'''
+    try:
+        # Load virus configuration
+        config = load_virus_config()
+        virus_config = config.get("viruses", {}).get(virus_name, {})
+        
+        if not virus_config:
+            raise HTTPException(status_code=404, detail=f"Virus '{virus_name}' not found in configuration")
+        
+        # Determine MSA file path
+        if segment and "segments" in virus_config:
+            default_msa = virus_config["segments"].get(segment, {}).get("default_msa_file", "")
+            virus_data_dir = f"data/{virus_name}/{segment}"
+        else:
+            default_msa = virus_config.get("default_msa_file", "")
+            virus_data_dir = f"data/{virus_name}"
+        
+        if not default_msa:
+            raise HTTPException(status_code=404, detail=f"No default MSA file configured for virus '{virus_name}'")
+        
+        msa_file_path = f"{virus_data_dir}/clustalW/{default_msa}"
+        
+        if not os.path.exists(msa_file_path):
+            raise HTTPException(status_code=404, detail=f"MSA file not found: {msa_file_path}")
+        
+        # Get reference genome ID from virus configuration
+        reference_genome_id = None
+        if segment and "segments" in virus_config:
+            reference_genome_id = virus_config["segments"].get(segment, {}).get("reference_genome", "")
+        else:
+            reference_genome_id = virus_config.get("reference_genome", "")
+        
+        # Remove file extension from reference genome ID for comparison
+        if reference_genome_id:
+            reference_genome_id = reference_genome_id.replace('.fasta', '').replace('.fa', '')
+            print(f"DEBUG: Reference genome ID for {virus_name}: {reference_genome_id}")
+        
+        # Extract genome IDs from MSA file
+        genome_ids = []
+        
+        try:
+            with open(msa_file_path, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    # Skip empty lines and CLUSTAL header lines
+                    if not line or line.startswith('CLUSTAL') or line.startswith('*') or line.startswith(' '):
+                        continue
+                    
+                    # Extract genome ID from lines that contain sequence data
+                    # Format: "GENOME_ID    SEQUENCE_DATA"
+                    parts = line.split()
+                    if len(parts) >= 2:
+                        full_genome_id = parts[0]
+                        
+                        # Handle different genome ID formats
+                        if '|' in full_genome_id:
+                            # Format: "NAME|EPI_ISL_XXXXX|DATE" or "NAME|DESCRIPTION"
+                            pipe_parts = full_genome_id.split('|')
+                            if len(pipe_parts) >= 2:
+                                # Check if second part looks like an EPI_ISL ID
+                                if pipe_parts[1].startswith('EPI_ISL_'):
+                                    genome_id = pipe_parts[1]  # Use EPI_ISL ID
+                                elif len(pipe_parts) >= 3 and pipe_parts[2].startswith('NC_'):
+                                    genome_id = pipe_parts[2]  # Use NC_ ID (reference genome)
+                                else:
+                                    genome_id = pipe_parts[0]  # Use first part
+                            else:
+                                genome_id = pipe_parts[0]
+                        else:
+                            genome_id = full_genome_id
+                        
+                        # Skip the reference genome (using configuration, not hardcoded patterns)
+                        if reference_genome_id and genome_id == reference_genome_id:
+                            print(f"DEBUG: Skipping reference genome: {genome_id}")
+                            continue
+                        
+                        # Add non-reference genome IDs
+                        if genome_id not in genome_ids:
+                            genome_ids.append(genome_id)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Error reading MSA file: {str(e)}")
+        
+        return {"genome_ids": genome_ids}
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error extracting genome IDs: {str(e)}")
 
 # Visualization endpoints
 @app.post("/api/visualize")
