@@ -1,0 +1,5 @@
+missense 1:15 ATTAAAGGTTTATAC [{'protein': 'Invalid protein sequence', 'frameshift': 'no', 'mutation': 'NA'}]
+missense 16 C->T [{'protein': 'None-CDS', 'mutation': 'NA'}]
+silent 8782 C->T [{'protein': 'nsp4', 'mutation': 'S76S'}]
+missense 28144 T->C [{'protein': 'ORF8', 'mutation': 'L84S'}]
+missense 29888:29903 AAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

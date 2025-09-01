@@ -1,0 +1,4 @@
+silent 3778 A->G [{'protein': 'nsp3', 'mutation': 'T353T'}]
+missense 8388 A->G [{'protein': 'nsp3', 'mutation': 'N1890S'}]
+missense 8987 T->A [{'protein': 'nsp4', 'mutation': 'F145I'}]
+missense 29900:29903 AAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

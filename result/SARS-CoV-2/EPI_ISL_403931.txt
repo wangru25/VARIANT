@@ -1,0 +1,5 @@
+missense 104 T->A [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 111:112 TT->CG [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 119:120 CT->GC [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 124 G->A [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 29890:29903 AAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

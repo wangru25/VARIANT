@@ -1,0 +1,4 @@
+frameshift 1:11 ATTAAAGGTTT [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
+missense 22020 T->C [{'protein': 'spike_surface_glycoprotein', 'mutation': 'M153T'}]
+missense 24680 G->T [{'protein': 'spike_surface_glycoprotein', 'mutation': 'V1040F'}]
+missense 29872:29903 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

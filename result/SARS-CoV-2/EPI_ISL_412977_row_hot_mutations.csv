@@ -1,0 +1,289 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_412977,row,378:379,TC->CT,leader_nsp1,"['V38A']",missense
+EPI_ISL_412977,row,1935:1936,AT->GC,nsp2,"['N377S']",missense
+EPI_ISL_412977,row,2533:2534,TG->CA,nsp2,"['V576V', 'V577I']",missense
+EPI_ISL_412977,row,2839:2840,TG->CA,nsp3,"['S40S', 'A41T']",missense
+EPI_ISL_412977,row,3252:3254,ACA->GGG,nsp3,"['D178G', 'N179D']",missense
+EPI_ISL_412977,row,3256:3257,TC->CA,nsp3,"['N179N', 'Q180K']",missense
+EPI_ISL_412977,row,3259:3262,GACA->TCAG,nsp3,"['Q180H', 'T181Q']",missense
+EPI_ISL_412977,row,5553:5554,AG->CT,nsp3,"['K945T']",missense
+EPI_ISL_412977,row,14847:14848,AC->CT,RNA-dependent-polymerase,"['L460L', 'L461L']",missense
+EPI_ISL_412977,row,18008:18009,AA->TG,helicase,"['E591V']",missense
+EPI_ISL_412977,row,19449:19450,TG->CT,3'-to-5'_exonuclease,"['S470S', 'A471S']",missense
+EPI_ISL_412977,row,21501:21502,AA->CG,2'-O-ribose_methyltransferase,"['I281I', 'I282V']",missense
+EPI_ISL_412977,row,21522:21523,TG->CA,2'-O-ribose_methyltransferase,"['V288V', 'V289I']",missense
+EPI_ISL_412977,row,21565:21566,GT->TA,spike_surface_glycoprotein,"['M1I', 'F2I']",missense
+EPI_ISL_412977,row,21571:21572,TT->AC,spike_surface_glycoprotein,"['V3V', 'F4L']",missense
+EPI_ISL_412977,row,21581:21583,TTA->GGT,spike_surface_glycoprotein,"['L7G']",missense
+EPI_ISL_412977,row,21585:21587,TGC->ATA,spike_surface_glycoprotein,"['L8Y', 'P9T']",missense
+EPI_ISL_412977,row,21594:21596,TCT->CAG,spike_surface_glycoprotein,"['V11A', 'S12A']",missense
+EPI_ISL_412977,row,21600:21604,GTCAG->CCACA,spike_surface_glycoprotein,"['S13T', 'Q14T']",missense
+EPI_ISL_412977,row,21614:21615,CT->GG,spike_surface_glycoprotein,"['L18G']",missense
+EPI_ISL_412977,row,21624:21629,GAACTC->TTGAGA,spike_surface_glycoprotein,"['R21I', 'T22E', 'Q23K']",missense
+EPI_ISL_412977,row,21631:21634,ATTA->TAAG,spike_surface_glycoprotein,"['Q23H', 'L24K']",missense
+EPI_ISL_412977,row,21636:21639,CCCC->AAAA,spike_surface_glycoprotein,"['P25Q', 'P26N']",missense
+EPI_ISL_412977,row,21642:21643,CA->TT,spike_surface_glycoprotein,"['A27V']",missense
+EPI_ISL_412977,row,21660:21662,CAC->TGA,spike_surface_glycoprotein,"['T33M', 'R34S']",missense
+EPI_ISL_412977,row,21682:21683,CA->TG,spike_surface_glycoprotein,"['D40D', 'K41E']",missense
+EPI_ISL_412977,row,21685:21686,AG->TA,spike_surface_glycoprotein,"['K41N', 'V42I']",missense
+EPI_ISL_412977,row,21690:21691,TC->AT,spike_surface_glycoprotein,"['F43Y']",missense
+EPI_ISL_412977,row,21697:21700,CTCA->TAAT,spike_surface_glycoprotein,"['S45S', 'S46N']",missense
+EPI_ISL_412977,row,21704:21708,TTACA->AATGT,spike_surface_glycoprotein,"['L48N', 'H49V']",missense
+EPI_ISL_412977,row,21710:21714,TCAAC->CTTTT,spike_surface_glycoprotein,"['S50L', 'T51F']",missense
+EPI_ISL_412977,row,21716:21718,CAG->ACT,spike_surface_glycoprotein,"['Q52T']",missense
+EPI_ISL_412977,row,21720:21724,ACTTG->TACCT,spike_surface_glycoprotein,"['D53V', 'L54P']",missense
+EPI_ISL_412977,row,21727:21728,CT->TC,spike_surface_glycoprotein,"['F55F', 'L56L']",missense
+EPI_ISL_412977,row,21730:21733,ACCT->TAGG,spike_surface_glycoprotein,"['L56F', 'P57R']",missense
+EPI_ISL_412977,row,21736:21738,CTT->TAA,spike_surface_glycoprotein,"['F58F', 'F59N']",missense
+EPI_ISL_412977,row,21756:21758,TCC->ATA,spike_surface_glycoprotein,"['F65Y', 'H66N']",missense
+EPI_ISL_412977,row,21761:21762,GC->TT,spike_surface_glycoprotein,"['A67F']",missense
+EPI_ISL_412977,row,21789:21791,CTA->ACC,spike_surface_glycoprotein,"['T76N', 'K77Q']",missense
+EPI_ISL_412977,row,21793:21796,GAGG->AGCA,spike_surface_glycoprotein,"['K77K', 'R78A']",missense
+EPI_ISL_412977,row,21798:21805,TTGATAAC->ACACCTCG,spike_surface_glycoprotein,"['F79Y', 'D80T', 'N81S']",missense
+EPI_ISL_412977,row,21811:21812,CC->TA,spike_surface_glycoprotein,"['V83V', 'L84I']",missense
+EPI_ISL_412977,row,21814:21816,ACC->GGA,spike_surface_glycoprotein,"['L84L', 'P85E']",missense
+EPI_ISL_412977,row,21821:21822,AA->GG,spike_surface_glycoprotein,"['N87G']",missense
+EPI_ISL_412977,row,21829:21830,TG->CA,spike_surface_glycoprotein,"['G89G', 'V90I']",missense
+EPI_ISL_412977,row,21841:21842,TT->AA,spike_surface_glycoprotein,"['A93A', 'S94T']",missense
+EPI_ISL_412977,row,21844:21847,CACT->TGTA,spike_surface_glycoprotein,"['S94S', 'T95V']",missense
+EPI_ISL_412977,row,21859:21863,CATAA->TGCTG,spike_surface_glycoprotein,"['N99N', 'I100A', 'I101V']",missense
+EPI_ISL_412977,row,21896:21898,TCG->AAT,spike_surface_glycoprotein,"['S112N']",missense
+EPI_ISL_412977,row,21900:21901,AG->CC,spike_surface_glycoprotein,"['K113T']",missense
+EPI_ISL_412977,row,21910:21912,CCT->AGC,spike_surface_glycoprotein,"['S116S', 'L117A']",missense
+EPI_ISL_412977,row,21916:21917,TA->AC,spike_surface_glycoprotein,"['L118L', 'I119L']",missense
+EPI_ISL_412977,row,21930:21931,CT->GC,spike_surface_glycoprotein,"['A123G']",missense
+EPI_ISL_412977,row,21935:21936,AA->CT,spike_surface_glycoprotein,"['N125L']",missense
+EPI_ISL_412977,row,21940:21943,TGTT->AACA,spike_surface_glycoprotein,"['V126V', 'V127T']",missense
+EPI_ISL_412977,row,21946:21947,TA->AC,spike_surface_glycoprotein,"['I128I', 'K129Q']",missense
+EPI_ISL_412977,row,21955:21956,TG->CT,spike_surface_glycoprotein,"['C131C', 'E132*']",nonsense
+EPI_ISL_412977,row,21970:21974,TAATG->CGCCA,spike_surface_glycoprotein,"['C136C', 'N137A', 'D138N']",missense
+EPI_ISL_412977,row,21979:21982,ATTT->TGCC,spike_surface_glycoprotein,"['P139P', 'F140A']",missense
+EPI_ISL_412977,row,22005:22006,AC->CT,spike_surface_glycoprotein,"['N148T']",missense
+EPI_ISL_412977,row,22008:22009,AC->GT,spike_surface_glycoprotein,"['N149S']",missense
+EPI_ISL_412977,row,22011:22013,AAA->GCG,spike_surface_glycoprotein,"['K150S', 'S151G']",missense
+EPI_ISL_412977,row,22015:22016,TT->GA,spike_surface_glycoprotein,"['S151R', 'W152R']",missense
+EPI_ISL_412977,row,22019:22023,ATGGA->TCAAC,spike_surface_glycoprotein,"['M153S', 'E154T']",missense
+EPI_ISL_412977,row,22026:22028,GTG->ACA,spike_surface_glycoprotein,"['S155N', 'E156K']",missense
+EPI_ISL_412977,row,22042:22045,TTCT->CATC,spike_surface_glycoprotein,"['Y160Y', 'S161I']",missense
+EPI_ISL_412977,row,22051:22052,GA->AC,spike_surface_glycoprotein,"['A163A', 'N164H']",missense
+EPI_ISL_412977,row,22067:22070,GAAT->TCTG,spike_surface_glycoprotein,"['E169S', 'Y170D']",missense
+EPI_ISL_412977,row,22077:22081,CTCAG->TGAGT,spike_surface_glycoprotein,"['S172L', 'Q173S']",missense
+EPI_ISL_412977,row,22083:22085,CTT->ACA,spike_surface_glycoprotein,"['P174H', 'F175I']",missense
+EPI_ISL_412977,row,22088:22091,CTTA->TCGC,spike_surface_glycoprotein,"['L176S', 'M177L']",missense
+EPI_ISL_412977,row,22100:22102,GAA->ACG,spike_surface_glycoprotein,"['E180T']",missense
+EPI_ISL_412977,row,22104:22106,GAA->AGG,spike_surface_glycoprotein,"['G181E', 'K182E']",missense
+EPI_ISL_412977,row,22108:22111,ACAG->TACA,spike_surface_glycoprotein,"['K182N', 'Q183T']",missense
+EPI_ISL_412977,row,22114:22117,TAAT->CTCA,spike_surface_glycoprotein,"['G184G', 'N185S']",missense
+EPI_ISL_412977,row,22124:22127,AATC->CGCT,spike_surface_glycoprotein,"['N188R', 'L189F']",missense
+EPI_ISL_412977,row,22129:22130,TA->GC,spike_surface_glycoprotein,"['L189L', 'R190R']",missense
+EPI_ISL_412977,row,22175:22176,TC->GG,spike_surface_glycoprotein,"['S205G']",missense
+EPI_ISL_412977,row,22178:22181,AAGC->GCTT,spike_surface_glycoprotein,"['K206A', 'H207Y']",missense
+EPI_ISL_412977,row,22183:22186,CACG->TCAA,spike_surface_glycoprotein,"['H207H', 'T208Q']",missense
+EPI_ISL_412977,row,22193:22194,AA->GG,spike_surface_glycoprotein,"['N211G']",missense
+EPI_ISL_412977,row,22196:22201,TTAGTG->GCCACT,spike_surface_glycoprotein,"['L212A', 'V213T']",missense
+EPI_ISL_412977,row,22203:22208,GTGATC->CATCAT,spike_surface_glycoprotein,"['R214P', 'D215S', 'L216F']",missense
+EPI_ISL_412977,row,22213:22219,TCAGGGT->CTCTACA,spike_surface_glycoprotein,"['P217P', 'Q218S', 'G219T']",missense
+EPI_ISL_412977,row,22223:22226,TCGG->AAAC,spike_surface_glycoprotein,"['S221K', 'A222P']",missense
+EPI_ISL_412977,row,22232:22233,GA->AT,spike_surface_glycoprotein,"['E224I']",missense
+EPI_ISL_412977,row,22240:22244,GGTAG->ATGGA,spike_surface_glycoprotein,"['L226L', 'V227W', 'D228N']",missense
+EPI_ISL_412977,row,22272:22273,GG->AT,spike_surface_glycoprotein,"['R237N']",missense
+EPI_ISL_412977,row,22276:22277,TC->CA,spike_surface_glycoprotein,"['F238F', 'Q239K']",missense
+EPI_ISL_412977,row,22280:22283,ACTT->GTAG,spike_surface_glycoprotein,"['T240V', 'L241V']",missense
+EPI_ISL_412977,row,22285:22286,AC->TT,spike_surface_glycoprotein,"['L241F', 'L242F']",missense
+EPI_ISL_412977,row,22288:22289,TG->AA,spike_surface_glycoprotein,"['L242L', 'A243T']",missense
+EPI_ISL_412977,row,22331:22332,GG->AA,spike_surface_glycoprotein,"['G257N']",missense
+EPI_ISL_412977,row,22336:22338,GAC->CCA,spike_surface_glycoprotein,"['W258C', 'T259Q']",missense
+EPI_ISL_412977,row,22342:22348,TGGTGCT->GTTACAA,spike_surface_glycoprotein,"['A260A', 'G261L', 'A262Q']",missense
+EPI_ISL_412977,row,22351:22354,AGCT->TAAC,spike_surface_glycoprotein,"['A263A', 'A264N']",missense
+EPI_ISL_412977,row,22358:22359,TA->GC,spike_surface_glycoprotein,"['Y266A']",missense
+EPI_ISL_412977,row,22367:22368,TA->AG,spike_surface_glycoprotein,"['Y269S']",missense
+EPI_ISL_412977,row,22376:22378,CCT->TTA,spike_surface_glycoprotein,"['P272L']",missense
+EPI_ISL_412977,row,22380:22381,GG->CC,spike_surface_glycoprotein,"['R273T']",missense
+EPI_ISL_412977,row,22387:22388,TC->CA,spike_surface_glycoprotein,"['F275F', 'L276I']",missense
+EPI_ISL_412977,row,22390:22391,AT->GC,spike_surface_glycoprotein,"['L276L', 'L277L']",missense
+EPI_ISL_412977,row,22393:22396,AAAA->TTCT,spike_surface_glycoprotein,"['L277F', 'K278S']",missense
+EPI_ISL_412977,row,22404:22405,AA->TT,spike_surface_glycoprotein,"['E281V']",missense
+EPI_ISL_412977,row,22417:22421,TACAG->AGATA,spike_surface_glycoprotein,"['I285I', 'T286D', 'D287N']",missense
+EPI_ISL_412977,row,22435:22436,TG->CT,spike_surface_glycoprotein,"['C291C', 'A292S']",missense
+EPI_ISL_412977,row,22438:22440,ACT->TAG,spike_surface_glycoprotein,"['A292A', 'L293S']",missense
+EPI_ISL_412977,row,22456:22459,AACA->GCTG,spike_surface_glycoprotein,"['E298E', 'T299L']",missense
+EPI_ISL_412977,row,22468:22469,GT->AC,spike_surface_glycoprotein,"['T302T', 'L303L']",missense
+EPI_ISL_412977,row,22474:22477,ATCC->GAGT,spike_surface_glycoprotein,"['K304K', 'S305S']",missense
+EPI_ISL_412977,row,22487:22489,GAA->AGT,spike_surface_glycoprotein,"['E309S']",missense
+EPI_ISL_412977,row,22503:22504,AA->CT,spike_surface_glycoprotein,"['Q314P']",missense
+EPI_ISL_412977,row,22523:22525,CAA->TTG,spike_surface_glycoprotein,"['Q321L']",missense
+EPI_ISL_412977,row,22528:22529,AA->TT,spike_surface_glycoprotein,"['P322P', 'T323S']",missense
+EPI_ISL_412977,row,22531:22533,AGA->TAC,spike_surface_glycoprotein,"['T323T', 'E324T']",missense
+EPI_ISL_412977,row,22535:22538,TCTA->GAAG,spike_surface_glycoprotein,"['S325E', 'I326V']",missense
+EPI_ISL_412977,row,22578:22580,GTG->ACA,spike_surface_glycoprotein,"['G339D', 'E340K']",missense
+EPI_ISL_412977,row,22603:22604,TG->CC,spike_surface_glycoprotein,"['F347F', 'A348P']",missense
+EPI_ISL_412977,row,22606:22608,ATC->CAA,spike_surface_glycoprotein,"['A348A', 'S349N']",missense
+EPI_ISL_412977,row,22629:22630,AG->CT,spike_surface_glycoprotein,"['K356T']",missense
+EPI_ISL_412977,row,22632:22633,GA->AG,spike_surface_glycoprotein,"['R357K']",missense
+EPI_ISL_412977,row,22636:22640,CAGCA->TTCTG,spike_surface_glycoprotein,"['I358I', 'S359S', 'N360D']",missense
+EPI_ISL_412977,row,22675:22676,CG->AA,spike_surface_glycoprotein,"['S371S', 'A372T']",missense
+EPI_ISL_412977,row,22762:22763,TG->CC,spike_surface_glycoprotein,"['F400F', 'V401L']",missense
+EPI_ISL_412977,row,22771:22773,AGG->GTT,spike_surface_glycoprotein,"['R403R', 'G404F']",missense
+EPI_ISL_412977,row,22775:22777,GAT->TCA,spike_surface_glycoprotein,"['D405S']",missense
+EPI_ISL_412977,row,22801:22802,GC->AG,spike_surface_glycoprotein,"['G413G', 'Q414E']",missense
+EPI_ISL_412977,row,22810:22813,AAAG->TGTT,spike_surface_glycoprotein,"['G416G', 'K417V']",missense
+EPI_ISL_412977,row,22873:22874,TT->CA,spike_surface_glycoprotein,"['N437N', 'S438T']",missense
+EPI_ISL_412977,row,22877:22880,AACA->GCTC,spike_surface_glycoprotein,"['N439A', 'N440H']",missense
+EPI_ISL_412977,row,22884:22885,TT->AG,spike_surface_glycoprotein,"['L441Q']",missense
+EPI_ISL_412977,row,22907:22908,TA->GG,spike_surface_glycoprotein,"['Y449G']",missense
+EPI_ISL_412977,row,22926:22931,TGTTTA->CTCACC,spike_surface_glycoprotein,"['L455S', 'F456H', 'R457R']",missense
+EPI_ISL_412977,row,22934:22939,AAGTCT->GCTGTA,spike_surface_glycoprotein,"['K458A', 'S459V']",missense
+EPI_ISL_412977,row,22963:22964,TA->CT,spike_surface_glycoprotein,"['D467D', 'I468F']",missense
+EPI_ISL_412977,row,23018:23020,TTT->GAA,spike_surface_glycoprotein,"['F486E']",missense
+EPI_ISL_412977,row,23027:23031,TACTT->GTTCG,spike_surface_glycoprotein,"['Y489V', 'F490R']",missense
+EPI_ISL_412977,row,23038:23042,ACAAT->GAGTA,spike_surface_glycoprotein,"['L492L', 'Q493S', 'S494T']",missense
+EPI_ISL_412977,row,23053:23054,CC->TA,spike_surface_glycoprotein,"['F497F', 'Q498K']",missense
+EPI_ISL_412977,row,23063:23067,AATGG->GTACC,spike_surface_glycoprotein,"['N501V', 'G502P']",missense
+EPI_ISL_412977,row,23083:23086,ATAC->TACT,spike_surface_glycoprotein,"['P507P', 'Y508T']",missense
+EPI_ISL_412977,row,23116:23117,AC->GA,spike_surface_glycoprotein,"['L518L', 'H519N']",missense
+EPI_ISL_412977,row,23147:23148,AA->TT,spike_surface_glycoprotein,"['K529L']",missense
+EPI_ISL_412977,row,23155:23156,TA->AC,spike_surface_glycoprotein,"['T531T', 'N532H']",missense
+EPI_ISL_412977,row,23158:23159,TT->AC,spike_surface_glycoprotein,"['N532K', 'L533L']",missense
+EPI_ISL_412977,row,23171:23173,AAA->CGG,spike_surface_glycoprotein,"['K537R']",missense
+EPI_ISL_412977,row,23197:23198,TT->AC,spike_surface_glycoprotein,"['G545G', 'L546L']",missense
+EPI_ISL_412977,row,23202:23203,CA->GG,spike_surface_glycoprotein,"['T547R']",missense
+EPI_ISL_412977,row,23227:23228,TA->AG,spike_surface_glycoprotein,"['S555S', 'N556D']",missense
+EPI_ISL_412977,row,23235:23236,AG->GA,spike_surface_glycoprotein,"['K558R']",missense
+EPI_ISL_412977,row,23260:23261,CA->TC,spike_surface_glycoprotein,"['G566G', 'R567R']",missense
+EPI_ISL_412977,row,23266:23269,CATT->TTCA,spike_surface_glycoprotein,"['D568D', 'I569S']",missense
+EPI_ISL_412977,row,23275:23277,CAC->TTT,spike_surface_glycoprotein,"['D571D', 'T572F']",missense
+EPI_ISL_412977,row,23308:23309,TG->CC,spike_surface_glycoprotein,"['L582L', 'E583Q']",missense
+EPI_ISL_412977,row,23314:23315,TC->AT,spike_surface_glycoprotein,"['I584I', 'L585F']",missense
+EPI_ISL_412977,row,23323:23324,TA->CT,spike_surface_glycoprotein,"['I587I', 'T588S']",missense
+EPI_ISL_412977,row,23377:23381,TAACC->CTCTA,spike_surface_glycoprotein,"['S605S', 'N606S', 'Q607K']",missense
+EPI_ISL_412977,row,23426:23428,GTT->ACG,spike_surface_glycoprotein,"['V622T']",missense
+EPI_ISL_412977,row,23431:23432,TA->AC,spike_surface_glycoprotein,"['A623A', 'I624L']",missense
+EPI_ISL_412977,row,23434:23436,TCA->GGG,spike_surface_glycoprotein,"['I624M', 'H625G']",missense
+EPI_ISL_412977,row,23438:23440,GCA->CTG,spike_surface_glycoprotein,"['A626L']",missense
+EPI_ISL_412977,row,23452:23453,TC->AG,spike_surface_glycoprotein,"['T630T', 'P631A']",missense
+EPI_ISL_412977,row,23479:23481,TTC->CAA,spike_surface_glycoprotein,"['G639G', 'S640N']",missense
+EPI_ISL_412977,row,23499:23500,GT->AG,spike_surface_glycoprotein,"['R646Q']",missense
+EPI_ISL_412977,row,23527:23530,TGTC->CACT,spike_surface_glycoprotein,"['H655H', 'V656T']",missense
+EPI_ISL_412977,row,23584:23585,TC->CA,spike_surface_glycoprotein,"['Y674Y', 'Q675K']",missense
+EPI_ISL_412977,row,23587:23588,GA->CT,spike_surface_glycoprotein,"['Q675H', 'T676S']",missense
+EPI_ISL_412977,row,23592:23594,AGA->CTG,spike_surface_glycoprotein,"['Q677P', 'T678A']",missense
+EPI_ISL_412977,row,23596:23598,TAA->AGC,spike_surface_glycoprotein,"['T678T', 'N679A']",missense
+EPI_ISL_412977,row,23674:23675,AG->TA,spike_surface_glycoprotein,"['S704S', 'V705I']",missense
+EPI_ISL_412977,row,23723:23725,AGT->CAG,spike_surface_glycoprotein,"['S721Q']",missense
+EPI_ISL_412977,row,23740:23741,TC->GT,spike_surface_glycoprotein,"['I726M', 'L727L']",missense
+EPI_ISL_412977,row,23801:23803,ACT->CAG,spike_surface_glycoprotein,"['T747Q']",missense
+EPI_ISL_412977,row,23815:23816,TC->GT,spike_surface_glycoprotein,"['N751K', 'L752F']",missense
+EPI_ISL_412977,row,23848:23849,AT->GC,spike_surface_glycoprotein,"['Q762Q', 'L763L']",missense
+EPI_ISL_412977,row,23863:23864,AA->GT,spike_surface_glycoprotein,"['L767L', 'T768S']",missense
+EPI_ISL_412977,row,23869:23870,AA->TG,spike_surface_glycoprotein,"['G769G', 'I770V']",missense
+EPI_ISL_412977,row,23896:23897,CC->TG,spike_surface_glycoprotein,"['T778T', 'Q779E']",missense
+EPI_ISL_412977,row,23938:23941,ACCA->TGTC,spike_surface_glycoprotein,"['P792P', 'P793V']",missense
+EPI_ISL_412977,row,23989:23990,AT->TA,spike_surface_glycoprotein,"['P809P', 'S810T']",missense
+EPI_ISL_412977,row,24022:24023,TC->CT,spike_surface_glycoprotein,"['D820D', 'L821L']",missense
+EPI_ISL_412977,row,24031:24032,CA->TG,spike_surface_glycoprotein,"['F823F', 'N824D']",missense
+EPI_ISL_412977,row,24176:24177,CA->GC,spike_surface_glycoprotein,"['Q872A']",missense
+EPI_ISL_412977,row,24193:24194,GT->TG,spike_surface_glycoprotein,"['L877L', 'L878V']",missense
+EPI_ISL_412977,row,24196:24199,AGCG->TAGT,spike_surface_glycoprotein,"['L878F', 'A879S']",missense
+EPI_ISL_412977,row,24205:24207,AAT->TGC,spike_surface_glycoprotein,"['T881T', 'I882A']",missense
+EPI_ISL_412977,row,24230:24231,GC->AT,spike_surface_glycoprotein,"['A890I']",missense
+EPI_ISL_412977,row,24808:24809,TC->CT,spike_surface_glycoprotein,"['C1082C', 'H1083Y']",missense
+EPI_ISL_412977,row,25630:25631,GT->AC,ORF3a,"['V80T']",missense
+EPI_ISL_412977,row,25630:25631,GT->AC,ORF3d,"['C36Y']",missense
+EPI_ISL_412977,row,26530:26533,ATTC->TAGA,membrane_glycoprotein,"['D3V', 'S4D']",missense
+EPI_ISL_412977,row,27702:27703,TG->CA,ORF7a,"['I103I', 'V104I']",missense
+EPI_ISL_412977,row,27864:27865,CA->TG,ORF7b,"['H37C']",missense
+EPI_ISL_412977,row,27872:27873,AA->TG,ORF7b,"['E39D', 'T40A']",missense
+EPI_ISL_412977,row,27910:27912,TCT->GAC,ORF8,"['F6*', 'L7L']",nonsense
+EPI_ISL_412977,row,27918:27921,ATCA->TATC,ORF8,"['I9Y', 'I10L']",missense
+EPI_ISL_412977,row,27924:27925,AC->TA,ORF8,"['T11*']",nonsense
+EPI_ISL_412977,row,27927:27929,ACT->GTA,ORF8,"['T12V']",missense
+EPI_ISL_412977,row,27944:27948,CCAAG->TACGC,ORF8,"['H17H', 'Q18T', 'E19Q']",missense
+EPI_ISL_412977,row,27950:27951,AT->CA,ORF8,"['E19D', 'C20S']",missense
+EPI_ISL_412977,row,27957:27958,TT->AC,ORF8,"['L22T']",missense
+EPI_ISL_412977,row,27971:27975,TCAAC->GTCTA,ORF8,"['T26T', 'Q27S', 'H28N']",missense
+EPI_ISL_412977,row,27983:27984,AT->TC,ORF8,"['P30P', 'Y31H']",missense
+EPI_ISL_412977,row,27995:27996,TG->AA,ORF8,"['D34E', 'D35N']",missense
+EPI_ISL_412977,row,28011:28012,CA->AG,ORF8,"['H40S']",missense
+EPI_ISL_412977,row,28015:28017,TCT->ATA,ORF8,"['F41Y', 'Y42N']",missense
+EPI_ISL_412977,row,28019:28020,TT->GC,ORF8,"['Y42*', 'S43P']",nonsense
+EPI_ISL_412977,row,28022:28023,TA->AG,ORF8,"['S43S', 'K44E']",missense
+EPI_ISL_412977,row,28037:28040,AGTA->GTAT,ORF8,"['R48R', 'V49Y']",missense
+EPI_ISL_412977,row,28042:28044,GAG->ATA,ORF8,"['G50D', 'A51T']",missense
+EPI_ISL_412977,row,28050:28056,AAATCAG->GGTAACA,ORF8,"['K53G', 'S54N', 'A55T']",missense
+EPI_ISL_412977,row,28059:28060,CC->TA,ORF8,"['P56Y']",missense
+EPI_ISL_412977,row,28062:28063,TT->AA,ORF8,"['L57K']",missense
+EPI_ISL_412977,row,28066:28067,TT->CA,ORF8,"['I58T']",missense
+EPI_ISL_412977,row,28072:28073,TG->GC,ORF8,"['L60C']",missense
+EPI_ISL_412977,row,28080:28083,GATG->CTCT,ORF8,"['D63L', 'E64*']",nonsense
+EPI_ISL_412977,row,28088:28089,TG->AA,ORF8,"['A65A', 'G66S']",missense
+EPI_ISL_412977,row,28099:28101,CAC->TTT,ORF8,"['S69F', 'P70S']",missense
+EPI_ISL_412977,row,28105:28111,TTCAGTA->CAAGTGG,ORF8,"['I71T', 'Q72S', 'Y73G']",missense
+EPI_ISL_412977,row,28128:28134,TATACAG->ATGGTTT,ORF8,"['Y79M', 'T80V', 'V81F']",missense
+EPI_ISL_412977,row,28144:28145,TA->CG,ORF8,"['L84S']",missense
+EPI_ISL_412977,row,28149:28150,TT->AA,ORF8,"['F86N']",missense
+EPI_ISL_412977,row,28163:28166,CCAG->TATA,ORF8,"['C90C', 'Q91I']",missense
+EPI_ISL_412977,row,28176:28178,TTG->GGT,ORF8,"['L95G']",missense
+EPI_ISL_412977,row,28182:28184,AGT->GCA,ORF8,"['S97A']",missense
+EPI_ISL_412977,row,28192:28194,TGC->CTA,ORF8,"['V100A', 'R101S']",missense
+EPI_ISL_412977,row,28207:28209,ATG->TAC,ORF8,"['Y105L', 'E106Q']",missense
+EPI_ISL_412977,row,28214:28221,CTTTTTAG->AGGCCATC,ORF8,"['D107E', 'F108G', 'L109H', 'E110Q']",missense
+EPI_ISL_412977,row,28223:28228,GTATCA->AACAGC,ORF8,"['E110E', 'Y111T', 'H112A']",missense
+EPI_ISL_412977,row,28230:28233,GACG->TCTT,ORF8,"['D113S', 'V114F']",missense
+EPI_ISL_412977,row,28242:28243,GT->AC,ORF8,"['V117T']",missense
+EPI_ISL_412977,row,28246:28247,TA->GT,ORF8,"['L118C']",missense
+EPI_ISL_412977,row,28255:28256,TC->AA,ORF8,"['I121K']",missense
+EPI_ISL_412977,row,29072:29073,GC->CA,nucleocapsid_phosphoprotein,"['A267Q']",missense
+EPI_ISL_412977,hot,4442:4444,GG->AT,nsp3,"['V575I']",missense
+EPI_ISL_412977,hot,6541:6543,CC->TT,nsp3,"['H1274H', 'T1275I']",missense
+EPI_ISL_412977,hot,11296:11298,TA->CG,nsp6,"['F108F', 'K109R']",missense
+EPI_ISL_412977,hot,11747:11749,CA->TG,nsp6,"['L259L']",silent
+EPI_ISL_412977,hot,21442:21444,TA->CT,2'-O-ribose_methyltransferase,"['L262L']",silent
+EPI_ISL_412977,hot,21610:21612,TA->GC,spike_surface_glycoprotein,"['V16V', 'N17T']",missense
+EPI_ISL_412977,hot,21617:21619,AA->CC,spike_surface_glycoprotein,"['T19P']",missense
+EPI_ISL_412977,hot,21744:21746,AG->CC,spike_surface_glycoprotein,"['N61T', 'V62L']",missense
+EPI_ISL_412977,hot,21746:21748,GT->CA,spike_surface_glycoprotein,"['V62L']",missense
+EPI_ISL_412977,hot,22159:22161,TA->GT,spike_surface_glycoprotein,"['G199G', 'Y200F']",missense
+EPI_ISL_412977,hot,22161:22163,AT->TC,spike_surface_glycoprotein,"['Y200F', 'F201L']",missense
+EPI_ISL_412977,hot,22166:22168,AA->CT,spike_surface_glycoprotein,"['K202H']",missense
+EPI_ISL_412977,hot,22294:22296,AA->TG,spike_surface_glycoprotein,"['L244F', 'H245R']",missense
+EPI_ISL_412977,hot,22296:22298,AA->GT,spike_surface_glycoprotein,"['H245R', 'R246*']",nonsense
+EPI_ISL_412977,hot,22398:22400,AA->TG,spike_surface_glycoprotein,"['Y279F', 'N280D']",missense
+EPI_ISL_412977,hot,22480:22482,CC->TA,spike_surface_glycoprotein,"['F306F', 'T307N']",missense
+EPI_ISL_412977,hot,22622:22624,AC->CA,spike_surface_glycoprotein,"['N354Q']",missense
+EPI_ISL_412977,hot,22658:22660,TT->AA,spike_surface_glycoprotein,"['S366T']",missense
+EPI_ISL_412977,hot,22723:22725,AA->GT,spike_surface_glycoprotein,"['L387L', 'N388I']",missense
+EPI_ISL_412977,hot,22730:22732,CC->TG,spike_surface_glycoprotein,"['L390L']",silent
+EPI_ISL_412977,hot,22741:22743,TA->AG,spike_surface_glycoprotein,"['T393T', 'N394S']",missense
+EPI_ISL_412977,hot,22757:22759,TA->AG,spike_surface_glycoprotein,"['S399T']",missense
+EPI_ISL_412977,hot,22916:22918,CG->TT,spike_surface_glycoprotein,"['L452F']",missense
+EPI_ISL_412977,hot,22970:22972,AT->TG,spike_surface_glycoprotein,"['T470S']",missense
+EPI_ISL_412977,hot,23033:23035,CT->AC,spike_surface_glycoprotein,"['P491T']",missense
+EPI_ISL_412977,hot,23059:23061,CC->AA,spike_surface_glycoprotein,"['P499P', 'T500N']",missense
+EPI_ISL_412977,hot,23069:23071,GT->TA,spike_surface_glycoprotein,"['V503L']",missense
+EPI_ISL_412977,hot,23071:23073,TG->AA,spike_surface_glycoprotein,"['V503V', 'G504D']",missense
+EPI_ISL_412977,hot,23241:23243,TC->AT,spike_surface_glycoprotein,"['L560Q', 'P561S']",missense
+EPI_ISL_412977,hot,23369:23371,AT->CA,spike_surface_glycoprotein,"['N603Q']",missense
+EPI_ISL_412977,hot,23393:23395,CT->TG,spike_surface_glycoprotein,"['L611L']",silent
+EPI_ISL_412977,hot,23483:23485,AT->GC,spike_surface_glycoprotein,"['N641D']",missense
+EPI_ISL_412977,hot,23513:23515,AA->GG,spike_surface_glycoprotein,"['I651V']",missense
+EPI_ISL_412977,hot,23570:23572,AA->GG,spike_surface_glycoprotein,"['I670V']",missense
+EPI_ISL_412977,hot,23628:23630,GC->CA,spike_surface_glycoprotein,"['S689T', 'Q690K']",missense
+EPI_ISL_412977,hot,23630:23632,CA->AT,spike_surface_glycoprotein,"['Q690N']",missense
+EPI_ISL_412977,hot,23648:23650,AT->GG,spike_surface_glycoprotein,"['T696A']",missense
+EPI_ISL_412977,hot,23756:23758,AC->TA,spike_surface_glycoprotein,"['T732S']",missense
+EPI_ISL_412977,hot,23809:23811,CG->TA,spike_surface_glycoprotein,"['C749C', 'S750N']",missense
+EPI_ISL_412977,hot,24047:24049,GA->TT,spike_surface_glycoprotein,"['A829S']",missense
+EPI_ISL_412977,hot,24143:24145,TG->CA,spike_surface_glycoprotein,"['L861L']",silent
+EPI_ISL_412977,hot,24248:24250,AA->GT,spike_surface_glycoprotein,"['I896V']",missense
+EPI_ISL_412977,hot,24934:24936,TA->CG,spike_surface_glycoprotein,"['G1124G', 'N1125S']",missense
+EPI_ISL_412977,hot,24995:24997,TA->CC,spike_surface_glycoprotein,"['L1145L']",silent
+EPI_ISL_412977,hot,26691:26693,TA->CT,membrane_glycoprotein,"['L57L']",silent
+EPI_ISL_412977,hot,27881:27883,CC->AT,ORF7b,"['H42Q', 'A43V']",missense
+EPI_ISL_412977,hot,27914:27916,AG->TT,ORF8,"['L7F', 'G8V']",missense
+EPI_ISL_412977,hot,28007:28009,TT->AC,ORF8,"['P38P', 'I39T']",missense
+EPI_ISL_412977,hot,28029:28031,TT->AC,ORF8,"['Y46N']",missense
+EPI_ISL_412977,hot,28091:28093,TC->GT,ORF8,"['G66G', 'S67F']",missense
+EPI_ISL_412977,hot,28093:28095,CA->TT,ORF8,"['S67F', 'K68*']",nonsense
+EPI_ISL_412977,hot,28095:28097,AA->TC,ORF8,"['K68Y']",missense
+EPI_ISL_412977,hot,28172:28174,TA->AC,ORF8,"['P93P', 'K94T']",missense
+EPI_ISL_412977,hot,28236:28238,CT->AA,ORF8,"['R115R']",silent

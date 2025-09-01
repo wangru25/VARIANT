@@ -1,0 +1,18 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_412046,row,15011:15013,AAG->TCT,RNA-dependent-polymerase,"['Q515L', 'D516Y']",missense
+EPI_ISL_412046,row,15019:15020,CT->GA,RNA-dependent-polymerase,"['L518D']",missense
+EPI_ISL_412046,row,15023:15030,TCGCATAT->CATTTGTA,RNA-dependent-polymerase,"['F519S', 'A520F', 'Y521V']",missense
+EPI_ISL_412046,row,15032:15033,CA->TT,RNA-dependent-polymerase,"['T522I']",missense
+EPI_ISL_412046,row,15044:15046,TCA->AAG,RNA-dependent-polymerase,"['V526E', 'I527V']",missense
+EPI_ISL_412046,row,15049:15054,CCTACT->AGACAA,RNA-dependent-polymerase,"['P528R', 'T529Q']",missense
+EPI_ISL_412046,row,15057:15058,AA->CG,RNA-dependent-polymerase,"['I530I', 'T531A']",missense
+EPI_ISL_412046,row,15144:15145,TA->GG,RNA-dependent-polymerase,"['N559K', 'R560G']",missense
+EPI_ISL_412046,row,15147:15148,AC->CA,RNA-dependent-polymerase,"['R560S', 'Q561K']",missense
+EPI_ISL_412046,row,15150:15151,GT->AC,RNA-dependent-polymerase,"['Q561Q', 'F562L']",missense
+EPI_ISL_412046,row,15162:15163,AT->GA,RNA-dependent-polymerase,"['K565K', 'L566I']",missense
+EPI_ISL_412046,row,15165:15169,ATTGA->TGCTG,RNA-dependent-polymerase,"['L566F', 'L567A', 'K568E']",missense
+EPI_ISL_412046,row,15173:15174,CA->AT,RNA-dependent-polymerase,"['S569Y']",missense
+EPI_ISL_412046,row,15176:15188,TAGCCGCCACTAG->ATTATAAATTACC,RNA-dependent-polymerase,"['I570N', 'A571Y', 'A572K', 'T573L', 'R574P']",missense
+EPI_ISL_412046,row,15191:15192,GA->AT,RNA-dependent-polymerase,"['G575D']",missense
+EPI_ISL_412046,hot,15035:15037,AC->GG,RNA-dependent-polymerase,"['K523R', 'R524G']",missense
+EPI_ISL_412046,hot,15194:15196,CA->AT,RNA-dependent-polymerase,"['A576D', 'T577S']",missense

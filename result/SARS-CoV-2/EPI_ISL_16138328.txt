@@ -1,0 +1,5 @@
+missense 75 C->A [{'protein': 'None-CDS', 'mutation': 'NA'}]
+silent 8782 C->T [{'protein': 'nsp4', 'mutation': 'S76S'}]
+missense 11083 G->C [{'protein': 'nsp6', 'mutation': 'L37F'}]
+missense 21644 T->A [{'protein': 'spike_surface_glycoprotein', 'mutation': 'Y28N'}]
+missense 28144 T->C [{'protein': 'ORF8', 'mutation': 'L84S'}]

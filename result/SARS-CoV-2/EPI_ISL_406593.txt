@@ -1,0 +1,4 @@
+silent 8782 C->T [{'protein': 'nsp4', 'mutation': 'S76S'}]
+missense 28144 T->C [{'protein': 'ORF8', 'mutation': 'L84S'}]
+silent 29095 C->T [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'F274F'}]
+missense 29892:29903 AAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

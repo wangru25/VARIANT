@@ -1,0 +1,6 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+nsp3,V980I,missense,G5657A,NT changes
+nsp4,S76S,silent,C8782T,NT changes
+spike_surface_glycoprotein,D614G,missense,A23403G,NT changes
+ORF3a,L111L,silent,A25725G,NT changes
+ORF8,L84S,missense,T28144C,NT changes

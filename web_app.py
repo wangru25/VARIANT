@@ -280,7 +280,8 @@ async def upload_data_file(
     elif file_type == "proteome":
         filename = f"{virus_name}_proteome{extension}"
     elif file_type == "msa":
-        filename = f"{virus_name}_msa{extension}"
+        # Keep original filename for MSA files to preserve user's naming
+        filename = original_filename
     else:
         filename = original_filename
     

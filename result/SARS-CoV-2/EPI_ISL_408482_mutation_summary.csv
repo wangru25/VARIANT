@@ -1,0 +1,7 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+nsp2,V198I,missense,G1397A,NT changes
+nsp3,A1527V,missense,C7299T,NT changes
+3C-likease,D245D,silent,C10789T,NT changes
+nsp6,L37F,missense,G11083T,NT changes
+ORF7a,H73Q,missense,C27612G,NT changes
+nucleocapsid_phosphoprotein,L139L,silent,T28688C,NT changes

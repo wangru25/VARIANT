@@ -1,0 +1,6 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_412900,row,4736:4737,AC->TT,nsp3,"['T673F']",missense
+EPI_ISL_412900,row,9324:9325,GT->AA,nsp4,"['G257E']",missense
+EPI_ISL_412900,hot,6976:6978,TT->AA,nsp3,"['S1419R', 'V1420D']",missense
+EPI_ISL_412900,hot,6978:6980,TT->AC,nsp3,"['V1420D', 'C1421R']",missense
+EPI_ISL_412900,hot,6986:6988,GT->CA,nsp3,"['G1423R']",missense

@@ -1,0 +1,6 @@
+frameshift 1:23 ATTAAAGGTTTATACCTTCCCAG [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
+silent 28291 C->T [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'P6P'}]
+missense 28291 C->T [{'protein': 'ORF9b', 'mutation': 'P3L'}]
+missense 28854 C->T [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'S194L'}]
+nonsense 28854 C->T [{'protein': 'ORF9c', 'mutation': 'Q41*'}]
+missense 29863:29903 AGAATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

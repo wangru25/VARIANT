@@ -2401,7 +2401,8 @@
                     const selectedVirusInfo = {
                         virus: virusName,
                         segment: segment || null,
-                        fileType: fileType
+                        fileType: fileType,
+                        uploadedFilename: result.filename  // Store the uploaded filename
                     };
                     console.log('Storing virus info for analysis:', selectedVirusInfo);
                     localStorage.setItem('selectedVirusForAnalysis', JSON.stringify(selectedVirusInfo));
@@ -2409,19 +2410,24 @@
                     // Clear any previously stored virus selection to avoid conflicts
                     localStorage.removeItem('selectedVirus');
                     
-                    // Update checklist
-                    updateUploadChecklist(virusName);
+                    // Store virus name and segment before form reset
+                    const currentVirusName = virusName;
+                    const currentSegment = segment;
+                    
+                    // Update checklist with stored values
+                    updateUploadChecklist(currentVirusName, currentSegment);
                     
                     // Show "Continue to Analysis" button only when all files are uploaded
                     // The button will be shown in updateUploadChecklist when all checkboxes are checked
                     
-                    // Reset form
-                    document.getElementById('dataUploadForm').reset();
-                    
-                    // Refresh file lists
-                    if (document.getElementById('dataFilesVirusSelect').value === virusName) {
-                        loadDataFiles(virusName);
+                    // Refresh file lists before resetting form
+                    const dataFilesVirusSelect = document.getElementById('dataFilesVirusSelect');
+                    if (dataFilesVirusSelect && dataFilesVirusSelect.value === currentVirusName) {
+                        loadDataFiles(currentVirusName);
                     }
+                    
+                    // Reset form after all operations are complete
+                    document.getElementById('dataUploadForm').reset();
                 } else {
                     const error = await response.json();
                     showUploadMessage(`Upload failed: ${error.detail}`, 'error');
@@ -2433,16 +2439,26 @@
         }
         
         // Update upload checklist
-        async function updateUploadChecklist(virusName) {
+        async function updateUploadChecklist(virusName, segment = null) {
             try {
-                // Get selected segment for multi-segment viruses
-                const segmentSelect = document.getElementById('uploadSegmentSelect');
-                const selectedSegment = segmentSelect ? segmentSelect.value : null;
+                // Use passed segment instead of reading from form
+                const selectedSegment = segment;
                 
                 // For multi-segment viruses, require segment selection
-                const virusSelect = document.getElementById('uploadVirusSelect');
-                const selectedOption = virusSelect.options[virusSelect.selectedIndex];
-                const isMultiSegment = selectedOption && selectedOption.dataset.isMultiSegment === 'true';
+                // We'll determine this from the virus name and segment
+                const isMultiSegment = segment !== null && segment !== undefined;
+                
+                if (isMultiSegment && !selectedSegment) {
+                    // Multi-segment virus but no segment selected - uncheck all
+                    document.getElementById('checkRefGenome').checked = false;
+                    document.getElementById('checkProteome').checked = false;
+                    document.getElementById('checkMSA').checked = false;
+                    
+                    updateCheckboxStyle('checkRefGenome', false);
+                    updateCheckboxStyle('checkProteome', false);
+                    updateCheckboxStyle('checkMSA', false);
+                    return;
+                }
                 
                 if (isMultiSegment && !selectedSegment) {
                     // Multi-segment virus but no segment selected - uncheck all
@@ -2494,10 +2510,8 @@
                 if (hasRefGenome && hasProteome && hasMSA) {
                     showNotification('🎉 All required files uploaded! You can now start analysis.', 'success');
                     
-                    // Show "Continue to Analysis" button
-                    const virusName = document.getElementById('uploadVirusSelect').value;
-                    const segment = document.getElementById('uploadSegmentSelect').value;
-                    showContinueToAnalysisButton(virusName, segment);
+                    // Show "Continue to Analysis" button using passed virus name
+                    showContinueToAnalysisButton(virusName, selectedSegment);
                 } else {
                     // Hide continue button if not all files are uploaded
                     const continueButton = document.getElementById('continueToAnalysisBtn');
@@ -3016,6 +3030,11 @@
                 }, 500); // Small delay to ensure segments are loaded
             }
             
+            // Load MSA files and pre-select the uploaded one
+            setTimeout(async () => {
+                await loadMSAFilesAndPreSelect(virusName, segment);
+            }, 1000); // Delay to ensure virus selection is processed
+            
             // Show notification
             showNotification(`✅ Virus "${virusName}" is ready for analysis! Please select a genome ID.`, 'success');
         }
@@ -3244,6 +3263,65 @@
                 }
             } catch (error) {
                 console.error('Error loading MSA files for analysis:', error);
+                msaFileSelector.style.display = 'none';
+            }
+        }
+        
+        // Load MSA files and pre-select the uploaded one
+        async function loadMSAFilesAndPreSelect(virusName, segment = null) {
+            const msaFileSelector = document.getElementById('msaFileSelector');
+            const msaFileSelect = document.getElementById('msaFileSelect');
+            
+            if (!virusName) {
+                msaFileSelector.style.display = 'none';
+                return;
+            }
+            
+            try {
+                // Get the uploaded filename from localStorage
+                const storedVirusInfo = localStorage.getItem('selectedVirusForAnalysis');
+                let uploadedFilename = null;
+                if (storedVirusInfo) {
+                    const virusInfo = JSON.parse(storedVirusInfo);
+                    if (virusInfo.fileType === 'msa') {
+                        uploadedFilename = virusInfo.uploadedFilename;
+                    }
+                }
+                
+                let url = `/api/msa-files/${virusName}`;
+                if (segment) {
+                    url += `?segment=${segment}`;
+                }
+                
+                const response = await fetch(url);
+                const result = await response.json();
+                
+                if (response.ok && result.msa_files.length > 1) {
+                    // Show MSA selector if there are multiple MSA files
+                    msaFileSelect.innerHTML = '<option value="">Use default MSA file</option>';
+                    result.msa_files.forEach(file => {
+                        const option = document.createElement('option');
+                        option.value = file.filename;
+                        option.textContent = `${file.filename}${file.is_default ? ' (Default)' : ''}`;
+                        
+                        // Pre-select the uploaded file if it matches
+                        if (uploadedFilename && file.filename === uploadedFilename) {
+                            option.selected = true;
+                        }
+                        
+                        msaFileSelect.appendChild(option);
+                    });
+                    msaFileSelector.style.display = 'block';
+                    
+                    // If we found and selected the uploaded file, show a notification
+                    if (uploadedFilename && msaFileSelect.value === uploadedFilename) {
+                        showNotification(`✅ Pre-selected your uploaded MSA file: ${uploadedFilename}`, 'success');
+                    }
+                } else {
+                    msaFileSelector.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error loading MSA files for pre-selection:', error);
                 msaFileSelector.style.display = 'none';
             }
         }

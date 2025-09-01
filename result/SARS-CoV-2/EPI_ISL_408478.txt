@@ -1,0 +1,6 @@
+silent 1342 C->T [{'protein': 'nsp2', 'mutation': 'Y179Y'}]
+silent 8782 C->T [{'protein': 'nsp4', 'mutation': 'S76S'}]
+silent 18060 C->T [{'protein': "3'-to-5'_exonuclease", 'mutation': 'L7L'}]
+missense 28144 T->C [{'protein': 'ORF8', 'mutation': 'L84S'}]
+silent 29200 C->T [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'P309P'}]
+missense 29892:29903 AAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

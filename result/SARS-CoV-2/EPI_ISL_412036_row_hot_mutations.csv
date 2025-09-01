@@ -1,0 +1,47 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_412036,row,14952:14953,TC->GT,RNA-dependent-polymerase,"['F495L', 'P496S']",missense
+EPI_ISL_412036,row,14956:14960,TTTAA->CACCG,RNA-dependent-polymerase,"['F497H', 'N498R']",missense
+EPI_ISL_412036,row,14962:14964,AAA->TTC,RNA-dependent-polymerase,"['K499F']",missense
+EPI_ISL_412036,row,14966:14968,GGG->ATA,RNA-dependent-polymerase,"['W500Y', 'G501S']",missense
+EPI_ISL_412036,row,14970:14973,TAAG->ATTA,RNA-dependent-polymerase,"['G501G', 'K502L']",missense
+EPI_ISL_412036,row,14978:14982,GACTT->ATGAG,RNA-dependent-polymerase,"['R504N', 'L505E']",missense
+EPI_ISL_412036,row,14986:14987,TA->GC,RNA-dependent-polymerase,"['Y507A']",missense
+EPI_ISL_412036,row,14991:14993,TTC->AGT,RNA-dependent-polymerase,"['D508E', 'S509V']",missense
+EPI_ISL_412036,row,15003:15005,TGA->AAT,RNA-dependent-polymerase,"['Y512*', 'E513M']",nonsense
+EPI_ISL_412036,row,15008:15014,ATCAAGA->TCATGTG,RNA-dependent-polymerase,"['D514V', 'Q515M', 'D516C']",missense
+EPI_ISL_412036,row,15017:15020,CACT->GCGG,RNA-dependent-polymerase,"['A517G', 'L518G']",missense
+EPI_ISL_412036,row,15023:15026,TCGC->CACT,RNA-dependent-polymerase,"['F519S', 'A520L']",missense
+EPI_ISL_412036,row,15031:15033,ACA->GTT,RNA-dependent-polymerase,"['T522V']",missense
+EPI_ISL_412036,row,15038:15041,GTAA->CAGG,RNA-dependent-polymerase,"['R524P', 'N525G']",missense
+EPI_ISL_412036,row,15044:15045,TC->GA,RNA-dependent-polymerase,"['V526G']",missense
+EPI_ISL_412036,row,15051:15052,TA->AT,RNA-dependent-polymerase,"['P528P', 'T529S']",missense
+EPI_ISL_412036,row,15054:15056,TAT->AGG,RNA-dependent-polymerase,"['T529T', 'I530G']",missense
+EPI_ISL_412036,row,15058:15059,AC->GA,RNA-dependent-polymerase,"['T531D']",missense
+EPI_ISL_412036,row,15061:15063,CAA->GCC,RNA-dependent-polymerase,"['Q532A']",missense
+EPI_ISL_412036,row,15065:15066,TG->CA,RNA-dependent-polymerase,"['M533T']",missense
+EPI_ISL_412036,row,15074:15075,AG->CT,RNA-dependent-polymerase,"['K536T']",missense
+EPI_ISL_412036,row,15127:15128,TG->AT,RNA-dependent-polymerase,"['C554I']",missense
+EPI_ISL_412036,row,15133:15140,ACTATGAC->CAAGCTGT,RNA-dependent-polymerase,"['T556Q', 'M557A', 'T558V']",missense
+EPI_ISL_412036,row,15143:15148,ATAGAC->CGGCCA,RNA-dependent-polymerase,"['N559T', 'R560A', 'Q561K']",missense
+EPI_ISL_412036,row,15150:15151,GT->TG,RNA-dependent-polymerase,"['Q561H', 'F562V']",missense
+EPI_ISL_412036,row,15157:15158,CA->GC,RNA-dependent-polymerase,"['Q564A']",missense
+EPI_ISL_412036,row,15160:15162,AAA->CTT,RNA-dependent-polymerase,"['K565L']",missense
+EPI_ISL_412036,row,15167:15168,TG->CT,RNA-dependent-polymerase,"['L567S']",missense
+EPI_ISL_412036,row,15170:15179,AATCAATAGC->CTGATGGTAA,RNA-dependent-polymerase,"['K568T', 'S569D', 'I570G', 'A571N']",missense
+EPI_ISL_412036,row,15181:15183,GCC->AAA,RNA-dependent-polymerase,"['A572K']",missense
+EPI_ISL_412036,row,15187:15189,AGA->GCC,RNA-dependent-polymerase,"['R574A']",missense
+EPI_ISL_412036,row,15191:15197,GAGCTAC->ATAAGTA,RNA-dependent-polymerase,"['G575D', 'A576K', 'T577Y']",missense
+EPI_ISL_412036,row,15227:15230,GTGG->CAAT,RNA-dependent-polymerase,"['G587A', 'G588I']",missense
+EPI_ISL_412036,row,15233:15235,GGC->ACA,RNA-dependent-polymerase,"['W589Y', 'H590N']",missense
+EPI_ISL_412036,row,15239:15243,ACATG->CAGAC,RNA-dependent-polymerase,"['N591T', 'M592D']",missense
+EPI_ISL_412036,row,15248:15249,AA->TG,RNA-dependent-polymerase,"['K594M']",missense
+EPI_ISL_412036,row,15260:15261,GT->TA,RNA-dependent-polymerase,"['S598I']",missense
+EPI_ISL_412036,row,15264:15265,TG->AA,RNA-dependent-polymerase,"['D599E', 'V600I']",missense
+EPI_ISL_412036,row,15276:15277,TC->AG,RNA-dependent-polymerase,"['P603P', 'H604D']",missense
+EPI_ISL_412036,row,15286:15287,GG->AA,RNA-dependent-polymerase,"['G607N']",missense
+EPI_ISL_412036,row,15289:15290,TG->GA,RNA-dependent-polymerase,"['W608E']",missense
+EPI_ISL_412036,hot,15047:15049,TC->CT,RNA-dependent-polymerase,"['I527T', 'P528S']",missense
+EPI_ISL_412036,hot,15081:15083,CT->TA,RNA-dependent-polymerase,"['A538A', 'I539N']",missense
+EPI_ISL_412036,hot,15120:15122,CC->TT,RNA-dependent-polymerase,"['V551V', 'S552F']",missense
+EPI_ISL_412036,hot,15255:15257,TA->CC,RNA-dependent-polymerase,"['V596V', 'Y597S']",missense
+EPI_ISL_412036,hot,15270:15272,AA->GT,RNA-dependent-polymerase,"['E601E', 'N602I']",missense

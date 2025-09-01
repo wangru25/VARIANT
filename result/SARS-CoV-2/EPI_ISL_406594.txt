@@ -1,0 +1,5 @@
+missense 0 CAGAAGA [{'protein': 'None-CDS', 'mutation': 'NA'}]
+nonsense 27577 C->T [{'protein': 'ORF7a', 'mutation': 'Q62*'}]
+missense 28854 C->T [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'S194L'}]
+nonsense 28854 C->T [{'protein': 'ORF9c', 'mutation': 'Q41*'}]
+missense 29892:29903 AAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

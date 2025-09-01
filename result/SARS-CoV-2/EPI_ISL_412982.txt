@@ -1,0 +1,7 @@
+missense 1:15 ATTAAAGGTTTATAC [{'protein': 'Invalid protein sequence', 'frameshift': 'no', 'mutation': 'NA'}]
+missense 5657 G->A [{'protein': 'nsp3', 'mutation': 'V980I'}]
+silent 8782 C->T [{'protein': 'nsp4', 'mutation': 'S76S'}]
+missense 23403 A->G [{'protein': 'spike_surface_glycoprotein', 'mutation': 'D614G'}]
+silent 25725 A->G [{'protein': 'ORF3a', 'mutation': 'L111L'}]
+missense 28144 T->C [{'protein': 'ORF8', 'mutation': 'L84S'}]
+missense 29854:29903 CTTCTTAGGAGAATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

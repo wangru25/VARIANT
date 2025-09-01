@@ -1,0 +1,11 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+RNA-dependent-polymerase,F504Y,missense,T14951A,NT changes
+RNA-dependent-polymerase,F495L,missense,14952:14953TC->GG,NT changes
+RNA-dependent-polymerase,P496A,missense,14952:14953TC->GG,NT changes
+RNA-dependent-polymerase,P496P,silent,14955:14958ATTT->TAGA,NT changes
+RNA-dependent-polymerase,F497R,missense,14955:14958ATTT->TAGA,NT changes
+RNA-dependent-polymerase,N507H,missense,A14959C,NT changes
+RNA-dependent-polymerase,K499L,missense,14962:14963AA->TT,NT changes
+RNA-dependent-polymerase,W500L,missense,14966:14968GGG->TAT,NT changes
+RNA-dependent-polymerase,G501C,missense,14966:14968GGG->TAT,NT changes
+RNA-dependent-polymerase,K511M,missense,A14972T,NT changes

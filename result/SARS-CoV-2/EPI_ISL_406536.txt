@@ -1,0 +1,3 @@
+frameshift 1:23 ATTAAAGGTTTATACCTTCCCAG [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
+silent 17373 C->T [{'protein': 'helicase', 'mutation': 'A379A'}]
+missense 29827:29903 AGTGCTATCCCCATGTGATTTTAATAGCTTCTTAGGAGAATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

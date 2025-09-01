@@ -1,0 +1,4 @@
+missense 1:9 ATTAAAGGT [{'protein': 'Invalid protein sequence', 'frameshift': 'no', 'mutation': 'NA'}]
+silent 8782 C->T [{'protein': 'nsp4', 'mutation': 'S76S'}]
+missense 28144 T->C [{'protein': 'ORF8', 'mutation': 'L84S'}]
+missense 29866:29903 ATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

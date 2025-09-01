@@ -1,0 +1,641 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_410542,row,21:22,CA->AG,None-CDS,"['NA']",missense
+EPI_ISL_410542,row,24:28,GTAAC->TAGCA,None-CDS,"['NA']",missense
+EPI_ISL_410542,row,177:178,TA->CG,None-CDS,"['NA']",missense
+EPI_ISL_410542,row,378:380,TCT->CTC,leader_nsp1,"['V38A', 'L39L']",missense
+EPI_ISL_410542,row,404:406,AAA->CTT,leader_nsp1,"['K47L']",missense
+EPI_ISL_410542,row,445:446,TT->AC,leader_nsp1,"['V60V', 'L61L']",missense
+EPI_ISL_410542,row,475:476,CA->TG,leader_nsp1,"['F70F', 'I71V']",missense
+EPI_ISL_410542,row,526:527,GC->AT,leader_nsp1,"['E87E', 'L88L']",missense
+EPI_ISL_410542,row,547:548,CA->TG,leader_nsp1,"['G94G', 'I95V']",missense
+EPI_ISL_410542,row,625:626,GG->AA,leader_nsp1,"['K120K', 'V121I']",missense
+EPI_ISL_410542,row,677:678,GC->AT,leader_nsp1,"['A138I']",missense
+EPI_ISL_410542,row,724:726,TTA->CAT,leader_nsp1,"['P153P', 'Y154I']",missense
+EPI_ISL_410542,row,741:742,AA->TC,leader_nsp1,"['E159V']",missense
+EPI_ISL_410542,row,877:878,TC->AT,nsp2,"['L24L', 'L25L']",missense
+EPI_ISL_410542,row,895:896,AG->GT,nsp2,"['K30K', 'A31S']",missense
+EPI_ISL_410542,row,1059:1060,CC->AT,nsp2,"['T85N']",missense
+EPI_ISL_410542,row,1065:1066,AT->CA,nsp2,"['N87T']",missense
+EPI_ISL_410542,row,1093:1094,CT->AC,nsp2,"['P96P', 'L97L']",missense
+EPI_ISL_410542,row,1211:1212,TG->CA,nsp2,"['C136H']",missense
+EPI_ISL_410542,row,1273:1274,TG->CC,nsp2,"['F156F', 'V157L']",missense
+EPI_ISL_410542,row,1310:1315,TTGACT->CAAGTC,nsp2,"['L169Q', 'T170V']",missense
+EPI_ISL_410542,row,1324:1325,TG->AC,nsp2,"['G173G', 'A174P']",missense
+EPI_ISL_410542,row,1441:1442,CT->TA,nsp2,"['G212G', 'L213M']",missense
+EPI_ISL_410542,row,1476:1477,TT->AA,nsp2,"['I224K']",missense
+EPI_ISL_410542,row,1547:1549,AGC->GCT,nsp2,"['S248A']",missense
+EPI_ISL_410542,row,1627:1630,CCAA->TACT,nsp2,"['L274L', 'Q275T']",missense
+EPI_ISL_410542,row,1756:1757,AG->GT,nsp2,"['K317K', 'A318S']",missense
+EPI_ISL_410542,row,1811:1813,GCT->TTC,nsp2,"['A336F']",missense
+EPI_ISL_410542,row,1819:1821,AGG->GAA,nsp2,"['K338K', 'G339N']",missense
+EPI_ISL_410542,row,1842:1843,AG->CA,nsp2,"['Q346P']",missense
+EPI_ISL_410542,row,2032:2033,TT->AC,nsp2,"['D409E', 'L410L']",missense
+EPI_ISL_410542,row,2035:2036,GG->TA,nsp2,"['L410F', 'A411T']",missense
+EPI_ISL_410542,row,2041:2042,TA->AG,nsp2,"['T412T', 'N413D']",missense
+EPI_ISL_410542,row,2086:2087,GT->AA,nsp2,"['Q427Q', 'L428M']",missense
+EPI_ISL_410542,row,2143:2144,CG->TA,nsp2,"['P446P', 'V447I']",missense
+EPI_ISL_410542,row,2179:2180,TG->GA,nsp2,"['G458G', 'V459I']",missense
+EPI_ISL_410542,row,2193:2194,GA->AG,nsp2,"['R463K']",missense
+EPI_ISL_410542,row,2242:2243,TG->CA,nsp2,"['I479I', 'V480I']",missense
+EPI_ISL_410542,row,2254:2255,AA->GC,nsp2,"['Q483Q', 'I484L']",missense
+EPI_ISL_410542,row,2260:2261,CA->AG,nsp2,"['V485V', 'T486A']",missense
+EPI_ISL_410542,row,2265:2267,GTG->TCA,nsp2,"['C487F', 'A488T']",missense
+EPI_ISL_410542,row,2271:2272,AG->CT,nsp2,"['K489T']",missense
+EPI_ISL_410542,row,2290:2291,TC->GA,nsp2,"['V495V', 'Q496K']",missense
+EPI_ISL_410542,row,2406:2407,AG->GA,nsp2,"['K534R']",missense
+EPI_ISL_410542,row,2443:2444,AA->CT,nsp2,"['E546D', 'T547S']",missense
+EPI_ISL_410542,row,2449:2450,CC->TT,nsp2,"['G548G', 'L549L']",missense
+EPI_ISL_410542,row,2503:2504,AC->TT,nsp2,"['T566T', 'L567F']",missense
+EPI_ISL_410542,row,2518:2519,GT->AC,nsp2,"['V571V', 'L572L']",missense
+EPI_ISL_410542,row,2521:2522,AA->TT,nsp2,"['L572F', 'T573S']",missense
+EPI_ISL_410542,row,2533:2534,TG->AA,nsp2,"['V576V', 'V577I']",missense
+EPI_ISL_410542,row,2536:2537,CT->AC,nsp2,"['V577V', 'L578L']",missense
+EPI_ISL_410542,row,2566:2567,AC->GG,nsp2,"['E587E', 'Q588E']",missense
+EPI_ISL_410542,row,2576:2579,AGTG->GCAC,nsp2,"['S591A', 'E592Q']",missense
+EPI_ISL_410542,row,2592:2593,CT->TA,nsp2,"['A596V']",missense
+EPI_ISL_410542,row,2626:2627,GC->AT,nsp2,"['G607G', 'L608F']",missense
+EPI_ISL_410542,row,2809:2810,GA->AG,nsp3,"['R30R', 'I31V']",missense
+EPI_ISL_410542,row,2840:2841,GC->AA,nsp3,"['A41N']",missense
+EPI_ISL_410542,row,2863:2864,AG->CA,nsp3,"['T48T', 'E49K']",missense
+EPI_ISL_410542,row,2866:2867,AG->CA,nsp3,"['E49D', 'V50I']",missense
+EPI_ISL_410542,row,3009:3010,AA->CT,nsp3,"['K97T']",missense
+EPI_ISL_410542,row,3066:3068,GTG->AAT,nsp3,"['G116E', 'D117Y']",missense
+EPI_ISL_410542,row,3070:3071,TT->CA,nsp3,"['D117D', 'C118S']",missense
+EPI_ISL_410542,row,3085:3087,GTT->ACC,nsp3,"['E122E', 'F123P']",missense
+EPI_ISL_410542,row,3122:3123,GA->TC,nsp3,"['D135S']",missense
+EPI_ISL_410542,row,3137:3139,AAA->TTG,nsp3,"['K140L']",missense
+EPI_ISL_410542,row,3177:3179,CTG->AAC,nsp3,"['P153Q', 'E154Q']",missense
+EPI_ISL_410542,row,3208:3210,TGA->AAC,nsp3,"['D163E', 'D164T']",missense
+EPI_ISL_410542,row,3214:3216,TAG->AGC,nsp3,"['D165E', 'S166A']",missense
+EPI_ISL_410542,row,3221:3222,CA->GT,nsp3,"['Q168V']",missense
+EPI_ISL_410542,row,3231:3232,GT->AA,nsp3,"['G171E']",missense
+EPI_ISL_410542,row,3240:3243,ACGG->TTAC,nsp3,"['D174V', 'G175T']",missense
+EPI_ISL_410542,row,3252:3253,AC->CA,nsp3,"['D178A']",missense
+EPI_ISL_410542,row,3260:3261,AC->CA,nsp3,"['T181Q']",missense
+EPI_ISL_410542,row,3263:3271,ACTACTATT->GAGGAAGAG,nsp3,"['T182E', 'T183E', 'I184E']",missense
+EPI_ISL_410542,row,3280:3282,TGT->CAC,nsp3,"['I187I', 'V188T']",missense
+EPI_ISL_410542,row,3286:3287,GG->AA,nsp3,"['E189E', 'V190I']",missense
+EPI_ISL_410542,row,3290:3292,CAA->GTT,nsp3,"['Q191V']",missense
+EPI_ISL_410542,row,3305:3308,ATGG->GAAC,nsp3,"['M196E', 'E197Q']",missense
+EPI_ISL_410542,row,3311:3312,CT->AC,nsp3,"['L198T']",missense
+EPI_ISL_410542,row,3317:3319,CCA->ATT,nsp3,"['P200I']",missense
+EPI_ISL_410542,row,3324:3325,TT->AG,nsp3,"['V202E']",missense
+EPI_ISL_410542,row,3327:3329,AGA->TAG,nsp3,"['Q203L', 'T204A']",missense
+EPI_ISL_410542,row,3338:3341,GTGA->TGTG,nsp3,"['V207C', 'N208D']",missense
+EPI_ISL_410542,row,3393:3394,CA->TG,nsp3,"['A225V']",missense
+EPI_ISL_410542,row,3403:3406,GGAA->AAGT,nsp3,"['V228V', 'E229S']",missense
+EPI_ISL_410542,row,3454:3455,TT->AC,nsp3,"['V245V', 'Y246H']",missense
+EPI_ISL_410542,row,3487:3488,CT->TC,nsp3,"['A256A', 'L257L']",missense
+EPI_ISL_410542,row,3543:3544,CT->GA,nsp3,"['T275R']",missense
+EPI_ISL_410542,row,3582:3583,GC->AT,nsp3,"['S288N']",missense
+EPI_ISL_410542,row,3661:3663,GAG->AGT,nsp3,"['K314K', 'S315V']",missense
+EPI_ISL_410542,row,3692:3695,GTTC->AAAT,nsp3,"['V325K', 'L326L']",missense
+EPI_ISL_410542,row,3709:3710,AT->TC,nsp3,"['L330F', 'L331L']",missense
+EPI_ISL_410542,row,3733:3734,TG->AC,nsp3,"['A338A', 'D339H']",missense
+EPI_ISL_410542,row,3753:3754,GA->AG,nsp3,"['R345K']",missense
+EPI_ISL_410542,row,3786:3787,AC->TT,nsp3,"['Y356F']",missense
+EPI_ISL_410542,row,3805:3806,AA->GG,nsp3,"['K362K', 'N363D']",missense
+EPI_ISL_410542,row,3817:3818,CA->AG,nsp3,"['D366E', 'K367E']",missense
+EPI_ISL_410542,row,3826:3827,TT->AG,nsp3,"['V369V', 'S370A']",missense
+EPI_ISL_410542,row,3855:3857,AGC->CTA,nsp3,"['K379T', 'Q380K']",missense
+EPI_ISL_410542,row,3862:3863,TG->AC,nsp3,"['V381V', 'E382Q']",missense
+EPI_ISL_410542,row,3868:3869,AA->TC,nsp3,"['Q383H', 'K384Q']",missense
+EPI_ISL_410542,row,3871:3872,GA->CT,nsp3,"['K384N', 'I385F']",missense
+EPI_ISL_410542,row,3876:3877,CT->AC,nsp3,"['A386D']",missense
+EPI_ISL_410542,row,3879:3881,AGA->TCG,nsp3,"['E387V', 'I388V']",missense
+EPI_ISL_410542,row,3884:3886,CCT->GAG,nsp3,"['P389E']",missense
+EPI_ISL_410542,row,3888:3890,AAG->CTA,nsp3,"['K390T', 'E391K']",missense
+EPI_ISL_410542,row,3894:3895,AA->TT,nsp3,"['E392V']",missense
+EPI_ISL_410542,row,3917:3923,AGTAAAC->GAATCTG,nsp3,"['S400E', 'K401S', 'P402A']",missense
+EPI_ISL_410542,row,3929:3930,GT->AG,nsp3,"['V404S']",missense
+EPI_ISL_410542,row,3934:3935,AC->GA,nsp3,"['E405E', 'Q406K']",missense
+EPI_ISL_410542,row,3937:3940,GAGA->ACCT,nsp3,"['Q406Q', 'R407P']",missense
+EPI_ISL_410542,row,3942:3944,AAC->CCA,nsp3,"['K408T', 'Q409K']",missense
+EPI_ISL_410542,row,3958:3959,AA->GG,nsp3,"['K413K', 'I414V']",missense
+EPI_ISL_410542,row,4034:4036,ATT->GCA,nsp3,"['I439A']",missense
+EPI_ISL_410542,row,4054:4055,TC->GT,nsp3,"['L445L', 'H446Y']",missense
+EPI_ISL_410542,row,4066:4067,TG->AA,nsp3,"['S449S', 'A450T']",missense
+EPI_ISL_410542,row,4078:4082,TAGTG->GGAAA,nsp3,"['V453V', 'S454E', 'D455N']",missense
+EPI_ISL_410542,row,4084:4085,CA->TG,nsp3,"['D455D', 'I456V']",missense
+EPI_ISL_410542,row,4090:4091,CA->TG,nsp3,"['D457D', 'I458V']",missense
+EPI_ISL_410542,row,4132:4133,TG->CA,nsp3,"['D471D', 'V472I']",missense
+EPI_ISL_410542,row,4135:4136,TG->AA,nsp3,"['V472V', 'V473I']",missense
+EPI_ISL_410542,row,4139:4144,CAAGAG->ACTAGT,nsp3,"['Q474T', 'E475S']",missense
+EPI_ISL_410542,row,4148:4149,GT->AA,nsp3,"['V477N']",missense
+EPI_ISL_410542,row,4156:4157,TG->AA,nsp3,"['T479T', 'A480T']",missense
+EPI_ISL_410542,row,4266:4269,TAAA->GCGT,nsp3,"['L516C', 'N517V']",missense
+EPI_ISL_410542,row,4279:4280,TG->AA,nsp3,"['T520T', 'V521I']",missense
+EPI_ISL_410542,row,4299:4300,TG->CT,nsp3,"['V527A']",missense
+EPI_ISL_410542,row,4327:4328,CA->TG,nsp3,"['Y536Y', 'I537V']",missense
+EPI_ISL_410542,row,4330:4331,TC->AT,nsp3,"['I537I', 'L538L']",missense
+EPI_ISL_410542,row,4345:4346,CT->TC,nsp3,"['I542I', 'S543P']",missense
+EPI_ISL_410542,row,4357:4358,GC->AG,nsp3,"['K546K', 'Q547E']",missense
+EPI_ISL_410542,row,4441:4442,TG->CA,nsp3,"['C574C', 'V575M']",missense
+EPI_ISL_410542,row,4474:4475,GC->AA,nsp3,"['Q585Q', 'R586S']",missense
+EPI_ISL_410542,row,4524:4525,CT->TA,nsp3,"['A602V']",missense
+EPI_ISL_410542,row,4561:4562,GT->TA,nsp3,"['A614A', 'S615T']",missense
+EPI_ISL_410542,row,4570:4573,CAAC->TGCA,nsp3,"['I617I', 'N618A']",missense
+EPI_ISL_410542,row,4582:4586,CGATC->TTCAT,nsp3,"['N621N', 'D622S', 'L623L']",missense
+EPI_ISL_410542,row,4589:4591,AAT->GGA,nsp3,"['N624G']",missense
+EPI_ISL_410542,row,4597:4598,TC->CT,nsp3,"['T626T', 'L627F']",missense
+EPI_ISL_410542,row,4612:4613,AC->TT,nsp3,"['P631P', 'L632F']",missense
+EPI_ISL_410542,row,4822:4823,AT->GG,nsp3,"['Q701Q', 'S702A']",missense
+EPI_ISL_410542,row,4828:4829,AC->TG,nsp3,"['T703T', 'Q704E']",missense
+EPI_ISL_410542,row,4865:4866,AG->GT,nsp3,"['S716V']",missense
+EPI_ISL_410542,row,4873:4874,TT->CC,nsp3,"['Y718Y', 'Y719H']",missense
+EPI_ISL_410542,row,4945:4946,TT->AG,nsp3,"['L742L', 'S743A']",missense
+EPI_ISL_410542,row,5096:5098,AAT->GCA,nsp3,"['N793A']",missense
+EPI_ISL_410542,row,5107:5108,AG->CA,nsp3,"['E796D', 'G797S']",missense
+EPI_ISL_410542,row,5149:5151,TGT->CAG,nsp3,"['R810R', 'V811S']",missense
+EPI_ISL_410542,row,5183:5185,CCT->GAA,nsp3,"['P822E']",missense
+EPI_ISL_410542,row,5238:5239,AC->TT,nsp3,"['Y840F']",missense
+EPI_ISL_410542,row,5347:5348,TC->AT,nsp3,"['A876A', 'L877L']",missense
+EPI_ISL_410542,row,5407:5408,CT->AC,nsp3,"['I896I', 'L897L']",missense
+EPI_ISL_410542,row,5614:5618,TCAGA->AACTG,nsp3,"['V965V', 'Q966T', 'I967V']",missense
+EPI_ISL_410542,row,5627:5629,ACG->GTT,nsp3,"['T970V']",missense
+EPI_ISL_410542,row,5728:5731,TACT->CTTG,nsp3,"['F1003F', 'T1004L']",missense
+EPI_ISL_410542,row,5804:5805,TG->GT,nsp3,"['C1029V']",missense
+EPI_ISL_410542,row,5826:5827,CA->GC,nsp3,"['T1036S']",missense
+EPI_ISL_410542,row,5830:5831,GT->AA,nsp3,"['K1037K', 'S1038T']",missense
+EPI_ISL_410542,row,5906:5908,ACT->GTC,nsp3,"['T1063V']",missense
+EPI_ISL_410542,row,5956:5958,CAA->TGG,nsp3,"['D1079D', 'N1080G']",missense
+EPI_ISL_410542,row,6015:6016,AC->CT,nsp3,"['N1099T']",missense
+EPI_ISL_410542,row,6097:6098,AA->GT,nsp3,"['L1126L', 'T1127S']",missense
+EPI_ISL_410542,row,6121:6122,AA->TC,nsp3,"['S1134S', 'R1135R']",missense
+EPI_ISL_410542,row,6133:6134,AG->GA,nsp3,"['K1138K', 'V1139I']",missense
+EPI_ISL_410542,row,6253:6254,TG->CA,nsp3,"['N1178N', 'A1179T']",missense
+EPI_ISL_410542,row,6292:6293,TA->CT,nsp3,"['C1191C', 'I1192L']",missense
+EPI_ISL_410542,row,6335:6337,TCG->ATT,nsp3,"['S1206I']",missense
+EPI_ISL_410542,row,6394:6397,TCTA->CACT,nsp3,"['D1225D', 'L1226T']",missense
+EPI_ISL_410542,row,6402:6403,CA->TT,nsp3,"['P1228L']",missense
+EPI_ISL_410542,row,6448:6449,TC->AG,nsp3,"['V1243V', 'L1244V']",missense
+EPI_ISL_410542,row,6508:6509,TA->AG,nsp3,"['N1263K', 'N1264D']",missense
+EPI_ISL_410542,row,6511:6512,TA->CG,nsp3,"['N1264N', 'S1265G']",missense
+EPI_ISL_410542,row,6541:6543,CAC->TGA,nsp3,"['H1274H', 'T1275E']",missense
+EPI_ISL_410542,row,6607:6609,TAG->AGT,nsp3,"['S1296S', 'R1297V']",missense
+EPI_ISL_410542,row,6628:6629,CC->TT,nsp3,"['T1303T', 'L1304F']",missense
+EPI_ISL_410542,row,6631:6634,TGCT->AAAA,nsp3,"['L1304L', 'A1305K']",missense
+EPI_ISL_410542,row,6712:6714,TGT->AAC,nsp3,"['V1331V', 'V1332T']",missense
+EPI_ISL_410542,row,6719:6722,ACAA->GTTG,nsp3,"['T1334V', 'T1335A']",missense
+EPI_ISL_410542,row,6729:6732,ACAT->GTGG,nsp3,"['N1337S', 'I1338G']",missense
+EPI_ISL_410542,row,6754:6755,TG->CA,nsp3,"['R1345R', 'V1346I']",missense
+EPI_ISL_410542,row,6761:6762,AC->GT,nsp3,"['T1348V']",missense
+EPI_ISL_410542,row,6967:6968,AC->TT,nsp3,"['L1416F', 'L1417L']",missense
+EPI_ISL_410542,row,7005:7006,CC->GT,nsp3,"['T1429S']",missense
+EPI_ISL_410542,row,7057:7058,TG->AA,nsp3,"['T1446T', 'G1447S']",missense
+EPI_ISL_410542,row,7098:7100,TTG->CAA,nsp3,"['I1460T', 'A1461T']",missense
+EPI_ISL_410542,row,7162:7163,CA->TG,nsp3,"['D1481D', 'T1482A']",missense
+EPI_ISL_410542,row,7234:7235,AG->TA,nsp3,"['L1505F', 'V1506I']",missense
+EPI_ISL_410542,row,7318:7319,CA->TG,nsp3,"['F1533F', 'S1534G']",missense
+EPI_ISL_410542,row,7479:7480,AT->CC,nsp3,"['N1587T']",missense
+EPI_ISL_410542,row,7732:7733,CA->TG,nsp3,"['Y1671Y', 'I1672V']",missense
+EPI_ISL_410542,row,7747:7748,TA->AG,nsp3,"['V1676V', 'T1677A']",missense
+EPI_ISL_410542,row,7765:7766,CA->GC,nsp3,"['S1682S', 'I1683L']",missense
+EPI_ISL_410542,row,8089:8090,AC->GT,nsp3,"['K1790K', 'L1791F']",missense
+EPI_ISL_410542,row,8101:8102,AG->CA,nsp3,"['L1794L', 'V1795I']",missense
+EPI_ISL_410542,row,8116:8117,AG->GA,nsp3,"['E1799E', 'A1800T']",missense
+EPI_ISL_410542,row,8320:8321,CC->TA,nsp3,"['P1867P', 'R1868S']",missense
+EPI_ISL_410542,row,8425:8426,AT->GC,nsp3,"['S1902S', 'L1903L']",missense
+EPI_ISL_410542,row,8565:8566,AT->CA,nsp4,"['N4T']",missense
+EPI_ISL_410542,row,8584:8585,AA->GC,nsp4,"['L10L', 'I11L']",missense
+EPI_ISL_410542,row,8592:8593,TT->CC,nsp4,"['V13A']",missense
+EPI_ISL_410542,row,8604:8606,TCC->GTG,nsp4,"['F17C', 'L18V']",missense
+EPI_ISL_410542,row,8618:8619,GC->TG,nsp4,"['A22C']",missense
+EPI_ISL_410542,row,8650:8651,CA->GC,nsp4,"['V32V', 'M33L']",missense
+EPI_ISL_410542,row,8653:8654,GT->TA,nsp4,"['M33I', 'S34T']",missense
+EPI_ISL_410542,row,8663:8664,AC->GG,nsp4,"['T37G']",missense
+EPI_ISL_410542,row,8675:8676,AG->GA,nsp4,"['S41D']",missense
+EPI_ISL_410542,row,8725:8726,AG->TT,nsp4,"['I57I', 'A58S']",missense
+EPI_ISL_410542,row,8733:8734,CA->AC,nsp4,"['T60N']",missense
+EPI_ISL_410542,row,8763:8764,AT->GA,nsp4,"['D70G']",missense
+EPI_ISL_410542,row,8795:8796,AG->TC,nsp4,"['S81S']",silent
+EPI_ISL_410542,row,8812:8813,AG->GA,nsp4,"['K86K', 'A87T']",missense
+EPI_ISL_410542,row,8824:8825,GA->TG,nsp4,"['L90F', 'I91V']",missense
+EPI_ISL_410542,row,8842:8843,AA->TC,nsp4,"['T96T', 'R97R']",missense
+EPI_ISL_410542,row,8894:8896,ACT->TTA,nsp4,"['T114L']",missense
+EPI_ISL_410542,row,9040:9041,TT->AG,nsp4,"['A162A', 'S163A']",missense
+EPI_ISL_410542,row,9094:9095,TG->AC,nsp4,"['V180V', 'A181P']",missense
+EPI_ISL_410542,row,9104:9107,AGTT->TCAC,nsp4,"['S184S', 'L185L']",missense
+EPI_ISL_410542,row,9130:9131,GC->CT,nsp4,"['V192V', 'L193F']",missense
+EPI_ISL_410542,row,9250:9251,TG->CA,nsp4,"['G232G', 'V233I']",missense
+EPI_ISL_410542,row,9343:9344,AC->CT,nsp4,"['L263F', 'L264F']",missense
+EPI_ISL_410542,row,9364:9365,AC->TT,nsp4,"['P270P', 'L271L']",missense
+EPI_ISL_410542,row,9430:9431,CG->AT,nsp4,"['I292I', 'V293L']",missense
+EPI_ISL_410542,row,9514:9515,AC->CT,nsp4,"['L320F', 'L321L']",missense
+EPI_ISL_410542,row,9520:9521,CC->TT,nsp4,"['F322F', 'L323F']",missense
+EPI_ISL_410542,row,9559:9562,CTCA->TAGT,nsp4,"['Y335Y', 'S336S']",missense
+EPI_ISL_410542,row,9723:9724,TC->GT,nsp4,"['F390C']",missense
+EPI_ISL_410542,row,9750:9752,AGA->GAC,nsp4,"['K399R', 'R400R']",missense
+EPI_ISL_410542,row,9754:9755,AC->TA,nsp4,"['R400S', 'R401S']",missense
+EPI_ISL_410542,row,9773:9774,GT->AC,nsp4,"['V407T']",missense
+EPI_ISL_410542,row,9802:9803,GC->TT,nsp4,"['A416A', 'L417L']",missense
+EPI_ISL_410542,row,9853:9857,TGTGC->AACTT,nsp4,"['D433E', 'V434T', 'L435L']",missense
+EPI_ISL_410542,row,10048:10049,TT->CC,nsp4,"['V498V', 'L499L']",missense
+EPI_ISL_410542,row,10189:10190,CT->AG,3C-likease,"['T45T', 'S46A']",missense
+EPI_ISL_410542,row,10252:10253,CT->TC,3C-likease,"['F66F', 'L67L']",missense
+EPI_ISL_410542,row,10276:10277,AC->TT,3C-likease,"['Q74H', 'L75F']",missense
+EPI_ISL_410542,row,10330:10331,TA->CG,3C-likease,"['D92D', 'T93A']",missense
+EPI_ISL_410542,row,10649:10651,ACT->GTC,3C-likease,"['T199V']",missense
+EPI_ISL_410542,row,10657:10658,AG->TA,3C-likease,"['T201T', 'V202I']",missense
+EPI_ISL_410542,row,10717:10718,TC->CA,3C-likease,"['N221N', 'R222R']",missense
+EPI_ISL_410542,row,10722:10723,TT->AC,3C-likease,"['F223Y']",missense
+EPI_ISL_410542,row,10909:10910,TT->CA,3C-likease,"['A285A', 'L286I']",missense
+EPI_ISL_410542,row,10978:10979,AG->TA,nsp6,"['A2A', 'V3M']",missense
+EPI_ISL_410542,row,10990:10991,AA->TG,nsp6,"['T6T', 'I7V']",missense
+EPI_ISL_410542,row,11017:11018,AC->GT,nsp6,"['L15L', 'L16F']",missense
+EPI_ISL_410542,row,11170:11171,TC->CT,nsp6,"['F66F', 'L67F']",missense
+EPI_ISL_410542,row,11182:11183,TT->CC,nsp6,"['F70F', 'L71L']",missense
+EPI_ISL_410542,row,11194:11195,TC->CT,nsp6,"['S74S', 'L75F']",missense
+EPI_ISL_410542,row,11332:11333,AG->TA,nsp6,"['V120V', 'V121M']",missense
+EPI_ISL_410542,row,11407:11408,CT->TC,nsp6,"['V145V', 'L146L']",missense
+EPI_ISL_410542,row,11590:11591,AC->CT,nsp6,"['T206T', 'L207F']",missense
+EPI_ISL_410542,row,11704:11705,CT->TC,nsp6,"['Y244Y', 'L245L']",missense
+EPI_ISL_410542,row,11749:11750,AC->TT,nsp6,"['L259L', 'L260F']",missense
+EPI_ISL_410542,row,11788:11789,CA->TG,nsp6,"['N272N', 'I273V']",missense
+EPI_ISL_410542,row,11794:11795,AT->GC,nsp6,"['K274K', 'L275L']",missense
+EPI_ISL_410542,row,11962:11963,CT->TC,nsp7,"['L40L', 'L41L']",missense
+EPI_ISL_410542,row,12115:12116,CC->TT,nsp8,"['S8S', 'L9F']",missense
+EPI_ISL_410542,row,12313:12314,TA->AC,nsp8,"['A74A', 'R75R']",missense
+EPI_ISL_410542,row,12382:12383,GT->AC,nsp8,"['K97K', 'L98L']",missense
+EPI_ISL_410542,row,12439:12440,CT->AC,nsp8,"['P116P', 'L117L']",missense
+EPI_ISL_410542,row,12484:12485,CA->TG,nsp8,"['V131V', 'I132V']",missense
+EPI_ISL_410542,row,12525:12526,CA->GT,nsp8,"['T145S']",missense
+EPI_ISL_410542,row,12808:12809,AC->TT,nsp9,"['V41V', 'L42F']",missense
+EPI_ISL_410542,row,12817:12818,GT->AC,nsp9,"['L44L', 'L45L']",missense
+EPI_ISL_410542,row,12859:12861,GAG->ATC,nsp9,"['K58K', 'S59S']",missense
+EPI_ISL_410542,row,12973:12974,CC->TT,nsp9,"['N96N', 'L97L']",missense
+EPI_ISL_410542,row,13063:13064,AT->TC,nsp10,"['V13V', 'L14L']",missense
+EPI_ISL_410542,row,13093:13094,TG->AT,nsp10,"['A23A', 'A24S']",missense
+EPI_ISL_410542,row,13246:13247,TC->CT,nsp10,"['C74C', 'L75L']",missense
+EPI_ISL_410542,row,13255:13256,CC->TA,nsp10,"['C77C', 'R78S']",missense
+EPI_ISL_410542,row,13290:13291,TT->AC,nsp10,"['F89Y']",missense
+EPI_ISL_410542,row,13297:13298,CT->GC,nsp10,"['D91E', 'L92L']",missense
+EPI_ISL_410542,row,13628:13629,AC->GT,RNA-dependent-polymerase,"['D54G']",missense
+EPI_ISL_410542,row,13632:13633,TT->CC,RNA-dependent-polymerase,"['N55N', 'L56L']",missense
+EPI_ISL_410542,row,13650:13651,TG->CA,RNA-dependent-polymerase,"['F61F', 'V62I']",missense
+EPI_ISL_410542,row,13732:13734,AAA->GTT,RNA-dependent-polymerase,"['K89V']",missense
+EPI_ISL_410542,row,13863:13864,AT->TC,RNA-dependent-polymerase,"['T132T', 'L133L']",missense
+EPI_ISL_410542,row,13897:13898,GA->AC,RNA-dependent-polymerase,"['D144T']",missense
+EPI_ISL_410542,row,14031:14032,AA->TG,RNA-dependent-polymerase,"['R188R', 'N189D']",missense
+EPI_ISL_410542,row,14058:14059,AT->TC,RNA-dependent-polymerase,"['T197T', 'L198L']",missense
+EPI_ISL_410542,row,14172:14173,AT->TC,RNA-dependent-polymerase,"['I235I', 'L236L']",missense
+EPI_ISL_410542,row,14178:14179,CT->AC,RNA-dependent-polymerase,"['T237T', 'L238L']",missense
+EPI_ISL_410542,row,14235:14236,CA->TG,RNA-dependent-polymerase,"['Y256Y', 'I257V']",missense
+EPI_ISL_410542,row,14931:14932,CC->TT,RNA-dependent-polymerase,"['N488N', 'L489L']",missense
+EPI_ISL_410542,row,15951:15952,CC->TT,RNA-dependent-polymerase,"['I828I', 'L829L']",missense
+EPI_ISL_410542,row,16122:16123,GT->AC,RNA-dependent-polymerase,"['E885E', 'L886L']",missense
+EPI_ISL_410542,row,16172:16173,AC->GT,RNA-dependent-polymerase,"['N902S']",missense
+EPI_ISL_410542,row,16392:16393,TC->CA,helicase,"['A52A', 'P53T']",missense
+EPI_ISL_410542,row,16482:16483,AT->TC,helicase,"['P82P', 'L83L']",missense
+EPI_ISL_410542,row,16767:16768,CC->TA,helicase,"['N177N', 'R178R']",missense
+EPI_ISL_410542,row,16791:16792,TC->CA,helicase,"['Y185Y', 'R186S']",missense
+EPI_ISL_410542,row,16813:16814,GT->AC,helicase,"['V193T']",missense
+EPI_ISL_410542,row,17073:17074,AC->TT,helicase,"['T279T', 'L280F']",missense
+EPI_ISL_410542,row,17118:17119,CC->AT,helicase,"['G294G', 'L295L']",missense
+EPI_ISL_410542,row,17124:17125,TC->AT,helicase,"['A296A', 'L297F']",missense
+EPI_ISL_410542,row,17331:17332,GA->AG,helicase,"['E365E', 'T366A']",missense
+EPI_ISL_410542,row,17547:17548,CC->TT,helicase,"['F437F', 'L438F']",missense
+EPI_ISL_410542,row,17562:17563,GC->AA,helicase,"['R442R', 'R443S']",missense
+EPI_ISL_410542,row,17641:17643,GCT->CAA,helicase,"['A469Q']",missense
+EPI_ISL_410542,row,17802:17803,CT->TG,helicase,"['A522A', 'S523A']",missense
+EPI_ISL_410542,row,17817:17818,AC->TT,helicase,"['G527G', 'L528L']",missense
+EPI_ISL_410542,row,18114:18115,AC->TT,3'-to-5'_exonuclease,"['T25T', 'H26Y']",missense
+EPI_ISL_410542,row,18427:18429,AAT->GCA,3'-to-5'_exonuclease,"['N130A']",missense
+EPI_ISL_410542,row,18519:18520,TG->CA,3'-to-5'_exonuclease,"['N160N', 'V161I']",missense
+EPI_ISL_410542,row,18663:18664,TC->CT,3'-to-5'_exonuclease,"['C208C', 'L209L']",missense
+EPI_ISL_410542,row,18729:18730,TA->AG,3'-to-5'_exonuclease,"['S230S', 'I231V']",missense
+EPI_ISL_410542,row,18815:18816,TG->AA,3'-to-5'_exonuclease,"['L259Q']",missense
+EPI_ISL_410542,row,18966:18967,TA->CC,3'-to-5'_exonuclease,"['C309C', 'R310R']",missense
+EPI_ISL_410542,row,19074:19076,TGT->CAC,3'-to-5'_exonuclease,"['D345D', 'V346T']",missense
+EPI_ISL_410542,row,19172:19173,CA->AG,3'-to-5'_exonuclease,"['T378K']",missense
+EPI_ISL_410542,row,19440:19441,AC->TT,3'-to-5'_exonuclease,"['P467P', 'L468L']",missense
+EPI_ISL_410542,row,19684:19685,GT->AC,endoRNAse,"['V22T']",missense
+EPI_ISL_410542,row,19962:19965,GATT->TGCA,endoRNAse,"['T114T', 'I115A']",missense
+EPI_ISL_410542,row,20406:20407,TT->AC,endoRNAse,"['P262P', 'F263L']",missense
+EPI_ISL_410542,row,20754:20757,TAGT->AGCA,2'-O-ribose_methyltransferase,"['D32E', 'S33A']",missense
+EPI_ISL_410542,row,20763:20764,AT->TC,2'-O-ribose_methyltransferase,"['T35T', 'L36L']",missense
+EPI_ISL_410542,row,21518:21519,GA->AG,2'-O-ribose_methyltransferase,"['R287K']",missense
+EPI_ISL_410542,row,21589:21590,AC->TT,spike_surface_glycoprotein,"['P9P', 'L10L']",missense
+EPI_ISL_410542,row,21629:21630,CA->GG,spike_surface_glycoprotein,"['Q23G']",missense
+EPI_ISL_410542,row,21642:21643,CA->GT,spike_surface_glycoprotein,"['A27G']",missense
+EPI_ISL_410542,row,21657:21658,TC->CT,spike_surface_glycoprotein,"['F32S']",missense
+EPI_ISL_410542,row,21661:21662,AC->TA,spike_surface_glycoprotein,"['T33T', 'R34S']",missense
+EPI_ISL_410542,row,21710:21712,TCA->CTT,spike_surface_glycoprotein,"['S50L']",missense
+EPI_ISL_410542,row,21757:21758,CC->TA,spike_surface_glycoprotein,"['F65F', 'H66N']",missense
+EPI_ISL_410542,row,21760:21761,TG->CA,spike_surface_glycoprotein,"['H66H', 'A67T']",missense
+EPI_ISL_410542,row,21772:21774,CTC->AAA,spike_surface_glycoprotein,"['V70V', 'S71N']",missense
+EPI_ISL_410542,row,21776:21784,GGGACCAAT->TATCAAGGA,spike_surface_glycoprotein,"['G72Y', 'T73Q', 'N74G']",missense
+EPI_ISL_410542,row,21787:21789,TAC->CTT,spike_surface_glycoprotein,"['G75G', 'T76F']",missense
+EPI_ISL_410542,row,21811:21812,CC->TT,spike_surface_glycoprotein,"['V83V', 'L84L']",missense
+EPI_ISL_410542,row,21889:21890,TT->AC,spike_surface_glycoprotein,"['T109T', 'L110L']",missense
+EPI_ISL_410542,row,21900:21901,AG->GA,spike_surface_glycoprotein,"['K113R']",missense
+EPI_ISL_410542,row,22014:22015,GT->CA,spike_surface_glycoprotein,"['S151T']",missense
+EPI_ISL_410542,row,22072:22073,TG->CA,spike_surface_glycoprotein,"['Y170Y', 'V171I']",missense
+EPI_ISL_410542,row,22213:22216,TCAG->CAGA,spike_surface_glycoprotein,"['P217P', 'Q218R']",missense
+EPI_ISL_410542,row,22246:22247,TT->CC,spike_surface_glycoprotein,"['D228D', 'L229L']",missense
+EPI_ISL_410542,row,22321:22330,TTCTTCTTCA->GCTAGAAAGT,spike_surface_glycoprotein,"['D253E', 'S254L', 'S255E', 'S256S']",missense
+EPI_ISL_410542,row,22377:22378,CT->AG,spike_surface_glycoprotein,"['P272Q']",missense
+EPI_ISL_410542,row,22395:22396,AA->GT,spike_surface_glycoprotein,"['K278S']",missense
+EPI_ISL_410542,row,22532:22536,GAATC->ATCAG,spike_surface_glycoprotein,"['E324I', 'S325S']",missense
+EPI_ISL_410542,row,22594:22595,CA->AT,spike_surface_glycoprotein,"['A344A', 'T345S']",missense
+EPI_ISL_410542,row,22675:22676,CG->TA,spike_surface_glycoprotein,"['S371S', 'A372T']",missense
+EPI_ISL_410542,row,22765:22766,AA->TG,spike_surface_glycoprotein,"['V401V', 'I402V']",missense
+EPI_ISL_410542,row,22810:22813,AAAG->TGTT,spike_surface_glycoprotein,"['G416G', 'K417V']",missense
+EPI_ISL_410542,row,22834:22835,AT->GC,spike_surface_glycoprotein,"['K424K', 'L425L']",missense
+EPI_ISL_410542,row,22876:22879,TAAC->AGTT,spike_surface_glycoprotein,"['S438S', 'N439V']",missense
+EPI_ISL_410542,row,22884:22885,TT->AA,spike_surface_glycoprotein,"['L441Q']",missense
+EPI_ISL_410542,row,22892:22893,AA->TT,spike_surface_glycoprotein,"['K444L']",missense
+EPI_ISL_410542,row,22895:22896,GT->AC,spike_surface_glycoprotein,"['V445T']",missense
+EPI_ISL_410542,row,22910:22911,AA->GG,spike_surface_glycoprotein,"['N450G']",missense
+EPI_ISL_410542,row,22915:22916,CC->TT,spike_surface_glycoprotein,"['Y451Y', 'L452L']",missense
+EPI_ISL_410542,row,23009:23011,GTT->CAA,spike_surface_glycoprotein,"['V483Q']",missense
+EPI_ISL_410542,row,23013:23014,AA->TT,spike_surface_glycoprotein,"['E484V']",missense
+EPI_ISL_410542,row,23038:23039,AC->TG,spike_surface_glycoprotein,"['L492F', 'Q493E']",missense
+EPI_ISL_410542,row,23042:23044,TCA->AGG,spike_surface_glycoprotein,"['S494R']",missense
+EPI_ISL_410542,row,23064:23065,AT->CA,spike_surface_glycoprotein,"['N501T']",missense
+EPI_ISL_410542,row,23072:23074,GGT->AAC,spike_surface_glycoprotein,"['G504N']",missense
+EPI_ISL_410542,row,23085:23086,AC->TT,spike_surface_glycoprotein,"['Y508F']",missense
+EPI_ISL_410542,row,23098:23099,AC->TT,spike_surface_glycoprotein,"['V512V', 'L513F']",missense
+EPI_ISL_410542,row,23110:23111,AC->GT,spike_surface_glycoprotein,"['E516E', 'L517F']",missense
+EPI_ISL_410542,row,23116:23117,AC->TA,spike_surface_glycoprotein,"['L518L', 'H519N']",missense
+EPI_ISL_410542,row,23147:23148,AA->TT,spike_surface_glycoprotein,"['K529L']",missense
+EPI_ISL_410542,row,23157:23159,ATT->CAC,spike_surface_glycoprotein,"['N532T', 'L533L']",missense
+EPI_ISL_410542,row,23221:23224,TGAG->AACA,spike_surface_glycoprotein,"['T553T', 'E554T']",missense
+EPI_ISL_410542,row,23269:23270,TG->CT,spike_surface_glycoprotein,"['I569I', 'A570S']",missense
+EPI_ISL_410542,row,23479:23480,TT->AG,spike_surface_glycoprotein,"['G639G', 'S640A']",missense
+EPI_ISL_410542,row,23557:23558,CA->AG,spike_surface_glycoprotein,"['P665P', 'I666V']",missense
+EPI_ISL_410542,row,23587:23588,GA->TT,spike_surface_glycoprotein,"['Q675H', 'T676S']",missense
+EPI_ISL_410542,row,23590:23592,TCA->CAT,spike_surface_glycoprotein,"['T676T', 'Q677M']",missense
+EPI_ISL_410542,row,23596:23599,TAAT->ATCA,spike_surface_glycoprotein,"['T678T', 'N679S']",missense
+EPI_ISL_410542,row,23623:23629,AGCTAGT->CAACCAG,spike_surface_glycoprotein,"['V687V', 'A688N', 'S689Q']",missense
+EPI_ISL_410542,row,23631:23632,AA->GT,spike_surface_glycoprotein,"['Q690R']",missense
+EPI_ISL_410542,row,23656:23657,AC->TT,spike_surface_glycoprotein,"['S698S', 'L699F']",missense
+EPI_ISL_410542,row,24193:24194,GT->AC,spike_surface_glycoprotein,"['L877L', 'L878L']",missense
+EPI_ISL_410542,row,24490:24491,TT->GC,spike_surface_glycoprotein,"['V976V', 'L977L']",missense
+EPI_ISL_410542,row,24994:24995,AT->GC,spike_surface_glycoprotein,"['E1144E', 'L1145L']",missense
+EPI_ISL_410542,row,25231:25232,CT->GC,spike_surface_glycoprotein,"['G1223G', 'L1224L']",missense
+EPI_ISL_410542,row,25243:25244,AG->CA,spike_surface_glycoprotein,"['I1227I', 'V1228I']",missense
+EPI_ISL_410542,row,25418:25420,CAA->ATC,ORF3a,"['T9N', 'I10L']",missense
+EPI_ISL_410542,row,25446:25447,TG->AA,ORF3a,"['G18G', 'E19K']",missense
+EPI_ISL_410542,row,25452:25453,CA->TG,ORF3a,"['I20I', 'K21E']",missense
+EPI_ISL_410542,row,25644:25645,GT->TC,ORF3a,"['L84L', 'L85L']",missense
+EPI_ISL_410542,row,25644:25645,GT->TC,ORF3d,"['V41S']",missense
+EPI_ISL_410542,row,25647:25648,GT->AC,ORF3a,"['L85L', 'L86L']",missense
+EPI_ISL_410542,row,25647:25648,GT->AC,ORF3d,"['V42T']",missense
+EPI_ISL_410542,row,25703:25704,CT->AA,ORF3a,"['P104Q']",missense
+EPI_ISL_410542,row,25734:25735,CT->TC,ORF3a,"['F114F', 'L115L']",missense
+EPI_ISL_410542,row,25749:25751,CTT->TGC,ORF3a,"['N119N', 'F120A']",missense
+EPI_ISL_410542,row,25753:25755,GTA->TGC,ORF3a,"['V121C']",missense
+EPI_ISL_410542,row,25878:25879,TG->CA,ORF3a,"['S162S', 'V163I']",missense
+EPI_ISL_410542,row,25878:25879,TG->CA,ORF3b,"['V22A']",missense
+EPI_ISL_410542,row,25917:25918,AA->TC,ORF3a,"['T175T', 'T176P']",missense
+EPI_ISL_410542,row,25996:25997,GT->AC,ORF3a,"['V202T']",missense
+EPI_ISL_410542,row,26004:26005,CA->TG,ORF3a,"['H204H', 'S205G']",missense
+EPI_ISL_410542,row,26024:26025,AT->GC,ORF3a,"['Y211C']",missense
+EPI_ISL_410542,row,26074:26075,GT->AC,ORF3a,"['V228T']",missense
+EPI_ISL_410542,row,26532:26533,TC->AA,membrane_glycoprotein,"['S4N']",missense
+EPI_ISL_410542,row,26690:26691,GT->AC,membrane_glycoprotein,"['L56L', 'L57L']",missense
+EPI_ISL_410542,row,26957:26958,TC->CA,membrane_glycoprotein,"['L145L', 'R146S']",missense
+EPI_ISL_410542,row,27119:27120,CA->TC,membrane_glycoprotein,"['Y199Y', 'R200R']",missense
+EPI_ISL_410542,row,27246:27247,AC->TA,ORF6,"['L15F', 'L16I']",missense
+EPI_ISL_410542,row,27270:27271,AG->GA,ORF6,"['K23K', 'V24I']",missense
+EPI_ISL_410542,row,27330:27331,AC->TT,ORF6,"['S43S', 'L44L']",missense
+EPI_ISL_410542,row,27420:27421,GA->AG,ORF7a,"['L9L', 'I10V']",missense
+EPI_ISL_410542,row,27426:27427,AC->TT,ORF7a,"['T11T', 'L12F']",missense
+EPI_ISL_410542,row,27483:27484,TT->AA,ORF7a,"['L30L', 'L31I']",missense
+EPI_ISL_410542,row,27561:27562,GA->TG,ORF7a,"['L56L', 'T57A']",missense
+EPI_ISL_410542,row,27568:27570,TTT->ACA,ORF7a,"['F59T']",missense
+EPI_ISL_410542,row,27574:27576,ACT->CAA,ORF7a,"['T61Q']",missense
+EPI_ISL_410542,row,27603:27606,CGTA->TACT,ORF7a,"['G70G', 'V71T']",missense
+EPI_ISL_410542,row,27612:27614,CGT->TAC,ORF7a,"['H73H', 'V74T']",missense
+EPI_ISL_410542,row,27702:27703,TG->AA,ORF7a,"['I103I', 'V104I']",missense
+EPI_ISL_410542,row,27845:27846,CT->TG,ORF7b,"['F30F', 'S31A']",missense
+EPI_ISL_410542,row,27848:27849,AC->TT,ORF7b,"['S31S', 'L32F']",missense
+EPI_ISL_410542,row,27851:27853,TGA->GAC,ORF7b,"['L32L', 'E33T']",missense
+EPI_ISL_410542,row,27872:27874,AAC->GTG,ORF7b,"['E39E', 'T40C']",missense
+EPI_ISL_410542,row,27911:27912,CT->AC,ORF8,"['F6L', 'L7L']",missense
+EPI_ISL_410542,row,27920:27921,CA->AC,ORF8,"['I9I', 'I10L']",missense
+EPI_ISL_410542,row,27933:27936,GCTG->CACA,ORF8,"['A14H', 'A15T']",missense
+EPI_ISL_410542,row,27969:27975,ACTCAAC->CAATTCA,ORF8,"['T26Q', 'Q27F', 'H28N']",missense
+EPI_ISL_410542,row,27978:27979,CA->TC,ORF8,"['Q29S']",missense
+EPI_ISL_410542,row,28087:28088,CT->TA,ORF8,"['A65V']",missense
+EPI_ISL_410542,row,28378:28379,GC->AA,nucleocapsid_phosphoprotein,"['A35A', 'R36R']",missense
+EPI_ISL_410542,row,28378:28379,GC->AA,ORF9b,"['R32Q']",missense
+EPI_ISL_410542,row,28381:28382,AT->GC,nucleocapsid_phosphoprotein,"['R36R', 'S37P']",missense
+EPI_ISL_410542,row,28381:28382,AT->GC,ORF9b,"['D33G']",missense
+EPI_ISL_410542,row,28393:28394,TC->AA,nucleocapsid_phosphoprotein,"['R40R', 'R41R']",missense
+EPI_ISL_410542,row,28393:28394,TC->AA,ORF9b,"['V37E']",missense
+EPI_ISL_410542,row,28509:28512,GTCC->CCAA,nucleocapsid_phosphoprotein,"['S79T', 'P80K']",missense
+EPI_ISL_410542,row,28509:28512,GTCC->CCAA,ORF9b,"['V76P', 'Q77K']",missense
+EPI_ISL_410542,row,28726:28729,TGCT->AAAC,nucleocapsid_phosphoprotein,"['P151P', 'A152N']",missense
+EPI_ISL_410542,row,28948:28949,CA->TC,nucleocapsid_phosphoprotein,"['D225D', 'R226R']",missense
+EPI_ISL_410542,row,28948:28949,CA->TC,ORF9c,"['T72I']",missense
+EPI_ISL_410542,row,28957:28960,CCAG->TGCA,nucleocapsid_phosphoprotein,"['N228N', 'Q229A']",missense
+EPI_ISL_410542,row,28988:28989,CA->TC,nucleocapsid_phosphoprotein,"['Q239S']",missense
+EPI_ISL_410542,row,28999:29000,AG->GA,nucleocapsid_phosphoprotein,"['Q242Q', 'G243S']",missense
+EPI_ISL_410542,row,29072:29073,GC->CA,nucleocapsid_phosphoprotein,"['A267Q']",missense
+EPI_ISL_410542,row,29287:29288,AT->GC,nucleocapsid_phosphoprotein,"['K338K', 'L339L']",missense
+EPI_ISL_410542,row,29307:29308,AT->GC,nucleocapsid_phosphoprotein,"['N345S']",missense
+EPI_ISL_410542,row,29317:29318,TC->CA,nucleocapsid_phosphoprotein,"['D348D', 'Q349K']",missense
+EPI_ISL_410542,row,29326:29327,TT->AC,nucleocapsid_phosphoprotein,"['I351I', 'L352L']",missense
+EPI_ISL_410542,row,29409:29410,CT->GC,nucleocapsid_phosphoprotein,"['T379S']",missense
+EPI_ISL_410542,row,29413:29414,AG->GC,nucleocapsid_phosphoprotein,"['Q380Q', 'A381P']",missense
+EPI_ISL_410542,hot,230:232,CT->TC,None-CDS,"['NA']",missense
+EPI_ISL_410542,hot,326:328,TA->CT,leader_nsp1,"['L21L']",silent
+EPI_ISL_410542,hot,425:427,GA->AC,leader_nsp1,"['V54I']",missense
+EPI_ISL_410542,hot,691:693,AT->TA,leader_nsp1,"['S142S', 'F143Y']",missense
+EPI_ISL_410542,hot,1102:1104,CT->TC,nsp2,"['S99S', 'I100T']",missense
+EPI_ISL_410542,hot,1124:1126,AG->CT,nsp2,"['R107R']",silent
+EPI_ISL_410542,hot,1343:1345,TA->CT,nsp2,"['L180L']",silent
+EPI_ISL_410542,hot,1397:1399,GA->AG,nsp2,"['V198M']",missense
+EPI_ISL_410542,hot,1672:1674,TA->GC,nsp2,"['L289L', 'N290T']",missense
+EPI_ISL_410542,hot,1874:1876,GA->CC,nsp2,"['A357P']",missense
+EPI_ISL_410542,hot,1934:1936,AT->CC,nsp2,"['N377H']",missense
+EPI_ISL_410542,hot,2003:2005,CC->TG,nsp2,"['L400L']",silent
+EPI_ISL_410542,hot,2046:2048,AC->GA,nsp2,"['N414S', 'L415I']",missense
+EPI_ISL_410542,hot,2048:2050,CA->AC,nsp2,"['L415I']",missense
+EPI_ISL_410542,hot,2066:2068,AT->GC,nsp2,"['I421V']",missense
+EPI_ISL_410542,hot,2093:2095,TG->AA,nsp2,"['S430T']",missense
+EPI_ISL_410542,hot,2135:2137,CC->TG,nsp2,"['L444L']",silent
+EPI_ISL_410542,hot,2321:2323,TG->CT,nsp2,"['L506L']",silent
+EPI_ISL_410542,hot,2327:2329,TG->CT,nsp2,"['L508L']",silent
+EPI_ISL_410542,hot,2345:2347,AT->GC,nsp2,"['I514V']",missense
+EPI_ISL_410542,hot,2396:2398,AG->GA,nsp2,"['T531A']",missense
+EPI_ISL_410542,hot,2411:2413,TG->CC,nsp2,"['L536L']",silent
+EPI_ISL_410542,hot,2489:2491,TA->CT,nsp2,"['L562L']",silent
+EPI_ISL_410542,hot,2561:2563,TA->CT,nsp2,"['L586L']",silent
+EPI_ISL_410542,hot,2597:2599,TG->CC,nsp2,"['L598L']",silent
+EPI_ISL_410542,hot,2798:2800,CT->TG,nsp3,"['L27L']",silent
+EPI_ISL_410542,hot,2969:2971,AG->GT,nsp3,"['M84V']",missense
+EPI_ISL_410542,hot,3056:3058,GA->TT,nsp3,"['E113Y']",missense
+EPI_ISL_410542,hot,3091:3093,GC->AA,nsp3,"['E124E', 'P125Q']",missense
+EPI_ISL_410542,hot,3093:3095,CT->AC,nsp3,"['P125Q', 'S126P']",missense
+EPI_ISL_410542,hot,3170:3172,CT->GA,nsp3,"['L151V']",missense
+EPI_ISL_410542,hot,3255:3257,AC->CG,nsp3,"['N179T', 'Q180E']",missense
+EPI_ISL_410542,hot,3273:3275,AA->TC,nsp3,"['Q185L', 'T186P']",missense
+EPI_ISL_410542,hot,3349:3351,TG->CC,nsp3,"['F210F', 'S211T']",missense
+EPI_ISL_410542,hot,3379:3381,AA->TC,nsp3,"['V220V', 'Y221S']",missense
+EPI_ISL_410542,hot,3431:3433,GG->AA,nsp3,"['V238I']",missense
+EPI_ISL_410542,hot,3593:3595,CT->TG,nsp3,"['L292L']",silent
+EPI_ISL_410542,hot,3629:3631,GT->CC,nsp3,"['V304L']",missense
+EPI_ISL_410542,hot,3653:3655,CT->TA,nsp3,"['L312L']",silent
+EPI_ISL_410542,hot,3761:3763,GA->AT,nsp3,"['V348I']",missense
+EPI_ISL_410542,hot,3779:3781,AT->CA,nsp3,"['N354Q']",missense
+EPI_ISL_410542,hot,3909:3911,TA->CC,nsp3,"['I397T', 'T398P']",missense
+EPI_ISL_410542,hot,4100:4102,TA->CT,nsp3,"['L461L']",silent
+EPI_ISL_410542,hot,4217:4219,AA->CT,nsp3,"['R500R']",silent
+EPI_ISL_410542,hot,4321:4323,CT->TA,nsp3,"['A534A', 'F535Y']",missense
+EPI_ISL_410542,hot,4403:4405,GA->AG,nsp3,"['A562T']",missense
+EPI_ISL_410542,hot,4436:4438,GC->AT,nsp3,"['V573I']",missense
+EPI_ISL_410542,hot,4460:4462,GT->AG,nsp3,"['V581M']",missense
+EPI_ISL_410542,hot,4469:4471,AA->GG,nsp3,"['I584V']",missense
+EPI_ISL_410542,hot,4888:4890,TC->AT,nsp3,"['P723P', 'T724I']",missense
+EPI_ISL_410542,hot,4901:4903,CA->AG,nsp3,"['L728M']",missense
+EPI_ISL_410542,hot,4920:4922,CT->AA,nsp3,"['T734N', 'F735I']",missense
+EPI_ISL_410542,hot,4949:4951,TG->CT,nsp3,"['L744L']",silent
+EPI_ISL_410542,hot,4960:4962,GG->TA,nsp3,"['V747V', 'R748K']",missense
+EPI_ISL_410542,hot,5465:5467,TC->CT,nsp3,"['Y916H']",missense
+EPI_ISL_410542,hot,5507:5509,TG->CA,nsp3,"['L930L']",silent
+EPI_ISL_410542,hot,5549:5551,CT->TA,nsp3,"['L944L']",silent
+EPI_ISL_410542,hot,5635:5637,TA->AG,nsp3,"['G972G', 'K973R']",missense
+EPI_ISL_410542,hot,5648:5650,AA->CG,nsp3,"['K977Q']",missense
+EPI_ISL_410542,hot,5702:5704,CG->GA,nsp3,"['Q995E']",missense
+EPI_ISL_410542,hot,5915:5917,TG->CA,nsp3,"['L1066L']",silent
+EPI_ISL_410542,hot,5978:5980,TT->GC,nsp3,"['S1087A']",missense
+EPI_ISL_410542,hot,6005:6007,CT->TA,nsp3,"['L1096L']",silent
+EPI_ISL_410542,hot,6067:6069,TT->CC,nsp3,"['N1116N', 'I1117T']",missense
+EPI_ISL_410542,hot,6350:6352,AG->CA,nsp3,"['K1211Q']",missense
+EPI_ISL_410542,hot,6362:6364,GG->AA,nsp3,"['A1215T']",missense
+EPI_ISL_410542,hot,6376:6378,TA->AC,nsp3,"['D1219E', 'N1220T']",missense
+EPI_ISL_410542,hot,6488:6490,AT->GC,nsp3,"['I1257V']",missense
+EPI_ISL_410542,hot,6504:6506,CA->TC,nsp3,"['A1262V', 'N1263H']",missense
+EPI_ISL_410542,hot,6611:6613,GA->AG,nsp3,"['V1298M']",missense
+EPI_ISL_410542,hot,6620:6622,TG->CA,nsp3,"['L1301L']",silent
+EPI_ISL_410542,hot,6679:6681,AC->TT,nsp3,"['I1320I', 'A1321V']",missense
+EPI_ISL_410542,hot,6725:6727,AT->GA,nsp3,"['T1336A']",missense
+EPI_ISL_410542,hot,6737:6739,AA->GG,nsp3,"['T1340A']",missense
+EPI_ISL_410542,hot,6779:6781,TC->GT,nsp3,"['F1354V']",missense
+EPI_ISL_410542,hot,6956:6958,AT->GA,nsp3,"['I1413V']",missense
+EPI_ISL_410542,hot,7076:7078,TG->CA,nsp3,"['L1453L']",silent
+EPI_ISL_410542,hot,7103:7105,AC->GT,nsp3,"['T1462A']",missense
+EPI_ISL_410542,hot,7148:7150,TA->AG,nsp3,"['L1477M']",missense
+EPI_ISL_410542,hot,7364:7366,TA->CC,nsp3,"['L1549L']",silent
+EPI_ISL_410542,hot,7457:7459,GG->AA,nsp3,"['V1580I']",missense
+EPI_ISL_410542,hot,7871:7873,TG->AA,nsp3,"['L1718I']",missense
+EPI_ISL_410542,hot,7927:7929,AA->TG,nsp3,"['A1736A', 'K1737R']",missense
+EPI_ISL_410542,hot,7929:7931,AT->GG,nsp3,"['K1737R', 'S1738A']",missense
+EPI_ISL_410542,hot,8153:8155,TA->CT,nsp3,"['L1812L']",silent
+EPI_ISL_410542,hot,8234:8236,TG->AT,nsp3,"['L1839I']",missense
+EPI_ISL_410542,hot,8579:8581,CG->TC,nsp4,"['Q9Y']",missense
+EPI_ISL_410542,hot,8597:8599,CT->TA,nsp4,"['L15L']",silent
+EPI_ISL_410542,hot,8612:8614,GT->AA,nsp4,"['V20I']",missense
+EPI_ISL_410542,hot,8621:8623,AT->GC,nsp4,"['I23V']",missense
+EPI_ISL_410542,hot,8704:8706,TG->AA,nsp4,"['D50E', 'G51D']",missense
+EPI_ISL_410542,hot,8737:8739,TC->CA,nsp4,"['D61D', 'T62N']",missense
+EPI_ISL_410542,hot,8758:8760,TC->CT,nsp4,"['H68H', 'A69V']",missense
+EPI_ISL_410542,hot,9419:9421,AT->TA,nsp4,"['I289L']",missense
+EPI_ISL_410542,hot,9545:9547,TA->CT,nsp4,"['L331L']",silent
+EPI_ISL_410542,hot,9818:9820,TA->CT,nsp4,"['L422L']",silent
+EPI_ISL_410542,hot,9860:9862,TA->CT,nsp4,"['L436L']",silent
+EPI_ISL_410542,hot,10553:10555,TA->CT,3C-likease,"['L167L']",silent
+EPI_ISL_410542,hot,10748:10750,CT->TA,3C-likease,"['L232L']",silent
+EPI_ISL_410542,hot,11039:11041,TA->CT,nsp6,"['L23L']",silent
+EPI_ISL_410542,hot,11081:11083,TG->GT,nsp6,"['L37V']",missense
+EPI_ISL_410542,hot,11111:11113,AG->TA,nsp6,"['M47L']",missense
+EPI_ISL_410542,hot,11177:11179,TG->CA,nsp6,"['L69L']",silent
+EPI_ISL_410542,hot,11312:11314,GT->AC,nsp6,"['V114I']",missense
+EPI_ISL_410542,hot,11384:11386,AA->CT,nsp6,"['R138R']",silent
+EPI_ISL_410542,hot,11606:11608,CA->TG,nsp6,"['L212L']",silent
+EPI_ISL_410542,hot,11879:11881,TA->CT,nsp7,"['L13L']",silent
+EPI_ISL_410542,hot,12266:12268,TG->CA,nsp8,"['L59L']",silent
+EPI_ISL_410542,hot,12548:12550,TG->CT,nsp8,"['L153L']",silent
+EPI_ISL_410542,hot,12629:12631,TA->AT,nsp8,"['L180I']",missense
+EPI_ISL_410542,hot,12680:12682,TA->CT,nsp8,"['L197L']",silent
+EPI_ISL_410542,hot,12754:12756,CC->TA,nsp9,"['C23C', 'T24N']",missense
+EPI_ISL_410542,hot,12827:12829,TA->CT,nsp9,"['L48L']",silent
+EPI_ISL_410542,hot,12836:12838,TG->CC,nsp9,"['L51L']",silent
+EPI_ISL_410542,hot,13693:13695,AA->GT,RNA-dependent-polymerase,"['T76A']",missense
+EPI_ISL_410542,hot,13819:13821,CC->TA,RNA-dependent-polymerase,"['L118L']",silent
+EPI_ISL_410542,hot,13834:13836,AG->CT,RNA-dependent-polymerase,"['R123R']",silent
+EPI_ISL_410542,hot,14209:14211,GT->CA,RNA-dependent-polymerase,"['V248L']",missense
+EPI_ISL_410542,hot,14554:14556,CT->TA,RNA-dependent-polymerase,"['L363L']",silent
+EPI_ISL_410542,hot,14749:14751,TA->CC,RNA-dependent-polymerase,"['L428L']",silent
+EPI_ISL_410542,hot,15163:15165,TA->CT,RNA-dependent-polymerase,"['L566L']",silent
+EPI_ISL_410542,hot,15598:15600,GC->AT,RNA-dependent-polymerase,"['V711I']",missense
+EPI_ISL_410542,hot,15607:15609,TA->CT,RNA-dependent-polymerase,"['L714L']",silent
+EPI_ISL_410542,hot,15925:15927,CT->TG,RNA-dependent-polymerase,"['L820L']",silent
+EPI_ISL_410542,hot,15946:15948,AA->CC,RNA-dependent-polymerase,"['R827R']",silent
+EPI_ISL_410542,hot,16012:16014,CG->AA,RNA-dependent-polymerase,"['R849R']",silent
+EPI_ISL_410542,hot,16600:16602,TA->CT,helicase,"['L122L']",silent
+EPI_ISL_410542,hot,16915:16917,CG->TA,helicase,"['L227L']",silent
+EPI_ISL_410542,hot,16939:16941,TA->CG,helicase,"['L235L']",silent
+EPI_ISL_410542,hot,17323:17325,TG->CA,helicase,"['L363L']",silent
+EPI_ISL_410542,hot,17410:17412,CT->AG,helicase,"['R392R']",silent
+EPI_ISL_410542,hot,17518:17520,CT->TA,helicase,"['L428L']",silent
+EPI_ISL_410542,hot,17599:17601,TG->CA,helicase,"['L455L']",silent
+EPI_ISL_410542,hot,17914:17916,AA->CC,helicase,"['R560R']",silent
+EPI_ISL_410542,hot,17944:17946,GA->AT,helicase,"['V570I']",missense
+EPI_ISL_410542,hot,18019:18021,AG->CA,helicase,"['R595R']",silent
+EPI_ISL_410542,hot,18279:18281,AG->TA,3'-to-5'_exonuclease,"['I80I', 'R81K']",missense
+EPI_ISL_410542,hot,18508:18510,CT->TA,3'-to-5'_exonuclease,"['L157L']",silent
+EPI_ISL_410542,hot,18592:18594,TA->CT,3'-to-5'_exonuclease,"['L185L']",silent
+EPI_ISL_410542,hot,18672:18674,TG->CA,3'-to-5'_exonuclease,"['D211D', 'R212K']",missense
+EPI_ISL_410542,hot,19003:19005,TA->CT,3'-to-5'_exonuclease,"['L322L']",silent
+EPI_ISL_410542,hot,19225:19227,TC->GA,3'-to-5'_exonuclease,"['S396A']",missense
+EPI_ISL_410542,hot,19354:19356,TA->CT,3'-to-5'_exonuclease,"['L439L']",silent
+EPI_ISL_410542,hot,19522:19524,CC->TA,3'-to-5'_exonuclease,"['L495L']",silent
+EPI_ISL_410542,hot,19561:19563,TG->CT,3'-to-5'_exonuclease,"['L508L']",silent
+EPI_ISL_410542,hot,19648:19650,GA->AT,endoRNAse,"['V10I']",missense
+EPI_ISL_410542,hot,19763:19765,CT->TC,endoRNAse,"['T48I', 'L49L']",missense
+EPI_ISL_410542,hot,19906:19908,AA->GT,endoRNAse,"['I96V']",missense
+EPI_ISL_410542,hot,19951:19953,CA->TT,endoRNAse,"['P111S']",missense
+EPI_ISL_410542,hot,20044:20046,CT->TA,endoRNAse,"['L142L']",silent
+EPI_ISL_410542,hot,20602:20604,TA->GT,endoRNAse,"['S328A']",missense
+EPI_ISL_410542,hot,20722:20724,TA->CT,2'-O-ribose_methyltransferase,"['L22L']",silent
+EPI_ISL_410542,hot,20911:20913,TA->CT,2'-O-ribose_methyltransferase,"['L85L']",silent
+EPI_ISL_410542,hot,21478:21480,CT->TA,2'-O-ribose_methyltransferase,"['L274L']",silent
+EPI_ISL_410542,hot,21541:21543,CT->TA,2'-O-ribose_methyltransferase,"['L295L']",silent
+EPI_ISL_410542,hot,21581:21583,TA->GC,spike_surface_glycoprotein,"['L7V']",missense
+EPI_ISL_410542,hot,21614:21616,CT->TG,spike_surface_glycoprotein,"['L18L']",silent
+EPI_ISL_410542,hot,21722:21724,TG->CT,spike_surface_glycoprotein,"['L54L']",silent
+EPI_ISL_410542,hot,21866:21868,AA->CC,spike_surface_glycoprotein,"['R102R']",silent
+EPI_ISL_410542,hot,21896:21898,TG->GC,spike_surface_glycoprotein,"['S112A']",missense
+EPI_ISL_410542,hot,21970:21972,TA->CC,spike_surface_glycoprotein,"['C136C', 'N137T']",missense
+EPI_ISL_410542,hot,22019:22021,AG->GT,spike_surface_glycoprotein,"['M153V']",missense
+EPI_ISL_410542,hot,22223:22225,TG->GT,spike_surface_glycoprotein,"['S221A']",missense
+EPI_ISL_410542,hot,22307:22309,TG->CT,spike_surface_glycoprotein,"['L249L']",silent
+EPI_ISL_410542,hot,22478:22480,TC->CA,spike_surface_glycoprotein,"['F306L']",missense
+EPI_ISL_410542,hot,22721:22723,TA->CC,spike_surface_glycoprotein,"['L387L']",silent
+EPI_ISL_410542,hot,23018:23020,TT->CA,spike_surface_glycoprotein,"['F486L']",missense
+EPI_ISL_410542,hot,23029:23031,CT->TA,spike_surface_glycoprotein,"['Y489Y', 'F490Y']",missense
+EPI_ISL_410542,hot,23426:23428,GT->AG,spike_surface_glycoprotein,"['V622M']",missense
+EPI_ISL_410542,hot,23456:23458,AT->GC,spike_surface_glycoprotein,"['T632A']",missense
+EPI_ISL_410542,hot,23498:23500,CT->AA,spike_surface_glycoprotein,"['R646R']",silent
+EPI_ISL_410542,hot,23816:23818,CT->TA,spike_surface_glycoprotein,"['L752L']",silent
+EPI_ISL_410542,hot,23822:23824,TG->CA,spike_surface_glycoprotein,"['L754L']",silent
+EPI_ISL_410542,hot,24143:24145,TG->CA,spike_surface_glycoprotein,"['L861L']",silent
+EPI_ISL_410542,hot,24572:24574,TG->CT,spike_surface_glycoprotein,"['L1004L']",silent
+EPI_ISL_410542,hot,24707:24709,CT->TA,spike_surface_glycoprotein,"['L1049L']",silent
+EPI_ISL_410542,hot,24872:24874,GA->AT,spike_surface_glycoprotein,"['V1104I']",missense
+EPI_ISL_410542,hot,25058:25060,TA->CT,spike_surface_glycoprotein,"['L1166L']",silent
+EPI_ISL_410542,hot,25440:25442,GA->AC,ORF3a,"['K16K', 'Q17P']",missense
+EPI_ISL_410542,hot,25475:25477,TG->CA,ORF3a,"['F28S', 'V29I']",missense
+EPI_ISL_410542,hot,25475:25477,TG->CA,ORF3c,"['L7L']",silent
+EPI_ISL_410542,hot,25603:25605,CA->TT,ORF3a,"['L71F']",missense
+EPI_ISL_410542,hot,25603:25605,CA->TT,ORF3d,"['T27I', 'S28C']",missense
+EPI_ISL_410542,hot,25744:25746,AA->GT,ORF3a,"['I118V']",missense
+EPI_ISL_410542,hot,25792:25794,CT->AA,ORF3a,"['R134R']",silent
+EPI_ISL_410542,hot,25930:25932,TT->AA,ORF3a,"['S180T']",missense
+EPI_ISL_410542,hot,26047:26049,TG->CT,ORF3a,"['L219L']",silent
+EPI_ISL_410542,hot,26395:26397,CT->TA,envelope,"['L51L']",silent
+EPI_ISL_410542,hot,26571:26573,CT->TA,membrane_glycoprotein,"['L17L']",silent
+EPI_ISL_410542,hot,26892:26894,CC->TG,membrane_glycoprotein,"['L124L']",silent
+EPI_ISL_410542,hot,27441:27443,GT->AG,ORF7a,"['E16E', 'L17R']",missense
+EPI_ISL_410542,hot,27691:27693,AT->CC,ORF7a,"['I100L']",missense
+EPI_ISL_410542,hot,27881:27883,CC->AT,ORF7b,"['H42Q', 'A43V']",missense
+EPI_ISL_410542,hot,28107:28109,CG->AA,ORF8,"['Q72K']",missense
+EPI_ISL_410542,hot,28218:28220,TA->GT,ORF8,"['L109V']",missense
+EPI_ISL_410542,hot,28769:28771,AA->GT,nucleocapsid_phosphoprotein,"['T166A']",missense
+EPI_ISL_410542,hot,28769:28771,AA->GT,ORF9c,"['Q12Q', 'H13L']",missense
+EPI_ISL_410542,hot,29635:29637,CT->TC,ORF10,"['Y26Y', 'I27T']",missense
+EPI_ISL_410542,hot,29649:29651,AG->GA,ORF10,"['D31G', 'V32I']",missense

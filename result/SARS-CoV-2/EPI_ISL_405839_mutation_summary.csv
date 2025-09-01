@@ -1,0 +1,6 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+nsp4,S76S,silent,C8782T,NT changes
+nsp4,S336L,missense,C9561T,NT changes
+RNA-dependent-polymerase,L723L,silent,T15607C,NT changes
+ORF8,L84S,missense,T28144C,NT changes
+nucleocapsid_phosphoprotein,F274F,silent,C29095T,NT changes

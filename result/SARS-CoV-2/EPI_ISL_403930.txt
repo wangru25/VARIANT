@@ -1,0 +1,2 @@
+missense 6996 T->C [{'protein': 'nsp3', 'mutation': 'I1426T'}]
+missense 29900:29903 AAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

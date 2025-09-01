@@ -1,0 +1,6 @@
+frameshift 1:13 ATTAAAGGTTTAT [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
+missense 25064 G->A [{'protein': 'spike_surface_glycoprotein', 'mutation': 'D1168N'}]
+missense 26144 G->T [{'protein': 'ORF3a', 'mutation': 'G251V'}]
+missense 28077 G->T [{'protein': 'ORF8', 'mutation': 'V62L'}]
+missense 29869 A->T [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 29871:29903 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

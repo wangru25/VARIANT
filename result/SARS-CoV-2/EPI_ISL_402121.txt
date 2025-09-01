@@ -1,0 +1,3 @@
+silent 20670 G->A [{'protein': "2'-O-ribose_methyltransferase", 'mutation': 'A4A'}]
+silent 20679 G->A [{'protein': "2'-O-ribose_methyltransferase", 'mutation': 'P7P'}]
+missense 29892:29903 AAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

@@ -1,0 +1,6 @@
+missense 3860 G->A [{'protein': 'nsp3', 'mutation': 'V381I'}]
+silent 7420 C->T [{'protein': 'nsp3', 'mutation': 'I1567I'}]
+missense 13571 G->T [{'protein': 'RNA-dependent-polymerase', 'mutation': 'G44V'}]
+missense 21707 C->T [{'protein': 'spike_surface_glycoprotein', 'mutation': 'H49Y'}]
+silent 26211 G->T [{'protein': 'ORF3a', 'mutation': 'V273V'}]
+missense 29892:29903 AAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

@@ -1,0 +1,25 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+nsp2,I281I,silent,C1648T,NT changes
+nsp2,F455S,missense,T2169C,NT changes
+nsp3,D361A,missense,A3801C,NT changes
+nsp3,E642G,missense,A4644G,NT changes
+nsp3,R646P,missense,G4656C,NT changes
+nsp3,G670V,missense,4728:4729GT->TA,NT changes
+nsp3,S674P,missense,T4739C,NT changes
+nsp3,S915S,silent,T5464C,NT changes
+nsp3,S1197G,missense,A6308G,NT changes
+nsp3,T1356S,missense,C6786G,NT changes
+nsp3,I1372S,missense,T6834G,NT changes
+nsp3,K1373K,silent,A6838G,NT changes
+nsp3,L1791H,missense,T8091A,NT changes
+nsp3,R1912R,silent,T8455C,NT changes
+nsp8,L169H,missense,T12597A,NT changes
+endoRNAse,F232Y,missense,T20315A,NT changes
+spike_surface_glycoprotein,V1129L,missense,G24947C,NT changes
+spike_surface_glycoprotein,E1262G,missense,A25347G,NT changes
+ORF3a,E239V,missense,A26108T,NT changes
+ORF3a,D250V,missense,A26141T,NT changes
+membrane_glycoprotein,G78A,missense,G26755C,NT changes
+membrane_glycoprotein,G79G,silent,A26759T,NT changes
+ORF8,L84S,missense,T28144C,NT changes
+nucleocapsid_phosphoprotein,F274F,silent,C29095T,NT changes

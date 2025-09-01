@@ -1,0 +1,5 @@
+missense 6819 G->T [{'protein': 'nsp3', 'mutation': 'S1367I'}]
+silent 17373 C->T [{'protein': 'helicase', 'mutation': 'A379A'}]
+missense 19610 C->T [{'protein': "3'-to-5'_exonuclease", 'mutation': 'T524I'}]
+silent 29527 G->A [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'Q418Q'}]
+missense 29886:29903 AAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

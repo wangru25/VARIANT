@@ -1,0 +1,3 @@
+missense 27493 C->T [{'protein': 'ORF7a', 'mutation': 'P34S'}]
+silent 28253 C->T [{'protein': 'ORF8', 'mutation': 'F120F'}]
+missense 29897:29903 AAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

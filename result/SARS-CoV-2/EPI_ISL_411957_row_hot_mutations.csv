@@ -1,0 +1,3 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_411957,row,4:5,AA->GC,None-CDS,"['NA']",missense
+EPI_ISL_411957,row,7:9,GGT->CCA,None-CDS,"['NA']",missense

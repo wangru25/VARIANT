@@ -1,0 +1,7 @@
+frameshift 1:11 ATTAAAGGTTT [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
+silent 18828 C->T [{'protein': "3'-to-5'_exonuclease", 'mutation': 'V263V'}]
+silent 26370 C->T [{'protein': 'envelope', 'mutation': 'Y42Y'}]
+silent 27944 C->T [{'protein': 'ORF8', 'mutation': 'H17H'}]
+missense 28093 C->T [{'protein': 'ORF8', 'mutation': 'S67F'}]
+missense 28183 G->A [{'protein': 'ORF8', 'mutation': 'S97N'}]
+missense 29860:29903 AGGAGAATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

@@ -1,0 +1,1 @@
+missense 29883:29903 AAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

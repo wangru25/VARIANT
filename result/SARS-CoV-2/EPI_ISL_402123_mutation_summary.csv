@@ -1,0 +1,4 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+nsp3,T353T,silent,A3778G,NT changes
+nsp3,N1890S,missense,A8388G,NT changes
+nsp4,F145I,missense,T8987A,NT changes

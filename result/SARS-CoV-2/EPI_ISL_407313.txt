@@ -1,0 +1,2 @@
+missense 1:30 ATTAAAGGTTTATACCTTCCCAGGTAACAA [{'protein': 'Invalid protein sequence', 'frameshift': 'no', 'mutation': 'NA'}]
+missense 29867:29903 TGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

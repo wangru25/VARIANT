@@ -1,0 +1,5 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+envelope,Y42Y,silent,C26370T,NT changes
+ORF8,H17H,silent,C27944T,NT changes
+ORF8,S67F,missense,C28093T,NT changes
+ORF8,S97N,missense,G28183A,NT changes

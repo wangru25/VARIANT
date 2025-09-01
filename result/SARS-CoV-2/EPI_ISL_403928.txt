@@ -1,0 +1,2 @@
+missense 7866 G->T [{'protein': 'nsp3', 'mutation': 'G1716V'}]
+missense 29884:29903 AAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

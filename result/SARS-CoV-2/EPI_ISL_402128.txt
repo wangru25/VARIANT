@@ -1,0 +1,4 @@
+missense 1:12 ATTAAAGGTTTA [{'protein': 'Invalid protein sequence', 'frameshift': 'no', 'mutation': 'NA'}]
+missense 7016 G->A [{'protein': 'nsp3', 'mutation': 'G1433S'}]
+missense 21137 A->G [{'protein': "2'-O-ribose_methyltransferase", 'mutation': 'K160R'}]
+missense 29865:29903 AATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

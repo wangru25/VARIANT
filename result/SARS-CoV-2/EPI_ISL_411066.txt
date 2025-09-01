@@ -1,0 +1,3 @@
+silent 17373 C->T [{'protein': 'helicase', 'mutation': 'A379A'}]
+missense 29755 G->A [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 29892:29903 AAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

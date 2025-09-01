@@ -1,0 +1,4 @@
+missense 1:33 ATTAAAGGTTTATACCTTCCCAGGTAACAAACC [{'protein': 'Invalid protein sequence', 'frameshift': 'no', 'mutation': 'NA'}]
+missense 21316 G->A [{'protein': "2'-O-ribose_methyltransferase", 'mutation': 'D220N'}]
+silent 24325 A->G [{'protein': 'spike_surface_glycoprotein', 'mutation': 'K921K'}]
+missense 29859:29903 TAGGAGAATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

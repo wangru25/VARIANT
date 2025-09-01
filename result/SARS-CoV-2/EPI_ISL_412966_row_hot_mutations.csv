@@ -1,0 +1,2 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_412966,row,29884:29885,AA->GG,None-CDS,"['NA']",missense

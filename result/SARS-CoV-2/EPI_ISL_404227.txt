@@ -1,0 +1,4 @@
+frameshift 1:19 ATTAAAGGTTTATACCTTC [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
+missense 31 A->G [{'protein': 'None-CDS', 'mutation': 'NA'}]
+silent 583 C->T [{'protein': 'leader_nsp1', 'mutation': 'V106V'}]
+missense 29859:29903 TAGGAGAATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

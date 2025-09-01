@@ -1,0 +1,3 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+spike_surface_glycoprotein,M153T,missense,T22020C,NT changes
+spike_surface_glycoprotein,V1040F,missense,G24680T,NT changes

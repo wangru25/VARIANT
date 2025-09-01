@@ -1,0 +1,3 @@
+frameshift 1:7 ATTAAAG [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
+missense 11083 G->T [{'protein': 'nsp6', 'mutation': 'L37F'}]
+missense 29892:29903 AAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

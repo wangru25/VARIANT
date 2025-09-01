@@ -1,0 +1,53 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_402131,row,378:379,TC->CT,leader_nsp1,"['V38A']",missense
+EPI_ISL_402131,row,541:542,CG->TA,leader_nsp1,"['L92L', 'E93K']",missense
+EPI_ISL_402131,row,1947:1948,TT->CC,nsp2,"['V381A']",missense
+EPI_ISL_402131,row,3165:3167,CTG->TCA,nsp3,"['A149V', 'A150T']",missense
+EPI_ISL_402131,row,3252:3253,AC->TT,nsp3,"['D178V']",missense
+EPI_ISL_402131,row,3267:3268,CT->TC,nsp3,"['T183I']",missense
+EPI_ISL_402131,row,3873:3874,TC->CT,nsp3,"['I385T']",missense
+EPI_ISL_402131,row,4890:4891,CC->TT,nsp3,"['T724I']",missense
+EPI_ISL_402131,row,6916:6917,TT->CC,nsp3,"['Y1399Y', 'L1400L']",missense
+EPI_ISL_402131,row,6982:6983,CC->TT,nsp3,"['C1421C', 'L1422L']",missense
+EPI_ISL_402131,row,7098:7099,TT->CA,nsp3,"['I1460T']",missense
+EPI_ISL_402131,row,7843:7844,CC->TT,nsp3,"['N1708N', 'L1709L']",missense
+EPI_ISL_402131,row,9859:9860,AT->TC,nsp4,"['L435L', 'L436L']",missense
+EPI_ISL_402131,row,18276:18277,TA->CG,3'-to-5'_exonuclease,"['A79A', 'I80V']",missense
+EPI_ISL_402131,row,19961:19962,CG->AT,endoRNAse,"['T114N']",missense
+EPI_ISL_402131,row,20001:20002,TG->CA,endoRNAse,"['V127V', 'D128N']",missense
+EPI_ISL_402131,row,22215:22216,AG->CT,spike_surface_glycoprotein,"['Q218P']",missense
+EPI_ISL_402131,row,22879:22880,CA->GC,spike_surface_glycoprotein,"['N439K', 'N440H']",missense
+EPI_ISL_402131,row,22896:22897,TT->AG,spike_surface_glycoprotein,"['V445E']",missense
+EPI_ISL_402131,row,22921:22922,TA->CC,spike_surface_glycoprotein,"['Y453Y', 'R454R']",missense
+EPI_ISL_402131,row,22924:22925,AT->TC,spike_surface_glycoprotein,"['R454S', 'L455L']",missense
+EPI_ISL_402131,row,22936:22937,GT->AG,spike_surface_glycoprotein,"['K458K', 'S459A']",missense
+EPI_ISL_402131,row,23009:23014,GTTGAA->CAAACT,spike_surface_glycoprotein,"['V483Q', 'E484T']",missense
+EPI_ISL_402131,row,23031:23032,TT->AC,spike_surface_glycoprotein,"['F490Y']",missense
+EPI_ISL_402131,row,23035:23036,TT->AC,spike_surface_glycoprotein,"['P491P', 'L492L']",missense
+EPI_ISL_402131,row,23038:23039,AC->TT,spike_surface_glycoprotein,"['L492F', 'Q493*']",nonsense
+EPI_ISL_402131,row,23041:23043,ATC->TAG,spike_surface_glycoprotein,"['Q493H', 'S494R']",missense
+EPI_ISL_402131,row,23053:23054,CC->TT,spike_surface_glycoprotein,"['F497F', 'Q498*']",nonsense
+EPI_ISL_402131,row,27702:27703,TG->CA,ORF7a,"['I103I', 'V104I']",missense
+EPI_ISL_402131,row,28999:29000,AG->GA,nucleocapsid_phosphoprotein,"['Q242Q', 'G243S']",missense
+EPI_ISL_402131,row,29072:29073,GC->CA,nucleocapsid_phosphoprotein,"['A267Q']",missense
+EPI_ISL_402131,hot,1514:1516,CT->TC,nsp2,"['H237Y']",missense
+EPI_ISL_402131,hot,3229:3231,TG->CT,nsp3,"['V170V', 'G171V']",missense
+EPI_ISL_402131,hot,3241:3243,CG->TA,nsp3,"['D174D', 'G175D']",missense
+EPI_ISL_402131,hot,3431:3433,GG->AA,nsp3,"['V238I']",missense
+EPI_ISL_402131,hot,3569:3571,AT->GC,nsp3,"['S284G']",missense
+EPI_ISL_402131,hot,5884:5886,CC->TT,nsp3,"['Y1055Y', 'T1056I']",missense
+EPI_ISL_402131,hot,8015:8017,GG->AA,nsp3,"['A1766T']",missense
+EPI_ISL_402131,hot,8870:8872,TG->CT,nsp4,"['L106L']",silent
+EPI_ISL_402131,hot,9803:9805,CG->TA,nsp4,"['L417L']",silent
+EPI_ISL_402131,hot,11747:11749,CA->TG,nsp6,"['L259L']",silent
+EPI_ISL_402131,hot,15595:15597,TT->CC,RNA-dependent-polymerase,"['Y710H']",missense
+EPI_ISL_402131,hot,19744:19746,TG->CA,endoRNAse,"['L42L']",silent
+EPI_ISL_402131,hot,20827:20829,TA->CT,2'-O-ribose_methyltransferase,"['L57L']",silent
+EPI_ISL_402131,hot,21655:21657,TT->AC,spike_surface_glycoprotein,"['S31S', 'F32S']",missense
+EPI_ISL_402131,hot,22676:22678,GA->AT,spike_surface_glycoprotein,"['A372T']",missense
+EPI_ISL_402131,hot,22889:22891,TT->GA,spike_surface_glycoprotein,"['S443A']",missense
+EPI_ISL_402131,hot,23018:23020,TT->CA,spike_surface_glycoprotein,"['F486L']",missense
+EPI_ISL_402131,hot,23372:23374,AT->GC,spike_surface_glycoprotein,"['T604A']",missense
+EPI_ISL_402131,hot,24995:24997,TA->CT,spike_surface_glycoprotein,"['L1145L']",silent
+EPI_ISL_402131,hot,26691:26693,TA->CT,membrane_glycoprotein,"['L57L']",silent
+EPI_ISL_402131,hot,26877:26879,CT->TG,membrane_glycoprotein,"['L119L']",silent

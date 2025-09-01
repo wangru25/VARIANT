@@ -1,0 +1,7 @@
+frameshift 1:14 ATTAAAGGTTTATA [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
+silent 8782 C->T [{'protein': 'nsp4', 'mutation': 'S76S'}]
+silent 18996 T->C [{'protein': "3'-to-5'_exonuclease", 'mutation': 'A319A'}]
+silent 24370 C->T [{'protein': 'spike_surface_glycoprotein', 'mutation': 'D936D'}]
+missense 28144 T->C [{'protein': 'ORF8', 'mutation': 'L84S'}]
+silent 29029 T->C [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'A252A'}]
+missense 29860:29903 AGGAGAATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

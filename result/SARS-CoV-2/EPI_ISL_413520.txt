@@ -1,0 +1,5 @@
+silent 4402 T->C [{'protein': 'nsp3', 'mutation': 'L561L'}]
+missense 5062 G->T [{'protein': 'nsp3', 'mutation': 'L781F'}]
+silent 8782 C->T [{'protein': 'nsp4', 'mutation': 'S76S'}]
+missense 28144 T->C [{'protein': 'ORF8', 'mutation': 'L84S'}]
+missense 29301 A->T [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'D343V'}]

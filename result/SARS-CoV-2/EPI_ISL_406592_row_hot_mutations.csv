@@ -1,0 +1,2 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_406592,row,4728:4729,GT->TA,nsp3,"['G670V']",missense

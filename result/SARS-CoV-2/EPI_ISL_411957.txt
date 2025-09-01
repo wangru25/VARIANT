@@ -1,0 +1,6 @@
+missense 0 AGAGTGCTTATGAAAATTTTAATCAGCACGAAGTTCTA [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 1 A->C [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 4:5 AA->GC [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 7:9 GGT->CCA [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 186 C->T [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 29874:29903 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

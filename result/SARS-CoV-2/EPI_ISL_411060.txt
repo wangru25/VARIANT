@@ -1,0 +1,4 @@
+silent 8782 C->T [{'protein': 'nsp4', 'mutation': 'S76S'}]
+silent 18060 C->T [{'protein': "3'-to-5'_exonuclease", 'mutation': 'L7L'}]
+missense 28144 T->C [{'protein': 'ORF8', 'mutation': 'L84S'}]
+missense 29872:29903 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

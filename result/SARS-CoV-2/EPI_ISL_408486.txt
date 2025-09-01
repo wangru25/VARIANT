@@ -1,0 +1,3 @@
+missense 1:15 ATTAAAGGTTTATAC [{'protein': 'Invalid protein sequence', 'frameshift': 'no', 'mutation': 'NA'}]
+missense 8274 G->A [{'protein': 'nsp3', 'mutation': 'C1852Y'}]
+missense 29892:29903 AAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

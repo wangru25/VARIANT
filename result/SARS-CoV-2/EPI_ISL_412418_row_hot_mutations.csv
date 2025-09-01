@@ -1,0 +1,6 @@
+genome_id,mutation_type,position,nucleotide_change,protein_affected,amino_acid_change,biological_classification
+EPI_ISL_412418,row,14952:14953,TC->GG,RNA-dependent-polymerase,"['F495L', 'P496A']",missense
+EPI_ISL_412418,row,14955:14958,ATTT->TAGA,RNA-dependent-polymerase,"['P496P', 'F497R']",missense
+EPI_ISL_412418,row,14962:14963,AA->TT,RNA-dependent-polymerase,"['K499L']",missense
+EPI_ISL_412418,row,14966:14968,GGG->TAT,RNA-dependent-polymerase,"['W500L', 'G501C']",missense
+EPI_ISL_412418,row,14970:14971,TA->AT,RNA-dependent-polymerase,"['G501G', 'K502*']",nonsense

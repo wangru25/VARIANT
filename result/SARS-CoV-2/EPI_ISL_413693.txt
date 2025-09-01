@@ -1,0 +1,4 @@
+frameshift 1:13 ATTAAAGGTTTAT [{'protein': 'Invalid protein sequence', 'frameshift': 'yes', 'mutation': 'NA'}]
+missense 2334 C->T [{'protein': 'nsp2', 'mutation': 'A510V'}]
+missense 26198 C->T [{'protein': 'ORF3a', 'mutation': 'T269M'}]
+missense 29864:29903 GAATGACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

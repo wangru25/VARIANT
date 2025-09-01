@@ -1,0 +1,3 @@
+missense 15 C->T [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 48 C->A [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 29892:29903 AAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]

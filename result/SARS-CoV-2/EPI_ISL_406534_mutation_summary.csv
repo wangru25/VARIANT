@@ -1,0 +1,4 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+nucleocapsid_phosphoprotein,P6P,silent,C28291T,NT changes
+ORF9b,P3L,missense,C28291T,NT changes
+nucleocapsid_phosphoprotein,S194L,missense,C28854T,NT changes

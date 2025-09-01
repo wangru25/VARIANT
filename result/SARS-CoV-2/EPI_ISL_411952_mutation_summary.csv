@@ -1,0 +1,6 @@
+Protein Name,Protein Mutations,AA Mutation Type,NT Mutation,Caused by NT Mutation Type
+nsp3,V381I,missense,G3860A,NT changes
+nsp3,I1567I,silent,C7420T,NT changes
+RNA-dependent-polymerase,G44V,missense,G13571T,NT changes
+spike_surface_glycoprotein,H49Y,missense,C21707T,NT changes
+ORF3a,V273V,silent,G26211T,NT changes

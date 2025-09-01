@@ -1,0 +1,8 @@
+missense 0 GTT [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 1 A->C [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 4 A->T [{'protein': 'None-CDS', 'mutation': 'NA'}]
+silent 15324 C->T [{'protein': 'RNA-dependent-polymerase', 'mutation': 'N628N'}]
+missense 29303 C->T [{'protein': 'nucleocapsid_phosphoprotein', 'mutation': 'P344S'}]
+missense 29884:29885 AA->GG [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 29887 A->G [{'protein': 'None-CDS', 'mutation': 'NA'}]
+missense 29889:29903 AAAAAAAAAAAAAAA [{'protein': 'None-CDS', 'mutation': 'NA'}]
