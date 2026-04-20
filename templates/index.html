@@ -2247,23 +2247,15 @@ AUGCAUGCAUGCAUGC
             } catch (e) { /* silently ignore — user can still click Generate */ }
         }
 
-        async function checkAnalysisReady(virusName) {
+        function checkAnalysisReady(virusName) {
             const btn = document.getElementById('analysisBtn');
             const hint = document.getElementById('analysisBtnHint');
-            if (!virusName) { btn.disabled = true; hint.style.display = ''; return; }
-            try {
-                const response = await fetch(`/api/data-files/${virusName}`);
-                const data = await response.json();
-                const files = data.files || [];
-                const hasAll = ['reference_genome', 'proteome', 'msa'].every(
-                    t => files.some(f => f.type === t)
-                );
-                btn.disabled = !hasAll;
-                hint.style.display = hasAll ? 'none' : '';
-                if (!hasAll) hint.textContent = 'Upload all 3 required files (reference genome, proteome, MSA) to enable analysis.';
-            } catch (e) {
+            if (!virusName) {
                 btn.disabled = true;
                 hint.style.display = '';
+            } else {
+                btn.disabled = false;
+                hint.style.display = 'none';
             }
         }
 
