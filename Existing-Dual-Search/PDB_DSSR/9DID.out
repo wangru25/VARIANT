@@ -1,0 +1,20 @@
+Secondary structures in dot-bracket notation (dbn) as a whole and per chain
+
+>9DID
+
+gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUaUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCuCCCUGAAGGUaAACUUGUAGCGC&gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUAUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCUcCCUGAAGGUAAACUUGUAGCGC
+
+((((((((((((.----{{{[[[[[[[[[((((((.(((((.)-)))))))))).(((((((..)))))))...))))))))))))..----------.}}}]]]]]]]]]&(((((((((...(((.({{{[[[[[[[[[((((((.((((----)))))))))).((((((....))))))).))).)))))))))...-----..().}}}]]]]]]]]]
+
+>Chain A
+
+gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUaUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCuCCCUGAAGGUaAACUUGUAGCGC
+
+((((((((((((.----{{{[[[[[[[[[((((((.(((((.)-)))))))))).(((((((..)))))))...))))))))))))..----------.}}}]]]]]]]]]
+
+>Chain B
+
+gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUAUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCUcCCUGAAGGUAAACUUGUAGCGC
+
+(((((((((...(((.({{{[[[[[[[[[((((((.((((----)))))))))).((((((....))))))).))).)))))))))...-----..().}}}]]]]]]]]]
+

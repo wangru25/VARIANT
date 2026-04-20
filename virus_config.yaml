@@ -95,7 +95,7 @@ viruses:
     reference_genome: ''
   SARS-CoV-2:
     codon_table_id: 1
-    default_msa_file: gisaid_hcov-19_20221201_20221230_China_0_msa.txt
+    default_msa_file: gisaid_hcov-China_20200101_20200331_0_msa.txt
     description: SARS-CoV-2 coronavirus
     proteome_file: SARS-CoV-2_proteome.fasta
     reference_genome: NC_045512.fasta

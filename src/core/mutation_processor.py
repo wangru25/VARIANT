@@ -232,35 +232,67 @@ class MutationProcessor:
                 return snp_processor.get_snp_records_for_one_genome(msa_files, args.genome_id)
     
     def _run_frameshift_analysis(self, processors: Dict, segment: Optional[str], args) -> None:
-        """Run frameshift analysis."""
-        print("\n=== Running Frameshift Analysis ===")
+        """Run frameshift analysis using the advanced PRF scanner."""
+        print("\n=== Running Advanced PRF Analysis ===")
         
-        msa_instance = processors['msa_instance']
-        frameshift_detector = processors['frameshift_detector']
-        
-        # Get reference sequence
-        ref_seq_id, ref_seq_msa = msa_instance.find_ref_msa("reference")
-        if ref_seq_id is None:
-            print("Warning: Could not find reference sequence for frameshift analysis")
-            return
-        
-        # Remove gaps and run detection
-        ref_seq_clean = ref_seq_msa.replace('-', '')
-        frameshift_sites = frameshift_detector.detect_frameshift_sites(ref_seq_clean, start_pos=1)
-        
-        # Save results
+        # Get reference genome path
         if segment:
+            ref_genome_path = self.virus_processor.get_reference_genome_path(segment)
             result_path = self.virus_processor.get_result_path(segment)
         else:
+            ref_genome_path = self.virus_processor.get_reference_genome_path()
             result_path = self.virus_processor.get_result_path()
+        
+        # Import and run the PRF scanner
+        import subprocess
+        import sys
+        
+        # Create output prefix
+        output_prefix = os.path.join(result_path, "prf_analysis")
+        
+        # Build PRF scanner command
+        cmd = [
+            sys.executable, "src/core/prf_scanner.py",
+            "--fasta", ref_genome_path,
+            "--out", output_prefix,
+            "--use-rnafold",
+            "--organism", self.virus_name.lower().replace("-", "_")
+        ]
+        
+        print(f"Running PRF scanner: {' '.join(cmd)}")
+        
+        try:
+            # Run the PRF scanner
+            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
             
-        frameshift_output = frameshift_detector.format_frameshift_output(frameshift_sites)
-        frameshift_file = os.path.join(result_path, "potential_PRF.csv")
-        
-        with open(frameshift_file, 'w') as f:
-            f.write(frameshift_output)
-        
-        print(f"Frameshift analysis saved to: {frameshift_file}")
+            # Check if output files were created
+            csv_file = f"{output_prefix}.prf_candidates.csv"
+            bed_file = f"{output_prefix}.prf_candidates.bed"
+            
+            if os.path.exists(csv_file):
+                # Count candidates
+                with open(csv_file, 'r') as f:
+                    lines = f.readlines()
+                    candidate_count = len(lines) - 1 if len(lines) > 1 else 0
+                
+                print(f"✅ PRF analysis completed successfully!")
+                print(f"   Found {candidate_count} PRF candidates")
+                print(f"   CSV output: {csv_file}")
+                print(f"   BED output: {bed_file}")
+                
+                
+            else:
+                print("⚠️  PRF scanner completed but no output files found")
+                
+        except subprocess.CalledProcessError as e:
+            print(f"❌ Error running PRF scanner: {e}")
+            if e.stdout:
+                print(f"Output: {e.stdout}")
+            if e.stderr:
+                print(f"Error: {e.stderr}")
+        except Exception as e:
+            print(f"❌ Unexpected error during PRF analysis: {e}")
+    
     
     def _generate_mutation_summaries(self, segment: Optional[str], args) -> None:
         """Generate mutation summaries for processed genomes."""

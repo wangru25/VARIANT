@@ -130,6 +130,7 @@ python main.py --help
 - PyYAML >= 6.0
 - fuzzysearch == 0.7.3
 - more-itertools >= 8.12.0
+- ViennaRNA >= 2.4.0 (for PRF scanning and RNA structure prediction)
 
 ## Usage
 
@@ -205,6 +206,9 @@ python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
 
 # Detect frameshift sites
 python main.py --virus SARS-CoV-2 --detect-frameshifts
+
+# Advanced PRF scanning with RNA structure prediction
+python src/core/prf_scanner.py --fasta data/SARS-CoV-2/refs/NC_045512.fasta --out results/sars_cov2_prf --use-rnafold
 
 # See what viruses are available
 python main.py --list-viruses
@@ -301,7 +305,9 @@ When using `--detect-frameshifts`:
 - +1 PRF sites (shifty stop codons)
 - Stem-loop structures (stimulatory elements)
 
-## Frameshift Detection and Analysis
+## PRF Scanner: Advanced Programmed Ribosomal Frameshifting Detection
+
+VARIANT includes a comprehensive PRF scanner (`src/core/prf_scanner.py`) that detects candidate programmed ribosomal frameshifting sites with advanced RNA secondary structure prediction and tRNA interaction validation.
 
 ### What is Programmed Ribosomal Frameshifting (PRF)?
 
@@ -363,6 +369,189 @@ Our algorithm successfully detects well-characterized viral frameshift sites:
 - **SARS-CoV-2**: `TTTAAAC` at position ~13462 (ORF1a-ORF1ab frameshift)
 - **Coronaviruses**: Various slippery sequences in replicase genes
 - **Retroviruses**: Multiple frameshift sites for polyprotein production
+
+### PRF Scanner Usage
+
+The PRF scanner can be used as a standalone tool or integrated with the main VARIANT pipeline:
+
+#### Standalone PRF Scanning
+
+```bash
+# Basic PRF scanning with RNA structure prediction
+python src/core/prf_scanner.py --fasta data/SARS-CoV-2/refs/NC_045512.fasta --out results/sars_cov2_prf --use-rnafold
+
+# Advanced scanning with custom parameters
+python src/core/prf_scanner.py \
+    --fasta data/SARS-CoV-2/refs/NC_045512.fasta \
+    --out results/sars_cov2_prf \
+    --spacer-min 5 \
+    --spacer-max 9 \
+    --window 120 \
+    --use-rnafold \
+    --organism sars_cov2
+
+# With GFF annotation for frame context
+python src/core/prf_scanner.py \
+    --fasta data/SARS-CoV-2/refs/NC_045512.fasta \
+    --out results/sars_cov2_prf \
+    --use-rnafold \
+    --gff data/SARS-CoV-2/annotations.gff
+
+# With tRNA abundance data
+python src/core/prf_scanner.py \
+    --fasta data/SARS-CoV-2/refs/NC_045512.fasta \
+    --out results/sars_cov2_prf \
+    --use-rnafold \
+    --trna data/tRNA_abundance.csv \
+    --organism sars_cov2
+```
+
+#### Integration with Main Pipeline
+
+```bash
+# PRF detection through main pipeline (now uses advanced PRF scanner)
+python main.py --virus SARS-CoV-2 --detect-frameshifts
+
+# Process all genomes with PRF detection
+python main.py --virus SARS-CoV-2 --process-all --detect-frameshifts
+
+# PRF detection for other viruses
+python main.py --virus HIV-1 --detect-frameshifts
+python main.py --virus Chikungunya --detect-frameshifts
+python main.py --virus ZaireEbola --detect-frameshifts
+```
+
+**Note**: The `--detect-frameshifts` flag now uses the advanced PRF scanner with RNA structure prediction, tRNA validation, and comprehensive analysis. This replaces the previous simple frameshift detection.
+
+### PRF Scanner Parameters
+
+| Parameter | Description | Default | Example |
+|-----------|-------------|---------|---------|
+| `--fasta` | Input genome FASTA file | Required | `data/SARS-CoV-2/refs/NC_045512.fasta` |
+| `--out` | Output file prefix | Required | `results/prf_analysis` |
+| `--spacer-min` | Minimum spacer length (nt) | 5 | `--spacer-min 3` |
+| `--spacer-max` | Maximum spacer length (nt) | 9 | `--spacer-max 12` |
+| `--window` | Downstream fold window size (nt) | 120 | `--window 150` |
+| `--use-rnafold` | Enable RNA structure prediction | False | `--use-rnafold` |
+| `--gff` | GFF annotation file for frame context | None | `--gff annotations.gff` |
+| `--organism` | Organism for tRNA data | human | `--organism sars_cov2` |
+| `--trna` | tRNA abundance CSV file | None | `--trna trna_data.csv` |
+
+### PRF Scanner Output
+
+The PRF scanner generates two output files:
+
+#### 1. CSV Output (`*.prf_candidates.csv`)
+
+Comprehensive candidate data with the following columns:
+
+| Column | Description | Example |
+|--------|-------------|---------|
+| `seqid` | Sequence identifier | `NC_045512` |
+| `site_start_1based` | PRF site start position (1-based) | `13462` |
+| `slippery_motif` | Slippery sequence motif | `TTTAAAC` |
+| `type` | PRF type | `-1` |
+| `spacer_nt` | Spacer length (nt) | `7` |
+| `fold_window_start` | Structure window start | `13470` |
+| `fold_window_end` | Structure window end | `13590` |
+| `fold_window_seq` | Downstream sequence | `GUGGCUGUCACUCGGC...` |
+| `rnafold_structure` | RNA secondary structure | `((((.((.((((.(((.....))).)))))).))))` |
+| `rnafold_mfe` | Minimum free energy (kcal/mol) | `-30.4` |
+| `rnafold_type` | Structure classification | `stem_loop` |
+| `probknot_structure` | ProbKnot structure prediction | `(((((.........[[[[[.........))))).]]]]]` |
+| `probknot_type` | ProbKnot classification | `pseudoknot` |
+| `pknots_structure` | PKNOTS structure prediction | `(((((.........[[[[[.........))))).]]]]]` |
+| `pknots_type` | PKNOTS classification | `pseudoknot` |
+| `frame_context` | Reading frame context | `CDS_frame0` |
+| `codon1` | P-site codon | `TTT` |
+| `codon2` | A-site codon | `AAA` |
+| `trna1_abundance` | P-site tRNA abundance | `0.8` |
+| `trna2_abundance` | A-site tRNA abundance | `0.9` |
+| `pausing_potential` | Ribosomal pausing score | `0.3` |
+| `wobble_pairs` | Wobble base pairs detected | `P-site_G-U` |
+| `trna_score` | Overall tRNA interaction score | `0.85` |
+
+#### 2. BED Output (`*.prf_candidates.bed`)
+
+Genomic coordinates for visualization and analysis:
+
+```
+NC_045512	13462	13469	-1_TTTAAAC_s7	0	+
+NC_045512	76	83	-1_UUUAAAA_s5	0	+
+```
+
+### Advanced Features
+
+#### RNA Secondary Structure Prediction
+
+The PRF scanner uses multiple tools for comprehensive structure analysis:
+
+- **RNAfold**: Minimum free energy (MFE) structure prediction
+- **ProbKnot**: Pseudoknot detection and prediction
+- **PKNOTS**: Alternative pseudoknot prediction
+- **Simple Detection**: Fallback methods when external tools unavailable
+
+#### tRNA Interaction Validation
+
+Validates biological feasibility of frameshifting:
+
+- **tRNA Abundance**: Uses organism-specific tRNA abundance data
+- **Pausing Potential**: Calculates ribosomal pausing likelihood
+- **Wobble Pairs**: Detects non-canonical base pairs
+- **Interaction Scores**: Overall tRNA interaction assessment
+
+#### Frame Context Analysis
+
+When GFF annotations are provided:
+
+- **CDS Overlap**: Identifies coding sequence overlaps
+- **Frame Classification**: Determines reading frame context
+- **Multi-frame Detection**: Handles overlapping ORFs
+
+### PRF Scanner Scripts and Examples
+
+VARIANT includes several helper scripts and examples for PRF scanning:
+
+#### Quick PRF Scanning Script
+
+```bash
+# Scan all supported viruses for PRF sites
+./scripts/run_prf_scan.sh
+
+# This script automatically:
+# - Activates the conda environment
+# - Scans all virus reference genomes
+# - Generates comprehensive PRF candidate files
+# - Provides summary statistics
+```
+
+#### Python Examples Script
+
+```bash
+# Run comprehensive PRF scanning examples
+python examples/prf_scanner_examples.py
+
+# This script demonstrates:
+# - Basic PRF scanning for each virus
+# - Advanced parameter configurations
+# - Different organism settings
+# - Performance comparisons
+```
+
+#### Example Output Files
+
+After running PRF scanning, you'll get:
+
+```
+result/prf_scan_results/
+├── sars_cov2_prf.prf_candidates.csv    # SARS-CoV-2 PRF candidates
+├── sars_cov2_prf.prf_candidates.bed    # Genomic coordinates
+├── hiv1_prf.prf_candidates.csv         # HIV-1 PRF candidates
+├── hiv1_prf.prf_candidates.bed         # Genomic coordinates
+├── chikungunya_prf.prf_candidates.csv  # Chikungunya PRF candidates
+├── chikungunya_prf.prf_candidates.bed  # Genomic coordinates
+└── ... (additional virus results)
+```
 
 ### Technical Implementation
 

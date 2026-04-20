@@ -1,0 +1,20 @@
+Secondary structures in dot-bracket notation (dbn) as a whole and per chain
+
+>6XRZ
+
+gUUUUUAAACGGGUUUGCGGUGUAAGUGC&AGCCCGUCUUACACCGUGCGGCACAGGCACUAGUACUGAUGUCGUAUACAGGGCUUUUG
+
+..((......))....((((((((((.((&[[[[[))))))))))))(((((((((..(....).))).)))))).....]]]]]....
+
+>Chain A
+
+gUUUUUAAACGGGUUUGCGGUGUAAGUGC
+
+..((......))....((((((((((.((
+
+>Chain B
+
+AGCCCGUCUUACACCGUGCGGCACAGGCACUAGUACUGAUGUCGUAUACAGGGCUUUUG
+
+[[[[[))))))))))))(((((((((..(....).))).)))))).....]]]]]....
+

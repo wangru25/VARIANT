@@ -1,0 +1,22 @@
+Title			ROUS SARCOMA VIRUS FRAMESHIFTING PSEUDOKNOT RNA 
+Chain order		A B
+Amino acids		NO
+Metal
+Chains			A	RNA	
+			B	RNA	
+Pseudoknot		YES
+
+Whole structure
+>9DID
+gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUaUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCuCCCUGAAGGUaAACUUGUAGCGC&gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUAUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCUcCCUGAAGGUAAACUUGUAGCGC
+((((((((((((.----{{{[[[[[[[[[((((((.(((((.)-)))))))))).(((((((..)))))))...))))))))))))..----------.}}}]]]]]]]]]&(((((((((...(((.({{{[[[[[[[[[((((((.((((----)))))))))).((((((....))))))).))).)))))))))...-----..().}}}]]]]]]]]]
+
+Interacting substructures
+Chain A
+gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUaUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCuCCCUGAAGGUaAACUUGUAGCGC
+((((((((((((.----{{{[[[[[[[[[((((((.(((((.)-)))))))))).(((((((..)))))))...))))))))))))..----------.}}}]]]]]]]]]
+
+Chain B
+gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUAUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCUcCCUGAAGGUAAACUUGUAGCGC
+(((((((((...(((.({{{[[[[[[[[[((((((.((((----)))))))))).((((((....))))))).))).)))))))))...-----..().}}}]]]]]]]]]
+

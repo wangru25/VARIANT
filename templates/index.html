@@ -358,6 +358,11 @@
 
 
                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="dualgraph-tab" data-bs-toggle="tab" data-bs-target="#dualgraph" type="button" role="tab">
+                            <i class="fas fa-project-diagram"></i> RNA Dual Graph
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
                         <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab">
                             <i class="fas fa-history"></i> History
                         </button>
@@ -558,6 +563,14 @@
                                                     <i class="fas fa-upload me-2"></i> Upload File
                                                 </button>
                                             </div>
+
+                                            <!-- Upload progress bar -->
+                                            <div id="uploadProgressContainer" class="mt-3" style="display:none;">
+                                                <div class="progress" style="height:20px;">
+                                                    <div id="uploadProgressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                                         role="progressbar" style="width:0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                                </div>
+                                            </div>
                                             
                                             <!-- Upload Status Message -->
                                             <div id="uploadStatusMessage" class="mt-3" style="display: none;">
@@ -722,9 +735,12 @@
                                     </div>
                                     
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-lg">
+                                        <button type="submit" id="analysisBtn" class="btn btn-primary btn-lg" disabled>
                                             <i class="fas fa-play"></i> Start Analysis
                                         </button>
+                                        <div id="analysisBtnHint" class="form-text mt-2 text-muted">
+                                            Select a virus with all required data files uploaded to enable analysis.
+                                        </div>
                                     </div>
                                 </form>
                                 
@@ -839,9 +855,12 @@
                                     
                                     <div class="col-md-4">
                                         <div class="text-center h-100 d-flex flex-column justify-content-center">
-                                            <button type="button" class="btn btn-success btn-lg" onclick="generateAllVisualizations()">
+                                            <button type="button" id="generateVizBtn" class="btn btn-success btn-lg" onclick="generateAllVisualizations()" disabled>
                                                 <i class="fas fa-magic me-2"></i> Generate All Visualizations
                                             </button>
+                                            <div id="generateVizHint" class="form-text mt-2 text-muted">
+                                                Select a virus with completed analysis results to generate visualizations.
+                                            </div>
                                             <div class="form-text mt-2">
                                                 <i class="fas fa-info-circle text-muted"></i> This will generate all three visualization types
                                             </div>
@@ -960,6 +979,98 @@
                     
 
                     
+                    <!-- RNA Dual Graph Tab -->
+                    <div class="tab-pane fade" id="dualgraph" role="tabpanel">
+                        <div class="card mb-4 border-0 shadow-sm">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fas fa-project-diagram"></i> RNA Secondary Structure — Dual Graph Assignment</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="text-muted mb-4">
+                                    Submit an RNA secondary structure in dot-bracket notation to assign its <strong>dual graph topology ID</strong>.
+                                    The pipeline converts your structure through DSSR format → CT file → dual graph library match.
+                                </p>
+
+                                <form id="dualGraphForm">
+                                    <div class="row mb-4">
+                                        <div class="col-md-4">
+                                            <label for="dgStructureId" class="form-label fw-bold">
+                                                <i class="fas fa-tag text-primary"></i> Structure ID <span class="text-danger">*</span>
+                                            </label>
+                                            <input type="text" class="form-control form-control-lg" id="dgStructureId"
+                                                   placeholder="e.g. 7LYJ" value="MY_RNA">
+                                            <div class="form-text">Used as the file base name throughout the pipeline.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">
+                                            <i class="fas fa-file-alt text-success"></i> Dot-Bracket Input
+                                        </label>
+                                        <ul class="nav nav-tabs mb-2" id="dgInputTabs" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="dg-text-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#dg-text-panel" type="button">
+                                                    Paste Text
+                                                </button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="dg-file-tab" data-bs-toggle="tab"
+                                                        data-bs-target="#dg-file-panel" type="button">
+                                                    Upload .dbn File
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content border rounded p-3 bg-light">
+                                            <div class="tab-pane fade show active" id="dg-text-panel">
+                                                <label for="dgDbnText" class="form-label text-muted small">
+                                                    Format: first line = sequence, second line = dot-bracket. Use <code>&amp;</code> for chain breaks.
+                                                </label>
+                                                <textarea class="form-control font-monospace" id="dgDbnText" rows="5"
+                                                          placeholder=">MY_RNA  /  AUGCAUGCAUGCAUGC  /  ((((....))))...."></textarea>
+                                            </div>
+                                            <div class="tab-pane fade" id="dg-file-panel">
+                                                <input type="file" class="form-control" id="dgDbnFile" accept=".dbn,.txt">
+                                                <div class="form-text">Upload a <code>.dbn</code> file. The Structure ID is auto-filled from the filename.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-play"></i> Run Dual Graph Analysis
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <!-- Spinner -->
+                                <div id="dgSpinner" class="text-center mt-4" style="display:none;">
+                                    <div class="spinner-border text-primary" role="status"></div>
+                                    <p class="mt-2 text-muted">Running pipeline… this usually takes a few seconds.</p>
+                                    <div class="alert alert-info mt-2 d-inline-block text-start">
+                                        <strong>Job ID:</strong> <code id="dgJobId"></code>
+                                        <br><small class="text-muted">You can also check status in the History tab.</small>
+                                    </div>
+                                </div>
+
+                                <!-- Results -->
+                                <div id="dgResults" class="mt-4" style="display:none;">
+                                    <div class="card border-success border-2">
+                                        <div class="card-header bg-success text-white">
+                                            <h5 class="mb-0"><i class="fas fa-check-circle me-2"></i> Dual Graph Assignment Complete</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="dgResultsBody"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Error -->
+                                <div id="dgError" class="alert alert-danger mt-4" style="display:none;"></div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- History Tab -->
                     <div class="tab-pane fade" id="history" role="tabpanel">
                         <!-- Job Tracking Section -->
@@ -1040,48 +1151,251 @@
                                 <p class="mb-0 opacity-75">Viral mutAtion trackeR aImed At GeNome and proTein-level</p>
                             </div>
                             <div class="card-body">
+                                <!-- Quick-nav -->
+                                <nav class="mb-4">
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <a href="#help-overview" class="btn btn-outline-primary btn-sm">Overview</a>
+                                        <a href="#help-workflow" class="btn btn-outline-primary btn-sm">Workflow</a>
+                                        <a href="#help-files" class="btn btn-outline-primary btn-sm">Input files</a>
+                                        <a href="#help-builtin" class="btn btn-outline-primary btn-sm">Built-in vs Custom</a>
+                                        <a href="#help-output" class="btn btn-outline-primary btn-sm">Output files</a>
+                                        <a href="#help-viz" class="btn btn-outline-primary btn-sm">Visualizations</a>
+                                        <a href="#help-dualgraph" class="btn btn-outline-primary btn-sm">RNA Dual Graph</a>
+                                        <a href="#help-faq" class="btn btn-outline-primary btn-sm">FAQ</a>
+                                    </div>
+                                </nav>
 
                                 <!-- Overview -->
-                                <section id="overview" class="mb-5">
-                                    <div class="border-bottom border-3 border-primary pb-3 mb-4">
-                                        <h2 class="text-primary mb-3">Overview</h2>
+                                <section id="help-overview" class="mb-5">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Overview</h2>
+                                    <p>VARIANT compares a set of viral genome sequences to a curated reference genome and proteome to identify and classify mutations at both the nucleotide and amino acid level. It also optionally predicts Programmed Ribosomal Frameshifting (PRF) sites.</p>
+                                    <p>Three analysis steps are performed internally:</p>
+                                    <ol>
+                                        <li><strong>SNP detection</strong> — each genome in the MSA is compared position-by-position to the reference; substitutions, insertions and deletions are recorded.</li>
+                                        <li><strong>Protein-level translation</strong> — identified SNPs are mapped onto the annotated ORFs from the proteome file and amino acid changes are inferred.</li>
+                                        <li><strong>Hot / row mutation classification</strong> — clusters of adjacent mutations (row) and frequently recurring mutations across many genomes (hot) are flagged.</li>
+                                    </ol>
+                                    <p>An optional fourth step runs the PRF scanner to report candidate slippery sequences in each reference segment.</p>
+                                </section>
+
+                                <!-- Workflow -->
+                                <section id="help-workflow" class="mb-5">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Step-by-step workflow</h2>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered align-middle">
+                                            <thead class="table-primary">
+                                                <tr><th style="width:5%">#</th><th>Tab</th><th>Action</th><th>Notes</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td><strong>Data Upload</strong></td>
+                                                    <td>Select a virus and upload the three required files (reference genome, proteome, MSA).</td>
+                                                    <td>For <em>built-in</em> viruses only MSA upload is supported. Use a <em>Custom Virus</em> to supply your own reference and proteome.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td><strong>Analysis &amp; Visualization</strong></td>
+                                                    <td>Choose the virus, optionally enter a specific Genome ID, then click <em>Start Analysis</em>.</td>
+                                                    <td>Leave Genome ID blank to analyse every sequence in the MSA. The button is disabled until all three required files are present.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td><strong>History</strong></td>
+                                                    <td>Monitor job status (Queued → Running → Completed / Failed). Download a ZIP of results.</td>
+                                                    <td>Jobs persist across page refreshes. Error messages describe specifically what went wrong.</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td><strong>Analysis &amp; Visualization</strong></td>
+                                                    <td>After the job completes, select the virus in the <em>Generate Visualization</em> panel and click the button.</td>
+                                                    <td>Three interactive Plotly plots are rendered in-browser (Mutation Analysis, Row/Hot Mutations, PRF Regions).</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <div class="bg-light p-4 rounded mb-4">
-                                        <p class="lead mb-0">VARIANT is a comprehensive virus mutation analysis tool designed to track mutations at both genome and protein levels. It provides detailed analysis of viral sequences, identifying mutations, hotspots, and potential frameshifting sites.</p>
+                                </section>
+
+                                <!-- Input files -->
+                                <section id="help-files" class="mb-5">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Input file specifications</h2>
+
+                                    <h5 class="mt-3">Reference genome <code>.fasta / .fa / .fna</code></h5>
+                                    <ul>
+                                        <li>Standard FASTA format with one or more sequences (one per segment for multi-segment viruses).</li>
+                                        <li>Sequences must contain <strong>only IUPAC nucleotide characters</strong>: <code>A C G T U R Y S W K M B D H V N</code> and gap <code>-</code>. Any other character causes the upload to be rejected.</li>
+                                        <li>The header line (<code>&gt;identifier</code>) is used as the reference ID throughout the analysis.</li>
+                                    </ul>
+
+                                    <h5 class="mt-3">Proteome <code>.fasta / .fa / .faa</code></h5>
+                                    <ul>
+                                        <li>Multi-FASTA file where each entry is one protein (ORF) encoded in the reference genome.</li>
+                                        <li>Sequences must contain <strong>only standard one-letter amino acid codes</strong>: <code>A C D E F G H I K L M N P Q R S T V W Y X *</code> and gap <code>-</code>. Any other character is rejected.</li>
+                                        <li>Header lines must be consistent with the ORF annotations used internally.</li>
+                                    </ul>
+
+                                    <h5 class="mt-3">MSA file <code>.txt / .fasta / .fa / .aln / .clustal</code></h5>
+                                    <ul>
+                                        <li>A <strong>pre-computed</strong> multiple sequence alignment of the genomes you wish to compare.</li>
+                                        <li>Accepted formats: <strong>ClustalW</strong> (preferred) or multi-FASTA. The reference sequence must be included.</li>
+                                        <li>All sequences must be the same length (padded with <code>-</code> where necessary). Tools such as MAFFT, MUSCLE or ClustalW can generate these alignments.</li>
+                                        <li>Genome IDs in the MSA header lines are extracted automatically and offered as autocomplete suggestions in the analysis form.</li>
+                                    </ul>
+
+                                    <div class="alert alert-warning mt-3">
+                                        <i class="fas fa-exclamation-triangle me-2"></i>
+                                        <strong>File validation:</strong> VARIANT validates the biological content of every upload. Files containing invalid characters are rejected immediately with a description of the offending characters.
                                     </div>
-                                    
+                                </section>
+
+                                <!-- Built-in vs Custom -->
+                                <section id="help-builtin" class="mb-5">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Built-in viruses vs Custom viruses</h2>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="card h-100">
-                                                <div class="card-body">
-                                                    <h4 class="text-primary mb-3">Key Capabilities</h4>
-                                                    <ul class="list-unstyled">
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Multi-sequence alignment analysis</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mutation detection and classification</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Hot and row mutation identification</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Frameshift site detection</li>
-                                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Protein-level impact analysis</li>
-                                                    </ul>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card h-100 border-primary">
+                                                <div class="card-header bg-primary text-white">Built-in viruses</div>
+                                                <div class="card-body small">
+                                                    <p>SARS-CoV-2, HIV-1, Chikungunya, ZaireEbola and H3N2 ship with curated reference genomes and proteomes. These <strong>cannot be replaced</strong> through the upload form — doing so would corrupt the shared reference for all users.</p>
+                                                    <p>You <em>can</em> upload additional MSA files for built-in viruses to run comparative analyses on your own sequence cohorts.</p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="card h-100">
-                                                <div class="card-body">
-                                                    <h4 class="text-primary mb-3">Supported Viruses</h4>
-                                                    <ul class="list-unstyled">
-                                                        <li class="mb-2"><i class="fas fa-virus text-info me-2"></i>Single-segment viruses (SARS-CoV-2, HIV-1, etc.)</li>
-                                                        <li class="mb-2"><i class="fas fa-virus text-info me-2"></i>Multi-segment viruses (Influenza H3N2, etc.)</li>
-                                                        <li class="mb-2"><i class="fas fa-virus text-info me-2"></i>Custom virus definitions</li>
-                                                    </ul>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card h-100 border-success">
+                                                <div class="card-header bg-success text-white">Custom viruses</div>
+                                                <div class="card-body small">
+                                                    <p>Use the <em>Custom Virus</em> panel (Data Upload tab) to register any virus not in the built-in list. You must supply all three files: reference genome, proteome and MSA.</p>
+                                                    <p>Custom viruses support single-segment and multi-segment configurations. Name them clearly — the name is used as a directory label and in all output filenames.</p>
+                                                    <p><strong>Example use cases:</strong> human mtDNA, bacteriophages, novel emerging pathogens, custom SARS-CoV-2 subsets.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </section>
 
+                                <!-- Output files -->
+                                <section id="help-output" class="mb-5">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Output files</h2>
+                                    <p>All output is written to <code>result/{virus_name}/</code> and can be downloaded as a ZIP from the History tab.</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-sm">
+                                            <thead class="table-light">
+                                                <tr><th>File</th><th>Description</th><th>Key columns</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><code>{genome_id}_mutation_summary.csv</code></td>
+                                                    <td>One row per mutated position in the query genome</td>
+                                                    <td>Position, Reference NT, Query NT, Amino-acid change, Protein, Effect type</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><code>{genome_id}_row_hot_mutations.csv</code></td>
+                                                    <td>Clustered and recurring mutation sites</td>
+                                                    <td>Position, Mutation type (hot / row), Frequency, Affected proteins</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><code>{genome_id}.txt</code></td>
+                                                    <td>Full per-genome mutation detail (plain text)</td>
+                                                    <td>Human-readable SNP list with codon context</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><code>potential_PRF.csv</code></td>
+                                                    <td>Candidate programmed ribosomal frameshifting sites</td>
+                                                    <td>Position, Slippery sequence, Predicted shift direction, Score</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+
+                                <!-- Visualizations -->
+                                <section id="help-viz" class="mb-5">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Visualizations</h2>
+                                    <p>After a completed analysis, open the <em>Analysis &amp; Visualization</em> tab, select the virus (and optionally a genome ID) in the <em>Generate Visualization</em> panel, then click the button. Three interactive Plotly HTML plots are displayed:</p>
+                                    <ul>
+                                        <li><strong>Mutation Analysis</strong> — genome-wide overview with per-protein mutation bars. Hover over each bar for position-level detail.</li>
+                                        <li><strong>Row / Hot Mutations</strong> — highlights mutation clusters (row) and high-frequency sites (hot) across the proteome.</li>
+                                        <li><strong>PRF Regions</strong> — shows predicted frameshifting sites along the genome with confidence scores.</li>
+                                    </ul>
+                                    <p>All three plots are interactive: zoom, pan, hover tooltips, and download as PNG via the Plotly toolbar. Switching to a different virus re-generates all three plots fresh.</p>
+                                </section>
+
+                                <!-- RNA Dual Graph -->
+                                <section id="help-dualgraph" class="mb-5">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">RNA Dual Graph tab</h2>
+                                    <p>The <em>RNA Dual Graph</em> tab assigns a topology ID to an RNA secondary structure described in dot-bracket notation.</p>
+                                    <h6>Input format (dot-bracket)</h6>
+                                    <pre class="bg-light p-3 rounded small">&gt;MY_RNA
+AUGCAUGCAUGCAUGC
+((((....))))....</pre>
+                                    <ul>
+                                        <li>Line 1: sequence name (preceded by <code>&gt;</code>).</li>
+                                        <li>Line 2: nucleotide sequence (A, U, G, C).</li>
+                                        <li>Line 3: dot-bracket structure. Supported brackets: <code>( )</code>, <code>[ ]</code>, <code>{ }</code>.</li>
+                                        <li>Use <code>&amp;</code> to separate strands in a multi-strand structure.</li>
+                                    </ul>
+                                    <p>The pipeline runs: dot-bracket → DSSR format → CT file → dual graph library match by Laplacian eigenvalue + graph isomorphism. Matched topology IDs are shown in a table; click <em>Plot</em> to display the dual graph topology.</p>
+                                </section>
+
+                                <!-- FAQ -->
+                                <section id="help-faq" class="mb-5">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Frequently asked questions</h2>
+
+                                    <div class="accordion" id="faqAccordion">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Why is the Start Analysis button disabled?</button></h2>
+                                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                                <div class="accordion-body">The button is enabled only when all three required files (reference genome, proteome, MSA) have been uploaded for the selected virus. Check the upload checklist on the Data Upload tab.</div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">I uploaded SARS-CoV-2 data and labeled it as an existing virus — the output looked wrong.</button></h2>
+                                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                                <div class="accordion-body">Built-in viruses use their own curated reference genome and proteome regardless of what MSA you upload. If you want to analyse a different organism, create a <strong>Custom Virus</strong> and upload all three files. Uploading a reference genome or proteome for a built-in virus is now blocked by the server with an explanatory error message.</div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">My upload was rejected with a character validation error.</button></h2>
+                                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                                <div class="accordion-body">VARIANT validates file content: reference genome files must contain only IUPAC nucleotide characters and proteome files must contain only standard amino acid characters. Remove or correct the flagged characters before re-uploading. Common causes: protein sequences uploaded as reference genome (wrong slot), quality scores or metadata mixed into sequence lines, or Windows-style whitespace.</div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">My analysis failed — what does the error message mean?</button></h2>
+                                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                                <div class="accordion-body">Error messages are shown in the History tab next to the failed job. Common errors: <em>"No MSA file configured"</em> means the upload checklist is incomplete; <em>"Reference genome file is missing"</em> means the custom virus config has no reference genome set (re-upload the file). Contact the server administrator if errors persist.</div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">The visualization panel is stuck showing a previous virus.</button></h2>
+                                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                                <div class="accordion-body">Each time you click <em>Generate All Visualizations</em> the plots are regenerated with a fresh timestamp so the browser does not cache old content. If you still see stale content, perform a hard refresh (Ctrl+Shift+R / Cmd+Shift+R).</div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">My download link from the History tab fails.</button></h2>
+                                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                                <div class="accordion-body">Job records are now persisted to disk and survive server restarts. If a download still fails, the result files may have been deleted from the server (result directories are shared and overwritten by subsequent analyses of the same virus). Re-run the analysis and download immediately after completion.</div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">How do I analyse a new organism not in the built-in list (e.g. human mtDNA)?</button></h2>
+                                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                                <div class="accordion-body"><ol class="mb-0"><li>Click <em>Create Custom Virus</em> in the Data Upload tab and choose <em>single-segment</em>.</li><li>Upload your reference genome (the mitochondrial genome FASTA).</li><li>Upload your proteome (all mitochondrially encoded protein sequences in one FASTA).</li><li>Upload your MSA (ClustalW alignment of the genomes you want to compare).</li><li>Switch to the Analysis tab, select your custom virus, and run the analysis.</li></ol></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Contact -->
+                                <section class="mb-4">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Contact &amp; citation</h2>
+                                    <p>For bug reports, feature requests or questions, contact <a href="mailto:rw3594@nyu.edu">rw3594@nyu.edu</a> or open an issue on <a href="https://github.com/wangru25/VARIANT" target="_blank">GitHub</a>.</p>
+                                </section>
+
                                 <!-- Features -->
-                                <section id="features" class="mb-5">
+                                <section id="features" class="mb-5 d-none">
                                     <div class="border-bottom border-3 border-primary pb-3 mb-4">
                                         <h2 class="text-primary mb-3">Features</h2>
                                     </div>
@@ -1308,7 +1622,8 @@
                                     </div>
                                 </section>
 
-                                <!-- Visualization Features -->
+                                <!-- OLD MARKETING SECTIONS — commented out, not deleted
+                                
                                 <section id="visualization" class="mb-5">
                                     <div class="border-bottom border-3 border-primary pb-3 mb-4">
                                         <h2 class="text-primary mb-3">Interactive Visualizations</h2>
@@ -1397,7 +1712,7 @@
                                     </div>
                                 </section>
 
-                                <!-- Usage Guide -->
+                                
                                 <section id="usage" class="mb-5">
                                     <div class="border-bottom border-3 border-primary pb-3 mb-4">
                                         <h2 class="text-primary mb-3">Usage Guide</h2>
@@ -1466,7 +1781,7 @@
                                     </div>
                                 </section>
 
-                                <!-- Output Files -->
+                                
                                 <section id="output-files" class="mb-5">
                                     <div class="border-bottom border-3 border-primary pb-3 mb-4">
                                         <h2 class="text-primary mb-3">Output Files</h2>
@@ -1511,7 +1826,7 @@
 
 
 
-                                <!-- Contributing -->
+                                
                                 <section id="contributing" class="mb-5">
                                     <div class="border-bottom border-3 border-primary pb-3 mb-4">
                                         <h2 class="text-primary mb-3">Contributing</h2>
@@ -1564,7 +1879,7 @@
                                     </div>
                                 </section>
                                 
-                                <!-- Sample Output Section -->
+                                
                                 <section id="sample-results" class="mb-5">
                                     <div class="border-bottom border-3 border-primary pb-3 mb-4">
                                         <h2 class="text-primary mb-3">Sample Output Files</h2>
@@ -1614,6 +1929,8 @@
                                         </div>
                                     </div>
                                 </section>
+
+                                -->
                             </div>
                         </div>
                     </div>
@@ -1718,22 +2035,28 @@
                 if (event.target && event.target.id === 'virusSelect') {
                     console.log('Virus selection changed to:', event.target.value);
                     handleVirusSelection(event.target, 'segmentSelector', 'segmentSelect');
-                    
+
                     // Load genome IDs for the selected virus
                     if (event.target.value) {
                         console.log('Calling loadGenomeIds for:', event.target.value);
                         loadGenomeIds(event.target.value);
+                        checkAnalysisReady(event.target.value);
                     } else {
+                        document.getElementById('analysisBtn').disabled = true;
+                        document.getElementById('analysisBtnHint').style.display = '';
                         console.log('No virus selected, skipping loadGenomeIds');
                     }
                 } else if (event.target && event.target.id === 'historyVirusSelect') {
                     console.log('History virus selection changed to:', event.target.value);
-                    
+
                     // Load genome IDs for the selected virus
                     if (event.target.value) {
                         console.log('Calling loadGenomeIds for history virus:', event.target.value);
                         loadGenomeIds(event.target.value);
+                        checkVizReady(event.target.value);
                     } else {
+                        document.getElementById('generateVizBtn').disabled = true;
+                        document.getElementById('generateVizHint').style.display = '';
                         console.log('No history virus selected, skipping loadGenomeIds');
                     }
                 }
@@ -1752,6 +2075,14 @@
             // File type selection
             document.getElementById('fileTypeSelect').addEventListener('change', function() {
                 updateFileInputAccept(this.value);
+            });
+
+            // Reload genome IDs when MSA file selection changes
+            document.getElementById('msaFileSelect').addEventListener('change', function() {
+                const virusName = document.getElementById('virusSelect').value;
+                if (virusName) {
+                    loadGenomeIds(virusName, this.value || null);
+                }
             });
             
             // Load stored virus selection and genome IDs
@@ -1840,7 +2171,16 @@
                         
                         // Load genome IDs for the selected virus
                         loadGenomeIds(virusInfo.virus);
-                        
+
+                        // Restore upload checklist and CTA on revisit
+                        updateUploadChecklist(virusInfo.virus, virusInfo.segment || null);
+
+                        // Also pre-select the upload virus dropdown so the checklist is visible
+                        const uploadVirusSelect = document.getElementById('uploadVirusSelect');
+                        if (uploadVirusSelect && virusInfo.virus) {
+                            uploadVirusSelect.value = virusInfo.virus;
+                        }
+
                         console.log('Loaded stored virus selection:', virusInfo);
                     } else if (virusSelect && virusSelect.value) {
                         // If virusSelect already has a value, just load genome IDs for it
@@ -1854,10 +2194,85 @@
         }
         
         // Load genome IDs for a specific virus
-        async function loadGenomeIds(virusName) {
-            console.log(`loadGenomeIds called with virus: ${virusName}`);
+        async function checkVizReady(virusName) {
+            const btn = document.getElementById('generateVizBtn');
+            const hint = document.getElementById('generateVizHint');
+            if (!virusName) { btn.disabled = true; hint.style.display = ''; return; }
             try {
-                const response = await fetch(`/api/genome-ids/${virusName}`);
+                const response = await fetch(`/api/result-files/${virusName}`);
+                const data = await response.json();
+                const hasResults = (data.files || []).length > 0;
+                btn.disabled = !hasResults;
+                hint.style.display = hasResults ? 'none' : '';
+                if (!hasResults) {
+                    hint.textContent = 'No completed analysis results found for this virus. Run an analysis first.';
+                    return;
+                }
+                // Try to auto-load any existing visualization HTML files
+                autoLoadVizHtml(virusName);
+            } catch (e) {
+                btn.disabled = true;
+                hint.style.display = '';
+            }
+        }
+
+        async function autoLoadVizHtml(virusName) {
+            try {
+                const r = await fetch(`/api/viz-html/${virusName}`);
+                const d = await r.json();
+                const hasAny = d.mutation || d.row_hot || d.prf;
+                if (!hasAny) return;
+
+                // Show the embed panel
+                const content = document.getElementById('interactiveVizContent');
+                const embed   = document.getElementById('visualizationEmbed');
+                if (content) content.style.display = 'none';
+                if (embed)   embed.style.display   = 'block';
+
+                // Update button label to show charts already loaded
+                const btn = document.getElementById('generateVizBtn');
+                if (btn) btn.innerHTML = '<i class="fas fa-sync-alt me-2"></i> Regenerate Visualizations';
+
+                const typeMap = { mutation: 'mutationFrame', row_hot: 'rowHotFrame', prf: 'prfFrame' };
+                for (const [type, frameId] of Object.entries(typeMap)) {
+                    const filename = d[type];
+                    if (!filename) continue;
+                    const frame = document.getElementById(frameId);
+                    if (frame) {
+                        frame.src = `/api/visualization-files/${virusName}/${filename}?t=${Date.now()}`;
+                    }
+                }
+                // Scroll into view so the user notices the charts loaded
+                embed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } catch (e) { /* silently ignore — user can still click Generate */ }
+        }
+
+        async function checkAnalysisReady(virusName) {
+            const btn = document.getElementById('analysisBtn');
+            const hint = document.getElementById('analysisBtnHint');
+            if (!virusName) { btn.disabled = true; hint.style.display = ''; return; }
+            try {
+                const response = await fetch(`/api/data-files/${virusName}`);
+                const data = await response.json();
+                const files = data.files || [];
+                const hasAll = ['reference_genome', 'proteome', 'msa'].every(
+                    t => files.some(f => f.type === t)
+                );
+                btn.disabled = !hasAll;
+                hint.style.display = hasAll ? 'none' : '';
+                if (!hasAll) hint.textContent = 'Upload all 3 required files (reference genome, proteome, MSA) to enable analysis.';
+            } catch (e) {
+                btn.disabled = true;
+                hint.style.display = '';
+            }
+        }
+
+        async function loadGenomeIds(virusName, msaFile = null) {
+            console.log(`loadGenomeIds called with virus: ${virusName}, msaFile: ${msaFile}`);
+            try {
+                let url = `/api/genome-ids/${virusName}`;
+                if (msaFile) url += `?msa_file=${encodeURIComponent(msaFile)}`;
+                const response = await fetch(url);
                 console.log(`API response status: ${response.status}`);
                 if (response.ok) {
                     const data = await response.json();
@@ -2099,6 +2514,9 @@
             console.log('rowHotFrame:', document.getElementById('rowHotFrame'));
             console.log('prfFrame:', document.getElementById('prfFrame'));
             
+            // After fresh generation, update button label
+            const btn = document.getElementById('generateVizBtn');
+            if (btn) btn.innerHTML = '<i class="fas fa-sync-alt me-2"></i> Regenerate Visualizations';
             showNotification('All visualizations generated successfully!', 'success');
         }
         
@@ -2121,8 +2539,10 @@
             console.log(`Found iframe:`, iframe);
             
             if (iframe) {
-                console.log(`Setting iframe src to: ${filePath}`);
-                iframe.src = filePath;
+                // Append cache-busting param so the browser reloads the plot on every generation
+                const cacheBust = `?t=${Date.now()}`;
+                console.log(`Setting iframe src to: ${filePath}${cacheBust}`);
+                iframe.src = filePath + cacheBust;
                 console.log(`${type} iframe src set to:`, iframe.src);
                 
                 iframe.onload = function() {
@@ -2384,57 +2804,72 @@
             const isCustomVirus = selectedOption && selectedOption.dataset.isCustom === 'true';
             formData.append('is_custom_virus', isCustomVirus);
             
+            // Show progress bar
+            const progressContainer = document.getElementById('uploadProgressContainer');
+            const progressBar = document.getElementById('uploadProgressBar');
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+            progressBar.textContent = '0%';
+            progressBar.setAttribute('aria-valuenow', 0);
+
             try {
-                const response = await fetch('/api/upload-data', {
-                    method: 'POST',
-                    body: formData
+                await new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/api/upload-data');
+
+                    xhr.upload.addEventListener('progress', (e) => {
+                        if (e.lengthComputable) {
+                            const pct = Math.round((e.loaded / e.total) * 100);
+                            progressBar.style.width = pct + '%';
+                            progressBar.textContent = pct + '%';
+                            progressBar.setAttribute('aria-valuenow', pct);
+                        }
+                    });
+
+                    xhr.addEventListener('load', () => {
+                        progressContainer.style.display = 'none';
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            const result = JSON.parse(xhr.responseText);
+                            showUploadMessage(`File uploaded successfully: ${result.filename}`, 'success');
+
+                            const selectedVirusInfo = {
+                                virus: virusName,
+                                segment: segment || null,
+                                fileType: fileType,
+                                uploadedFilename: result.filename
+                            };
+                            console.log('Storing virus info for analysis:', selectedVirusInfo);
+                            localStorage.setItem('selectedVirusForAnalysis', JSON.stringify(selectedVirusInfo));
+                            localStorage.removeItem('selectedVirus');
+
+                            const currentVirusName = virusName;
+                            const currentSegment = segment;
+                            updateUploadChecklist(currentVirusName, currentSegment);
+
+                            const dataFilesVirusSelect = document.getElementById('dataFilesVirusSelect');
+                            if (dataFilesVirusSelect && dataFilesVirusSelect.value === currentVirusName) {
+                                loadDataFiles(currentVirusName);
+                            }
+                            document.getElementById('dataUploadForm').reset();
+                            resolve();
+                        } else {
+                            const error = JSON.parse(xhr.responseText);
+                            showUploadMessage(`Upload failed: ${error.detail}`, 'error');
+                            reject(new Error(error.detail));
+                        }
+                    });
+
+                    xhr.addEventListener('error', () => {
+                        progressContainer.style.display = 'none';
+                        showUploadMessage('Error uploading file', 'error');
+                        reject(new Error('Network error'));
+                    });
+
+                    xhr.send(formData);
                 });
-                
-                if (response.ok) {
-                    const result = await response.json();
-                    
-                    // Show success message under upload button
-                    const successMessage = `File uploaded successfully: ${result.filename}`;
-                    showUploadMessage(successMessage, 'success');
-                    
-                    // Store selected virus information for analysis page
-                    const selectedVirusInfo = {
-                        virus: virusName,
-                        segment: segment || null,
-                        fileType: fileType,
-                        uploadedFilename: result.filename  // Store the uploaded filename
-                    };
-                    console.log('Storing virus info for analysis:', selectedVirusInfo);
-                    localStorage.setItem('selectedVirusForAnalysis', JSON.stringify(selectedVirusInfo));
-                    
-                    // Clear any previously stored virus selection to avoid conflicts
-                    localStorage.removeItem('selectedVirus');
-                    
-                    // Store virus name and segment before form reset
-                    const currentVirusName = virusName;
-                    const currentSegment = segment;
-                    
-                    // Update checklist with stored values
-                    updateUploadChecklist(currentVirusName, currentSegment);
-                    
-                    // Show "Continue to Analysis" button only when all files are uploaded
-                    // The button will be shown in updateUploadChecklist when all checkboxes are checked
-                    
-                    // Refresh file lists before resetting form
-                    const dataFilesVirusSelect = document.getElementById('dataFilesVirusSelect');
-                    if (dataFilesVirusSelect && dataFilesVirusSelect.value === currentVirusName) {
-                        loadDataFiles(currentVirusName);
-                    }
-                    
-                    // Reset form after all operations are complete
-                    document.getElementById('dataUploadForm').reset();
-                } else {
-                    const error = await response.json();
-                    showUploadMessage(`Upload failed: ${error.detail}`, 'error');
-                }
             } catch (error) {
+                progressContainer.style.display = 'none';
                 console.error('Error uploading file:', error);
-                showUploadMessage('Error uploading file', 'error');
             }
         }
         
@@ -2453,19 +2888,7 @@
                     document.getElementById('checkRefGenome').checked = false;
                     document.getElementById('checkProteome').checked = false;
                     document.getElementById('checkMSA').checked = false;
-                    
-                    updateCheckboxStyle('checkRefGenome', false);
-                    updateCheckboxStyle('checkProteome', false);
-                    updateCheckboxStyle('checkMSA', false);
-                    return;
-                }
-                
-                if (isMultiSegment && !selectedSegment) {
-                    // Multi-segment virus but no segment selected - uncheck all
-                    document.getElementById('checkRefGenome').checked = false;
-                    document.getElementById('checkProteome').checked = false;
-                    document.getElementById('checkMSA').checked = false;
-                    
+
                     updateCheckboxStyle('checkRefGenome', false);
                     updateCheckboxStyle('checkProteome', false);
                     updateCheckboxStyle('checkMSA', false);
@@ -2740,44 +3163,54 @@
             if (statusCheckInterval) {
                 clearInterval(statusCheckInterval);
             }
-            
+
+            // Stop polling after 10 minutes to avoid running forever
+            const pollTimeout = setTimeout(() => {
+                clearInterval(statusCheckInterval);
+                currentJobId = null;
+                document.getElementById('loadingSpinner').style.display = 'none';
+                showNotification('⏱ Polling stopped after 10 minutes. Check the History tab for job status.', 'warning');
+            }, 600000);
+
             statusCheckInterval = setInterval(async () => {
-                if (!currentJobId) return;
-                
+                if (!currentJobId) { clearTimeout(pollTimeout); return; }
+
                 try {
                     const response = await fetch(`/api/job/${currentJobId}`);
                     const job = await response.json();
-                    
+
                     // Update status display in real-time
                     const statusDisplay = document.getElementById('jobStatusDisplay');
-                    const statusClass = job.status === 'completed' ? 'success' : 
+                    const statusClass = job.status === 'completed' ? 'success' :
                                       job.status === 'failed' ? 'danger' : 'warning';
                     statusDisplay.textContent = job.status.charAt(0).toUpperCase() + job.status.slice(1);
                     statusDisplay.className = `badge bg-${statusClass}`;
-                    
+
                     if (job.status === 'completed') {
                         clearInterval(statusCheckInterval);
+                        clearTimeout(pollTimeout);
                         document.getElementById('loadingSpinner').style.display = 'none';
                         document.getElementById('resultsSection').style.display = 'block';
-                        
+
                         // Update job information display in History tab
                         document.getElementById('jobIdDisplay').textContent = job.job_id;
                         document.getElementById('jobStatusDisplay').textContent = 'Completed';
                         document.getElementById('jobStatusDisplay').className = 'badge bg-success';
                         document.getElementById('jobCreatedDisplay').textContent = new Date(job.created_at).toLocaleString();
                         document.getElementById('jobVirusDisplay').textContent = job.virus_name;
-                        
+
                         showNotification('🎉 Analysis completed successfully! Check the History tab for results.', 'success');
                         loadJobHistory();
                         currentJobId = null;
                     } else if (job.status === 'failed') {
                         clearInterval(statusCheckInterval);
+                        clearTimeout(pollTimeout);
                         document.getElementById('loadingSpinner').style.display = 'none';
-                        
+
                         // Update job information display for failed status in History tab
                         document.getElementById('jobStatusDisplay').textContent = 'Failed';
                         document.getElementById('jobStatusDisplay').className = 'badge bg-danger';
-                        
+
                         showNotification(`❌ Analysis failed: ${job.error}. Check the History tab for details.`, 'error');
                         currentJobId = null;
                     }
@@ -3118,23 +3551,33 @@
                 
                 let html = '';
                 data.jobs.forEach(job => {
-                    const statusClass = job.status === 'completed' ? 'success' : 
+                    const statusClass = job.status === 'completed' ? 'success' :
                                       job.status === 'failed' ? 'danger' : 'warning';
-                    const statusIcon = job.status === 'completed' ? 'check-circle' : 
+                    const statusIcon = job.status === 'completed' ? 'check-circle' :
                                      job.status === 'failed' ? 'times-circle' : 'clock';
-                    
-                    // Add download button for completed jobs
-                    const downloadButton = job.status === 'completed' ? 
+
+                    const isDualGraph = job.virus_name && job.virus_name.startsWith('dual_graph:');
+                    const structureId = isDualGraph ? job.virus_name.replace('dual_graph:', '') : '';
+                    const displayName = isDualGraph
+                        ? `<i class="fas fa-project-diagram text-primary me-1"></i> RNA Dual Graph`
+                        : job.virus_name;
+                    const subLabel = isDualGraph
+                        ? `<small class="text-muted">Structure: ${structureId}</small><br>`
+                        : '';
+
+                    // Download button only for virus analysis jobs (not dual graph)
+                    const downloadButton = (job.status === 'completed' && !isDualGraph) ?
                         `<button class="btn btn-primary btn-sm ms-2" onclick="downloadJobResultsById('${job.job_id}')">
                             <i class="fas fa-download"></i> Download Results
                         </button>` : '';
-                    
+
                     html += `
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h6 class="mb-1">${job.virus_name}</h6>
+                                        <h6 class="mb-1">${displayName}</h6>
+                                        ${subLabel}
                                         <small class="text-muted">Job ID: ${job.job_id}</small>
                                         <br>
                                         <small class="text-muted">Created: ${new Date(job.created_at).toLocaleString()}</small>
@@ -3200,22 +3643,28 @@
         async function loadSampleData() {
             try {
                 showNotification('Loading sample data...', 'info');
-                
-                // Set sample virus
-                document.getElementById('uploadVirusSelect').value = 'SARS-CoV-2';
-                
-                // Trigger virus selection event
-                const event = new Event('change');
-                document.getElementById('uploadVirusSelect').dispatchEvent(event);
-                
-                showNotification('✅ Sample data loaded! SARS-CoV-2 is now selected. You can now upload your own files or proceed to analysis.', 'success');
-                
-                // Switch to Analysis tab
-                const analysisTab = document.querySelector('button[data-bs-target="#analysis"]');
-                if (analysisTab) {
-                    analysisTab.click();
+
+                // Grant session access to SARS-CoV-2 built-in data
+                const resp = await fetch('/api/load-sample-data?virus_name=SARS-CoV-2', { method: 'POST' });
+                if (!resp.ok) {
+                    const err = await resp.json().catch(() => ({}));
+                    showNotification('❌ ' + (err.detail || 'Failed to load sample data'), 'error');
+                    return;
                 }
-                
+
+                // Select SARS-CoV-2 on the upload tab
+                const uploadSelect = document.getElementById('uploadVirusSelect');
+                if (uploadSelect) {
+                    uploadSelect.value = 'SARS-CoV-2';
+                    uploadSelect.dispatchEvent(new Event('change'));
+                }
+
+                // Give the change handler a moment, then refresh the checklist
+                await new Promise(r => setTimeout(r, 300));
+                await updateUploadChecklist('SARS-CoV-2');
+
+                showNotification('✅ SARS-CoV-2 sample data is ready. All built-in reference files are pre-loaded. Upload an MSA file to run analysis, or switch to the Analysis tab if one is already available.', 'success');
+
             } catch (error) {
                 console.error('Error loading sample data:', error);
                 showNotification('❌ Error loading sample data', 'error');
@@ -3387,8 +3836,132 @@
         }
         
 
+        // ── RNA Dual Graph ──────────────────────────────────────────────────────
+        document.getElementById('dgDbnFile').addEventListener('change', function() {
+            if (this.files[0]) {
+                const stem = this.files[0].name.replace(/\.[^/.]+$/, ''); // strip extension
+                const id = stem.split('-')[0].split('_')[0].toUpperCase();  // e.g. 7LYJ-2D.dbn → 7LYJ
+                document.getElementById('dgStructureId').value = id || stem;
+            }
+        });
+
+        document.getElementById('dualGraphForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const structureId = document.getElementById('dgStructureId').value.trim() || 'MY_RNA';
+            const textPanel   = document.getElementById('dg-text-panel');
+            const fileInput   = document.getElementById('dgDbnFile');
+            const dbnText     = document.getElementById('dgDbnText').value.trim();
+            const useFile     = !textPanel.classList.contains('show');
+
+            if (!useFile && !dbnText) {
+                alert('Please paste a dot-bracket structure or upload a .dbn file.');
+                return;
+            }
+
+            // Reset UI
+            document.getElementById('dgSpinner').style.display = 'block';
+            document.getElementById('dgResults').style.display  = 'none';
+            document.getElementById('dgError').style.display    = 'none';
+
+            const formData = new FormData();
+            formData.append('structure_id', structureId);
+            if (useFile && fileInput.files[0]) {
+                formData.append('dbn_file', fileInput.files[0]);
+            } else {
+                formData.append('dbn_text', dbnText);
+            }
+
+            try {
+                const resp = await fetch('/api/dual-graph', { method: 'POST', body: formData });
+                if (!resp.ok) {
+                    const err = await resp.json();
+                    throw new Error(err.detail || 'Submission failed');
+                }
+                const data = await resp.json();
+                document.getElementById('dgJobId').textContent = data.job_id;
+                pollDualGraphJob(data.job_id);
+            } catch (err) {
+                document.getElementById('dgSpinner').style.display = 'none';
+                document.getElementById('dgError').style.display   = 'block';
+                document.getElementById('dgError').textContent     = 'Error: ' + err.message;
+            }
+        });
+
+        async function pollDualGraphJob(jobId) {
+            try {
+                const resp = await fetch(`/api/job/${jobId}`);
+                if (!resp.ok) throw new Error('Could not fetch job status');
+                const job = await resp.json();
+
+                if (job.status === 'completed') {
+                    document.getElementById('dgSpinner').style.display = 'none';
+                    document.getElementById('dgResults').style.display  = 'block';
+                    renderDualGraphResults(job.results);
+                } else if (job.status === 'failed') {
+                    document.getElementById('dgSpinner').style.display = 'none';
+                    document.getElementById('dgError').style.display   = 'block';
+                    document.getElementById('dgError').textContent     = 'Pipeline error: ' + (job.error || 'Unknown error');
+                } else {
+                    setTimeout(() => pollDualGraphJob(jobId), 2000);
+                }
+            } catch (err) {
+                setTimeout(() => pollDualGraphJob(jobId), 3000);
+            }
+        }
+
+        function renderDualGraphResults(results) {
+            const body = document.getElementById('dgResultsBody');
+            const assignments = results.graph_assignments || {};
+            const noCT        = results.no_ct || [];
+
+            if (Object.keys(assignments).length === 0 && noCT.length === 0) {
+                body.innerHTML = '<p class="text-muted">No dual graph assignments were produced. Check that your dot-bracket input contains base pairs.</p>';
+                return;
+            }
+
+            let html = '<table class="table table-bordered table-hover mt-2"><thead class="table-dark"><tr><th>Substructure</th><th>Dual Graph ID</th><th>Plot</th></tr></thead><tbody>';
+            for (const [fname, graphId] of Object.entries(assignments)) {
+                const isValid = /^\d+_\d+/.test(graphId);
+                const badge = isValid
+                    ? `<span class="badge bg-success fs-6">${graphId}</span>`
+                    : `<span class="badge bg-warning text-dark">${graphId}</span>`;
+                const plotBtn = isValid
+                    ? `<button class="btn btn-sm btn-outline-primary" onclick="showDualGraphPlot('${graphId}')">
+                           <i class="fas fa-project-diagram me-1"></i>Plot
+                       </button>`
+                    : `<span class="text-muted small">—</span>`;
+                html += `<tr><td><code>${fname}</code></td><td>${badge}</td><td>${plotBtn}</td></tr>`;
+            }
+            if (noCT.length > 0) {
+                html += `<tr class="table-danger"><td colspan="3"><i class="fas fa-exclamation-triangle me-1"></i> No CT file generated for: ${noCT.join(', ')}</td></tr>`;
+            }
+            html += '</tbody></table>';
+            html += '<p class="text-muted small mt-2"><i class="fas fa-info-circle me-1"></i> Graph IDs follow the <em>n_k</em> notation where <em>n</em> = number of vertices (helices) and <em>k</em> = topology index in the dual graph library.</p>';
+            html += '<div id="dgPlotContainer" class="mt-3" style="display:none;"><hr><h6 id="dgPlotTitle" class="fw-bold"></h6><img id="dgPlotImg" src="" alt="Dual graph plot" class="img-fluid rounded shadow-sm" style="max-width:420px;"></div>';
+            body.innerHTML = html;
+        }
+
+        async function showDualGraphPlot(graphId) {
+            const container = document.getElementById('dgPlotContainer');
+            const img       = document.getElementById('dgPlotImg');
+            const title     = document.getElementById('dgPlotTitle');
+            if (!container) return;
+
+            title.textContent = `Dual Graph  ${graphId}`;
+            img.src = '';
+            container.style.display = 'block';
+            img.alt = 'Loading…';
+
+            // Cache-bust only on first load; subsequent clicks reuse the cached PNG
+            img.src = `/api/dual-graph/plot/${graphId}?t=${Date.now()}`;
+            img.onload  = () => { img.alt = `Dual graph ${graphId}`; };
+            img.onerror = () => { img.alt = `Graph ${graphId} not found in library.`; };
+        }
+        // ── End RNA Dual Graph ───────────────────────────────────────────────
+
     </script>
-    
+
     <!-- Footer with License Information -->
     <footer class="bg-light mt-5 py-4">
         <div class="container">

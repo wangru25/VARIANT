@@ -9,6 +9,7 @@ dependencies:
   - pandas
   - pyyaml
   - plotly
+  - viennarna  # RNA secondary structure prediction for PRF analysis
   - pip
   - pip:
     - fuzzysearch==0.7.3 

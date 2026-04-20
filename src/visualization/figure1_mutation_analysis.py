@@ -797,6 +797,7 @@ class SimpleCombinedAnalyzer:
                                     'y': y_pos,
                                     'type': mutation['type'],
                                     'mutation': mutation['mutation'],
+                                    'nt_mutation': mutation['nt_mutation'],
                                     'position': mutation['position'],
                                     'gene': gene['name']
                                 })
@@ -841,6 +842,7 @@ class SimpleCombinedAnalyzer:
                                 'y': y_pos,
                                 'type': mutation['type'],
                                 'mutation': mutation['mutation'],
+                                'nt_mutation': mutation['nt_mutation'],
                                 'position': mutation['position'],
                                 'gene': gene['name']
                             })
@@ -873,7 +875,7 @@ class SimpleCombinedAnalyzer:
             colored_hover_texts = []
             mutation_color = self._get_mutation_color(mut_type)
             for mut in type_mutations:
-                hover_text = f"<b>Mutation: {mut['type']}</b><br>Position: {mut['position']}<br>Change: {mut['mutation']}<br>Gene: {mut['gene']}"
+                hover_text = f"<b>Mutation: {mut['type']}</b><br>Position: {mut['position']}<br>Nucleotide Change: {mut['nt_mutation']}<br>Protein Change: {mut['mutation']}<br>Gene: {mut['gene']}"
                 colored_text = f'<span style="background-color:{mutation_color}; color:white; padding:5px; border-radius:3px;">{hover_text}</span>'
                 colored_hover_texts.append(colored_text)
             

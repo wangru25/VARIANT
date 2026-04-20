@@ -90,8 +90,7 @@ class FrameshiftDetector:
         self.min_loop_length = 3
         self.max_loop_length = 10
 
-        # Literature-based scoring parameters
-        # Based on Plant et al. (2010) and Dinman (2012)
+        # Scoring parameters (TBD)
         self.slippery_site_weight = 0.6
         self.downstream_structure_weight = 0.3
         self.context_weight = 0.1
