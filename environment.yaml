@@ -9,6 +9,8 @@ dependencies:
   - pandas
   - pyyaml
   - plotly
+  - networkx
+  - python-igraph
   - viennarna  # RNA secondary structure prediction for PRF analysis
   - pip
   - pip:

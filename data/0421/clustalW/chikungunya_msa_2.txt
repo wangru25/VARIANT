@@ -1,0 +1,992 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+NC_004162.2                                                      ATGGCTGCGTGAGACACACGTAGCCTACCAGTTTCTTACTGCTCTACTCTGCAAAGCAAG	60
+MT526800.1|Chikungunya                                           -----TGCGTGACACACACGTAGCCTACCAGTTTCTTACTGCTCTACTCTGCAAAGCAAG	55
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	0
+                                                                                                                             
+
+NC_004162.2                                                      AGATTAAGAACCCATCATGGATCCTGTGTACGTGGACATAGACGCTGACAGCGCCTTTTT	120
+MT526800.1|Chikungunya                                           AGATTAATAACCCATCATGGATCCTGTGTACGTGGACATAGACGCTGACAGCGCCTTTTT	115
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	0
+                                                                                                                             
+
+NC_004162.2                                                      GAAGGCCCTGCAACGTGCGTACCCCATGTTTGAGGTGGAACCTAGGCAGGTCACACCGAA	180
+MT526800.1|Chikungunya                                           GAAGGCCCTGCAACGTGCGTACCCCATGTTTGAGGTGGAACCAAGGCAGGTCACACCGAA	175
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	0
+                                                                                                                             
+
+NC_004162.2                                                      TGACCATGCTAATGCTAGAGCGTTCTCGCATCTAGCTATAAAACTAATAGAGCAGGAAAT	240
+MT526800.1|Chikungunya                                           TGACCATGCCAATGCTAGAGCGTTTTCGCATCTAGCTATAAAACTAATAGAGCAGGAAAT	235
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	0
+                                                                                                                             
+
+NC_004162.2                                                      TGATCCCGACTCAACCATCCTGGATATTGGTAGTGCGCCAGCAAGGAGGATGATGTCGGA	300
+MT526800.1|Chikungunya                                           TGACCCCGACTCAACCATCCTGGATATCGGCAGTGCGCCAGCAAGGAGGATGATGTCGGA	295
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	0
+                                                                                                                             
+
+NC_004162.2                                                      CAGGAAGTACCACTGCGTTTGCCCGATGCGCAGTGCAGAAGATCCCGAGAGACTCGCCAA	360
+MT526800.1|Chikungunya                                           CAGGAAGTACCACTGCGTCTGCCCGATGCGCAGTGCGGAAGATCCCGAGAGACTCGCTAA	355
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      --GGAAGTACCACTGCGTCTGCCCGATGCGCAGCGCAGAAGATCCCGAGAGACTCGCCAG	58
+                                                                   **************** ************** ** ******************** * 
+
+NC_004162.2                                                      TTATGCGAGAAAGCTAGCATCTGCCGCAGGAAAAGTCCTGGACAGAAACATCTCTGGAAA	420
+MT526800.1|Chikungunya                                           TTATGCGAGAAAGCTAGCATCTGCCGCAGGAAAAGTCCTGGACAGAAACATCTCTGGAAA	415
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TTATGCGAGAAAGCTAGCATCTGCCGCAGGAAAAGTCCTGGACAGAAACATCTCTGGAAA	118
+                                                                 ************************************************************
+
+NC_004162.2                                                      GATCGGGGACTTACAAGCAGTAATGGCCGTGCCAGACACGGAGACGCCAACATTCTGCTT	480
+MT526800.1|Chikungunya                                           GATCGGGGACTTACAAGCAGTAATGGCCGTGCCAGACAAGGAGACGCCAACATTCTGCTT	475
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AATCGGGGACTTACAAGCAGTAATGGCCGTGCCAGACACGGAGACGCCGACATTCTGCTT	178
+                                                                  ************************************* ********* ***********
+
+NC_004162.2                                                      ACACACAGATGTATCATGTAGACAGAGAGCAGACGTCGCGATATACCAAGACGTCTATGC	540
+MT526800.1|Chikungunya                                           ACACACAGACGTCTCATGTAGACAGAGAGCAGACGTCGCTATATACCAAGACGTCTATGC	535
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACACACAGATGTCTCATGTAGACAGAGAGCAGACGTCGCGATATACCAAGACGTCTATGC	238
+                                                                 ********* ** ************************** ********************
+
+NC_004162.2                                                      TGTACACGCACCCACGTCGCTATACCACCAGGCGATTAAAGGGGTCCGATTGGCGTACTG	600
+MT526800.1|Chikungunya                                           TGTACACGCACCCACGTCGCTATACCACCAGGCGATTAAAGGGGTCCGAGTGGCGTACTG	595
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TATACACGCACCCACGTCGCTATACCACCAGGCGATTAAAGGGGTCCGAGTGGCGTACTG	298
+                                                                 * *********************************************** **********
+
+NC_004162.2                                                      GGTAGGGTTTGACACAACCCCGTTCATGTACAATGCCATGGCGGGTGCCTACCCCTCATA	660
+MT526800.1|Chikungunya                                           GGTTGGGTTCGACACAACCCCGTTCATGTACAATGCCATGGCGGGTGCCTACCCCTCATA	655
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGTAGGGTTCGACACAACCCCGTTCATGTACAATGCCATGGCGGGTGCCTACCCTTCATA	358
+                                                                 *** ***** ******************************************** *****
+
+NC_004162.2                                                      CTCGACAAATTGGGCAGATGAGCAGGTACTGAAGGCTAAGAACATAGGATTATGTTCAAC	720
+MT526800.1|Chikungunya                                           CTCGACAAACTGGGCAGATGAGCAGGTACTGAAGGCTAAGAACATAGGATTATGTTCAAC	715
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TTCGACAAACTGGGCAGATGAGCAGGTACTGAAGGCTAAGAACATAGGATTATGCTCAAC	418
+                                                                  ******** ******************************************** *****
+
+NC_004162.2                                                      AGACCTGACGGAAGGTAGACGAGGCAAATTGTCTATTATGAGAGGAAAAAAGCTAGAACC	780
+MT526800.1|Chikungunya                                           AGACCTGACGGAAGGTAGACGAGGCAAGTTGTCTATTATGAGAGGGAAAAAGCTAAAACC	775
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGACCTGACGGAAGGTAGACGAGGCAAACTGTCTATCATGAGAGGGAAAAAGCTAAAACC	478
+                                                                 ***************************  ******* ******** ********* ****
+
+NC_004162.2                                                      GTGCGACCGTGTGCTGTTCTCAGTAGGGTCAACGCTCTACCCGGAAAGCCGTAAGCTACT	840
+MT526800.1|Chikungunya                                           GTGCGACCGTGTGCTGTTCTCAGTAGGGTCAACGCTTTACCCGGAAAGCCGCAAGCTACT	835
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTGCGACCGTGTGCTGTTCTCAGTAGGGTCAACGCTCTACCCGGAAAGCCGTAAGCTACT	538
+                                                                 ************************************ ************** ********
+
+NC_004162.2                                                      TAAGAGCTGGCACCTACCATCGGTGTTCCATTTAAAGGGCAAGCTCAGCTTCACATGCCG	900
+MT526800.1|Chikungunya                                           TAAGAGCTGGCACCTGCCATCGGTGTTCCATTTAAAGGGCAAACTCAGCTTCACATGCCG	895
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TAAGAGCTGGCACCTACCATCGGTGTTCCATTTAAAGGGCAAACTCAGTTTCACATGCCG	598
+                                                                 *************** ************************** ***** ***********
+
+NC_004162.2                                                      CTGTGATACAGTGGTTTCGTGCGAAGGCTACGTCGTTAAGAGAATAACGATGAGCCCAGG	960
+MT526800.1|Chikungunya                                           CTGTGATACAGTGGTTTCGTGTGAGGGCTACGTCGTTAAGAGAATAACGATGAGCCCAGG	955
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CTGTGATACAGTGGTTTCGTGCGAGGGCTACGTCGTTAAGAGAATAACGATGAGCCCAGG	658
+                                                                 ********************* ** ***********************************
+
+NC_004162.2                                                      CCTTTACGGAAAAACCACAGGGTATGCGGTAACCCACCACGCAGACGGATTCCTGATGTG	1020
+MT526800.1|Chikungunya                                           CCTTTATGGAAAAACCACAGGGTATGCGGTAACCCACCACGCAGACGGATTCTTGATGTG	1015
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCTTTATGGAAAAACCACAGGGTATGCGGTAACCCACCATGCAGACGGGTTCCTGATGTG	718
+                                                                 ****** ******************************** ******** *** *******
+
+NC_004162.2                                                      CAAGACCACCGACACGGTTGACGGCGAAAGAGTGTCATTCTCGGTGTGCACGTACGTGCC	1080
+MT526800.1|Chikungunya                                           CAAGACTACCGACACGGTTGACGGCGAAAGAGTGTCATTCTCGGTGTGCACATACGTGCC	1075
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAAGACTACCGACACGGTTGACGGCGAAAGAGTATCATTCTCGGTGTGCACATACGTGCC	778
+                                                                 ****** ************************** ***************** ********
+
+NC_004162.2                                                      GGCGACCATTTGTGATCAAATGACCGGCATCCTTGCTACAGAAGTCACGCCGGAGGATGC	1140
+MT526800.1|Chikungunya                                           GGCGACCATTTGTGATCAAATGACCGGCATCCTTGCTACAGAAGTCACGCCGGAGGATGC	1135
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGCGACCATTTGTGATCAAATGACCGGCATCCTTGCTACAGAAGTCACGCCGGAGGATGC	838
+                                                                 ************************************************************
+
+NC_004162.2                                                      ACAGAAGCTGTTGGTGGGGCTGAACCAGAGAATAGTGGTTAACGGCAGAACGCAACGGAA	1200
+MT526800.1|Chikungunya                                           ACAGAAGCTGTTGGTGGGGCTGAACCAGAGAATAGTGGTTAACGGCAGAACGCAACGGAA	1195
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACAGAAGCTGTTGGTGGGGCTGAACCAGAGAATAGTGGTTAACGGCAGAACGCAACGGAA	898
+                                                                 ************************************************************
+
+NC_004162.2                                                      TACGAACACCATGAAAAACTATATGATTCCCGTGGTCGCCCAAGCCTTCAGTAAGTGGGC	1260
+MT526800.1|Chikungunya                                           TATGAACACCATGAAAAATTATCTGCTTCCCGTGGTCGCCCAAGCCTTCAGTAAGTGGGC	1255
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TACGAACACCATGAAAAACTATCTGCTTCCCGTGGTCGCCCAAGCCTTCAGTAAGTGGGC	958
+                                                                 ** *************** *** ** **********************************
+
+NC_004162.2                                                      AAAGGAGTGCCGGAAAGACATGGAAGATGAAAAACTCCTGGGGGTCAGAGAAAGAACACT	1320
+MT526800.1|Chikungunya                                           AAAGGAGTGCCGGAAAGACATGGAAGATGAAAAACTCCTGGGGGTCAGAGAAAGAACACT	1315
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TAAGGAGTGCCGGAAAGACATGGAAGATGAAAAACTCCTGGGGGTCAGAGAAAGAACTCT	1018
+                                                                  ******************************************************** **
+
+NC_004162.2                                                      GACCTGCTGCTGTCTATGGGCATTTAAGAAGCAGAAAACACACACGGTCTACAAGAGGCC	1380
+MT526800.1|Chikungunya                                           GACCTGCTGCTGTCTATGGGCATTTAAGAAGCAGAAAACACACACGGTCTACAAGAGGCC	1375
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GACCTGCTGCTGTCTATGGGCATTCAAAAAGCAGAAAACACACACGGTCTACAAGAGGCC	1078
+                                                                 ************************ ** ********************************
+
+NC_004162.2                                                      TGATACCCAGTCAATTCAGAAGGTTCAGGCCGAGTTTGACAGCTTTGTGGTACCGAGCCT	1440
+MT526800.1|Chikungunya                                           TGATACCCAGTCAATTCAGAAGGTTCAGGCCGAGTTTGACAGCTTTGTAGTACCGAGTCT	1435
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGATACCCAGTCAATTCAGAAGGTTCAGGCCGAGTTTGACAGCTTTGTGGTACCGAGTCT	1138
+                                                                 ************************************************ ******** **
+
+NC_004162.2                                                      GTGGTCGTCCGGGTTGTCAATCCCGTTGAGGACTAGAATCAAATGGTTGTTAAGCAAGGT	1500
+MT526800.1|Chikungunya                                           GTGGTCGTCCGGGTTGTCAATCCCTTTGAGGACTAGAATCAAATGGTTGTTAAGCAAGGT	1495
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTGGTCGTCCGGGTTGTCAATCCCTTTGAGGACTAGAATCAAATGGTTGTTAAGCAAGGT	1198
+                                                                 ************************ ***********************************
+
+NC_004162.2                                                      GCCAAAAACCGACCTGACCCCATACAGCGGGGACGCCCAAGAAGCCCGGGACGCAGAAAA	1560
+MT526800.1|Chikungunya                                           GCCAAAAACCGACCTGATCCCATACAGTGGAGACGCCCGAGAAGCCCGGGACGCAGAAAA	1555
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GCCAAAAACCGACCTGATCCCATACAGCGGGGACACCAAAGAAGCTCGGGACGCAGAAAA	1258
+                                                                 ***************** ********* ** *** **  ****** **************
+
+NC_004162.2                                                      AGAAGCAGAGGAAGAACGAGAAGCAGAACTGACTCTTGAAGCCCTACCACCCCTTCAGGC	1620
+MT526800.1|Chikungunya                                           AGAAGCAGAGGAAGAACGAGAAGCAGAACTGACTCGCGAAGCCTTACCACCTCTACAGGC	1615
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGAAGCAAAGGAAGAACGAGAAGCAGAACTGACTCGTGAAGCCCTACCACCTCTACAGGC	1318
+                                                                 ******* ***************************  ****** ******* ** *****
+
+NC_004162.2                                                      AGCACAGGAAGATGTTCAGGTCGAAATCGACGTGGAACAGCTTGAGGACAGAGCGGGTGC	1680
+MT526800.1|Chikungunya                                           AGCACAGGAAGATGTTCAGGTCGAAATCGACGTGGAACAGCTTGAGGACAGAGCGGGCGC	1675
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGCACAGGAAGATGTTCAGGTCGAAATCGACGTGGAACAGCTTGAGGACAGAGCGGGTGC	1378
+                                                                 ********************************************************* **
+
+NC_004162.2                                                      AGGAATAATAGAGACTCCGAGAGGAGCTATCAAAGTTACTGCCCAACCAACAGACCACGT	1740
+MT526800.1|Chikungunya                                           AGGAATAATAGAGACTCCGAGAGGAGCTATCAAAGTTACTGCCCAACCAACAGACCACGT	1735
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGGAATAATAGAGACTCCGAGAGGAGCTATCAAAGTTACTGCCCAACCAACAGACCACGT	1438
+                                                                  ***********************************************************
+
+NC_004162.2                                                      CGTGGGAGAGTACTTGGTTCTTTCCCCGCAGACCGTACTACGTAGCCAAAAGCTTAGCCT	1800
+MT526800.1|Chikungunya                                           CGTGGGAGAGTACCTGGTACTCTCCCCGCAGACCGTACTACGTAGCCAGAAGCTCAGTCT	1795
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGTGGGAGAGTACTTGGTTCTTTCCCCGCAGACCGTACTACGTAGCCAAAAGCTTAGCCT	1498
+                                                                 ************* **** ** ************************** ***** ** **
+
+NC_004162.2                                                      GATTCACGCTTTGGCGGAGCAAGTGAAGACGTGCACGCACAGCGGACGAGCAGGGAGGTA	1860
+MT526800.1|Chikungunya                                           GATTCACGCCTTGGCGGAGCAAGTGAAGACGTGCACGCACAACGGACGAGCAGGGAGGTA	1855
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GATTCACGCTTTGGCGGAGCAAGTGAAGACGTGCACGCACAGCGGACGAGCAGGGAGGTA	1558
+                                                                 ********* ******************************* ******************
+
+NC_004162.2                                                      TGCGGTCGAAGCGTACGACGGCAGAGTCCTAGTGCCCTCAGGCTACGCAATCTCGCCTGA	1920
+MT526800.1|Chikungunya                                           TGCGGTCGAAGCGTACGACGGCCGAGTCCTAGTGCCCTCAGGCTATGCAATCTCGCCTGA	1915
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGCGGTCGAAGCGTACGACGGCCGAGTCCTAGTGCCCTCAGGCTATGCAATCTCGCCTGA	1618
+                                                                 ********************** ********************** **************
+
+NC_004162.2                                                      AGACTTCCAGAGCCTAAGCGAAAGCGCAACGATGGTGTACAACGAAAGAGAGTTCGTAAA	1980
+MT526800.1|Chikungunya                                           AGACTTCCAGAGTCTAAGCGAAAGCGCAACGATGGTGTATAACGAAAGAGAGTTCGTAAA	1975
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGACTTCCAGAGTCTAAGCGAAAGCGCAACGATGGTGTATAACGAAAGAGAGTTCGTAAA	1678
+                                                                 ************ ************************** ********************
+
+NC_004162.2                                                      CAGAAAGCTACACCATATTGCGATGCATGGACCAGCCCTGAACACCGACGAAGAGTCGTA	2040
+MT526800.1|Chikungunya                                           CAGAAAGCTACACCATATTGCGATGCACGGACCAGCCCTGAACACCGACGAAGAGTCGTA	2035
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAGAAAGCTACACCATATTGCAATGCACGGACCAGCCCTGAACACCGACGAAGAGTCGTA	1738
+                                                                 ********************* ***** ********************************
+
+NC_004162.2                                                      TGAGCTGGTGAGGGCAGAGAGGACAGAACACGAGTACGTCTACGACGTGGACCAGAGAAG	2100
+MT526800.1|Chikungunya                                           TGAGCTGGTGAGGGCAGAGAGGACAGAATACGAGTACGTCTACGACGTGGATCAGAGAAG	2095
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGAGCTGGTGAGGGCAGAGAGGACAGAACACGAGTACGTCTACGATGTGGACCAGAGAAG	1798
+                                                                 **************************** **************** ***** ********
+
+NC_004162.2                                                      ATGCTGTAAGAAGGAAGAAGCTGCAGGACTGGTACTGGTGGGCGACTTGACTAATCCGCC	2160
+MT526800.1|Chikungunya                                           ATGCTGTAAGAAGGAAGAAGCCGCAGGACTGGTACTGGTGGGCGACTTGACTAATCCGCC	2155
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ATGCTGTAAGAAGGAAGAAGCTGCAGGACTGGTACTGGTGGGCGACTTGACTAATCCGCC	1858
+                                                                 ********************* **************************************
+
+NC_004162.2                                                      CTACCACGAATTCGCATATGAAGGGCTAAAAATCCGCCCTGCCTGCCCATACAAAATTGC	2220
+MT526800.1|Chikungunya                                           CTACCACGAATTCGCATATGAAGGGCTAAAAATCCGCCCTGCCTGCCCATACAAAATTGC	2215
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CTACCACGAATTCGCATACGAAGGGCTGAAAATCCGCCCTGCCTGCCCATACAAAATTGC	1918
+                                                                 ****************** ******** ********************************
+
+NC_004162.2                                                      AGTCATAGGAGTCTTCGGAGTACCAGGATCTGGCAAGTCAGCTATTATCAAGAACCTAGT	2280
+MT526800.1|Chikungunya                                           AGTCATAGGAGTCTTCGGAGTACCGGGATCTGGCAAGTCAGCTATTATCAAGAACCTAGT	2275
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGTCATAGGAGTCTTCGGAGTACCGGGATCTGGCAAGTCAGCTATTATCAAGAACCTAGT	1978
+                                                                 ************************ ***********************************
+
+NC_004162.2                                                      TACCAGGCAAGACCTGGTGACTAGCGGAAAGAAAGAAAACTGCCAAGAAATCACCACCGA	2340
+MT526800.1|Chikungunya                                           TACCAGGCAGGACCTGGTGACTAGTGGAAAGAAAAAAAACTGCCAAGAAATCACCACCGA	2335
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TACCAGGCAGGACCTGGTGACTAGCGGAAAGAAAGAAAATTGCCAAGAAATCACCACCGA	2038
+                                                                 ********* ************** ********* **** ********************
+
+NC_004162.2                                                      CGTGATGAGACAGAGAGGTCTAGAGATATCTGCACGTACGGTTGACTCGCTGCTCTTGAA	2400
+MT526800.1|Chikungunya                                           CGTGATGAGACAGAGAGGTCTAGAGATATCTGCACGTACGGTTGACTCGCTGCTCTTGAA	2395
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGTGATGAGACAGAGAGGTCTAGAGATATCTGCACGTACGGTTGATTCGCTGCTCTTGAA	2098
+                                                                 ********************************************* **************
+
+NC_004162.2                                                      TGGATGTAACAGACCAGTCGACGTGTTGTACGTAGACGAGGCGTTTGCGTGCCACTCTGG	2460
+MT526800.1|Chikungunya                                           TGGATGCAACAGACCAGTCGACGTGTTGTACGTAGACGAGGCGTTTGCGTGCCACTCTGG	2455
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGGATGTAACAGACCAGTCGACGTGTTGTACGTAGACGAGGCGTTTGCGTGCCACTCTGG	2158
+                                                                 ****** *****************************************************
+
+NC_004162.2                                                      AACGTTACTTGCATTGATCGCCTTGGTGAGACCAAGACAGAAAGTTGTACTTTGTGGTGA	2520
+MT526800.1|Chikungunya                                           AACGCTACTTGCTTTGATCGCCTTGGTGAGACCAAGGCAGAAAGTTGTACTTTGTGGTGA	2515
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AACGTTACTTGCTTTGATCGCCTTGGTTAGACCAAGGCAGAAAGTTGTACTTTGTGGCGA	2218
+                                                                 **** ******* ************** ******** ******************** **
+
+NC_004162.2                                                      CCCGAAGCAGTGCGGCTTCTTCAATATGATGCAGATGAAAGTCAACTATAATCACAACAT	2580
+MT526800.1|Chikungunya                                           CCCGAAGCAGTGCGGCTTCTTCAATATGATGCAGATGAAAGTCAACTACAATCACAACAT	2575
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCCGAAGCAGTGCGGCTTCTTCAATATGATGCAGATGAAAGTCAATTACAATCACAACAT	2278
+                                                                 ********************************************* ** ***********
+
+NC_004162.2                                                      CTGCACCCAAGTGTACCACAAAAGTATCTCCAGGCGGTGTACACTGCCTGTGACTGCCAT	2640
+MT526800.1|Chikungunya                                           CTGCACCCAAGTGTACCACAAAAGTATCTCCAGGCGGTGTACACTGCCTGTGACCGCCAT	2635
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CTGCACCCAAGTGTACCACAAAAGTATCTCCAGGCGGTGTACACTGCCTGTGACTGCCAT	2338
+                                                                 ****************************************************** *****
+
+NC_004162.2                                                      TGTGTCATCGTTGCATTACGAAGGCAAAATGCGCACTACGAATGAGTACAACAAGCCGAT	2700
+MT526800.1|Chikungunya                                           TGTGTCATCGTTGCATTACGAAGGCAAAATGCGCACTACGAATGAGTACAACAAGCCGAT	2695
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGTGTCATCGTTGCATTACGAAGGCAAAATGCGCACTACGAATGAGTACAACAAGCCGAT	2398
+                                                                 ************************************************************
+
+NC_004162.2                                                      TGTAGTGGACACTACAGGCTCAACAAAACCTGACCCTGGAGATCTCGTGTTAACGTGCTT	2760
+MT526800.1|Chikungunya                                           TGTAGTGGACACTACAGGCTCAACAAAACCTGACCCTGGAGACCTCGTGTTAACGTGCTT	2755
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGTAGTGGACACTACAGGCTCAACAAAACCTGACCCTGGAGACCTCGTGTTAACGTGCTT	2458
+                                                                 ****************************************** *****************
+
+NC_004162.2                                                      CAGAGGATGGGTTAAACAACTGCAAATTGACTATCGTGGACACGAGGTCATGACAGCAGC	2820
+MT526800.1|Chikungunya                                           CAGAGGGTGGGTCAAACAACTGCAAATTGACTATCGTGGATACGAGGTCATGACAGCAGC	2815
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAGAGGGTGGGTTAAACAACTGCAAATTGACTATCGTGGATACGAGGTCATGACAGCAGC	2518
+                                                                 ****** ***** *************************** *******************
+
+NC_004162.2                                                      CGCATCCCAAGGGTTAACCAGAAAAGGAGTTTACGCAGTTAGGCAAAAAGTTAACGAAAA	2880
+MT526800.1|Chikungunya                                           CGCATCCCAAGGGTTAACCAGAAAAGGAGTTTACGCAGTTAGACAAAAAGTTAATGAAAA	2875
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGCATCCCAAGGGTTAACCAGAAAAGGAGTTTACGCAGTTAGGCAAAAAGTTAATGAAAA	2578
+                                                                 ****************************************** *********** *****
+
+NC_004162.2                                                      CCCGCTTTATGCATCAACGTCAGAGCACGTCAACGTACTCCTAACGCGTACGGAAGGTAA	2940
+MT526800.1|Chikungunya                                           CCCGCTCTATGCATCAACGTCAGAGCACGTCAACGTACTCCTAACGCGTACGGAAGGTAA	2935
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCCGCTCTATGCATCAACGTCAGAGCACGTTAACGTACTCCTAACGCGTACGGAAGGTAA	2638
+                                                                 ****** *********************** *****************************
+
+NC_004162.2                                                      ACTGGTATGGAAGACACTCTCCGGTGACCCGTGGATAAAGACGCTGCAGAACCCACCGAA	3000
+MT526800.1|Chikungunya                                           ACTGGTATGGAAGACACTTTCCGGTGACCCGTGGATAAAGACGCTGCAGAACCCACCGAA	2995
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACTGGTATGGAAGACACTCTCCGGTGACCCGTGGATAAAGACGCTGCAGAACCCACCGAA	2698
+                                                                 ****************** *****************************************
+
+NC_004162.2                                                      AGGAAACTTCAAAGCAACTATTAAGGAGTGGGAGGTGGAGCATGCATCAATAATGGCGGG	3060
+MT526800.1|Chikungunya                                           AGGAAACTTCAAAGCAACTATTAAGGAGTGGGAGGTGGAGCATGCATCAATAATGGCGGG	3055
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGGAAACTTCAAAGCAACTATTAAGGAGTGGGAGGTGGAGCATGCATCAATAATGGCGGG	2758
+                                                                 ************************************************************
+
+NC_004162.2                                                      CATCTGCAGTCACCAAATGACCTTTGATACATTCCAAAACAAAGCCAACGTTTGTTGGGC	3120
+MT526800.1|Chikungunya                                           CATCTGCAGTCACCAAATGACCTTCGACACATTCCAAAATAAAGCCAACGTTTGTTGGGC	3115
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CATCTGCAGTCACCAAATGACCTTTGATACATTCCAAAACAAAGCCAACGTTTGTTGGGC	2818
+                                                                 ************************ ** *********** ********************
+
+NC_004162.2                                                      TAAGAGTTTGGTCCCTATCCTCGAAACAGCGGGGATAAAACTAAACGACAGGCAGTGGTC	3180
+MT526800.1|Chikungunya                                           TAAGAGCTTGGTCCCTATCCTCGAAACAGCGGGGATAAAACTAAATGATAGGCAGTGGTC	3175
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TAAGAGTTTGGTCCCTATCCTCGAAACAGCGGGGATAAAACTAAGTGATAGGCAGTGGTC	2878
+                                                                 ****** *************************************  ** ***********
+
+NC_004162.2                                                      CCAGATAATTCAAGCCTTCAAAGAAGACAAAGCATATTCACCCGAAGTAGCCCTGAATGA	3240
+MT526800.1|Chikungunya                                           TCAGATAATTCAAGCCTTCAAAGAAGACAAAGCATACTCACCTGAAGTAGCCCTGAATGA	3235
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCAGATAATTCAAGCCTTCAAAGAAGACAAAGCATACTCACCTGAAATAGCCCTGAATGA	2938
+                                                                  *********************************** ***** *** *************
+
+NC_004162.2                                                      AATATGCACGCGCATGTATGGGGTGGATCTAGACAGCGGGCTATTTTCTAAACCGTTGGT	3300
+MT526800.1|Chikungunya                                           AATATGCACGCGCATGTATGGGGTGGATCTAGACAGCGGGCTATTTTCTAAACCGTTGGT	3295
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AATATGCACGCGCATGTATGGGGTGGATCTAGACAGCGGGCTATTTTCTAAACCATTGGT	2998
+                                                                 ****************************************************** *****
+
+NC_004162.2                                                      GTCTGTGTATTACGCGGATAACCACTGGGATAATAGGCCTGGAGGGAAGATGTTCGGATT	3360
+MT526800.1|Chikungunya                                           GTCTGTGTATTACGCGGATAACCACTGGGATAATAGGCCTGGAGGGAAAATGTTCGGATT	3355
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTCTGTGTATTACGCGGACAACCACTGGGATAATAGGCCTGGAGGGAAGATGTTCGGATT	3058
+                                                                 ****************** ***************************** ***********
+
+NC_004162.2                                                      CAACCCCGAGGCAGCATCCATTCTAGAAAGAAAGTATCCATTTACAAAAGGGAAGTGGAA	3420
+MT526800.1|Chikungunya                                           TAACCCCGAGGCAGCATCCATTCTAGAAAGAAAGTATCCATTCACAAAAGGGAAGTGGAA	3415
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TAACCATGAGGCAGCATCCATTCTAGAAAGAAAGTACCCATTCACAAAAGGGAAGTGGAA	3118
+                                                                  ****  ***************************** ***** *****************
+
+NC_004162.2                                                      CATCAACAAGCAGATCTGCGTGACTACCAGGAGGATAGAAGACTTCAACCCTACCACCAA	3480
+MT526800.1|Chikungunya                                           CATCAACAAGCAGATCTGCGTGACTACCAGGAGGATAGAAGACTTTAACCCTACCACCAA	3475
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGTCAACAAGCAGATCTGCGTGACTACCAGGAGGATAGAAGACTTTAACCCTACCACCAA	3178
+                                                                 * ******************************************* **************
+
+NC_004162.2                                                      CATTATACCGGCCAACAGGAGACTACCACACTCATTAGTGGCCGAACACCGCCCAGTAAA	3540
+MT526800.1|Chikungunya                                           CATCATACCGGCCAACAGGAGACTACCACACTCATTAGTGGCCGAACACCGCCCAGTAAA	3535
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CATTATACCGGTCAACAGGAGACTACCACACTCATTAGTGGCCGAACACCGCCCAGTAAA	3238
+                                                                 *** ******* ************************************************
+
+NC_004162.2                                                      AGGGGAAAGAATGGAATGGCTGGTTAACAAGATAAACGGCCACCACGTGCTCCTGGTCAG	3600
+MT526800.1|Chikungunya                                           AGGGGAAAGAATGGAATGGCTGGTTAACAAGATAAACGGCCACCACGTGCTCCTGGTCAG	3595
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGGGGAAAGAATGGAATGGCTGGTTAACAAGATAAACGGTCACCACGTGCTCCTGGTCAG	3298
+                                                                 *************************************** ********************
+
+NC_004162.2                                                      TGGCTGTAGCCTTGCACTGCCTACTAAGAGAGTCACTTGGGTAGCGCCACTAGGTGTCCG	3660
+MT526800.1|Chikungunya                                           TGGCTATAACCTTGCACTGCCTACTAAGAGAGTCACTTGGGTAGCGCCGTTAGGTGTCCG	3655
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGGCTATAACCTTGCACTGCCTACTAAGAGAGTCACTTGGGTAGCGCCACTAGGTGTCCG	3358
+                                                                 ***** ** ***************************************  **********
+
+NC_004162.2                                                      CGGAGCGGACTATACATACAACCTAGAGTTGGGTCTGCCAGCAACGCTTGGTAGGTATGA	3720
+MT526800.1|Chikungunya                                           CGGAGCGGACTACACATACAACCTAGAGTTGGGTCTGCCAGCAACGCTTGGTAGGTATGA	3715
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGGAGCGGACTACACATACAACCTAGAGTTGGGTCTGCCAGCAACGCTTGGTAGGTATGA	3418
+                                                                 ************ ***********************************************
+
+NC_004162.2                                                      CCTAGTGGTCATAAACATCCACACACCTTTTCGCATACACCATTATCAACAGTGCGTAGA	3780
+MT526800.1|Chikungunya                                           CCTTGTGGTCATAAACATCCACACACCTTTTCGCATACACCATTACCAACAGTGCGTCGA	3775
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCTAGTGGTCATAAACATCCACACACCTTTTCGCATACACCATTACCAACAGTGCGTGGA	3478
+                                                                 *** ***************************************** *********** **
+
+NC_004162.2                                                      CCACGCAATGAAACTGCAAATGCTCGGGGGTGACTCATTGAGACTGCTCAAACCGGGTGG	3840
+MT526800.1|Chikungunya                                           CCACGCAATGAAACTGCAAATGCTCGGGGGTGACTCATTGAGACTGCTCAAACCGGGCGG	3835
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCACGCAATGAAACTGCAAATGCTCGGGGGTGACTCATTGAGACTGCTCAAACCGGGTGG	3538
+                                                                 ********************************************************* **
+
+NC_004162.2                                                      CTCTCTATTGATCAGAGCATATGGTTACGCAGATAGAACCAGTGAACGAGTCATCTGCGT	3900
+MT526800.1|Chikungunya                                           CTCTCTATTGATCAGAGCATATGGTTACGCAGATAGAACCAGTGAACGAGTCATCTGCGT	3895
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CTCTCTACTGATCAGAGCATATGGCTACGCAGATAGAACCAGTGAACGAGTCATCTGCGT	3598
+                                                                 ******* **************** ***********************************
+
+NC_004162.2                                                      ATTGGGACGCAAGTTTAGATCATCTAGAGCGTTGAAACCACCATGTGTCACCAGCAACAC	3960
+MT526800.1|Chikungunya                                           ACTGGGACGCAAGTTTAGATCGTCTAGAGCGTTGAAACCACCATGTGTCACCAGCAACAC	3955
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ATTGGGACGCAAGTTTAGATCGTCTAGAGCGTTGAAACCACCATGTGTCACCAGCAACAC	3658
+                                                                 * ******************* **************************************
+
+NC_004162.2                                                      TGAGATGTTTTTTCTATTCAGCAACTTTGACAATGGCAGAAGGAATTTCACAACTCATGT	4020
+MT526800.1|Chikungunya                                           TGAGATGTTTTTCCTATTCAGCAACTTTGACAATGGCAGAAGGAATTTCACAACTCATGT	4015
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGAGATGTTTTTCCTATTCAGCAACTTTGACAATGGCAGAAGGAACTTCACAACTCATGT	3718
+                                                                  *********** ******************************** **************
+
+NC_004162.2                                                      CATGAACAATCAACTGAATGCAGCCTTTGTAGGACAGGCCACCCGAGCAGGATGTGCACC	4080
+MT526800.1|Chikungunya                                           CATGAACAATCAACTGAATGCAGCCTTCGTAGGACAGGTCACCCGAGCAGGATGTGCACC	4075
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CATGAACAATCAATTGAATGCAGCCTTTGTAGGACAGGCCACCCGAGCAGGATGTGCACC	3778
+                                                                 ************* ************* ********** *********************
+
+NC_004162.2                                                      GTCGTACCGGGTAAAACGCATGGATATCGCGAAGAACGATGAAGAGTGCGTAGTCAACGC	4140
+MT526800.1|Chikungunya                                           GTCGTACCGGGTAAAACGCATGGACATCGCGAAGAACGATGAAGAGTGCGTAGTCAACGC	4135
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTCGTACCGGGTAAAACGCATGGACATCGCGAAGAACGATGAAGAGTGCGCGGTCAACGC	3838
+                                                                 ************************ *************************  ********
+
+NC_004162.2                                                      CGCCAACCCTCGCGGGTTACCAGGTGACGGTGTTTGCAAGGCAGTATACAAAAAATGGCC	4200
+MT526800.1|Chikungunya                                           CGCTAACCCTCGCGGGTTACCGGGTGACGGTGTTTGCAAGGCAGTATATAAAAAATGGCC	4195
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGCTAACCCTCGCGGGTTACCGGGTGACGGTGTTTGTAAGGCAGTATACAAAAAATGGCC	3898
+                                                                 *** ***************** ************** *********** ***********
+
+NC_004162.2                                                      GGAGTCCTTTAAGAACAGTGCAACACCAGTGGGAACCGCAAAAACAGTCATGTGCGGTAC	4260
+MT526800.1|Chikungunya                                           GGAGTCCTTTAAGAACAGTGCAACACCAGTGGGAACTGCAAAAACAGTTATGTGCGGTAC	4255
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGAGTCCTTTAAGAACAGTGCAACACCAGTGGGAACCGCAAAAACAGTCATGTGCGGTAC	3958
+                                                                 ************************************ *********** ***********
+
+NC_004162.2                                                      GTATCCAGTAATCCACGCCGTTGGACCAAACTTCTCTAATTATTCGGAGTCTGAAGGGGA	4320
+MT526800.1|Chikungunya                                           GTATCCAGTAATCCACGCTGTTGGACCCAACTTCTCTAATTATTCGGAGTCTGAAGGGGA	4315
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTACCCAGTAATCCACGCCGTTGGACCAAACTTCTCTAATTATTCGGAGTCTGAAGGGGA	4018
+                                                                 *** ************** ******** ********************************
+
+NC_004162.2                                                      CCGAGAATTGGCGGCTGCCTATCGAGAAGTCGCAAAGGAGGTAACTAGACTGGGAGTAAA	4380
+MT526800.1|Chikungunya                                           CCGGGAATTGGCAGCTGCCTATCGAGAAGTTGCAAAGGAAGTAACTAGGCTGGGAGTGAA	4375
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCGGGAACTGGCAGCTGCCTATCGAGAAGTCGCAAAGGAAGTAACTAGACTGGGAGTAAA	4078
+                                                                 *** *** **** ***************** ******** ******** ******** **
+
+NC_004162.2                                                      TAGTGTAGCTATACCTCTCCTCTCCACAGGTGTATACTCAGGAGGGAAAGACAGGCTGAC	4440
+MT526800.1|Chikungunya                                           TAGTGTAGCTATACCTCTCCTCTCCACAGGTGTATACTCAGGAGGGAAAGACAGGCTGAC	4435
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAGTGTAGCTATACCTCTCCTCTCCACAGGTGTATACTCAGGAGGGAAAGACAGGCTGAT	4138
+                                                                  ********************************************************** 
+
+NC_004162.2                                                      CCAGTCACTGAACCACCTCTTTACAGCCATGGACTCGACGGATGCAGACGTGGTCATCTA	4500
+MT526800.1|Chikungunya                                           CCAGTCACTGAACCACCTCTTTACAGCCATGGACTCGACGGATGCAGACGTGGTCATCTA	4495
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCAGTCACTGAACCACCTTTTTACAGCCATGGACTCGACGGATGCAGACGTGGTCATCTA	4198
+                                                                 ****************** *****************************************
+
+NC_004162.2                                                      CTGCCGCGACAAAGAATGGGAGAAGAAAATATCTGAGGCCATACAGATGCGGACCCAAGT	4560
+MT526800.1|Chikungunya                                           CTGCCGCGACAAAGAATGGGAGAAGAAAATATCTGAGGCCATACAGATGCGGACTCAAGT	4555
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CTGCCGCGACAAAGAATGGGAGAAGAAAATATCTGAGGCCATACAGATGCGGACCCAAGT	4258
+                                                                 ****************************************************** *****
+
+NC_004162.2                                                      GGAGCTGCTGGATGAGCACATCTCCATAGACTGCGATGTTGTTCGCGTGCACCCTGACAG	4620
+MT526800.1|Chikungunya                                           AGAGCTGCTGGACGAGCACATCTCCATAGACTGCGATATTGTTCGCGTGCACCCTGACAG	4615
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGAACTGCTGGATGAGCACATCTCCATAGATTGCGATATTGTTCGCGTGCACCCTGACAG	4318
+                                                                  ** ******** ***************** ****** **********************
+
+NC_004162.2                                                      CAGCTTGGCAGGCAGAAAAGGATACAGCACCACGGAAGGCGCACTGTACTCATATCTAGA	4680
+MT526800.1|Chikungunya                                           CAGCTTGGCAGGCAGAAAAGGATACAGCACCACGGAAGGCGCACTGTACTCATATCTAGA	4675
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAGCTTGGCAGGCAGAAAAGGATACAGCACCACGGAAGGCGTGCTGTACTCATATCTAGA	4378
+                                                                 *****************************************  *****************
+
+NC_004162.2                                                      AGGGACCCGTTTTCACCAAACGGCAGTGGATATGGCAGAGATATATACTATGTGGCCAAA	4740
+MT526800.1|Chikungunya                                           AGGGACCCGTTTTCATCAGACGGCTGTGGATATGGCGGAGATACATACTATGTGGCCAAA	4735
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGGGACCCGTTTTCACCAGACGGCAGTGGATATGGCGGAGATATATACTATGTGGCCAAA	4438
+                                                                 *************** ** ***** *********** ****** ****************
+
+NC_004162.2                                                      GCAAACAGAGGCCAACGAGCAAGTTTGCCTATATGCCCTGGGGGAAAGTATTGAATCGAT	4800
+MT526800.1|Chikungunya                                           GCAAACAGAGGCCAATGAGCAAGTCTGCCTATATGCCCTGGGGGAAAGTATTGAATCGAT	4795
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACAAACAGAGGCCAACGAGCAAGTCTGCCTATATGCCCTGGGGGAAAGTATTGAATCGAT	4498
+                                                                  ************** ******** ***********************************
+
+NC_004162.2                                                      CAGGCAGAAATGCCCGGTGGATGATGCAGATGCATCATCTCCCCCGAAAACTGTCCCGTG	4860
+MT526800.1|Chikungunya                                           CAGGCAGAAATGCCCGGTGGATGATGCAGACGCATCATCTCCCCCAAAAACTGTCCCGTG	4855
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAGGCAGAAATGCCCGGTGGATGACGCAGATGCATCTTCTCCCCCAAAAACTGTCCCGTG	4558
+                                                                 ************************ ***** ***** ******** **************
+
+NC_004162.2                                                      CCTCTGCCGTTACGCCATGACACCAGAACGCGTTACCCGACTTCGCATGAACCATGTCAC	4920
+MT526800.1|Chikungunya                                           CCTTTGCCGTTACGCTATGACTCCAGAACGCGTCACTCGGCTTCGCATGAACCACGTCAC	4915
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCTTTGCCGTTACGCCATGACTCCAGAACGCGTCACCCGACTCCGTATGAACCACGTCAC	4618
+                                                                 *** *********** ***** *********** ** ** ** ** ******** *****
+
+NC_004162.2                                                      AAGCATAATTGTGTGTTCTTCGTTTCCCCTTCCAAAGTACAAAATAGAAGGAGTGCAAAA	4980
+MT526800.1|Chikungunya                                           AAGCATAATTGTGTGTTCTTCGTTACCCCTCCCAAAGTACAAAATAGAAGGAGTGCAAAA	4975
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AAGCATAATTGTGTGTTCTTCGTTTCCCCTCCCAAAGTACAAAATAGAAGGAGTGCAAAA	4678
+                                                                 ************************ ***** *****************************
+
+NC_004162.2                                                      AGTCAAATGCTCCAAGGTAATGCTATTTGACCACAACGTGCCATCGCGCGTAAGTCCAAG	5040
+MT526800.1|Chikungunya                                           AGTCAAATGCTCTAAGGTAATGCTATTTGACCACAACGTGCCATCGCGCGTAAGTCCAAG	5035
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGTCAAATGCTCTAAGGTAATGCTATTTGACCACAACGTGCCATCGCGCGTAAGTCCAAG	4738
+                                                                 ************ ***********************************************
+
+NC_004162.2                                                      GGAATACAGACCTTCCCAGGAGTCTGTACAGGAAGCGAGTACGACCACGTCACTGACGCA	5100
+MT526800.1|Chikungunya                                           GGAATATAGATCTTCCCAGGAGTCTGCACAGGAGGCGAGCACAATCACGTCACTGACGCA	5095
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGAATACAGACCTTCCCAGGAGTCTGTACAGGAAGCGAGTACGACCACGTCACTGACGCA	4798
+                                                                 ****** *** *************** ****** ***** ** * ***************
+
+NC_004162.2                                                      TAGCCAATTCGATCTAAGCGTTGACGGCAAGATACTGCCCGTCCCGTCAGACCTGGATGC	5160
+MT526800.1|Chikungunya                                           TAGTCAATTCGACCTAAGCGTTGATGGCGAGATACTGCCCGTCCCGTCAGACCTGGATGC	5155
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TAGCCAATTCGATCTAAGCGTTGACGGCAAGATACTGCCCGTCCCGTCAGACCTGGATGC	4858
+                                                                 *** ******** *********** *** *******************************
+
+NC_004162.2                                                      TGACGCCCCAGCCCTAGAACCAGCCCTTGACGACGGGGCGATACACACGTTGCCATCTGC	5220
+MT526800.1|Chikungunya                                           TGACGCCCCAGCCCTAGAACCAGCACTAGACGACGGGGCGACACACACGCTGCCATCCAC	5215
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGACGCCCCAGCCCTAGAGCCAGCCCTAGACGACGGGGCGACACACATGTTGCCGTCTAC	4918
+                                                                 ****************** ***** ** ************* ***** * **** **  *
+
+NC_004162.2                                                      AACCGGAAACCTTGCGGCCGTGTCTGACTGGGTAATGAGCACCGTACCTGTCGCGCCGCC	5280
+MT526800.1|Chikungunya                                           AACCGGAAACCTTGCGGCCGTGTCTGACTGGGTAATGAGCACCGTACCTGTCGCGCCGCC	5275
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AACTGGAAATCTTGCGGCCGTGTCTGACTGGGTAATGAGCACCGTACCTATCGCGCCGCC	4978
+                                                                 *** ***** *************************************** **********
+
+NC_004162.2                                                      CAGAAGAAGGCGAGGGAGAAACCTGACTGTGACATGCGACGAGAGAGAAGGGAATATAAC	5340
+MT526800.1|Chikungunya                                           CAGAAGAAGGCGAGGGAGAAACCTGACTGTGACATGTGACGAGAGAGAAGGGAACATAAC	5335
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAGAAGAAGGCGAGGGAGAAACCAAACTGTGACATGCGACGAGAGAGAAGGGAACATAAC	5038
+                                                                 ***********************  *********** ***************** *****
+
+NC_004162.2                                                      ACCCATGGCTAGCGTCCGATTCTTTAGGGCAGAGCTGTGTCCAGTCGTACAAGAAACAGC	5400
+MT526800.1|Chikungunya                                           ACCCATGGCTAGCGTCCGATTCTTTAGGGCAGAGCTGTGTCCGGTCGTACAAGAAACAGC	5395
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACCCATGGCTAGCGTCCGATTCTTTAGGGCAGAGCTGTGTCCGGTCGTACGAGAAACAGC	5098
+                                                                 ****************************************** ******* *********
+
+NC_004162.2                                                      GGAGACGCGTGACACAGCTATGTCTCTTCAGGCACCGCCGAGTACCGCCACGGAACTGAG	5460
+MT526800.1|Chikungunya                                           GGAGACGCGTGACACAGCAATGTCTCTTCAGGCACCACCGAGTACCGCCACGGAACCGAA	5455
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGAGACGCGTGACACAGCAACGTCTCTTCAGGCACCGCCGAGTACCGCCACGGAACTGAG	5158
+                                                                 ****************** * *************** ******************* ** 
+
+NC_004162.2                                                      TCACCCGCCGATCTCCTTCGGTGCACCAAGCGAGACGTTCCCCATCACATTTGGGGACTT	5520
+MT526800.1|Chikungunya                                           TCATCCGCCGATCTCCTTCGGAGCATCAAGCGAGACGTTCCCCATTACATTTGGGGACTT	5515
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TCACCCGCCGATCTCCTTCGGTGCACCAAGCGAGACGTTCCCCATCACATTTGGGGACTT	5218
+                                                                 *** ***************** *** ******************* **************
+
+NC_004162.2                                                      CAACGAAGGAGAAATCGAAAGCTTGTCTTCTGAGCTACTAACTTTCGGAGACTTCCTACC	5580
+MT526800.1|Chikungunya                                           CAACGAAGGAGAAATCGAAAGCTTGTCTTCTGAGCTACTAACTTTCGGAGACTTCTTACC	5575
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAACGAAGGAGAAATCGAAAGCTTGTCTTCTGAGCTACTAACTTTCGGAGACTTCCTACC	5278
+                                                                 ******************************************************* ****
+
+NC_004162.2                                                      CGGAGAAGTGGATGATTTGACAGATAGCGACTGGTCCACGTGCTCAGACACGGACGACGA	5640
+MT526800.1|Chikungunya                                           AGGAGAAGTGGATGACTTGACAGACAGCGACTGGTCCACGTGCTCAGACACGGACGACGA	5635
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGGAGAAGTGGATGATTTGACAGATAGCGACTGGTCCACGTGCTCAGACACGGACGACGA	5338
+                                                                  ************** ******** ***********************************
+
+NC_004162.2                                                      GTTACGACTAGACAGGGCAGGTGGGTATATATTCTCGTCGGACACTGGTCCAGGTCATTT	5700
+MT526800.1|Chikungunya                                           GTTATGACTAGACAGGGCAGGTGGGTATATATTCTCGTCGGACACCGGTCCAGGTCATTT	5695
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTTATGACTAGACAGGGCAGGTGGGTATATATTCTCATCGGACACCGGTCCAGGTCATTT	5398
+                                                                 **** ******************************* ******** **************
+
+NC_004162.2                                                      ACAACAGAAGTCAGTACGCCAGTCAGTGCTGCCGGTGAACACCCTGGAGGAAGTCCACGA	5760
+MT526800.1|Chikungunya                                           ACAACAGAAGTCAGTACGCCAGTCAGTGCTGCCGGTGAACACCCTGGAGGAAGTCCACGA	5755
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACAACAGAAGTCAGTGCGCCAGTCAGTGCTGCCGGTGAACACCCTGGAGGAAGTCCACGA	5458
+                                                                 *************** ********************************************
+
+NC_004162.2                                                      GGAGAAGTGTTACCCACCTAAGCTGGATGAAGCAAAGGAGCAACTACTACTTAAGAAACT	5820
+MT526800.1|Chikungunya                                           GGAGAAGTGTTACCCCCCTAAGCTGGATGAAGCAAAGGAGCAACTATTACTTAAGAAACT	5815
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGAGAAGTGTTACCCACCTAAGCTGGATGAAGCAAAGGAGCACCTATTACTTAAGAAACT	5518
+                                                                 *************** ************************** *** *************
+
+NC_004162.2                                                      CCAGGAGAGTGCATCCATGGCCAACAGAAGCAGGTATCAGTCGCGCAAAGTAGAAAACAT	5880
+MT526800.1|Chikungunya                                           CCAGGAGAGTGCATCCATGGCCAACAGAAGCAGGTATCAGTCGCGCAAAGTAGAAAACAT	5875
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCAGGAGAGTGCATCCATGGCCAACAGAAGCAGGTATCAGTCGCGCAAAGTAGAAAACAT	5578
+                                                                 ************************************************************
+
+NC_004162.2                                                      GAAAGCAACAATCATCCAGAGACTAAAGAGAGGCTGTAGATTATACTTAATGTCAGAGAC	5940
+MT526800.1|Chikungunya                                           GAAAGCAGCAATCATCCAGAGACTAAAGAGAGGCTGTGGACTATACTTAATGTCAGAGAC	5935
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GAAAGCAACAATCATCCAGAGACTAAAGAGAGGCTGTAGATTATACTTAATGTCAGAGAC	5638
+                                                                 ******* ***************************** ** *******************
+
+NC_004162.2                                                      CCCAAAAGTCCCTACCTACCGGACCACATATCCGGCGCCTGTGTACTCGCCTCCGATTAA	6000
+MT526800.1|Chikungunya                                           CCCAAAAGTCCCTACTTACCGGACCACATATCCGGCGCCTGTGTACTCGCCTCCGATCAA	5995
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCCAAAAGTCCCTACCTACCGGACCACATATCCGGCGCCTGTGTACTCGCCTCCGATTAA	5698
+                                                                 *************** ***************************************** **
+
+NC_004162.2                                                      CGTCCGACTGTCCAACCCCGAGTCCGCAGTGGCAGCATGCAATGAGTTCTTGGCTAGAAA	6060
+MT526800.1|Chikungunya                                           CGTCCGATTTGCCAATCCCGAGTCCGCAGTGGCAGCATGCAATGAGTTCTTAGCTAGAAA	6055
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGTTCGACTGTCCAACCCCGAGTCCGCAGTGGCAGCATGCAATGAGTTCTTGGCTAGAAA	5758
+                                                                 *** *** *  **** *********************************** ********
+
+NC_004162.2                                                      CTATCCAACTGTTTCATCATACCAAATCACCGACGAGTATGATGCATATCTAGACATGGT	6120
+MT526800.1|Chikungunya                                           CTATCCAACTGTCTCATCATACCAAATTACCGACGAGTATGATGCATATCTAGACATGGT	6115
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CTATCCAACTGTTTCATCATACCAAATCACCGACGAGTATGATGCATATCTAGACATGGT	5818
+                                                                 ************ ************** ********************************
+
+NC_004162.2                                                      GGACGGGTCGGAGAGTTGTCTGGACCGAGCGACATTCAATCCGTCAAAACTTAGGAGCTA	6180
+MT526800.1|Chikungunya                                           GGACGGGTCGGAGAGTTGCCTGGACCGAGCGACATTCAATCCGTCAAAACTCAGGAGCTA	6175
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGACGGGTCGGAGAGTTGCCTGGATCGAGCGACATTCAATCCGTCAAAACTTAGGAGCTA	5878
+                                                                 ****************** ***** ************************** ********
+
+NC_004162.2                                                      CCCAAAACAGCACGCTTACCACGCGCCCTCCATCAGAAGCGCTGTACCGTCCCCATTCCA	6240
+MT526800.1|Chikungunya                                           CCCGAAACAGCACGCTTACCACGCGCCCTCCATCAGAAGCGCTGTACCGTCCCCATTCCA	6235
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCCGAAACAGCACGCCTACCACGCGCCCTCCATCAGAAGCGCTGTACCGTCCCCATTCCA	5938
+                                                                 *** *********** ********************************************
+
+NC_004162.2                                                      GAACACACTACAGAATGTACTGGCAGCAGCCACGAAAAGAAACTGCAACGTCACACAGAT	6300
+MT526800.1|Chikungunya                                           GAACACACTACAGAATGTACTGGCAGCAGCCACGAAAAGAAACTGCAACGTCACACAGAT	6295
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GAACACACTACAGAATGTACTGGCAGCAGCCACGAAAAGAAACTGCAACGTCACACAGAT	5998
+                                                                 ************************************************************
+
+NC_004162.2                                                      GAGGGAATTACCCACTTTGGACTCAGCAGTATTCAACGTGGAGTGTTTCAAAAAATTCGC	6360
+MT526800.1|Chikungunya                                           GAGGGAATTACCCACTTTGGACTCCGCAGTATTCAACGTGGAGTGTTTCAAAAAATTCGC	6355
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GAGGGAATTACCCACTTTGGACTCAGCAGTATTCAACGTGGAGTGTTTCAAAAATTTCGC	6058
+                                                                 ************************ ***************************** *****
+
+NC_004162.2                                                      ATGCAACCAAGAATACTGGGAAGAATTTGCTGCCAGCCCTATCAGGATAACAACTGAGAA	6420
+MT526800.1|Chikungunya                                           ATGCAACCAAGAATACTGGGAAGAATTTGCTGCCAGCCCTATTAGGATAACAACTGAGAA	6415
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ATGCAACCAAGAATACTGGGAAGAATTTGCTGCCAGCCCTATCAGGATAACAACAGAGAA	6118
+                                                                 ****************************************** *********** *****
+
+NC_004162.2                                                      TTTAACAACCTATGTTACTAAACTAAAGGGGCCAAAAGCAGCAGCGCTATTTGCAAAAAC	6480
+MT526800.1|Chikungunya                                           TTTAGCAACTTATGTTACTAAACTAAAAGGGCCAAAAGCAGCAGCGCTGTTCGCAAAAAC	6475
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TTTAACAACCTATGTTACTAAACTAAAAGGGCCAAAAGCAGCAGCGCTATTCGCAAAAAC	6178
+                                                                 **** **** ***************** ******************** ** ********
+
+NC_004162.2                                                      CCATAATCTGCTGCCACTGCAGGAAGTGCCAATGGATAGGTTCACAGTAGACATGAAAAG	6540
+MT526800.1|Chikungunya                                           CCATAATCTCCTGCCACTACAGGAAGTACCAATGGATAGGTTCACAGTAGATATGAAAAG	6535
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCATAATCTGCTGCCACTGCAGGAAGTACCAATGGATAGGTTCACAGTAGATATGAAAAG	6238
+                                                                 ********* ******** ******** *********************** ********
+
+NC_004162.2                                                      GGATGTGAAGGTGACTCCTGGTACAAAGCACACAGAGGAAAGACCTAAGGTACAGGTTAT	6600
+MT526800.1|Chikungunya                                           GGACGTGAAGGTGACTCCTGGTACAAAGCATACAGAGGAAAGACCTAAGGTGCAGGTTAT	6595
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGACGTGAAGGTGACTCCTGGTACAAAGCACACAGAGGAAAGACCTAAGGTGCAGGTTAT	6298
+                                                                 *** ************************** ******************** ********
+
+NC_004162.2                                                      ACAGGCGGCTGAACCCTTGGCAACAGCATACCTATGTGGGATTCACAGAGAGCTGGTTAG	6660
+MT526800.1|Chikungunya                                           ACAGGCGGCTGAACCCTTGGCAACAGCATACCTATGTGGGATTCACAGAGAGCTGGTTAG	6655
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACAGGCGGCTGAACCCTTGGCGACAGCATACCTATGTGGGATTCACAGAGAGCTGGTTAG	6358
+                                                                 ********************* **************************************
+
+NC_004162.2                                                      GAGGCTGAACGCCGTCCTCCTACCCAATGTACATACACTATTTGACATGTCTGCCGAGGA	6720
+MT526800.1|Chikungunya                                           GAGGCTGAACGCCGTCCTCCTACCCAATGTACATACACTATTTGACATGTCTGCCGAGGA	6715
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GAGGCTGAACGCCGTCCTCCTACCCAATGTACATACACTATTTGACATGTCTGCCGAGGA	6418
+                                                                 ************************************************************
+
+NC_004162.2                                                      TTTCGATGCCATCATAGCCGCACACTTTAAGCCAGGAGACACTGTTTTAGAAACGGACAT	6780
+MT526800.1|Chikungunya                                           TTTCGATGCCATCATAGCCGCACACTTTAAGCCAGGAGACACTGTTTTGGAAACGGACAT	6775
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TTTCGATGCCATTATAGCCGCGCACTTTAAGCCAGGAGACACTGTTTTAGAAACGGACAT	6478
+                                                                 ************ ******** ************************** ***********
+
+NC_004162.2                                                      AGCCTCCTTTGATAAGAGCCAAGATGATTCACTTGCGCTTACTGCTTTAATGCTGTTAGA	6840
+MT526800.1|Chikungunya                                           AGCCTCCTTTGACAAGAGCCAAGATGATTCACTTGCGCTTACTGCTTTGATGCTGTTAGA	6835
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGCCTCCTTTGATAAGAGCCAAGATGATTCACTTGCGCTTACTGCTTTGATGCTGTTAGA	6538
+                                                                 ************ *********************************** ***********
+
+NC_004162.2                                                      GGATTTAGGGGTGGATCACTCCCTGTTGGACTTGATAGAGGCTGCTTTCGGAGAGATTTC	6900
+MT526800.1|Chikungunya                                           GGATTTAGGGGTGGATCACTCCCTGCTGGACTTGATAGAGGCTGCTTTCGGAGAGATTTC	6895
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGATTTGGGGGTGGATCACTCCCTGCTGGACTTGATAGAGGCTGCTTTCGGAGAGATTTC	6598
+                                                                  ***** ****************** **********************************
+
+NC_004162.2                                                      CAGCTGTCATCTACCGACAGGTACGCGCTTCAAGTTCGGCGCCATGATGAAATCTGGTAT	6960
+MT526800.1|Chikungunya                                           CAGCTGTCACCTACCGACAGGTACGCGCTTCAAGTTCGGCGCCATGATGAAATCAGGTAT	6955
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAGCTGTCATCTACCGACAGGTACGCGCTTCAAGTTCGGCGCCATGATGAAATCTGGTAT	6658
+                                                                 ********* ******************************************** *****
+
+NC_004162.2                                                      GTTCCTAACTCTGTTCGTCAACACACTGCTAAATATCACCATCGCCAGCCGAGTGCTGGA	7020
+MT526800.1|Chikungunya                                           GTTCCTAACTCTGTTCGTCAACACATTGTTAAACATCACCATCGCCAGCCGAGTGCTGGA	7015
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTTCTTAACTCTGTTCGTCAACACATTGCTAAACATCACTATCGCTAGCCGAGTGCTGGA	6718
+                                                                 **** ******************** ** **** ***** ***** **************
+
+NC_004162.2                                                      AGATCGTCTGACAAAATCCGCGTGCGCAGCCTTCATCGGCGACGACAACATAATACATGG	7080
+MT526800.1|Chikungunya                                           AGATCGTCTGACAAAATCCGCGTGCGCGGCCTTCATCGGCGACGACAACATAATACATGG	7075
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGATCGTCTGACAAAATCCGCGTGCGCGGCCTTCATCGGCGACGACAACATAATACATGG	6778
+                                                                 *************************** ********************************
+
+NC_004162.2                                                      AGTCGTCTCCGATGAATTGATGGCAGCCAGATGCGCCACTTGGATGAACATGGAAGTGAA	7140
+MT526800.1|Chikungunya                                           AGTCGTCTCCGATGAATTGATGGCAGCCAGATGTGCCACTTGGATGAACATGGAAGTGAA	7135
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGTCGTCTCCGATGAATTGATGGCAGCCAGATGCGCCACTTGGATGAACATGGAAGTGAA	6838
+                                                                 ********************************* **************************
+
+NC_004162.2                                                      GATCATAGATGCAGTTGTATCCCAGAAAGCCCCTTACTTTTGTGGAGGGTTTATACTGCA	7200
+MT526800.1|Chikungunya                                           GATCATAGATGCAGTTGTATCCTTGAAAGCCCCTTACTTTTGTGGAGGGTTTATACTGCA	7195
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GATCATAGATGCAGTTGTATCCCAGAAAGCCCCTTACTTTTGTGGAGGGTTTATACTGCA	6898
+                                                                 **********************  ************************************
+
+NC_004162.2                                                      CGATATCGTGACAGGAACAGCTTGCAGAGTGGCAGACCCGCTAAAAAGGCTATTTAAACT	7260
+MT526800.1|Chikungunya                                           CGATACTGTGACAGGAACAGCTTGCAGAGTGGCAGACCCGCTAAAAAGGCTTTTTAAACT	7255
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGATATCGTGACAGGAACAGCTTGCAGAGTGGCAGACCCGCTAAAAAGGCTATTTAAACT	6958
+                                                                 *****  ******************************************** ********
+
+NC_004162.2                                                      GGGCAAACCGCTAGCGGCAGGTGACGAACAAGATGAGGATAGAAGACGAGCGCTGGCTGA	7320
+MT526800.1|Chikungunya                                           GGGCAAACCGCTAGCGGCAGGTGACGAACAAGATGAAGATAGAAGACGAGCGCTGGCTGA	7315
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGGCAAACCGCTAGCGGCAGGTGACGAACAAGATGAAGATAGAAGACGAGCGCTGGCTGA	7018
+                                                                 ************************************ ***********************
+
+NC_004162.2                                                      CGAAGTGGTCAGATGGCAACGAACAGGGCTAATTGATGAGTTGGAGAAAGCGGTATACTC	7380
+MT526800.1|Chikungunya                                           CGAAGTGATCAGATGGCAACGTACAGGGCTAATTGATGAGCTGGAGAAAGCGGTATACTC	7375
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGAAGTGATCAGATGGCAACGAACAGGGCTAATTGATGAGTTGGAGAAAGCGGTATACTC	7078
+                                                                 ******* ************* ****************** *******************
+
+NC_004162.2                                                      TAGGTATGAAGTGCAGGGTATATCAGTTGTGGTAATGTCCATGGCCACCTTTGCAAGCTC	7440
+MT526800.1|Chikungunya                                           TAGGTACGAAGTGCAGGGTATATCAGTTGTGGTAATGTCCATGGCCACCTTTGCAAGCTC	7435
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TAGGTATGAAGTGCAGGGTATATCAGTTGTGGTAATGTCCATGGCCACCTTTGCAAGCTC	7138
+                                                                 ****** *****************************************************
+
+NC_004162.2                                                      CAGATCCAACTTCGAGAAGCTCAGAGGACCCGTCGTAACTTTGTACGGCGGTCCTAAATA	7500
+MT526800.1|Chikungunya                                           CAGATCCAACTTCGAGAAGCTCAGAGGACCCGTCATAACTTTGTACGGCGGTCCTAAATA	7495
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAGATCCAACTTCGAGAAGCTCAGAGGACCCGTTATAACTTTGTACGGCGGTCCTAAATA	7198
+                                                                 *********************************  *************************
+
+NC_004162.2                                                      GGTACGCACTACAGCTACCTATTTTGCAGAAGCCGACAGTAAGTACCTAAACACTAATCA	7560
+MT526800.1|Chikungunya                                           GGTACGCACTACAGCTACCTATTTTGCAGAAGCCGACAGCAAGTATCTAAACACTAATCA	7555
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGTACGCACGACAGCTACCTATTTTGAGGAAGCCGACAGCAAGTACCTAAACACTAATCA	7258
+                                                                 ********* ****************  *********** ***** **************
+
+NC_004162.2                                                      GCTACAATGGAGTTCATCCCAACCCAAACTTTTTACAACAGGAGGTACCAGCCTCGACCC	7620
+MT526800.1|Chikungunya                                           GCTACAATGGAGTTCATCCCAACCCAAACTTTTTACAATAGGAGGTACCAGCCTCGACCC	7615
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GCTACAATGGAGTTCATCCCAACCCAAACTTTTTACAACAGGAGGTACCAGCCTCGACCC	7318
+                                                                 ************************************** *********************
+
+NC_004162.2                                                      TGGACTCCGCGCCCTACTATCCAAGTCATCAGGCCCAGACCGCGCCCGCAGAGGCAAGCT	7680
+MT526800.1|Chikungunya                                           TGGACCCCGCGCTCTACTATCCAAATCATTAGGCCCAGACCGCGCCCTCAGAGGCAAGCT	7675
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGGACTCCGCGCCCTACTATCCAGGTCATCAGGCCCAGACCGCGCCCTCAGAGGCAAGCT	7378
+                                                                 ***** ****** **********  **** ***************** ************
+
+NC_004162.2                                                      GGGCAACTTGCCCAGCTGATCTCAGCAGTTAATAAACTGACAATGCGCGCGGTACCCCAA	7740
+MT526800.1|Chikungunya                                           GGGCAACTTGCCCAGCTGATCTCAGCAGTTAATAAACTGACAATGCGCGCGGTACCCCAA	7735
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGGCAACTTGCCCAGCTGATCTCAGCAGTTAATAAACTGACAATGCGCGCGGTACCCCAA	7438
+                                                                 ************************************************************
+
+NC_004162.2                                                      CAGAAGCCACGCAAGAATCGGAAGAATAAGAAGCAAAAGCAAAAGCAGCAGGCGCCACAA	7800
+MT526800.1|Chikungunya                                           CAGAAGCCACGCAGGAATCGGAAGAATAAGAAGCAAAAGCAAAAACAACAGGCGCCACAA	7795
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CAGAAGCCACGCAGGAATCGGAAGAATAAGAAGCAAAAGCAAAAGCAACAGGCGCCACAA	7498
+                                                                 ************* ****************************** ** ************
+
+NC_004162.2                                                      AACAACACAAACCAAAAGAAGCAGCCACCTAAAAAGAAACCAGCTCAAAAGAAAAAGAAG	7860
+MT526800.1|Chikungunya                                           AGCAACACAAATCAAAAGAAGCAGCCACCTAAAAAGAAACCGGCTCAAAAGAAAAAGAAG	7855
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AATAACACAAACCAAAAGAAGCAGCCACCTAAAAAGAAACCGGCTCAAAAGAAAAAGAAG	7558
+                                                                 *  ******** ***************************** ******************
+
+NC_004162.2                                                      CCGGGCCGCAGAGAGAGGATGTGCATGAAAATCGAAAATGACTGTATTTTCGAAGTCAAG	7920
+MT526800.1|Chikungunya                                           CCGGGCCGCAGAGAGAGGATGTGCATGAAAATCGAAAATGATTGTATTTTCGAAGTCAAG	7915
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCGGGCCGTAGAGAGAGGATGTGCATGAAAATCGAAAATGATTGTATTTTCGAAGTCAAG	7618
+                                                                 ******** ******************************** ******************
+
+NC_004162.2                                                      CACGAAGGTAAGGTAACAGGTTACGCGTGCTTGGTGGGGGACAAAGTAATGAAACCAGCA	7980
+MT526800.1|Chikungunya                                           CACGAAGGTAAGGTAACAGGTTACGCGTGCCTGGTGGGGGACAAAGTAATGAAACCAGCA	7975
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CATGAAGGTAGGGTAACAGGTTACGCGTGCTTGGTGGGGGATAAAGTAATGAAACCAGCA	7678
+                                                                 ** ******* ******************* ********** ******************
+
+NC_004162.2                                                      CACGTAAAGGGGACCATCGATAACGCGGACCTGGCCAAATTGGCCTTTAAGCGGTCATCT	8040
+MT526800.1|Chikungunya                                           CACGTAAAGGGGACCATCGATAACGCGGACCTGGCCAAACTGGCCTTTAAGCGGTCATCT	8035
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CACGTAAAGGGGGCCATCGATAACGCGGACCTGGCCAAACTGGCCTTTAAGCGGTCATCT	7738
+                                                                 ************ ************************** ********************
+
+NC_004162.2                                                      AAGTACGACCTTGAATGCGCGCAGATACCCGTGCACATGAAGTCCGACGCTTCGAAGTTC	8100
+MT526800.1|Chikungunya                                           AAGTATGACCTTGAATGCGCGCAGATACCCGTGCACATGAAGTCCGACGCTTCGAAGTTC	8095
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AAGTATGACCTTGAATGTGCGCAGATACCCGTGCACATGAAGTCCGACGCTTCGAAGTTC	7798
+                                                                 ***** *********** ******************************************
+
+NC_004162.2                                                      ACCCATGAGAAACCGGAGGGGTACTACAACTGGCACCACGGAGCAGTACAGTACTCAGGA	8160
+MT526800.1|Chikungunya                                           ACCCATGAGAAACCGGAGGGGTACTACAACTGGCACCACGGAGCAGTACAGTACTCAGGA	8155
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACCCATGAGAAACCGGAGGGGTACTACAACTGGCACCACGGAGCAGTACAGTACTCAGGA	7858
+                                                                 ************************************************************
+
+NC_004162.2                                                      GGCCGGTTCACCATCCCTACAGGTGCGGGCAAACCAGGGGACAGCGGTAGACCGATCTTC	8220
+MT526800.1|Chikungunya                                           GGCCGGTTCACCATCCCTACAGGTGCTGGCAAACCAGGGGACAGCGGCAGACCGATCTTC	8215
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGCCGGTTCACCATCCCTACAGGTGCGGGCAAACCAGGGGACAGCGGTAGACCAATCTTC	7918
+                                                                 ************************** ******************** ***** ******
+
+NC_004162.2                                                      GACAACAAGGGACGCGTGGTGGCCATAGTCTTAGGAGGAGCTAATGAAGGAGCCCGTACA	8280
+MT526800.1|Chikungunya                                           GACAACAAGGGACGCGTGGTGGCCATAGTCTTAGGAGGAGCTAATGAAGGAGCCCGTACA	8275
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GACAACAAGGGACGCGTGGTGGCCATAGTCTTAGGAGGAGCTAATGAAGGAGCCCGTACA	7978
+                                                                 ************************************************************
+
+NC_004162.2                                                      GCCCTCTCAGTGGTGACCTGGAATAAAGACATTGTCACTAAAATCACCCCTGAGGGAGCC	8340
+MT526800.1|Chikungunya                                           GCCCTCTCGGTGGTGACCTGGAATAAAGACATTGTCACTAAAATCACCCCCGAGGGGGCC	8335
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GCCCTCTCAGTGGTGACCTGGAATAAAGACATTGTCACTAAAATCACCCCTGAGGGAGCC	8038
+                                                                 ******** ***************************************** ***** ***
+
+NC_004162.2                                                      GAAGAGTGGAGTCTTGCCATCCCAGTTATGTGCCTGTTGGCAAATACCACGTTCCCCTGC	8400
+MT526800.1|Chikungunya                                           GAAGAGTGGAGTCTTGCCATCCCAGTTATGTGCCTGCTGGCAAACACCACGTTCCCCTGC	8395
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GAAGAGTGGAGTCTTGCCATCCCAGTTATGTGCCTGTTGGCAAACACCACCTTCCCCTGC	8098
+                                                                 ************************************ ******* ***** *********
+
+NC_004162.2                                                      TCCCAGCCCCCTTGCATACCCTGCTGCTACGAAAAGGAACCGGAGGAAACCCTACGCATG	8460
+MT526800.1|Chikungunya                                           TCCCAGCCCCCTTGCACGCCCTGCTGCTACGAAAAGGAACCGGAGGAAACCCTACGCATG	8455
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TCCCAGCCCCCTTGCACACCTTGCTGCTACGAAAAGGAACCGGAGGAAACCCTGCGCATG	8158
+                                                                 ****************  ** ******************************** ******
+
+NC_004162.2                                                      CTTGAGGACAACGTCATGAGACCTGGGTACTATCAGCTGCTACAAGCATCATTAACATGT	8520
+MT526800.1|Chikungunya                                           CTTGAGGACAACGTCATGAGACCTGGGTACTATCAGCTGCTACAGGCATCCTTAACATGT	8515
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CTTGAGGACAACGTCATGAGACCTGGGTACTACCAGCTGCTACAAGCATCCTTAACATGT	8218
+                                                                 ******************************** *********** ***** *********
+
+NC_004162.2                                                      TCTCCCCACCGCCAGCGACGCAGCACCAAGGACAACTTCAATGTCTATAAAGCCACAAGA	8580
+MT526800.1|Chikungunya                                           TCTCCCCACCGCCAGCGACGCAGCACCAAGGACAATTTCAATGTTTATAAAGCCACAAGA	8575
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TCTCCCCACCGCCAGCGACGCAGCACCAAGGACAACTTCAATGTCTATAAAGCCACAAGA	8278
+                                                                 *********************************** ******** ***************
+
+NC_004162.2                                                      CCATACCTAGCTCACTGTCCCGACTGTGGAGAAGGGCACTCGTGCCATAGTCCCGTAGCA	8640
+MT526800.1|Chikungunya                                           CCATACTTAGCTCACTGTCCCGACTGTGGAGAAGGGCACTCGTGCCATAGTCCCGTAGCA	8635
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCATACTTAGCTCACTGTCCCGACTGCGGAGAAGGGCACTCGTGCCATAGTCCCGTAGCA	8338
+                                                                 ****** ******************* *********************************
+
+NC_004162.2                                                      CTAGAACGCATCAGAAATGAAGCGACAGACGGGACGCTGAAAATCCAGGTCTCCTTGCAA	8700
+MT526800.1|Chikungunya                                           CTAGAACGCATCAGAAATGAAGCGACAGACGGGACGCTGAAAATCCAGGTCTCCTTGCAA	8695
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CTAGAACGCATCAGAAATGAAGCGACAGACGGGACGCTAAAAATCCAGGTCTCTTTGCAA	8398
+                                                                 ************************************** ************** ******
+
+NC_004162.2                                                      ATTGGAATAGGGACGGATGATAGCCATGATTGGACCAAGCTGCGTTACATGGACAATCAC	8760
+MT526800.1|Chikungunya                                           ATCGGAATAAAGACGGATGACAGCCACGATTGGACCAAGCTGCGTTATATGGACAACCAC	8755
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ATCGGAATAAAGACGGATGATAGCCACGATTGGACTAAGCTGCGTTACATGGACAATCAC	8458
+                                                                 ** ******  ********* ***** ******** *********** ******** ***
+
+NC_004162.2                                                      ATACCAGCAGACGCAGGGAGGGCCGGGCTATTTGTAAGAACATCAGCACCATGCACGATT	8820
+MT526800.1|Chikungunya                                           ATACCAACAGACGCAGAGAGGGCGGGGCTATTTGTAAGAACATCAGCACCGTGTACGATT	8815
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ATGCCAGCAGACGCAGGGAGGGCCGGGCTATTTGTAAGAACATCAGCACCATGCACGATT	8518
+                                                                 ** *** ********* ****** ************************** ** ******
+
+NC_004162.2                                                      ACTGGAACAATGGGACACTTCATCCTGGCCCGATGTCCGAAAGGAGAAACTCTGACGGTG	8880
+MT526800.1|Chikungunya                                           ACTGGAACAATGGGACACTTCATCCTGGCCCGATGTCCAAAAGGGGAAACTCTGACGGTG	8875
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACTGGAACAATGGGACACTTCATCCTGGCCCGATGTCCGAAAGGAGAAACTCTGACGGTG	8578
+                                                                 ************************************** ***** ***************
+
+NC_004162.2                                                      GGATTCACTGACAGTAGGAAGATTAGTCACTCATGTACGCACCCATTTCACCACGACCCT	8940
+MT526800.1|Chikungunya                                           GGATTCACTGACAGTAGGAAGATTAGTCATTCATGTACGCACCCATTTCACCACGACCCT	8935
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGATTCACTGACAGTAGGAAGATTAGTCACTCATGTACGCACCCATTTCACCACGATCCT	8638
+                                                                 ***************************** ************************** ***
+
+NC_004162.2                                                      CCTGTGATAGGCCGGGAAAAATTCCATTCCCGACCGCAGCACGGTAAAGAGCTACCTTGC	9000
+MT526800.1|Chikungunya                                           CCTGTGATAGGTCGGGAAAAATTCCATTCCCGACCGCAGCACGGTAAAGAGCTACCTTGC	8995
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCTGTGATAGGCCGGGAAAAATTCCATTCCCGACCGCAGCACGGTAGAGAGTTACCTTGC	8698
+                                                                 *********** ********************************** **** ********
+
+NC_004162.2                                                      AGCACGTACGTGCAGAGCAACGCCGCAACTGCCGAGGAGATAGAGGTACACATGCCCCCA	9060
+MT526800.1|Chikungunya                                           AGCACGTATGTGCAGAGCACCGCCGCAACTACCGAAGAGATAGAGGTACACATGCCCCCA	9055
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGCACGTACGTGCAGAGCACCGCCGCAACTACCGAGGAGATAGAGGTACACATGCCCCCA	8758
+                                                                 ******** ********** ********** **** ************************
+
+NC_004162.2                                                      GACACCCCTGATCGCACATTGCTGTCACAACAGTCCGGCAACGTAAAGATCACAGTCAAT	9120
+MT526800.1|Chikungunya                                           GACACCCCTGATCGCACATTAATGTCACAACAGTCCGGCAACGTAAAGATCACAGTCAAT	9115
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GACACCCCTGATCGCACATTGATGTCACAACAGTCCGGCAACGTAAAGATCACAGTCAAT	8818
+                                                                 ********************  **************************************
+
+NC_004162.2                                                      AGTCAGACGGTGCGGTATAAGTGTAATTGCGGTGGCTCAAATGAAGGACTAATAACTACA	9180
+MT526800.1|Chikungunya                                           GGCCAGACGGTGCGGTACAAGTGTAATTGCGGTGGCTCAAATGAAGGACTGACAACTACA	9175
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGTCAGACGGTGCGGTATAAGTGTAATTGCGGTGGCTCAAATGAAGGACTAATAACTACA	8878
+                                                                  * ************** ******************************** * *******
+
+NC_004162.2                                                      GATAAAGTGATTAATAACTGCAAGGTTGATCAATGTCATGCCGCGGTCACCAATCACAAA	9240
+MT526800.1|Chikungunya                                           GACAAGGTGATTAATAACTGCAAGGTTGATCAATGTCATGCCGCGGTCACCAATCATAAA	9235
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GATAAAGTGATTAATAACTGCAAGGTTGATCAATGTCATGCCGCGGTCACCAATCACAAA	8938
+                                                                 ** ** ************************************************** ***
+
+NC_004162.2                                                      AAGTGGCAGTATAACTCCCCTCTGGTCCCGCGTAACGCTGAACTCGGGGACCGAAAAGGA	9300
+MT526800.1|Chikungunya                                           AAGTGGCAGTATAACTCCCCTCTGGTCCCGCGTAATGCTGAACTTGGGGACCGAAAAGGA	9295
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AAGTGGCAGTATAACTCCCCTCTGGTCCCGCGTAATGATGAACTTGGGGACCGAAAAGGG	8998
+                                                                 *********************************** * ****** ************** 
+
+NC_004162.2                                                      AAAATTCACATCCCGTTTCCGCTGGCAAATGTAACATGCATGGTGCCTAAAGCAAGGAAC	9360
+MT526800.1|Chikungunya                                           AAAATTCACATCCCGTTTCCGCTGGCAAATGCAACATGCAGGGTGCCTAAAGCAAGGAAC	9355
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AAAATCCACATCCCGTTTCCGCTGGCAAATGTAACATGCAGGGTGCCTAAAGCAAGGAAC	9058
+                                                                 ***** ************************* ******** *******************
+
+NC_004162.2                                                      CCCACCGTGACGTACGGGAAAAACCAAGTCATCATGCTACTGTATCCTGACCACCCAACA	9420
+MT526800.1|Chikungunya                                           CCCACCGTGACGTACGGGAAAAACCAAGTCATCATGCTACTGTATCCTGACCACCCAACA	9415
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCCACCGTGACGTACGGGAAAAACAAAGTCATCATGCTACTGTACCCTGACCACCCAACA	9118
+                                                                 ************************ ******************* ***************
+
+NC_004162.2                                                      CTCCTGTCCTACCGGAGTATGGGAGAAGAACCAAACTATCAAGAAGAGTGGGTGACGCAC	9480
+MT526800.1|Chikungunya                                           CTCCTGTCCTACCGGAATATGGGAGAAGAACCAAACTATCAAGAAGAGTGGGTGATGCAT	9475
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TTGCTGTCCTACCGGAATATGGGAGAAGAACCAAACTATCAAGAAGAGTGGGTGACGCAC	9178
+                                                                  * ************* ************************************** *** 
+
+NC_004162.2                                                      AAGAAGGAGGTCGTGCTAACCGTGCCGACTGAAGGGCTCGAGGTTACGTGGGGCAACAAC	9540
+MT526800.1|Chikungunya                                           AAGAAGGAAGTCGTGCTAACCGTGCCGACCGAAGGGCTCGAGGTCACGTGGGGCAACAAC	9535
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AAGAAGGAAGTCGTGCTAACCGTGCCGACTGAAGGGCTCGAGGTCACGTGGGGCAACAAC	9238
+                                                                 ******** ******************** ************** ***************
+
+NC_004162.2                                                      GAGCCGTATAAGTATTGGCCGCAGTTATCTGCAAACGGTACAGCCCACGGCCACCCGCAT	9600
+MT526800.1|Chikungunya                                           GAGCCGTATAAGTATTGGCCGCAGTTATCTACAAACGGTACAGCCCATGGCCACCCGCAT	9595
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GAGCCGTATAAGTATTGGCCGCAGTTATCTGCAAACGGTACAGCCCACGGCCACCCGCAT	9298
+                                                                 ****************************** **************** ************
+
+NC_004162.2                                                      GAGATAATCTTGTACTATTATGAGCTGTACCCTACTATGACTGTAGTAGTTGTGTCAGTG	9660
+MT526800.1|Chikungunya                                           GAGATAATTCTGTATTATTATGAGCTGTACCCTACAATGACTGTAGTAGTTGTGTCAGTA	9655
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GAGATAATCTTGTACTATTATGAGCTGTACCCTACTATGACTGTAGTAGTTGTGTCAGTG	9358
+                                                                 ********  **** ******************** *********************** 
+
+NC_004162.2                                                      GCCTCGTTCATACTCCTGTCGATGGTGGGTATGGCAGTGGGGATGTGCATGTGTGCACGA	9720
+MT526800.1|Chikungunya                                           GCCACGTTCATACTCCTGTCGATGGTGGGTATGGCAGCGGGGATGTGCATGTGTGCACGA	9715
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GCCTCGTTCATACTCCTGTCGATGGTGGGTATGGCAGTGGGGATGTGCATGTGTGCACGA	9418
+                                                                 *** ********************************* **********************
+
+NC_004162.2                                                      CGCAGATGCATCACACCATACGAACTGACACCAGGAGCTACCGTCCCTTTCCTGCTTAGC	9780
+MT526800.1|Chikungunya                                           CGCAGATGCATCACACCGTATGAACTGACACCAGGAGCTACCGTCCCTTTCCTGCTTAGC	9775
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CGCAGATGCATCACACCGTACGAACTGACACCAGGAGCTACCGTCCCTTTCCTGCTTAGC	9478
+                                                                 ***************** ** ***************************************
+
+NC_004162.2                                                      CTAATATGCTGCATCAGAACAGCTAAAGCGGCCACATACCAAGAGGCTGCGGTATACCTG	9840
+MT526800.1|Chikungunya                                           CTAATATGCTGCATCAGAACAGCTAAAGCGGCCACATACCAAGAGGCTGCGATATACCTG	9835
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CTACTATGCTGCATCAGAACAGCTAAAGCGGCCACATACCAAGAGGCTGCGGTGTACCTG	9538
+                                                                 *** *********************************************** * ******
+
+NC_004162.2                                                      TGGAACGAGCAGCAACCTTTGTTTTGGCTACAAGCCCTTATTCCGCTGGCAGCCCTGATT	9900
+MT526800.1|Chikungunya                                           TGGAACGAGCAGCAACCTTTGTTTTGGCTACAAGCCCTTATTCCGCTGGCAGCCCTGATT	9895
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGGAATGAGCAGCAGCCTTTGTTCTGGCTACAAGCCCTTATTCCGCTGGCAGCCCTGATT	9598
+                                                                 ***** ******** ******** ************************************
+
+NC_004162.2                                                      GTCCTATGCAACTGTCTGAGACTCTTACCATGCTGTTGTAAAACGTTGGCTTTTTTAGCC	9960
+MT526800.1|Chikungunya                                           GTTCTATGCAACTGTCTGAGACTCTTACCATGCTGCTGTAAAACGTTGGCTTTTTTAGCC	9955
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTCCTATGCAACTGTCTGAGACTCTTACCATGCTGTTGTAAAACGTTGGCTTTTTTAGCC	9658
+                                                                 ** ******************************** ************************
+
+NC_004162.2                                                      GTAATGAGCATCGGTGCCCACACTGTGAGCGCGTACGAACACGTAACAGTGATCCCGAAC	10020
+MT526800.1|Chikungunya                                           GTAATGAGCGTCGGTGCCCACACTGTGAGCGCGTACGAACACGTAACAGTGATCCCGAAC	10015
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTAATGAGCGTCGGTGCCCACACTGTGAACGCGTACGAACACGTAACAGTGATCCCGAGC	9718
+                                                                 ********* ****************** ***************************** *
+
+NC_004162.2                                                      ACGGTGGGAGTACCGTATAAGACTCTAGTCAACAGACCGGGCTACAGCCCCATGGTACTG	10080
+MT526800.1|Chikungunya                                           ACGGTGGGAGTACCGTATAAGACTCTAGTCAATAGACCTGGCTACAGCCCCATGGTATTG	10075
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ACGGTGGGAGTACCGTATAAGACTCTAGTCAACAGACCGGGCTACAGTCCCATGGTATTG	9778
+                                                                 ******************************** ***** ******** ********* **
+
+NC_004162.2                                                      GAGATGGAGCTACTGTCAGTCACTTTGGAGCCAACGCTATCGCTTGATTACATCACGTGC	10140
+MT526800.1|Chikungunya                                           GAGATGGAACTACTGTCAGTCACTTTGGAGCCAACACTATCGCTTGATTACATCACATGC	10135
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GAGATGGAACTACTGTCAGTCATTTTGGAGCCAACGCTATCGCTTGATTACATCACGTGC	9838
+                                                                 ******** ************* ************ ******************** ***
+
+NC_004162.2                                                      GAATACAAAACCGTCATCCCGTCTCCGTACGTGAAATGCTGCGGTACAGCAGAGTGCAAG	10200
+MT526800.1|Chikungunya                                           GAGTACAAAACCGTCATCCCGTCTCCGTACGTGAAGTGCTGCGGTACAGCAGAGTGCAAG	10195
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GAGTACAAAACCGTCATCCCGTCTCCGTACGTGAAATGCTGCGGTACAGCAGAGTGCAAG	9898
+                                                                 ** ******************************** ************************
+
+NC_004162.2                                                      GACAAAAACCTACCTGACTACAGCTGTAAGGTCTTCACCGGCGTCTACCCATTTATGTGG	10260
+MT526800.1|Chikungunya                                           GACAAAAACCTACCTGACTACAGCTGTAAGGTCTTCACCGGCGTCTACCCATTTATGTGG	10255
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GACAAAAATCTACCTGACTACAGCTGTAAGGTCTTCACCGGCGTCTACCCATTTATGTGG	9958
+                                                                 ******** ***************************************************
+
+NC_004162.2                                                      GGCGGCGCCTACTGCTTCTGCGACGCTGAAAACACGCAATTGAGCGAAGCACATGTGGAG	10320
+MT526800.1|Chikungunya                                           GGCGGCGCCTACTGCTTCTGCGACGCTGAAAACACGCAGTTGAGCGAAGCACATGTGGAG	10315
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGCGGTGCTTACTGCTTCTGCGACGCTGAAAACACGCAATTGAGCGAAGCACATGTGGAG	10018
+                                                                 ***** ** ***************************** *********************
+
+NC_004162.2                                                      AAGTCCGAATCATGCAAAACAGAATTTGCATCAGCATACAGGGCTCATACCGCATCCGCA	10380
+MT526800.1|Chikungunya                                           AAGTCCGAATCATGCAAAACAGAATTTGCATCAGCATACAGGGCTCATACCGCATCTGCA	10375
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AAGTCCGAATCATGCAAAACAGAATTTGCATCAGCATACAGGGCTCATACAGCATCCGCA	10078
+                                                                 ************************************************** ***** ***
+
+NC_004162.2                                                      TCAGCTAAGCTCCGCGTCCTTTACCAAGGAAATAACATCACTGTAACTGCCTATGCAAAC	10440
+MT526800.1|Chikungunya                                           TCAGCTAAGCTCCGCGTCTTTTACCAAGGGAATAACATCACTGTAACTGCCTATGCAAAC	10435
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TCAGCTAAGCTCCGCGTCCTTTACCAAGGAAATAACATCACTGTAACTGCCTATGCAAAC	10138
+                                                                 ****************** ********** ******************************
+
+NC_004162.2                                                      GGCGACCATGCCGTCACAGTTAAGGACGCCAAATTCATTGTGGGGCCAATGTCTTCAGCC	10500
+MT526800.1|Chikungunya                                           GGCGACCATGCCGTCACAGTTAAGGACGCCAAATTCATTGTGGGGCCAATGTCTTCAGCC	10495
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GGCGACCATGCCGTCACAGTCAAGGACGCCAAATTCATTGTGGGGCCAATGTCTTCAGCC	10198
+                                                                 ******************** ***************************************
+
+NC_004162.2                                                      TGGACACCTTTTGACAACAAAATCGTGGTGTACAAAGGTGACGTTTACAACATGGACTAC	10560
+MT526800.1|Chikungunya                                           TGGACACCTTTTGACAACAAAATTGTGGTGTACAAAGGTGACGTCTATAACATGGACTAC	10555
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGGACACCTTTCGACAACAAAATTGTGGTGTACAAAGGTGACGTCTATAACATGGACTAC	10258
+                                                                 *********** *********** ******************** ** ************
+
+NC_004162.2                                                      CCGCCCTTTGGCGCAGGAAGACCAGGACAATTTGGCGATATCCAAAGTCGCACGCCTGAG	10620
+MT526800.1|Chikungunya                                           CCGCCCTTTGGCGCAGGAAGACCAGGACAATTTGGCGATATCCAAAGTCGCACACCTGAG	10615
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CCGCCCTTTGGCGCAGGAAGACCAGGACAATTTGGCGATATCCAAAGTCGCACGCCTGAG	10318
+                                                                 ***************************************************** ******
+
+NC_004162.2                                                      AGCAAAGACGTCTATGCTAACACACAACTGGTACTGCAGAGACCGGCTGCGGGTACGGTA	10680
+MT526800.1|Chikungunya                                           AGTGAAGACGTCTATGCTAATACCCAACTGGTACTGCAGAGACCGGCTGCAGGTACGGTA	10675
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AGCAAAGACGTCTATGCTAACACACAACTGGTACTGCAGAGACCGGCTGCGGGTACGGTA	10378
+                                                                 **  **************** ** ************************** *********
+
+NC_004162.2                                                      CACGTGCCATACTCTCAGGCACCATCTGGCTTTAAGTATTGGTTAAAAGAACGAGGGGCG	10740
+MT526800.1|Chikungunya                                           CATGTGCCATACTCTCAGGCACCATCTGGCTTTAAGTATTGGCTAAAAGAACGCGGGGCG	10735
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      CACGTGCCATACTCTCAGGCACCATCTGGCTTTAAGTATTGGTTAAAAGAACGAGGGGCG	10438
+                                                                 ** *************************************** ********** ******
+
+NC_004162.2                                                      TCGCTACAGCACACAGCACCATTTGGCTGCCAAATAGCAACAAACCCGGTAAGAGCGATG	10800
+MT526800.1|Chikungunya                                           TCACTGCAGCACACAGCACCATTCGGCTGCCAAATAGCAACAAACCCGGTAAGAGCGGTG	10795
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TCGCTACAGCACACAGCACCATTTGGCTGCCAAATAGCAACAAACCCGGTAAGAGCGATG	10498
+                                                                 ** ** ***************** ********************************* **
+
+NC_004162.2                                                      AACTGCGCCGTAGGGAACATGCCCATCTCCATCGACATACCGGATGCGGCCTTCACTAGG	10860
+MT526800.1|Chikungunya                                           AACTGCGCCGTAGGGAACATGCCCATCTCCATCGACATACCGGAAGCGGCCTTCACTAGG	10855
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      AACTGCGCCGTAGGGAACATGCCCATCTCCATCGACATACCGGATGCGGCCTTCACTAGG	10558
+                                                                 ******************************************** ***************
+
+NC_004162.2                                                      GTCGTCGACGCGCCCTCTTTAACGGACATGTCATGCGAGGTACCAGCCTGCACCCATTCC	10920
+MT526800.1|Chikungunya                                           GTCGTCGACGCGCCCTCTTTAACGGACATGTCGTGCGAGGTACCAGCCTGCACCCATTCC	10915
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTCGTCGACGCGCCCTCTTTAACGGACATGTCATGCGAGGTACCAGCCTGCACGCATTCC	10618
+                                                                 ******************************** ******************** ******
+
+NC_004162.2                                                      TCAGACTTTGGGGGCGTCGCCATTATTAAATATGCAGTCAGCAAGAAAGGCAAGTGTGCG	10980
+MT526800.1|Chikungunya                                           TCAGACTTTGGGGGCGTCGCCGTTATTAAATATGCAGCCAGCAAGAAAGGCAAGTGCGCG	10975
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TCAGACTTTGGGGGCGTCGCCGTTATTAAATATGCAGCCAGCAGGAAAGGCAAGTGTGCG	10678
+                                                                 ********************* *************** ***** ************ ***
+
+NC_004162.2                                                      GTGCATTCGATGACCAACGCCGTCACTATCCGGGAAGCTGAGATAGAAGTTGAAGGGAAT	11040
+MT526800.1|Chikungunya                                           GTGCATTCGATGACTAACGCCGTCACTATTCGGGAAGCTGAGATAGAAGTTGAAGGGAAT	11035
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTACACTCGATGACCAACGCCGTCACTATTCGGGAAGCTGAGATAGAAGTTGAAGAGAAT	10738
+                                                                 ** ** ******** ************** ************************* ****
+
+NC_004162.2                                                      TCTCAGCTGCAAATCTCTTTCTCGACGGCCTTGGCCAGCGCCGAATTCCGCGTACAAGTC	11100
+MT526800.1|Chikungunya                                           TCTCAGCTGCAAATCTCTTTCTCGACGGCCTTAGCCAGCGCCGAATTCCGCGTACAAGTC	11095
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TCTCAGCTGCAAATCTCTTTCTCGACGGCCTTGGCCAGCGCCGAATTCCGCGTACAAGTT	10798
+                                                                 ******************************** ************************** 
+
+NC_004162.2                                                      TGTTCTACACAAGTACACTGTGCAGCCGAGTGCCACCCTCCGAAGGACCACATAGTCAAC	11160
+MT526800.1|Chikungunya                                           TGTTCTACACAAGTACACTGTGCAGCTGAGTGCCACCCCCCGAAGGACCACATAGTCAAC	11155
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TGTTCTACACAAGTACACTGTGCAGCCGAGTGCCACCCTCCGAAGGACCACATAGTTAAC	10858
+                                                                 ************************** *********** ***************** ***
+
+NC_004162.2                                                      TACCCGGCGTCACATACCACCCTCGGGGTCCAGGACATTTCCGCTACGGCGATGTCATGG	11220
+MT526800.1|Chikungunya                                           TACCCGGCGTCACATACCACCCTCGGGGTCCAGGACATCTCCGCTACGGCGATGTCATGG	11215
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      TACCCGGCGTCACATACCACCCTCGGGATCCAGGACATTTCCGCCACGGCGATGTCATGG	10918
+                                                                 *************************** ********** ***** ***************
+
+NC_004162.2                                                      GTGCAGAAGATCACGGGAGGTGTGGGACTGGTTGTCGCTGTTGCAGCACTGATTCTAATC	11280
+MT526800.1|Chikungunya                                           GTGCAGAAGATCACGGGAGGTGTGGGACTGGTTGTTGCTGTTGCCGCACTGATTCTAATC	11275
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTGCAGAAGATCACGGGAGGTGTGGGACTGGTTGTCGCTGTTGCAGCACTGATTCTAATC	10978
+                                                                 *********************************** ******** ***************
+
+NC_004162.2                                                      GTGGTGCTATGCGTGTCGTTCAGCAGGCACTAACTTGACGACTAAGCATGAAGGTATATG	11340
+MT526800.1|Chikungunya                                           GTGGTGCTATGCGTGTCGTTCAGCAGGCACTAACTTGACAATTAAGTATGAAGGTATATG	11335
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      GTGGTGCTATGCGTGTCGTTTAGCAGGC--------------------------------	11006
+                                                                 ******************** *******                                
+
+NC_004162.2                                                      TGTCCCCTAAGAGACACACCGTATATAGCTAATAATCTGTAGATCAAAGGGCTATATAAC	11400
+MT526800.1|Chikungunya                                           TGTCCCCTAAGAGACACACTGTATATAGCAAATAATCTATAGATCAAAGGGCTACGCAAC	11395
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	11006
+                                                                                                                             
+
+NC_004162.2                                                      CCCTGAATAGTAACAAAATACAAAATCACTAAAAATTATAAAAAAAAAAAAAAAAAAACA	11460
+MT526800.1|Chikungunya                                           CCCTGAATAGTAACAAAATACAAAATCACTAAAAATTATAAAAA--------------CA	11441
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	11006
+                                                                                                                             
+
+NC_004162.2                                                      GAAAAATATATAAATAGGTATACGTGTCCCCTAAGAGACACATTGTATGTAGGTGATAAG	11520
+MT526800.1|Chikungunya                                           GAAAAATACATAAATAGGTATACGTGTCCCCTAAGAGACACATTGTATGTAGGTGATAAG	11501
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	11006
+                                                                                                                             
+
+NC_004162.2                                                      TATAGATCAAAGGGCCGAACAACCCCTGAATAGTAACAAAATATAAAAATTAATAAAAAT	11580
+MT526800.1|Chikungunya                                           TATAGATCAAAGGGCCNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN	11561
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	11006
+                                                                                                                             
+
+NC_004162.2                                                      CATAAAATAGAAAAACCATAAACAGAAGTAGTTCAAAGGGCTATAAAAACCCCTGAATAG	11640
+MT526800.1|Chikungunya                                           NN-NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNATAAAACCCCTGAATAG	11620
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	11006
+                                                                                                                             
+
+NC_004162.2                                                      TAACAAAACATAAAACTAATAAAAATCAAATGAATACCATAATTGGCAAACGGAAGAGAT	11700
+MT526800.1|Chikungunya                                           TAACAAAACATAAAGTTAATAAAAATCAAATGAATACCATAATTGGCAAACGGAAGAGAT	11680
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	11006
+                                                                                                                             
+
+NC_004162.2                                                      GTAGGTACTTAAGCTTCCTAAAAGCAGCCGAACTCACTTTGAGATGTAGGCATAGCATAC	11760
+MT526800.1|Chikungunya                                           GTAGGTACTTAAGCTTCCTAAAAGCAGCCGAACTCACTTTGAGAAGTAGGCATAGCATAC	11740
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	11006
+                                                                                                                             
+
+NC_004162.2                                                      CGAACTCTTCCACGATTCTCCGAACCCACAGGGACGTAGGAGATGTTATTTTGTTTTTAA	11820
+MT526800.1|Chikungunya                                           CGAACTCTTCCACGATTCTCCGAACCCACAGGGACGTAGGAGATGTTATTTTGTTTTTAA	11800
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      ------------------------------------------------------------	11006
+                                                                                                                             
+
+NC_004162.2                                                      TATTTC-------------------------	11826
+MT526800.1|Chikungunya                                           TATTTCAAAAAAAAAAAAAAAAAAAAAAAAA	11831
+hChikV/Mauritius/MHW-37161/2025|EPI_ISL_20090675|2025-03-29      -------------------------------	11006
+                                                                                                

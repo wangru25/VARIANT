@@ -509,13 +509,24 @@
                                         <!-- Sample Data Button -->
                                         <div class="mb-3 text-center">
                                             <button type="button" class="btn btn-outline-primary" onclick="loadSampleData()">
-                                                <i class="fas fa-download me-2"></i>Load Sample Data
+                                                <i class="fas fa-download me-2"></i>Load SARS-CoV-2 Sample Data
                                             </button>
                                             <small class="form-text text-muted d-block mt-2">
-                                                Try the tool with pre-loaded sample data to see how it works
+                                                One-click default setup for trying analysis and visualization quickly
                                             </small>
                                         </div>
                                         <hr>
+                                        <div class="mb-3">
+                                            <label class="form-label fw-bold">
+                                                <i class="fas fa-bolt text-warning"></i> Quick File Type
+                                            </label>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="quickSelectFileType('reference_genome')">Reference Genome</button>
+                                                <button type="button" class="btn btn-sm btn-outline-success" onclick="quickSelectFileType('proteome')">Proteome</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" onclick="quickSelectFileType('msa')">MSA</button>
+                                            </div>
+                                            <div class="form-text">Use one click instead of opening the file type dropdown each time.</div>
+                                        </div>
                                         <form id="dataUploadForm">
                                             <div class="mb-3">
                                                 <label for="uploadVirusSelect" class="form-label fw-bold">
@@ -555,7 +566,7 @@
                                                     <i class="fas fa-folder-open text-info"></i> Select File <span class="text-danger">*</span>
                                                 </label>
                                                 <input type="file" class="form-control" id="dataFile" required>
-                                                <div class="form-text">Choose the file to upload from your computer</div>
+                                                <div class="form-text">Choose the file to upload from your computer. If file type is empty, VARIANT will try to auto-detect it.</div>
                                             </div>
                                             
                                             <div class="text-center">
@@ -597,6 +608,92 @@
                                                 <li class="mb-1 text-primary"><strong>Reference Proteome:</strong> FASTA format (.fasta)</li>
                                                 <li class="mb-1 text-primary"><strong>MSA File:</strong> Multiple sequence alignment (.txt)</li>
                                             </ul>
+                                        </div>
+                                        <div class="bg-light border border-info border-opacity-25 p-3 rounded mb-3">
+                                            <h6 class="text-info mb-2"><i class="fas fa-eye me-2"></i>What Correct Input Looks Like (Examples)</h6>
+                                            <p class="small text-muted mb-2">Examples only. Upload your real files above.</p>
+                                            <details class="mb-2">
+                                                <summary class="fw-bold">Reference Genome FASTA (example)</summary>
+                                                <pre class="small mt-2 mb-0 p-2 bg-white border rounded">&gt;NC_045512 Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome
+ATTAAAGGTTTATACCTTCCCAGGTAACAAACCAACCAACTTTCGATCTCTTGTAGATCTGTTCTCTAAA
+CGAACTTTAAAATCTGTGTGGCTGTCACTCGGCTGCATGCTTAGTGCACTCACGCAGTATAATTAATAAC
+TAATTACTGTCGTTGACAGGACACGAGTAACTCGTCTATCTTCTGCAGGCTGCTTACGGTTTCGTCCGTG
+TTGCAGCCGATCATCAGCACATCTAGGTTTCGTCCGGGTGTGACCGAAAGGTAAGATGGAGAGCCTTGTC
+CCTGGTTTCAACGAGAAAACACACGTCCAACTCAGTTTGCCTGTTTTACAGGTTCGCGACGTGCTCGTAC
+GTGGCTTTGGAGACTCCGTGGAGGAGGTCTTATCAGAGGCACGTCAACATCTTAAAGATGGCACTTGTGG
+CTTAGTAGAAGTTGAAAAAGGCGTTTTGCCTCAACTTGAACAGCCCTATGTGTTCATCAAACGTTCGGAT
+GCTCGAACTGCACCTCATGGTCATGTTATGGTTGAGCTGGTAGCAGAACTCGAAGGCATTCAGTACGGTC
+GTAGTGGTGAGACACTTGGTGTCCTTGTCCCTCATGTGGGCGAAATACCAGTGGCTTACCGCAAGGTTCT
+TCTTCGTAAGAACGGTAATAAAGGAGCTGGTGGCCATAGTTACGGCGCCGATCTAAAGTCATTTGACTTA
+GGCGACGAGCTTGGCACTGATCCTTATGAAGATTTTCAAGAAAACTGGAACACTAAACATAGCAGTGGTG
+TTACCCGTGAACTCATGCGTGAGCTTAACGGAGGGGCATACACTCGCTATGTCGATAACAACTTCTGTGG
+CCCTGATGGCTACCCTCTTGAGTGCATTAAAGACCTTCTAGCACGTGCTGGTAAAGCTTCATGCACTTTG
+TCCGAACAACTGGACTTTATTGACACTAAGAGGGGTGTATACTGCTGCCGTGAACATGAGCATGAAATTG
+CTTGGTACACGGAACGTTCTGAAAAGAGCTATGAATTGCAGACACCTTTTGAAATTAAATTGGCAAAGAA
+ATTTGACACCTTCAATGGGGAATGTCCAAATTTTGTATTTCCCTTAAATTCCATAATCAAGACTATTCAA
+CCAAGGGTTGAAAAGAAAAAGCTTGATGGCTTTATGGGTAGAATTCGATCTGTCTATCCAGTTGCGTCAC
+CAAATGAATGCAACCAAATGTGCCTTTCAACTCTCATGAAGTGTGATCATTGTGGTGAAACTTCATGGCA
+GACGGGCGATTTTGTTAAAGCCACTTGCGAATTTTGTGGCACTGAGAATTTGACTAAAGAAGGTGCCACT
+... (remaining lines omitted for brevity in this patch context)</pre>
+                                            </details>
+                                            <details class="mb-2">
+                                                <summary class="fw-bold">Proteome FASTA (example)</summary>
+                                                <pre class="small mt-2 mb-0 p-2 bg-white border rounded">&gt;YP_009724390.1|spike_surface_glycoprotein|21563..25384
+MFVFLVLLPLVSSQCVNLTTRTQLPPAYTNSFTRGVYYPDKVFRSSVLHSTQDLFLPFFSNVTWFHAIHV
+SGTNGTKRFDNPVLPFNDGVYFASTEKSNIIRGWIFGTTLDSKTQSLLIVNNATNVVIKVCEFQFCNDPF
+LGVYYHKNNKSWMESEFRVYSSANNCTFEYVSQPFLMDLEGKQGNFKNLREFVFKNIDGYFKIYSKHTPI
+NLVRDLPQGFSALEPLVDLPIGINITRFQTLLALHRSYLTPGDSSSGWTAGAAAYYVGYLQPRTFLLKYN
+ENGTITDAVDCALDPLSETKCTLKSFTVEKGIYQTSNFRVQPTESIVRFPNITNLCPFGEVFNATRFASV
+YAWNRKRISNCVADYSVLYNSASFSTFKCYGVSPTKLNDLCFTNVYADSFVIRGDEVRQIAPGQTGKIAD
+YNYKLPDDFTGCVIAWNSNNLDSKVGGNYNYLYRLFRKSNLKPFERDISTEIYQAGSTPCNGVEGFNCYF
+PLQSYGFQPTNGVGYQPYRVVVLSFELLHAPATVCGPKKSTNLVKNKCVNFNFNGLTGTGVLTESNKKFL
+PFQQFGRDIADTTDAVRDPQTLEILDITPCSFGGVSVITPGTNTSNQVAVLYQDVNCTEVPVAIHADQLT
+PTWRVYSTGSNVFQTRAGCLIGAEHVNNSYECDIPIGAGICASYQTQTNSPRRARSVASQSIIAYTMSLG
+AENSVAYSNNSIAIPTNFTISVTTEILPVSMTKTSVDCTMYICGDSTECSNLLLQYGSFCTQLNRALTGI
+AVEQDKNTQEVFAQVKQIYKTPPIKDFGGFNFSQILPDPSKPSKRSFIEDLLFNKVTLADAGFIKQYGDC
+LGDIAARDLICAQKFNGLTVLPPLLTDEMIAQYTSALLAGTITSGWTFGAGAALQIPFAMQMAYRFNGIG
+VTQNVLYENQKLIANQFNSAIGKIQDSLSSTASALGKLQDVVNQNAQALNTLVKQLSSNFGAISSVLNDI
+LSRLDKVEAEVQIDRLITGRLQSLQTYVTQQLIRAAEIRASANLAATKMSECVLGQSKRVDFCGKGYHLM
+SFPQSAPHGVVFLHVTYVPAQEKNFTTAPAICHDGKAHFPREGVFVSNGTHWFVTQRNFYEPQIITTDNT
+FVSGNCDVVIGIVNNTVYDPLQPELDSFKEELDKYFKNHTSPDVDLGDISGINASVVNIQKEIDRLNEVA
+KNLNESLIDLQELGKYEQYIKWPWYIWLGFIAGLIAIVMVTIMLCCMTSCCSCLKGCCSCGSCCKFDEDD
+SEPVLKGVKLHYT</pre>
+                                            </details>
+                                            <details>
+                                                <summary class="fw-bold">MSA text/FASTA (example)</summary>
+                                                <pre class="small mt-2 mb-0 p-2 bg-white border rounded">CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+NC_045512.2                                                        ATTAAAGGTTTATACCTTCCCAGGTAACAAACCAACCAACTTTCGATCTCTTGTAGATCT	60
+hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      -TTAAAGGTTTATACCTTCCCAGGTAACAAACCAACCAACTTTTGATCTCTTGTAGATCT	59
+                                                                    ****************************************** ****************
+
+NC_045512.2                                                        GTTCTCTAAACGAACTTTAAAATCTGTGTGGCTGTCACTCGGCTGCATGCTTAGTGCACT	120
+hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      GTTCTCTAAACGAACTTTAAAATCTGTGTGGCTGTCACTCGGCTGCATGCTTAGTGCACT	119
+                                                                   ************************************************************
+
+NC_045512.2                                                        CACGCAGTATAATTAATAACTAATTACTGTCGTTGACAGGACACGAGTAACTCGTCTATC	180
+hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      CACGCAGTATAATTAATAACTAATTACTGTCGTTGACAGGACACGAGTAACTCGTCTATC	179
+                                                                   ************************************************************
+
+NC_045512.2                                                        TTCTGCAGGCTGCTTACGGTTTCGTCCGTGTTGCAGCCGATCATCAGCACATCTAGGTTT	240
+hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      TTCTGCAGGCTGCTTACGGTTTCGTCCGTGTTGCAGCCGATCATCAGCACATCTAGGTTT	239
+                                                                   ************************************************************
+
+NC_045512.2                                                        CGTCCGGGTGTGACCGAAAGGTAAGATGGAGAGCCTTGTCCCTGGTTTCAACGAGAAAAC	300
+hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      TGTCCGGGTGTGACCGAAAGGTAAGATGGAGAGCCTTGTCCCTGGTTTCAACGAGAAAAC	299
+                                                                    ***********************************************************
+
+NC_045512.2                                                        ACACGTCCAACTCAGTTTGCCTGTTTTACAGGTTCGCGACGTGCTCGTACGTGGCTTTGG	360
+hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      ACACGTCCAACTCAGTTTGCCTGTTTTACAGGTTCGCGACGTGCTCGTACGTGGCTTTGG	359
+                                                                   ************************************************************
+
+NC_045512.2                                                        AGACTCCGTGGAGGAGGTCTTATCAGAGGCACGTCAACATCTTAAAGATGGCACTTGTGG	420
+hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAGGAGGTCTTATCAGAGGCACGTCAACATCTTAAAGATGGCACTTGTGG	419
+                                                                   ************************************************************
+
+... (remaining lines omitted for brevity in this patch context)</pre>
+                                            </details>
                                         </div>
                                         
                                         <div class="bg-light border border-warning border-opacity-25 p-3 rounded mb-3" style="border-color: #fd7e14 !important;">
@@ -1151,248 +1248,13 @@
                                 <p class="mb-0 opacity-75">Viral mutAtion trackeR aImed At GeNome and proTein-level</p>
                             </div>
                             <div class="card-body">
-                                <!-- Quick-nav -->
                                 <nav class="mb-4">
                                     <div class="d-flex flex-wrap gap-2">
-                                        <a href="#help-overview" class="btn btn-outline-primary btn-sm">Overview</a>
-                                        <a href="#help-workflow" class="btn btn-outline-primary btn-sm">Workflow</a>
-                                        <a href="#help-files" class="btn btn-outline-primary btn-sm">Input files</a>
-                                        <a href="#help-builtin" class="btn btn-outline-primary btn-sm">Built-in vs Custom</a>
-                                        <a href="#help-output" class="btn btn-outline-primary btn-sm">Output files</a>
-                                        <a href="#help-viz" class="btn btn-outline-primary btn-sm">Visualizations</a>
-                                        <a href="#help-dualgraph" class="btn btn-outline-primary btn-sm">RNA Dual Graph</a>
-                                        <a href="#help-faq" class="btn btn-outline-primary btn-sm">FAQ</a>
+                                        <a href="#quick-start" class="btn btn-outline-primary btn-sm">Quick Start</a>
+                                        <a href="#help-output" class="btn btn-outline-primary btn-sm">Output Files</a>
+                                        <a href="#help-contact" class="btn btn-outline-primary btn-sm">Contact</a>
                                     </div>
                                 </nav>
-
-                                <!-- Overview -->
-                                <section id="help-overview" class="mb-5">
-                                    <h2 class="text-primary border-bottom pb-2 mb-3">Overview</h2>
-                                    <p>VARIANT compares a set of viral genome sequences to a curated reference genome and proteome to identify and classify mutations at both the nucleotide and amino acid level. It also optionally predicts Programmed Ribosomal Frameshifting (PRF) sites.</p>
-                                    <p>Three analysis steps are performed internally:</p>
-                                    <ol>
-                                        <li><strong>SNP detection</strong> — each genome in the MSA is compared position-by-position to the reference; substitutions, insertions and deletions are recorded.</li>
-                                        <li><strong>Protein-level translation</strong> — identified SNPs are mapped onto the annotated ORFs from the proteome file and amino acid changes are inferred.</li>
-                                        <li><strong>Hot / row mutation classification</strong> — clusters of adjacent mutations (row) and frequently recurring mutations across many genomes (hot) are flagged.</li>
-                                    </ol>
-                                    <p>An optional fourth step runs the PRF scanner to report candidate slippery sequences in each reference segment.</p>
-                                </section>
-
-                                <!-- Workflow -->
-                                <section id="help-workflow" class="mb-5">
-                                    <h2 class="text-primary border-bottom pb-2 mb-3">Step-by-step workflow</h2>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered align-middle">
-                                            <thead class="table-primary">
-                                                <tr><th style="width:5%">#</th><th>Tab</th><th>Action</th><th>Notes</th></tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td><strong>Data Upload</strong></td>
-                                                    <td>Select a virus and upload the three required files (reference genome, proteome, MSA).</td>
-                                                    <td>For <em>built-in</em> viruses only MSA upload is supported. Use a <em>Custom Virus</em> to supply your own reference and proteome.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td><strong>Analysis &amp; Visualization</strong></td>
-                                                    <td>Choose the virus, optionally enter a specific Genome ID, then click <em>Start Analysis</em>.</td>
-                                                    <td>Leave Genome ID blank to analyse every sequence in the MSA. The button is disabled until all three required files are present.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td><strong>History</strong></td>
-                                                    <td>Monitor job status (Queued → Running → Completed / Failed). Download a ZIP of results.</td>
-                                                    <td>Jobs persist across page refreshes. Error messages describe specifically what went wrong.</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>4</td>
-                                                    <td><strong>Analysis &amp; Visualization</strong></td>
-                                                    <td>After the job completes, select the virus in the <em>Generate Visualization</em> panel and click the button.</td>
-                                                    <td>Three interactive Plotly plots are rendered in-browser (Mutation Analysis, Row/Hot Mutations, PRF Regions).</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </section>
-
-                                <!-- Input files -->
-                                <section id="help-files" class="mb-5">
-                                    <h2 class="text-primary border-bottom pb-2 mb-3">Input file specifications</h2>
-
-                                    <h5 class="mt-3">Reference genome <code>.fasta / .fa / .fna</code></h5>
-                                    <ul>
-                                        <li>Standard FASTA format with one or more sequences (one per segment for multi-segment viruses).</li>
-                                        <li>Sequences must contain <strong>only IUPAC nucleotide characters</strong>: <code>A C G T U R Y S W K M B D H V N</code> and gap <code>-</code>. Any other character causes the upload to be rejected.</li>
-                                        <li>The header line (<code>&gt;identifier</code>) is used as the reference ID throughout the analysis.</li>
-                                    </ul>
-
-                                    <h5 class="mt-3">Proteome <code>.fasta / .fa / .faa</code></h5>
-                                    <ul>
-                                        <li>Multi-FASTA file where each entry is one protein (ORF) encoded in the reference genome.</li>
-                                        <li>Sequences must contain <strong>only standard one-letter amino acid codes</strong>: <code>A C D E F G H I K L M N P Q R S T V W Y X *</code> and gap <code>-</code>. Any other character is rejected.</li>
-                                        <li>Header lines must be consistent with the ORF annotations used internally.</li>
-                                    </ul>
-
-                                    <h5 class="mt-3">MSA file <code>.txt / .fasta / .fa / .aln / .clustal</code></h5>
-                                    <ul>
-                                        <li>A <strong>pre-computed</strong> multiple sequence alignment of the genomes you wish to compare.</li>
-                                        <li>Accepted formats: <strong>ClustalW</strong> (preferred) or multi-FASTA. The reference sequence must be included.</li>
-                                        <li>All sequences must be the same length (padded with <code>-</code> where necessary). Tools such as MAFFT, MUSCLE or ClustalW can generate these alignments.</li>
-                                        <li>Genome IDs in the MSA header lines are extracted automatically and offered as autocomplete suggestions in the analysis form.</li>
-                                    </ul>
-
-                                    <div class="alert alert-warning mt-3">
-                                        <i class="fas fa-exclamation-triangle me-2"></i>
-                                        <strong>File validation:</strong> VARIANT validates the biological content of every upload. Files containing invalid characters are rejected immediately with a description of the offending characters.
-                                    </div>
-                                </section>
-
-                                <!-- Built-in vs Custom -->
-                                <section id="help-builtin" class="mb-5">
-                                    <h2 class="text-primary border-bottom pb-2 mb-3">Built-in viruses vs Custom viruses</h2>
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <div class="card h-100 border-primary">
-                                                <div class="card-header bg-primary text-white">Built-in viruses</div>
-                                                <div class="card-body small">
-                                                    <p>SARS-CoV-2, HIV-1, Chikungunya, ZaireEbola and H3N2 ship with curated reference genomes and proteomes. These <strong>cannot be replaced</strong> through the upload form — doing so would corrupt the shared reference for all users.</p>
-                                                    <p>You <em>can</em> upload additional MSA files for built-in viruses to run comparative analyses on your own sequence cohorts.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <div class="card h-100 border-success">
-                                                <div class="card-header bg-success text-white">Custom viruses</div>
-                                                <div class="card-body small">
-                                                    <p>Use the <em>Custom Virus</em> panel (Data Upload tab) to register any virus not in the built-in list. You must supply all three files: reference genome, proteome and MSA.</p>
-                                                    <p>Custom viruses support single-segment and multi-segment configurations. Name them clearly — the name is used as a directory label and in all output filenames.</p>
-                                                    <p><strong>Example use cases:</strong> human mtDNA, bacteriophages, novel emerging pathogens, custom SARS-CoV-2 subsets.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <!-- Output files -->
-                                <section id="help-output" class="mb-5">
-                                    <h2 class="text-primary border-bottom pb-2 mb-3">Output files</h2>
-                                    <p>All output is written to <code>result/{virus_name}/</code> and can be downloaded as a ZIP from the History tab.</p>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-sm">
-                                            <thead class="table-light">
-                                                <tr><th>File</th><th>Description</th><th>Key columns</th></tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><code>{genome_id}_mutation_summary.csv</code></td>
-                                                    <td>One row per mutated position in the query genome</td>
-                                                    <td>Position, Reference NT, Query NT, Amino-acid change, Protein, Effect type</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><code>{genome_id}_row_hot_mutations.csv</code></td>
-                                                    <td>Clustered and recurring mutation sites</td>
-                                                    <td>Position, Mutation type (hot / row), Frequency, Affected proteins</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><code>{genome_id}.txt</code></td>
-                                                    <td>Full per-genome mutation detail (plain text)</td>
-                                                    <td>Human-readable SNP list with codon context</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><code>potential_PRF.csv</code></td>
-                                                    <td>Candidate programmed ribosomal frameshifting sites</td>
-                                                    <td>Position, Slippery sequence, Predicted shift direction, Score</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </section>
-
-                                <!-- Visualizations -->
-                                <section id="help-viz" class="mb-5">
-                                    <h2 class="text-primary border-bottom pb-2 mb-3">Visualizations</h2>
-                                    <p>After a completed analysis, open the <em>Analysis &amp; Visualization</em> tab, select the virus (and optionally a genome ID) in the <em>Generate Visualization</em> panel, then click the button. Three interactive Plotly HTML plots are displayed:</p>
-                                    <ul>
-                                        <li><strong>Mutation Analysis</strong> — genome-wide overview with per-protein mutation bars. Hover over each bar for position-level detail.</li>
-                                        <li><strong>Row / Hot Mutations</strong> — highlights mutation clusters (row) and high-frequency sites (hot) across the proteome.</li>
-                                        <li><strong>PRF Regions</strong> — shows predicted frameshifting sites along the genome with confidence scores.</li>
-                                    </ul>
-                                    <p>All three plots are interactive: zoom, pan, hover tooltips, and download as PNG via the Plotly toolbar. Switching to a different virus re-generates all three plots fresh.</p>
-                                </section>
-
-                                <!-- RNA Dual Graph -->
-                                <section id="help-dualgraph" class="mb-5">
-                                    <h2 class="text-primary border-bottom pb-2 mb-3">RNA Dual Graph tab</h2>
-                                    <p>The <em>RNA Dual Graph</em> tab assigns a topology ID to an RNA secondary structure described in dot-bracket notation.</p>
-                                    <h6>Input format (dot-bracket)</h6>
-                                    <pre class="bg-light p-3 rounded small">&gt;MY_RNA
-AUGCAUGCAUGCAUGC
-((((....))))....</pre>
-                                    <ul>
-                                        <li>Line 1: sequence name (preceded by <code>&gt;</code>).</li>
-                                        <li>Line 2: nucleotide sequence (A, U, G, C).</li>
-                                        <li>Line 3: dot-bracket structure. Supported brackets: <code>( )</code>, <code>[ ]</code>, <code>{ }</code>.</li>
-                                        <li>Use <code>&amp;</code> to separate strands in a multi-strand structure.</li>
-                                    </ul>
-                                    <p>The pipeline runs: dot-bracket → DSSR format → CT file → dual graph library match by Laplacian eigenvalue + graph isomorphism. Matched topology IDs are shown in a table; click <em>Plot</em> to display the dual graph topology.</p>
-                                </section>
-
-                                <!-- FAQ -->
-                                <section id="help-faq" class="mb-5">
-                                    <h2 class="text-primary border-bottom pb-2 mb-3">Frequently asked questions</h2>
-
-                                    <div class="accordion" id="faqAccordion">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Why is the Start Analysis button disabled?</button></h2>
-                                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body">The button is enabled only when all three required files (reference genome, proteome, MSA) have been uploaded for the selected virus. Check the upload checklist on the Data Upload tab.</div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">I uploaded SARS-CoV-2 data and labeled it as an existing virus — the output looked wrong.</button></h2>
-                                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body">Built-in viruses use their own curated reference genome and proteome regardless of what MSA you upload. If you want to analyse a different organism, create a <strong>Custom Virus</strong> and upload all three files. Uploading a reference genome or proteome for a built-in virus is now blocked by the server with an explanatory error message.</div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">My upload was rejected with a character validation error.</button></h2>
-                                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body">VARIANT validates file content: reference genome files must contain only IUPAC nucleotide characters and proteome files must contain only standard amino acid characters. Remove or correct the flagged characters before re-uploading. Common causes: protein sequences uploaded as reference genome (wrong slot), quality scores or metadata mixed into sequence lines, or Windows-style whitespace.</div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">My analysis failed — what does the error message mean?</button></h2>
-                                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body">Error messages are shown in the History tab next to the failed job. Common errors: <em>"No MSA file configured"</em> means the upload checklist is incomplete; <em>"Reference genome file is missing"</em> means the custom virus config has no reference genome set (re-upload the file). Contact the server administrator if errors persist.</div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">The visualization panel is stuck showing a previous virus.</button></h2>
-                                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body">Each time you click <em>Generate All Visualizations</em> the plots are regenerated with a fresh timestamp so the browser does not cache old content. If you still see stale content, perform a hard refresh (Ctrl+Shift+R / Cmd+Shift+R).</div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">My download link from the History tab fails.</button></h2>
-                                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body">Job records are now persisted to disk and survive server restarts. If a download still fails, the result files may have been deleted from the server (result directories are shared and overwritten by subsequent analyses of the same virus). Re-run the analysis and download immediately after completion.</div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">How do I analyse a new organism not in the built-in list (e.g. human mtDNA)?</button></h2>
-                                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                                <div class="accordion-body"><ol class="mb-0"><li>Click <em>Create Custom Virus</em> in the Data Upload tab and choose <em>single-segment</em>.</li><li>Upload your reference genome (the mitochondrial genome FASTA).</li><li>Upload your proteome (all mitochondrially encoded protein sequences in one FASTA).</li><li>Upload your MSA (ClustalW alignment of the genomes you want to compare).</li><li>Switch to the Analysis tab, select your custom virus, and run the analysis.</li></ol></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <!-- Contact -->
-                                <section class="mb-4">
-                                    <h2 class="text-primary border-bottom pb-2 mb-3">Contact &amp; citation</h2>
-                                    <p>For bug reports, feature requests or questions, contact <a href="mailto:rw3594@nyu.edu">rw3594@nyu.edu</a> or open an issue on <a href="https://github.com/wangru25/VARIANT" target="_blank">GitHub</a>.</p>
-                                </section>
 
                                 <!-- Features -->
                                 <section id="features" class="mb-5 d-none">
@@ -1533,17 +1395,40 @@ AUGCAUGCAUGCAUGC
                                         <div class="col-md-6 mb-4">
                                             <div class="card h-100 border-0 shadow-sm">
                                                 <div class="card-body">
-                                                    <h4 class="text-primary mb-3">Step 4: Track with Job ID</h4>
+                                                    <h4 class="text-primary mb-3">Step 4: RNA Dual Graph</h4>
                                                     <ol class="list-unstyled">
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Note your unique job ID</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Go to <strong>History</strong> tab</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Track job status and progress</li>
-                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>Download results when complete</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">1</span>Go to <strong>RNA Dual Graph</strong> tab</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">2</span>Paste dot-bracket input</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">3</span>Run dual-graph assignment</li>
+                                                        <li class="mb-2"><span class="badge bg-primary me-2">4</span>View RNA Dual Graph IDs and plot</li>
                                                     </ol>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </section>
+
+                                <section id="help-output" class="mb-5">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Output Files</h2>
+                                    <p>Results are written under <code>result/{virus_name}/</code> and downloadable from History.</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-sm">
+                                            <thead class="table-light">
+                                                <tr><th>File Pattern</th><th>Description</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td><code>{genome_id}_mutation_summary.csv</code></td><td>Position-level nucleotide and amino-acid mutation table.</td></tr>
+                                                <tr><td><code>{genome_id}_row_hot_mutations.csv</code></td><td>Clustered and high-frequency mutation report.</td></tr>
+                                                <tr><td><code>{genome_id}.txt</code></td><td>Detailed per-genome mutation text report.</td></tr>
+                                                <tr><td><code>potential_PRF.csv</code> or <code>prf_analysis.prf_candidates.csv</code></td><td>Candidate PRF sites from PRF scanner.</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+
+                                <section id="help-contact" class="mb-4">
+                                    <h2 class="text-primary border-bottom pb-2 mb-3">Contact</h2>
+                                    <p class="mb-0">Questions or issues: <a href="mailto:rw3594@nyu.edu">rw3594@nyu.edu</a> or <a href="https://github.com/wangru25/VARIANT" target="_blank">GitHub</a>.</p>
                                 </section>
 
                                 <!-- File Requirements -->
@@ -2075,6 +1960,9 @@ AUGCAUGCAUGCAUGC
             // File type selection
             document.getElementById('fileTypeSelect').addEventListener('change', function() {
                 updateFileInputAccept(this.value);
+            });
+            document.getElementById('dataFile').addEventListener('change', function() {
+                inferFileTypeFromSelectedFile();
             });
 
             // Reload genome IDs when MSA file selection changes
@@ -2709,6 +2597,36 @@ AUGCAUGCAUGCAUGC
             };
             fileInput.accept = acceptMap[fileType] || '';
         }
+
+        function quickSelectFileType(fileType) {
+            const fileTypeSelect = document.getElementById('fileTypeSelect');
+            if (!fileTypeSelect) return;
+            fileTypeSelect.value = fileType;
+            updateFileInputAccept(fileType);
+        }
+
+        function inferFileTypeFromSelectedFile() {
+            const fileTypeSelect = document.getElementById('fileTypeSelect');
+            const fileInput = document.getElementById('dataFile');
+            if (!fileTypeSelect || !fileInput || !fileInput.files || !fileInput.files[0]) return;
+            if (fileTypeSelect.value) return;
+
+            const name = fileInput.files[0].name.toLowerCase();
+            let inferred = '';
+            if (name.includes('proteome') || name.endsWith('.faa') || name.includes('protein')) {
+                inferred = 'proteome';
+            } else if (name.includes('msa') || name.endsWith('.aln') || name.endsWith('.clustal') || name.endsWith('.txt')) {
+                inferred = 'msa';
+            } else if (name.endsWith('.fna') || name.includes('genome') || name.includes('reference') || name.endsWith('.fasta') || name.endsWith('.fa')) {
+                inferred = 'reference_genome';
+            }
+
+            if (inferred) {
+                fileTypeSelect.value = inferred;
+                updateFileInputAccept(inferred);
+                showUploadMessage(`Auto-detected file type: ${inferred.replace('_', ' ')}`, 'info');
+            }
+        }
         
         // Handle custom virus creation
         async function handleCustomVirusCreation(event) {
@@ -2823,6 +2741,9 @@ AUGCAUGCAUGCAUGC
                         if (xhr.status >= 200 && xhr.status < 300) {
                             const result = JSON.parse(xhr.responseText);
                             showUploadMessage(`File uploaded successfully: ${result.filename}`, 'success');
+                            // Optimistic checklist update so users get immediate feedback
+                            // even if the follow-up checklist API call is delayed.
+                            markChecklistByFileType(fileType, true);
 
                             const selectedVirusInfo = {
                                 virus: virusName,
@@ -2842,7 +2763,12 @@ AUGCAUGCAUGCAUGC
                             if (dataFilesVirusSelect && dataFilesVirusSelect.value === currentVirusName) {
                                 loadDataFiles(currentVirusName);
                             }
-                            document.getElementById('dataUploadForm').reset();
+                            // Keep virus/segment selection so users can upload the next required file
+                            // (e.g. Reference -> Proteome -> MSA) without re-selecting virus each time.
+                            const fileInput = document.getElementById('dataFile');
+                            if (fileInput) {
+                                fileInput.value = '';
+                            }
                             resolve();
                         } else {
                             const error = JSON.parse(xhr.responseText);
@@ -2871,9 +2797,13 @@ AUGCAUGCAUGCAUGC
                 // Use passed segment instead of reading from form
                 const selectedSegment = segment;
                 
-                // For multi-segment viruses, require segment selection
-                // We'll determine this from the virus name and segment
-                const isMultiSegment = segment !== null && segment !== undefined;
+                // Detect whether selected virus is multi-segment from dropdown metadata.
+                const uploadVirusSelect = document.getElementById('uploadVirusSelect');
+                let isMultiSegment = false;
+                if (uploadVirusSelect) {
+                    const selected = Array.from(uploadVirusSelect.options).find(o => o.value === virusName);
+                    isMultiSegment = selected ? selected.dataset.isMultiSegment === 'true' : false;
+                }
                 
                 if (isMultiSegment && !selectedSegment) {
                     // Multi-segment virus but no segment selected - uncheck all
@@ -2895,6 +2825,11 @@ AUGCAUGCAUGCAUGC
                 
                 console.log('Checking files for:', virusName, 'segment:', selectedSegment, 'isMultiSegment:', isMultiSegment);
                 const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    console.warn('Checklist API unavailable:', response.status);
+                    showNotification('Checklist status could not be refreshed from server yet. Your uploaded file is still saved.', 'warning');
+                    return;
+                }
                 const data = await response.json();
                 
                 console.log('API response:', data);
@@ -2951,6 +2886,20 @@ AUGCAUGCAUGCAUGC
                 label.style.color = '#6c757d';
                 label.style.fontWeight = 'normal';
             }
+        }
+
+        function markChecklistByFileType(fileType, isChecked = true) {
+            const map = {
+                reference_genome: 'checkRefGenome',
+                proteome: 'checkProteome',
+                msa: 'checkMSA'
+            };
+            const checkboxId = map[fileType];
+            if (!checkboxId) return;
+            const checkbox = document.getElementById(checkboxId);
+            if (!checkbox) return;
+            checkbox.checked = isChecked;
+            updateCheckboxStyle(checkboxId, isChecked);
         }
         
         // Handle analysis form submission
@@ -3655,7 +3604,7 @@ AUGCAUGCAUGCAUGC
                 await new Promise(r => setTimeout(r, 300));
                 await updateUploadChecklist('SARS-CoV-2');
 
-                showNotification('✅ SARS-CoV-2 sample data is ready. All built-in reference files are pre-loaded. Upload an MSA file to run analysis, or switch to the Analysis tab if one is already available.', 'success');
+                showNotification('✅ SARS-CoV-2 sample data is ready. Use this as the default example setup, then switch to Analysis & Visualization.', 'success');
 
             } catch (error) {
                 console.error('Error loading sample data:', error);

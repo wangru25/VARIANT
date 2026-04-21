@@ -33,6 +33,12 @@ global:
     31: Blastocrithidia nuclear code
     33: Cephalodiscidae mitochondrial code
 viruses:
+  '0421':
+    codon_table_id: 1
+    default_msa_file: chikungunya_msa_2.txt
+    description: 'Custom virus: 0421'
+    proteome_file: 0421_proteome_2.fasta
+    reference_genome: 0421_reference_genome_2.fasta
   Chikungunya:
     codon_table_id: 1
     default_msa_file: chikungunya_msa.txt

@@ -16,6 +16,7 @@ import json
 import re
 import argparse
 import pandas as pd
+import yaml
 from typing import Dict, List, Optional, Union, Tuple
 from Bio import SeqIO
 import plotly.graph_objects as go
@@ -97,8 +98,13 @@ class PRFVisualizer:
                 if matches:
                     return matches[0]
         
-        # Look for any PRF files (including potential_PRF.csv)
-        prf_files = glob.glob(os.path.join(result_dir, "*_prf*.csv")) + glob.glob(os.path.join(result_dir, "*_prf*.json")) + glob.glob(os.path.join(result_dir, "potential_PRF.csv"))
+        # Look for any PRF files (including custom-virus outputs like
+        # "prf_analysis.prf_candidates.csv" and legacy "potential_PRF.csv").
+        prf_files = (
+            glob.glob(os.path.join(result_dir, "*prf*.csv")) +
+            glob.glob(os.path.join(result_dir, "*prf*.json")) +
+            glob.glob(os.path.join(result_dir, "potential_PRF.csv"))
+        )
         if not prf_files:
             raise FileNotFoundError(f"No potential PRF record files found in {result_dir}")
         
@@ -106,6 +112,19 @@ class PRFVisualizer:
     
     def _auto_detect_reference_genome_path(self) -> Optional[str]:
         """Auto-detect reference genome file path."""
+        # Prefer the explicit reference genome from virus_config.yaml.
+        try:
+            with open("virus_config.yaml", "r") as f:
+                config = yaml.safe_load(f) or {}
+            virus_cfg = (config.get("viruses") or {}).get(self.virus_name, {})
+            configured_ref = virus_cfg.get("reference_genome")
+            if configured_ref:
+                configured_path = f"data/{self.virus_name}/refs/{configured_ref}"
+                if os.path.exists(configured_path):
+                    return configured_path
+        except Exception:
+            pass
+
         # First check if virus has segment-based structure
         segment_dirs = glob.glob(f"data/{self.virus_name}/segment_*")
         
@@ -219,16 +238,36 @@ class PRFVisualizer:
                     return int(m[0])
             return None
         
-        start = to_int(item.get('start') or item.get('position'))
-        end = to_int(item.get('end') or item.get('end_position') or start)
+        motif = (item.get('sequence') or item.get('slippery_motif') or item.get('motif') or '').strip()
+        start = to_int(
+            item.get('start') or
+            item.get('position') or
+            item.get('site_start_1based')
+        )
+        end = to_int(
+            item.get('end') or
+            item.get('end_position') or
+            item.get('site_end_1based')
+        )
+        if end is None and start is not None and motif:
+            end = start + len(motif) - 1
         if end is None and start is not None:
             end = start
         
+        prf_type = (item.get('type') or item.get('site_type') or '').strip()
+        normalized_type = prf_type
+        if prf_type in ['-1', '-1PRF', '-1 prf']:
+            normalized_type = '-1 PRF'
+        elif prf_type in ['+1', '+1PRF', '+1 prf']:
+            normalized_type = '+1 PRF'
+        elif not prf_type:
+            normalized_type = '-1 PRF'
+
         return {
             'start': start,
             'end': end,
-            'sequence': item.get('sequence', ''),
-            'type': (item.get('type') or item.get('site_type') or '').strip() or '-1 PRF',
+            'sequence': motif,
+            'type': normalized_type,
             'protein': item.get('protein') or item.get('gene')
         }
     

@@ -1,61 +1,20 @@
 # VARIANT: Viral mutAtion trackeR aImed At GeNome and proTein-level
 
-A comprehensive Python framework for analyzing viral mutations, supporting both single-segment and multi-segment viruses. The framework provides detailed analysis of nucleotide changes, protein impacts, and mutation classifications including missense, nonsense, and frameshift mutations.
+A comprehensive Python framework for viral mutation analysis across single-segment and multi-segment viruses, VARIANT automates the full pipeline from nucleotide changes to protein-level consequences, including substitutions, insertions, deletions, missense, nonsense, and frameshift mutations, while also identifying biologically meaningful row mutations, hot mutations, and potential programmed ribosomal frameshifting (PRF) regions; in addition, it incorporates RNA dual-graph topology analysis from dot-bracket structures to enable structural comparison of frameshifting elements across viral lineages.
 
 ## Features
 
-- **🦠 Multi-virus support**: SARS-CoV-2, ZaireEbola, Chikungunya, HIV-1, H3N2, and easily extensible
-- **🧬 Multi-segment virus support** with automatic structure detection (e.g., H3N2 influenza)
-- **🔬 Comprehensive mutation analysis**: Point mutations, insertions, deletions, row and hot mutations
-- **⚗️ Advanced mutation classification**: Missense, nonsense, silent, and frameshift mutations
-- **🧪 Protein-level impact analysis**: Amino acid changes with biological significance
-- **🤖 Automatic mutation summary generation**: No manual flags required
-- **📊 Complex protein coordinate handling**: Supports `join()` coordinates for viral polyproteins
-- **🔄 Programmed Ribosomal Frameshifting (PRF) detection** (+1/-1 frameshifting)
-- **📈 Structured output**: Text and CSV formats for analysis and visualization
-- **⚙️ Configurable per-virus settings**: Easy setup for new viruses
-- **🌐 Web Application**: Modern NYU-themed web interface with bulk ZIP downloads
-- **🗜️ Bulk File Management**: Organized ZIP downloads for complete datasets
-
-## Web Application
-
-VARIANT now includes a modern web-based interface with professional design and streamlined file management:
-
-### **🎨 Professional Interface**
-- **Clean Design**: Modern blue color scheme
-- **Responsive Layout**: Works on desktop, tablet, and mobile devices
-- **Accessible Design**: High contrast and readable typography
-
-### **📁 Streamlined File Management**
-- **Bulk ZIP Downloads**: Download complete datasets as organized ZIP files
-- **Clean File Listings**: Simplified file display without redundant information
-- **Upload Progress Tracking**: Visual indicators for file upload status
-- **Custom Virus Support**: Add new virus types through the web interface
-
-### **🔬 Analysis Features**
-- **Real-time Monitoring**: Live status updates during analysis
-- **Background Processing**: Non-blocking analysis with job queue
-- **Job History**: Track and manage previous analysis jobs
-- **Multi-virus Support**: Analyze all supported viruses through the web interface
-
-### **Quick Start**
-```bash
-# Deploy with Railway (Recommended)
-git clone https://github.com/wangru25/VARIANT.git
-cd VARIANT
-
-# Deploy to Railway
-# 1. Go to railway.app
-# 2. Connect your GitHub repository
-# 3. Railway will auto-deploy your app
-
-# Access the application
-# Web Interface: https://your-app-name.up.railway.app
-# API Documentation: https://your-app-name.up.railway.app/docs
-```
-
-📖 **[Complete Web Application Guide](docs/README_WEB.md)** | 🚀 **[Railway Deployment Guide](docs/RAILWAY_DEPLOYMENT.md)**
-
+- **Multi-virus support**: SARS-CoV-2, ZaireEbola, Chikungunya, HIV-1, H3N2, and easily extensible
+- **Multi-segment virus support** with automatic structure detection (e.g., H3N2 influenza)
+- **Comprehensive mutation analysis**: Point mutations, insertions, deletions, row and hot mutations
+- **Advanced mutation classification**: Missense, nonsense, silent, and frameshift mutations
+- **Protein-level impact analysis**: Amino acid changes with biological significance
+- **Automatic mutation summary generation**: No manual flags required
+- **Complex protein coordinate handling**: Supports `join()` coordinates for viral polyproteins
+- **Programmed Ribosomal Frameshifting (PRF) detection** (+1/-1 frameshifting)
+- **RNA Dual Graph topology assignment** from dot-bracket RNA secondary structures
+- **Structured output**: Text and CSV formats for analysis and visualization
+- **Configurable per-virus settings**: Easy setup for new viruses
 ## Supported Viruses
 
 VARIANT currently supports comprehensive analysis for the following viruses:
@@ -77,15 +36,7 @@ VARIANT currently supports comprehensive analysis for the following viruses:
 
 ## Installation
 
-VARIANT can be installed and used in two ways:
-
-| Feature | CLI Installation | Conda Environment |
-|---------|------------------|-------------------|
-| **Installation** | `pip install -e .` | `conda env create -f environment.yml` |
-| **Command Style** | `variant prf --genome file.fasta` | `python main.py --virus SARS-CoV-2 --detect-frameshifts` |
-| **Dependencies** | Auto-installed via pip | Managed by conda |
-| **Best For** | Modern CLI users, CI/CD | Bioinformatics workflows, isolated environments |
-| **Entry Point** | `variant` command | `python main.py` |
+VARIANT supports two local installation paths: editable pip installation (`pip install -e .`) and a conda-managed environment (`conda env create -f environment.yaml`). Use the pip workflow if you prefer package-style CLI usage, and use conda if you want an isolated bioinformatics environment with managed native dependencies.
 
 ### Option 1: CLI Installation (Recommended)
 
@@ -130,7 +81,13 @@ python main.py --help
 - PyYAML >= 6.0
 - fuzzysearch == 0.7.3
 - more-itertools >= 8.12.0
+- Plotly >= 6.1.1
+- Kaleido >= 1.0.0
+- Matplotlib >= 3.5.0
+- Seaborn >= 0.11.0
 - ViennaRNA >= 2.4.0 (for PRF scanning and RNA structure prediction)
+- python-igraph >= 0.11.8 (for RNA dual-graph assignment)
+- networkx >= 3.1 (for graph rendering utilities)
 
 ## Usage
 
@@ -144,15 +101,15 @@ The CLI provides modern, user-friendly commands:
 # Show all available commands
 variant --help
 
-# PRF Analysis
-variant prf --genome data/SARS-CoV-2/refs/NC_045512.fasta --output results.csv
+# Dataset Setup
+variant setup --virus SARS-CoV-2 --config virus_config.yaml
+variant setup --virus HIV-1
 
 # Mutation Analysis
 variant analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/test_msa_2.txt
 
-# Dataset Setup
-variant setup --virus SARS-CoV-2 --config virus_config.yaml
-variant setup --virus HIV-1
+# PRF Analysis
+variant prf --genome data/SARS-CoV-2/refs/NC_045512.fasta --output results.csv
 ```
 
 ### Option 2: Conda Usage (After `conda activate variant`)
@@ -480,200 +437,51 @@ NC_045512	13462	13469	-1_TTTAAAC_s7	0	+
 NC_045512	76	83	-1_UUUAAAA_s5	0	+
 ```
 
-### Advanced Features
+## RNA Dual Graph (Local Code Workflow)
 
-#### RNA Secondary Structure Prediction
+If you want to use VARIANT as a local research codebase (without `web_app.py`), the RNA dual-graph pipeline is available under `Existing-Dual-Search/`.
 
-The PRF scanner uses multiple tools for comprehensive structure analysis:
+### Input
+- Dot-bracket structure input (`.dbn`) with:
+  - sequence header (`>ID`)
+  - RNA sequence
+  - dot-bracket structure
 
-- **RNAfold**: Minimum free energy (MFE) structure prediction
-- **ProbKnot**: Pseudoknot detection and prediction
-- **PKNOTS**: Alternative pseudoknot prediction
-- **Simple Detection**: Fallback methods when external tools unavailable
+### Pipeline
+1. Dot-bracket to DSSR-like intermediate (`convert_dbn_to_dssr.py`)
+2. DSSR to CT conversion (`PDBto2D.py`)
+3. Dual graph assignment (`Dual_Library.py`, `dualGraphs.py`, `ClassesFunctions.py`)
 
-#### tRNA Interaction Validation
+### Notes
+- Keep the `Existing-Dual-Search` folder intact when running locally.
+- `environment.yaml` includes graph dependencies used by dual-graph functionality.
+- See `Existing-Dual-Search/README.md` and `Existing-Dual-Search/GUIDE.md` for step-by-step examples and expected formats.
 
-Validates biological feasibility of frameshifting:
 
-- **tRNA Abundance**: Uses organism-specific tRNA abundance data
-- **Pausing Potential**: Calculates ribosomal pausing likelihood
-- **Wobble Pairs**: Detects non-canonical base pairs
-- **Interaction Scores**: Overall tRNA interaction assessment
 
-#### Frame Context Analysis
 
-When GFF annotations are provided:
+## Visualization
 
-- **CDS Overlap**: Identifies coding sequence overlaps
-- **Frame Classification**: Determines reading frame context
-- **Multi-frame Detection**: Handles overlapping ORFs
+VARIANT provides plotting workflows in the `plot/` folder:
 
-### PRF Scanner Scripts and Examples
+1. `plot.py`
+   - Main plotting entry script for generating integrated visualization outputs.
+2. `plot/genome_organization_visualization.py`
+   - Genome organization visualization for selected virus/genome contexts.
+3. `src/visualization/figure3_PRF.py`
+   - PRF region visualization from candidate PRF result files.
 
-VARIANT includes several helper scripts and examples for PRF scanning:
-
-#### Quick PRF Scanning Script
-
-```bash
-# Scan all supported viruses for PRF sites
-./scripts/run_prf_scan.sh
-
-# This script automatically:
-# - Activates the conda environment
-# - Scans all virus reference genomes
-# - Generates comprehensive PRF candidate files
-# - Provides summary statistics
-```
-
-#### Python Examples Script
+These scripts generate HTML and/or PDF outputs for downstream interpretation and reporting.
 
 ```bash
-# Run comprehensive PRF scanning examples
-python examples/prf_scanner_examples.py
-
-# This script demonstrates:
-# - Basic PRF scanning for each virus
-# - Advanced parameter configurations
-# - Different organism settings
-# - Performance comparisons
+# Example usage
+python plot.py
+python plot/genome_organization_visualization.py
+python src/visualization/figure3_PRF.py --help
 ```
 
-#### Example Output Files
 
-After running PRF scanning, you'll get:
 
-```
-result/prf_scan_results/
-├── sars_cov2_prf.prf_candidates.csv    # SARS-CoV-2 PRF candidates
-├── sars_cov2_prf.prf_candidates.bed    # Genomic coordinates
-├── hiv1_prf.prf_candidates.csv         # HIV-1 PRF candidates
-├── hiv1_prf.prf_candidates.bed         # Genomic coordinates
-├── chikungunya_prf.prf_candidates.csv  # Chikungunya PRF candidates
-├── chikungunya_prf.prf_candidates.bed  # Genomic coordinates
-└── ... (additional virus results)
-```
-
-### Technical Implementation
-
-The frameshift detection uses:
-- **Pattern Matching**: Identifies slippery sequences and shifty stops
-- **tRNA Validation**: Ensures biological feasibility of frameshifting
-- **Structural Analysis**: Detects stem-loop structures that promote frameshifting
-- **Frame Analysis**: Calculates reading frame shifts
-- **CSV Output**: Provides structured data for further analysis
-
-### CSV Output (genome_id_row_hot_mutations_date.csv)
-Structured data for statistical analysis:
-- Genome ID
-- Mutation type
-- Position(s)
-- Nucleotide changes
-- Affected protein
-- Amino acid changes
-- Biological classification
-
-### Mutation Summary Output (genome_id_mutation_summary_date.csv)
-Automatically generated for all processed genomes:
-- Comprehensive mutation summary in CSV format
-- Includes all mutation types with protein impact
-- Structured for statistical analysis and visualization
-- Generated automatically with `--process-all` or single genome analysis
-
-## Visualization & Plotting
-
-VARIANT includes comprehensive visualization capabilities for generating publication-ready figures from your mutation analysis data.
-
-### 🎨 **Genome Organization Visualization**
-
-Generate professional genome organization plots showing protein positions and mutation hotspots:
-
-```bash
-# Generate genome organization plots for all viruses
-python plot/figure1_genome_analysis.py
-
-# This creates interactive HTML and static PDF files:
-# - plot/SARS-CoV-2_EPI_ISL_XXXXX_genome_organization.html
-# - plot/HIV-1_MW881698.1_genome_organization.html
-# - plot/Chikungunya_XXXXX_genome_organization.html
-# - plot/ZaireEbola_XXXXX_genome_organization.html
-```
-
-**Features:**
-- **Auto-detection**: Automatically finds proteome and mutation CSV files
-- **Multi-virus support**: Works with SARS-CoV-2, HIV-1, Chikungunya, ZaireEbola
-- **Mutation overlays**: Shows mutation hotspots on genome organization
-- **Interactive plots**: HTML files with hover details and zoom capabilities
-- **Publication-ready**: High-resolution PDF output for scientific papers
-
-### 📊 **Available Plot Types**
-
-| **Figure Type** | **Description** | **Data Source** | **Output Format** |
-|-----------------|-----------------|-----------------|-------------------|
-| **Genome Organization** | Protein positions + mutation hotspots | `mutation_summary.csv` | HTML + PDF |
-| **Mutation Distribution** | Mutation type frequencies | `mutation_summary.csv` | HTML + PDF |
-| **Protein Impact** | Amino acid change analysis | `mutation_summary.csv` | HTML + PDF |
-| **Hot Mutations** | High-frequency mutation patterns | `row_hot_mutations.csv` | HTML + PDF |
-
-### 🛠️ **Plotting Dependencies**
-
-The visualization features require additional dependencies that are included in the updated environment:
-
-```bash
-# Core plotting dependencies (auto-installed)
-plotly>=6.1.1      # Interactive plotting
-kaleido>=1.0.0     # Static image export (PDF)
-matplotlib>=3.5.0  # Additional plotting support
-seaborn>=0.11.0    # Statistical visualization
-```
-
-### 📈 **Scientific Paper Integration**
-
-These visualizations are designed for scientific publications:
-
-- **Nature Reviews style**: Professional color schemes and typography
-- **High resolution**: 1200x800px output suitable for print
-- **Interactive elements**: HTML versions for online supplements
-- **Real data integration**: Uses actual mutation analysis results
-- **Multi-format output**: Both interactive (HTML) and static (PDF) versions
-
-### 🔧 **Customization**
-
-All plotting scripts support customization:
-
-```python
-# Example: Custom genome organization plot
-from plot.figure1_genome_analysis import GenomeOrganizationVisualizer
-
-# Create custom visualization
-visualizer = GenomeOrganizationVisualizer('SARS-CoV-2', 'EPI_ISL_16127650')
-visualizer.create_genome_organization_chart('my_custom_plot.html')
-```
-
-📖 **[Complete Visualization Guide](docs/plot_visualization_guide.md)** | 📊 **[Visualization Examples](docs/COMPREHENSIVE_VISUALIZATION_SUMMARY.md)**
-
-## Recent Updates
-
-### Version 2025.01.15 (Major Refactoring)
-- **🔧 Complete main.py refactoring**: Eliminated code duplication, improved logic flow, and enhanced maintainability
-- **🤖 Automatic mutation summary generation**: Removed `--generate-summaries` flag - summaries are now generated automatically
-- **🚀 Enhanced `--process-all` functionality**: Now processes all virus types seamlessly with comprehensive output
-- **🧬 Fixed complex protein coordinate parsing**: Handles `join()` coordinates correctly (e.g., RNA-dependent-polymerase)
-- **📊 Improved mutation detection**: Better validation and error handling for all mutation types
-- **🏗️ Clean architecture**: Introduced MutationProcessor class with proper separation of concerns
-- **⚡ Better performance**: Optimized processing pipeline for both single and multi-segment viruses
-
-### Version 2025.08.18
-- **Streamlined `--process-all` command**: Removed generation of unnecessary files (root variants, majority variants, SNP records)
-- **Clean output**: `--process-all` now only prints summary without creating additional files
-- **Enhanced mutation summary generation**: Added `--generate-summaries` flag for comprehensive CSV output
-- **Improved code organization**: Removed unused `_process_root_variants` methods for cleaner codebase
-
-### Version 2025.08.07
-- **Removed RNA editing functionality**: Focused analysis on PRF detection only
-- **Simplified PRF output**: Removed confidence scores and impact analysis for cleaner results
-- **CSV output format**: Changed from text to CSV for easier data analysis
-- **Optimized processing**: SNP analysis is skipped when only PRF detection is requested
-- **Enhanced tRNA validation**: Improved wobble base pairing rules for better detection accuracy
 
 ## Adding New Viruses
 
@@ -751,11 +559,11 @@ python scripts/setup_virus_dataset.py --validate "MyVirus"
 - **Example** (SARS-CoV-2 proteome reference): [SARS-CoV-2 all variants sequences](data/SARS-CoV-2/fasta/sequences_w_reference.fasta)
 
 #### Multiple Sequence Alignment (MSA) File (Required)
-- **Format**: Text file with aligned sequences
-- **Content**: Multiple aligned genome sequences obtained from [Clustal Omega](https://www.ebi.ac.uk/jdispatcher/msa/clustalo?stype=protein). The input file is [SARS-CoV-2 all variants sequences](data/SARS-CoV-2/fasta/sequences_w_reference.fasta)
-- **Example** (SARS-CoV-2 MSA): [SARS-CoV-2 MSA](data/SARS-CoV-2/data/clustalW/gisaid_hcov-19_20221201_20221230_China_0_msa.txt)
+- **Format**: Text file with aligned nucleotide genome sequences
+- **Content**: Multiple aligned genome sequences, typically generated from [Clustal Omega](https://www.ebi.ac.uk/jdispatcher/msa/clustalo) using genome FASTA input. The input file is [SARS-CoV-2 all variants sequences](data/SARS-CoV-2/fasta/sequences_w_reference.fasta)
+- **Example** (SARS-CoV-2 MSA): [SARS-CoV-2 MSA](data/SARS-CoV-2/clustalW/gisaid_hcov-19_20221201_20221230_China_0_msa.txt)
 
-### Codon Table IDs
+<!-- ### Codon Table IDs
 
 Different organisms use different genetic codes:
 
@@ -783,7 +591,7 @@ Different organisms use different genetic codes:
 - **29**: Mesodinium nuclear code
 - **30**: Peritrich nuclear code
 - **31**: Blastocrithidia nuclear code
-- **33**: Cephalodiscidae mitochondrial code
+- **33**: Cephalodiscidae mitochondrial code -->
 
 ### Example Setup
 
@@ -897,10 +705,11 @@ python main.py --list-viruses
 If you use this software in your research, please cite:
 
 ```bibtex
-@software{wang2025variant,
-  title={VARIANT: A Comprehensive Python Toolkit for Decoding and Analyzing Viral Mutations at Genome and Protein Levels},
-  author={Wang, Rui},
-  year={2025},
+@software{wang2026variant,
+  title={VARIANT: Web Server for Decoding and Analyzing
+Viral Mutations at Genome and Protein Levels},
+  author={Wang, Rui and Dai, Xuhang and Cao, Xin and Yin, Changchuan and Schlick, Tamar and Wei, Guo-Wei},
+  year={2026},
   url={https://github.com/wangru25/VARIANT}
 }
 ``` -->

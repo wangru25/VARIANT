@@ -1126,49 +1126,53 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
                     if file.endswith(('.csv', '.txt', '.html', '.pdf')):
                         result_files.append(os.path.join(root, file))
         
-        # Generate visualization if requested
+        # Generate visualization(s): requested type plus PRF when frameshift detection is enabled.
         visualization_files = []
+        visualization_types_to_generate = []
         if analysis_request.visualization_type:
-            try:
-                # Import visualization script
-                import subprocess
-                import sys
-                
-                # Build command for visualization
-                cmd = [
-                    sys.executable, "plot.py",
-                    "--type", analysis_request.visualization_type,
-                    "--virus", analysis_request.virus_name
-                ]
-                
-                if analysis_request.genome_id:
-                    cmd.extend(["--genome-id", analysis_request.genome_id])
-                
-                # Run visualization
-                result = subprocess.run(cmd, capture_output=True, text=True, cwd=".")
-                
-                if result.returncode == 0:
-                    # Collect visualization files from multiple possible locations
-                    possible_dirs = ["plot", "imgs/visualizations"]
-                    
-                    for plot_dir in possible_dirs:
-                        if os.path.exists(plot_dir):
-                            for file in os.listdir(plot_dir):
-                                if file.endswith(('.html', '.pdf')) and analysis_request.virus_name in file:
-                                    # Check if this is a recent file (created in the last 5 minutes)
-                                    file_path = os.path.join(plot_dir, file)
-                                    if os.path.exists(file_path):
-                                        file_time = os.path.getmtime(file_path)
-                                        current_time = time.time()
-                                        if current_time - file_time < 300:  # 5 minutes
-                                            visualization_files.append(file_path)
-                    
-                    print(f"Visualization generated successfully: {visualization_files}")
-                else:
-                    print(f"Visualization failed: {result.stderr}")
-                    
-            except Exception as viz_error:
-                print(f"Error generating visualization: {viz_error}")
+            visualization_types_to_generate.append(analysis_request.visualization_type)
+        if analysis_request.detect_frameshifts and "prf" not in visualization_types_to_generate:
+            visualization_types_to_generate.append("prf")
+
+        if visualization_types_to_generate:
+            import subprocess
+            import sys
+
+            output_dir = f"imgs/visualizations/{analysis_request.virus_name}"
+            os.makedirs(output_dir, exist_ok=True)
+
+            type_patterns = {
+                "mutation": ["combined_analysis", "mutation"],
+                "row-hot": ["row_hot_mutations", "row-hot"],
+                "prf": ["prf_regions", "prf"]
+            }
+
+            for viz_type in visualization_types_to_generate:
+                try:
+                    cmd = [sys.executable, "plot.py", "--type", viz_type, "--virus", analysis_request.virus_name]
+                    if analysis_request.genome_id:
+                        cmd.extend(["--genome-id", analysis_request.genome_id])
+
+                    result = subprocess.run(cmd, capture_output=True, text=True, cwd=".")
+                    if result.returncode != 0:
+                        print(f"Visualization '{viz_type}' failed: {result.stderr}")
+                        continue
+
+                    current_time = time.time()
+                    for file in os.listdir(output_dir):
+                        if not file.endswith(".html"):
+                            continue
+                        file_lower = file.lower()
+                        if not any(pattern in file_lower for pattern in type_patterns.get(viz_type, [])):
+                            continue
+
+                        file_path = os.path.join(output_dir, file)
+                        if current_time - os.path.getmtime(file_path) < 300 and file_path not in visualization_files:
+                            visualization_files.append(file_path)
+
+                    print(f"Visualization '{viz_type}' generated successfully")
+                except Exception as viz_error:
+                    print(f"Error generating visualization '{viz_type}': {viz_error}")
         
         # Update job with results
         analysis_jobs[job_id]["status"] = "completed"
