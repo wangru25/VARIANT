@@ -961,6 +961,13 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                                             <div class="form-text mt-2">
                                                 <i class="fas fa-info-circle text-muted"></i> This will generate all three visualization types
                                             </div>
+                                            <div id="vizGenerationStatus" class="alert alert-info mt-3 py-2 px-3 text-start" style="display: none;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="spinner-border spinner-border-sm text-info me-2" role="status"></div>
+                                                    <span id="vizGenerationStatusText">Generating visualizations... Please wait.</span>
+                                                </div>
+                                                <div class="small mt-1">Elapsed time: <strong id="vizElapsedTime">0s</strong></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1850,6 +1857,8 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
     <script>
         let currentJobId = null;
         let statusCheckInterval = null;
+        let vizGenerationTimerInterval = null;
+        let vizGenerationStartedAt = null;
         
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
@@ -1988,15 +1997,16 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                     filterGenomeIds(this.value, 'historyGenomeId');
                 });
                 
-                historyGenomeIdInput.addEventListener('focus', function() {
-                    if (window.availableGenomeIds && window.availableGenomeIds.length > 0) {
-                        // Show all genome IDs when first focusing (if no search term)
-                        if (!this.value.trim()) {
-                            showAllGenomeIds('historyGenomeId');
-                        } else {
-                            filterGenomeIds(this.value, 'historyGenomeId');
-                        }
-                    }
+                historyGenomeIdInput.addEventListener('focus', async function() {
+                    await refreshGenomeIdsForInput('historyGenomeId');
+                    // Always show full list on focus so users can switch IDs
+                    // without manually clearing the existing value first.
+                    showAllGenomeIds('historyGenomeId');
+                });
+
+                historyGenomeIdInput.addEventListener('click', async function() {
+                    await refreshGenomeIdsForInput('historyGenomeId');
+                    showAllGenomeIds('historyGenomeId');
                 });
             }
             
@@ -2005,15 +2015,16 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                     filterGenomeIds(this.value, 'genomeId');
                 });
                 
-                genomeIdInput.addEventListener('focus', function() {
-                    if (window.availableGenomeIds && window.availableGenomeIds.length > 0) {
-                        // Show all genome IDs when first focusing (if no search term)
-                        if (!this.value.trim()) {
-                            showAllGenomeIds('genomeId');
-                        } else {
-                            filterGenomeIds(this.value, 'genomeId');
-                        }
-                    }
+                genomeIdInput.addEventListener('focus', async function() {
+                    await refreshGenomeIdsForInput('genomeId');
+                    // Always show full list on focus so users can switch IDs
+                    // without manually clearing the existing value first.
+                    showAllGenomeIds('genomeId');
+                });
+
+                genomeIdInput.addEventListener('click', async function() {
+                    await refreshGenomeIdsForInput('genomeId');
+                    showAllGenomeIds('genomeId');
                 });
             }
             
@@ -2191,6 +2202,24 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 console.error('Error loading genome IDs:', error);
             }
         }
+
+        async function refreshGenomeIdsForInput(inputId) {
+            const virusSelectId = inputId === 'historyGenomeId' ? 'historyVirusSelect' : 'virusSelect';
+            const virusSelect = document.getElementById(virusSelectId);
+            const virusName = virusSelect ? virusSelect.value : '';
+            if (!virusName) return;
+
+            // Analysis panel can specify a non-default MSA file.
+            let msaFile = null;
+            if (inputId === 'genomeId') {
+                const msaSelect = document.getElementById('msaFileSelect');
+                if (msaSelect && msaSelect.value) {
+                    msaFile = msaSelect.value;
+                }
+            }
+
+            await loadGenomeIds(virusName, msaFile);
+        }
         
         // Show all available genome IDs for a specific input
         function showAllGenomeIds(inputId) {
@@ -2310,7 +2339,8 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
         // Generate all visualizations
         async function generateAllVisualizations() {
             const virusName = document.getElementById('historyVirusSelect').value;
-            const genomeId = document.getElementById('historyGenomeId').value;
+            const genomeId = document.getElementById('historyGenomeId').value.trim();
+            const btn = document.getElementById('generateVizBtn');
             
             console.log('Starting generateAllVisualizations with:', { virusName, genomeId });
             
@@ -2318,6 +2348,12 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 alert('Please select a virus type');
                 return;
             }
+
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span> Generating...';
+            }
+            startVizGenerationStatus();
             
             // Show the visualization embed area
             const interactiveVizContent = document.getElementById('interactiveVizContent');
@@ -2327,11 +2363,20 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 interactiveVizContent.style.display = 'none';
                 visualizationEmbed.style.display = 'block';
             }
+
+            // Clear previous plots first to avoid stale frames when a request fails
+            const mutationFrame = document.getElementById('mutationFrame');
+            const rowHotFrame = document.getElementById('rowHotFrame');
+            const prfFrame = document.getElementById('prfFrame');
+            if (mutationFrame) mutationFrame.src = 'about:blank';
+            if (rowHotFrame) rowHotFrame.src = 'about:blank';
+            if (prfFrame) prfFrame.src = 'about:blank';
             
             // No loading spinners needed - iframes will show content directly
             
             const visualizationTypes = ['mutation', 'row-hot', 'prf'];
             console.log('Generating visualizations for types:', visualizationTypes);
+            let failedCount = 0;
             
             const promises = visualizationTypes.map(async (type) => {
                 console.log(`Starting ${type} visualization generation...`);
@@ -2365,6 +2410,8 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                         } else {
                             console.log(`Visualization failed for ${type}:`, result.message);
                             hideLoadingByType(type);
+                            failedCount += 1;
+                            clearVisualizationFrameByType(type);
                             showNotification(`${type} visualization failed: ${result.message}`, 'error');
                         }
                     } else {
@@ -2377,10 +2424,14 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                             console.error(`${type} raw error:`, errorText);
                         }
                         hideLoadingByType(type);
+                        failedCount += 1;
+                        clearVisualizationFrameByType(type);
                     }
                 } catch (error) {
                     console.error(`Error generating ${type} visualization:`, error);
                     hideLoadingByType(type);
+                    failedCount += 1;
+                    clearVisualizationFrameByType(type);
                 }
             });
             
@@ -2394,10 +2445,17 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             console.log('rowHotFrame:', document.getElementById('rowHotFrame'));
             console.log('prfFrame:', document.getElementById('prfFrame'));
             
-            // After fresh generation, update button label
-            const btn = document.getElementById('generateVizBtn');
-            if (btn) btn.innerHTML = '<i class="fas fa-sync-alt me-2"></i> Regenerate Visualizations';
-            showNotification('All visualizations generated successfully!', 'success');
+            if (failedCount > 0) {
+                stopVizGenerationStatus('Generation finished with some errors.');
+                showNotification('Visualization generation finished with some errors.', 'error');
+            } else {
+                stopVizGenerationStatus('All visualizations generated successfully.');
+                showNotification('All visualizations generated successfully!', 'success');
+            }
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-sync-alt me-2"></i> Regenerate Visualizations';
+            }
         }
         
                 // Load visualization by type
@@ -2446,6 +2504,58 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             const loading = document.getElementById(loadingId);
             if (loading) {
                 loading.style.display = 'none';
+            }
+        }
+
+        function clearVisualizationFrameByType(type) {
+            const iframeIdMap = {
+                'mutation': 'mutationFrame',
+                'row-hot': 'rowHotFrame',
+                'prf': 'prfFrame'
+            };
+            const iframe = document.getElementById(iframeIdMap[type]);
+            if (iframe) {
+                iframe.src = 'about:blank';
+            }
+        }
+
+        function formatElapsedTime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            if (minutes > 0) return `${minutes}m ${seconds}s`;
+            return `${seconds}s`;
+        }
+
+        function startVizGenerationStatus() {
+            const statusBox = document.getElementById('vizGenerationStatus');
+            const statusText = document.getElementById('vizGenerationStatusText');
+            const elapsedEl = document.getElementById('vizElapsedTime');
+            if (!statusBox || !statusText || !elapsedEl) return;
+
+            vizGenerationStartedAt = Date.now();
+            statusText.textContent = 'Generating visualizations... Please wait.';
+            elapsedEl.textContent = '0s';
+            statusBox.style.display = 'block';
+
+            if (vizGenerationTimerInterval) clearInterval(vizGenerationTimerInterval);
+            vizGenerationTimerInterval = setInterval(() => {
+                elapsedEl.textContent = formatElapsedTime(Date.now() - vizGenerationStartedAt);
+            }, 1000);
+        }
+
+        function stopVizGenerationStatus(finalText = '') {
+            const statusBox = document.getElementById('vizGenerationStatus');
+            const statusText = document.getElementById('vizGenerationStatusText');
+            if (vizGenerationTimerInterval) {
+                clearInterval(vizGenerationTimerInterval);
+                vizGenerationTimerInterval = null;
+            }
+            if (statusText && finalText) statusText.textContent = finalText;
+            if (statusBox) {
+                setTimeout(() => {
+                    statusBox.style.display = 'none';
+                }, 1200);
             }
         }
         
@@ -2547,6 +2657,25 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 if (!allElementsFound) {
                     console.log('Some elements not found, retrying in 500ms...');
                     setTimeout(loadViruses, 500);
+                    return;
+                }
+
+                // Re-apply persisted analysis selection only after options are populated,
+                // then refresh the initial Start Analysis button state.
+                loadStoredVirusSelection();
+                const virusSelect = document.getElementById('virusSelect');
+                if (virusSelect && virusSelect.value) {
+                    checkAnalysisReady(virusSelect.value);
+                } else {
+                    checkAnalysisReady('');
+                }
+
+                // Keep visualization button state consistent on first load too.
+                const historyVirusSelect = document.getElementById('historyVirusSelect');
+                if (historyVirusSelect && historyVirusSelect.value) {
+                    checkVizReady(historyVirusSelect.value);
+                } else {
+                    checkVizReady('');
                 }
             } catch (error) {
                 console.error('Error loading viruses:', error);

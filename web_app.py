@@ -14,6 +14,7 @@ import sys
 import tempfile
 import shutil
 import time
+import asyncio
 from pathlib import Path
 from typing import Dict, List, Optional, Any
 from datetime import datetime
@@ -116,6 +117,7 @@ class CustomVirusRequest(BaseModel):
 analysis_jobs: Dict[str, Dict[str, Any]] = {}
 user_sessions: Dict[str, Dict[str, Any]] = {}
 session_virus_access: Dict[str, List[str]] = {}
+genome_ids_cache: Dict[str, Dict[str, Any]] = {}
 
 _JOBS_FILE = "results/analysis_jobs.json"
 _ACCESS_FILE = "results/session_virus_access.json"
@@ -176,6 +178,15 @@ def _save_access_to_disk() -> None:
 # Load any previously persisted jobs so downloads still work after a server restart
 _load_jobs_from_disk()
 _load_access_from_disk()
+
+async def _run_subprocess_async(cmd: List[str], cwd: str = "."):
+    """Run subprocess without blocking event loop (Python 3.8 compatible)."""
+    loop = asyncio.get_running_loop()
+    import subprocess
+    return await loop.run_in_executor(
+        None,
+        lambda: subprocess.run(cmd, capture_output=True, text=True, cwd=cwd)
+    )
 
 def load_virus_config():
     '''Load virus configuration from YAML file.'''
@@ -1171,7 +1182,7 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
                     if analysis_request.genome_id:
                         cmd.extend(["--genome-id", analysis_request.genome_id])
 
-                    result = subprocess.run(cmd, capture_output=True, text=True, cwd=".")
+                    result = await _run_subprocess_async(cmd, cwd=".")
                     if result.returncode != 0:
                         print(f"Visualization '{viz_type}' failed: {result.stderr}")
                         continue
@@ -1251,6 +1262,7 @@ async def get_genome_ids(virus_name: str, segment: Optional[str] = None, msa_fil
         
         if not os.path.exists(msa_file_path):
             raise HTTPException(status_code=404, detail=f"MSA file not found: {msa_file_path}")
+        msa_mtime = os.path.getmtime(msa_file_path)
         
         # Get reference genome ID from virus configuration
         reference_genome_id = None
@@ -1262,7 +1274,15 @@ async def get_genome_ids(virus_name: str, segment: Optional[str] = None, msa_fil
         # Remove file extension from reference genome ID for comparison
         if reference_genome_id:
             reference_genome_id = reference_genome_id.replace('.fasta', '').replace('.fa', '')
-            print(f"DEBUG: Reference genome ID for {virus_name}: {reference_genome_id}")
+
+        cache_key = f"{virus_name}|{segment or ''}|{chosen_msa}"
+        cached = genome_ids_cache.get(cache_key)
+        if (
+            cached
+            and cached.get("mtime") == msa_mtime
+            and cached.get("reference_genome_id") == reference_genome_id
+        ):
+            return {"genome_ids": cached.get("genome_ids", [])}
         
         # Extract genome IDs from MSA file
         genome_ids = []
@@ -1300,7 +1320,6 @@ async def get_genome_ids(virus_name: str, segment: Optional[str] = None, msa_fil
                         
                         # Skip the reference genome (using configuration, not hardcoded patterns)
                         if reference_genome_id and genome_id == reference_genome_id:
-                            print(f"DEBUG: Skipping reference genome: {genome_id}")
                             continue
                         
                         # Add non-reference genome IDs
@@ -1309,6 +1328,11 @@ async def get_genome_ids(virus_name: str, segment: Optional[str] = None, msa_fil
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Error reading MSA file: {str(e)}")
         
+        genome_ids_cache[cache_key] = {
+            "mtime": msa_mtime,
+            "reference_genome_id": reference_genome_id,
+            "genome_ids": genome_ids
+        }
         return {"genome_ids": genome_ids}
         
     except HTTPException:
@@ -1357,12 +1381,7 @@ async def create_visualization(
             cmd.extend(["--output", output_path])
         
         # Run the command
-        result = subprocess.run(
-            cmd,
-            capture_output=True,
-            text=True,
-            cwd=os.getcwd()
-        )
+        result = await _run_subprocess_async(cmd, cwd=os.getcwd())
         
         # Check if visualization failed but still try to find existing files
         print(f"DEBUG: returncode={result.returncode}, stderr contains 'Error:': {'Error:' in result.stderr}")
@@ -1413,28 +1432,40 @@ async def create_visualization(
             recent_files = [(file, mtime) for file, mtime in files if current_time - mtime < 300]
             print(f"DEBUG: Recent files (last 5 minutes): {[f[0] for f in recent_files]}")
             
+            matching_files = []
             for file, mtime in recent_files:
-                file_matches = False
+                file_matches_type = False
                 if visualization_type in type_patterns:
                     for pattern in type_patterns[visualization_type]:
                         if pattern in file.lower():
-                            file_matches = True
+                            file_matches_type = True
                             break
-                
-                if file_matches:
-                    if file.endswith('.html') and html_file is None:
-                        html_file = {
-                            "filename": file,
-                            "path": f"/api/visualization-files/{virus_name}/{file}",
-                            "type": "html"
-                        }
-                        print(f"DEBUG: Found HTML file: {file}")
-                    elif file.endswith('.pdf') and pdf_file is None:
-                        pdf_file = {
-                            "filename": file,
-                            "path": f"/api/visualization-files/{virus_name}/{file}",
-                            "type": "pdf"
-                        }
+                if file_matches_type:
+                    matching_files.append((file, mtime))
+
+            # If a specific genome/sample was requested, prioritize files for that ID.
+            if genome_id:
+                id_specific_files = [(file, mtime) for file, mtime in matching_files if genome_id in file]
+                if id_specific_files:
+                    matching_files = id_specific_files
+                elif visualization_type in ["mutation", "row-hot"]:
+                    # For genome-scoped plots, do not silently fall back to another sample.
+                    matching_files = []
+
+            for file, mtime in matching_files:
+                if file.endswith('.html') and html_file is None:
+                    html_file = {
+                        "filename": file,
+                        "path": f"/api/visualization-files/{virus_name}/{file}",
+                        "type": "html"
+                    }
+                    print(f"DEBUG: Found HTML file: {file}")
+                elif file.endswith('.pdf') and pdf_file is None:
+                    pdf_file = {
+                        "filename": file,
+                        "path": f"/api/visualization-files/{virus_name}/{file}",
+                        "type": "pdf"
+                    }
         
         # Don't include PDF files - only HTML for embedding
         # if pdf_file:
@@ -1442,7 +1473,13 @@ async def create_visualization(
         
         # Prepare response message and success status
         success = True
-        if html_file:
+        if genome_id and visualization_type in ["mutation", "row-hot"] and not html_file:
+            message = (
+                f"Visualization '{visualization_type}' could not find files for genome ID '{genome_id}'. "
+                "Please select a genome ID that has matching result files."
+            )
+            success = False
+        elif html_file:
             # Files were found (either newly created or existing)
             if visualization_failed:
                 # HTML was generated despite errors (likely just PDF failed)

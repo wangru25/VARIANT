@@ -94,8 +94,31 @@ class RowHotMutationVisualizer:
         csv_files = glob.glob(os.path.join(result_dir, "*_row_hot_mutations.csv"))
         if not csv_files:
             raise FileNotFoundError(f"No row_hot_mutations CSV files found in {result_dir}")
-        
-        return csv_files[0]
+
+        if self.sample_id:
+            sample_id_lower = self.sample_id.lower()
+            contains_matches = [
+                path for path in csv_files
+                if sample_id_lower in os.path.basename(path).lower()
+            ]
+            if contains_matches:
+                return sorted(contains_matches)[0]
+
+            normalized_sample = re.sub(r'[^a-z0-9]+', '', sample_id_lower)
+            normalized_matches = []
+            for path in csv_files:
+                stem = os.path.basename(path).replace('_row_hot_mutations.csv', '')
+                normalized_stem = re.sub(r'[^a-z0-9]+', '', stem.lower())
+                if normalized_sample and normalized_sample in normalized_stem:
+                    normalized_matches.append(path)
+            if normalized_matches:
+                return sorted(normalized_matches)[0]
+
+            raise FileNotFoundError(
+                f"No row/hot mutation CSV matched genome ID '{self.sample_id}' in {result_dir}"
+            )
+
+        return sorted(csv_files)[0]
     
     def _auto_detect_reference_genome_path(self) -> Optional[str]:
         """Auto-detect reference genome file path."""

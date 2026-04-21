@@ -104,8 +104,31 @@ class SimpleCombinedAnalyzer:
         csv_files = glob.glob(os.path.join(result_dir, "*_mutation_summary.csv"))
         if not csv_files:
             raise FileNotFoundError(f"No mutation summary CSV files found in {result_dir}")
-        
-        return csv_files[0]
+
+        if self.sample_id:
+            sample_id_lower = self.sample_id.lower()
+            contains_matches = [
+                path for path in csv_files
+                if sample_id_lower in os.path.basename(path).lower()
+            ]
+            if contains_matches:
+                return sorted(contains_matches)[0]
+
+            normalized_sample = re.sub(r'[^a-z0-9]+', '', sample_id_lower)
+            normalized_matches = []
+            for path in csv_files:
+                stem = os.path.basename(path).replace('_mutation_summary.csv', '')
+                normalized_stem = re.sub(r'[^a-z0-9]+', '', stem.lower())
+                if normalized_sample and normalized_sample in normalized_stem:
+                    normalized_matches.append(path)
+            if normalized_matches:
+                return sorted(normalized_matches)[0]
+
+            raise FileNotFoundError(
+                f"No mutation summary CSV matched genome ID '{self.sample_id}' in {result_dir}"
+            )
+
+        return sorted(csv_files)[0]
     
     def _get_all_segment_data(self) -> Dict[str, Dict]:
         """Get mutation data from all segments for multi-segment viruses."""
