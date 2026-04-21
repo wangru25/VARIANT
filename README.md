@@ -699,7 +699,7 @@ python main.py --help
 python main.py --list-viruses
 ```
 
-<!-- ## Citation
+## Citation
 
 If you use this software in your research, please cite:
 
@@ -711,7 +711,7 @@ Viral Mutations at Genome and Protein Levels},
   year={2026},
   url={https://github.com/wangru25/VARIANT}
 }
-``` -->
+```
 
 ## Contact
 
