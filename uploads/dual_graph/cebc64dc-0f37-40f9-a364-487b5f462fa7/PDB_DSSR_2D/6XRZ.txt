@@ -1,0 +1,18 @@
+Title			6XRZ RNA structure
+Chain order		A B
+Amino acids		NO
+Metal
+Chains			A	RNA	B
+			B	RNA	A
+Pseudoknot		YES
+
+Whole structure
+>6XRZ
+gUUUUUAAACGGGUUUGCGGUGUAAGUGC&AGCCCGUCUUACACCGUGCGGCACAGGCACUAGUACUGAUGUCGUAUACAGGGCUUUUG
+..((......))....((((((((((.((&[[[[[))))))))))))(((((((((..(....).))).)))))).....]]]]]....
+
+Interacting substructures
+Chain A B
+gUUUUUAAACGGGUUUGCGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGGCACUAGUACUGAUGUCGUAUACAGGGCUUUUG
+..((......))....((((((((((.(([[[[[))))))))))))(((((((((..(....).))).)))))).....]]]]]....
+

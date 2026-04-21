@@ -1,0 +1,14 @@
+Secondary structures in dot-bracket notation (dbn) as a whole and per chain
+
+>MY_RNA
+
+cGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGCGGAAACGCUGAUGUCGUAUACAGGGCU
+
+(((((((((...[[[[[..)))))))))((((((((((((....))))).)))))))....]]]]]
+
+>Chain A
+
+cGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGCGGAAACGCUGAUGUCGUAUACAGGGCU
+
+(((((((((...[[[[[..)))))))))((((((((((((....))))).)))))))....]]]]]
+

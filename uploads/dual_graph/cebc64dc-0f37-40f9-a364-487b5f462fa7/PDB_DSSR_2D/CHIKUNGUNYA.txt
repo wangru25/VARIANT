@@ -1,0 +1,17 @@
+Title			CHIKUNGUNYA RNA structure
+Chain order		A
+Amino acids		NO
+Metal
+Chains			A	RNA	
+Pseudoknot		NO
+
+Whole structure
+>CHIKUNGUNYA
+UUUUUUAGCCGUAAUGAGCGUCGGUGCCCACACUGUGAGCGCG
+.........(.....).(((((((((....)))))...)))).
+
+Interacting substructures
+Chain A
+UUUUUUAGCCGUAAUGAGCGUCGGUGCCCACACUGUGAGCGCG
+.........(.....).(((((((((....)))))...)))).
+

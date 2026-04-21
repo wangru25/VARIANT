@@ -1,0 +1,22 @@
+Title			9DID RNA structure
+Chain order		A B
+Amino acids		NO
+Metal
+Chains			A	RNA	
+			B	RNA	
+Pseudoknot		YES
+
+Whole structure
+>9DID
+gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUaUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCuCCCUGAAGGUaAACUUGUAGCGC&gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUAUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCUcCCUGAAGGUAAACUUGUAGCGC
+((((((((((((.----{{{[[[[[[[[[((((((.(((((.)-)))))))))).(((((((..)))))))...))))))))))))..----------.}}}]]]]]]]]]&(((((((((...(((.({{{[[[[[[[[[((((((.((((----)))))))))).((((((....))))))).))).)))))))))...-----..().}}}]]]]]]]]]
+
+Interacting substructures
+Chain A
+gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUaUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCuCCCUGAAGGUaAACUUGUAGCGC
+((((((((((((.----{{{[[[[[[[[[((((((.(((((.)-)))))))))).(((((((..)))))))...))))))))))))..----------.}}}]]]]]]]]]
+
+Chain B
+gGGCCACUGUUCUCACUGUUGCGCUACAUCUGGCUAUUCGGAAAUGGAAGCCAGACCACACGAAAGUGUGGAUUGACCAGUGGCCCCUcCCUGAAGGUAAACUUGUAGCGC
+(((((((((...(((.({{{[[[[[[[[[((((((.((((----)))))))))).((((((....))))))).))).)))))))))...-----..().}}}]]]]]]]]]
+

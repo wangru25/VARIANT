@@ -1,0 +1,17 @@
+Title			7LYJ RNA structure
+Chain order		A
+Amino acids		NO
+Metal
+Chains			A	RNA	
+Pseudoknot		YES
+
+Whole structure
+>7LYJ
+cGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGCGGAAACGCUGAUGUCGUAUACAGGGCU
+(((((((((...[[[[[..)))))))))((((((((((((....))))).)))))))....]]]]]
+
+Interacting substructures
+Chain A
+cGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGCGGAAACGCUGAUGUCGUAUACAGGGCU
+(((((((((...[[[[[..)))))))))((((((((((((....))))).)))))))....]]]]]
+
