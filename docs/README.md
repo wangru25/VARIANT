@@ -31,7 +31,7 @@ VARIANT/
 ├── src/                        # Source code
 ├── data/                       # Virus data
 ├── result/                     # Analysis results
-├── plot/                       # Generated plots
+├── imgs/                       # Generated visualizations (e.g. imgs/visualizations/)
 └── templates/                  # Web templates
 ```
 

@@ -462,21 +462,20 @@ If you want to use VARIANT as a local research codebase (without `web_app.py`), 
 
 ## Visualization
 
-VARIANT provides plotting workflows in the `plot/` folder:
+VARIANT plotting is driven from the repository root by `plot.py`, which delegates to `src/visualization/`:
 
-1. `plot.py`
-   - Main plotting entry script for generating integrated visualization outputs.
-2. `plot/genome_organization_visualization.py`
-   - Genome organization visualization for selected virus/genome contexts.
-3. `src/visualization/figure3_PRF.py`
-   - PRF region visualization from candidate PRF result files.
+1. `plot.py` — unified CLI (`--type mutation`, `row-hot`, or `prf`) for integrated figures.
+2. `src/visualization/figure1_mutation_analysis.py` — combined genome and protein mutation analysis.
+3. `src/visualization/figure2_row_hot_mutations.py` — row and hot-mutation views.
+4. `src/visualization/figure3_PRF.py` — PRF region visualization from candidate PRF result files.
 
-These scripts generate HTML and/or PDF outputs for downstream interpretation and reporting.
+Figures are written as HTML and PDF under `imgs/visualizations/<Virus>/` (unless `--output` overrides the path).
 
 ```bash
-# Example usage
-python plot.py
-python plot/genome_organization_visualization.py
+python plot.py --list-viruses
+python plot.py --type mutation --virus SARS-CoV-2 --genome-id EPI_ISL_123456
+python plot.py --type row-hot --virus SARS-CoV-2
+python plot.py --type prf --virus SARS-CoV-2
 python src/visualization/figure3_PRF.py --help
 ```
 
