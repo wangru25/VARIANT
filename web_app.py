@@ -287,6 +287,22 @@ def _session_has_virus_access(virus_name: str, session_id: str) -> bool:
             return True
     return False
 
+
+def _ensure_custom_virus_access(virus_name: str, session_id: str) -> bool:
+    """Ensure access for a custom virus, with local recovery for persisted datasets."""
+    if _session_has_virus_access(virus_name, session_id):
+        return True
+
+    data_dir = os.path.join("data", virus_name)
+    result_dir = os.path.join("result", virus_name)
+    if os.path.exists(data_dir) or os.path.exists(result_dir):
+        # Local recovery: if a persisted custom virus exists on disk,
+        # allow the active browser session to re-claim access.
+        _grant_session_access(virus_name, session_id)
+        return True
+
+    return False
+
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     '''Render the main homepage.'''
@@ -745,6 +761,7 @@ async def download_results(job_id: str, request: Request):
         raise HTTPException(status_code=400, detail="Analysis not completed")
     
     # Create zip file with results
+    _cleanup_stale_download_artifacts()
     zip_path = f"results/{job_id}_results.zip"
     
     with zipfile.ZipFile(zip_path, 'w') as zipf:
@@ -782,7 +799,7 @@ async def get_data_files(virus_name: str, request: Request, segment: Optional[st
     is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
 
     if not is_builtin:
-        if not _session_has_virus_access(virus_name, session_id):
+        if not _ensure_custom_virus_access(virus_name, session_id):
             raise HTTPException(status_code=403, detail="Access denied: You can only access data for viruses you have uploaded or analyzed")
     
     base_dir = f"data/{virus_name}"
@@ -867,7 +884,7 @@ async def get_result_files(virus_name: str, request: Request, segment: Optional[
     is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
 
     if not is_builtin:
-        if not _session_has_virus_access(virus_name, session_id):
+        if not _ensure_custom_virus_access(virus_name, session_id):
             raise HTTPException(status_code=403, detail="Access denied: You can only access results for viruses you have analyzed")
     
     base_dir = f"result/{virus_name}"
@@ -917,7 +934,7 @@ async def download_file(file_path: str, request: Request):
             virus_cfg = config.get("viruses", {}).get(virus_name, {})
             is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
             if not is_builtin:
-                if not _session_has_virus_access(virus_name, session_id):
+                if not _ensure_custom_virus_access(virus_name, session_id):
                     raise HTTPException(status_code=403, detail="Access denied: You can only download your own analysis results")
 
     elif file_path.startswith("data/"):
@@ -928,7 +945,7 @@ async def download_file(file_path: str, request: Request):
             virus_cfg = config.get("viruses", {}).get(virus_name, {})
             is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
             if not is_builtin:
-                if not _session_has_virus_access(virus_name, session_id):
+                if not _ensure_custom_virus_access(virus_name, session_id):
                     raise HTTPException(status_code=403, detail="Access denied: You can only download data for viruses you have uploaded")
     
     return FileResponse(
@@ -958,10 +975,11 @@ async def download_virus_files(virus_name: str, request: Request, type: str = "a
     is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
 
     if not is_builtin:
-        if not _session_has_virus_access(virus_name, session_id):
+        if not _ensure_custom_virus_access(virus_name, session_id):
             raise HTTPException(status_code=403, detail="Access denied: You can only download files for viruses you have uploaded or analyzed")
 
     # Create zip file
+    _cleanup_stale_download_artifacts()
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     zip_filename = f"{virus_name}_{type}_files_{timestamp}.zip"
     zip_path = f"results/{zip_filename}"
@@ -1555,9 +1573,69 @@ async def get_visualization_types():
 # RNA Dual Graph routes
 # ─────────────────────────────────────────────────────────────────────────────
 
+_DUAL_GRAPH_ROOT = os.path.join("uploads", "dual_graph")
+_DUAL_GRAPH_TTL_SECONDS = 24 * 60 * 60
+
+
+def _cleanup_stale_download_artifacts(max_age_seconds: int = 24 * 60 * 60) -> None:
+    """Delete server-generated download bundles in results/ older than max_age_seconds."""
+    results_dir = "results"
+    if not os.path.exists(results_dir):
+        return
+
+    cutoff_time = time.time() - max_age_seconds
+    for filename in os.listdir(results_dir):
+        if not filename.endswith(".zip"):
+            continue
+
+        file_path = os.path.join(results_dir, filename)
+        if not os.path.isfile(file_path):
+            continue
+
+        if os.path.getmtime(file_path) < cutoff_time:
+            try:
+                os.remove(file_path)
+            except OSError:
+                pass
+
+
+def _cleanup_stale_dual_graph_sessions(max_age_seconds: int = _DUAL_GRAPH_TTL_SECONDS) -> None:
+    """Delete dual-graph session folders older than max_age_seconds."""
+    if not os.path.exists(_DUAL_GRAPH_ROOT):
+        return
+
+    cutoff_time = time.time() - max_age_seconds
+    for entry_name in os.listdir(_DUAL_GRAPH_ROOT):
+        if entry_name == "plots":
+            continue
+
+        entry_path = os.path.join(_DUAL_GRAPH_ROOT, entry_name)
+        if not os.path.isdir(entry_path):
+            continue
+
+        latest_mtime = os.path.getmtime(entry_path)
+        for root, _, files in os.walk(entry_path):
+            for filename in files:
+                file_path = os.path.join(root, filename)
+                file_mtime = os.path.getmtime(file_path)
+                if file_mtime > latest_mtime:
+                    latest_mtime = file_mtime
+
+        if latest_mtime < cutoff_time:
+            shutil.rmtree(entry_path, ignore_errors=True)
+
+
+@app.on_event("startup")
+async def startup_dual_graph_cleanup():
+    """Run startup cleanup for dual-graph sessions and download artifacts."""
+    _cleanup_stale_dual_graph_sessions()
+    _cleanup_stale_download_artifacts()
+
+
 def _get_dual_session_dir(session_id: str) -> str:
     """Return a session-specific scratch directory for the dual-graph pipeline."""
-    path = os.path.join("uploads", "dual_graph", session_id)
+    _cleanup_stale_dual_graph_sessions()
+    path = os.path.join(_DUAL_GRAPH_ROOT, session_id)
     for sub in ["PDB_DBN", "PDB_DSSR", "PDB_DSSR_2D", "PDB_DSSR_CT", "PDB_DSSR_Dual"]:
         os.makedirs(os.path.join(path, sub), exist_ok=True)
     return path
@@ -1653,7 +1731,7 @@ async def get_dual_graph_plot(graph_id: str):
     if not re.fullmatch(r"\d+_\d+", graph_id):
         raise HTTPException(status_code=400, detail="Invalid graph_id format. Expected e.g. '3_4'.")
 
-    cache_dir = os.path.join("uploads", "dual_graph", "plots")
+    cache_dir = os.path.join(_DUAL_GRAPH_ROOT, "plots")
     png_path  = os.path.join(cache_dir, f"{graph_id}.png")
 
     if not os.path.exists(png_path):
@@ -1673,7 +1751,7 @@ async def get_dual_graph_files(session_id: str, structure_id: str, request: Requ
     if req_session != session_id:
         raise HTTPException(status_code=403, detail="Access denied")
 
-    base_dir = os.path.join("uploads", "dual_graph", session_id)
+    base_dir = os.path.join(_DUAL_GRAPH_ROOT, session_id)
     dual_dir = os.path.join(base_dir, "PDB_DSSR_Dual")
 
     if not os.path.exists(dual_dir):
