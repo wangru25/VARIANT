@@ -115,8 +115,10 @@ class CustomVirusRequest(BaseModel):
 # Global storage for analysis jobs and user sessions
 analysis_jobs: Dict[str, Dict[str, Any]] = {}
 user_sessions: Dict[str, Dict[str, Any]] = {}
+session_virus_access: Dict[str, List[str]] = {}
 
 _JOBS_FILE = "results/analysis_jobs.json"
+_ACCESS_FILE = "results/session_virus_access.json"
 
 def _load_jobs_from_disk() -> None:
     """Load persisted jobs from disk into the in-memory dict on startup."""
@@ -141,8 +143,39 @@ def _save_jobs_to_disk() -> None:
     except Exception as e:
         print(f"Warning: could not persist jobs: {e}")
 
+
+def _load_access_from_disk() -> None:
+    """Load persisted session virus access map."""
+    global session_virus_access
+    if os.path.exists(_ACCESS_FILE):
+        try:
+            with open(_ACCESS_FILE, "r") as f:
+                raw = json.load(f)
+            # Normalize to {session_id: [virus_name, ...]}
+            if isinstance(raw, dict):
+                session_virus_access = {
+                    str(k): [str(v) for v in vals] if isinstance(vals, list) else []
+                    for k, vals in raw.items()
+                }
+            print(f"Loaded {len(session_virus_access)} session access records from {_ACCESS_FILE}")
+        except Exception as e:
+            print(f"Warning: could not load session access records: {e}")
+
+
+def _save_access_to_disk() -> None:
+    """Persist session virus access map."""
+    try:
+        os.makedirs(os.path.dirname(_ACCESS_FILE), exist_ok=True)
+        tmp = _ACCESS_FILE + ".tmp"
+        with open(tmp, "w") as f:
+            json.dump(session_virus_access, f, default=str)
+        os.replace(tmp, _ACCESS_FILE)
+    except Exception as e:
+        print(f"Warning: could not persist session access records: {e}")
+
 # Load any previously persisted jobs so downloads still work after a server restart
 _load_jobs_from_disk()
+_load_access_from_disk()
 
 def load_virus_config():
     '''Load virus configuration from YAML file.'''
@@ -207,6 +240,53 @@ def get_session_id(request: Request) -> str:
         session_id = str(uuid.uuid4())
     return session_id
 
+
+def _ensure_custom_virus_session_access(virus_name: str, session_id: str) -> None:
+    '''Ensure a custom virus is accessible to the current session.
+
+    Custom-virus file/result endpoints authorize via `analysis_jobs`.
+    Upload/create flows can happen before analysis, so we register a lightweight
+    sentinel job record here to grant session-level access immediately.
+    '''
+    sentinel_id = f"custom_{virus_name}_{session_id[:8]}"
+    if sentinel_id in analysis_jobs:
+        return
+
+    analysis_jobs[sentinel_id] = {
+        "job_id": sentinel_id,
+        "virus_name": virus_name,
+        "session_id": session_id,
+        "status": "custom_virus_ready",
+        "created_at": datetime.utcnow().isoformat() + "Z",
+    }
+    # Grant dedicated access ownership (separate from job tracking)
+    owned = session_virus_access.get(session_id, [])
+    if virus_name not in owned:
+        owned.append(virus_name)
+    session_virus_access[session_id] = owned
+    _save_jobs_to_disk()
+    _save_access_to_disk()
+
+
+def _grant_session_access(virus_name: str, session_id: str) -> None:
+    """Grant a session access to a virus resource."""
+    owned = session_virus_access.get(session_id, [])
+    if virus_name not in owned:
+        owned.append(virus_name)
+        session_virus_access[session_id] = owned
+        _save_access_to_disk()
+
+
+def _session_has_virus_access(virus_name: str, session_id: str) -> bool:
+    """Check whether the current session owns/accesses this virus resources."""
+    if virus_name in session_virus_access.get(session_id, []):
+        return True
+    # Backward compatibility: older sessions tracked only in analysis_jobs.
+    for _, job in analysis_jobs.items():
+        if job.get("session_id") == session_id and job.get("virus_name") == virus_name:
+            return True
+    return False
+
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     '''Render the main homepage.'''
@@ -256,6 +336,7 @@ async def create_custom_virus(custom_virus: CustomVirusRequest, request: Request
             custom_virus.is_multi_segment,
             custom_virus.segments
         )
+        _ensure_custom_virus_session_access(custom_virus.virus_name, session_id)
         
         return {
             "success": True,
@@ -440,6 +521,7 @@ async def upload_data_file(
                         virus_config["default_msa_file"] = filename
                 
                 save_virus_config(config)
+                _ensure_custom_virus_session_access(virus_name, session_id)
         
         return {
             "success": True,
@@ -587,6 +669,7 @@ async def start_analysis(analysis_request: AnalysisRequest, background_tasks: Ba
     }
     
     analysis_jobs[job_id] = job_record
+    _grant_session_access(analysis_request.virus_name, session_id)
     _save_jobs_to_disk()
 
     # Add background task
@@ -699,12 +782,7 @@ async def get_data_files(virus_name: str, request: Request, segment: Optional[st
     is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
 
     if not is_builtin:
-        user_has_access = False
-        for job_id, job in analysis_jobs.items():
-            if job.get("session_id") == session_id and job.get("virus_name") == virus_name:
-                user_has_access = True
-                break
-        if not user_has_access:
+        if not _session_has_virus_access(virus_name, session_id):
             raise HTTPException(status_code=403, detail="Access denied: You can only access data for viruses you have uploaded or analyzed")
     
     base_dir = f"data/{virus_name}"
@@ -789,12 +867,7 @@ async def get_result_files(virus_name: str, request: Request, segment: Optional[
     is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
 
     if not is_builtin:
-        user_has_access = False
-        for job_id, job in analysis_jobs.items():
-            if job.get("session_id") == session_id and job.get("virus_name") == virus_name:
-                user_has_access = True
-                break
-        if not user_has_access:
+        if not _session_has_virus_access(virus_name, session_id):
             raise HTTPException(status_code=403, detail="Access denied: You can only access results for viruses you have analyzed")
     
     base_dir = f"result/{virus_name}"
@@ -844,14 +917,7 @@ async def download_file(file_path: str, request: Request):
             virus_cfg = config.get("viruses", {}).get(virus_name, {})
             is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
             if not is_builtin:
-                user_has_access = False
-                for job_id, job in analysis_jobs.items():
-                    if (job.get("session_id") == session_id and
-                            job.get("virus_name") == virus_name and
-                            job.get("status") == "completed"):
-                        user_has_access = True
-                        break
-                if not user_has_access:
+                if not _session_has_virus_access(virus_name, session_id):
                     raise HTTPException(status_code=403, detail="Access denied: You can only download your own analysis results")
 
     elif file_path.startswith("data/"):
@@ -862,13 +928,7 @@ async def download_file(file_path: str, request: Request):
             virus_cfg = config.get("viruses", {}).get(virus_name, {})
             is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
             if not is_builtin:
-                user_has_access = False
-                for job_id, job in analysis_jobs.items():
-                    if (job.get("session_id") == session_id and
-                            job.get("virus_name") == virus_name):
-                        user_has_access = True
-                        break
-                if not user_has_access:
+                if not _session_has_virus_access(virus_name, session_id):
                     raise HTTPException(status_code=403, detail="Access denied: You can only download data for viruses you have uploaded")
     
     return FileResponse(
@@ -898,12 +958,7 @@ async def download_virus_files(virus_name: str, request: Request, type: str = "a
     is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
 
     if not is_builtin:
-        user_has_access = False
-        for job_id, job in analysis_jobs.items():
-            if job.get("session_id") == session_id and job.get("virus_name") == virus_name:
-                user_has_access = True
-                break
-        if not user_has_access:
+        if not _session_has_virus_access(virus_name, session_id):
             raise HTTPException(status_code=403, detail="Access denied: You can only download files for viruses you have uploaded or analyzed")
 
     # Create zip file
