@@ -1,17 +1,5 @@
 .DS_Store
 
-# Output directories
-imgs/
-plot/
-
-# Generated visualization files
-*.html
-*.pdf
-
-# Keep specific plot files that are part of the repository
-!plot/tmp/
-!plot/genome_organization_visualization.py
-
 # Python compiled files
 __pycache__/
 *.pyc
@@ -20,15 +8,3 @@ __pycache__/
 # IDE / AI assistant settings (not for public repo)
 .claude/
 .cursor/
-
-# Runtime server data (generated at runtime, not part of codebase)
-uploads/
-results/analysis_jobs.json
-results/*.zip
-
-# GISAID data — restricted sharing, do not publish
-data/SARS-CoV-2/clustalW/
-
-# PKNOTS — 124MB compiled C binary, too large for git; install locally if needed
-PKNOTS/
-
