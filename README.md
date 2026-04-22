@@ -2,6 +2,8 @@
 
 A comprehensive Python framework for viral mutation analysis across single-segment and multi-segment viruses, VARIANT automates the full pipeline from nucleotide changes to protein-level consequences, including substitutions, insertions, deletions, missense, nonsense, and frameshift mutations, while also identifying biologically meaningful row mutations, hot mutations, and potential programmed ribosomal frameshifting (PRF) regions; in addition, it incorporates RNA dual-graph topology analysis from dot-bracket structures to enable structural comparison of frameshifting elements across viral lineages.
 
+![VARIANT workflow](imgs/workflow_hori.png)
+
 ## Features
 
 - **Multi-virus support**: SARS-CoV-2, ZaireEbola, Chikungunya, HIV-1, H3N2, and easily extensible to other viruses
