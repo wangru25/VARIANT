@@ -5,12 +5,12 @@ A comprehensive Python framework for viral mutation analysis across single-segme
 ## Features
 
 - **Multi-virus support**: SARS-CoV-2, ZaireEbola, Chikungunya, HIV-1, H3N2, and easily extensible to other viruses
-- **Multi-segment virus support** with automatic structure detection (e.g., H3N2 influenza)
+- **Multi-segment virus support**: Automatic structure detection (e.g., H3N2 influenza)
 - **Comprehensive mutation analysis**: Point mutations, insertions, deletions, row and hot mutations
 - **Advanced mutation classification**: Missense, nonsense, silent, and frameshift mutations
 - **Protein-level impact analysis**: Amino acid changes with biological significance
 - **Automatic mutation summary generation**: No manual flags required
-- **Complex protein coordinate handling**: Supports `join()` coordinates for viral polyproteins
+- **Complex protein coordinate handling**: Support `join()` coordinates for viral polyproteins
 - **Programmed Ribosomal Frameshifting (PRF) detection** (+1/-1 frameshifting)
 - **RNA Dual Graph topology assignment** from dot-bracket RNA secondary structures
 - **Structured output**: Text and CSV formats for analysis and visualization
@@ -23,41 +23,25 @@ VARIANT includes the following five viruses as built-in examples:
 |-----------|----------|------------------|
 | **SARS-CoV-2** | Single-segment | RNA-dependent-polymerase, spike, nucleocapsid |
 | **ZaireEbola** | Single-segment | Nucleoprotein, polymerase, spike glycoprotein |
-| **Chikungunya** | Single-segment | nsp1-4, capsid, E1/E2/E3, 6K proteins |
+| **Chikungunya** | Single-segment | nsP1-4, capsid, E1/E2/E3, 6K proteins |
 | **HIV-1** | Single-segment | Pr55(Gag), reverse transcriptase, integrase, envelope |
 | **H3N2** | Multi-segment (8) | PB1/PB2/PA, hemagglutinin, neuraminidase, matrix |
 
 Users can also upload and analyze customized viruses with their own reference genome, proteome, and MSA files.
 
 ### Analysis Capabilities
-- **Genome support and modes**: Supports both single-segment and multi-segment viral genomes, with single-sample and batch decoding modes.
-- **Input and pre-configuration**: Uses user pre-configuration with reference genome and proteome sequences (FASTA) plus aligned viral genomes (MSA).
-- **Genome- and protein-level decoding**: Performs mutation decoding at nucleotide and amino acid resolution.
-- **Mutation classes**: Detects substitutions, insertions, deletions, row mutations (consecutive substitutions within a 3-nt window), and hot mutations (two non-consecutive substitutions within a 3-nt window).
-- **Frameshift and RNA topology analysis**: Identifies potential programmed ribosomal frameshift (PRF) signals and classifies frameshifting-element RNA secondary structures with dual graph topology analysis using the RNA-As-Graphs framework.
-- **Outputs and visualization**: Produces structured CSV outputs (detailed mutation records, row/hot mutation sites, potential PRF regions) and provides mutation distribution and classification visualizations, including genome-level categories and corresponding protein-level consequences.
+- **Genome support and modes**: Support both single-segment and multi-segment viral genomes, with single-sample and batch decoding modes.
+- **Input and pre-configuration**: Use user pre-configuration with reference genome and proteome sequences (FASTA) plus aligned viral genomes (MSA).
+- **Genome- and protein-level decoding**: Perform mutation decoding at nucleotide and amino acid resolution.
+- **Mutation classes**: Detect substitutions, insertions, deletions, row mutations (consecutive substitutions within a 3-nt window), and hot mutations (two non-consecutive substitutions within a 3-nt window).
+- **Frameshift and RNA topology analysis**: Identify potential programmed ribosomal frameshift (PRF) signals and classify frameshifting-element RNA secondary structures with dual graph topology analysis using the RNA-As-Graphs framework.
+- **Outputs and visualization**: Produce structured CSV outputs (detailed mutation records, row/hot mutation sites, potential PRF regions) and provide mutation distribution and classification visualizations, including genome-level categories and corresponding protein-level consequences.
 
 ## Installation
 
-VARIANT supports two local installation paths: editable pip installation (`pip install -e .`) and a conda-managed environment (`conda env create -f environment.yaml`). Use the pip workflow if you prefer package-style CLI usage, and use conda if you want an isolated bioinformatics environment with managed native dependencies.
+VARIANT supports two local installation paths: a conda-managed environment (`conda env create -f environment.yaml`) and editable pip installation (`pip install -e .`). Use `conda` if you want an isolated bioinformatics environment with managed native dependencies, or use the `pip` workflow if you prefer package-style CLI usage.
 
-### Option 1: CLI Installation (Recommended)
-
-**Prerequisites**: Python 3.8 or higher
-
-```bash
-# Clone the repository
-git clone https://github.com/wangru25/VARIANT.git
-cd VARIANT
-
-# Install the package and dependencies
-pip install -e .
-
-# Verify installation
-variant --help
-```
-
-### Option 2: Conda Environment
+### Option 1: Conda Environment
 
 **Prerequisites**: Conda or Miniconda installed
 
@@ -77,47 +61,42 @@ chmod +x main.py
 python main.py --help
 ```
 
-### Dependencies
+### Option 2: CLI Installation
+
+**Prerequisites**: Python 3.8 or higher
+
+```bash
+# Clone the repository
+git clone https://github.com/wangru25/VARIANT.git
+cd VARIANT
+
+# Install the package and dependencies
+pip install -e .
+
+# Verify installation
+variant --help
+```
+
+### *Dependencies*
 - BioPython >= 1.79
 - NumPy >= 1.21.0  
-- Pandas >= 1.3.0
+- pandas >= 1.3.0
 - PyYAML >= 6.0
 - fuzzysearch == 0.7.3
 - more-itertools >= 8.12.0
 - Plotly >= 6.1.1
 - Kaleido >= 1.0.0
-- Matplotlib >= 3.5.0
-- Seaborn >= 0.11.0
+- matplotlib >= 3.5.0
+- seaborn >= 0.11.0
 - ViennaRNA >= 2.4.0 (for PRF scanning and RNA structure prediction)
 - python-igraph >= 0.11.8 (for RNA dual-graph assignment)
-- networkx >= 3.1 (for graph rendering utilities)
+- NetworkX >= 3.1 (for graph rendering utilities)
 
-## Usage
+## Usage & Quick Start Examples
 
-Choose your preferred method based on your installation:
+### Option 1: Conda Usage (Recommended)
 
-### Option 1: CLI Usage (After `pip install -e .`)
-
-The CLI provides modern, user-friendly commands:
-
-```bash
-# Show all available commands
-variant --help
-
-# Dataset Setup
-variant setup --virus SARS-CoV-2 --config virus_config.yaml
-variant setup --virus HIV-1
-
-# Mutation Analysis
-variant analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/test_msa_2.txt
-
-# PRF Analysis
-variant prf --genome data/SARS-CoV-2/refs/NC_045512.fasta --output results.csv
-```
-
-### Option 2: Conda Usage (After `conda activate variant`)
-
-Use the traditional Python scripts:
+After `conda activate variant`, users can implement functions with different input arguments:
 
 ```bash
 # Show available options
@@ -138,24 +117,11 @@ python main.py --virus H3N2 --process-all
 # Specific segment analysis
 python main.py --virus H3N2 --segment segment_1 --process-all
 
-# List available viruses
+# List available built-in and custom viruses
 python main.py --list-viruses
 ```
 
-## Quick Start Examples
-
-```bash
-# See available built-in and custom viruses
-python main.py --list-viruses
-
-# Process all genomes for a virus
-python main.py --virus SARS-CoV-2 --process-all
-
-# Analyze one specific genome
-python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
-```
-
-### Command Line Arguments
+#### *Input Arguments*
 
 - `--virus`: Name of the virus to analyze
 - `--genome-id`: Specific genome ID to process
@@ -165,13 +131,42 @@ python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
 - `--msa-file`: Custom MSA file path
 - `--config`: Custom configuration file path
 
+### Option 2: CLI Usage
+
+After `pip install -e .`, `variant` will be created. Users can choose to either `setup`, `analyze`, or perform `prf` with different arguments:
+
+```bash
+# Show all available commands
+variant --help
+
+# Dataset Setup
+variant setup --virus SARS-CoV-2 --config virus_config.yaml
+variant setup --virus HIV-1
+
+# Mutation Analysis
+variant analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/test_msa_2.txt
+
+# PRF Analysis
+variant prf --genome data/SARS-CoV-2/refs/NC_045512.fasta --output results.csv
+```
+
+#### *Input Arguments*
+- `setup`: Set up the environment according to the config file
+- `analyze`: Perform mutation analysis
+- `prf`: Perform PRF analysis
+- `--virus`: Name of the virus to analyze
+- `--config`: Custom configuration file path
+- `--msa`: Custom MSA file path
+- `--genome`: Sequence of specific genome to process
+- `--output`: Output directory
+
 ## Output Files
 
-Download outputs from:
+The downloadable results are under the default output directory `result/<Virus>/`:
 - Single-segment viruses: `result/<Virus>/`
 - Multi-segment viruses: `result/<Virus>/<Segment>/`
 
-Per genome, users download:
+Per each genome, the results are provided with corresponding `GenomeID`:
 - `<GenomeID>.txt` — detailed mutation report
 - `<GenomeID>_mutation_summary.csv` — mutation summary table
 - `<GenomeID>_row_hot_mutations.csv` — row/hot mutation table (generated only when row/hot mutations are detected)
@@ -188,7 +183,7 @@ python main.py --virus SARS-CoV-2 --process-all --detect-frameshifts
 ```
 
 ### Output Files
-PRF outputs are written under `result/<Virus>/` (or `result/<Virus>/<Segment>/` for multi-segment viruses):
+PRF outputs are provided under `result/<Virus>/` (or `result/<Virus>/<Segment>/` for multi-segment viruses):
 - `*.prf_candidates.csv` — candidate PRF sites with sequence/structure context
 - `*.prf_candidates.bed` — genomic coordinates for downstream browser/track usage
 
@@ -214,17 +209,16 @@ If you want to use VARIANT as a local research codebase (without `web_app.py`), 
 
 
 
-
 ## Visualization
 
 VARIANT plotting is driven from the repository root by `plot.py`, which delegates to `src/visualization/`:
 
-1. `plot.py` — unified CLI (`--type mutation`, `row-hot`, or `prf`) for integrated figures.
+1. `plot.py` — unified CLI (set `--type` to `mutation`, `row-hot`, or `prf`) for integrated figures.
 2. `src/visualization/figure1_mutation_analysis.py` — combined genome and protein mutation analysis.
 3. `src/visualization/figure2_row_hot_mutations.py` — row and hot-mutation views.
 4. `src/visualization/figure3_PRF.py` — PRF region visualization from candidate PRF result files.
 
-Figures are written as HTML and PDF under `imgs/visualizations/<Virus>/` (unless `--output` overrides the path).
+Figures are given as HTML and PDF under `imgs/visualizations/<Virus>/` (unless `--output` overrides the path).
 
 ```bash
 python plot.py --list-viruses
@@ -307,15 +301,15 @@ python scripts/setup_virus_dataset.py --validate "MyVirus"
 - **Content**: Protein sequences with headers
 - **Example** (SARS-CoV-2 proteome reference): [SARS-CoV-2 proteome reference sequence](data/SARS-CoV-2/refs/SARS-CoV-2_proteome.fasta)
 
-#### Variants Sequences File (Optional)
-- **Format**: FASTA format
-- **Content**: Reference genome sequence together with other variant genome sequences that user wanna decoded
-- **Example** (SARS-CoV-2 proteome reference): [SARS-CoV-2 all variants sequences](data/SARS-CoV-2/fasta/sequences_w_reference.fasta)
-
-#### Multiple Sequence Alignment (MSA) File (Required)
+#### MSA File (Required)
 - **Format**: Text file with aligned nucleotide genome sequences
 - **Content**: Multiple aligned genome sequences, typically generated from [Clustal Omega](https://www.ebi.ac.uk/jdispatcher/msa/clustalo) using genome FASTA input. The input file is [SARS-CoV-2 all variants sequences](data/SARS-CoV-2/fasta/sequences_w_reference.fasta)
 - **Example** (SARS-CoV-2 MSA): [SARS-CoV-2 MSA](data/SARS-CoV-2/clustalW/gisaid_hcov-19_20221201_20221230_China_0_msa.txt)
+
+#### Variants Sequences File (Optional)
+- **Format**: FASTA format
+- **Content**: Reference genome sequence together with other variant genome sequences that user want to be decoded
+- **Example** (SARS-CoV-2 proteome reference): [SARS-CoV-2 all variants sequences](data/SARS-CoV-2/fasta/sequences_w_reference.fasta)
 
 <!-- ### Codon Table IDs
 
@@ -418,12 +412,12 @@ python main.py --virus MyCustomVirus --genome-id GENOME_ID
    - Analysis will continue with genome-level mutations only
    - Protein mutation analysis will be skipped
 
-5. **Multi-segment Processing Issues**
+5. **"Multi-segment Processing Issues"**
    - Verify segment directory structure
    - Check segment-specific configurations
    - Ensure all required files exist for each segment
 
-6. **PRF Detection Issues**
+6. **"PRF Detection Issues"**
    - Verify reference genome is in DNA format (ATGC, not AUGC)
    - Check that MSA file contains the reference sequence
    - Ensure proper directory structure for virus data
