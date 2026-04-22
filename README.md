@@ -48,7 +48,7 @@ git clone https://github.com/wangru25/VARIANT.git
 cd VARIANT
 
 # Install the package and dependencies
-pip install -e ./
+pip install -e .
 
 # Verify installation
 variant --help
