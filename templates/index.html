@@ -2107,8 +2107,6 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                     hint.textContent = 'No completed analysis results found for this virus. Run an analysis first.';
                     return;
                 }
-                // Try to auto-load any existing visualization HTML files
-                autoLoadVizHtml(virusName);
             } catch (e) {
                 btn.disabled = true;
                 hint.style.display = '';

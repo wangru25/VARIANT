@@ -4,7 +4,7 @@ A comprehensive Python framework for viral mutation analysis across single-segme
 
 ## Features
 
-- **Multi-virus support**: SARS-CoV-2, ZaireEbola, Chikungunya, HIV-1, H3N2, and easily extensible
+- **Multi-virus support**: SARS-CoV-2, ZaireEbola, Chikungunya, HIV-1, H3N2, and easily extensible to other viruses
 - **Multi-segment virus support** with automatic structure detection (e.g., H3N2 influenza)
 - **Comprehensive mutation analysis**: Point mutations, insertions, deletions, row and hot mutations
 - **Advanced mutation classification**: Missense, nonsense, silent, and frameshift mutations
@@ -17,22 +17,25 @@ A comprehensive Python framework for viral mutation analysis across single-segme
 - **Configurable per-virus settings**: Easy setup for new viruses
 ## Supported Viruses
 
-VARIANT currently supports comprehensive analysis for the following viruses:
+VARIANT includes the following five viruses as built-in examples:
 
-| **Virus** | **Type** | **Key Proteins** | **Special Features** |
-|-----------|----------|------------------|----------------------|
-| **SARS-CoV-2** | Single-segment | RNA-dependent-polymerase, spike, nucleocapsid | Complex `join()` coordinates, 130+ genomes |
-| **ZaireEbola** | Single-segment | Nucleoprotein, polymerase, spike glycoprotein | Large genome analysis |
-| **Chikungunya** | Single-segment | nsp1-4, capsid, E1/E2/E3, 6K proteins | Multi-protein analysis |
-| **HIV-1** | Single-segment | Pr55(Gag), reverse transcriptase, integrase, envelope | Polyprotein processing |
-| **H3N2** | Multi-segment (8) | PB1/PB2/PA, hemagglutinin, neuraminidase, matrix | Influenza segment analysis |
+| **Virus** | **Type** | **Key Proteins** |
+|-----------|----------|------------------|
+| **SARS-CoV-2** | Single-segment | RNA-dependent-polymerase, spike, nucleocapsid |
+| **ZaireEbola** | Single-segment | Nucleoprotein, polymerase, spike glycoprotein |
+| **Chikungunya** | Single-segment | nsp1-4, capsid, E1/E2/E3, 6K proteins |
+| **HIV-1** | Single-segment | Pr55(Gag), reverse transcriptase, integrase, envelope |
+| **H3N2** | Multi-segment (8) | PB1/PB2/PA, hemagglutinin, neuraminidase, matrix |
 
-### Analysis Capabilities per Virus
-- **Mutation detection**: Point mutations, insertions, deletions
-- **Protein impact**: Amino acid changes, functional predictions
-- **Evolutionary analysis**: Row and hot mutation patterns
-- **Summary generation**: Automated CSV reports
-- **Frameshift detection**: PRF analysis for all supported viruses
+Users can also upload and analyze customized viruses with their own reference genome, proteome, and MSA files.
+
+### Analysis Capabilities
+- **Genome support and modes**: Supports both single-segment and multi-segment viral genomes, with single-sample and batch decoding modes.
+- **Input and pre-configuration**: Uses user pre-configuration with reference genome and proteome sequences (FASTA) plus aligned viral genomes (MSA).
+- **Genome- and protein-level decoding**: Performs mutation decoding at nucleotide and amino acid resolution.
+- **Mutation classes**: Detects substitutions, insertions, deletions, row mutations (consecutive substitutions within a 3-nt window), and hot mutations (two non-consecutive substitutions within a 3-nt window).
+- **Frameshift and RNA topology analysis**: Identifies potential programmed ribosomal frameshift (PRF) signals and classifies frameshifting-element RNA secondary structures with dual graph topology analysis using the RNA-As-Graphs framework.
+- **Outputs and visualization**: Produces structured CSV outputs (detailed mutation records, row/hot mutation sites, potential PRF regions) and provides mutation distribution and classification visualizations, including genome-level categories and corresponding protein-level consequences.
 
 ## Installation
 
@@ -139,36 +142,17 @@ python main.py --virus H3N2 --segment segment_1 --process-all
 python main.py --list-viruses
 ```
 
-### Alternative Methods (Both Options)
-
-```bash
-# Python module approach
-python -m src.cli.commands --help
-
-# Direct script execution (conda users)
-python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
-```
-
 ## Quick Start Examples
 
 ```bash
-# Process all SARS-CoV-2 genomes (most common use case)
+# See available built-in and custom viruses
+python main.py --list-viruses
+
+# Process all genomes for a virus
 python main.py --virus SARS-CoV-2 --process-all
 
-# Process all H3N2 influenza segments
-python main.py --virus H3N2 --process-all
-
-# Analyze a specific genome
+# Analyze one specific genome
 python main.py --virus SARS-CoV-2 --genome-id EPI_ISL_16327572
-
-# Detect frameshift sites
-python main.py --virus SARS-CoV-2 --detect-frameshifts
-
-# Advanced PRF scanning with RNA structure prediction
-python src/core/prf_scanner.py --fasta data/SARS-CoV-2/refs/NC_045512.fasta --out results/sars_cov2_prf --use-rnafold
-
-# See what viruses are available
-python main.py --list-viruses
 ```
 
 ### Command Line Arguments
@@ -181,261 +165,32 @@ python main.py --list-viruses
 - `--msa-file`: Custom MSA file path
 - `--config`: Custom configuration file path
 
-## Data Organization
-
-### Directory Structure
-```
-data/
-├── SingleSegmentVirus/
-│   ├── clustalW/     # MSA files
-│   ├── refs/         # Reference genomes and proteomes
-│   └── fasta/        # FASTA sequence files
-└── MultiSegmentVirus/
-    ├── segment_1/
-    │   ├── clustalW/
-    │   ├── refs/
-    │   └── fasta/
-    ├── segment_2/
-    └── ...
-
-result/
-├── SingleSegmentVirus/
-│   └── analysis_results
-└── MultiSegmentVirus/
-    ├── segment_1/
-    ├── segment_2/
-    └── ...
-```
-
-### Configuration (virus_config.yaml)
-
-```yaml
-viruses:
-  SingleSegmentVirus:
-    reference_genome: "reference.fasta"
-    proteome_file: "proteome.fasta"
-    codon_table_id: 1
-    description: "Single segment virus"
-    default_msa_file: "msa.txt"
-    
-  MultiSegmentVirus:
-    codon_table_id: 1
-    description: "Multi-segment virus"
-    segments:
-      segment_1:
-        reference_genome: "segment1_ref.fasta"
-        proteome_file: "segment1_proteome.fasta"
-        default_msa_file: "segment1_msa.txt"
-      segment_2:
-        reference_genome: "segment2_ref.fasta"
-        proteome_file: "segment2_proteome.fasta"
-        default_msa_file: "segment2_msa.txt"
-```
-
 ## Output Files
 
-### Text Output (genome_id_date.txt)
-Contains detailed mutation analysis including:
-- Point mutations
-- Insertions/Deletions
-- Row mutations (consecutive changes)
-- Hot mutations (non-consecutive changes)
-- Protein impact classification:
-  - Silent mutations
-  - Missense mutations
-  - Nonsense mutations (stop codons)
-  - Frameshift mutations
+Download outputs from:
+- Single-segment viruses: `result/<Virus>/`
+- Multi-segment viruses: `result/<Virus>/<Segment>/`
 
-### Process All Output
-When using `--process-all`:
-- Analyzes all genomes in the MSA file
-- Automatically generates mutation summary CSV files for all processed genomes
-- Prints processing progress and summary statistics
-- Creates comprehensive mutation analysis for each genome
+Per genome, users download:
+- `<GenomeID>.txt` — detailed mutation report
+- `<GenomeID>_mutation_summary.csv` — mutation summary table
+- `<GenomeID>_row_hot_mutations.csv` — row/hot mutation table (generated only when row/hot mutations are detected)
 
-### PRF Analysis Output
-When using `--detect-frameshifts`:
 
-**Potential PRF Analysis (potential_PRF_date.csv):**
-- CSV format with columns: `position,end_position,sequence,type`
-- -1 PRF sites (slippery sequences)
-- +1 PRF sites (shifty stop codons)
-- Stem-loop structures (stimulatory elements)
+## PRF Scanner
 
-## PRF Scanner: Advanced Programmed Ribosomal Frameshifting Detection
+VARIANT supports PRF candidate detection through the main pipeline.
 
-VARIANT includes a comprehensive PRF scanner (`src/core/prf_scanner.py`) that detects candidate programmed ribosomal frameshifting sites with advanced RNA secondary structure prediction and tRNA interaction validation.
-
-### What is Programmed Ribosomal Frameshifting (PRF)?
-
-Programmed ribosomal frameshifting is a biological mechanism where ribosomes "slip" or "shift" their reading frame during translation, allowing a single mRNA to code for multiple proteins. This is particularly common in viruses as a way to maximize their coding capacity and control protein stoichiometry.
-
-### Types of Frameshifting Detected
-
-#### 1. -1 PRF (Backward Frameshifting)
-- **Mechanism**: Ribosome shifts backward by one nucleotide
-- **Trigger**: Slippery sequences following the pattern `XXXYYYZ`
-- **Examples**: 
-  - `TTTTTTA` (HIV gag-pol frameshift)
-  - `TTTAAAC` (SARS-CoV-2 frameshift)
-  - `GGGTTTA` (Coronavirus frameshift)
-
-#### 2. +1 PRF (Forward Frameshifting)
-- **Mechanism**: Ribosome shifts forward by one nucleotide
-- **Trigger**: Shifty stop codons with specific context
-- **Examples**: 
-  - `TAA` in `TCCT` context
-  - `TAG` in `TCCG` context
-
-### Biological Requirements for PRF
-
-Our detection algorithm validates frameshift sites based on established biological criteria:
-
-1. **Slippery Sequence Pattern**: Must follow `XXXYYYZ` pattern
-2. **tRNA Pairing Compatibility**: P-site and A-site tRNAs must maintain pairing after shift
-3. **Optimal Spacing**: Downstream stem-loop should be 5-9 nucleotides away
-4. **Structural Context**: Stem-loop structures that pause ribosome translocation
-5. **Reading Frame Context**: Shift must place ribosome in viable alternative frame
-
-### tRNA Pairing Validation
-
-The algorithm validates that tRNA molecules can maintain proper pairing before and after frameshifting:
-
-- **P-site tRNA**: Must maintain pairing with first two positions
-- **A-site tRNA**: Must maintain pairing with first two positions and allow wobble pairing at third position
-- **Wobble Compatibility**: Supports non-canonical base pairs observed in viral PRF (G-U, A-C, etc.)
-
-### Example Output Interpretation
-
-```
-position,end_position,sequence,type
-1630,1637,TTTTTTA,-1 PRF
-13461,13468,TTTAAAC,-1 PRF
-```
-
-**Breakdown:**
-- **Position**: 1630-1637 (nucleotides in genome)
-- **Sequence**: `TTTTTTA` (slippery sequence)
-- **Type**: `-1 PRF` (backward frameshifting)
-
-### Known Viral Frameshift Sites
-
-Our algorithm successfully detects well-characterized viral frameshift sites:
-
-- **HIV-1**: `TTTTTTA` at position ~1637 (gag-pol frameshift)
-- **SARS-CoV-2**: `TTTAAAC` at position ~13462 (ORF1a-ORF1ab frameshift)
-- **Coronaviruses**: Various slippery sequences in replicase genes
-- **Retroviruses**: Multiple frameshift sites for polyprotein production
-
-### PRF Scanner Usage
-
-The PRF scanner can be used as a standalone tool or integrated with the main VARIANT pipeline:
-
-#### Standalone PRF Scanning
-
+### Usage
 ```bash
-# Basic PRF scanning with RNA structure prediction
-python src/core/prf_scanner.py --fasta data/SARS-CoV-2/refs/NC_045512.fasta --out results/sars_cov2_prf --use-rnafold
-
-# Advanced scanning with custom parameters
-python src/core/prf_scanner.py \
-    --fasta data/SARS-CoV-2/refs/NC_045512.fasta \
-    --out results/sars_cov2_prf \
-    --spacer-min 5 \
-    --spacer-max 9 \
-    --window 120 \
-    --use-rnafold \
-    --organism sars_cov2
-
-# With GFF annotation for frame context
-python src/core/prf_scanner.py \
-    --fasta data/SARS-CoV-2/refs/NC_045512.fasta \
-    --out results/sars_cov2_prf \
-    --use-rnafold \
-    --gff data/SARS-CoV-2/annotations.gff
-
-# With tRNA abundance data
-python src/core/prf_scanner.py \
-    --fasta data/SARS-CoV-2/refs/NC_045512.fasta \
-    --out results/sars_cov2_prf \
-    --use-rnafold \
-    --trna data/tRNA_abundance.csv \
-    --organism sars_cov2
-```
-
-#### Integration with Main Pipeline
-
-```bash
-# PRF detection through main pipeline (now uses advanced PRF scanner)
 python main.py --virus SARS-CoV-2 --detect-frameshifts
-
-# Process all genomes with PRF detection
 python main.py --virus SARS-CoV-2 --process-all --detect-frameshifts
-
-# PRF detection for other viruses
-python main.py --virus HIV-1 --detect-frameshifts
-python main.py --virus Chikungunya --detect-frameshifts
-python main.py --virus ZaireEbola --detect-frameshifts
 ```
 
-**Note**: The `--detect-frameshifts` flag now uses the advanced PRF scanner with RNA structure prediction, tRNA validation, and comprehensive analysis. This replaces the previous simple frameshift detection.
-
-### PRF Scanner Parameters
-
-| Parameter | Description | Default | Example |
-|-----------|-------------|---------|---------|
-| `--fasta` | Input genome FASTA file | Required | `data/SARS-CoV-2/refs/NC_045512.fasta` |
-| `--out` | Output file prefix | Required | `results/prf_analysis` |
-| `--spacer-min` | Minimum spacer length (nt) | 5 | `--spacer-min 3` |
-| `--spacer-max` | Maximum spacer length (nt) | 9 | `--spacer-max 12` |
-| `--window` | Downstream fold window size (nt) | 120 | `--window 150` |
-| `--use-rnafold` | Enable RNA structure prediction | False | `--use-rnafold` |
-| `--gff` | GFF annotation file for frame context | None | `--gff annotations.gff` |
-| `--organism` | Organism for tRNA data | human | `--organism sars_cov2` |
-| `--trna` | tRNA abundance CSV file | None | `--trna trna_data.csv` |
-
-### PRF Scanner Output
-
-The PRF scanner generates two output files:
-
-#### 1. CSV Output (`*.prf_candidates.csv`)
-
-Comprehensive candidate data with the following columns:
-
-| Column | Description | Example |
-|--------|-------------|---------|
-| `seqid` | Sequence identifier | `NC_045512` |
-| `site_start_1based` | PRF site start position (1-based) | `13462` |
-| `slippery_motif` | Slippery sequence motif | `TTTAAAC` |
-| `type` | PRF type | `-1` |
-| `spacer_nt` | Spacer length (nt) | `7` |
-| `fold_window_start` | Structure window start | `13470` |
-| `fold_window_end` | Structure window end | `13590` |
-| `fold_window_seq` | Downstream sequence | `GUGGCUGUCACUCGGC...` |
-| `rnafold_structure` | RNA secondary structure | `((((.((.((((.(((.....))).)))))).))))` |
-| `rnafold_mfe` | Minimum free energy (kcal/mol) | `-30.4` |
-| `rnafold_type` | Structure classification | `stem_loop` |
-| `probknot_structure` | ProbKnot structure prediction | `(((((.........[[[[[.........))))).]]]]]` |
-| `probknot_type` | ProbKnot classification | `pseudoknot` |
-| `pknots_structure` | PKNOTS structure prediction | `(((((.........[[[[[.........))))).]]]]]` |
-| `pknots_type` | PKNOTS classification | `pseudoknot` |
-| `frame_context` | Reading frame context | `CDS_frame0` |
-| `codon1` | P-site codon | `TTT` |
-| `codon2` | A-site codon | `AAA` |
-| `trna1_abundance` | P-site tRNA abundance | `0.8` |
-| `trna2_abundance` | A-site tRNA abundance | `0.9` |
-| `pausing_potential` | Ribosomal pausing score | `0.3` |
-| `wobble_pairs` | Wobble base pairs detected | `P-site_G-U` |
-| `trna_score` | Overall tRNA interaction score | `0.85` |
-
-#### 2. BED Output (`*.prf_candidates.bed`)
-
-Genomic coordinates for visualization and analysis:
-
-```
-NC_045512	13462	13469	-1_TTTAAAC_s7	0	+
-NC_045512	76	83	-1_UUUAAAA_s5	0	+
-```
+### Output Files
+PRF outputs are written under `result/<Virus>/` (or `result/<Virus>/<Segment>/` for multi-segment viruses):
+- `*.prf_candidates.csv` — candidate PRF sites with sequence/structure context
+- `*.prf_candidates.bed` — genomic coordinates for downstream browser/track usage
 
 ## RNA Dual Graph (Local Code Workflow)
 
@@ -715,6 +470,6 @@ Viral Mutations at Genome and Protein Levels},
 
 ## Contact
 
-- Author: Rui Wang
+- Author: [Rui Wang](https://github.com/wangru25), [Xuhang Dai](https://github.com/XDaiNYU), [Xin Cao](https://github.com/xincao21), [ChangChuan Yin](https://github.com/cyinbox), [Tamar Schlick](https://github.com/Schlicklab), [Guo-Wei Wei](https://github.com/msuweilab)
 - Email: rw3594@nyu.edu
 - Institution: New York University
