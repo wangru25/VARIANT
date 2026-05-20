@@ -21,6 +21,8 @@ from datetime import datetime
 import uuid
 import zipfile
 import json
+import logging
+from contextlib import redirect_stdout, redirect_stderr
 
 from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks, Form, Request
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
@@ -33,6 +35,13 @@ import plotly.graph_objects as go
 import plotly.io as pio
 from jinja2 import Environment, FileSystemLoader
 
+LOG_LEVEL = os.environ.get("LOG_LEVEL", "WARNING").upper()
+logging.basicConfig(
+    level=getattr(logging, LOG_LEVEL, logging.WARNING),
+    format="%(levelname)s:%(name)s:%(message)s",
+)
+logger = logging.getLogger("variant.web")
+
 # Add src to path for imports
 sys.path.append(str(Path(__file__).parent / "src"))
 
@@ -44,7 +53,7 @@ try:
     from src.core.mutation_processor import MutationProcessor
     from scripts.setup_virus_dataset import VirusDatasetSetup
 except ImportError as e:
-    print(f"Warning: Could not import core modules: {e}")
+    logger.warning("Could not import core modules: %s", e)
 
 try:
     from convert_dbn_to_dssr import convert_dbn_to_dssr
@@ -53,7 +62,7 @@ try:
     from plot_dual_graph import plot_dual_graph
     _DUAL_SEARCH_AVAILABLE = True
 except ImportError as e:
-    print(f"Warning: Could not import Existing-Dual-Search modules: {e}")
+    logger.warning("Could not import Existing-Dual-Search modules: %s", e)
     _DUAL_SEARCH_AVAILABLE = False
 
 # Set Plotly template
@@ -122,6 +131,26 @@ genome_ids_cache: Dict[str, Dict[str, Any]] = {}
 _JOBS_FILE = "results/analysis_jobs.json"
 _ACCESS_FILE = "results/session_virus_access.json"
 
+
+class _BoundedLogCapture:
+    """File-like sink that keeps only the tail of noisy legacy stdout/stderr."""
+
+    def __init__(self, max_chars: int = 4000):
+        self.max_chars = max_chars
+        self._buffer = ""
+
+    def write(self, data: str) -> int:
+        if not data:
+            return 0
+        self._buffer = (self._buffer + data)[-self.max_chars:]
+        return len(data)
+
+    def flush(self) -> None:
+        pass
+
+    def getvalue(self) -> str:
+        return self._buffer.strip()
+
 def _load_jobs_from_disk() -> None:
     """Load persisted jobs from disk into the in-memory dict on startup."""
     global analysis_jobs
@@ -129,9 +158,9 @@ def _load_jobs_from_disk() -> None:
         try:
             with open(_JOBS_FILE, "r") as f:
                 analysis_jobs = json.load(f)
-            print(f"Loaded {len(analysis_jobs)} persisted jobs from {_JOBS_FILE}")
+            logger.info("Loaded %s persisted jobs from %s", len(analysis_jobs), _JOBS_FILE)
         except Exception as e:
-            print(f"Warning: could not load persisted jobs: {e}")
+            logger.warning("Could not load persisted jobs: %s", e)
 
 def _save_jobs_to_disk() -> None:
     """Persist in-memory jobs to disk (best-effort, non-blocking)."""
@@ -143,7 +172,7 @@ def _save_jobs_to_disk() -> None:
             json.dump(analysis_jobs, f, default=str)
         os.replace(tmp, _JOBS_FILE)
     except Exception as e:
-        print(f"Warning: could not persist jobs: {e}")
+        logger.warning("Could not persist jobs: %s", e)
 
 
 def _load_access_from_disk() -> None:
@@ -159,9 +188,9 @@ def _load_access_from_disk() -> None:
                     str(k): [str(v) for v in vals] if isinstance(vals, list) else []
                     for k, vals in raw.items()
                 }
-            print(f"Loaded {len(session_virus_access)} session access records from {_ACCESS_FILE}")
+            logger.info("Loaded %s session access records from %s", len(session_virus_access), _ACCESS_FILE)
         except Exception as e:
-            print(f"Warning: could not load session access records: {e}")
+            logger.warning("Could not load session access records: %s", e)
 
 
 def _save_access_to_disk() -> None:
@@ -173,7 +202,7 @@ def _save_access_to_disk() -> None:
             json.dump(session_virus_access, f, default=str)
         os.replace(tmp, _ACCESS_FILE)
     except Exception as e:
-        print(f"Warning: could not persist session access records: {e}")
+        logger.warning("Could not persist session access records: %s", e)
 
 # Load any previously persisted jobs so downloads still work after a server restart
 _load_jobs_from_disk()
@@ -194,7 +223,7 @@ def load_virus_config():
         with open("virus_config.yaml", "r") as f:
             return yaml.safe_load(f)
     except Exception as e:
-        print(f"Warning: Could not load virus config: {e}")
+        logger.warning("Could not load virus config: %s", e)
         return {"viruses": {}}
 
 def save_virus_config(config):
@@ -204,7 +233,7 @@ def save_virus_config(config):
             yaml.dump(config, f, default_flow_style=False)
         return True
     except Exception as e:
-        print(f"Error saving virus config: {e}")
+        logger.error("Error saving virus config: %s", e)
         return False
 
 def create_custom_virus_config(virus_name: str, is_multi_segment: bool = False, segments: Optional[List[str]] = None):
@@ -870,8 +899,7 @@ async def get_data_files(virus_name: str, request: Request, segment: Optional[st
                     elif filename.endswith(('.txt', '.aln', '.clustal')):
                         file_type = "msa"
             
-            # Debug logging
-            print(f"File: {filename}, Path: {file_path}, Type: {file_type}")
+            logger.debug("Data file discovered: filename=%s path=%s type=%s", filename, file_path, file_type)
             
             files.append({
                 "filename": filename,
@@ -1128,8 +1156,13 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
             config="virus_config.yaml"
         )
         
-        # Run main analysis
-        processor.process(args_main)
+        legacy_output = _BoundedLogCapture()
+
+        # Run main analysis. Core analysis modules are CLI-oriented and still
+        # print progress per genome/mutation; capture that output so deployed
+        # web requests do not hit Railway log-rate limits.
+        with redirect_stdout(legacy_output), redirect_stderr(legacy_output):
+            processor.process(args_main)
         
         # Run frameshift analysis separately if requested
         if analysis_request.detect_frameshifts:
@@ -1144,7 +1177,8 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
             )
             
             # Run frameshift analysis
-            processor.process(args_frameshift)
+            with redirect_stdout(legacy_output), redirect_stderr(legacy_output):
+                processor.process(args_frameshift)
         
         # Collect results
         result_files = []
@@ -1184,7 +1218,7 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
 
                     result = await _run_subprocess_async(cmd, cwd=".")
                     if result.returncode != 0:
-                        print(f"Visualization '{viz_type}' failed: {result.stderr}")
+                        logger.warning("Visualization %r failed: %s", viz_type, result.stderr[:2000])
                         continue
 
                     current_time = time.time()
@@ -1199,9 +1233,9 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
                         if current_time - os.path.getmtime(file_path) < 300 and file_path not in visualization_files:
                             visualization_files.append(file_path)
 
-                    print(f"Visualization '{viz_type}' generated successfully")
+                    logger.info("Visualization %r generated successfully", viz_type)
                 except Exception as viz_error:
-                    print(f"Error generating visualization '{viz_type}': {viz_error}")
+                    logger.warning("Error generating visualization %r: %s", viz_type, viz_error)
         
         # Update job with results
         analysis_jobs[job_id]["status"] = "completed"
@@ -1215,7 +1249,11 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
     except Exception as e:
         analysis_jobs[job_id]["status"] = "failed"
         analysis_jobs[job_id]["error"] = _user_friendly_error(e, "Analysis")
-        print(f"Analysis job {job_id} failed: {e}")
+        if "legacy_output" in locals():
+            captured = legacy_output.getvalue()
+            if captured:
+                logger.debug("Captured analysis output tail for failed job %s: %s", job_id, captured)
+        logger.exception("Analysis job %s failed", job_id)
         _save_jobs_to_disk()
 
 @app.get("/api/jobs")
@@ -1384,8 +1422,12 @@ async def create_visualization(
         result = await _run_subprocess_async(cmd, cwd=os.getcwd())
         
         # Check if visualization failed but still try to find existing files
-        print(f"DEBUG: returncode={result.returncode}, stderr contains 'Error:': {'Error:' in result.stderr}")
-        print(f"DEBUG: stderr content: {repr(result.stderr)}")
+        logger.debug(
+            "Visualization command finished: returncode=%s stderr_has_error=%s stderr=%r",
+            result.returncode,
+            "Error:" in result.stderr,
+            result.stderr[:2000],
+        )
         
         # Check for specific errors that indicate complete failure
         kaleido_error = "Kaleido requires Google Chrome" in result.stderr
@@ -1394,7 +1436,7 @@ async def create_visualization(
         
         visualization_failed = command_failed or general_error
         if visualization_failed:
-            print(f"Warning: Visualization command failed: {result.stderr}")
+            logger.warning("Visualization command failed: %s", result.stderr[:2000])
             # Continue to try to find existing files
         else:
             # Check if there was an error in stderr even if return code was 0
@@ -1425,12 +1467,12 @@ async def create_visualization(
             }
             
             # Find the most recent files that match the visualization type
-            print(f"DEBUG: Checking files in {output_dir}: {[f[0] for f in files]}")
+            logger.debug("Checking visualization files in %s: %s", output_dir, [f[0] for f in files])
             
             # Only consider files created in the last 5 minutes (300 seconds)
             current_time = time.time()
             recent_files = [(file, mtime) for file, mtime in files if current_time - mtime < 300]
-            print(f"DEBUG: Recent files (last 5 minutes): {[f[0] for f in recent_files]}")
+            logger.debug("Recent visualization files: %s", [f[0] for f in recent_files])
             
             matching_files = []
             for file, mtime in recent_files:
@@ -1459,7 +1501,7 @@ async def create_visualization(
                         "path": f"/api/visualization-files/{virus_name}/{file}",
                         "type": "html"
                     }
-                    print(f"DEBUG: Found HTML file: {file}")
+                    logger.debug("Found visualization HTML file: %s", file)
                 elif file.endswith('.pdf') and pdf_file is None:
                     pdf_file = {
                         "filename": file,
@@ -1809,4 +1851,12 @@ async def get_dual_graph_files(session_id: str, structure_id: str, request: Requ
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 8000))
-    uvicorn.run(app, host="0.0.0.0", port=port, reload=False)
+    access_log = os.environ.get("UVICORN_ACCESS_LOG", "false").lower() in {"1", "true", "yes", "on"}
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=port,
+        reload=False,
+        access_log=access_log,
+        log_level=os.environ.get("UVICORN_LOG_LEVEL", LOG_LEVEL.lower()),
+    )
