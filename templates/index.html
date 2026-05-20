@@ -1222,9 +1222,9 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <button class="btn btn-primary btn-sm" onclick="downloadJobResults()">
+                                    <a id="currentJobDownloadLink" class="btn btn-primary btn-sm" href="#" download onclick="return prepareCurrentJobDownload()">
                                         <i class="fas fa-download me-2"></i> Download Results
-                                    </button>
+                                    </a>
                                     <button class="btn btn-outline-secondary btn-sm ms-2" onclick="copyJobId()">
                                         <i class="fas fa-copy me-2"></i> Copy Job ID
                                     </button>
@@ -1868,16 +1868,62 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             loadJobHistory();
             setupEventListeners();
             checkCookieConsent();
+            activateInitialTabFromHash();
             
             // Add tab change listener for analysis tab
             const analysisTab = document.getElementById('analysis-tab');
             if (analysisTab) {
                 analysisTab.addEventListener('shown.bs.tab', function() {
                     loadStoredVirusSelection();
+                    refreshPrimaryButtonStates();
+                });
+            }
+
+            const historyTab = document.getElementById('history-tab');
+            if (historyTab) {
+                historyTab.addEventListener('shown.bs.tab', function() {
+                    syncHistoryVirusSelection();
+                    refreshPrimaryButtonStates();
                 });
             }
         }, 100);
         });
+
+        function activateInitialTabFromHash() {
+            if (!window.location.hash) return;
+
+            const tabButton = document.querySelector(window.location.hash);
+            if (!tabButton || !tabButton.matches('[data-bs-toggle="tab"]')) return;
+
+            if (window.bootstrap && bootstrap.Tab) {
+                bootstrap.Tab.getOrCreateInstance(tabButton).show();
+            } else {
+                tabButton.click();
+            }
+        }
+
+        function syncHistoryVirusSelection(preferredVirus = null) {
+            const historyVirusSelect = document.getElementById('historyVirusSelect');
+            if (!historyVirusSelect || historyVirusSelect.value) return;
+
+            const analysisVirus = document.getElementById('virusSelect')?.value || '';
+            const virusToSelect = preferredVirus || analysisVirus || window.latestCompletedVirusName || '';
+            if (!virusToSelect) return;
+
+            const hasOption = Array.from(historyVirusSelect.options).some(option => option.value === virusToSelect);
+            if (!hasOption) return;
+
+            historyVirusSelect.value = virusToSelect;
+            historyVirusSelect.dispatchEvent(new Event('change'));
+        }
+
+        function refreshPrimaryButtonStates() {
+            const virusSelect = document.getElementById('virusSelect');
+            checkAnalysisReady(virusSelect?.value || '');
+
+            const historyVirusSelect = document.getElementById('historyVirusSelect');
+            checkVizReady(historyVirusSelect?.value || '');
+        }
         
         function setupEventListeners() {
             // Custom virus form
@@ -2661,20 +2707,8 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 // Re-apply persisted analysis selection only after options are populated,
                 // then refresh the initial Start Analysis button state.
                 loadStoredVirusSelection();
-                const virusSelect = document.getElementById('virusSelect');
-                if (virusSelect && virusSelect.value) {
-                    checkAnalysisReady(virusSelect.value);
-                } else {
-                    checkAnalysisReady('');
-                }
-
-                // Keep visualization button state consistent on first load too.
-                const historyVirusSelect = document.getElementById('historyVirusSelect');
-                if (historyVirusSelect && historyVirusSelect.value) {
-                    checkVizReady(historyVirusSelect.value);
-                } else {
-                    checkVizReady('');
-                }
+                syncHistoryVirusSelection();
+                refreshPrimaryButtonStates();
             } catch (error) {
                 console.error('Error loading viruses:', error);
                 // Retry after 1 second if there's an error
@@ -2918,6 +2952,21 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             }
         }
         
+        function resetUploadChecklist() {
+            ['checkRefGenome', 'checkProteome', 'checkMSA'].forEach(checkboxId => {
+                const checkbox = document.getElementById(checkboxId);
+                if (checkbox) {
+                    checkbox.checked = false;
+                    updateCheckboxStyle(checkboxId, false);
+                }
+            });
+
+            const continueButton = document.getElementById('continueToAnalysisBtn');
+            if (continueButton) {
+                continueButton.remove();
+            }
+        }
+
         // Update upload checklist
         async function updateUploadChecklist(virusName, segment = null) {
             try {
@@ -2927,20 +2976,24 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 // Detect whether selected virus is multi-segment from dropdown metadata.
                 const uploadVirusSelect = document.getElementById('uploadVirusSelect');
                 let isMultiSegment = false;
+                let isCustomVirus = false;
                 if (uploadVirusSelect) {
                     const selected = Array.from(uploadVirusSelect.options).find(o => o.value === virusName);
                     isMultiSegment = selected ? selected.dataset.isMultiSegment === 'true' : false;
+                    isCustomVirus = selected ? selected.dataset.isCustom === 'true' : false;
+                }
+
+                // The upload checklist should reflect user-uploaded custom-virus
+                // files only. Built-in sample/reference files are bundled with
+                // the app and must not make the upload checklist look complete.
+                if (!isCustomVirus) {
+                    resetUploadChecklist();
+                    return;
                 }
                 
                 if (isMultiSegment && !selectedSegment) {
                     // Multi-segment virus but no segment selected - uncheck all
-                    document.getElementById('checkRefGenome').checked = false;
-                    document.getElementById('checkProteome').checked = false;
-                    document.getElementById('checkMSA').checked = false;
-
-                    updateCheckboxStyle('checkRefGenome', false);
-                    updateCheckboxStyle('checkProteome', false);
-                    updateCheckboxStyle('checkMSA', false);
+                    resetUploadChecklist();
                     return;
                 }
                 
@@ -3338,9 +3391,12 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 html += `
                     <div class="mt-3">
                         <p><strong>Results:</strong> ${job.results.summary}</p>
-                        <button class="btn btn-primary btn-sm" onclick="downloadJobResultsById('${job.job_id}')">
+                        <a class="btn btn-primary btn-sm"
+                           href="${resultDownloadUrl(job.job_id)}"
+                           download="variant_results_${job.job_id}.zip"
+                           onclick="showNotification('Downloading results...', 'success')">
                             <i class="fas fa-download"></i> Download Results
-                        </button>
+                        </a>
                     </div>
                 `;
             } else if (job.status === 'failed' && job.error) {
@@ -3356,25 +3412,39 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             resultDiv.style.display = 'block';
         }
         
+        function resultDownloadUrl(jobId) {
+            return `/api/results/${encodeURIComponent(jobId)}/download`;
+        }
+
+        function prepareCurrentJobDownload() {
+            const displayedJobId = document.getElementById('jobIdDisplay')?.textContent?.trim();
+            const jobIdToDownload = currentJobId || displayedJobId;
+
+            if (!jobIdToDownload) {
+                showNotification('No completed job selected to download', 'warning');
+                return false;
+            }
+
+            const link = document.getElementById('currentJobDownloadLink');
+            if (link) {
+                link.href = resultDownloadUrl(jobIdToDownload);
+                link.download = `variant_results_${jobIdToDownload}.zip`;
+            }
+            showNotification('Downloading results...', 'success');
+            return true;
+        }
+
         // Download results for a specific job ID
         async function downloadJobResultsById(jobId) {
             try {
-                const response = await fetch(`/api/results/${jobId}/download`);
-                if (response.ok) {
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `variant_results_${jobId}.zip`;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    window.URL.revokeObjectURL(url);
-                    showNotification('Downloading results...', 'success');
-                } else {
-                    const error = await response.json();
-                    showNotification(`❌ Failed to download results: ${error.detail}`, 'error');
-                }
+                const a = document.createElement('a');
+                a.href = resultDownloadUrl(jobId);
+                a.download = `variant_results_${jobId}.zip`;
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                showNotification('Downloading results...', 'success');
             } catch (error) {
                 console.error('Error downloading results:', error);
                 showNotification('❌ Error downloading results', 'error');
@@ -3383,11 +3453,7 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
         
         // Download results for current job
         async function downloadJobResults() {
-            if (currentJobId) {
-                await downloadJobResultsById(currentJobId);
-            } else {
-                showNotification('No active job to download', 'warning');
-            }
+            prepareCurrentJobDownload();
         }
         
         // Copy job ID to clipboard
@@ -3635,9 +3701,12 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
 
                     // Download button only for virus analysis jobs (not dual graph)
                     const downloadButton = (job.status === 'completed' && !isDualGraph) ?
-                        `<button class="btn btn-primary btn-sm ms-2" onclick="downloadJobResultsById('${job.job_id}')">
+                        `<a class="btn btn-primary btn-sm ms-2"
+                            href="${resultDownloadUrl(job.job_id)}"
+                            download="variant_results_${job.job_id}.zip"
+                            onclick="showNotification('Downloading results...', 'success')">
                             <i class="fas fa-download"></i> Download Results
-                        </button>` : '';
+                        </a>` : '';
 
                     html += `
                         <div class="card mb-3">
@@ -3663,6 +3732,17 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 });
                 
                 historyDiv.innerHTML = html;
+
+                const firstCompletedVirusJob = data.jobs.find(job =>
+                    job.status === 'completed' &&
+                    job.virus_name &&
+                    !job.virus_name.startsWith('dual_graph:')
+                );
+                if (firstCompletedVirusJob) {
+                    window.latestCompletedVirusName = firstCompletedVirusJob.virus_name;
+                    syncHistoryVirusSelection(firstCompletedVirusJob.virus_name);
+                    refreshPrimaryButtonStates();
+                }
             } catch (error) {
                 console.error('Error loading job history:', error);
             }
