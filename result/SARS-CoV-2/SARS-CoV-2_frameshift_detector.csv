@@ -1,0 +1,1183 @@
+virus,seqid,type,position,end_position,sequence,description,mechanism,stem_loop_score,slippery_conforms,trna_note,context,p_site_codon,a_site_codon,frame,stop_leakiness
+SARS-CoV-2,NC_045512,+1 PRF,54,56,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,76,82,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,112,114,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCTTAG,GCT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,154,156,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGTTGA,CGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,234,236,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,251,253,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,423,425,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCTTAG,GCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,426,428,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,433,435,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,457,459,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,523,525,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,531,533,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,562,564,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCGTAG,TCG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,568,570,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,667,669,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,694,696,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,699,701,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,700,702,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,0,0.0
+SARS-CoV-2,NC_045512,+1 PRF,718,720,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,727,729,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,760,762,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,778,780,TGA,proline P-site (CCG) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTGA,CCG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,790,792,TGA,antizyme GCG-UGA (Palanimurugan 2004),known_plus1_site,,,,GCGTGA,GCG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,844,846,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,859,861,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,879,881,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTCTAG,TTC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,931,933,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,961,963,TGA,proline P-site (CCG) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTGA,CCG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,967,969,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,973,975,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCATGA,GCA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1000,1002,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTCTGA,TTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1012,1014,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1030,1032,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1054,1056,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,1078,1084,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,1095,1097,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,2,0.4
+SARS-CoV-2,NC_045512,+1 PRF,1104,1106,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,2,0.4
+SARS-CoV-2,NC_045512,+1 PRF,1129,1131,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1144,1146,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1159,1161,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGGTAG,GGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,1195,1197,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1227,1229,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCATGA,TCA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1234,1236,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1246,1248,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1303,1305,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1311,1313,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,1347,1353,CCCAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,1365,1371,AAATTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,1398,1400,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,1405,1407,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1411,1413,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCATAG,GCA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,1429,1431,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,0,0.4
+SARS-CoV-2,NC_045512,+1 PRF,1432,1434,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1443,1445,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1516,1518,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,0,0.4
+SARS-CoV-2,NC_045512,+1 PRF,1546,1548,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,1557,1559,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,1606,1608,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1618,1620,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1660,1662,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,1664,1670,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,1675,1677,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1737,1739,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1774,1776,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1837,1839,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1854,1856,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1921,1923,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,1974,1976,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,1998,2000,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2008,2010,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CATTGA,CAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2016,2018,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2029,2031,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2049,2051,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,2088,2090,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2128,2130,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2149,2151,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2158,2160,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2181,2183,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,2191,2193,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,0,0.6
+SARS-CoV-2,NC_045512,-1 PRF,2202,2208,GGGAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,2213,2219,AAATTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,2236,2238,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,2315,2321,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,2335,2337,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2373,2375,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2379,2381,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,2383,2385,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,2470,2476,CCCAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,2490,2492,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,2538,2540,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2548,2550,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2562,2564,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,2575,2577,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,2578,2580,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2587,2589,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2682,2684,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2743,2745,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2746,2748,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2754,2756,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2757,2759,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,2781,2783,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2794,2796,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2800,2802,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2803,2805,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2812,2814,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GATTGA,GAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2827,2829,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2851,2853,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2872,2874,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2926,2928,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2950,2952,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CATTGA,CAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2955,2957,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,2959,2961,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2989,2991,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,2992,2994,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3001,3003,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,3005,3011,TTTAAAT,Coronavirus -1 PRF signal,slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,3049,3051,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3055,3057,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3067,3069,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3073,3075,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3088,3090,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3106,3108,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3118,3120,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3124,3126,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3178,3180,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3204,3206,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGTTAG,GGT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,3208,3210,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3211,3213,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3214,3216,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,3247,3249,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAGTGA,CAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3283,3285,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3300,3302,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,3334,3336,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3339,3341,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3343,3345,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,3349,3351,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,-1 PRF,3358,3364,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,3370,3372,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3460,3462,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,0,0.4
+SARS-CoV-2,NC_045512,+1 PRF,3489,3491,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,2,0.4
+SARS-CoV-2,NC_045512,+1 PRF,3520,3522,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3526,3528,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3529,3531,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3537,3539,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,3568,3570,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,-1 PRF,3622,3628,CCCAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,3640,3642,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3670,3672,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,3673,3679,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,3733,3735,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3762,3764,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,3789,3791,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,3799,3801,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3814,3816,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3843,3845,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3850,3852,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAGTGA,GAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3862,3864,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3877,3879,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGCTGA,CGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3913,3915,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3931,3933,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3949,3951,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,3973,3975,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4036,4038,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4078,4080,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4081,4083,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4087,4089,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CATTGA,CAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4122,4124,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATATAG,ATA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4129,4131,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGGTGA,GGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4195,4197,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4203,4205,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4215,4217,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,4261,4267,GGGTTTA,Coronavirus -1 PRF signal,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,4264,4270,TTTAAAT,Coronavirus -1 PRF signal,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,4281,4283,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4351,4353,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4458,4460,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4513,4515,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4525,4527,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4557,4559,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4591,4593,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4662,4664,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4705,4707,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4756,4758,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4771,4773,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4833,4835,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AACTAG,AAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4839,4841,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTATAG,GTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4858,4860,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4879,4881,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4902,4904,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,4909,4911,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4924,4926,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4950,4952,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4959,4961,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,4986,4988,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5028,5030,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5071,5073,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5104,5106,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5134,5136,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5137,5139,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5152,5154,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5161,5163,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5179,5181,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5185,5187,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCCTAG,TCC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5197,5199,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGGTAG,GGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5322,5324,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5328,5330,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5380,5382,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5409,5411,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5430,5432,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5434,5436,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5439,5441,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5443,5445,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5449,5451,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5460,5462,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5487,5489,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5508,5510,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5551,5553,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,0,0.4
+SARS-CoV-2,NC_045512,+1 PRF,5559,5561,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5593,5595,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5655,5657,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5682,5684,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5707,5709,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5737,5739,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5740,5742,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5808,5810,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCATAG,GCA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,5895,5897,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,2,0.4
+SARS-CoV-2,NC_045512,+1 PRF,5941,5943,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,5947,5949,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,0,0.4
+SARS-CoV-2,NC_045512,+1 PRF,6001,6003,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6061,6063,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6079,6081,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6082,6084,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,6085,6091,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,6148,6150,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6160,6162,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6175,6177,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6322,6324,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6340,6342,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6348,6350,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6409,6411,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTCTGA,CTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6417,6419,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6451,6453,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6462,6464,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6480,6482,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6511,6513,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,-1 PRF,6514,6520,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,6564,6566,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6574,6576,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTCTAG,TTC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6598,6600,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6607,6609,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6615,6617,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6621,6623,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6645,6647,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6658,6660,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6678,6680,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6715,6717,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6732,6734,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,6745,6751,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,6814,6816,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6829,6831,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTCTAG,TTC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6858,6860,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,6887,6893,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,6897,6899,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTCTAG,GTC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,6918,6920,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6942,6944,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,6984,6986,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCCTAG,GCC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7014,7016,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7035,7037,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7077,7079,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7129,7131,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7141,7143,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7149,7151,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7158,7160,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7176,7178,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,7205,7211,TTTAAAT,Coronavirus -1 PRF signal,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,7233,7235,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCTTAG,GCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7270,7272,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7342,7344,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7408,7410,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGTTAG,GGT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7467,7469,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7494,7496,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7513,7515,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7555,7557,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7630,7632,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7648,7650,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7660,7662,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7663,7665,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7666,7668,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,7694,7700,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,7717,7719,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7738,7740,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGTTGA,CGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7741,7743,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7752,7754,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAGTGA,CAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7780,7782,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7804,7806,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7836,7838,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7845,7847,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7887,7889,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTATAG,TTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7894,7896,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7912,7914,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,7980,7982,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7992,7994,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,7999,8001,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8008,8010,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8011,8013,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8038,8040,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8100,8102,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8119,8121,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8142,8144,TAG,proline P-site (CCT) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAG,CCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8191,8193,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8202,8204,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8221,8223,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8248,8250,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8253,8255,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8269,8271,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CGATAG,CGA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8305,8307,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8313,8315,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8323,8325,TGA,proline P-site (CCG) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTGA,CCG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8341,8343,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8347,8349,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8373,8375,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGGTAG,AGG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8397,8399,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8431,8433,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8455,8457,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8490,8492,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8506,8508,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8538,8540,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8574,8576,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8665,8667,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8677,8679,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8685,8687,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCATAG,TCA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8701,8703,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8719,8721,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCGTGA,TCG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8724,8726,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8761,8763,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8767,8769,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8779,8781,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8794,8796,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8806,8808,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8823,8825,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CATTGA,CAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,8851,8857,GGGTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,8902,8904,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,8923,8925,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8932,8934,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8973,8975,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTATAG,TTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,8983,8985,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9016,9018,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9067,9069,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9081,9083,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9100,9102,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9115,9117,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9172,9174,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9184,9186,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9202,9204,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9208,9210,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTCTGA,TTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9217,9219,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9232,9234,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9265,9267,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9271,9273,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9289,9291,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9327,9329,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,9337,9343,AAATTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,9405,9407,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9408,9410,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9423,9425,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9432,9434,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCGTAG,TCG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9459,9461,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9466,9468,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9481,9483,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9495,9497,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9600,9602,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9619,9621,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,9628,9634,TTTTTTA,General -1 PRF pattern,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,9633,9635,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9669,9671,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9736,9738,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9759,9761,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9781,9783,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9790,9792,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9847,9849,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCGTAG,GCG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9850,9852,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,9880,9882,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9888,9890,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9916,9918,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9937,9939,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AACTAG,AAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,9982,9984,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10003,10005,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTCTGA,TTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10063,10065,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10093,10095,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10150,10152,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10153,10155,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10158,10160,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10179,10181,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10192,10194,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTCTGA,CTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10210,10212,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,0,0.4
+SARS-CoV-2,NC_045512,+1 PRF,10216,10218,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10327,10329,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10398,10400,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10443,10445,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10477,10479,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,0,0.4
+SARS-CoV-2,NC_045512,+1 PRF,10492,10494,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10509,10511,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10516,10518,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10584,10586,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10612,10614,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10668,10670,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10738,10740,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10758,10760,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10771,10773,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10795,10797,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10803,10805,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10839,10841,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10881,10883,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10903,10905,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGGTAG,GGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10914,10916,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10921,10923,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10936,10938,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,10945,10947,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,10980,10982,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAGTGA,CAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11028,11030,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11040,11042,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11046,11048,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,11075,11081,TTTTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,11076,11082,TTTTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,11086,11088,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11142,11144,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11205,11207,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11236,11238,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11244,11246,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGGTGA,GGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11256,11258,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11275,11277,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11281,11283,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11331,11333,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11349,11351,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11368,11370,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11371,11373,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11380,11382,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11400,11402,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11409,11411,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11445,11447,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11505,11507,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11554,11556,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11607,11609,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11622,11624,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11623,11625,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,0,0.0
+SARS-CoV-2,NC_045512,+1 PRF,11677,11679,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11682,11684,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GACTGA,GAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11698,11700,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11706,11708,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11725,11727,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11733,11735,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11764,11766,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11769,11771,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCATAG,GCA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11829,11831,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11874,11876,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11907,11909,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAGTAG,GAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11953,11955,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11964,11966,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,11980,11982,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,11989,11991,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,11991,11997,AAAAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,12039,12041,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12058,12060,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12096,12098,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12109,12111,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12157,12159,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12178,12180,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12184,12186,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTCTGA,TTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12204,12206,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12216,12218,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12232,12234,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12238,12240,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12244,12246,TGA,proline P-site (CCG) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTGA,CCG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12280,12282,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12291,12293,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,12294,12300,CCCAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,12313,12315,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12319,12321,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12343,12345,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12376,12378,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCTTAG,GCT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12391,12393,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12441,12443,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12517,12519,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,12552,12558,GGGAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,12570,12572,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12580,12582,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12598,12600,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12601,12603,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12607,12609,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12630,12632,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12691,12693,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12697,12699,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCTTAG,GCT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12757,12759,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12760,12762,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12771,12773,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CGTTAG,CGT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12799,12801,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGGTAG,AGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12837,12839,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12847,12849,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12856,12858,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,0,0.4
+SARS-CoV-2,NC_045512,+1 PRF,12862,12864,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAGTGA,GAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12904,12906,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12939,12941,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,12979,12981,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,12997,12999,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13002,13004,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13086,13088,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13116,13118,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13120,13122,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13266,13268,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13294,13296,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13339,13341,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,13348,13354,GGGTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,13408,13410,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13414,13416,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13447,13449,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,13462,13468,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,13518,13520,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13524,13526,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13545,13547,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13557,13559,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13565,13567,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13626,13628,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13638,13640,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13652,13654,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13686,13688,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13737,13739,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13752,13754,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13757,13759,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13764,13766,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGGTGA,CGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13842,13844,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13845,13847,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13857,13859,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13896,13898,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13899,13901,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13902,13904,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13929,13931,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,13937,13939,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13973,13975,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,13974,13976,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,2,0.0
+SARS-CoV-2,NC_045512,+1 PRF,13977,13979,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14019,14021,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14054,14056,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14060,14062,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14091,14093,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14100,14102,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGGTGA,CGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14124,14126,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGGTAG,AGG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14141,14143,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14180,14182,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14211,14213,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14217,14219,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14259,14261,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14289,14291,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,14299,14305,TTTAAAT,Coronavirus -1 PRF signal,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,14325,14331,CCCAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,14349,14351,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14426,14428,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14429,14431,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14445,14447,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14462,14464,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14492,14494,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14526,14528,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14532,14534,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTCTAG,CTC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14538,14540,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14568,14570,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14606,14608,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14633,14635,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14700,14702,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,14718,14724,GGGTTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,14745,14747,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14799,14801,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14832,14834,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14855,14857,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14859,14861,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14868,14870,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14880,14882,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14933,14935,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14976,14978,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,14988,14990,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,14996,14998,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15003,15005,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15065,15067,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15084,15086,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15096,15098,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15110,15112,TAG,proline P-site (CCG) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTAG,CCG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15129,15131,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15137,15139,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15144,15146,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15167,15169,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15176,15178,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15186,15188,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15200,15202,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15258,15260,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTATAG,TTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15261,15263,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15266,15268,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15306,15308,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15309,15311,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15330,15332,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCTTAG,GCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15378,15380,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15399,15401,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15404,15406,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GATTAG,GAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15411,15413,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15428,15430,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15432,15434,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAGTGA,GAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15513,15515,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15570,15572,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15624,15626,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15636,15638,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15642,15644,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15651,15653,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15665,15667,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15669,15671,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15704,15706,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15707,15709,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15717,15719,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTCTGA,CTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15741,15743,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15764,15766,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTCTAG,GTC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15771,15773,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15825,15827,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15843,15845,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GACTGA,GAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15849,15851,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GACTGA,GAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15870,15872,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCATGA,TCA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15896,15898,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15909,15911,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGGTGA,GGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15912,15914,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,15953,15955,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCCTAG,TCC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15971,15973,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,15975,15977,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16004,16006,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16008,16010,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GATTGA,GAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16025,16027,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16031,16033,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16074,16076,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16116,16118,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16119,16121,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16139,16141,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16167,16169,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16194,16196,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16203,16205,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16299,16301,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16358,16360,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16401,16403,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16415,16417,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16430,16432,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16431,16433,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,2,0.0
+SARS-CoV-2,NC_045512,+1 PRF,16439,16441,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16473,16475,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16533,16535,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16548,16550,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16572,16574,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16590,16592,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16601,16603,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16617,16619,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16659,16661,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,16669,16675,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,16701,16703,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACGTGA,ACG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16713,16715,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16752,16754,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16820,16822,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16836,16838,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16845,16847,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16854,16856,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16902,16904,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16916,16918,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,16955,16957,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,16977,16979,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17016,17018,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17025,17027,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTCTAG,TTC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17120,17122,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCCTAG,GCC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17147,17149,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCATAG,GCA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17178,17180,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17190,17192,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17216,17218,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17226,17228,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17229,17231,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17255,17257,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17265,17267,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17279,17281,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17291,17293,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17328,17330,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCCTGA,GCC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17345,17347,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATATAG,ATA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17355,17357,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17358,17360,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,17360,17366,AAATTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,17382,17384,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17387,17389,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17486,17488,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17514,17516,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17522,17524,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17531,17533,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17574,17576,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17583,17585,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17591,17593,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17607,17609,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,17650,17656,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,17682,17684,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCATGA,GCA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17714,17716,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17798,17800,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17835,17837,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17859,17861,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17886,17888,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17945,17947,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17967,17969,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,17970,17972,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,17982,17984,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18006,18008,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18018,18020,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18042,18044,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18072,18074,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18126,18128,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18144,18146,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18159,18161,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18185,18187,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18192,18194,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18209,18211,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,-1 PRF,18213,18219,GGGTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,18217,18223,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,18224,18226,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18249,18251,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,2,0.4
+SARS-CoV-2,NC_045512,+1 PRF,18330,18332,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18365,18367,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18389,18391,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18414,18416,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18447,18449,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,18475,18481,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,18521,18523,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18552,18554,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18573,18575,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTCTGA,CTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18609,18611,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18614,18616,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18623,18625,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18635,18637,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18641,18643,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18648,18650,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18669,18671,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18672,18674,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18738,18740,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18761,18763,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18765,18767,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GATTGA,GAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,18780,18786,GGGTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,18810,18812,TGA,proline P-site (CCA) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATGA,CCA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18845,18847,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18849,18851,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18855,18857,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18866,18868,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCATGA,TCA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18870,18872,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GACTAG,GAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18878,18880,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTCTAG,GTC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,18909,18911,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18921,18923,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18939,18941,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18942,18944,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18947,18949,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,18966,18968,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19004,19006,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19044,19046,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,2,0.4
+SARS-CoV-2,NC_045512,+1 PRF,19071,19073,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19076,19078,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19092,19094,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19107,19109,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19110,19112,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19127,19129,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19161,19163,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTCTGA,TTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19209,19211,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CGATAG,CGA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19236,19238,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19242,19244,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19248,19250,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19266,19268,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,2,0.4
+SARS-CoV-2,NC_045512,+1 PRF,19281,19283,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19332,19334,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,19353,19359,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,19383,19385,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTCTGA,CTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19395,19397,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19415,19417,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19427,19429,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATATAG,ATA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19475,19477,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19491,19493,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19506,19508,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19538,19540,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19541,19543,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19557,19559,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,19565,19571,GGGTTTA,Coronavirus -1 PRF signal,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,19581,19583,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19625,19627,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19665,19667,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19680,19682,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGGTGA,GGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19725,19727,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19734,19736,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19739,19741,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19749,19751,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19778,19780,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19785,19787,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19826,19828,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19871,19873,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19931,19933,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19935,19937,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GACTGA,GAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19940,19942,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,19956,19958,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19989,19991,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,19995,19997,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20001,20003,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20012,20014,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20022,20024,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20034,20036,TAA,proline P-site (CCG) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTAA,CCG,TAA,2,0.4
+SARS-CoV-2,NC_045512,+1 PRF,20058,20060,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGGTAG,AGG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20084,20086,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,-1 PRF,20089,20095,CCCAAAC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,20100,20102,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20135,20137,TAA,proline P-site (CCG) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTAA,CCG,TAA,1,0.4
+SARS-CoV-2,NC_045512,+1 PRF,20166,20168,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20190,20192,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20211,20213,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAGTAG,GAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,20214,20220,AAATTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,20227,20233,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,20253,20255,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20261,20263,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20267,20269,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20277,20279,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20286,20288,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CATTGA,CAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20300,20302,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20340,20342,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20346,20348,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCATAG,TCA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20354,20356,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20372,20374,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20381,20383,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GACTAG,GAC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20409,20411,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20414,20416,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20505,20507,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20517,20519,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20520,20522,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20529,20531,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20558,20560,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20579,20581,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20586,20588,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,20597,20603,AAATTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,20633,20635,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+SARS-CoV-2,NC_045512,-1 PRF,20646,20652,CCCAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,20661,20663,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20723,20725,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20733,20735,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20751,20753,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20754,20756,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20780,20782,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20783,20785,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,1,1.0
+SARS-CoV-2,NC_045512,-1 PRF,20817,20823,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,20834,20836,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,20852,20854,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20880,20882,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTCTGA,TTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20961,20963,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20973,20975,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTCTGA,CTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20990,20992,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,20997,20999,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21042,21044,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21045,21047,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21060,21062,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,2,0.4
+SARS-CoV-2,NC_045512,+1 PRF,21087,21089,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,21099,21105,GGGTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,21102,21108,TTTTTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,21121,21127,GGGTTTA,Coronavirus -1 PRF signal,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,21140,21142,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21192,21194,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21248,21250,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21264,21266,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21314,21316,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21393,21395,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21398,21400,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,1,1.0
+SARS-CoV-2,NC_045512,-1 PRF,21403,21409,AAATTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,21414,21416,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,2,0.4
+SARS-CoV-2,NC_045512,-1 PRF,21441,21447,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,21462,21464,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21467,21469,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21483,21485,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21492,21494,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGGTAG,AGG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21504,21506,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21531,21533,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTCTAG,TTC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21534,21536,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21591,21593,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21598,21600,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTCTAG,CTC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21679,21681,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21799,21801,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21823,21825,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21847,21849,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21891,21893,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,21955,21957,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,21973,21975,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22027,22029,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22045,22047,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTCTAG,TTC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22066,22068,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22099,22101,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22129,22131,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22130,22132,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,1,0.0
+SARS-CoV-2,NC_045512,+1 PRF,22153,22155,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,22163,22169,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,22197,22199,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22204,22206,TGA,antizyme GCG-UGA (Palanimurugan 2004),known_plus1_site,,,,GCGTGA,GCG,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,22216,22222,GGGTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,22230,22232,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22242,22244,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22254,22256,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22270,22272,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22297,22299,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22308,22310,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22318,22320,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22378,22380,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22402,22404,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22428,22430,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22441,22443,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22470,22472,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGTTGA,CGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22485,22487,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22516,22518,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22543,22545,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+SARS-CoV-2,NC_045512,-1 PRF,22570,22576,CCCTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,22579,22581,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22651,22653,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22726,22728,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22768,22770,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22774,22776,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22777,22779,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22819,22821,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22843,22845,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22863,22865,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTATAG,TTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22885,22887,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22921,22923,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTATAG,GTA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22930,22932,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,22954,22956,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22972,22974,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,22990,22992,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CGGTAG,CGG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23011,23013,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23091,23093,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAGTAG,GAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23094,23096,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23107,23109,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23221,23223,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23272,23274,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23281,23283,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23293,23295,TGA,proline P-site (CCG) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTGA,CCG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23308,23310,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23317,23319,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23514,23516,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23521,23523,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23542,23544,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23548,23550,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23578,23580,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CGCTAG,CGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23617,23619,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23622,23624,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23626,23628,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,-1 PRF,23710,23716,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,23722,23724,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23754,23756,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23769,23771,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23794,23796,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23803,23805,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,23871,23873,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,23878,23880,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,23922,23928,AAATTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,24016,24018,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24039,24041,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24076,24078,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24088,24090,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24100,24102,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,24163,24165,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24168,24170,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24195,24197,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,24274,24276,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTATAG,TTA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,24313,24315,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24327,24329,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24346,24348,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,-1 PRF,24436,24442,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,24460,24462,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,0,0.6
+SARS-CoV-2,NC_045512,-1 PRF,24490,24496,TTTAAAT,Coronavirus -1 PRF signal,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,24496,24498,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24514,24516,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24523,24525,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24529,24531,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24541,24543,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24544,24546,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,24549,24551,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24585,24587,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24601,24603,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,24682,24684,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24741,24743,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,24756,24758,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24811,24813,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCATGA,TCA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24835,24837,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCGTGA,TCG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24892,24894,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24940,24942,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24951,24953,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,24976,24978,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24991,24993,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,24996,24998,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25017,25019,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25054,25056,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25059,25061,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25063,25065,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25111,25113,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25123,25125,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,25138,25144,TTTAAAT,Coronavirus -1 PRF signal,slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,25144,25146,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25180,25182,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25215,25217,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25224,25226,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTATAG,TTA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25233,25235,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25242,25244,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25251,25253,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25272,25274,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25285,25287,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25330,25332,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25333,25335,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25345,25347,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTCTGA,CTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25406,25408,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25436,25438,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25446,25448,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,25515,25521,CCCTTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,25604,25606,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AACTAG,AAC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25695,25697,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,25701,25707,CCCTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,25724,25726,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25766,25768,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25815,25817,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25875,25877,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,25908,25910,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25932,25934,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTCTGA,TTC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25938,25940,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,25962,25964,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26048,26050,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26067,26069,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26103,26105,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26106,26108,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26112,26114,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCCTGA,GCC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26184,26186,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26187,26189,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26205,26207,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26229,26231,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26232,26234,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26282,26284,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26289,26291,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26327,26329,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26336,26338,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26390,26392,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACGTGA,ACG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26438,26440,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26448,26450,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTCTAG,TTC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26457,26459,TGA,antizyme OAZ1-type UCC-UGA (Matsufuji 1995),known_plus1_site,,,,TCCTGA,TCC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26491,26493,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26518,26520,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26552,26554,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGTTGA,CGT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26573,26575,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26587,26589,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26593,26595,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26651,26653,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26707,26709,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26785,26787,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26791,26793,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26908,26910,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTCTGA,TTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26923,26925,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTCTAG,TTC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26930,26932,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26950,26952,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,26989,26991,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,26999,27001,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27082,27084,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27089,27091,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27158,27160,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27164,27166,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAGTGA,CAG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27193,27195,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27216,27218,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGTTGA,CGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27233,27235,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27257,27259,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27288,27290,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,-1 PRF,27315,27321,AAATTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,27336,27338,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27356,27358,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27360,27362,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27381,27383,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GATTGA,GAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27395,27397,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27419,27421,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27438,27440,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27465,27467,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,2,0.6
+SARS-CoV-2,NC_045512,-1 PRF,27483,27489,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,27539,27541,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTCTAG,CTC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27543,27545,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27560,27562,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27570,27572,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27597,27599,TGA,antizyme OAZ1-type UCC-UGA (Matsufuji 1995),known_plus1_site,,,,TCCTGA,TCC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27713,27715,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27757,27759,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27761,27763,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GATTGA,GAT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27776,27778,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27796,27798,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27851,27853,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27869,27871,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27895,27897,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,27897,27903,AAATTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,27913,27915,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27914,27916,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,1,0.0
+SARS-CoV-2,NC_045512,+1 PRF,27931,27933,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27953,27955,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27988,27990,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,27992,27994,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,27995,27997,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28034,28036,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28039,28041,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAGTAG,GAG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28046,28048,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28067,28069,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28082,28084,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28181,28183,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGGTAG,GGG,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28189,28191,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28208,28210,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28219,28221,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28229,28231,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCATGA,TCA,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28246,28248,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28279,28281,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,28290,28296,CCCAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,28465,28467,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,0,0.4
+SARS-CoV-2,NC_045512,+1 PRF,28504,28506,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28516,28518,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28564,28566,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28575,28577,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28611,28613,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28678,28680,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28689,28691,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28840,28842,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28879,28881,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28897,28899,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,28918,28920,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGGTGA,CGG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28945,28947,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28953,28955,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GATTGA,GAT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,28963,28965,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29029,29031,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,29125,29131,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,29161,29163,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29265,29267,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29293,29295,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,-1 PRF,29305,29311,AAATTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,+1 PRF,29331,29333,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29344,29346,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29401,29403,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29404,29406,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29448,29450,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29476,29478,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29505,29507,TGA,proline P-site (CCA) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATGA,CCA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29515,29517,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29599,29601,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATATAG,ATA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29619,29621,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,2,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29637,29639,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29646,29648,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29652,29654,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29672,29674,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29699,29701,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,1,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29710,29712,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29765,29767,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAGTGA,CAG,TGA,1,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29775,29777,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29804,29806,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,1,0.4
+SARS-CoV-2,NC_045512,+1 PRF,29823,29825,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29826,29828,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29842,29844,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,0,1.0
+SARS-CoV-2,NC_045512,+1 PRF,29851,29853,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29859,29861,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,2,0.6
+SARS-CoV-2,NC_045512,+1 PRF,29860,29862,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,0,0.0
+SARS-CoV-2,NC_045512,+1 PRF,29867,29869,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,1,1.0
+SARS-CoV-2,NC_045512,-1 PRF,29871,29877,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29872,29878,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29873,29879,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29874,29880,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29875,29881,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29876,29882,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29877,29883,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29878,29884,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29879,29885,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29880,29886,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29881,29887,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29882,29888,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29883,29889,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29884,29890,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29885,29891,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29886,29892,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29887,29893,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29888,29894,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29889,29895,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29890,29896,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29891,29897,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29892,29898,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29893,29899,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29894,29900,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29895,29901,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29896,29902,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+SARS-CoV-2,NC_045512,-1 PRF,29897,29903,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,

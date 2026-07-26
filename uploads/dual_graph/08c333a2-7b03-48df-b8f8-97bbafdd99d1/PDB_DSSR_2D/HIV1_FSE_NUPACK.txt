@@ -1,0 +1,17 @@
+Title			HIV1_FSE_NUPACK RNA structure
+Chain order		A
+Amino acids		NO
+Metal
+Chains			A	RNA	
+Pseudoknot		YES
+
+Whole structure
+>HIV1_FSE_NUPACK
+UCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAGACCAGAGCCAACAGCCCCACCAGAAGAGAGCUUCAGGUC
+.(((((((((((....)))))))))))(((.((((((((......{{{{...{{.....}}.......)))))))).))).}}}}
+
+Interacting substructures
+Chain A
+UCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAGACCAGAGCCAACAGCCCCACCAGAAGAGAGCUUCAGGUC
+.(((((((((((....)))))))))))(((.((((((((......{{{{...{{.....}}.......)))))))).))).}}}}
+

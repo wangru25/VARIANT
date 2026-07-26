@@ -1,0 +1,36 @@
+virus,seqid,type,position,end_position,sequence,description,mechanism,stem_loop_score,slippery_conforms,trna_note,context,p_site_codon,a_site_codon,frame,stop_leakiness
+H3N2-segment7,NC_007367.1,+1 PRF,13,15,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGGTAG,AGG,TAG,0,0.6
+H3N2-segment7,NC_007367.1,+1 PRF,20,22,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,1,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,27,29,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,2,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,109,111,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,0,1.0
+H3N2-segment7,NC_007367.1,-1 PRF,125,131,GGGAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+H3N2-segment7,NC_007367.1,+1 PRF,142,144,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,189,191,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTCTGA,CTC,TGA,2,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,235,237,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAGTGA,CAG,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,253,255,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCGTAG,GCG,TAG,0,0.6
+H3N2-segment7,NC_007367.1,+1 PRF,325,327,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTATAG,GTA,TAG,0,0.6
+H3N2-segment7,NC_007367.1,+1 PRF,369,371,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,2,0.6
+H3N2-segment7,NC_007367.1,+1 PRF,424,426,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,0,0.6
+H3N2-segment7,NC_007367.1,+1 PRF,445,447,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,478,480,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,490,492,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,511,513,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCATAG,TCA,TAG,0,0.6
+H3N2-segment7,NC_007367.1,+1 PRF,550,552,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,613,615,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,643,645,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+H3N2-segment7,NC_007367.1,+1 PRF,672,674,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,2,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,694,696,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCCTAG,TCC,TAG,0,0.6
+H3N2-segment7,NC_007367.1,+1 PRF,718,720,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,727,729,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,782,784,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,1,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,804,806,AGT,Ty3 GCG-AGU (Farabaugh 1993),known_plus1_site,,,,GCGAGT,GCG,AGT,2,0.0
+H3N2-segment7,NC_007367.1,+1 PRF,826,828,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,842,844,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,1,1.0
+H3N2-segment7,NC_007367.1,-1 PRF,850,856,TTTTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+H3N2-segment7,NC_007367.1,-1 PRF,851,857,TTTTTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+H3N2-segment7,NC_007367.1,+1 PRF,890,892,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,1,0.4
+H3N2-segment7,NC_007367.1,+1 PRF,920,922,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,1,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,928,930,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,0,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,971,973,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,1,1.0
+H3N2-segment7,NC_007367.1,+1 PRF,994,996,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCATAG,GCA,TAG,0,0.6
+H3N2-segment7,NC_007367.1,-1 PRF,1006,1012,AAAAAAC,General -1 PRF pattern,slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,

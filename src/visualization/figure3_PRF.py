@@ -98,16 +98,20 @@ class PRFVisualizer:
                 if matches:
                     return matches[0]
         
-        # Look for any PRF files (including custom-virus outputs like
-        # "prf_analysis.prf_candidates.csv" and legacy "potential_PRF.csv").
+        # Prefer the +1/-1 FrameshiftDetector output (<Virus>_frameshift_detector.csv):
+        # it is fast to produce (no RNA folding), so it is what the web server emits
+        # and what this figure draws. Fall back to the -1 scanner's *prf*.csv
+        # (<Virus>.prf_candidates.csv, produced by local folding runs) when no
+        # detector file is present. The legacy "potential_PRF.csv" is intentionally
+        # NOT read, so a stale copy cannot shadow the current output.
         prf_files = (
+            glob.glob(os.path.join(result_dir, "*_frameshift_detector.csv")) +
             glob.glob(os.path.join(result_dir, "*prf*.csv")) +
-            glob.glob(os.path.join(result_dir, "*prf*.json")) +
-            glob.glob(os.path.join(result_dir, "potential_PRF.csv"))
+            glob.glob(os.path.join(result_dir, "*prf*.json"))
         )
         if not prf_files:
             raise FileNotFoundError(f"No potential PRF record files found in {result_dir}")
-        
+
         return prf_files[0]
     
     def _auto_detect_reference_genome_path(self) -> Optional[str]:
@@ -222,7 +226,15 @@ class PRFVisualizer:
         except Exception as e:
             print(f"Error reading PRF file {prf_path}: {e}")
             return []
-        
+
+        # Drop the low-specificity, frame-agnostic +1 "shifty stop" candidates from
+        # the figure: they dominate the FrameshiftDetector output (~85% of rows) and
+        # would render as an unreadable solid band. They remain in the CSV for users
+        # who want the exhaustive list; only the plot is filtered. The high-confidence
+        # +1 mechanisms (known_plus1_site, proline_psite_slip) and all -1 slippery
+        # sites are kept.
+        records = [r for r in records if r.get('mechanism') != 'shifty_stop']
+
         return [r for r in records if r.get('start') is not None and r.get('end') is not None]
     
     def _normalize_prf_record(self, item: Dict) -> Dict:
@@ -263,11 +275,21 @@ class PRFVisualizer:
         elif not prf_type:
             normalized_type = '-1 PRF'
 
+        # For +1 PRF the FrameshiftDetector anchors the coordinate on the A-site
+        # codon only (3 nt), but the functional +1 signal is the P-site + A-site
+        # codon pair (6 nt, stored in the `context` column). Widen the marker start
+        # back by 3 nt so it spans the full 6-nt signal shown in `context`.
+        if normalized_type == '+1 PRF' and start is not None:
+            start = max(1, start - 3)
+
         return {
             'start': start,
             'end': end,
             'sequence': motif,
             'type': normalized_type,
+            'mechanism': (item.get('mechanism') or '').strip(),
+            'context': (item.get('context') or '').strip(),
+            'description': (item.get('description') or '').strip(),
             'protein': item.get('protein') or item.get('gene')
         }
     
@@ -553,8 +575,16 @@ class PRFVisualizer:
             # Multi-segment virus - add PRF regions from all segments
             for segment_dir in sorted(segment_dirs):
                 segment_name = os.path.basename(segment_dir)
-                prf_files = glob.glob(os.path.join(segment_dir, "*_prf*.csv")) + glob.glob(os.path.join(segment_dir, "*_prf*.json"))
-                
+                # Prefer the FrameshiftDetector output, then the -1 scanner candidates
+                # (same priority as the single-virus finder; the old "*_prf*.csv"
+                # pattern matched neither <Virus>-segment<N>.prf_candidates.csv nor the
+                # detector file, so segment PRF regions were silently missing).
+                prf_files = (
+                    glob.glob(os.path.join(segment_dir, "*_frameshift_detector.csv")) +
+                    glob.glob(os.path.join(segment_dir, "*prf*.csv")) +
+                    glob.glob(os.path.join(segment_dir, "*prf*.json"))
+                )
+
                 if prf_files:
                     segment_prf_records = self._parse_prf_records_from_path(prf_files[0])
                     

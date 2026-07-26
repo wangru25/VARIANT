@@ -178,7 +178,7 @@ def run_prf_analysis(args: argparse.Namespace) -> int:
         if project_root not in sys.path:
             sys.path.insert(0, project_root)
         
-        from ..core.frameshift_detector import FrameshiftDetector
+        from ..core.prf.frameshift_detector import FrameshiftDetector
         from ..core.reference_genome import ReferenceGenome
         from Bio import SeqIO
         

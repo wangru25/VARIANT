@@ -59,7 +59,16 @@ def create_argument_parser() -> argparse.ArgumentParser:
         "--detect-frameshifts", action="store_true",
         help="Detect potential frameshifting sites"
     )
-    
+    parser.add_argument(
+        "--skip-structure-prediction", action="store_true",
+        help=(
+            "Skip the heavy 2D structure prediction (PKNOTS/NUPACK pseudoknot "
+            "folding) during frameshift detection and emit only the cheap "
+            "candidate CSV. Off by default so local runs include full "
+            "pseudoknot confirmation."
+        )
+    )
+
     return parser
 
 
@@ -67,7 +76,11 @@ def main():
     """Main entry point."""
     parser = create_argument_parser()
     args = parser.parse_args()
-    
+
+    # Heavy pseudoknot/2D structure prediction is on by default for local runs;
+    # --skip-structure-prediction opts into the fast candidate-CSV-only path.
+    args.enable_structure_prediction = not args.skip_structure_prediction
+
     # Initialize processor
     try:
         processor = MutationProcessor(args.virus, args.config)

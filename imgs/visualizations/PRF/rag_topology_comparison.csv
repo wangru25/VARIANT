@@ -1,0 +1,9 @@
+element,tool,n_bp,pseudoknot,energy_kcal,dual_graph_id,dot_bracket,sequence
+"SARS-CoV-2 ORF1a/1b FSE (89 nt, NC_045512.2 nt 13462-13550)",RNAfold,32,False,-26.7,3_5,.(((((.((.(((((((((((((.((.....)))))))))))((((((((((.........))).)))))))..)))).)))))))...,UUUAAACGGGUUUGCGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGGCACUAGUACUGAUGUCGUAUACAGGGCUUUUGACAU
+"SARS-CoV-2 ORF1a/1b FSE (89 nt, NC_045512.2 nt 13462-13550)",PKNOTS,26,True,-26.68,3_6,.............((((((((((...[[[[[[[))))))))))(((((((((.........))).))))))..]].]]]]]........,UUUAAACGGGUUUGCGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGGCACUAGUACUGAUGUCGUAUACAGGGCUUUUGACAU
+"SARS-CoV-2 ORF1a/1b FSE (89 nt, NC_045512.2 nt 13462-13550)",ProbKnot,34,False,,3_5,.(((((.((.(((((((((((((.((.....)))))))))))((((((((((((....)).))).)))))))..)))).)))))))...,UUUAAACGGGUUUGCGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGGCACUAGUACUGAUGUCGUAUACAGGGCUUUUGACAU
+"SARS-CoV-2 ORF1a/1b FSE (89 nt, NC_045512.2 nt 13462-13550)",NUPACK,33,True,-29.5,4_7,.....(((((.(((({{{{{{{{.)))))))))}}}}}}}}.{{{{{{{.[[[[.[[.[[[....}}}}}}}]]].]]]]]].......,UUUAAACGGGUUUGCGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGGCACUAGUACUGAUGUCGUAUACAGGGCUUUUGACAU
+"HIV-1 gag-pol FSE (53 nt, NC_001802.1 nt 1638-1690)",RNAfold,17,False,-25.2,2_2,..(((((((((((((((((....))))))))))))......))))).......,GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG
+"HIV-1 gag-pol FSE (53 nt, NC_001802.1 nt 1638-1690)",PKNOTS,19,False,-24.2,2_2,(((((((((((((((((((....))))))))))))...)))))))........,GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG
+"HIV-1 gag-pol FSE (53 nt, NC_001802.1 nt 1638-1690)",ProbKnot,18,False,,2_2,.((((((((((((((((((....))))))))))))...)))))).........,GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG
+"HIV-1 gag-pol FSE (53 nt, NC_001802.1 nt 1638-1690)",NUPACK,17,False,-24.4,2_2,(((((..((((((((((((....))))))))))))...)))))..........,GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG

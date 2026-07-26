@@ -1,0 +1,336 @@
+virus,seqid,type,position,end_position,sequence,description,mechanism,stem_loop_score,slippery_conforms,trna_note,context,p_site_codon,a_site_codon,frame,stop_leakiness
+Chikungunya,NC_004162.2,+1 PRF,10,12,TGA,antizyme GCG-UGA (Palanimurugan 2004),known_plus1_site,,,,GCGTGA,GCG,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,21,23,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,99,101,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,106,108,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGCTGA,CGC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,120,122,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,151,153,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,163,165,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,181,183,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,196,198,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,213,215,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,228,230,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,241,243,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,271,273,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,291,293,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,375,377,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,499,501,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,603,605,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGGTAG,GGG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,610,612,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,679,681,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,690,692,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,705,707,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,726,728,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,736,738,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGGTAG,AGG,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,759,761,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,774,776,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,804,806,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,832,834,TAA,proline P-site (CCG) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTAA,CCG,TAA,0,0.4
+Chikungunya,NC_004162.2,+1 PRF,904,906,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,951,953,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGATGA,CGA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1014,1016,TGA,antizyme OAZ1-type UCC-UGA (Matsufuji 1995),known_plus1_site,,,,TCCTGA,TCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1039,1041,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,1093,1095,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTGTGA,TTG,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,1101,1103,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1161,1163,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1173,1175,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,1212,1214,TGA,proline P-site (CCA) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATGA,CCA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1224,1226,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1288,1290,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,1320,1322,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1381,1383,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCCTGA,GCC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,1417,1419,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,1467,1469,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGTTGA,CGT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1474,1476,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GACTAG,GAC,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,1515,1517,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1590,1592,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1597,1599,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,1663,1665,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,1689,1691,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,1783,1785,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,1795,1797,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCTTAG,GCT,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,1800,1802,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCCTGA,GCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1824,1826,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,1890,1892,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCCTAG,TCC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,1918,1920,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCCTGA,GCC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,2019,2021,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2041,2043,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,2049,2051,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2148,2150,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2179,2181,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,2226,2228,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCATAG,TCA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,2277,2279,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,2298,2300,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2302,2304,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GACTAG,GAC,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,2343,2345,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACGTGA,ACG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2346,2348,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2361,2363,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTCTAG,GTC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,2383,2385,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,2397,2399,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2433,2435,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,2475,2477,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CATTGA,CAT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2487,2489,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2518,2520,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,2547,2549,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2556,2558,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2631,2633,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2683,2685,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,2703,2705,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,2731,2733,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,2788,2790,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,2811,2813,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCATGA,TCA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,2860,2862,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,2965,2967,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGGTGA,CGG,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,3078,3080,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,3085,3087,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,3228,3230,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3234,3236,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,3238,3240,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,3270,3272,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3334,3336,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,3384,3386,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTCTAG,TTC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3441,3443,TGA,antizyme GCG-UGA (Palanimurugan 2004),known_plus1_site,,,,GCGTGA,GCG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,3456,3458,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGATAG,GGA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3516,3518,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3607,3609,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,3642,3644,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGGTAG,GGG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3651,3653,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3684,3686,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3712,3714,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,3718,3720,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,3723,3725,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3777,3779,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCGTAG,GCG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,3789,3791,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,3811,3813,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGGTGA,GGG,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,3819,3821,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CATTGA,CAT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,3849,3851,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,3874,3876,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,3883,3885,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAGTGA,CAG,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,3916,3918,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,3925,3927,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,3933,3935,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGTTGA,CGT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,3961,3963,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+Chikungunya,NC_004162.2,-1 PRF,3968,3974,TTTTTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,3988,3990,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,4023,4025,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCATGA,TCA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,4035,4037,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,4050,4052,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,4120,4122,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGATGA,CGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,4131,4133,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCGTAG,GCG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,4165,4167,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+Chikungunya,NC_004162.2,-1 PRF,4190,4196,AAAAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,4312,4314,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,4366,4368,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AACTAG,AAC,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,4381,4383,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,4386,4388,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTGTAG,GTG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,4437,4439,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,4449,4451,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,4534,4536,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,4573,4575,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,4587,4589,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,4615,4617,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,4677,4679,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,4792,4794,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,4822,4824,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,4878,4880,TGA,proline P-site (CCA) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATGA,CCA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,4908,4910,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCATGA,GCA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,4965,4967,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,5008,5010,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,5078,5080,AGT,Ty3 GCG-AGU (Farabaugh 1993),known_plus1_site,,,,GCGAGT,GCG,AGT,1,0.0
+Chikungunya,NC_004162.2,+1 PRF,5094,5096,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,5101,5103,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCATAG,GCA,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,5122,5124,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGTTGA,CGT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,5161,5163,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,5175,5177,TAG,proline P-site (CCC) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAG,CCC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,5188,5190,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,5245,5247,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,5256,5258,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,5304,5306,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,5310,5312,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,5350,5352,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,5365,5367,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,5410,5412,TGA,antizyme GCG-UGA (Palanimurugan 2004),known_plus1_site,,,,GCGTGA,GCG,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,5457,5459,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,5551,5553,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTCTGA,TTC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,5593,5595,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,5598,5600,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,5605,5607,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,5649,5651,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GACTAG,GAC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,5736,5738,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGGTGA,CGG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,5788,5790,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,5871,5873,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,5880,5882,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,5917,5919,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+Chikungunya,NC_004162.2,-1 PRF,5941,5947,CCCAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,6043,6045,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,6055,6057,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,6100,6102,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,6111,6113,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,6172,6174,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,6173,6175,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,1,0.0
+Chikungunya,NC_004162.2,-1 PRF,6181,6187,CCCAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,6300,6302,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,2,1.0
+Chikungunya,NC_004162.2,-1 PRF,6350,6356,AAAAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,6415,6417,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,6484,6486,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,0,0.4
+Chikungunya,NC_004162.2,+1 PRF,6517,6519,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGATAG,GGA,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,6528,6530,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,6534,6536,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,6546,6548,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,6552,6554,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,6610,6612,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,6658,6660,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGTTAG,GGT,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,6666,6668,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,6703,6705,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,6735,6737,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCATAG,TCA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,6768,6770,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,6780,6782,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,6790,6792,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,6805,6807,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,6837,6839,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,6846,6848,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,6873,6875,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,6876,6878,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,6945,6947,TGA,proline P-site (CCA) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATGA,CCA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,6948,6950,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,7029,7031,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,7093,7095,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGATGA,CGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,7098,7100,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,7125,7127,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,7137,7139,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,7146,7148,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCATAG,TCA,TAG,2,0.6
+Chikungunya,NC_004162.2,-1 PRF,7187,7193,GGGTTTA,Coronavirus -1 PRF signal,slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,7209,7211,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCGTGA,TCG,TGA,2,1.0
+Chikungunya,NC_004162.2,-1 PRF,7253,7259,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,7272,7274,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CGCTAG,CGC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,7282,7284,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,7294,7296,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,7300,7302,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGATAG,GGA,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,7318,7320,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,7354,7356,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,7357,7359,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,7381,7383,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTCTAG,CTC,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,7387,7389,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,7499,7501,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,1,0.6
+Chikungunya,NC_004162.2,-1 PRF,7583,7589,CCCAAAC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,7697,7699,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,7718,7720,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,7886,7888,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCATGA,GCA,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,7899,7901,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,7970,7972,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,8052,8054,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,8078,8080,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,8106,8108,TGA,proline P-site (CCA) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATGA,CCA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,8208,8210,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CGGTAG,CGG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,8246,8248,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,8252,8254,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,8253,8255,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,2,0.0
+Chikungunya,NC_004162.2,+1 PRF,8265,8267,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,8294,8296,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,8331,8333,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,8463,8465,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,8477,8479,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCATGA,TCA,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,8588,8590,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,8628,8630,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,8636,8638,TAG,proline P-site (CCG) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTAG,CCG,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,8642,8644,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,8658,8660,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,8678,8680,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGCTGA,CGC,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,8708,8710,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,8718,8720,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,8721,8723,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,8727,8729,TGA,proline P-site (CCA) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATGA,CCA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,8873,8875,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTCTGA,CTC,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,8889,8891,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,8895,8897,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,8904,8906,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GATTAG,GAT,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,8945,8947,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,8948,8950,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,1,0.6
+Chikungunya,NC_004162.2,-1 PRF,8954,8960,GGGAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,9041,9043,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,9069,9071,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,9120,9122,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,9162,9164,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,9188,9190,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,9207,9209,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGTTGA,GGT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,9279,9281,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGCTGA,CGC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,9368,9370,TGA,proline P-site (CCG) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTGA,CCG,TGA,1,1.0
+Chikungunya,NC_004162.2,-1 PRF,9376,9382,GGGAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,9408,9410,TGA,antizyme OAZ1-type UCC-UGA (Matsufuji 1995),known_plus1_site,,,,TCCTGA,TCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,9473,9475,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGGTGA,GGG,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,9510,9512,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GACTGA,GAC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,9600,9602,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCATGA,GCA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,9621,9623,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,9638,9640,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,9644,9646,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,9647,9649,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,9746,9748,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,1,1.0
+Chikungunya,NC_004162.2,-1 PRF,9765,9771,CCCTTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,9777,9779,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCTTAG,GCT,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,9896,9898,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,9917,9919,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTCTGA,GTC,TGA,1,1.0
+Chikungunya,NC_004162.2,-1 PRF,9951,9957,TTTTTTA,General -1 PRF pattern,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,9956,9958,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,9962,9964,TAA,proline P-site (CCG) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTAA,CCG,TAA,1,0.4
+Chikungunya,NC_004162.2,+1 PRF,9965,9967,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,9986,9988,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,10010,10012,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAGTGA,CAG,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,10046,10048,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTCTAG,CTC,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,10125,10127,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,10172,10174,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACGTGA,ACG,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,10215,10217,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,10287,10289,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGCTGA,CGC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,10301,10303,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,10512,10514,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,10539,10541,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,10617,10619,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCCTGA,GCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,10775,10777,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,10799,10801,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGATGA,CGA,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,10811,10813,TAG,proline P-site (CCG) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCGTAG,CCG,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,10857,10859,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,10991,10993,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGATGA,CGA,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,11019,11021,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,11024,11026,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,11031,11033,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,11153,11155,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,11270,11272,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,1,1.0
+Chikungunya,NC_004162.2,+1 PRF,11316,11318,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,11329,11331,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCATGA,GCA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,11348,11350,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,1,0.4
+Chikungunya,NC_004162.2,+1 PRF,11366,11368,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATATAG,ATA,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,11380,11382,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,11404,11406,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,11408,11410,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,1,0.6
+Chikungunya,NC_004162.2,-1 PRF,11440,11446,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11441,11447,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11442,11448,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11443,11449,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11444,11450,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11445,11451,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11446,11452,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11447,11453,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11448,11454,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11449,11455,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11450,11456,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11451,11457,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11452,11458,AAAAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,-1 PRF,11453,11459,AAAAAAC,General -1 PRF pattern,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+Chikungunya,NC_004162.2,+1 PRF,11475,11477,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,11492,11494,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,1,0.4
+Chikungunya,NC_004162.2,+1 PRF,11510,11512,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,11514,11516,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,11523,11525,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTATAG,GTA,TAG,2,0.6
+Chikungunya,NC_004162.2,+1 PRF,11547,11549,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,11551,11553,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,11588,11590,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,11599,11601,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,0,0.4
+Chikungunya,NC_004162.2,+1 PRF,11609,11611,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,11634,11636,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,2,1.0
+Chikungunya,NC_004162.2,+1 PRF,11638,11640,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,0,0.6
+Chikungunya,NC_004162.2,+1 PRF,11671,11673,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,11680,11682,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,0,0.4
+Chikungunya,NC_004162.2,+1 PRF,11702,11704,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,11740,11742,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,0,1.0
+Chikungunya,NC_004162.2,+1 PRF,11747,11749,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,11753,11755,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCATAG,GCA,TAG,1,0.6
+Chikungunya,NC_004162.2,+1 PRF,11797,11799,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACGTAG,ACG,TAG,0,0.6

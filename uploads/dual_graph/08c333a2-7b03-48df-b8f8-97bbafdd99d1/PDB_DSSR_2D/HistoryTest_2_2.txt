@@ -1,0 +1,17 @@
+Title			HistoryTest_2_2 RNA structure
+Chain order		A
+Amino acids		NO
+Metal
+Chains			A	RNA	
+Pseudoknot		NO
+
+Whole structure
+>HistoryTest_2_2
+GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG
+..(((((((((((((((((....))))))))))))......))))).......
+
+Interacting substructures
+Chain A
+GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG
+..(((((((((((((((((....))))))))))))......))))).......
+

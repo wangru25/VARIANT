@@ -188,7 +188,13 @@ Once all files are uploaded:
 2. **Select your virus** (or custom virus) - the same one you uploaded files for
 3. **Configure analysis parameters**:
    - **Process all genomes**: Recommended (processes all sequences in your MSA file)
-   - **Detect frameshifts**: Optional (identifies potential frameshifting sites)
+   - **Detect frameshifts**: Optional (identifies potential +1/−1 PRF sites). The
+     web server runs **only the fast `FrameshiftDetector`** (codon/regex scan, **no
+     RNA folding of any kind**) and produces `<Virus>_frameshift_detector.csv`, which
+     the PRF figure is drawn from — so requests stay responsive. It performs **no
+     secondary-structure prediction** (no RNAfold/PKNOTS/ProbKnot/NUPACK). For the
+     folding-based `<Virus>.prf_candidates.*` (pseudoknot analysis), run
+     `python main.py --virus <V> --detect-frameshifts` locally (see the root README).
 4. **Start the analysis** - the system will automatically use your uploaded files
 5. **Monitor progress** in the "History" tab
 6. **Download results** from the "Files" tab using the ZIP download options

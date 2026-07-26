@@ -42,4 +42,5 @@ Generated files can be:
 
 ## Note
 
-This directory is gitignored to avoid committing large generated files to the repository.
+The files under `imgs/visualizations/` are generated output. They can be large, so
+treat them as regenerable (recreate with `plot.py`) rather than hand-editing them.

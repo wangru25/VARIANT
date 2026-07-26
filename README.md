@@ -41,9 +41,14 @@ Users can also upload and analyze customized viruses with their own reference ge
 
 ## Installation
 
-VARIANT supports two local installation paths: a conda-managed environment (`conda env create -f environment.yaml`) and editable pip installation (`pip install -e .`). Use `conda` if you want an isolated bioinformatics environment with managed native dependencies, or use the `pip` workflow if you prefer package-style CLI usage.
+VARIANT runs in a conda-managed environment (`conda env create -f environment.yaml`), which provides an isolated bioinformatics environment with all native dependencies (RNAfold, etc.) managed for you.
 
-### Option 1: Conda Environment
+<!-- The editable pip install (`pip install -e .`) exposes a `variant` console command.
+     It is kept in the codebase but not documented here — conda is the supported path.
+     To re-enable the CLI docs, uncomment the "Option 2: CLI Installation" and
+     "Option 2: CLI Usage" sections below and restore the "two installation paths" wording. -->
+
+### Conda Environment
 
 **Prerequisites**: Conda or Miniconda installed
 
@@ -63,7 +68,7 @@ chmod +x main.py
 python main.py --help
 ```
 
-### Option 2: CLI Installation
+<!-- ### Option 2: CLI Installation (hidden — use the conda environment above)
 
 **Prerequisites**: Python 3.8 or higher
 
@@ -78,6 +83,7 @@ pip install -e .
 # Verify installation
 variant --help
 ```
+-->
 
 ### *Dependencies*
 - BioPython >= 1.79
@@ -90,13 +96,19 @@ variant --help
 - Kaleido >= 1.0.0
 - matplotlib >= 3.5.0
 - seaborn >= 0.11.0
-- ViennaRNA >= 2.4.0 (for PRF scanning and RNA structure prediction)
+- ViennaRNA >= 2.4.0 (RNAfold, for PRF slippery-site ranking and nested RNA structure)
 - python-igraph >= 0.11.8 (for RNA dual-graph assignment)
 - NetworkX >= 3.1 (for graph rendering utilities)
 
+Optional, for −1 PRF pseudoknot confirmation (see the PRF section):
+- **PKNOTS** — bundled with the repository (`PKNOTS/src/pknots`), no install needed.
+- **ProbKnot** (RNAstructure) — `conda install -n variant rnastructure` (bioconda).
+- **NUPACK** 3.2.2 — via the Docker image `rw3594/dual_rag_if:1.0` (auto-detected;
+  optional). Without it, NUPACK columns are simply left blank.
+
 ## Usage & Quick Start Examples
 
-### Option 1: Conda Usage (Recommended)
+### Conda Usage
 
 After `conda activate variant`, users can implement functions with different input arguments:
 
@@ -133,7 +145,7 @@ python main.py --list-viruses
 - `--msa-file`: Custom MSA file path
 - `--config`: Custom configuration file path
 
-### Option 2: CLI Usage
+<!-- ### Option 2: CLI Usage (hidden — use the conda `python main.py` usage above)
 
 After `pip install -e .`, `variant` will be created. Users can choose to either `setup`, `analyze`, or perform `prf` with different arguments:
 
@@ -148,9 +160,14 @@ variant setup --virus HIV-1
 # Mutation Analysis
 variant analyze --virus SARS-CoV-2 --msa data/SARS-CoV-2/clustalW/test_msa_2.txt
 
-# PRF Analysis
+# PRF Analysis (runs the +1/-1 FrameshiftDetector on a single genome)
 variant prf --genome data/SARS-CoV-2/refs/NC_045512.fasta --output results.csv
 ```
+
+> The `variant prf` CLI runs the codon-context `FrameshiftDetector`
+> (`src/core/prf/frameshift_detector.py`) on one genome. For the full two-stage −1
+> scanner with RNAfold/PKNOTS/ProbKnot/NUPACK structure confirmation, use
+> `python main.py --virus <V> --detect-frameshifts` (see the PRF section below).
 
 #### *Input Arguments*
 - `setup`: Set up the environment according to the config file
@@ -161,6 +178,7 @@ variant prf --genome data/SARS-CoV-2/refs/NC_045512.fasta --output results.csv
 - `--msa`: Custom MSA file path
 - `--genome`: Sequence of specific genome to process
 - `--output`: Output directory
+-->
 
 ## Output Files
 
@@ -174,20 +192,120 @@ Per each genome, the results are provided with corresponding `GenomeID`:
 - `<GenomeID>_row_hot_mutations.csv` — row/hot mutation table (generated only when row/hot mutations are detected)
 
 
-## PRF Scanner
+## Programmed Ribosomal Frameshifting (PRF) Detection
 
-VARIANT supports PRF candidate detection through the main pipeline.
+VARIANT scans viral genomes for candidate **−1** and **+1** PRF sites. All PRF code
+lives under `src/core/prf/`; see [`src/core/prf/README.md`](src/core/prf/README.md)
+for the full algorithm, parameters, and output-column reference.
 
-### Usage
+### Two detectors
+
+- **−1 PRF — two-stage scanner** (`src/core/prf/prf_scanner.py`). A backreference
+  regular expression finds *every* slippery heptamer `X XXY YYZ` (not a fixed list),
+  so novel conforming sites are detected. Stage 1: **RNAfold** (ViennaRNA, nested
+  minimum-free-energy) folds each downstream window and *ranks* all sites. Stage 2:
+  three pseudoknot-aware predictors *confirm* structure only on the top-ranked short
+  (≤ 85 nt) windows — **PKNOTS** (MFE, O(N⁶)), **ProbKnot** (RNAstructure, ThreshKnot),
+  and **NUPACK** (MFE). A transparent multi-tool consensus is reported
+  (`structure_call` / `structure_confidence` / `structure_note`); when a tool does not
+  run, its columns are left blank — no structure or energy is ever fabricated.
+
+- **+1 PRF — codon-context detector** (`src/core/prf/frameshift_detector.py`). Because
+  +1 frameshifting is codon-context driven rather than defined by a slippery heptamer,
+  it is detected by an in-frame scan of each (P-site, A-site) codon pair: curated,
+  literature-validated sites (antizyme, Ty1, Ty3, *E. coli* prfB), a proline P-site
+  followed by a stop A-site (Ebola CCU-UAA-type slippage), and leaky "shifty" stops.
+  This detector also emits its own −1 slippery calls. Note: the bare shifty-stop scan
+  is frame-agnostic and therefore low-specificity — treat those as candidates and the
+  curated set as the high-confidence subset.
+
+### Folding tools: RNAfold, PKNOTS, ProbKnot, NUPACK
+
+- **RNAfold** (ViennaRNA) — nested MFE, used for ranking; does not model pseudoknots.
+- **PKNOTS** (bundled binary, `PKNOTS/src/pknots`) — pseudoknot-aware, MFE.
+- **ProbKnot** (RNAstructure, install via bioconda: `conda install -n variant rnastructure`) — pseudoknot-aware, probability-based (no MFE).
+- **NUPACK** (3.2.2, license-gated) — pseudoknot-aware, MFE. Reached through the
+  Docker image `rw3594/dual_rag_if:1.0` (optional; see the next subsection). It
+  **auto-enables** when the image is reachable and is skipped silently otherwise
+  (its `nupack_*` columns are left blank, never fabricated).
+
+#### Enabling NUPACK via Docker (optional)
+
+NUPACK 3.2.2 is license-gated and cannot be installed with conda/pip, so VARIANT
+reaches it through a Docker image that already bundles it: **`rw3594/dual_rag_if:1.0`
+(~6.5 GB)**. Key point: **you do NOT run VARIANT inside the container.** The scanner
+runs in your `variant` conda env as usual and, for each NUPACK fold, automatically
+shells out to the container (it mounts a temp dir, runs `mfe -pseudo`, and reads the
+result back). If Docker or the image is unavailable, NUPACK is simply skipped.
+
+**Prerequisites:** Docker Desktop / Docker Engine installed, with the daemon running.
+
+**One-time setup:**
 ```bash
-python main.py --virus SARS-CoV-2 --detect-frameshifts
-python main.py --virus SARS-CoV-2 --process-all --detect-frameshifts
+open -a Docker                       # start the daemon (macOS; Linux: sudo systemctl start docker)
+docker pull rw3594/dual_rag_if:1.0   # ~6.5 GB, one time
 ```
 
+**Use it** — just run the scanner normally; NUPACK turns on automatically when the
+image is reachable:
+```bash
+python src/core/prf/prf_scanner.py --fasta <ref.fasta> --out <prefix> \
+    --use-rnafold --use-pknots        # NUPACK auto-enables
+```
+Force it explicitly with `--use-nupack` / `--no-nupack`.
+
+**Verify the Docker-backed path works:**
+```bash
+conda activate variant
+python tools/test_nupack_docker.py    # prints PASS when docker-backed NUPACK works
+```
+
+**Advanced (environment variables):** `NUPACK_DOCKER=0` disables the Docker path
+entirely; `NUPACK_DOCKER_IMAGE=<image>` overrides the default image.
+
+### Usage
+
+```bash
+# Full pipeline: RNAfold ranking + PKNOTS/ProbKnot/NUPACK pseudoknot confirmation
+python main.py --virus SARS-CoV-2 --detect-frameshifts
+python main.py --virus SARS-CoV-2 --process-all --detect-frameshifts
+
+# Fast candidate list only (slippery sites + RNAfold ranking, no pseudoknot confirmation)
+python main.py --virus SARS-CoV-2 --detect-frameshifts --skip-structure-prediction
+```
+
+Run the scanner directly for finer control (e.g. fold all candidate windows, supply a
+tRNA table):
+
+```bash
+python src/core/prf/prf_scanner.py --fasta data/SARS-CoV-2/refs/NC_045512.fasta \
+    --out result/SARS-CoV-2/SARS-CoV-2 \
+    --use-rnafold --use-pknots --pknots-top-n 8 --pknots-window 85 \
+    [--use-nupack | --no-nupack] [--relaxed] [--trna <table.csv> --organism human]
+```
+
+> **Web app:** `web_app.py` runs **no secondary-structure prediction at all**
+> (`enable_structure_prediction=False`). It runs only the fast `FrameshiftDetector`
+> (+1/−1 codon scan, no RNA folding) and emits `<Virus>_frameshift_detector.csv`,
+> which is what the web PRF figure is drawn from. The −1 folding scanner
+> (`<Virus>.prf_candidates.*`, with RNAfold/PKNOTS/ProbKnot/NUPACK) runs **locally
+> only** — use the commands above.
+
+> **tRNA columns:** `trna_score` and `pausing_potential` are *optional*,
+> sequence-derived proxies computed from a user-supplied codon-abundance table
+> (`--trna`). The bundled `data/tRNA_abundance_sample.csv` is an **illustrative
+> placeholder** (4 codons) — not real abundances; without `--trna` these columns are
+> reported as `NA`. See [`data/tRNA_abundance_README.md`](data/tRNA_abundance_README.md).
+
 ### Output Files
-PRF outputs are provided under `result/<Virus>/` (or `result/<Virus>/<Segment>/` for multi-segment viruses):
-- `*.prf_candidates.csv` — candidate PRF sites with sequence/structure context
-- `*.prf_candidates.bed` — genomic coordinates for downstream browser/track usage
+
+Under `result/<Virus>/` (or `result/<Virus>/<Segment>/` for multi-segment viruses):
+Files are named after the genome (`<Virus>.prf_candidates.*`, or
+`<Virus>-segment<N>.prf_candidates.*` for multi-segment viruses):
+- `<Virus>.prf_candidates.csv` — −1 candidate sites with RNAfold / PKNOTS / ProbKnot / NUPACK
+  structure, energy, and pseudoknot flags, the consensus call, and the tRNA proxy columns.
+- `<Virus>.prf_candidates.bed` — genomic coordinates (BED6) for browser/track usage.
+- `<Virus>_frameshift_detector.csv` — +1/−1 `FrameshiftDetector` calls (when that detector is run).
 
 ## RNA Dual Graph (Local Code Workflow)
 

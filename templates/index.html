@@ -128,7 +128,7 @@
             transform: scale(1.05);
         }
         
-        /* Improved contrast for upload checklist labels */
+        /* Improved contrast for form-check labels (radios, checkboxes) */
         .form-check-label {
             color: #212529 !important;
             font-weight: 500;
@@ -143,15 +143,6 @@
         .form-check-input:disabled + .form-check-label {
             color: #212529 !important;
             opacity: 1;
-        }
-        
-        /* Green color for checked items in upload checklist */
-        .bg-light.border.border-success .form-check-input:checked + .form-check-label {
-            color: #198754 !important;
-        }
-        
-        .bg-light.border.border-success .form-check-input:checked + .form-check-label:hover {
-            color: #146c43 !important;
         }
         
         .btn-success {
@@ -329,6 +320,19 @@
         .spinner-border.text-primary {
             color: #4663ac !important;
         }
+
+        /* Upload slot that is bundled with a built-in example virus (not uploadable). */
+        .upload-slot.bundled {
+            background-color: #f1f3f5;
+            border-color: #dee2e6 !important;
+            border-style: dashed !important;
+            opacity: 0.75;
+        }
+        .upload-slot.bundled strong,
+        .upload-slot.bundled .fa-dna,
+        .upload-slot.bundled .fa-atom {
+            color: #868e96 !important;
+        }
     </style>
 </head>
 <body>
@@ -423,6 +427,38 @@
                             </div>
                         </div>
                         
+                        <!-- Quick Start: load a bundled example virus (the easy on-ramp, shown first) -->
+                        <div class="card mb-3 border-0 shadow-sm">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0"><i class="fas fa-rocket me-2"></i> Quick Start &mdash; Try an Example</h5>
+                            </div>
+                            <div class="card-body bg-light">
+                                <p class="mb-3">New here? Load a bundled example virus and jump straight to analysis &amp; visualization &mdash; nothing to upload.</p>
+                                <div class="input-group" style="max-width: 640px;">
+                                    <label class="input-group-text" for="sampleVirusSelect">Example virus</label>
+                                    <select id="sampleVirusSelect" class="form-select" style="min-width: 230px; flex: 0 0 auto; width: auto;"></select>
+                                    <button type="button" class="btn btn-primary" onclick="loadSampleData()">
+                                        <i class="fas fa-download me-2"></i>Load Sample Data
+                                    </button>
+                                </div>
+                                <!-- Persistent summary of what the sample loader made available -->
+                                <div id="sampleDataCard" class="alert alert-success mt-3 mb-0" style="display: none;">
+                                    <h6 class="alert-heading mb-2">
+                                        <i class="fas fa-check-circle me-2"></i><span id="sampleDataHeading">Example data loaded</span>
+                                    </h6>
+                                    <p class="small mb-2">These bundled files are now ready to analyze &mdash; no upload needed:</p>
+                                    <ul id="sampleDataFileList" class="small mb-2"></ul>
+                                    <p class="small mb-2">The <strong>Analysis &amp; Visualization</strong> tab has been pre-filled with this virus.</p>
+                                    <button type="button" class="btn btn-success btn-sm" onclick="continueToSampleAnalysis()">
+                                        Continue to Analysis <i class="fas fa-arrow-right ms-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Divider: the "bring your own virus" path follows -->
+                        <div class="text-center text-muted my-3"><strong>&mdash; or bring your own virus &mdash;</strong></div>
+
                         <!-- Custom Virus Creation Section -->
                         <div class="card mb-4 border-0 shadow-sm">
                             <div class="card-header bg-primary text-white">
@@ -506,39 +542,19 @@
                                         <h5 class="mb-0"><i class="fas fa-upload me-2"></i> Upload Data Files</h5>
                                     </div>
                                     <div class="card-body">
-                                        <!-- Sample Data Button -->
-                                        <div class="mb-3 text-center">
-                                            <button type="button" class="btn btn-outline-primary" onclick="loadSampleData()">
-                                                <i class="fas fa-download me-2"></i>Load SARS-CoV-2 Sample Data
-                                            </button>
-                                            <small class="form-text text-muted d-block mt-2">
-                                                One-click default setup for trying analysis and visualization quickly
-                                            </small>
-                                        </div>
-                                        <hr>
-                                        <div class="mb-3">
-                                            <label class="form-label fw-bold">
-                                                <i class="fas fa-bolt text-warning"></i> Quick File Type
-                                            </label>
-                                            <div class="d-flex flex-wrap gap-2">
-                                                <button type="button" class="btn btn-sm btn-outline-primary" onclick="quickSelectFileType('reference_genome')">Reference Genome</button>
-                                                <button type="button" class="btn btn-sm btn-outline-success" onclick="quickSelectFileType('proteome')">Proteome</button>
-                                                <button type="button" class="btn btn-sm btn-outline-info" onclick="quickSelectFileType('msa')">MSA</button>
-                                            </div>
-                                            <div class="form-text">Use one click instead of opening the file type dropdown each time.</div>
-                                        </div>
+                                        <p class="text-muted small mb-3">Pick your virus below, then upload each of the three required files in its own slot. Each file uploads as soon as you choose it.</p>
                                         <form id="dataUploadForm">
                                             <div class="mb-3">
                                                 <label for="uploadVirusSelect" class="form-label fw-bold">
-                                                    <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
+                                                    <i class="fas fa-virus text-primary"></i> Virus Name <span class="text-danger">*</span>
                                                 </label>
                                                 <select class="form-select" id="uploadVirusSelect" required>
                                                     <option value="">Select a virus...</option>
                                                 </select>
-                                                <div class="form-text">Choose the virus you want to analyze</div>
+                                                <div class="form-text">Auto-filled with the virus you just created above; or pick another virus to upload files for.</div>
                                             </div>
                                             
-                                            <div class="mb-3 segment-selector" id="uploadSegmentSelector">
+                                            <div class="mb-3 segment-selector" id="uploadSegmentSelector" style="display: none;">
                                                 <label for="uploadSegmentSelect" class="form-label fw-bold">
                                                     <i class="fas fa-layer-group text-success"></i> Segment (for multi-segment viruses)
                                                 </label>
@@ -548,31 +564,53 @@
                                                 <div class="form-text">Only appears for multi-segment viruses like H3N2</div>
                                             </div>
                                             
-                                            <div class="mb-3">
-                                                <label for="fileTypeSelect" class="form-label fw-bold">
-                                                    <i class="fas fa-file-alt text-warning"></i> File Type <span class="text-danger">*</span>
-                                                </label>
-                                                <select class="form-select" id="fileTypeSelect" required>
-                                                    <option value="">Select file type...</option>
-                                                    <option value="reference_genome">📄 Reference Genome (.fasta)</option>
-                                                    <option value="proteome">🧬 Reference Proteome (.fasta)</option>
-                                                    <option value="msa">🔗 MSA File (.txt)</option>
-                                                </select>
-                                                <div class="form-text">Choose the type of file you're uploading</div>
+                                            <label class="form-label fw-bold mb-2">
+                                                <i class="fas fa-cloud-upload-alt text-success"></i> Required Files
+                                            </label>
+
+                                            <!-- Slot: Reference Genome -->
+                                            <div class="upload-slot d-flex align-items-center justify-content-between border rounded p-2 mb-2" id="slotRow-reference_genome">
+                                                <div class="me-2">
+                                                    <i class="fas fa-dna text-primary me-2"></i><strong>Reference Genome</strong>
+                                                    <span class="text-muted small">.fasta / .fa / .fna</span>
+                                                    <div class="small" id="slotStatus-reference_genome"><span class="text-muted">Not uploaded yet</span></div>
+                                                </div>
+                                                <div class="text-nowrap">
+                                                    <input type="file" class="d-none" id="slotFile-reference_genome" accept=".fasta,.fa,.fna" onchange="uploadSlotFile('reference_genome', this)">
+                                                    <button type="button" class="btn btn-sm btn-primary" id="slotBtn-reference_genome" onclick="document.getElementById('slotFile-reference_genome').click()">
+                                                        <i class="fas fa-upload me-1"></i> Choose file
+                                                    </button>
+                                                </div>
                                             </div>
-                                            
-                                            <div class="mb-3">
-                                                <label for="dataFile" class="form-label fw-bold">
-                                                    <i class="fas fa-folder-open text-info"></i> Select File <span class="text-danger">*</span>
-                                                </label>
-                                                <input type="file" class="form-control" id="dataFile" required>
-                                                <div class="form-text">Choose the file to upload from your computer. If file type is empty, VARIANT will try to auto-detect it.</div>
+
+                                            <!-- Slot: Reference Proteome -->
+                                            <div class="upload-slot d-flex align-items-center justify-content-between border rounded p-2 mb-2" id="slotRow-proteome">
+                                                <div class="me-2">
+                                                    <i class="fas fa-atom text-success me-2"></i><strong>Reference Proteome</strong>
+                                                    <span class="text-muted small">.fasta / .fa / .faa</span>
+                                                    <div class="small" id="slotStatus-proteome"><span class="text-muted">Not uploaded yet</span></div>
+                                                </div>
+                                                <div class="text-nowrap">
+                                                    <input type="file" class="d-none" id="slotFile-proteome" accept=".fasta,.fa,.faa" onchange="uploadSlotFile('proteome', this)">
+                                                    <button type="button" class="btn btn-sm btn-primary" id="slotBtn-proteome" onclick="document.getElementById('slotFile-proteome').click()">
+                                                        <i class="fas fa-upload me-1"></i> Choose file
+                                                    </button>
+                                                </div>
                                             </div>
-                                            
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-success btn-lg">
-                                                    <i class="fas fa-upload me-2"></i> Upload File
-                                                </button>
+
+                                            <!-- Slot: MSA File -->
+                                            <div class="upload-slot d-flex align-items-center justify-content-between border rounded p-2 mb-2" id="slotRow-msa">
+                                                <div class="me-2">
+                                                    <i class="fas fa-align-left text-info me-2"></i><strong>MSA File</strong>
+                                                    <span class="text-muted small">.txt / .fasta / .aln / .clustal</span>
+                                                    <div class="small" id="slotStatus-msa"><span class="text-muted">Not uploaded yet</span></div>
+                                                </div>
+                                                <div class="text-nowrap">
+                                                    <input type="file" class="d-none" id="slotFile-msa" accept=".txt,.fasta,.fa,.aln,.clustal" onchange="uploadSlotFile('msa', this)">
+                                                    <button type="button" class="btn btn-sm btn-primary" id="slotBtn-msa" onclick="document.getElementById('slotFile-msa').click()">
+                                                        <i class="fas fa-upload me-1"></i> Choose file
+                                                    </button>
+                                                </div>
                                             </div>
 
                                             <!-- Upload progress bar -->
@@ -588,6 +626,21 @@
                                                 <div class="alert alert-success" role="alert">
                                                     <i class="fas fa-check-circle me-2"></i>
                                                     <span id="uploadMessageText"></span>
+                                                </div>
+                                            </div>
+
+                                            <!-- Next-step panel: appears while uploading a custom virus, shows
+                                                 progress toward the 3 required files, then a Continue button.
+                                                 Mirrors the "Continue to Analysis" call-to-action in Quick Start. -->
+                                            <div id="uploadNextStep" class="mt-3 p-3 rounded border" style="display: none;">
+                                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                                    <div>
+                                                        <h6 class="mb-1" id="uploadNextStepTitle"></h6>
+                                                        <p class="mb-0 small" id="uploadNextStepText"></p>
+                                                    </div>
+                                                    <button type="button" class="btn btn-success" id="uploadNextStepBtn" disabled onclick="continueFromUploadPanel()">
+                                                        <i class="fas fa-arrow-right me-2"></i>Continue to Analysis
+                                                    </button>
                                                 </div>
                                             </div>
                                         </form>
@@ -706,29 +759,6 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                                             </ul>
                                         </div>
                                         
-                                        <div class="bg-light border border-success border-opacity-25 p-3 rounded">
-                                            <h6 class="text-success mb-2"><i class="fas fa-check-circle me-2"></i>Upload Checklist:</h6>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="checkRefGenome" disabled>
-                                                <label class="form-check-label" for="checkRefGenome">
-                                                    Reference Genome uploaded
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="checkProteome" disabled>
-                                                <label class="form-check-label" for="checkProteome">
-                                                    Reference Proteome uploaded
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="checkMSA" disabled>
-                                                <label class="form-check-label" for="checkMSA">
-                                                    MSA File uploaded
-                                                </label>
-                                            </div>
-                                        </div>
-                                        
-
                                     </div>
                                 </div>
                             </div>
@@ -754,7 +784,7 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                                                     <div class="row mb-4">
                                                         <div class="col-md-8">
                                                             <label for="virusSelect" class="form-label fw-bold">
-                                                                <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
+                                                                <i class="fas fa-virus text-primary"></i> Virus Name <span class="text-danger">*</span>
                                                             </label>
                                                             <select class="form-select form-select-lg" id="virusSelect" required>
                                                                 <option value="">Choose a virus...</option>
@@ -894,84 +924,122 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                                 <h5 class="mb-0"><i class="fas fa-chart-line"></i> Generate Visualization</h5>
                             </div>
                             <div class="card-body">
-                                <div class="row">
+                                <!-- Primary: visualize a completed analysis job from History -->
+                                <div class="row align-items-start">
                                     <div class="col-md-8">
-                                        <div class="row mb-3">
-                                            <div class="col-md-8">
-                                                <label for="historyVirusSelect" class="form-label fw-bold">
-                                                    <i class="fas fa-virus text-primary"></i> Virus Type <span class="text-danger">*</span>
-                                                </label>
-                                                <select class="form-select" id="historyVirusSelect" required>
-                                                    <option value="">Select a virus...</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="historyGenomeId" class="form-label fw-bold">
-                                                    <i class="fas fa-dna text-info"></i> Genome ID
-                                                </label>
-                                                <div class="position-relative">
-                                                    <input type="text" class="form-control" id="historyGenomeId" 
-                                                           placeholder="Type to search genome IDs..." autocomplete="off">
-                                                    <div class="position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; z-index: 1001;">
-                                                        <i class="fas fa-chevron-down text-muted"></i>
-                                                    </div>
-                                                    <div id="historyGenomeIdDropdown" class="position-absolute w-100 bg-white border rounded shadow-sm" 
-                                                         style="max-height: 200px; overflow-y: auto; z-index: 1000; display: none;">
-                                                    </div>
-                                                </div>
-                                                <style>
-                                                    #historyGenomeIdDropdown {
-                                                        top: 100%;
-                                                        left: 0;
-                                                        border: 1px solid #ced4da;
-                                                    }
-                                                    
-                                                    #historyGenomeIdDropdown .dropdown-item {
-                                                        padding: 8px 12px;
-                                                        cursor: pointer;
-                                                        border-bottom: 1px solid #f8f9fa;
-                                                    }
-                                                    
-                                                    #historyGenomeIdDropdown .dropdown-item:hover {
-                                                        background-color: #f8f9fa;
-                                                    }
-                                                    
-                                                    #historyGenomeIdDropdown .dropdown-item:last-child {
-                                                        border-bottom: none;
-                                                    }
-                                                </style>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="mb-3">
-                                            <div class="form-text">
-                                                <i class="fas fa-info-circle text-muted"></i> Leave empty to process the 1st genome, or specify a specific genome ID
-                                            </div>
+                                        <label for="vizJobSelect" class="form-label fw-bold">
+                                            <i class="fas fa-clock-rotate-left text-primary"></i> Completed Analysis Job <span class="text-danger">*</span>
+                                        </label>
+                                        <select class="form-select" id="vizJobSelect" onchange="onVizJobSelectChange()">
+                                            <option value="">Select a completed analysis job…</option>
+                                        </select>
+                                        <div class="form-text">
+                                            <i class="fas fa-info-circle text-muted"></i> Jobs you run under <strong>Start New Analysis</strong> appear here once complete. Selecting one loads exactly that run's charts. Use the <strong>Visualize</strong> button on a History row to jump straight here.
                                         </div>
                                     </div>
-                                    
                                     <div class="col-md-4">
-                                        <div class="text-center h-100 d-flex flex-column justify-content-center">
-                                            <button type="button" id="generateVizBtn" class="btn btn-success btn-lg" onclick="generateAllVisualizations()" disabled>
-                                                <i class="fas fa-magic me-2"></i> Generate All Visualizations
+                                        <div class="text-center">
+                                            <button type="button" id="loadJobVizBtn" class="btn btn-success btn-lg w-100" onclick="loadJobVisualizations()" disabled>
+                                                <i class="fas fa-chart-line me-2"></i> View Visualizations
                                             </button>
-                                            <div id="generateVizHint" class="form-text mt-2 text-muted">
-                                                Select a virus with completed analysis results to generate visualizations.
-                                            </div>
-                                            <div class="form-text mt-2">
-                                                <i class="fas fa-info-circle text-muted"></i> This will generate all three visualization types
-                                            </div>
-                                            <div id="vizGenerationStatus" class="alert alert-info mt-3 py-2 px-3 text-start" style="display: none;">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="spinner-border spinner-border-sm text-info me-2" role="status"></div>
-                                                    <span id="vizGenerationStatusText">Generating visualizations... Please wait.</span>
-                                                </div>
-                                                <div class="small mt-1">Elapsed time: <strong id="vizElapsedTime">0s</strong></div>
+                                            <div id="loadJobVizHint" class="form-text mt-2 text-muted">
+                                                Run an analysis, then pick its completed job here.
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+
+                                <!-- Advanced: regenerate on demand or browse bundled example data -->
+                                <div class="mt-3">
+                                    <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#precomputedVizPanel" aria-expanded="false" aria-controls="precomputedVizPanel">
+                                        <i class="fas fa-sliders-h me-1"></i> Advanced: regenerate charts or browse example results
+                                    </button>
+                                </div>
+                                <div class="collapse mt-3" id="precomputedVizPanel">
+                                  <div class="border rounded p-3 bg-light">
+                                    <p class="small text-muted mb-3">
+                                        Generate charts directly from a virus's current <code>result/</code> data — useful for the bundled example viruses, or to render a specific genome an existing job didn't chart. These are keyed by virus (not by a specific job), so they reflect the latest data on disk.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="row mb-3">
+                                                <div class="col-md-8">
+                                                    <label for="historyVirusSelect" class="form-label fw-bold">
+                                                        <i class="fas fa-virus text-primary"></i> Virus Name <span class="text-danger">*</span>
+                                                    </label>
+                                                    <select class="form-select" id="historyVirusSelect" required>
+                                                        <option value="">Select a virus...</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="historyGenomeId" class="form-label fw-bold">
+                                                        <i class="fas fa-dna text-info"></i> Genome ID
+                                                    </label>
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control" id="historyGenomeId"
+                                                               placeholder="Type to search genome IDs..." autocomplete="off">
+                                                        <div class="position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; z-index: 1001;">
+                                                            <i class="fas fa-chevron-down text-muted"></i>
+                                                        </div>
+                                                        <div id="historyGenomeIdDropdown" class="position-absolute w-100 bg-white border rounded shadow-sm"
+                                                             style="max-height: 200px; overflow-y: auto; z-index: 1000; display: none;">
+                                                        </div>
+                                                    </div>
+                                                    <style>
+                                                        #historyGenomeIdDropdown {
+                                                            top: 100%;
+                                                            left: 0;
+                                                            border: 1px solid #ced4da;
+                                                        }
+
+                                                        #historyGenomeIdDropdown .dropdown-item {
+                                                            padding: 8px 12px;
+                                                            cursor: pointer;
+                                                            border-bottom: 1px solid #f8f9fa;
+                                                        }
+
+                                                        #historyGenomeIdDropdown .dropdown-item:hover {
+                                                            background-color: #f8f9fa;
+                                                        }
+
+                                                        #historyGenomeIdDropdown .dropdown-item:last-child {
+                                                            border-bottom: none;
+                                                        }
+                                                    </style>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <div class="form-text">
+                                                    <i class="fas fa-info-circle text-muted"></i> Leave empty to process the 1st genome, or specify a specific genome ID
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="text-center h-100 d-flex flex-column justify-content-center">
+                                                <button type="button" id="generateVizBtn" class="btn btn-outline-success btn-lg" onclick="generateAllVisualizations()" disabled>
+                                                    <i class="fas fa-magic me-2"></i> Generate All Visualizations
+                                                </button>
+                                                <div id="generateVizHint" class="form-text mt-2 text-muted">
+                                                    Select a virus with completed analysis results to generate visualizations.
+                                                </div>
+                                                <div class="form-text mt-2">
+                                                    <i class="fas fa-info-circle text-muted"></i> This will generate all three visualization types
+                                                </div>
+                                                <div id="vizGenerationStatus" class="alert alert-info mt-3 py-2 px-3 text-start" style="display: none;">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="spinner-border spinner-border-sm text-info me-2" role="status"></div>
+                                                        <span id="vizGenerationStatusText">Generating visualizations... Please wait.</span>
+                                                    </div>
+                                                    <div class="small mt-1">Elapsed time: <strong id="vizElapsedTime">0s</strong></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+
                                 <!-- Visualization Types Guide -->
                                 <div class="bg-light border border-success border-opacity-25 p-3 rounded mt-3">
                                     <h6 class="text-success mb-3"><i class="fas fa-info-circle me-2"></i>Visualization Types:</h6>
@@ -1427,7 +1495,8 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                                                 <tr><td><code>{genome_id}_mutation_summary.csv</code></td><td>Position-level nucleotide and amino-acid mutation table.</td></tr>
                                                 <tr><td><code>{genome_id}_row_hot_mutations.csv</code></td><td>Clustered and high-frequency mutation report.</td></tr>
                                                 <tr><td><code>{genome_id}.txt</code></td><td>Detailed per-genome mutation text report.</td></tr>
-                                                <tr><td><code>potential_PRF.csv</code> or <code>prf_analysis.prf_candidates.csv</code></td><td>Candidate PRF sites from PRF scanner.</td></tr>
+                                                <tr><td><code>{Virus}_frameshift_detector.csv</code></td><td>Potential +1/&minus;1 PRF sites (codon/slippery-site scan). This is what the web PRF figure is drawn from.</td></tr>
+                                                <tr><td><code>{Virus}.prf_candidates.csv</code> / <code>.bed</code></td><td>&minus;1 PRF candidates with RNA folding evidence (RNAfold/PKNOTS/ProbKnot/NUPACK). Produced by local runs only.</td></tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -1705,9 +1774,9 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                                                     <td class="text-muted">Detailed mutation information for each genome</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><code class="bg-light px-2 py-1 rounded">potential_PRF.csv</code></td>
+                                                    <td><code class="bg-light px-2 py-1 rounded">{Virus}_frameshift_detector.csv</code></td>
                                                     <td><strong>Frameshift Analysis</strong></td>
-                                                    <td class="text-muted">Potential frameshifting sites (if enabled)</td>
+                                                    <td class="text-muted">Potential +1/&minus;1 PRF sites (if enabled)</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -1876,6 +1945,7 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 analysisTab.addEventListener('shown.bs.tab', function() {
                     loadStoredVirusSelection();
                     refreshPrimaryButtonStates();
+                    loadVizJobSelect();
                 });
             }
 
@@ -1955,11 +2025,15 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 if (segmentSelect) {
                     segmentSelect.value = '';
                 }
-                // Update checklist for selected virus
+                // Set slot enable/disable + bundled baseline first, then let the
+                // checklist reflect already-uploaded custom-virus files on top.
+                updateSlotUploadState();
                 if (this.value) {
                     updateUploadChecklist(this.value);
                 }
             });
+            // Set the initial (disabled) state until a virus is chosen.
+            updateSlotUploadState();
             
             // Segment selection for data upload
             document.getElementById('uploadSegmentSelect').addEventListener('change', function() {
@@ -2012,13 +2086,8 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                 }
             });
             
-            // File type selection
-            document.getElementById('fileTypeSelect').addEventListener('change', function() {
-                updateFileInputAccept(this.value);
-            });
-            document.getElementById('dataFile').addEventListener('change', function() {
-                inferFileTypeFromSelectedFile();
-            });
+            // (The legacy single File Type dropdown + file input were replaced by the
+            // per-slot uploader; their change listeners are no longer attached.)
 
             // Reload genome IDs when MSA file selection changes
             document.getElementById('msaFileSelect').addEventListener('change', function() {
@@ -2120,11 +2189,13 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                         // Restore upload checklist and CTA on revisit
                         updateUploadChecklist(virusInfo.virus, virusInfo.segment || null);
 
-                        // Also pre-select the upload virus dropdown so the checklist is visible
-                        const uploadVirusSelect = document.getElementById('uploadVirusSelect');
-                        if (uploadVirusSelect && virusInfo.virus) {
-                            uploadVirusSelect.value = virusInfo.virus;
-                        }
+                        // NOTE: we intentionally do NOT pre-select the Upload "Virus Name"
+                        // dropdown here. Upload is a deliberate action, so it should always
+                        // start at "Select a virus..." on load; auto-filling it from the
+                        // analysis tab's stored selection confused users (it pre-picked a
+                        // virus and pre-bundled its slots on a plain refresh). The upload
+                        // dropdown is only auto-filled right after the user creates a custom
+                        // virus (see the Create Custom Virus handler).
 
                         console.log('Loaded stored virus selection:', virusInfo);
                     } else if (virusSelect && virusSelect.value) {
@@ -2605,56 +2676,108 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
         
 
         
-        // Generate visualization from History tab
-        async function generateVisualization() {
-            const virusName = document.getElementById('historyVirusSelect').value;
-            const genomeId = document.getElementById('historyGenomeId').value;
-            const visualizationType = document.getElementById('historyVisualizationType').value;
-            
-            if (!virusName || !visualizationType) {
-                alert('Please select both virus type and visualization type');
+        // ── Job-driven visualization (primary path) ────────────────────────────
+        // Populate the job selector from completed jobs that have archived charts.
+        async function loadVizJobSelect(preferredJobId = null) {
+            const select = document.getElementById('vizJobSelect');
+            if (!select) return;
+            const previous = preferredJobId || select.value;
+            try {
+                const response = await fetch('/api/jobs');
+                const data = await response.json();
+                const jobs = (data.jobs || []).filter(j => j.status === 'completed' && j.has_visualizations);
+
+                select.innerHTML = '<option value="">Select a completed analysis job…</option>';
+                jobs.forEach(job => {
+                    const option = document.createElement('option');
+                    option.value = job.job_id;
+                    const when = job.created_at ? new Date(job.created_at).toLocaleString() : '';
+                    const genomeLabel = job.genome_id ? job.genome_id : 'all genomes';
+                    option.textContent = `${job.virus_name} · ${genomeLabel} · ${when}`;
+                    select.appendChild(option);
+                });
+
+                // Restore prior/preferred selection if it is still available.
+                if (previous && Array.from(select.options).some(o => o.value === previous)) {
+                    select.value = previous;
+                }
+            } catch (e) {
+                console.error('Error loading job list for visualization:', e);
+            }
+            onVizJobSelectChange();
+        }
+
+        function onVizJobSelectChange() {
+            const select = document.getElementById('vizJobSelect');
+            const btn = document.getElementById('loadJobVizBtn');
+            const hint = document.getElementById('loadJobVizHint');
+            if (!select || !btn) return;
+            const hasJob = !!select.value;
+            btn.disabled = !hasJob;
+            if (hint) hint.style.display = hasJob ? 'none' : '';
+        }
+
+        // Load the archived charts for the selected job into the iframes.
+        async function loadJobVisualizations(jobId = null) {
+            const select = document.getElementById('vizJobSelect');
+            const targetJobId = jobId || (select ? select.value : '');
+            if (!targetJobId) {
+                showNotification('Select a completed analysis job first.', 'warning');
                 return;
             }
-            
+            // Keep the selector in sync when called from a History row.
+            if (select && select.value !== targetJobId &&
+                Array.from(select.options).some(o => o.value === targetJobId)) {
+                select.value = targetJobId;
+                onVizJobSelectChange();
+            }
+
+            const btn = document.getElementById('loadJobVizBtn');
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span> Loading…';
+            }
+
             try {
-                const response = await fetch('/api/visualize', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams({
-                        virus_name: virusName,
-                        visualization_type: visualizationType,
-                        genome_id: genomeId || ''
-                    })
+                const response = await fetch(`/api/job/${targetJobId}/visualizations`);
+                if (!response.ok) {
+                    const err = await response.json().catch(() => ({}));
+                    showNotification('Could not load visualizations: ' + (err.detail || response.status), 'error');
+                    return;
+                }
+                const data = await response.json();
+                const vizList = data.visualizations || [];
+
+                const content = document.getElementById('interactiveVizContent');
+                const embed = document.getElementById('visualizationEmbed');
+                if (content) content.style.display = 'none';
+                if (embed) embed.style.display = 'block';
+
+                // Reset frames, then fill the ones this job produced.
+                ['mutation', 'row-hot', 'prf'].forEach(t => clearVisualizationFrameByType(t));
+                let loaded = 0;
+                vizList.forEach(viz => {
+                    loadVisualizationByType(viz.type, viz.url);
+                    loaded += 1;
                 });
-                
-                if (response.ok) {
-                    const result = await response.json();
-                    console.log('Visualization result:', result);
-                    console.log('HTML file object:', result.html_file);
-                    console.log('HTML file filename:', result.html_file ? result.html_file.filename : 'null');
-                    console.log('HTML file path:', result.html_file ? result.html_file.path : 'null');
-                    showNotification('Visualization generated successfully!', 'success');
-                    
-                    // Load the visualization
-                    if (result.html_file) {
-                        const filePath = `/api/visualization-files/${virusName}/${result.html_file.filename}`;
-                        console.log('Loading visualization from:', filePath);
-                        loadVisualization(filePath);
-                    } else {
-                        console.log('No HTML file in result:', result);
-                    }
+
+                if (loaded > 0) {
+                    if (embed) embed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    showNotification(`Loaded ${loaded} visualization${loaded === 1 ? '' : 's'} for this job.`, 'success');
                 } else {
-                    const error = await response.json();
-                    showNotification('Visualization failed: ' + error.detail, 'error');
+                    showNotification('This job has no archived visualizations.', 'warning');
                 }
             } catch (error) {
-                console.error('Error generating visualization:', error);
-                showNotification('Error generating visualization', 'error');
+                console.error('Error loading job visualizations:', error);
+                showNotification('Error loading visualizations for this job.', 'error');
+            } finally {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-chart-line me-2"></i> View Visualizations';
+                }
             }
         }
-        
+
         // Load available viruses
         async function loadViruses() {
             try {
@@ -2682,11 +2805,11 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                         const option = document.createElement('option');
                         option.value = virus.name;
                         
-                        // Show cleaner names: just virus name for template viruses, "Custom Virus" for custom ones
+                        // Distinguish built-in example viruses from user-created custom ones.
                         if (virus.is_custom) {
-                            option.textContent = `${virus.name}: Custom Virus`;
+                            option.textContent = `${virus.name} (custom)`;
                         } else {
-                            option.textContent = virus.name;
+                            option.textContent = `${virus.name} (example)`;
                         }
                         
                         option.dataset.isMultiSegment = virus.is_multi_segment;
@@ -2698,6 +2821,22 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                     console.log(`Loaded ${data.viruses.length} viruses into ${selectId}`);
                 });
                 
+                // Populate the Sample Data dropdown with the BUILT-IN (example) viruses
+                // only — custom viruses have no bundled sample data to load.
+                const sampleSelect = document.getElementById('sampleVirusSelect');
+                if (sampleSelect) {
+                    const builtins = data.viruses.filter(v => !v.is_custom);
+                    sampleSelect.innerHTML = '';
+                    builtins.forEach(v => {
+                        const o = document.createElement('option');
+                        o.value = v.name;
+                        o.textContent = v.name + (v.is_multi_segment ? ' (multi-segment)' : '');
+                        sampleSelect.appendChild(o);
+                    });
+                    // Default to SARS-CoV-2 when present (keeps the prior default).
+                    if (builtins.some(v => v.name === 'SARS-CoV-2')) sampleSelect.value = 'SARS-CoV-2';
+                }
+
                 if (!allElementsFound) {
                     console.log('Some elements not found, retrying in 500ms...');
                     setTimeout(loadViruses, 500);
@@ -2833,11 +2972,14 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                     // Reload viruses to include the new custom virus
                     await loadViruses();
                     
-                    // Select the newly created virus in the upload form
+                    // Select the newly created virus in the upload form and show the
+                    // next-step panel (0 of 3 files) so the user immediately sees what to do.
                     const uploadSelect = document.getElementById('uploadVirusSelect');
                     uploadSelect.value = virusName;
                     handleVirusSelection(uploadSelect, 'uploadSegmentSelector', 'uploadSegmentSelect');
-                    
+                    updateSlotUploadState();
+                    updateUploadChecklist(virusName);
+
                 } else {
                     showNotification(data.detail || 'Error creating custom virus', 'error');
                 }
@@ -2847,7 +2989,142 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             }
         }
         
-        // Handle data upload
+        // Each slot's solid "active" button color (matches its icon). When a slot is
+        // bundled (built-in virus), we swap this for a muted "Included" pill; otherwise
+        // we restore the solid color so the button reads as clearly clickable.
+        const SLOT_BTN_ACTIVE_CLASSES = {
+            reference_genome: ['btn-primary'],
+            proteome: ['btn-primary'],
+            msa: ['btn-primary']
+        };
+
+        // Enable the slot "Choose file" buttons only once a virus is selected, so the
+        // file picker can't open (and waste the user's pick) before a virus is chosen.
+        function updateSlotUploadState() {
+            const sel = document.getElementById('uploadVirusSelect');
+            const hasVirus = !!(sel && sel.value);
+            const opt = sel && sel.options[sel.selectedIndex];
+            const isCustom = opt && opt.dataset.isCustom === 'true';
+            ['reference_genome', 'proteome', 'msa'].forEach(t => {
+                const input = document.getElementById('slotFile-' + t);
+                const btn = input ? input.nextElementSibling : null;
+                const row = document.getElementById('slotRow-' + t);
+                if (!btn) return;
+                // Built-in ("example") viruses ship with a curated reference genome and
+                // proteome, so only the MSA is uploadable for them. Custom viruses take all 3.
+                const bundled = hasVirus && !isCustom && t !== 'msa';
+                btn.disabled = !hasVirus || bundled;
+                btn.title = !hasVirus ? 'Choose a virus (Virus Name) first'
+                          : bundled ? 'Bundled with this example virus — not uploadable' : '';
+                // Dim the whole row and swap the button to a clear "Included" pill so the
+                // bundled state reads at a glance (a greyed-out button alone is too subtle).
+                if (row) row.classList.toggle('bundled', bundled);
+                const activeClasses = SLOT_BTN_ACTIVE_CLASSES[t];
+                if (bundled) {
+                    btn.classList.remove(...activeClasses);
+                    btn.classList.add('btn-light', 'text-muted', 'border');
+                    btn.innerHTML = '<i class="fas fa-check me-1"></i> Included';
+                } else {
+                    btn.classList.remove('btn-light', 'text-muted', 'border');
+                    btn.classList.add(...activeClasses);
+                    btn.innerHTML = '<i class="fas fa-upload me-1"></i> Choose file';
+                }
+                setSlotStatus(t, bundled ? 'bundled' : 'idle', '');
+            });
+        }
+
+        // Set the per-slot status line (idle / uploading / done / error).
+        function setSlotStatus(fileType, state, text) {
+            const el = document.getElementById('slotStatus-' + fileType);
+            if (!el) return;
+            if (state === 'uploading')
+                el.innerHTML = `<span class="text-primary"><i class="fas fa-spinner fa-spin me-1"></i>Uploading ${text}…</span>`;
+            else if (state === 'done')
+                el.innerHTML = `<span class="text-success"><i class="fas fa-check-circle me-1"></i>${text}</span>`;
+            else if (state === 'error')
+                el.innerHTML = `<span class="text-danger"><i class="fas fa-exclamation-circle me-1"></i>${text}</span>`;
+            else if (state === 'bundled')
+                el.innerHTML = `<span class="text-muted"><i class="fas fa-lock me-1"></i>Bundled with this example — not needed</span>`;
+            else
+                el.innerHTML = `<span class="text-muted">Not uploaded yet</span>`;
+        }
+
+        // Upload one file for a specific slot (reference_genome | proteome | msa).
+        // Triggered when the user picks a file in that slot; uploads immediately.
+        async function uploadSlotFile(fileType, inputEl) {
+            const file = inputEl.files && inputEl.files[0];
+            if (!file) return;
+
+            const virusSelect = document.getElementById('uploadVirusSelect');
+            const virusName = virusSelect.value;
+            const segment = document.getElementById('uploadSegmentSelect').value;
+            if (!virusName) {
+                showUploadMessage('Please choose a virus (Virus Name) first.', 'error');
+                inputEl.value = '';
+                return;
+            }
+            const opt = virusSelect.options[virusSelect.selectedIndex];
+            const formData = new FormData();
+            formData.append('virus_name', virusName);
+            formData.append('file_type', fileType);
+            formData.append('file', file);
+            if (segment) formData.append('segment', segment);
+            formData.append('is_custom_virus', opt && opt.dataset.isCustom === 'true');
+
+            setSlotStatus(fileType, 'uploading', file.name);
+            const progressContainer = document.getElementById('uploadProgressContainer');
+            const progressBar = document.getElementById('uploadProgressBar');
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%'; progressBar.textContent = '0%';
+
+            try {
+                await new Promise((resolve, reject) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/api/upload-data');
+                    xhr.upload.addEventListener('progress', (e) => {
+                        if (e.lengthComputable) {
+                            const pct = Math.round((e.loaded / e.total) * 100);
+                            progressBar.style.width = pct + '%'; progressBar.textContent = pct + '%';
+                        }
+                    });
+                    xhr.addEventListener('load', () => {
+                        progressContainer.style.display = 'none';
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            const result = JSON.parse(xhr.responseText);
+                            setSlotStatus(fileType, 'done', result.filename);
+                            showUploadMessage(`Uploaded: ${result.filename}`, 'success');
+                            localStorage.setItem('selectedVirusForAnalysis', JSON.stringify({
+                                virus: virusName, segment: segment || null,
+                                fileType: fileType, uploadedFilename: result.filename
+                            }));
+                            localStorage.removeItem('selectedVirus');
+                            updateUploadChecklist(virusName, segment);
+                            resolve();
+                        } else {
+                            let detail = 'Upload failed';
+                            try { detail = JSON.parse(xhr.responseText).detail || detail; } catch (e) {}
+                            setSlotStatus(fileType, 'error', detail);
+                            showUploadMessage('Upload failed: ' + detail, 'error');
+                            reject(new Error(detail));
+                        }
+                    });
+                    xhr.addEventListener('error', () => {
+                        progressContainer.style.display = 'none';
+                        setSlotStatus(fileType, 'error', 'Network error');
+                        showUploadMessage('Error uploading file', 'error');
+                        reject(new Error('Network error'));
+                    });
+                    xhr.send(formData);
+                });
+            } catch (e) {
+                progressContainer.style.display = 'none';
+            } finally {
+                inputEl.value = '';   // allow re-selecting the same file name
+            }
+        }
+
+        // Legacy single-file upload handler (no longer wired to a submit button;
+        // kept for backward compatibility). The 3-slot uploader above is the active path.
         async function handleDataUpload(e) {
             e.preventDefault();
             
@@ -2902,9 +3179,6 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                         if (xhr.status >= 200 && xhr.status < 300) {
                             const result = JSON.parse(xhr.responseText);
                             showUploadMessage(`File uploaded successfully: ${result.filename}`, 'success');
-                            // Optimistic checklist update so users get immediate feedback
-                            // even if the follow-up checklist API call is delayed.
-                            markChecklistByFileType(fileType, true);
 
                             const selectedVirusInfo = {
                                 virus: virusName,
@@ -2952,15 +3226,12 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             }
         }
         
+        // Reset the upload state: the per-slot status lines are the visible progress
+        // indicator now (the old checkbox "Upload Checklist" was removed), so this only
+        // needs to hide the next-step panel and any legacy continue button.
         function resetUploadChecklist() {
-            ['checkRefGenome', 'checkProteome', 'checkMSA'].forEach(checkboxId => {
-                const checkbox = document.getElementById(checkboxId);
-                if (checkbox) {
-                    checkbox.checked = false;
-                    updateCheckboxStyle(checkboxId, false);
-                }
-            });
-
+            const panel = document.getElementById('uploadNextStep');
+            if (panel) panel.style.display = 'none';
             const continueButton = document.getElementById('continueToAnalysisBtn');
             if (continueButton) {
                 continueButton.remove();
@@ -2972,9 +3243,20 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             try {
                 // Use passed segment instead of reading from form
                 const selectedSegment = segment;
-                
-                // Detect whether selected virus is multi-segment from dropdown metadata.
+
+                // This function drives upload-tab UI (per-slot statuses + the next-step
+                // panel), so it must only run for the virus actually chosen in the Upload
+                // dropdown. It is also called on page load to restore the analysis-tab
+                // selection; in that case the upload dropdown is still empty, so bail —
+                // otherwise the panel/slots would populate for a virus the user hasn't
+                // selected for upload.
                 const uploadVirusSelect = document.getElementById('uploadVirusSelect');
+                if (!uploadVirusSelect || uploadVirusSelect.value !== virusName) {
+                    resetUploadChecklist();
+                    return;
+                }
+
+                // Detect whether selected virus is multi-segment from dropdown metadata.
                 let isMultiSegment = false;
                 let isCustomVirus = false;
                 if (uploadVirusSelect) {
@@ -3026,60 +3308,21 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                     files: files.map(f => ({name: f.filename, type: f.type}))
                 });
                 
-                // Update checkboxes
-                document.getElementById('checkRefGenome').checked = hasRefGenome;
-                document.getElementById('checkProteome').checked = hasProteome;
-                document.getElementById('checkMSA').checked = hasMSA;
+                // Reflect already-uploaded files in the upload slots.
+                const nameByType = {};
+                files.forEach(f => { if (f.type && !nameByType[f.type]) nameByType[f.type] = f.filename; });
+                setSlotStatus('reference_genome', hasRefGenome ? 'done' : 'idle', nameByType['reference_genome'] || '');
+                setSlotStatus('proteome', hasProteome ? 'done' : 'idle', nameByType['proteome'] || '');
+                setSlotStatus('msa', hasMSA ? 'done' : 'idle', nameByType['msa'] || '');
                 
-                // Update checkbox styles
-                updateCheckboxStyle('checkRefGenome', hasRefGenome);
-                updateCheckboxStyle('checkProteome', hasProteome);
-                updateCheckboxStyle('checkMSA', hasMSA);
-                
-                // Show completion message and continue button if all files are uploaded
+                // Drive the persistent next-step panel (progress + Continue button).
+                updateUploadNextStep(virusName, selectedSegment, hasRefGenome, hasProteome, hasMSA);
                 if (hasRefGenome && hasProteome && hasMSA) {
                     showNotification('🎉 All required files uploaded! You can now start analysis.', 'success');
-                    
-                    // Show "Continue to Analysis" button using passed virus name
-                    showContinueToAnalysisButton(virusName, selectedSegment);
-                } else {
-                    // Hide continue button if not all files are uploaded
-                    const continueButton = document.getElementById('continueToAnalysisBtn');
-                    if (continueButton) {
-                        continueButton.remove();
-                    }
                 }
             } catch (error) {
                 console.error('Error updating checklist:', error);
             }
-        }
-        
-        // Update checkbox visual style
-        function updateCheckboxStyle(checkboxId, isChecked) {
-            const checkbox = document.getElementById(checkboxId);
-            const label = checkbox.nextElementSibling;
-            
-            if (isChecked) {
-                label.style.color = '#28a745';
-                label.style.fontWeight = 'bold';
-            } else {
-                label.style.color = '#6c757d';
-                label.style.fontWeight = 'normal';
-            }
-        }
-
-        function markChecklistByFileType(fileType, isChecked = true) {
-            const map = {
-                reference_genome: 'checkRefGenome',
-                proteome: 'checkProteome',
-                msa: 'checkMSA'
-            };
-            const checkboxId = map[fileType];
-            if (!checkboxId) return;
-            const checkbox = document.getElementById(checkboxId);
-            if (!checkbox) return;
-            checkbox.checked = isChecked;
-            updateCheckboxStyle(checkboxId, isChecked);
         }
         
         // Handle analysis form submission
@@ -3320,8 +3563,12 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                         document.getElementById('jobCreatedDisplay').textContent = new Date(job.created_at).toLocaleString();
                         document.getElementById('jobVirusDisplay').textContent = job.virus_name;
 
-                        showNotification('🎉 Analysis completed successfully! Check the History tab for results.', 'success');
+                        const completedJobId = job.job_id;
+                        showNotification('🎉 Analysis completed! Loading its visualizations below…', 'success');
                         loadJobHistory();
+                        // Surface this job's charts immediately: the visualization
+                        // panel becomes driven by the job that just finished.
+                        loadVizJobSelect(completedJobId).then(() => loadJobVisualizations(completedJobId));
                         currentJobId = null;
                     } else if (job.status === 'failed') {
                         clearInterval(statusCheckInterval);
@@ -3606,53 +3853,53 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             showNotification(`✅ Virus "${virusName}" is ready for analysis! Please select a genome ID.`, 'success');
         }
         
-        // Show "Continue to Analysis" button for custom viruses
-        function showContinueToAnalysisButton(virusName, segment = null) {
-            console.log('showContinueToAnalysisButton called with:', virusName, segment);
-            
-            // Create or update the continue button
-            let continueButton = document.getElementById('continueToAnalysisBtn');
-            if (!continueButton) {
-                continueButton = document.createElement('div');
-                continueButton.id = 'continueToAnalysisBtn';
-                continueButton.className = 'alert alert-success mt-3';
-                continueButton.innerHTML = `
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="mb-1"><i class="fas fa-check-circle me-2"></i>Virus "${virusName}" ready!</h6>
-                            <p class="mb-0">Your files have been uploaded successfully. Ready to start analysis!</p>
-                        </div>
-                        <button class="btn btn-success" onclick="continueToAnalysis('${virusName}', '${segment || ''}')">
-                            <i class="fas fa-arrow-right me-2"></i>Continue to Analysis
-                        </button>
-                    </div>
-                `;
-                
-                // Insert after the upload form
-                const uploadForm = document.getElementById('dataUploadForm');
-                if (uploadForm && uploadForm.parentNode) {
-                    console.log('Inserting continue button after upload form');
-                    uploadForm.parentNode.insertBefore(continueButton, uploadForm.nextSibling);
-                } else {
-                    console.error('Could not find upload form to insert continue button');
-                }
+        // Persistent next-step panel for custom-virus uploads. Shows running progress
+        // toward the 3 required files, and enables "Continue to Analysis" once all are in
+        // — so the user always knows what to do next (mirrors the Quick Start CTA).
+        let _uploadPanelVirus = null;
+        let _uploadPanelSegment = null;
+        function updateUploadNextStep(virusName, segment, hasRefGenome, hasProteome, hasMSA) {
+            const panel = document.getElementById('uploadNextStep');
+            const title = document.getElementById('uploadNextStepTitle');
+            const text = document.getElementById('uploadNextStepText');
+            const btn = document.getElementById('uploadNextStepBtn');
+            if (!panel || !title || !text || !btn) return;
+
+            _uploadPanelVirus = virusName;
+            _uploadPanelSegment = segment || null;
+
+            const done = [hasRefGenome, hasProteome, hasMSA].filter(Boolean).length;
+            const missing = [
+                !hasRefGenome ? 'Reference Genome' : null,
+                !hasProteome ? 'Reference Proteome' : null,
+                !hasMSA ? 'MSA File' : null
+            ].filter(Boolean);
+
+            panel.style.display = 'block';
+            if (done === 3) {
+                // Ready — green, enabled.
+                panel.className = 'mt-3 p-3 rounded border border-success bg-success bg-opacity-10';
+                title.innerHTML = `<i class="fas fa-check-circle text-success me-2"></i>Virus "${virusName}" ready!`;
+                text.className = 'mb-0 small text-success';
+                text.textContent = 'All 3 required files are uploaded. Start the analysis when you\'re ready.';
+                btn.disabled = false;
             } else {
-                console.log('Continue button already exists, updating content');
-                // Update existing button
-                continueButton.innerHTML = `
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="mb-1"><i class="fas fa-check-circle me-2"></i>Virus "${virusName}" ready!</h6>
-                            <p class="mb-0">Your files have been uploaded successfully. Ready to start analysis!</p>
-                        </div>
-                        <button class="btn btn-success" onclick="continueToAnalysis('${virusName}', '${segment || ''}')">
-                            <i class="fas fa-arrow-right me-2"></i>Continue to Analysis
-                        </button>
-                    </div>
-                `;
+                // In progress — neutral, disabled until complete.
+                panel.className = 'mt-3 p-3 rounded border border-primary bg-primary bg-opacity-10';
+                title.innerHTML = `<i class="fas fa-cloud-upload-alt text-primary me-2"></i>Next step: upload ${done} of 3 files done`;
+                text.className = 'mb-0 small text-muted';
+                text.textContent = `Still need: ${missing.join(', ')}. Then continue to analysis.`;
+                btn.disabled = true;
             }
         }
-        
+
+        // Continue button on the upload next-step panel.
+        function continueFromUploadPanel() {
+            if (_uploadPanelVirus) {
+                continueToAnalysis(_uploadPanelVirus, _uploadPanelSegment);
+            }
+        }
+
         // Continue to Analysis function
         function continueToAnalysis(virusName, segment = null) {
             // Switch to Analysis tab
@@ -3663,8 +3910,10 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             
             // Auto-populate the Analysis panel
             autoPopulateAnalysisPanel(virusName, segment);
-            
-            // Remove the continue button
+
+            // Hide the next-step panel and any legacy continue button.
+            const panel = document.getElementById('uploadNextStep');
+            if (panel) panel.style.display = 'none';
             const continueButton = document.getElementById('continueToAnalysisBtn');
             if (continueButton) {
                 continueButton.remove();
@@ -3708,6 +3957,26 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                             <i class="fas fa-download"></i> Download Results
                         </a>` : '';
 
+                    // Visualize button: enabled when this specific job has archived charts.
+                    let visualizeButton = '';
+                    if (job.status === 'completed' && !isDualGraph) {
+                        if (job.has_visualizations) {
+                            visualizeButton = `<button type="button" class="btn btn-success btn-sm ms-2"
+                                onclick="visualizeJobFromHistory('${job.job_id}')">
+                                <i class="fas fa-chart-line"></i> Visualize
+                            </button>`;
+                        } else {
+                            visualizeButton = `<button type="button" class="btn btn-outline-secondary btn-sm ms-2" disabled
+                                title="Visualizations were not archived for this job (older run). Re-run the analysis to enable.">
+                                <i class="fas fa-chart-line"></i> Visualize
+                            </button>`;
+                        }
+                    }
+
+                    const genomeLine = (!isDualGraph && job.genome_id)
+                        ? `<br><small class="text-muted">Genome: ${job.genome_id}</small>`
+                        : '';
+
                     html += `
                         <div class="card mb-3">
                             <div class="card-body">
@@ -3716,6 +3985,7 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                                         <h6 class="mb-1">${displayName}</h6>
                                         ${subLabel}
                                         <small class="text-muted">Job ID: ${job.job_id}</small>
+                                        ${genomeLine}
                                         <br>
                                         <small class="text-muted">Created: ${new Date(job.created_at).toLocaleString()}</small>
                                     </div>
@@ -3723,6 +3993,7 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                                         <span class="badge bg-${statusClass}">
                                             <i class="fas fa-${statusIcon}"></i> ${job.status}
                                         </span>
+                                        ${visualizeButton}
                                         ${downloadButton}
                                     </div>
                                 </div>
@@ -3743,9 +4014,25 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
                     syncHistoryVirusSelection(firstCompletedVirusJob.virus_name);
                     refreshPrimaryButtonStates();
                 }
+
+                // Keep the job-driven visualization selector in sync with history.
+                loadVizJobSelect();
             } catch (error) {
                 console.error('Error loading job history:', error);
             }
+        }
+
+        // From a History row: switch to the Analysis tab's visualization panel
+        // and load exactly this job's archived charts.
+        function visualizeJobFromHistory(jobId) {
+            const analysisTabBtn = document.getElementById('analysis-tab');
+            if (analysisTabBtn && window.bootstrap && bootstrap.Tab) {
+                bootstrap.Tab.getOrCreateInstance(analysisTabBtn).show();
+            } else if (analysisTabBtn) {
+                analysisTabBtn.click();
+            }
+            // Ensure the selector knows about this job, then load it.
+            loadVizJobSelect(jobId).then(() => loadJobVisualizations(jobId));
         }
 
         // Bulk download all files for a virus
@@ -3787,36 +4074,91 @@ hCoV-19/Shanghai/SJTU-236325/2022|EPI_ISL_16327572|2022-12-19      AGACTCCGTGGAG
             }
         }
         
-        // Sample data loading function
-        async function loadSampleData() {
-            try {
-                showNotification('Loading sample data...', 'info');
+        // Remembers which example virus was last loaded, so "Continue to Analysis"
+        // sends the user to the right virus (not a hardcoded one).
+        let _lastSampleVirus = null;
 
-                // Grant session access to SARS-CoV-2 built-in data
-                const resp = await fetch('/api/load-sample-data?virus_name=SARS-CoV-2', { method: 'POST' });
+        // Sample data loading function — works for any built-in (example) virus.
+        async function loadSampleData() {
+            const sampleSelect = document.getElementById('sampleVirusSelect');
+            const virusName = (sampleSelect && sampleSelect.value) || 'SARS-CoV-2';
+            _lastSampleVirus = virusName;
+            try {
+                showNotification(`Loading ${virusName} sample data...`, 'info');
+
+                // Grant session access to this built-in virus's bundled data
+                const resp = await fetch(`/api/load-sample-data?virus_name=${encodeURIComponent(virusName)}`, { method: 'POST' });
                 if (!resp.ok) {
                     const err = await resp.json().catch(() => ({}));
                     showNotification('❌ ' + (err.detail || 'Failed to load sample data'), 'error');
                     return;
                 }
+                const sampleInfo = await resp.json().catch(() => ({}));
 
-                // Select SARS-CoV-2 on the upload tab
-                const uploadSelect = document.getElementById('uploadVirusSelect');
-                if (uploadSelect) {
-                    uploadSelect.value = 'SARS-CoV-2';
-                    uploadSelect.dispatchEvent(new Event('change'));
+                // Discover which concrete files are now available and how many
+                // genomes the bundled alignment holds, so the summary is real
+                // rather than a vague "it's ready" toast.
+                const [dataFiles, genomeCount] = await Promise.all([
+                    fetch(`/api/data-files/${virusName}`).then(r => r.ok ? r.json() : { files: [] }).catch(() => ({ files: [] })),
+                    fetch(`/api/genome-ids/${virusName}`).then(r => r.ok ? r.json() : null).catch(() => null),
+                ]);
+
+                const byType = {};
+                (dataFiles.files || []).forEach(f => {
+                    if (f.file_type && !byType[f.file_type]) byType[f.file_type] = f.filename;
+                });
+                const msaName = (sampleInfo.msa_files && sampleInfo.msa_files[0]) || byType['msa'];
+                const nGenomes = genomeCount && Array.isArray(genomeCount.genome_ids)
+                    ? genomeCount.genome_ids.length : null;
+
+                // Build the persistent summary card.
+                const items = [];
+                if (byType['reference_genome']) items.push(`<li>Reference genome: <code>${byType['reference_genome']}</code></li>`);
+                if (byType['proteome']) items.push(`<li>Proteome: <code>${byType['proteome']}</code></li>`);
+                if (msaName) items.push(`<li>MSA alignment: <code>${msaName}</code></li>`);
+                if (nGenomes !== null) items.push(`<li>Genomes in alignment: <strong>${nGenomes}</strong></li>`);
+                if (items.length === 0) items.push(`<li>Bundled ${virusName} reference, proteome, and alignment</li>`);
+                const fileList = document.getElementById('sampleDataFileList');
+                if (fileList) fileList.innerHTML = items.join('');
+                const heading = document.getElementById('sampleDataHeading');
+                if (heading) heading.textContent = `${virusName} example data loaded`;
+                const card = document.getElementById('sampleDataCard');
+                if (card) card.style.display = 'block';
+
+                // Record the handoff so the Analysis tab pre-fills this virus,
+                // exactly like the upload flow does. Deliberately do NOT touch
+                // the upload checklist: for built-in viruses it resets to empty
+                // and makes the load look like nothing happened.
+                localStorage.setItem('selectedVirusForAnalysis', JSON.stringify({
+                    virus: virusName,
+                    segment: null,
+                    fileType: 'sample',
+                    uploadedFilename: msaName || null,
+                }));
+
+                // Pre-fill the Analysis panel's virus select now (without leaving
+                // this tab); the user chooses when to continue.
+                const virusSelect = document.getElementById('virusSelect');
+                if (virusSelect && Array.from(virusSelect.options).some(o => o.value === virusName)) {
+                    virusSelect.value = virusName;
+                    virusSelect.dispatchEvent(new Event('change'));
                 }
 
-                // Give the change handler a moment, then refresh the checklist
-                await new Promise(r => setTimeout(r, 300));
-                await updateUploadChecklist('SARS-CoV-2');
-
-                showNotification('✅ SARS-CoV-2 sample data is ready. Use this as the default example setup, then switch to Analysis & Visualization.', 'success');
+                showNotification(`✅ ${virusName} example data loaded and pre-filled in the Analysis tab.`, 'success');
 
             } catch (error) {
                 console.error('Error loading sample data:', error);
                 showNotification('❌ Error loading sample data', 'error');
             }
+        }
+
+        // "Continue to Analysis →" on the sample-data card: switch to the
+        // Analysis tab with the virus already selected.
+        function continueToSampleAnalysis() {
+            const v = _lastSampleVirus
+                || (document.getElementById('sampleVirusSelect') || {}).value
+                || 'SARS-CoV-2';
+            autoPopulateAnalysisPanel(v);
         }
         
 

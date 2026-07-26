@@ -1,0 +1,14 @@
+Secondary structures in dot-bracket notation (dbn) as a whole and per chain
+
+>HistoryTest_2_2
+
+GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG
+
+..(((((((((((((((((....))))))))))))......))))).......
+
+>Chain A
+
+GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG
+
+..(((((((((((((((((....))))))))))))......))))).......
+

@@ -1,0 +1,17 @@
+Title			MY_RNA RNA structure
+Chain order		A
+Amino acids		NO
+Metal
+Chains			A	RNA	
+Pseudoknot		NO
+
+Whole structure
+>MY_RNA
+GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG
+..(((((((((((((((((....))))))))))))......))))).......
+
+Interacting substructures
+Chain A
+GGGAAGAUCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAG
+..(((((((((((((((((....))))))))))))......))))).......
+

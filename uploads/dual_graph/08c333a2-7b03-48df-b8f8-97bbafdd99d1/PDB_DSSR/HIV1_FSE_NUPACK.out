@@ -1,0 +1,14 @@
+Secondary structures in dot-bracket notation (dbn) as a whole and per chain
+
+>HIV1_FSE_NUPACK
+
+UCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAGACCAGAGCCAACAGCCCCACCAGAAGAGAGCUUCAGGUC
+
+.(((((((((((....)))))))))))(((.((((((((......{{{{...{{.....}}.......)))))))).))).}}}}
+
+>Chain A
+
+UCUGGCCUUCCUACAAGGGAAGGCCAGGGAAUUUUCUUCAGAGCAGACCAGAGCCAACAGCCCCACCAGAAGAGAGCUUCAGGUC
+
+.(((((((((((....)))))))))))(((.((((((((......{{{{...{{.....}}.......)))))))).))).}}}}
+

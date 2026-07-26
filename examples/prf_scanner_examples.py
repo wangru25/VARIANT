@@ -59,13 +59,13 @@ def main():
     print("to detect programmed ribosomal frameshifting sites in viral genomes.")
     
     # Check if we're in the right directory
-    if not Path("src/core/prf_scanner.py").exists():
+    if not Path("src/core/prf/prf_scanner.py").exists():
         print("❌ ERROR: Please run this script from the VARIANT root directory")
         sys.exit(1)
     
     # Example 1: Basic SARS-CoV-2 PRF scanning
     run_command([
-        "python", "src/core/prf_scanner.py",
+        "python", "src/core/prf/prf_scanner.py",
         "--fasta", "data/SARS-CoV-2/refs/NC_045512.fasta",
         "--out", "examples/sars_cov2_basic",
         "--use-rnafold"
@@ -73,7 +73,7 @@ def main():
     
     # Example 2: Advanced SARS-CoV-2 PRF scanning with custom parameters
     run_command([
-        "python", "src/core/prf_scanner.py",
+        "python", "src/core/prf/prf_scanner.py",
         "--fasta", "data/SARS-CoV-2/refs/NC_045512.fasta",
         "--out", "examples/sars_cov2_advanced",
         "--spacer-min", "3",
@@ -85,7 +85,7 @@ def main():
     
     # Example 3: HIV-1 PRF scanning
     run_command([
-        "python", "src/core/prf_scanner.py",
+        "python", "src/core/prf/prf_scanner.py",
         "--fasta", "data/HIV-1/refs/NC_001802.1.fasta",
         "--out", "examples/hiv1_prf",
         "--use-rnafold",
@@ -94,7 +94,7 @@ def main():
     
     # Example 4: Chikungunya PRF scanning
     run_command([
-        "python", "src/core/prf_scanner.py",
+        "python", "src/core/prf/prf_scanner.py",
         "--fasta", "data/Chikungunya/refs/NC_004162.2.fasta",
         "--out", "examples/chikungunya_prf",
         "--use-rnafold",
@@ -103,7 +103,7 @@ def main():
     
     # Example 5: Zaire Ebola PRF scanning
     run_command([
-        "python", "src/core/prf_scanner.py",
+        "python", "src/core/prf/prf_scanner.py",
         "--fasta", "data/ZaireEbola/refs/NC_002549.1.fasta",
         "--out", "examples/zaire_ebola_prf",
         "--use-rnafold",
@@ -112,7 +112,7 @@ def main():
     
     # Example 6: H3N2 segment 1 PRF scanning
     run_command([
-        "python", "src/core/prf_scanner.py",
+        "python", "src/core/prf/prf_scanner.py",
         "--fasta", "data/H3N2/segment_1/refs/NC_007373.1.fasta",
         "--out", "examples/h3n2_segment1_prf",
         "--use-rnafold",
@@ -121,7 +121,7 @@ def main():
     
     # Example 7: PRF scanning without RNA structure prediction (faster)
     run_command([
-        "python", "src/core/prf_scanner.py",
+        "python", "src/core/prf/prf_scanner.py",
         "--fasta", "data/SARS-CoV-2/refs/NC_045512.fasta",
         "--out", "examples/sars_cov2_no_rnafold"
     ], "SARS-CoV-2 PRF scanning without RNA structure prediction (faster)")

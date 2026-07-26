@@ -128,6 +128,28 @@ user_sessions: Dict[str, Dict[str, Any]] = {}
 session_virus_access: Dict[str, List[str]] = {}
 genome_ids_cache: Dict[str, Dict[str, Any]] = {}
 
+# Per-virus locks serialize analysis jobs that share the same virus-keyed
+# `result/<virus>/` and `imgs/visualizations/<virus>/` directories. Same-virus
+# jobs would otherwise overwrite each other's shared dir mid-run (one job's
+# plot subprocess awaits while another job's process() rewrites the CSVs).
+# Different viruses stay parallel.
+_virus_locks: Dict[str, asyncio.Lock] = {}
+
+
+def _job_visualization_dir(virus_name: str, job_id: str) -> str:
+    """Stable per-job archive dir for visualization artifacts, immune to later
+    same-virus runs overwriting the shared `imgs/visualizations/<virus>/` dir."""
+    return f"imgs/visualizations/{virus_name}/jobs/{job_id}"
+
+
+def _job_has_visualizations(job: Dict[str, Any]) -> bool:
+    """True when a completed job has archived visualization files on disk."""
+    if job.get("status") != "completed":
+        return False
+    results = job.get("results") or {}
+    viz_files = results.get("visualization_files") or []
+    return any(os.path.exists(p) for p in viz_files)
+
 _JOBS_FILE = "results/analysis_jobs.json"
 _ACCESS_FILE = "results/session_virus_access.json"
 
@@ -208,14 +230,28 @@ def _save_access_to_disk() -> None:
 _load_jobs_from_disk()
 _load_access_from_disk()
 
-async def _run_subprocess_async(cmd: List[str], cwd: str = "."):
-    """Run subprocess without blocking event loop (Python 3.8 compatible)."""
+async def _run_subprocess_async(cmd: List[str], cwd: str = ".", timeout: Optional[float] = None):
+    """Run subprocess without blocking event loop (Python 3.8 compatible).
+
+    A timeout guards against a plotting subprocess hanging (e.g. an image
+    backend that stalls without a browser). On timeout the child is killed and
+    a CompletedProcess-like result with a non-zero return code is returned so
+    callers treat it as a normal failure rather than blocking forever.
+    """
     loop = asyncio.get_running_loop()
     import subprocess
-    return await loop.run_in_executor(
-        None,
-        lambda: subprocess.run(cmd, capture_output=True, text=True, cwd=cwd)
-    )
+
+    def _run():
+        try:
+            return subprocess.run(cmd, capture_output=True, text=True, cwd=cwd, timeout=timeout)
+        except subprocess.TimeoutExpired as exc:
+            return subprocess.CompletedProcess(
+                cmd, returncode=124,
+                stdout=(exc.stdout or ""),
+                stderr=f"Timed out after {timeout}s",
+            )
+
+    return await loop.run_in_executor(None, _run)
 
 def load_virus_config():
     '''Load virus configuration from YAML file.'''
@@ -281,6 +317,33 @@ def get_session_id(request: Request) -> str:
     return session_id
 
 
+def _is_custom_virus_config(virus_config: Dict[str, Any]) -> bool:
+    """Return whether a virus config belongs to a user-created custom virus."""
+    return virus_config.get("description", "").startswith("Custom virus:")
+
+
+def _session_can_access_virus(virus_name: str, session_id: str, config: Optional[Dict[str, Any]] = None) -> bool:
+    """Built-in viruses are public; custom viruses require explicit session ownership."""
+    config = config or load_virus_config()
+    virus_cfg = config.get("viruses", {}).get(virus_name)
+    if not virus_cfg:
+        return False
+    if not _is_custom_virus_config(virus_cfg):
+        return True
+    return _session_has_virus_access(virus_name, session_id)
+
+
+def _require_virus_access(virus_name: str, session_id: str, config: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """Return the virus config or raise when the current session cannot access it."""
+    config = config or load_virus_config()
+    virus_cfg = config.get("viruses", {}).get(virus_name)
+    if not virus_cfg:
+        raise HTTPException(status_code=404, detail=f"Virus '{virus_name}' not found")
+    if _is_custom_virus_config(virus_cfg) and not _session_has_virus_access(virus_name, session_id):
+        raise HTTPException(status_code=403, detail="Access denied: You can only access custom viruses you created in this session")
+    return virus_cfg
+
+
 def _ensure_custom_virus_session_access(virus_name: str, session_id: str) -> None:
     '''Ensure a custom virus is accessible to the current session.
 
@@ -329,19 +392,8 @@ def _session_has_virus_access(virus_name: str, session_id: str) -> bool:
 
 
 def _ensure_custom_virus_access(virus_name: str, session_id: str) -> bool:
-    """Ensure access for a custom virus, with local recovery for persisted datasets."""
-    if _session_has_virus_access(virus_name, session_id):
-        return True
-
-    data_dir = os.path.join("data", virus_name)
-    result_dir = os.path.join("result", virus_name)
-    if os.path.exists(data_dir) or os.path.exists(result_dir):
-        # Local recovery: if a persisted custom virus exists on disk,
-        # allow the active browser session to re-claim access.
-        _grant_session_access(virus_name, session_id)
-        return True
-
-    return False
+    """Return whether this session has explicit access to a custom virus."""
+    return _session_has_virus_access(virus_name, session_id)
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
@@ -365,6 +417,9 @@ async def get_available_viruses(request: Request):
         
         viruses = []
         for virus_name, virus_config in config.get("viruses", {}).items():
+            is_custom = _is_custom_virus_config(virus_config)
+            if not _session_can_access_virus(virus_name, session_id, config):
+                continue
             virus_info = {
                 "name": virus_name,
                 "description": virus_config.get("description", ""),
@@ -373,7 +428,7 @@ async def get_available_viruses(request: Request):
                 "reference_genome": virus_config.get("reference_genome", ""),
                 "proteome_file": virus_config.get("proteome_file", ""),
                 "default_msa_file": virus_config.get("default_msa_file", ""),
-                "is_custom": virus_config.get("description", "").startswith("Custom virus:")
+                "is_custom": is_custom
             }
             viruses.append(virus_info)
         
@@ -496,7 +551,7 @@ async def upload_data_file(
     if not is_custom_virus and file_type in ('reference_genome', 'proteome'):
         config = load_virus_config()
         virus_cfg = config.get("viruses", {}).get(virus_name, {})
-        is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
+        is_builtin = virus_cfg and not _is_custom_virus_config(virus_cfg)
         if is_builtin:
             raise HTTPException(
                 status_code=400,
@@ -599,7 +654,7 @@ async def load_sample_data(virus_name: str = "SARS-CoV-2", request: Request = No
     if virus_name not in config.get("viruses", {}):
         raise HTTPException(status_code=404, detail=f"Virus '{virus_name}' not found")
     virus_cfg = config["viruses"][virus_name]
-    if virus_cfg.get("description", "").startswith("Custom virus:"):
+    if _is_custom_virus_config(virus_cfg):
         raise HTTPException(status_code=400, detail="load-sample-data only works for built-in viruses")
 
     session_id = get_session_id(request) if request else "default"
@@ -629,11 +684,12 @@ async def get_msa_files(virus_name: str, segment: Optional[str] = None, request:
     '''Get all available MSA files for a virus.'''
     try:
         config = load_virus_config()
+        session_id = get_session_id(request) if request else "default"
         
         if virus_name not in config.get("viruses", {}):
             raise HTTPException(status_code=404, detail=f"Virus '{virus_name}' not found")
         
-        virus_config = config["viruses"][virus_name]
+        virus_config = _require_virus_access(virus_name, session_id, config)
         msa_files = []
         
         if segment and "segments" in virus_config:
@@ -682,11 +738,12 @@ async def set_default_msa_file(
     '''Set the default MSA file for a virus.'''
     try:
         config = load_virus_config()
+        session_id = get_session_id(request) if request else "default"
         
         if virus_name not in config.get("viruses", {}):
             raise HTTPException(status_code=404, detail=f"Virus '{virus_name}' not found")
         
-        virus_config = config["viruses"][virus_name]
+        virus_config = _require_virus_access(virus_name, session_id, config)
         
         if segment and "segments" in virus_config:
             # Multi-segment virus
@@ -710,6 +767,8 @@ async def set_default_msa_file(
 async def start_analysis(analysis_request: AnalysisRequest, background_tasks: BackgroundTasks, request: Request):
     '''Start a virus mutation analysis job.'''
     session_id = get_session_id(request)
+    config = load_virus_config()
+    _require_virus_access(analysis_request.virus_name, session_id, config)
     job_id = str(uuid.uuid4())
     
     # Create job record
@@ -743,16 +802,27 @@ async def get_user_jobs(request: Request):
     '''Get all analysis jobs for the current user session.'''
     session_id = get_session_id(request)
     
-    # Filter jobs by session ID
+    # Show only real mutation-analysis runs in History for this session. Non-analysis
+    # bookkeeping records are kept in `analysis_jobs` (they back access control and the
+    # Dual Graph tab's own /api/job/{id} polling) but are excluded from the History
+    # listing so they don't clutter it:
+    #   - type == "dual_graph"          : standalone topology lookups
+    #   - status == "sample_loaded"     : "Load Sample Data" access sentinels
+    #   - status == "custom_virus_ready": custom-virus access sentinels
+    _HIDDEN_STATUSES = {"sample_loaded", "custom_virus_ready"}
     user_jobs = [
         {
             "job_id": job_id,
             "status": job["status"],
             "virus_name": job["virus_name"],
-            "created_at": job["created_at"]
+            "created_at": job["created_at"],
+            "genome_id": (job.get("request") or {}).get("genome_id") or None,
+            "has_visualizations": _job_has_visualizations(job),
         }
         for job_id, job in analysis_jobs.items()
         if job.get("session_id") == session_id
+        and job.get("type") != "dual_graph"
+        and job.get("status") not in _HIDDEN_STATUSES
     ]
     
     # Sort by creation time (newest first)
@@ -782,6 +852,82 @@ async def get_job_status(job_id: str, request: Request):
         "results": job.get("results"),
         "error": job.get("error")
     }
+
+
+def _classify_viz_type(filename: str) -> Optional[str]:
+    """Map an archived visualization filename to its chart type."""
+    lower = filename.lower()
+    if "combined_analysis" in lower:
+        return "mutation"
+    if "row_hot_mutations" in lower:
+        return "row-hot"
+    if "prf_regions" in lower:
+        return "prf"
+    return None
+
+
+@app.get("/api/job/{job_id}/visualizations")
+async def get_job_visualizations(job_id: str, request: Request):
+    '''List the archived HTML visualizations produced by a specific job.'''
+    session_id = get_session_id(request)
+
+    if job_id not in analysis_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    job = analysis_jobs[job_id]
+    if job.get("session_id") != session_id:
+        raise HTTPException(status_code=403, detail="Access denied")
+
+    virus_name = job.get("virus_name")
+    job_dir = _job_visualization_dir(virus_name, job_id)
+
+    visualizations = []
+    if os.path.isdir(job_dir):
+        for name in sorted(os.listdir(job_dir)):
+            if not name.endswith(".html"):
+                continue
+            viz_type = _classify_viz_type(name)
+            if not viz_type:
+                continue
+            visualizations.append({
+                "type": viz_type,
+                "filename": name,
+                "url": f"/api/job/{job_id}/visualization-file/{name}",
+            })
+
+    return {"job_id": job_id, "virus_name": virus_name, "visualizations": visualizations}
+
+
+@app.get("/api/job/{job_id}/visualization-file/{filename}")
+async def get_job_visualization_file(job_id: str, filename: str, request: Request):
+    '''Serve a single archived visualization file for a specific job.'''
+    session_id = get_session_id(request)
+
+    if job_id not in analysis_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+
+    job = analysis_jobs[job_id]
+    if job.get("session_id") != session_id:
+        raise HTTPException(status_code=403, detail="Access denied")
+
+    # Reject any attempt to escape the job directory.
+    if "/" in filename or "\\" in filename or ".." in filename:
+        raise HTTPException(status_code=400, detail="Invalid filename")
+
+    job_dir = _job_visualization_dir(job.get("virus_name"), job_id)
+    file_path = os.path.join(job_dir, filename)
+    if not os.path.isfile(file_path):
+        raise HTTPException(status_code=404, detail="Visualization file not found")
+
+    if filename.endswith('.html'):
+        media_type = "text/html"
+    elif filename.endswith('.pdf'):
+        media_type = "application/pdf"
+    else:
+        media_type = "application/octet-stream"
+
+    return FileResponse(file_path, media_type=media_type)
+
 
 @app.get("/api/results/{job_id}/download")
 async def download_results(job_id: str, request: Request):
@@ -836,7 +982,7 @@ async def get_data_files(virus_name: str, request: Request, segment: Optional[st
     # require the user to have uploaded or analyzed them in this session.
     config = load_virus_config()
     virus_cfg = config.get("viruses", {}).get(virus_name, {})
-    is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
+    is_builtin = virus_cfg and not _is_custom_virus_config(virus_cfg)
 
     if not is_builtin:
         if not _ensure_custom_virus_access(virus_name, session_id):
@@ -920,7 +1066,7 @@ async def get_result_files(virus_name: str, request: Request, segment: Optional[
     # are restricted to the session that ran the analysis.
     config = load_virus_config()
     virus_cfg = config.get("viruses", {}).get(virus_name, {})
-    is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
+    is_builtin = virus_cfg and not _is_custom_virus_config(virus_cfg)
 
     if not is_builtin:
         if not _ensure_custom_virus_access(virus_name, session_id):
@@ -936,7 +1082,7 @@ async def get_result_files(virus_name: str, request: Request, segment: Optional[
     files = []
     for root, dirs, filenames in os.walk(base_dir):
         for filename in filenames:
-            if filename.endswith(('.txt', '.csv', '.html', '.pdf')):
+            if filename.endswith(('.txt', '.csv', '.bed', '.html', '.pdf')):
                 file_path = os.path.join(root, filename)
                 rel_path = os.path.relpath(file_path, base_dir)
                 
@@ -971,7 +1117,7 @@ async def download_file(file_path: str, request: Request):
         virus_name = file_path.split("/")[1] if len(file_path.split("/")) > 1 else None
         if virus_name:
             virus_cfg = config.get("viruses", {}).get(virus_name, {})
-            is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
+            is_builtin = virus_cfg and not _is_custom_virus_config(virus_cfg)
             if not is_builtin:
                 if not _ensure_custom_virus_access(virus_name, session_id):
                     raise HTTPException(status_code=403, detail="Access denied: You can only download your own analysis results")
@@ -982,7 +1128,7 @@ async def download_file(file_path: str, request: Request):
         virus_name = file_path.split("/")[1] if len(file_path.split("/")) > 1 else None
         if virus_name:
             virus_cfg = config.get("viruses", {}).get(virus_name, {})
-            is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
+            is_builtin = virus_cfg and not _is_custom_virus_config(virus_cfg)
             if not is_builtin:
                 if not _ensure_custom_virus_access(virus_name, session_id):
                     raise HTTPException(status_code=403, detail="Access denied: You can only download data for viruses you have uploaded")
@@ -1011,7 +1157,7 @@ async def download_virus_files(virus_name: str, request: Request, type: str = "a
     # custom viruses require a session job.
     config = load_virus_config()
     virus_cfg = config.get("viruses", {}).get(virus_name, {})
-    is_builtin = virus_cfg and not virus_cfg.get("description", "").startswith("Custom virus:")
+    is_builtin = virus_cfg and not _is_custom_virus_config(virus_cfg)
 
     if not is_builtin:
         if not _ensure_custom_virus_access(virus_name, session_id):
@@ -1046,7 +1192,7 @@ async def download_virus_files(virus_name: str, request: Request, type: str = "a
             if os.path.exists(result_dir):
                 for root, dirs, files in os.walk(result_dir):
                     for file in files:
-                        if file.endswith(('.txt', '.csv', '.html', '.pdf')):
+                        if file.endswith(('.txt', '.csv', '.bed', '.html', '.pdf')):
                             file_path = os.path.join(root, file)
                             arc_name = f"results/{os.path.relpath(file_path, 'result')}"
                             zipf.write(file_path, arc_name)
@@ -1086,6 +1232,78 @@ def _user_friendly_error(e: Exception, context: str = "") -> str:
                 "Check that your input files are correctly formatted.")
     # Generic fallback — include the raw message but add guidance
     return prefix + msg + (" — Check server logs for details." if len(msg) < 80 else "")
+
+
+async def _generate_job_visualizations(job_id: str, virus_name: str,
+                                       genome_id: Optional[str]) -> List[str]:
+    """Generate all three visualization types for a job and archive the freshly
+    produced files into a stable per-job directory.
+
+    The figure scripts write into the shared, virus-keyed
+    `imgs/visualizations/<virus>/` dir with auto-generated names (and ignore
+    `--output` entirely when processing all genomes). Rather than guess which
+    files are ours with a wall-clock window, we snapshot the shared dir before
+    generation and diff it afterwards — deterministic because the caller holds
+    the per-virus lock, so nothing else mutates the dir meanwhile. New/updated
+    files are copied into `imgs/visualizations/<virus>/jobs/<job_id>/`, immune
+    to later same-virus runs overwriting the shared dir.
+    """
+    shared_dir = f"imgs/visualizations/{virus_name}"
+    os.makedirs(shared_dir, exist_ok=True)
+    job_dir = _job_visualization_dir(virus_name, job_id)
+    os.makedirs(job_dir, exist_ok=True)
+
+    type_patterns = {
+        "mutation": ["combined_analysis"],
+        "row-hot": ["row_hot_mutations"],
+        "prf": ["prf_regions"],
+    }
+
+    def _snapshot() -> Dict[str, float]:
+        # Top-level files only; the jobs/ subdir is intentionally skipped.
+        snap = {}
+        for name in os.listdir(shared_dir):
+            path = os.path.join(shared_dir, name)
+            if os.path.isfile(path):
+                snap[name] = os.path.getmtime(path)
+        return snap
+
+    archived: List[str] = []
+    for viz_type in ("mutation", "row-hot", "prf"):
+        try:
+            before = _snapshot()
+            cmd = [sys.executable, "plot.py", "--type", viz_type, "--virus", virus_name]
+            if genome_id:
+                cmd.extend(["--genome-id", genome_id])
+
+            result = await _run_subprocess_async(cmd, cwd=".")
+            if result.returncode != 0:
+                logger.warning("Visualization %r failed: %s", viz_type, (result.stderr or "")[:2000])
+                continue
+
+            after = _snapshot()
+            patterns = type_patterns[viz_type]
+            for name, mtime in after.items():
+                if not (name.endswith(".html") or name.endswith(".pdf")):
+                    continue
+                if not any(p in name.lower() for p in patterns):
+                    continue
+                # New file, or one this run rewrote.
+                if name in before and before[name] >= mtime:
+                    continue
+                dst = os.path.join(job_dir, name)
+                try:
+                    shutil.copy2(os.path.join(shared_dir, name), dst)
+                    if dst not in archived:
+                        archived.append(dst)
+                except OSError as copy_err:
+                    logger.warning("Could not archive viz file %s: %s", name, copy_err)
+
+            logger.info("Visualization %r generated for job %s", viz_type, job_id)
+        except Exception as viz_error:
+            logger.warning("Error generating visualization %r: %s", viz_type, viz_error)
+
+    return archived
 
 
 async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
@@ -1138,105 +1356,75 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
         
         # Initialize processor
         processor = MutationProcessor(analysis_request.virus_name, "virus_config.yaml")
-        
+
         # Create temporary args object
         class Args:
             def __init__(self, **kwargs):
                 for key, value in kwargs.items():
                     setattr(self, key, value)
-        
-        # Run main mutation analysis (always run this first)
-        args_main = Args(
-            virus=analysis_request.virus_name,
-            genome_id=analysis_request.genome_id,
-            msa_file=msa_file_path,
-            process_all=analysis_request.process_all,
-            detect_frameshifts=False,  # Disable frameshift detection for main analysis
-            segment=analysis_request.segment,
-            config="virus_config.yaml"
-        )
-        
+
         legacy_output = _BoundedLogCapture()
 
-        # Run main analysis. Core analysis modules are CLI-oriented and still
-        # print progress per genome/mutation; capture that output so deployed
-        # web requests do not hit Railway log-rate limits.
-        with redirect_stdout(legacy_output), redirect_stderr(legacy_output):
-            processor.process(args_main)
-        
-        # Run frameshift analysis separately if requested
-        if analysis_request.detect_frameshifts:
-            args_frameshift = Args(
+        # Serialize same-virus jobs across the whole critical section: analysis
+        # writes to the shared `result/<virus>/` dir and plotting reads from it,
+        # so two concurrent same-virus jobs would clobber each other. The lock
+        # spans process() through the copy of freshly-produced viz files.
+        virus_lock = _virus_locks.setdefault(analysis_request.virus_name, asyncio.Lock())
+        async with virus_lock:
+            # Run main mutation analysis (always run this first)
+            args_main = Args(
                 virus=analysis_request.virus_name,
                 genome_id=analysis_request.genome_id,
                 msa_file=msa_file_path,
                 process_all=analysis_request.process_all,
-                detect_frameshifts=True,  # Enable frameshift detection
+                detect_frameshifts=False,  # Disable frameshift detection for main analysis
                 segment=analysis_request.segment,
                 config="virus_config.yaml"
             )
-            
-            # Run frameshift analysis
+
+            # Run main analysis. Core analysis modules are CLI-oriented and still
+            # print progress per genome/mutation; capture that output so deployed
+            # web requests do not hit Railway log-rate limits.
             with redirect_stdout(legacy_output), redirect_stderr(legacy_output):
-                processor.process(args_frameshift)
-        
-        # Collect results
-        result_files = []
-        virus_result_dir = f"result/{analysis_request.virus_name}"
-        if os.path.exists(virus_result_dir):
-            for root, dirs, files in os.walk(virus_result_dir):
-                for file in files:
-                    if file.endswith(('.csv', '.txt', '.html', '.pdf')):
-                        result_files.append(os.path.join(root, file))
-        
-        # Generate visualization(s): requested type plus PRF when frameshift detection is enabled.
-        visualization_files = []
-        visualization_types_to_generate = []
-        if analysis_request.visualization_type:
-            visualization_types_to_generate.append(analysis_request.visualization_type)
-        if analysis_request.detect_frameshifts and "prf" not in visualization_types_to_generate:
-            visualization_types_to_generate.append("prf")
+                processor.process(args_main)
 
-        if visualization_types_to_generate:
-            import subprocess
-            import sys
+            # Run frameshift analysis separately if requested
+            if analysis_request.detect_frameshifts:
+                args_frameshift = Args(
+                    virus=analysis_request.virus_name,
+                    genome_id=analysis_request.genome_id,
+                    msa_file=msa_file_path,
+                    process_all=analysis_request.process_all,
+                    detect_frameshifts=True,  # Enable frameshift detection
+                    segment=analysis_request.segment,
+                    config="virus_config.yaml",
+                    # Web server produces only the cheap candidate CSV: the heavy
+                    # 2D structure prediction (PKNOTS O(N^6), NUPACK) is skipped to
+                    # keep requests responsive. Users run the full pseudoknot
+                    # analysis locally from the GitHub repo (see README).
+                    enable_structure_prediction=False,
+                )
 
-            output_dir = f"imgs/visualizations/{analysis_request.virus_name}"
-            os.makedirs(output_dir, exist_ok=True)
+                # Run frameshift analysis
+                with redirect_stdout(legacy_output), redirect_stderr(legacy_output):
+                    processor.process(args_frameshift)
 
-            type_patterns = {
-                "mutation": ["combined_analysis", "mutation"],
-                "row-hot": ["row_hot_mutations", "row-hot"],
-                "prf": ["prf_regions", "prf"]
-            }
+            # Collect results
+            result_files = []
+            virus_result_dir = f"result/{analysis_request.virus_name}"
+            if os.path.exists(virus_result_dir):
+                for root, dirs, files in os.walk(virus_result_dir):
+                    for file in files:
+                        if file.endswith(('.csv', '.txt', '.bed', '.html', '.pdf')):
+                            result_files.append(os.path.join(root, file))
 
-            for viz_type in visualization_types_to_generate:
-                try:
-                    cmd = [sys.executable, "plot.py", "--type", viz_type, "--virus", analysis_request.virus_name]
-                    if analysis_request.genome_id:
-                        cmd.extend(["--genome-id", analysis_request.genome_id])
+            # Generate all three visualization types so a completed job always
+            # carries its full set of charts. The analysis form always requests
+            # frameshift detection, so PRF is always meaningful too.
+            visualization_files = await _generate_job_visualizations(
+                job_id, analysis_request.virus_name, analysis_request.genome_id
+            )
 
-                    result = await _run_subprocess_async(cmd, cwd=".")
-                    if result.returncode != 0:
-                        logger.warning("Visualization %r failed: %s", viz_type, result.stderr[:2000])
-                        continue
-
-                    current_time = time.time()
-                    for file in os.listdir(output_dir):
-                        if not file.endswith(".html"):
-                            continue
-                        file_lower = file.lower()
-                        if not any(pattern in file_lower for pattern in type_patterns.get(viz_type, [])):
-                            continue
-
-                        file_path = os.path.join(output_dir, file)
-                        if current_time - os.path.getmtime(file_path) < 300 and file_path not in visualization_files:
-                            visualization_files.append(file_path)
-
-                    logger.info("Visualization %r generated successfully", viz_type)
-                except Exception as viz_error:
-                    logger.warning("Error generating visualization %r: %s", viz_type, viz_error)
-        
         # Update job with results
         analysis_jobs[job_id]["status"] = "completed"
         analysis_jobs[job_id]["results"] = {
@@ -1256,32 +1444,19 @@ async def run_analysis_job(job_id: str, analysis_request: AnalysisRequest):
         logger.exception("Analysis job %s failed", job_id)
         _save_jobs_to_disk()
 
-@app.get("/api/jobs")
-async def list_jobs(request: Request):
-    '''List analysis jobs for the current user session.'''
-    session_id = get_session_id(request)
-    user_jobs = [
-        {
-            "job_id": job_id,
-            "status": job["status"],
-            "virus_name": job["virus_name"],
-            "created_at": job["created_at"]
-        }
-        for job_id, job in analysis_jobs.items()
-        if job.get("session_id") == session_id
-    ]
-    return {"jobs": user_jobs}
-
 @app.get("/api/genome-ids/{virus_name}")
-async def get_genome_ids(virus_name: str, segment: Optional[str] = None, msa_file: Optional[str] = None):
+async def get_genome_ids(
+    virus_name: str,
+    request: Request,
+    segment: Optional[str] = None,
+    msa_file: Optional[str] = None
+):
     '''Get genome IDs from MSA file for a specific virus.'''
     try:
         # Load virus configuration
         config = load_virus_config()
-        virus_config = config.get("viruses", {}).get(virus_name, {})
-
-        if not virus_config:
-            raise HTTPException(status_code=404, detail=f"Virus '{virus_name}' not found in configuration")
+        session_id = get_session_id(request)
+        virus_config = _require_virus_access(virus_name, session_id, config)
 
         # Determine MSA file path
         if segment and "segments" in virus_config:
@@ -1389,6 +1564,10 @@ async def create_visualization(
 ):
     '''Create visualization plots for a virus.'''
     try:
+        session_id = get_session_id(request) if request else "default"
+        config = load_virus_config()
+        _require_virus_access(virus_name, session_id, config)
+
         # Validate visualization type
         valid_types = ['mutation', 'row-hot', 'prf']
         if visualization_type not in valid_types:
@@ -1569,8 +1748,12 @@ async def create_visualization(
         raise HTTPException(status_code=500, detail=f"Error creating visualization: {str(e)}")
 
 @app.get("/api/visualization-files/{virus_name}/{filename}")
-async def get_visualization_file(virus_name: str, filename: str):
+async def get_visualization_file(virus_name: str, filename: str, request: Request):
     '''Serve visualization files.'''
+    session_id = get_session_id(request)
+    config = load_virus_config()
+    _require_virus_access(virus_name, session_id, config)
+
     file_path = f"imgs/visualizations/{virus_name}/{filename}"
     
     if not os.path.exists(file_path):
@@ -1590,7 +1773,7 @@ async def get_visualization_file(virus_name: str, filename: str):
     )
 
 @app.get("/api/viz-html/{virus_name}")
-async def get_viz_html(virus_name: str):
+async def get_viz_html(virus_name: str, request: Request):
     """Return the most-recent HTML visualization file per type for a virus.
 
     Returns a dict like:
@@ -1599,6 +1782,10 @@ async def get_viz_html(virus_name: str):
         "prf":      "potential_PRF_prf_regions.html" }
     Missing types have a null value.
     """
+    session_id = get_session_id(request)
+    config = load_virus_config()
+    _require_virus_access(virus_name, session_id, config)
+
     viz_dir = f"imgs/visualizations/{virus_name}"
     if not os.path.exists(viz_dir):
         return {"mutation": None, "row_hot": None, "prf": None}

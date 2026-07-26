@@ -16,6 +16,10 @@ This folder contains all documentation files for the VARIANT (Viral mutAtion tra
 - **[COMPREHENSIVE_VISUALIZATION_SUMMARY.md](COMPREHENSIVE_VISUALIZATION_SUMMARY.md)** - Comprehensive visualization analysis summary
 - **[PROTEIN_VISUALIZATION_SUMMARY.md](PROTEIN_VISUALIZATION_SUMMARY.md)** - Protein-level visualization analysis summary
 
+### 🧬 PRF Detection
+- **[src/core/prf/README.md](../src/core/prf/README.md)** - Programmed ribosomal frameshifting (+1/−1) detection module: algorithm, CLI flags, folding tools (RNAfold/PKNOTS/ProbKnot/NUPACK), and output columns
+- **[data/tRNA_abundance_README.md](../data/tRNA_abundance_README.md)** - Format and provenance of the optional tRNA-abundance proxy table
+
 ## 📁 Project Structure
 
 ```
@@ -29,6 +33,7 @@ VARIANT/
 │   ├── COMPREHENSIVE_VISUALIZATION_SUMMARY.md
 │   └── PROTEIN_VISUALIZATION_SUMMARY.md
 ├── src/                        # Source code
+│   └── core/prf/               # PRF (+1/−1) detection module (see its README.md)
 ├── data/                       # Virus data
 ├── result/                     # Analysis results
 ├── imgs/                       # Generated visualizations (e.g. imgs/visualizations/)
@@ -44,4 +49,4 @@ VARIANT/
 
 ---
 
-*Last updated: 2025-01-27*
+*Last updated: 2026-07-25*

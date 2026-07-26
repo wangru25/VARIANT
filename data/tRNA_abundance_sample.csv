@@ -1,3 +1,31 @@
+# =============================================================================
+# tRNA abundance PROXY table  --  ILLUSTRATIVE PLACEHOLDER, NOT REAL DATA
+# =============================================================================
+# This file is a small EXAMPLE showing the expected format only. The values
+# below are hand-picked round numbers for 4 codons (AAA/UUU/CCC/GGG) and do
+# NOT represent real tRNA abundances for any organism. Do not use them for
+# actual analysis or in a publication.
+#
+# Format: three columns, one row per (codon, organism).
+#   codon     : codon in RNA letters, e.g. UUU
+#   organism  : organism tag matching the scanner's --organism value
+#               (e.g. human, sars_cov2, hiv_1)
+#   abundance : relative decoding-tRNA supply in [0,1].
+#               higher = cognate tRNA plentiful, codon decoded FAST
+#               lower  = cognate tRNA scarce,   codon decoded SLOW (pausing)
+#
+# How it is used: for a slippery site, the P-site and A-site codons are looked
+# up here and combined into trna_score = sqrt(a1*a2) (geometric mean) and
+# pausing_potential = 1 - min(a1,a2) (limiting codon). A codon absent from the
+# table defaults to a neutral 0.5. If no --trna file is given at all, these
+# columns are reported as NA (the scanner never fabricates tRNA values).
+#
+# To use real data: replace the rows below with a full 61-sense-codon table for
+# YOUR host organism. Suitable sources include tRNA gene-copy numbers from
+# GtRNAdb, tRNA Adaptation Index (tAI) weights, or codon dwell times derived
+# from ribosome profiling. See tRNA_abundance_README.md in this folder.
+# Lines beginning with '#' and blank lines are ignored by the loader.
+# =============================================================================
 codon,organism,abundance
 AAA,human,0.8
 UUU,human,0.9

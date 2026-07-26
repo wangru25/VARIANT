@@ -1,0 +1,393 @@
+virus,seqid,type,position,end_position,sequence,description,mechanism,stem_loop_score,slippery_conforms,trna_note,context,p_site_codon,a_site_codon,frame,stop_leakiness
+HIV-1,NC_001802.1,+1 PRF,13,15,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGTTAG,GGT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,24,26,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,49,51,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AACTAG,AAC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,87,89,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,100,102,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,122,124,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,135,137,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AACTAG,AAC,TAG,2,0.6
+HIV-1,NC_001802.1,-1 PRF,150,156,CCCTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,156,158,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,176,178,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTCTAG,CTC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,201,203,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACCTGA,ACC,TGA,2,1.0
+HIV-1,NC_001802.1,-1 PRF,212,218,GGGAAAC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,253,255,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,291,293,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGGTGA,TGG,TGA,2,1.0
+HIV-1,NC_001802.1,-1 PRF,303,309,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,309,311,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTTTGA,TTT,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,313,315,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GACTAG,GAC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,323,325,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,373,375,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,0,0.6
+HIV-1,NC_001802.1,-1 PRF,382,388,GGGAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,385,391,AAAAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,414,420,AAAAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,436,438,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATATAG,ATA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,457,459,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,487,489,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,506,508,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,560,562,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,580,582,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,610,612,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGATAG,GGA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,637,639,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,646,648,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,695,697,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,736,738,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,782,784,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,1,0.6
+HIV-1,NC_001802.1,-1 PRF,788,794,TTTAAAT,Coronavirus -1 PRF signal,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,808,810,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,811,813,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,838,840,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,0,1.0
+HIV-1,NC_001802.1,-1 PRF,884,890,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,953,955,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,974,976,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGATAG,GGA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,1018,1020,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,1037,1039,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,1042,1044,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,1055,1057,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TACTAG,TAC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,1075,1077,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,1084,1086,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,1108,1110,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,0,0.6
+HIV-1,NC_001802.1,-1 PRF,1114,1120,AAATTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,1153,1155,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,1166,1168,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTATAG,GTA,TAG,1,0.6
+HIV-1,NC_001802.1,-1 PRF,1209,1215,CCCTTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,1214,1216,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTTTAG,CTT,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,1225,1227,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,0,0.6
+HIV-1,NC_001802.1,-1 PRF,1274,1280,AAAAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,1285,1287,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+HIV-1,NC_001802.1,-1 PRF,1334,1340,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,1363,1365,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,1372,1374,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,1375,1377,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,1393,1395,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAGTAG,GAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,1409,1411,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,1,0.4
+HIV-1,NC_001802.1,+1 PRF,1427,1429,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,1435,1437,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,1462,1464,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,0,0.4
+HIV-1,NC_001802.1,+1 PRF,1465,1467,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,1484,1486,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,1559,1561,TAG,proline P-site (CCC) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAG,CCC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,1603,1605,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,1616,1618,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,1,1.0
+HIV-1,NC_001802.1,-1 PRF,1631,1637,TTTTTTA,General -1 PRF pattern,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,1636,1638,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,1735,1737,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGGTAG,GGG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,1771,1773,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CGATAG,CGA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,1842,1844,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,1869,1871,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,1885,1887,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,1896,1898,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,1905,1907,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,1935,1937,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,1938,1940,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,1975,1977,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTATGA,GTA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,1989,1991,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCATAG,TCA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2013,2015,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2025,2027,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2028,2030,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2067,2069,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+HIV-1,NC_001802.1,-1 PRF,2086,2092,TTTAAAT,Coronavirus -1 PRF signal,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,2089,2095,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,2101,2103,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,2110,2112,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+HIV-1,NC_001802.1,-1 PRF,2149,2155,CCCAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,2172,2174,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CATTGA,CAT,TGA,2,1.0
+HIV-1,NC_001802.1,-1 PRF,2181,2187,AAAAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,2196,2198,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2199,2201,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+HIV-1,NC_001802.1,-1 PRF,2228,2234,GGGAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,2232,2238,AAATTTC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,2251,2253,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCCTGA,GCC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,2283,2285,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,2,0.4
+HIV-1,NC_001802.1,+1 PRF,2316,2318,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2319,2321,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2370,2372,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,2,0.6
+HIV-1,NC_001802.1,-1 PRF,2402,2408,AAAAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,2431,2433,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGGTGA,GGG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,2454,2456,TAG,proline P-site (CCT) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAG,CCT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2458,2460,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,2494,2496,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,2506,2508,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,2521,2523,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GATTAG,GAT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,2581,2583,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,2586,2588,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCATGA,GCA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,2598,2600,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2608,2610,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,2628,2630,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2650,2652,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,2661,2663,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2668,2670,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,2673,2675,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACTTAG,ACT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2679,2681,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2689,2691,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCATAG,GCA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,2700,2702,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2709,2711,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,2724,2726,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+HIV-1,NC_001802.1,-1 PRF,2750,2756,AAAAAAC,General -1 PRF pattern,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,2791,2793,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,2803,2805,TGA,antizyme OAZ1-type UCC-UGA (Matsufuji 1995),known_plus1_site,,,,TCCTGA,TCC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,2826,2828,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,2860,2862,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,2874,2876,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,2,0.6
+HIV-1,NC_001802.1,-1 PRF,2879,2885,GGGAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,2886,2888,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,2944,2946,TAG,proline P-site (CCT) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAG,CCT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,2997,2999,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3052,3054,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TTATGA,TTA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3072,3074,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+HIV-1,NC_001802.1,-1 PRF,3114,3120,AAATTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,3131,3137,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,3141,3143,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,3165,3167,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,3184,3186,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+HIV-1,NC_001802.1,-1 PRF,3213,3219,AAAAAAT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,3234,3236,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCATAG,GCA,TAG,2,0.6
+HIV-1,NC_001802.1,-1 PRF,3257,3263,AAATTTA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,3260,3266,TTTAAAC,SARS-CoV-2-like slippery sequence,slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,3288,3294,GGGAAAC,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,3331,3333,TGA,antizyme OAZ1-type UCC-UGA (Matsufuji 1995),known_plus1_site,,,,TCCTGA,TCC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3360,3362,TAG,proline P-site (CCT) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAG,CCT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3363,3365,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,3381,3383,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3396,3398,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3399,3401,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3420,3422,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3450,3452,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3475,3477,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,3501,3503,TAA,proline P-site (CCC) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAA,CCC,TAA,2,0.4
+HIV-1,NC_001802.1,+1 PRF,3505,3507,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3526,3528,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GACTGA,GAC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3546,3548,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATCTAG,ATC,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3567,3569,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GATTAG,GAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3579,3581,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3603,3605,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3634,3636,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3645,3647,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3660,3662,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3730,3732,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3738,3740,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3747,3749,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3780,3782,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3789,3791,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3805,3807,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGATGA,AGA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3811,3813,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACATGA,ACA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3844,3846,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,3847,3849,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3867,3869,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3870,3872,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3882,3884,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3885,3887,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3895,3897,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,3936,3938,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3943,3945,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,3963,3965,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AACTAG,AAC,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3978,3980,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATTTAG,ATT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,3999,4001,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4011,4013,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATGTAG,ATG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4026,4028,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATATAG,ATA,TAG,2,0.6
+HIV-1,NC_001802.1,-1 PRF,4078,4084,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,4086,4088,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4120,4122,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,4153,4155,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGTTAG,GGT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4224,4226,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAGTAG,GAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4227,4229,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4236,4238,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,4260,4262,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTATAG,TTA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4282,4284,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGCTGA,GGC,TGA,0,1.0
+HIV-1,NC_001802.1,-1 PRF,4328,4334,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,4374,4376,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4377,4379,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4386,4388,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+HIV-1,NC_001802.1,-1 PRF,4438,4444,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,4446,4452,GGGTTTA,Coronavirus -1 PRF signal,slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,4510,4512,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,4521,4523,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4537,4539,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4540,4542,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,4551,4553,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,4579,4581,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4606,4608,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGGTGA,AGG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,4609,4611,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,4624,4626,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4633,4635,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,4640,4642,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GATTAG,GAT,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,4657,4659,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTTTAG,GTT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4691,4693,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,4706,4708,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTATAG,TTA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,4718,4720,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,4762,4764,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4772,4774,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,4846,4848,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4868,4870,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATATAG,ATA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,4879,4881,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4886,4888,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,4891,4893,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AACTAG,AAC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4922,4924,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,4960,4962,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TATTAG,TAT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4969,4971,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,4973,4975,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,4979,4981,TAG,proline P-site (CCC) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTAG,CCC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,4985,4987,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,5011,5013,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGGTAG,AGG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,5035,5037,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,5078,5080,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCCTAG,GCC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5092,5094,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AACTGA,AAC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,5102,5104,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGATAG,GGA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5152,5154,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,5163,5165,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CACTAG,CAC,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,5172,5174,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTTTAG,TTT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,5188,5190,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,5197,5199,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,5209,5211,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCCTAG,TCC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,5229,5231,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCTTAG,GCT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,5230,5232,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,0,0.0
+HIV-1,NC_001802.1,+1 PRF,5245,5247,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTATGA,CTA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,5283,5285,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,2,0.4
+HIV-1,NC_001802.1,+1 PRF,5339,5341,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACATAG,ACA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5347,5349,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,5387,5389,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5394,5396,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCCTAG,TCC,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,5399,5401,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GACTAG,GAC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5504,5506,TAG,proline P-site (CCT) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAG,CCT,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5505,5507,AGG,Ty1 CUU-AGG (Belcourt & Farabaugh 1990),known_plus1_site,,,,CTTAGG,CTT,AGG,2,0.0
+HIV-1,NC_001802.1,+1 PRF,5597,5599,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5624,5626,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5627,5629,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5633,5635,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5636,5638,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5642,5644,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5645,5647,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5648,5650,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5660,5662,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5666,5668,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5681,5683,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5690,5692,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCATAG,TCA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5697,5699,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ATATAG,ATA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,5723,5725,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5736,5738,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,5739,5741,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,5747,5749,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,5772,5774,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,5778,5780,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAGTGA,GAG,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,5844,5846,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGTTGA,TGT,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,5847,5849,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGATGA,TGA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,5854,5856,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,5953,5955,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,6021,6023,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6036,6038,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATGTGA,ATG,TGA,2,1.0
+HIV-1,NC_001802.1,-1 PRF,6043,6049,AAATTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,6064,6066,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAATGA,AAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,6072,6074,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6085,6087,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCATGA,GCA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,6151,6153,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6166,6168,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,6171,6173,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATTTGA,ATT,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,6178,6180,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,6193,6195,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6196,6198,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6199,6201,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6210,6212,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,2,1.0
+HIV-1,NC_001802.1,-1 PRF,6232,6238,AAAAAAC,General -1 PRF pattern,slippery_sequence,0.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,6293,6299,TTTTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,-1 PRF,6294,6300,TTTTTTA,General -1 PRF pattern,slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,6307,6309,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ACTTGA,ACT,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,6321,6323,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6328,6330,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,6348,6350,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,6400,6402,TGA,E. coli prfB CUU-UGA (Craigen 1985),known_plus1_site,,,,CTTTGA,CTT,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,6523,6525,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6531,6533,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6564,6566,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTCTAG,GTC,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6579,6581,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGGTAG,AGG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6586,6588,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6621,6623,TAA,proline P-site (CCA) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAA,CCA,TAA,2,0.4
+HIV-1,NC_001802.1,+1 PRF,6624,6626,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6633,6635,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,6645,6647,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6729,6731,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAATAG,CAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6738,6740,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAATAG,AAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6747,6749,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,6769,6771,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6772,6774,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,0,0.6
+HIV-1,NC_001802.1,-1 PRF,6793,6799,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,6804,6806,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,6808,6810,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6946,6948,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6961,6963,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,6976,6978,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TACTGA,TAC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,6994,6996,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,7003,7005,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,7059,7061,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7099,7101,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,7150,7152,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAATAG,TAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,7159,7161,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,7194,7196,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATATGA,ATA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,7213,7215,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AAGTGA,AAG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,7233,7235,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7243,7245,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,7251,7253,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CATTAG,CAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7257,7259,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAGTAG,GAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7314,7316,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7374,7376,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,7380,7382,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CGCTGA,CGC,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,7413,7415,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GTATAG,GTA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7437,7439,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,7447,7449,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TATTGA,TAT,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,7606,7608,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGCTAG,TGC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,7704,7706,TAA,proline P-site (CCT) + stop A-site (TAA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTAA,CCT,TAA,2,0.4
+HIV-1,NC_001802.1,+1 PRF,7708,7710,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AATTGA,AAT,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,7738,7740,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,7758,7760,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AATTAG,AAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7830,7832,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAATGA,TAA,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,7833,7835,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGATAG,TGA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7836,7838,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TAGTAG,TAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7848,7850,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGGTAG,TGG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7860,7862,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7881,7883,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTATAG,CTA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,7884,7886,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,7888,7890,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,7894,7896,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGTTAG,AGT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,7968,7970,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,8013,8015,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GATTAG,GAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,8016,8018,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TAGTGA,TAG,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,8082,8084,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GCTTGA,GCT,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,8097,8099,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TCTTGA,TCT,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,8197,8199,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GAATAG,GAA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8206,8208,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8229,8231,TAG,proline P-site (CCA) + stop A-site (TAG): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCATAG,CCA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,8235,8237,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CAGTAG,CAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,8239,8241,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,8251,8253,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8259,8261,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTATAG,TTA,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,8265,8267,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,8281,8283,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TTGTAG,TTG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8302,8304,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,ACCTAG,ACC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8366,8368,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,8371,8373,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTGTGA,GTG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,8401,8403,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GAATGA,GAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,8411,8413,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGCTGA,AGC,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,8426,8428,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,8477,8479,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AAGTAG,AAG,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,8515,8517,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGCTAG,GGC,TAG,0,0.6
+HIV-1,NC_001802.1,-1 PRF,8540,8546,GGGTTTT,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,8578,8580,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CAATGA,CAA,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,8596,8598,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,CTGTAG,CTG,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8603,8605,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TCTTAG,TCT,TAG,1,0.6
+HIV-1,NC_001802.1,-1 PRF,8612,8618,TTTAAAA,-1 PRF slippery heptamer (X XXY YYZ),slippery_sequence,1.0,True,grammar-conforming; tRNA abundance not evaluated,,,,,
+HIV-1,NC_001802.1,+1 PRF,8672,8674,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,8708,8710,TGA,proline P-site (CCC) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCCTGA,CCC,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,8712,8714,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GATTAG,GAT,TAG,2,0.6
+HIV-1,NC_001802.1,+1 PRF,8752,8754,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CACTGA,CAC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,8776,8778,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGCTAG,AGC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8786,8788,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,AGTTGA,AGT,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,8800,8802,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AGATAG,AGA,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8845,8847,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,CTGTGA,CTG,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,8864,8866,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GGATGA,GGA,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,8884,8886,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,TGTTAG,TGT,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8897,8899,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,GTTTGA,GTT,TGA,1,1.0
+HIV-1,NC_001802.1,+1 PRF,8908,8910,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GCCTAG,GCC,TAG,0,0.6
+HIV-1,NC_001802.1,+1 PRF,8961,8963,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,TGCTGA,TGC,TGA,2,1.0
+HIV-1,NC_001802.1,+1 PRF,9098,9100,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,GGTTAG,GGT,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,9109,9111,TGA,"shifty stop in A-site (TGA), leakiness 1.0",shifty_stop,,,,ATCTGA,ATC,TGA,0,1.0
+HIV-1,NC_001802.1,+1 PRF,9134,9136,TAG,"shifty stop in A-site (TAG), leakiness 0.6",shifty_stop,,,,AACTAG,AAC,TAG,1,0.6
+HIV-1,NC_001802.1,+1 PRF,9172,9174,TGA,proline P-site (CCT) + stop A-site (TGA): forward P-site slippage (Ebola CCU-UAA-type),proline_psite_slip,,,,CCTTGA,CCT,TGA,0,1.0

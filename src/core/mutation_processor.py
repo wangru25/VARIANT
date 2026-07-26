@@ -20,7 +20,7 @@ from .snp_processor import SNPProcessor
 from .reference_genome import ReferenceGenome
 from .genome_processor import GenomeSNPProcessor
 from .virus_processor import VirusMutationProcessor
-from .frameshift_detector import FrameshiftDetector
+from .prf.frameshift_detector import FrameshiftDetector
 from ..utils.mutation_summary import extract_mutation_summary_to_csv
 from ..utils.sequence_utils import extract_genome_id
 from .mutation_detector import GeneMutationDetector, MultipleSequenceAlignment
@@ -243,47 +243,64 @@ class MutationProcessor:
             ref_genome_path = self.virus_processor.get_reference_genome_path()
             result_path = self.virus_processor.get_result_path()
         
-        # Import and run the PRF scanner
+        # Create output prefix. Name the PRF files after the genome so each virus's
+        # output is self-describing under its own result directory:
+        #   single-segment -> result/<Virus>/<Virus>.*
+        #   multi-segment  -> result/<Virus>/<segment>/<Virus>-segment<N>.*
+        if segment:
+            stem = "%s-%s" % (self.virus_name, segment.replace("_", ""))
+        else:
+            stem = self.virus_name
+        output_prefix = os.path.join(result_path, stem)
+
+        # Secondary-structure prediction (RNAfold ranking + the pseudoknot-aware
+        # folds PKNOTS/ProbKnot/NUPACK) is gated. It defaults ON for local CLI runs
+        # and is turned OFF for the web server, where any RNA folding would make
+        # requests far too slow.
+        enable_structure_prediction = getattr(args, "enable_structure_prediction", True)
+
+        # 1) ALWAYS run the fast +1/-1 FrameshiftDetector (a pure codon/regex scan,
+        #    NO RNA folding). It writes <stem>_frameshift_detector.csv, which is the
+        #    file the PRF figure draws from and the ONLY PRF work the web server does.
+        self._write_frameshift_detector_csv(ref_genome_path, output_prefix, stem)
+
+        # 2) LOCAL ONLY: the -1 two-stage scanner (RNAfold ranking + PKNOTS/ProbKnot/
+        #    NUPACK pseudoknot confirmation) -> <stem>.prf_candidates.csv/.bed. This
+        #    is the ONLY part that performs secondary-structure prediction, so it is
+        #    skipped whenever enable_structure_prediction is False (the web server).
+        if not enable_structure_prediction:
+            print(
+                "Secondary-structure prediction is OFF (web mode): emitting only the "
+                "fast <stem>_frameshift_detector.csv (+1/-1 codon scan, no folding). "
+                "Run the -1 folding scanner locally for prf_candidates (see README)."
+            )
+            return
+
         import subprocess
         import sys
-        
-        # Create output prefix
-        output_prefix = os.path.join(result_path, "prf_analysis")
-        
-        # Build PRF scanner command
+        # RNAfold ranks all slippery sites; PKNOTS confirms pseudoknots on the top-N
+        # short windows; NUPACK auto-enables when its docker image is reachable;
+        # ProbKnot auto-runs when RNAstructure is installed.
         cmd = [
-            sys.executable, "src/core/prf_scanner.py",
+            sys.executable, os.path.join("src", "core", "prf", "prf_scanner.py"),
             "--fasta", ref_genome_path,
             "--out", output_prefix,
-            "--use-rnafold",
-            "--organism", self.virus_name.lower().replace("-", "_")
+            "--use-rnafold", "--use-pknots",
+            "--organism", self.virus_name.lower().replace("-", "_"),
         ]
-        
-        print(f"Running PRF scanner: {' '.join(cmd)}")
-        
+        print(f"Running -1 PRF folding scanner: {' '.join(cmd)}")
         try:
-            # Run the PRF scanner
-            result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-            
-            # Check if output files were created
+            subprocess.run(cmd, capture_output=True, text=True, check=True)
             csv_file = f"{output_prefix}.prf_candidates.csv"
             bed_file = f"{output_prefix}.prf_candidates.bed"
-            
             if os.path.exists(csv_file):
-                # Count candidates
                 with open(csv_file, 'r') as f:
-                    lines = f.readlines()
-                    candidate_count = len(lines) - 1 if len(lines) > 1 else 0
-                
-                print(f"✅ PRF analysis completed successfully!")
-                print(f"   Found {candidate_count} PRF candidates")
+                    candidate_count = max(0, len(f.readlines()) - 1)
+                print(f"✅ -1 PRF folding scan complete: {candidate_count} candidates")
                 print(f"   CSV output: {csv_file}")
                 print(f"   BED output: {bed_file}")
-                
-                
             else:
-                print("⚠️  PRF scanner completed but no output files found")
-                
+                print("⚠️  PRF scanner completed but no candidate file was produced")
         except subprocess.CalledProcessError as e:
             print(f"❌ Error running PRF scanner: {e}")
             if e.stdout:
@@ -291,7 +308,56 @@ class MutationProcessor:
             if e.stderr:
                 print(f"Error: {e.stderr}")
         except Exception as e:
-            print(f"❌ Unexpected error during PRF analysis: {e}")
+            print(f"❌ Unexpected error during PRF folding scan: {e}")
+
+    def _write_frameshift_detector_csv(self, ref_genome_path: str,
+                                       output_prefix: str, virus_label: str) -> None:
+        """Run the +1/-1 FrameshiftDetector (pure codon/regex scan, NO RNA folding)
+        on the reference genome and write <output_prefix>_frameshift_detector.csv.
+
+        This is the fast, folding-free PRF output used by the web server and read by
+        the PRF figure (src/visualization/figure3_PRF.py). It contains -1 slippery
+        sites plus +1 codon-context calls (known / proline-slip / shifty-stop)."""
+        import csv as _csv
+        # Read the reference sequence and its FASTA id.
+        seq_parts, seqid = [], virus_label
+        try:
+            with open(ref_genome_path) as fh:
+                header_seen = False
+                for line in fh:
+                    if line.startswith(">"):
+                        if not header_seen:
+                            tok = line[1:].strip().split()
+                            if tok:
+                                seqid = tok[0]
+                            header_seen = True
+                        continue
+                    seq_parts.append(line.strip().upper())
+        except Exception as e:
+            print(f"⚠️  Could not read reference genome for FrameshiftDetector: {e}")
+            return
+        sequence = "".join(seq_parts)
+
+        detector = FrameshiftDetector()
+        sites = detector.detect_frameshift_sites(sequence, start_pos=1)
+        for s in sites:
+            s["virus"] = virus_label
+            s["seqid"] = seqid
+
+        fields = ["virus", "seqid", "type", "position", "end_position", "sequence",
+                  "description", "mechanism", "stem_loop_score", "slippery_conforms",
+                  "trna_note", "context", "p_site_codon", "a_site_codon", "frame",
+                  "stop_leakiness"]
+        out_csv = f"{output_prefix}_frameshift_detector.csv"
+        try:
+            with open(out_csv, "w", newline="") as fh:
+                writer = _csv.DictWriter(fh, fieldnames=fields, extrasaction="ignore")
+                writer.writeheader()
+                for s in sites:
+                    writer.writerow(s)
+            print(f"✅ FrameshiftDetector (+1/-1, no folding): {len(sites)} sites -> {out_csv}")
+        except Exception as e:
+            print(f"❌ Could not write FrameshiftDetector CSV: {e}")
     
     
     def _generate_mutation_summaries(self, segment: Optional[str], args) -> None:

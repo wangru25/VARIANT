@@ -8,3 +8,6 @@ __pycache__/
 # IDE / AI assistant settings (not for public repo)
 .claude/
 .cursor/
+
+# Local-only research / paper-figure scripts (not part of the shipped package)
+paper_scripts/

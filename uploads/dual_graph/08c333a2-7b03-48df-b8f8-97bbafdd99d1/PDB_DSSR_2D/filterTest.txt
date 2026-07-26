@@ -1,0 +1,17 @@
+Title			filterTest RNA structure
+Chain order		A
+Amino acids		NO
+Metal
+Chains			A	RNA	
+Pseudoknot		NO
+
+Whole structure
+>filterTest
+AUGCAUGCAUGC
+((((....))))
+
+Interacting substructures
+Chain A
+AUGCAUGCAUGC
+((((....))))
+

@@ -280,9 +280,9 @@ def extract_genome_id(full_header: str, virus_name: str = "") -> str:
     Examples:
         >>> extract_genome_id("hCoV-19/Shanghai/SJTU-235817/2022|EPI_ISL_16327572|2022-12-07", "SARS-CoV-2")
         "EPI_ISL_16327572"
-        >>> extract_genome_id("AB050936v1", "ZaireEbola")
-        "AB050936v1"
-        >>> extract_genome_id("NC_002549.1|Zaire", "ZaireEbola")
+        >>> extract_genome_id("MW881698.1", "HIV-1")   # GenBank accession, version kept
+        "MW881698.1"
+        >>> extract_genome_id("NC_002549.1|Zaire", "ZaireEbola")   # RefSeq accession
         "NC_002549.1"
     '''
     # For SARS-CoV-2, extract EPI_ISL ID from the middle part
@@ -306,13 +306,19 @@ def extract_genome_id(full_header: str, virus_name: str = "") -> str:
         if epi_match:
             return epi_match.group()
         
-        # Try to extract accession numbers (e.g., NC_123456.1, AB123456)
-        acc_match = re.search(r'[A-Z]{2}_\d+\.?\d*', clean_header)
+        # Try to extract an accession number, KEEPING its version suffix. This
+        # matches both RefSeq (NC_002549.1 — has an underscore) and GenBank
+        # (MW881698.1, KM034551.1 — no underscore). The version (".N") is part of
+        # the accession and MUST be preserved: otherwise the same genome is written
+        # under two IDs (e.g. MW881698.1 via the raw header but MW881698 here),
+        # producing duplicate identical output files.
+        acc_match = re.search(r'[A-Z]{1,2}_?\d+(?:\.\d+)?', clean_header)
         if acc_match:
             return acc_match.group()
-        
-        # Try to extract any alphanumeric ID
-        id_match = re.search(r'[A-Z0-9_]+', clean_header)
+
+        # Fallback: any alphanumeric ID, preserving a trailing ".version" if present
+        # (the previous [A-Z0-9_]+ stopped at the dot and dropped the version).
+        id_match = re.search(r'[A-Z0-9_]+(?:\.\d+)?', clean_header)
         if id_match:
             return id_match.group()
         
